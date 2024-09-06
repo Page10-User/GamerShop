@@ -41,7 +41,7 @@ namespace Gamer_Shop2._0
                 panel.Region = new Region(path);
 
                 
-                using (Pen pen = new Pen(Color.Cyan, 5))
+                using (Pen pen = new Pen(Color.Violet, 5))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -50,7 +50,7 @@ namespace Gamer_Shop2._0
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            Color borderColor = Color.Cyan;
+            Color borderColor = Color.Violet;
             int borderWidth = 1;
 
             using (Pen borderPen = new Pen(borderColor, borderWidth))
@@ -58,7 +58,8 @@ namespace Gamer_Shop2._0
                 e.Graphics.DrawRectangle(borderPen, 0, 0, this.ClientSize.Width - borderWidth, this.ClientSize.Height - borderWidth);
             }
         }
-        private void BSalir_Click_1(object sender, EventArgs e)
+
+        private void BSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
