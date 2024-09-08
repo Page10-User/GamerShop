@@ -41,7 +41,7 @@ namespace Gamer_Shop2._0
                 panel.Region = new Region(path);
 
                 
-                using (Pen pen = new Pen(Color.Violet, 5))
+                using (Pen pen = new Pen(Color.Green, 5))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -50,7 +50,7 @@ namespace Gamer_Shop2._0
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            Color borderColor = Color.Violet;
+            Color borderColor = Color.Green;
             int borderWidth = 1;
 
             using (Pen borderPen = new Pen(borderColor, borderWidth))
@@ -63,5 +63,6 @@ namespace Gamer_Shop2._0
         {
             Application.Exit();
         }
+
     }
 }

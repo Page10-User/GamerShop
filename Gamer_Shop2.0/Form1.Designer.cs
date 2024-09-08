@@ -34,12 +34,12 @@
             this.LUsuario = new System.Windows.Forms.Label();
             this.LContraseña = new System.Windows.Forms.Label();
             this.PInicio = new System.Windows.Forms.Panel();
+            this.TBUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBContraseña = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.rjButton1 = new Gamer_Shop2._0.RJButton();
             this.LGamerShop = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.TBUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.BSalir = new System.Windows.Forms.Button();
+            this.BSalir = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PInicio.SuspendLayout();
             this.SuspendLayout();
@@ -81,23 +81,41 @@
             // 
             this.PInicio.BackColor = System.Drawing.Color.Black;
             this.PInicio.Controls.Add(this.TBUsuario);
-            this.PInicio.Controls.Add(this.BSalir);
             this.PInicio.Controls.Add(this.TBContraseña);
             this.PInicio.Controls.Add(this.rjButton1);
             this.PInicio.Controls.Add(this.LGamerShop);
             this.PInicio.Controls.Add(this.LContraseña);
             this.PInicio.Controls.Add(this.LUsuario);
             this.PInicio.Controls.Add(this.pictureBox1);
-            this.PInicio.Location = new System.Drawing.Point(364, 125);
+            this.PInicio.Location = new System.Drawing.Point(311, 111);
             this.PInicio.Name = "PInicio";
             this.PInicio.Size = new System.Drawing.Size(223, 285);
             this.PInicio.TabIndex = 0;
             // 
+            // TBUsuario
+            // 
+            this.TBUsuario.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.TBUsuario.BorderColor = System.Drawing.Color.Lime;
+            this.TBUsuario.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBUsuario.BorderSize = 2;
+            this.TBUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBUsuario.ForeColor = System.Drawing.Color.White;
+            this.TBUsuario.Location = new System.Drawing.Point(104, 149);
+            this.TBUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.TBUsuario.Multiline = false;
+            this.TBUsuario.Name = "TBUsuario";
+            this.TBUsuario.Padding = new System.Windows.Forms.Padding(7);
+            this.TBUsuario.PasswordChar = false;
+            this.TBUsuario.Size = new System.Drawing.Size(100, 28);
+            this.TBUsuario.TabIndex = 7;
+            this.TBUsuario.Texts = "";
+            this.TBUsuario.UnderlinedStyle = true;
+            // 
             // TBContraseña
             // 
             this.TBContraseña.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.TBContraseña.BorderColor = System.Drawing.Color.Fuchsia;
-            this.TBContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.TBContraseña.BorderColor = System.Drawing.Color.Lime;
+            this.TBContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.TBContraseña.BorderSize = 2;
             this.TBContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBContraseña.ForeColor = System.Drawing.Color.White;
@@ -114,9 +132,9 @@
             // 
             // rjButton1
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.White;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.White;
-            this.rjButton1.BorderColor = System.Drawing.Color.Fuchsia;
+            this.rjButton1.BackColor = System.Drawing.SystemColors.Window;
+            this.rjButton1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.rjButton1.BorderColor = System.Drawing.Color.Lime;
             this.rjButton1.BorderRadius = 14;
             this.rjButton1.BorderSize = 2;
             this.rjButton1.FlatAppearance.BorderSize = 0;
@@ -143,37 +161,23 @@
             this.LGamerShop.TabIndex = 5;
             this.LGamerShop.Text = "Gamer_Shop";
             // 
-            // TBUsuario
-            // 
-            this.TBUsuario.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.TBUsuario.BorderColor = System.Drawing.Color.Fuchsia;
-            this.TBUsuario.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.TBUsuario.BorderSize = 2;
-            this.TBUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBUsuario.ForeColor = System.Drawing.Color.White;
-            this.TBUsuario.Location = new System.Drawing.Point(104, 149);
-            this.TBUsuario.Margin = new System.Windows.Forms.Padding(4);
-            this.TBUsuario.Multiline = false;
-            this.TBUsuario.Name = "TBUsuario";
-            this.TBUsuario.Padding = new System.Windows.Forms.Padding(7);
-            this.TBUsuario.PasswordChar = false;
-            this.TBUsuario.Size = new System.Drawing.Size(100, 28);
-            this.TBUsuario.TabIndex = 7;
-            this.TBUsuario.Texts = "";
-            this.TBUsuario.UnderlinedStyle = true;
-            // 
             // BSalir
             // 
-            this.BSalir.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BSalir.BackColor = System.Drawing.Color.White;
+            this.BSalir.BackgroundColor = System.Drawing.Color.White;
             this.BSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BSalir.BackgroundImage")));
             this.BSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BSalir.BorderColor = System.Drawing.Color.Lime;
+            this.BSalir.BorderRadius = 19;
+            this.BSalir.BorderSize = 2;
             this.BSalir.FlatAppearance.BorderSize = 0;
-            this.BSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BSalir.Location = new System.Drawing.Point(175, 13);
+            this.BSalir.ForeColor = System.Drawing.Color.White;
+            this.BSalir.Location = new System.Drawing.Point(792, 12);
             this.BSalir.Name = "BSalir";
-            this.BSalir.Size = new System.Drawing.Size(30, 29);
-            this.BSalir.TabIndex = 8;
+            this.BSalir.Size = new System.Drawing.Size(39, 40);
+            this.BSalir.TabIndex = 9;
+            this.BSalir.TextColor = System.Drawing.Color.White;
             this.BSalir.UseVisualStyleBackColor = false;
             this.BSalir.Click += new System.EventHandler(this.BSalir_Click);
             // 
@@ -183,8 +187,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(943, 526);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(843, 526);
+            this.Controls.Add(this.BSalir);
             this.Controls.Add(this.PInicio);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -208,7 +213,7 @@
         private RJButton rjButton1;
         private RJControls.RJTextBox TBContraseña;
         private RJControls.RJTextBox TBUsuario;
-        private System.Windows.Forms.Button BSalir;
+        private RJButton BSalir;
     }
 }
 
