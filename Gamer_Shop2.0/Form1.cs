@@ -20,6 +20,9 @@ namespace Gamer_Shop2._0
             InitializeComponent();
             this.Paint += new PaintEventHandler(Form1_Paint);
             this.PInicio.Paint += new PaintEventHandler(panel1_Paint);
+            TBUsuario.Validating += new CancelEventHandler(TextBox_Validating);
+            TBContraseña.Validating += new CancelEventHandler(TextBox_Validating);
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -64,5 +67,42 @@ namespace Gamer_Shop2._0
             Application.Exit();
         }
 
+        private void TextBox_Validating(object sender, CancelEventArgs e)
+        {
+            var textBox = sender as RJControls.RJTextBox; 
+            if (textBox != null)
+            {
+                if (textBox.Texts.Length <= 7 || textBox.Texts.Length >= 20)
+                {
+                    e.Cancel = true;
+                    if (textBox == TBUsuario)
+                    {
+                        TBValidacion.Visible = true;
+                    }
+                    else if (textBox == TBContraseña)
+                    {
+                        TBValidacion2.Visible = true;
+                    }
+                }
+            }
+        }
+
+        private void TBUsuario__TextChanged(object sender, EventArgs e)
+        {
+            this.AutoValidate = AutoValidate.EnablePreventFocusChange;
+
+        }
+
+        private void TBContraseña__TextChanged(object sender, EventArgs e)
+        {
+            this.AutoValidate = AutoValidate.EnablePreventFocusChange;
+
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            Bienvenida bienvenida = new Bienvenida();
+            bienvenida.Show();
+        }
     }
 }

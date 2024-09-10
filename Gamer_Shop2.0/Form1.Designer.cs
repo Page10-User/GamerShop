@@ -34,6 +34,8 @@
             this.LUsuario = new System.Windows.Forms.Label();
             this.LContraseña = new System.Windows.Forms.Label();
             this.PInicio = new System.Windows.Forms.Panel();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
+            this.TBValidacion = new System.Windows.Forms.Label();
             this.TBUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBContraseña = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.rjButton1 = new Gamer_Shop2._0.RJButton();
@@ -60,7 +62,7 @@
             this.LUsuario.AutoSize = true;
             this.LUsuario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LUsuario.Location = new System.Drawing.Point(14, 158);
+            this.LUsuario.Location = new System.Drawing.Point(14, 141);
             this.LUsuario.Name = "LUsuario";
             this.LUsuario.Size = new System.Drawing.Size(60, 19);
             this.LUsuario.TabIndex = 1;
@@ -71,7 +73,7 @@
             this.LContraseña.AutoSize = true;
             this.LContraseña.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LContraseña.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LContraseña.Location = new System.Drawing.Point(14, 195);
+            this.LContraseña.Location = new System.Drawing.Point(14, 184);
             this.LContraseña.Name = "LContraseña";
             this.LContraseña.Size = new System.Drawing.Size(84, 19);
             this.LContraseña.TabIndex = 2;
@@ -80,6 +82,8 @@
             // PInicio
             // 
             this.PInicio.BackColor = System.Drawing.Color.Black;
+            this.PInicio.Controls.Add(this.TBValidacion2);
+            this.PInicio.Controls.Add(this.TBValidacion);
             this.PInicio.Controls.Add(this.TBUsuario);
             this.PInicio.Controls.Add(this.TBContraseña);
             this.PInicio.Controls.Add(this.rjButton1);
@@ -92,6 +96,30 @@
             this.PInicio.Size = new System.Drawing.Size(223, 285);
             this.PInicio.TabIndex = 0;
             // 
+            // TBValidacion2
+            // 
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion2.Location = new System.Drawing.Point(2, 202);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(218, 14);
+            this.TBValidacion2.TabIndex = 9;
+            this.TBValidacion2.Text = "La contraseña debe tener mas de 7 caracteres.";
+            this.TBValidacion2.Visible = false;
+            // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion.Location = new System.Drawing.Point(19, 159);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(200, 14);
+            this.TBValidacion.TabIndex = 8;
+            this.TBValidacion.Text = "El usuario debe tener mas de 7 caracteres.";
+            this.TBValidacion.Visible = false;
+            // 
             // TBUsuario
             // 
             this.TBUsuario.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
@@ -100,16 +128,17 @@
             this.TBUsuario.BorderSize = 2;
             this.TBUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBUsuario.ForeColor = System.Drawing.Color.White;
-            this.TBUsuario.Location = new System.Drawing.Point(104, 149);
+            this.TBUsuario.Location = new System.Drawing.Point(104, 132);
             this.TBUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.TBUsuario.Multiline = false;
             this.TBUsuario.Name = "TBUsuario";
             this.TBUsuario.Padding = new System.Windows.Forms.Padding(7);
             this.TBUsuario.PasswordChar = false;
             this.TBUsuario.Size = new System.Drawing.Size(100, 28);
-            this.TBUsuario.TabIndex = 7;
+            this.TBUsuario.TabIndex = 1;
             this.TBUsuario.Texts = "";
             this.TBUsuario.UnderlinedStyle = true;
+            this.TBUsuario._TextChanged += new System.EventHandler(this.TBUsuario__TextChanged);
             // 
             // TBContraseña
             // 
@@ -119,16 +148,17 @@
             this.TBContraseña.BorderSize = 2;
             this.TBContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBContraseña.ForeColor = System.Drawing.Color.White;
-            this.TBContraseña.Location = new System.Drawing.Point(104, 184);
+            this.TBContraseña.Location = new System.Drawing.Point(104, 175);
             this.TBContraseña.Margin = new System.Windows.Forms.Padding(4);
             this.TBContraseña.Multiline = false;
             this.TBContraseña.Name = "TBContraseña";
             this.TBContraseña.Padding = new System.Windows.Forms.Padding(7);
             this.TBContraseña.PasswordChar = true;
             this.TBContraseña.Size = new System.Drawing.Size(100, 28);
-            this.TBContraseña.TabIndex = 1;
+            this.TBContraseña.TabIndex = 2;
             this.TBContraseña.Texts = "";
             this.TBContraseña.UnderlinedStyle = true;
+            this.TBContraseña._TextChanged += new System.EventHandler(this.TBContraseña__TextChanged);
             // 
             // rjButton1
             // 
@@ -148,6 +178,7 @@
             this.rjButton1.Text = "Iniciar";
             this.rjButton1.TextColor = System.Drawing.Color.Black;
             this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
             // LGamerShop
             // 
@@ -214,6 +245,8 @@
         private RJControls.RJTextBox TBContraseña;
         private RJControls.RJTextBox TBUsuario;
         private RJButton BSalir;
+        private System.Windows.Forms.Label TBValidacion;
+        private System.Windows.Forms.Label TBValidacion2;
     }
 }
 
