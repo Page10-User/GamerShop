@@ -99,10 +99,11 @@ namespace Gamer_Shop2._0
 
         }
 
-        private void rjButton1_Click(object sender, EventArgs e)
+        private void BIniciar_Click(object sender, EventArgs e)
         {
             Bienvenida bienvenida = new Bienvenida();
             bienvenida.Show();
+            this.Hide();
         }
     }
 }

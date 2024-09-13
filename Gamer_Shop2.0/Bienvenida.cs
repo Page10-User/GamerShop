@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -17,8 +18,6 @@ namespace Gamer_Shop2._0
             this.Paint += new PaintEventHandler(Bievenida_Paint);
             PMenuUS.Paint += new PaintEventHandler(PMenuUS_Paint);
             this.PFondoBienvenida.Paint += new PaintEventHandler(PFondoBienvenida_Paint);
-
-            
         }
 
         private void PFondoBienvenida_Paint(object sender, PaintEventArgs e)
@@ -87,6 +86,8 @@ namespace Gamer_Shop2._0
         {
             isExpanded = !isExpanded;
             PMenuUS.Location = new Point(0, 0);
+            PMenuUS.BringToFront();
+            PAddB.BringToFront();
             BExpandMenu.Visible = false;
             BContracMenu.Visible = true;
             PContenidoUS.Visible = true;
@@ -152,6 +153,22 @@ namespace Gamer_Shop2._0
         {
             // Actualizar el texto del Label con la hora actual
             LReloj.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void BAltaProducto_Click(object sender, EventArgs e)
+        {
+            //Cerrar el menú tras elegír una opción
+            BContracMenu_Click(sender, e);
+
+            // Mostrar form
+            AltaProducto formAltaProducto = new AltaProducto();
+            formAltaProducto.TopLevel = false;
+
+            PShowOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+            PShowOptions.Controls.Add(formAltaProducto);
+            PShowOptions.BringToFront();
+
+            formAltaProducto.Show();
         }
     }
 }

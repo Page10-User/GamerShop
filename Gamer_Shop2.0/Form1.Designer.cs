@@ -38,7 +38,7 @@
             this.TBValidacion = new System.Windows.Forms.Label();
             this.TBUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBContraseña = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.rjButton1 = new Gamer_Shop2._0.RJButton();
+            this.BIniciar = new Gamer_Shop2._0.RJButton();
             this.LGamerShop = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.BSalir = new Gamer_Shop2._0.RJButton();
@@ -86,7 +86,7 @@
             this.PInicio.Controls.Add(this.TBValidacion);
             this.PInicio.Controls.Add(this.TBUsuario);
             this.PInicio.Controls.Add(this.TBContraseña);
-            this.PInicio.Controls.Add(this.rjButton1);
+            this.PInicio.Controls.Add(this.BIniciar);
             this.PInicio.Controls.Add(this.LGamerShop);
             this.PInicio.Controls.Add(this.LContraseña);
             this.PInicio.Controls.Add(this.LUsuario);
@@ -160,25 +160,25 @@
             this.TBContraseña.UnderlinedStyle = true;
             this.TBContraseña._TextChanged += new System.EventHandler(this.TBContraseña__TextChanged);
             // 
-            // rjButton1
+            // BIniciar
             // 
-            this.rjButton1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjButton1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.rjButton1.BorderColor = System.Drawing.Color.Lime;
-            this.rjButton1.BorderRadius = 14;
-            this.rjButton1.BorderSize = 2;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.Black;
-            this.rjButton1.Location = new System.Drawing.Point(18, 240);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(113, 29);
-            this.rjButton1.TabIndex = 1;
-            this.rjButton1.Text = "Iniciar";
-            this.rjButton1.TextColor = System.Drawing.Color.Black;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
+            this.BIniciar.BackColor = System.Drawing.SystemColors.Window;
+            this.BIniciar.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.BIniciar.BorderColor = System.Drawing.Color.Lime;
+            this.BIniciar.BorderRadius = 14;
+            this.BIniciar.BorderSize = 2;
+            this.BIniciar.FlatAppearance.BorderSize = 0;
+            this.BIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BIniciar.ForeColor = System.Drawing.Color.Black;
+            this.BIniciar.Location = new System.Drawing.Point(18, 240);
+            this.BIniciar.Name = "BIniciar";
+            this.BIniciar.Size = new System.Drawing.Size(113, 29);
+            this.BIniciar.TabIndex = 1;
+            this.BIniciar.Text = "Iniciar";
+            this.BIniciar.TextColor = System.Drawing.Color.Black;
+            this.BIniciar.UseVisualStyleBackColor = false;
+            this.BIniciar.Click += new System.EventHandler(this.BIniciar_Click);
             // 
             // LGamerShop
             // 
@@ -241,7 +241,7 @@
         private System.Windows.Forms.Panel PInicio;
         private System.Windows.Forms.Label LGamerShop;
         private System.Windows.Forms.Timer timer1;
-        private RJButton rjButton1;
+        private RJButton BIniciar;
         private RJControls.RJTextBox TBContraseña;
         private RJControls.RJTextBox TBUsuario;
         private RJButton BSalir;

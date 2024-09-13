@@ -36,6 +36,7 @@
             this.PMenuUS = new System.Windows.Forms.Panel();
             this.PEBorde = new System.Windows.Forms.Panel();
             this.PContenidoUS = new System.Windows.Forms.Panel();
+            this.BAltaProducto = new System.Windows.Forms.Button();
             this.BContracMenu = new System.Windows.Forms.Button();
             this.PFondoBienvenida = new System.Windows.Forms.Panel();
             this.LFActual = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             this.PAddB = new System.Windows.Forms.Panel();
             this.BSalir = new Gamer_Shop2._0.RJButton();
             this.BExpandMenu = new Gamer_Shop2._0.RJButton();
+            this.PShowOptions = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.PMenuUS.SuspendLayout();
             this.PContenidoUS.SuspendLayout();
@@ -106,11 +108,22 @@
             // PContenidoUS
             // 
             this.PContenidoUS.BackColor = System.Drawing.Color.PaleGreen;
+            this.PContenidoUS.Controls.Add(this.BAltaProducto);
             this.PContenidoUS.Controls.Add(this.BContracMenu);
             this.PContenidoUS.Location = new System.Drawing.Point(11, 12);
             this.PContenidoUS.Name = "PContenidoUS";
             this.PContenidoUS.Size = new System.Drawing.Size(177, 502);
             this.PContenidoUS.TabIndex = 13;
+            // 
+            // BAltaProducto
+            // 
+            this.BAltaProducto.Location = new System.Drawing.Point(51, 57);
+            this.BAltaProducto.Name = "BAltaProducto";
+            this.BAltaProducto.Size = new System.Drawing.Size(75, 23);
+            this.BAltaProducto.TabIndex = 14;
+            this.BAltaProducto.Text = "AltaProducto";
+            this.BAltaProducto.UseVisualStyleBackColor = true;
+            this.BAltaProducto.Click += new System.EventHandler(this.BAltaProducto_Click);
             // 
             // BContracMenu
             // 
@@ -217,6 +230,14 @@
             this.BExpandMenu.UseVisualStyleBackColor = false;
             this.BExpandMenu.Click += new System.EventHandler(this.BExpandMenu_Click);
             // 
+            // PShowOptions
+            // 
+            this.PShowOptions.BackColor = System.Drawing.Color.Transparent;
+            this.PShowOptions.Location = new System.Drawing.Point(75, 43);
+            this.PShowOptions.Name = "PShowOptions";
+            this.PShowOptions.Size = new System.Drawing.Size(684, 436);
+            this.PShowOptions.TabIndex = 17;
+            // 
             // Bienvenida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,6 +251,7 @@
             this.Controls.Add(this.BSalir);
             this.Controls.Add(this.PFondoBienvenida);
             this.Controls.Add(this.BExpandMenu);
+            this.Controls.Add(this.PShowOptions);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Bienvenida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -260,5 +282,7 @@
         private RJButton BExpandMenu;
         private System.Windows.Forms.Panel PEBorde;
         private System.Windows.Forms.Panel PAddB;
+        private System.Windows.Forms.Button BAltaProducto;
+        private System.Windows.Forms.Panel PShowOptions;
     }
 }
