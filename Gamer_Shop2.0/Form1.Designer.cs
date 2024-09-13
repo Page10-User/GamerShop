@@ -138,7 +138,7 @@
             this.TBUsuario.TabIndex = 1;
             this.TBUsuario.Texts = "";
             this.TBUsuario.UnderlinedStyle = true;
-            this.TBUsuario._TextChanged += new System.EventHandler(this.TBUsuario__TextChanged);
+            this.TBUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuario_KeyPress);
             // 
             // TBContraseña
             // 
@@ -158,7 +158,7 @@
             this.TBContraseña.TabIndex = 2;
             this.TBContraseña.Texts = "";
             this.TBContraseña.UnderlinedStyle = true;
-            this.TBContraseña._TextChanged += new System.EventHandler(this.TBContraseña__TextChanged);
+            this.TBContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuario_KeyPress);
             // 
             // BIniciar
             // 
@@ -201,6 +201,7 @@
             this.BSalir.BorderColor = System.Drawing.Color.Lime;
             this.BSalir.BorderRadius = 19;
             this.BSalir.BorderSize = 2;
+            this.BSalir.CausesValidation = false;
             this.BSalir.FlatAppearance.BorderSize = 0;
             this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSalir.ForeColor = System.Drawing.Color.White;

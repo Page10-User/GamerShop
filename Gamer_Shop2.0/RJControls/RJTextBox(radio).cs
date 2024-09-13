@@ -195,13 +195,23 @@ namespace Gamer_Shop2._0.RJControls
         {
             get
             {
-                if (isPlaceholder) return "";
-                else return textBox1.Text;
+                return isPlaceholder ? "" : textBox1.Text;
+
             }
             set
             {
-                textBox1.Text = value;
-                SetPlaceholder();
+                if (!string.IsNullOrEmpty(value))
+                {
+                    RemovePlaceholder();
+                    textBox1.Text = value;
+                }
+                else
+                {
+                    textBox1.Text = "";
+                    SetPlaceholder();
+                }
+
+               
             }
         }
 

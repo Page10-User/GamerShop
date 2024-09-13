@@ -32,6 +32,10 @@
             this.PBImgAltaPr = new System.Windows.Forms.PictureBox();
             this.LTituloAltaPr = new System.Windows.Forms.Label();
             this.PContAltaPr = new System.Windows.Forms.Panel();
+            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LCategoriaPr = new System.Windows.Forms.Label();
             this.LStockPr = new System.Windows.Forms.Label();
             this.LDescripcionPr = new System.Windows.Forms.Label();
@@ -41,10 +45,6 @@
             this.BShowLista = new System.Windows.Forms.Label();
             this.BShowListaPr = new Gamer_Shop2._0.RJButton();
             this.BRegistrarPr = new Gamer_Shop2._0.RJButton();
-            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaPr)).BeginInit();
             this.PContAltaPr.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,82 @@
             this.PContAltaPr.Name = "PContAltaPr";
             this.PContAltaPr.Size = new System.Drawing.Size(315, 290);
             this.PContAltaPr.TabIndex = 2;
+            // 
+            // TStockPr
+            // 
+            this.TStockPr.BackColor = System.Drawing.Color.Black;
+            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TStockPr.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.TStockPr.BorderSize = 2;
+            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TStockPr.ForeColor = System.Drawing.Color.White;
+            this.TStockPr.Location = new System.Drawing.Point(128, 145);
+            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TStockPr.Multiline = false;
+            this.TStockPr.Name = "TStockPr";
+            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TStockPr.PasswordChar = false;
+            this.TStockPr.Size = new System.Drawing.Size(172, 31);
+            this.TStockPr.TabIndex = 15;
+            this.TStockPr.Texts = "";
+            this.TStockPr.UnderlinedStyle = true;
+            // 
+            // TPrecioPr
+            // 
+            this.TPrecioPr.BackColor = System.Drawing.Color.Black;
+            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.TPrecioPr.BorderSize = 2;
+            this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPrecioPr.ForeColor = System.Drawing.Color.White;
+            this.TPrecioPr.Location = new System.Drawing.Point(128, 103);
+            this.TPrecioPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TPrecioPr.Multiline = false;
+            this.TPrecioPr.Name = "TPrecioPr";
+            this.TPrecioPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TPrecioPr.PasswordChar = false;
+            this.TPrecioPr.Size = new System.Drawing.Size(172, 31);
+            this.TPrecioPr.TabIndex = 14;
+            this.TPrecioPr.Texts = "";
+            this.TPrecioPr.UnderlinedStyle = true;
+            // 
+            // TDescripcionPr
+            // 
+            this.TDescripcionPr.BackColor = System.Drawing.Color.Black;
+            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.TDescripcionPr.BorderSize = 2;
+            this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
+            this.TDescripcionPr.Location = new System.Drawing.Point(128, 62);
+            this.TDescripcionPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TDescripcionPr.Multiline = true;
+            this.TDescripcionPr.Name = "TDescripcionPr";
+            this.TDescripcionPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TDescripcionPr.PasswordChar = false;
+            this.TDescripcionPr.Size = new System.Drawing.Size(172, 31);
+            this.TDescripcionPr.TabIndex = 13;
+            this.TDescripcionPr.Texts = "";
+            this.TDescripcionPr.UnderlinedStyle = true;
+            // 
+            // TNombrePr
+            // 
+            this.TNombrePr.BackColor = System.Drawing.Color.Black;
+            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TNombrePr.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.TNombrePr.BorderSize = 2;
+            this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombrePr.ForeColor = System.Drawing.Color.White;
+            this.TNombrePr.Location = new System.Drawing.Point(128, 21);
+            this.TNombrePr.Margin = new System.Windows.Forms.Padding(4);
+            this.TNombrePr.Multiline = false;
+            this.TNombrePr.Name = "TNombrePr";
+            this.TNombrePr.Padding = new System.Windows.Forms.Padding(7);
+            this.TNombrePr.PasswordChar = false;
+            this.TNombrePr.Size = new System.Drawing.Size(172, 31);
+            this.TNombrePr.TabIndex = 12;
+            this.TNombrePr.Texts = "";
+            this.TNombrePr.UnderlinedStyle = true;
             // 
             // LCategoriaPr
             // 
@@ -210,82 +286,6 @@
             this.BRegistrarPr.TabIndex = 3;
             this.BRegistrarPr.TextColor = System.Drawing.Color.White;
             this.BRegistrarPr.UseVisualStyleBackColor = false;
-            // 
-            // TStockPr
-            // 
-            this.TStockPr.BackColor = System.Drawing.Color.Black;
-            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TStockPr.BorderFocusColor = System.Drawing.Color.LawnGreen;
-            this.TStockPr.BorderSize = 2;
-            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TStockPr.ForeColor = System.Drawing.Color.White;
-            this.TStockPr.Location = new System.Drawing.Point(128, 145);
-            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TStockPr.Multiline = false;
-            this.TStockPr.Name = "TStockPr";
-            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TStockPr.PasswordChar = false;
-            this.TStockPr.Size = new System.Drawing.Size(172, 31);
-            this.TStockPr.TabIndex = 15;
-            this.TStockPr.Texts = "";
-            this.TStockPr.UnderlinedStyle = true;
-            // 
-            // TPrecioPr
-            // 
-            this.TPrecioPr.BackColor = System.Drawing.Color.Black;
-            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.LawnGreen;
-            this.TPrecioPr.BorderSize = 2;
-            this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TPrecioPr.ForeColor = System.Drawing.Color.White;
-            this.TPrecioPr.Location = new System.Drawing.Point(128, 103);
-            this.TPrecioPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TPrecioPr.Multiline = false;
-            this.TPrecioPr.Name = "TPrecioPr";
-            this.TPrecioPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TPrecioPr.PasswordChar = false;
-            this.TPrecioPr.Size = new System.Drawing.Size(172, 31);
-            this.TPrecioPr.TabIndex = 14;
-            this.TPrecioPr.Texts = "";
-            this.TPrecioPr.UnderlinedStyle = true;
-            // 
-            // TDescripcionPr
-            // 
-            this.TDescripcionPr.BackColor = System.Drawing.Color.Black;
-            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.LawnGreen;
-            this.TDescripcionPr.BorderSize = 2;
-            this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
-            this.TDescripcionPr.Location = new System.Drawing.Point(128, 62);
-            this.TDescripcionPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TDescripcionPr.Multiline = true;
-            this.TDescripcionPr.Name = "TDescripcionPr";
-            this.TDescripcionPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TDescripcionPr.PasswordChar = false;
-            this.TDescripcionPr.Size = new System.Drawing.Size(172, 31);
-            this.TDescripcionPr.TabIndex = 13;
-            this.TDescripcionPr.Texts = "";
-            this.TDescripcionPr.UnderlinedStyle = true;
-            // 
-            // TNombrePr
-            // 
-            this.TNombrePr.BackColor = System.Drawing.Color.Black;
-            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TNombrePr.BorderFocusColor = System.Drawing.Color.LawnGreen;
-            this.TNombrePr.BorderSize = 2;
-            this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombrePr.ForeColor = System.Drawing.Color.White;
-            this.TNombrePr.Location = new System.Drawing.Point(128, 21);
-            this.TNombrePr.Margin = new System.Windows.Forms.Padding(4);
-            this.TNombrePr.Multiline = false;
-            this.TNombrePr.Name = "TNombrePr";
-            this.TNombrePr.Padding = new System.Windows.Forms.Padding(7);
-            this.TNombrePr.PasswordChar = false;
-            this.TNombrePr.Size = new System.Drawing.Size(172, 31);
-            this.TNombrePr.TabIndex = 12;
-            this.TNombrePr.Texts = "";
-            this.TNombrePr.UnderlinedStyle = true;
             // 
             // AltaProducto
             // 

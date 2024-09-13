@@ -22,6 +22,7 @@ namespace Gamer_Shop2._0
             this.PInicio.Paint += new PaintEventHandler(panel1_Paint);
             TBUsuario.Validating += new CancelEventHandler(TextBox_Validating);
             TBContraseña.Validating += new CancelEventHandler(TextBox_Validating);
+            TBUsuario.KeyPress += new KeyPressEventHandler(TBUsuario_KeyPress);
 
         }
 
@@ -69,7 +70,7 @@ namespace Gamer_Shop2._0
 
         private void TextBox_Validating(object sender, CancelEventArgs e)
         {
-            var textBox = sender as RJControls.RJTextBox; 
+            var textBox = sender as RJControls.RJTextBox;
             if (textBox != null)
             {
                 if (textBox.Texts.Length <= 7 || textBox.Texts.Length >= 20)
@@ -84,8 +85,21 @@ namespace Gamer_Shop2._0
                         TBValidacion2.Visible = true;
                     }
                 }
+                else
+                {
+                    if (textBox == TBUsuario)
+                    {
+                        TBValidacion.Visible = false;
+                    }
+                    else if (textBox == TBContraseña)
+                    {
+                        TBValidacion2.Visible = false;
+                    }
+                }
             }
         }
+
+
 
         private void TBUsuario__TextChanged(object sender, EventArgs e)
         {
@@ -101,9 +115,29 @@ namespace Gamer_Shop2._0
 
         private void BIniciar_Click(object sender, EventArgs e)
         {
-            Bienvenida bienvenida = new Bienvenida();
-            bienvenida.Show();
-            this.Hide();
+            if (TBUsuario.Validate() == true && TBContraseña.Validate() == true){
+                Bienvenida bienvenida = new Bienvenida();
+                bienvenida.Show();
+                this.Hide();
+            } else
+            {
+                MessageBox.Show("Por favor, ingrese su usuario y contraseña", "Iniciar sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TBUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool escontrol = Char.IsControl(e.KeyChar);
+            bool longitud = TBUsuario.Texts.Trim().Length < 21;
+
+            if (longitud || escontrol)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }
