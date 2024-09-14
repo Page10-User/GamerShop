@@ -35,8 +35,6 @@
             this.LBievenida = new System.Windows.Forms.Label();
             this.PMenuUS = new System.Windows.Forms.Panel();
             this.PEBorde = new System.Windows.Forms.Panel();
-            this.PContenidoUS = new System.Windows.Forms.Panel();
-            this.BAltaProducto = new System.Windows.Forms.Button();
             this.BContracMenu = new System.Windows.Forms.Button();
             this.PFondoBienvenida = new System.Windows.Forms.Panel();
             this.LFActual = new System.Windows.Forms.Label();
@@ -48,7 +46,6 @@
             this.PShowOptions = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.PMenuUS.SuspendLayout();
-            this.PContenidoUS.SuspendLayout();
             this.PFondoBienvenida.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,7 +89,7 @@
             // 
             this.PMenuUS.BackColor = System.Drawing.SystemColors.MenuText;
             this.PMenuUS.Controls.Add(this.PEBorde);
-            this.PMenuUS.Controls.Add(this.PContenidoUS);
+            this.PMenuUS.Controls.Add(this.BContracMenu);
             this.PMenuUS.Location = new System.Drawing.Point(0, 0);
             this.PMenuUS.Name = "PMenuUS";
             this.PMenuUS.Size = new System.Drawing.Size(200, 526);
@@ -105,26 +102,6 @@
             this.PEBorde.Size = new System.Drawing.Size(10, 31);
             this.PEBorde.TabIndex = 16;
             // 
-            // PContenidoUS
-            // 
-            this.PContenidoUS.BackColor = System.Drawing.Color.PaleGreen;
-            this.PContenidoUS.Controls.Add(this.BAltaProducto);
-            this.PContenidoUS.Controls.Add(this.BContracMenu);
-            this.PContenidoUS.Location = new System.Drawing.Point(11, 12);
-            this.PContenidoUS.Name = "PContenidoUS";
-            this.PContenidoUS.Size = new System.Drawing.Size(177, 502);
-            this.PContenidoUS.TabIndex = 13;
-            // 
-            // BAltaProducto
-            // 
-            this.BAltaProducto.Location = new System.Drawing.Point(51, 57);
-            this.BAltaProducto.Name = "BAltaProducto";
-            this.BAltaProducto.Size = new System.Drawing.Size(75, 23);
-            this.BAltaProducto.TabIndex = 14;
-            this.BAltaProducto.Text = "AltaProducto";
-            this.BAltaProducto.UseVisualStyleBackColor = true;
-            this.BAltaProducto.Click += new System.EventHandler(this.BAltaProducto_Click);
-            // 
             // BContracMenu
             // 
             this.BContracMenu.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
@@ -132,7 +109,7 @@
             this.BContracMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BContracMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BContracMenu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BContracMenu.Location = new System.Drawing.Point(136, 3);
+            this.BContracMenu.Location = new System.Drawing.Point(147, 10);
             this.BContracMenu.Name = "BContracMenu";
             this.BContracMenu.Size = new System.Drawing.Size(38, 33);
             this.BContracMenu.TabIndex = 13;
@@ -176,9 +153,8 @@
             this.LReloj.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.LReloj.Location = new System.Drawing.Point(296, 54);
             this.LReloj.Name = "LReloj";
-            this.LReloj.Size = new System.Drawing.Size(164, 57);
+            this.LReloj.Size = new System.Drawing.Size(0, 57);
             this.LReloj.TabIndex = 5;
-            this.LReloj.Text = "Horario";
             // 
             // PAddB
             // 
@@ -259,7 +235,6 @@
             this.Load += new System.EventHandler(this.Bienvenida_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).EndInit();
             this.PMenuUS.ResumeLayout(false);
-            this.PContenidoUS.ResumeLayout(false);
             this.PFondoBienvenida.ResumeLayout(false);
             this.PFondoBienvenida.PerformLayout();
             this.ResumeLayout(false);
@@ -274,7 +249,6 @@
         private RJButton BSalir;
         private System.Windows.Forms.Panel PMenuUS;
         private System.Windows.Forms.Button BContracMenu;
-        private System.Windows.Forms.Panel PContenidoUS;
         private System.Windows.Forms.Panel PFondoBienvenida;
         private System.Windows.Forms.Label LReloj;
         private System.Windows.Forms.Timer THorario;
@@ -282,7 +256,6 @@
         private RJButton BExpandMenu;
         private System.Windows.Forms.Panel PEBorde;
         private System.Windows.Forms.Panel PAddB;
-        private System.Windows.Forms.Button BAltaProducto;
         private System.Windows.Forms.Panel PShowOptions;
     }
 }

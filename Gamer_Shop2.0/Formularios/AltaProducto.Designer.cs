@@ -178,7 +178,7 @@
             this.BShowListaPr.BackColor = System.Drawing.Color.Black;
             this.BShowListaPr.BackgroundColor = System.Drawing.Color.Black;
             this.BShowListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowListaPr.BackgroundImage")));
-            this.BShowListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BShowListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BShowListaPr.BorderColor = System.Drawing.Color.Lime;
             this.BShowListaPr.BorderRadius = 20;
             this.BShowListaPr.BorderSize = 1;
@@ -191,6 +191,7 @@
             this.BShowListaPr.TabIndex = 4;
             this.BShowListaPr.TextColor = System.Drawing.Color.White;
             this.BShowListaPr.UseVisualStyleBackColor = false;
+            this.BShowListaPr.Click += new System.EventHandler(this.BShowListaPr_Click);
             // 
             // BRegistrarPr
             // 

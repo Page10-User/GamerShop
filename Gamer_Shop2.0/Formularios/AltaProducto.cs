@@ -10,6 +10,8 @@ namespace Gamer_Shop2._0.Formularios
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
 
+        public Panel PanelContainer { get; set; }
+
         public AltaProducto()
         {
             InitializeComponent();
@@ -84,6 +86,20 @@ namespace Gamer_Shop2._0.Formularios
             {
                 e.Graphics.DrawPath(pen, path);
             }
+        }
+
+        private void BShowListaPr_Click(object sender, EventArgs e)
+        {
+            // Crear una nueva instancia de ListaProductos
+            ListaProductos listPr = new ListaProductos();
+            listPr.TopLevel = false;
+
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(listPr);
+            listPr.Show();
+            this.Close();
+
         }
     }
 }

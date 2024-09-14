@@ -6,11 +6,15 @@ using System.Windows.Forms;
 
 namespace Gamer_Shop2._0
 {
+
     public partial class Bienvenida : Form
     {
         // Menú expandido bool
         bool isExpanded = false;
         private Form formBG;
+
+        //Options definido globalmente para mejor manejo.
+        private EmpleadoOptions empleadoOptions;
         public Bienvenida()
         {
             InitializeComponent();
@@ -18,6 +22,10 @@ namespace Gamer_Shop2._0
             this.Paint += new PaintEventHandler(Bievenida_Paint);
             PMenuUS.Paint += new PaintEventHandler(PMenuUS_Paint);
             this.PFondoBienvenida.Paint += new PaintEventHandler(PFondoBienvenida_Paint);
+            empleadoOptions = new EmpleadoOptions();
+            empleadoOptions.MainForm = this;
+            empleadoOptions.PanelContainer = PShowOptions;
+            empleadoOptions.TopLevel = false;
         }
 
         private void PFondoBienvenida_Paint(object sender, PaintEventArgs e)
@@ -52,7 +60,7 @@ namespace Gamer_Shop2._0
             //Configurando visualización ideal.
             PMenuUS.Location = new Point(-180, 0);
             BExpandMenu.Location = new Point(12, 38);
-            PContenidoUS.Visible = false;
+            BContracMenu.BringToFront();
 
             //Mostrando fecha actual.
             LFActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -70,15 +78,18 @@ namespace Gamer_Shop2._0
         }
 
         // Botón contraer Menú.
-        private void BContracMenu_Click(object sender, EventArgs e)
+        public void BContracMenu_Click(object sender, EventArgs e)
         {
             isExpanded = !isExpanded;
             PMenuUS.Location = new Point(-180, 0);
             BExpandMenu.Visible = true;
             BContracMenu.Visible = false;
-            PContenidoUS.Visible = false;
             PEBorde.Visible = true;
             formBG.Close();
+
+            // Eliminar contenido del menú
+            PMenuUS.Controls.Add(empleadoOptions);
+            empleadoOptions.Visible = false;
         }
 
         // Botón expandir Menú.
@@ -90,7 +101,6 @@ namespace Gamer_Shop2._0
             PAddB.BringToFront();
             BExpandMenu.Visible = false;
             BContracMenu.Visible = true;
-            PContenidoUS.Visible = true;
             PEBorde.Visible = false;
 
             // Crear un nuevo formulario para el efecto de oscurecimiento
@@ -112,6 +122,11 @@ namespace Gamer_Shop2._0
 
             // Mostrar el formulario de oscurecimiento
             formBG.Show();
+
+            // Cargar contenido del menú.
+            PMenuUS.Controls.Add(empleadoOptions);
+            empleadoOptions.Location = new Point(0, 1);
+            empleadoOptions.Visible = true;
         }
 
         // Diseño del bordeado del formulario
@@ -153,22 +168,6 @@ namespace Gamer_Shop2._0
         {
             // Actualizar el texto del Label con la hora actual
             LReloj.Text = DateTime.Now.ToString("HH:mm:ss");
-        }
-
-        private void BAltaProducto_Click(object sender, EventArgs e)
-        {
-            //Cerrar el menú tras elegír una opción
-            BContracMenu_Click(sender, e);
-
-            // Mostrar form
-            AltaProducto formAltaProducto = new AltaProducto();
-            formAltaProducto.TopLevel = false;
-
-            PShowOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
-            PShowOptions.Controls.Add(formAltaProducto);
-            PShowOptions.BringToFront();
-
-            formAltaProducto.Show();
         }
     }
 }
