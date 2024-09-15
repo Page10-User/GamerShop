@@ -39,6 +39,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,35 +64,89 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\AdministradorOptions.cs">
+    <Compile Include="Formularios\Comercio\BotonesArticulo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Comercio\BotonesArticulo.Designer.cs">
+      <DependentUpon>BotonesArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Comercio\Catalogo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\AdministradorOptions.Designer.cs">
+    <Compile Include="Formularios\Comercio\Catalogo.Designer.cs">
+      <DependentUpon>Catalogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionUsuario\ListaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionUsuario\ListaUsuario.Designer.cs">
+      <DependentUpon>ListaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionUsuario\ModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionUsuario\ModificarUsuario.Designer.cs">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionVenta\AltaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionVenta\AltaVenta.Designer.cs">
+      <DependentUpon>AltaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionVenta\ListaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionVenta\ListaVenta.Designer.cs">
+      <DependentUpon>ListaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionVenta\ModificarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionVenta\ModificarVenta.Designer.cs">
+      <DependentUpon>ModificarVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\InterfazUsuarios\AdministradorOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\InterfazUsuarios\AdministradorOptions.Designer.cs">
       <DependentUpon>AdministradorOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\AltaProducto.cs">
+    <Compile Include="Formularios\GestionProducto\AltaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\AltaProducto.Designer.cs">
+    <Compile Include="Formularios\GestionProducto\AltaProducto.Designer.cs">
       <DependentUpon>AltaProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\EmpleadoOptions.cs">
+    <Compile Include="Formularios\InterfazUsuarios\EmpleadoOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\EmpleadoOptions.Designer.cs">
+    <Compile Include="Formularios\InterfazUsuarios\EmpleadoOptions.Designer.cs">
       <DependentUpon>EmpleadoOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\GerenteOptions.cs">
+    <Compile Include="Formularios\InterfazUsuarios\GerenteOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\GerenteOptions.Designer.cs">
+    <Compile Include="Formularios\InterfazUsuarios\GerenteOptions.Designer.cs">
       <DependentUpon>GerenteOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\ListaProductos.cs">
+    <Compile Include="Formularios\GestionUsuario\AltaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\ListaProductos.Designer.cs">
+    <Compile Include="Formularios\GestionUsuario\AltaUsuario.Designer.cs">
+      <DependentUpon>AltaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionProducto\ListaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionProducto\ListaProductos.Designer.cs">
       <DependentUpon>ListaProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionProducto\ModificarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionProducto\ModificarProducto.Designer.cs">
+      <DependentUpon>ModificarProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,17 +179,41 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\AdministradorOptions.resx">
+    <EmbeddedResource Include="Formularios\Comercio\BotonesArticulo.resx">
+      <DependentUpon>BotonesArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Comercio\Catalogo.resx">
+      <DependentUpon>Catalogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionUsuario\AltaUsuario.resx">
+      <DependentUpon>AltaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionUsuario\ListaUsuario.resx">
+      <DependentUpon>ListaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionUsuario\ModificarUsuario.resx">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionVenta\AltaVenta.resx">
+      <DependentUpon>AltaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\InterfazUsuarios\AdministradorOptions.resx">
       <DependentUpon>AdministradorOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\AltaProducto.resx">
+    <EmbeddedResource Include="Formularios\GestionProducto\AltaProducto.resx">
       <DependentUpon>AltaProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\EmpleadoOptions.resx">
+    <EmbeddedResource Include="Formularios\InterfazUsuarios\EmpleadoOptions.resx">
       <DependentUpon>EmpleadoOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\GerenteOptions.resx">
+    <EmbeddedResource Include="Formularios\InterfazUsuarios\GerenteOptions.resx">
       <DependentUpon>GerenteOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionProducto\ListaProductos.resx">
+      <DependentUpon>ListaProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionProducto\ModificarProducto.resx">
+      <DependentUpon>ModificarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -173,6 +252,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\img\FondoI_S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Formularios\GestionCliente\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,26 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gamer_Shop2._0.Formularios
+namespace Gamer_Shop2._0.Formularios.GestionProducto
 {
-    public partial class AltaProducto : Form
+    public partial class ModificarProducto : Form
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
 
         public Panel PanelContainer { get; set; }
-
-        public AltaProducto()
+        public ModificarProducto()
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(AltaProducto_Load);
-            PContAltaPr.Paint += new PaintEventHandler(PContAltaPr_Paint);
+            this.Load += new EventHandler(ModificarProducto_Load);
+            PContModificarPr.Paint += new PaintEventHandler(PContModificarPr_Paint);
         }
 
-        private void PContAltaPr_Paint(object sender, PaintEventArgs e)
+        private void PContModificarPr_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
             if (panel != null)
@@ -39,7 +44,7 @@ namespace Gamer_Shop2._0.Formularios
                 panel.Region = new Region(path);
 
 
-                using (Pen pen = new Pen(Color.LightGreen, 3))
+                using (Pen pen = new Pen(Color.Orange, 3))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -47,7 +52,7 @@ namespace Gamer_Shop2._0.Formularios
             }
         }
 
-        private void AltaProducto_Load(object sender, EventArgs e)
+        private void ModificarProducto_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
@@ -82,24 +87,24 @@ namespace Gamer_Shop2._0.Formularios
             // dibujar el borde redondeado
             GraphicsPath path = CreateRoundedPath();
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (Pen pen = new Pen(Color.GreenYellow, borderWidth))
+            using (Pen pen = new Pen(Color.Orange, borderWidth))
             {
                 e.Graphics.DrawPath(pen, path);
             }
         }
 
-        private void BShowListaPr_Click(object sender, EventArgs e)
+        private void BReturnToBack_Click(object sender, EventArgs e)
         {
             // Crear una nueva instancia de ListaProductos
             ListaProductos listPr = new ListaProductos();
             listPr.TopLevel = false;
 
-            // Limpiar el panel actual y añadir el nuevo formulario
+            // Limpiar el panel actual y volver al anterior formulario.
             PanelContainer.Controls.Clear();
             PanelContainer.Controls.Add(listPr);
+            listPr.PanelContainer = PanelContainer;
             listPr.Show();
             this.Close();
-
         }
     }
 }

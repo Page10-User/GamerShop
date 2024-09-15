@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gamer_Shop2._0.Formularios
+namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 {
     public partial class AdministradorOptions : Form
     {

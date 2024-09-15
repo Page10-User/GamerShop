@@ -41,9 +41,10 @@
             this.LReloj = new System.Windows.Forms.Label();
             this.THorario = new System.Windows.Forms.Timer(this.components);
             this.PAddB = new System.Windows.Forms.Panel();
+            this.PShowOptions = new System.Windows.Forms.Panel();
             this.BSalir = new Gamer_Shop2._0.RJButton();
             this.BExpandMenu = new Gamer_Shop2._0.RJButton();
-            this.PShowOptions = new System.Windows.Forms.Panel();
+            this.LVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.PMenuUS.SuspendLayout();
             this.PFondoBienvenida.SuspendLayout();
@@ -128,7 +129,7 @@
             this.PFondoBienvenida.Controls.Add(this.LTítulo);
             this.PFondoBienvenida.Controls.Add(this.LBievenida);
             this.PFondoBienvenida.Controls.Add(this.PBLogo);
-            this.PFondoBienvenida.Location = new System.Drawing.Point(127, 66);
+            this.PFondoBienvenida.Location = new System.Drawing.Point(127, 175);
             this.PFondoBienvenida.Name = "PFondoBienvenida";
             this.PFondoBienvenida.Size = new System.Drawing.Size(584, 237);
             this.PFondoBienvenida.TabIndex = 13;
@@ -164,16 +165,26 @@
             this.PAddB.Size = new System.Drawing.Size(1, 525);
             this.PAddB.TabIndex = 16;
             // 
+            // PShowOptions
+            // 
+            this.PShowOptions.BackColor = System.Drawing.Color.Transparent;
+            this.PShowOptions.Location = new System.Drawing.Point(75, 43);
+            this.PShowOptions.Name = "PShowOptions";
+            this.PShowOptions.Size = new System.Drawing.Size(684, 436);
+            this.PShowOptions.TabIndex = 17;
+            // 
             // BSalir
             // 
             this.BSalir.BackColor = System.Drawing.Color.Transparent;
             this.BSalir.BackgroundColor = System.Drawing.Color.Transparent;
             this.BSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BSalir.BackgroundImage")));
             this.BSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BSalir.BorderColor = System.Drawing.Color.Lime;
-            this.BSalir.BorderRadius = 15;
-            this.BSalir.BorderSize = 1;
+            this.BSalir.BorderColor = System.Drawing.Color.Transparent;
+            this.BSalir.BorderRadius = 0;
+            this.BSalir.BorderSize = 0;
             this.BSalir.FlatAppearance.BorderSize = 0;
+            this.BSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSalir.ForeColor = System.Drawing.Color.White;
             this.BSalir.Location = new System.Drawing.Point(794, 12);
@@ -206,13 +217,17 @@
             this.BExpandMenu.UseVisualStyleBackColor = false;
             this.BExpandMenu.Click += new System.EventHandler(this.BExpandMenu_Click);
             // 
-            // PShowOptions
+            // LVersion
             // 
-            this.PShowOptions.BackColor = System.Drawing.Color.Transparent;
-            this.PShowOptions.Location = new System.Drawing.Point(75, 43);
-            this.PShowOptions.Name = "PShowOptions";
-            this.PShowOptions.Size = new System.Drawing.Size(684, 436);
-            this.PShowOptions.TabIndex = 17;
+            this.LVersion.AutoSize = true;
+            this.LVersion.BackColor = System.Drawing.Color.Transparent;
+            this.LVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVersion.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.LVersion.Location = new System.Drawing.Point(731, 341);
+            this.LVersion.Name = "LVersion";
+            this.LVersion.Size = new System.Drawing.Size(84, 16);
+            this.LVersion.TabIndex = 18;
+            this.LVersion.Text = "Version 1.0";
             // 
             // Bienvenida
             // 
@@ -222,6 +237,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(838, 526);
+            this.Controls.Add(this.LVersion);
             this.Controls.Add(this.PAddB);
             this.Controls.Add(this.PMenuUS);
             this.Controls.Add(this.BSalir);
@@ -238,6 +254,7 @@
             this.PFondoBienvenida.ResumeLayout(false);
             this.PFondoBienvenida.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -257,5 +274,6 @@
         private System.Windows.Forms.Panel PEBorde;
         private System.Windows.Forms.Panel PAddB;
         private System.Windows.Forms.Panel PShowOptions;
+        private System.Windows.Forms.Label LVersion;
     }
 }

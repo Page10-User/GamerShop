@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gamer_Shop2._0.Formularios
+namespace Gamer_Shop2._0.Formularios.GestionVenta
 {
-    public partial class ListaProductos : Form
+    public partial class ListaVenta : Form
     {
-        public ListaProductos()
+        public ListaVenta()
         {
             InitializeComponent();
         }

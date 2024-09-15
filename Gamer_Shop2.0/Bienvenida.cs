@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios;
+using Gamer_Shop2._0.Formularios.InterfazUsuarios;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -15,6 +16,7 @@ namespace Gamer_Shop2._0
 
         //Options definido globalmente para mejor manejo.
         private EmpleadoOptions empleadoOptions;
+
         public Bienvenida()
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace Gamer_Shop2._0
             empleadoOptions = new EmpleadoOptions();
             empleadoOptions.MainForm = this;
             empleadoOptions.PanelContainer = PShowOptions;
+            empleadoOptions.LabelContainer = LVersion;
             empleadoOptions.TopLevel = false;
         }
 

@@ -1,4 +1,4 @@
-﻿namespace Gamer_Shop2._0.Formularios
+﻿namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 {
     partial class EmpleadoOptions
     {
@@ -35,6 +35,7 @@
             this.BGestionCliente = new System.Windows.Forms.Button();
             this.BGestionVenta = new System.Windows.Forms.Button();
             this.BOptionsEmpleado = new Gamer_Shop2._0.RJButton();
+            this.BCatalogo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgUs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,6 +99,7 @@
             this.BGestionCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BGestionCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BGestionCliente.UseVisualStyleBackColor = true;
+            this.BGestionCliente.Click += new System.EventHandler(this.BGestionCliente_Click);
             // 
             // BGestionVenta
             // 
@@ -117,6 +119,7 @@
             this.BGestionVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BGestionVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BGestionVenta.UseVisualStyleBackColor = true;
+            this.BGestionVenta.Click += new System.EventHandler(this.BGestionVenta_Click);
             // 
             // BOptionsEmpleado
             // 
@@ -139,12 +142,32 @@
             this.BOptionsEmpleado.TextColor = System.Drawing.Color.White;
             this.BOptionsEmpleado.UseVisualStyleBackColor = false;
             // 
+            // BCatalogo
+            // 
+            this.BCatalogo.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.BCatalogo.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.BCatalogo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.BCatalogo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.BCatalogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BCatalogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BCatalogo.ForeColor = System.Drawing.Color.White;
+            this.BCatalogo.Image = ((System.Drawing.Image)(resources.GetObject("BCatalogo.Image")));
+            this.BCatalogo.Location = new System.Drawing.Point(0, 320);
+            this.BCatalogo.Name = "BCatalogo";
+            this.BCatalogo.Size = new System.Drawing.Size(198, 45);
+            this.BCatalogo.TabIndex = 7;
+            this.BCatalogo.Text = "    Catálogo";
+            this.BCatalogo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BCatalogo.UseVisualStyleBackColor = true;
+            this.BCatalogo.Click += new System.EventHandler(this.BCatalogo_Click);
+            // 
             // EmpleadoOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(198, 524);
+            this.Controls.Add(this.BCatalogo);
             this.Controls.Add(this.BOptionsEmpleado);
             this.Controls.Add(this.BGestionVenta);
             this.Controls.Add(this.BGestionCliente);
@@ -168,5 +191,6 @@
         private System.Windows.Forms.Button BGestionCliente;
         private System.Windows.Forms.Button BGestionVenta;
         private RJButton BOptionsEmpleado;
+        private System.Windows.Forms.Button BCatalogo;
     }
 }

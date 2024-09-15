@@ -1,6 +1,6 @@
-﻿namespace Gamer_Shop2._0.Formularios
+﻿namespace Gamer_Shop2._0.Formularios.GestionProducto
 {
-    partial class AltaProducto
+    partial class ModificarProducto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,66 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AltaProducto));
-            this.PBImgAltaPr = new System.Windows.Forms.PictureBox();
-            this.LTituloAltaPr = new System.Windows.Forms.Label();
-            this.PContAltaPr = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarProducto));
+            this.label1 = new System.Windows.Forms.Label();
+            this.PContModificarPr = new System.Windows.Forms.Panel();
             this.LCategoriaPr = new System.Windows.Forms.Label();
             this.LStockPr = new System.Windows.Forms.Label();
             this.LDescripcionPr = new System.Windows.Forms.Label();
             this.LPrecioPr = new System.Windows.Forms.Label();
             this.LNombrePr = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BShowLista = new System.Windows.Forms.Label();
-            this.BShowListaPr = new Gamer_Shop2._0.RJButton();
-            this.BRegistrarPr = new Gamer_Shop2._0.RJButton();
+            this.LTituloModificarPr = new System.Windows.Forms.Label();
+            this.PBImgModificarPr = new System.Windows.Forms.PictureBox();
+            this.BReturnToBack = new Gamer_Shop2._0.RJButton();
+            this.BModificarPr = new Gamer_Shop2._0.RJButton();
             this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaPr)).BeginInit();
-            this.PContAltaPr.SuspendLayout();
+            this.PContModificarPr.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).BeginInit();
             this.SuspendLayout();
             // 
-            // PBImgAltaPr
+            // label1
             // 
-            this.PBImgAltaPr.BackColor = System.Drawing.Color.Transparent;
-            this.PBImgAltaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgAltaPr.BackgroundImage")));
-            this.PBImgAltaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgAltaPr.Location = new System.Drawing.Point(137, 35);
-            this.PBImgAltaPr.Name = "PBImgAltaPr";
-            this.PBImgAltaPr.Size = new System.Drawing.Size(47, 41);
-            this.PBImgAltaPr.TabIndex = 0;
-            this.PBImgAltaPr.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(514, 277);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 18);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Modificar";
             // 
-            // LTituloAltaPr
+            // PContModificarPr
             // 
-            this.LTituloAltaPr.AutoSize = true;
-            this.LTituloAltaPr.BackColor = System.Drawing.Color.Transparent;
-            this.LTituloAltaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTituloAltaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloAltaPr.Location = new System.Drawing.Point(230, 35);
-            this.LTituloAltaPr.Name = "LTituloAltaPr";
-            this.LTituloAltaPr.Size = new System.Drawing.Size(255, 42);
-            this.LTituloAltaPr.TabIndex = 1;
-            this.LTituloAltaPr.Text = "Alta Producto";
-            // 
-            // PContAltaPr
-            // 
-            this.PContAltaPr.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContAltaPr.Controls.Add(this.TStockPr);
-            this.PContAltaPr.Controls.Add(this.TPrecioPr);
-            this.PContAltaPr.Controls.Add(this.TDescripcionPr);
-            this.PContAltaPr.Controls.Add(this.TNombrePr);
-            this.PContAltaPr.Controls.Add(this.LCategoriaPr);
-            this.PContAltaPr.Controls.Add(this.LStockPr);
-            this.PContAltaPr.Controls.Add(this.LDescripcionPr);
-            this.PContAltaPr.Controls.Add(this.LPrecioPr);
-            this.PContAltaPr.Controls.Add(this.LNombrePr);
-            this.PContAltaPr.Location = new System.Drawing.Point(122, 111);
-            this.PContAltaPr.Name = "PContAltaPr";
-            this.PContAltaPr.Size = new System.Drawing.Size(315, 290);
-            this.PContAltaPr.TabIndex = 2;
+            this.PContModificarPr.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContModificarPr.Controls.Add(this.TStockPr);
+            this.PContModificarPr.Controls.Add(this.TPrecioPr);
+            this.PContModificarPr.Controls.Add(this.TDescripcionPr);
+            this.PContModificarPr.Controls.Add(this.TNombrePr);
+            this.PContModificarPr.Controls.Add(this.LCategoriaPr);
+            this.PContModificarPr.Controls.Add(this.LStockPr);
+            this.PContModificarPr.Controls.Add(this.LDescripcionPr);
+            this.PContModificarPr.Controls.Add(this.LPrecioPr);
+            this.PContModificarPr.Controls.Add(this.LNombrePr);
+            this.PContModificarPr.Location = new System.Drawing.Point(111, 110);
+            this.PContModificarPr.Name = "PContModificarPr";
+            this.PContModificarPr.Size = new System.Drawing.Size(315, 290);
+            this.PContModificarPr.TabIndex = 9;
             // 
             // LCategoriaPr
             // 
@@ -149,74 +137,75 @@
             this.LNombrePr.TabIndex = 7;
             this.LNombrePr.Text = "Nombre";
             // 
-            // label1
+            // LTituloModificarPr
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(520, 228);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 18);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Registrar";
+            this.LTituloModificarPr.AutoSize = true;
+            this.LTituloModificarPr.BackColor = System.Drawing.Color.Transparent;
+            this.LTituloModificarPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTituloModificarPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LTituloModificarPr.Location = new System.Drawing.Point(161, 33);
+            this.LTituloModificarPr.Name = "LTituloModificarPr";
+            this.LTituloModificarPr.Size = new System.Drawing.Size(347, 42);
+            this.LTituloModificarPr.TabIndex = 8;
+            this.LTituloModificarPr.Text = "Modificar Producto";
             // 
-            // BShowLista
+            // PBImgModificarPr
             // 
-            this.BShowLista.AutoSize = true;
-            this.BShowLista.BackColor = System.Drawing.Color.Transparent;
-            this.BShowLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BShowLista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BShowLista.Location = new System.Drawing.Point(486, 352);
-            this.BShowLista.Name = "BShowLista";
-            this.BShowLista.Size = new System.Drawing.Size(150, 18);
-            this.BShowLista.TabIndex = 6;
-            this.BShowLista.Text = "Lista de Productos";
+            this.PBImgModificarPr.BackColor = System.Drawing.Color.Transparent;
+            this.PBImgModificarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgModificarPr.BackgroundImage")));
+            this.PBImgModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PBImgModificarPr.Location = new System.Drawing.Point(108, 33);
+            this.PBImgModificarPr.Name = "PBImgModificarPr";
+            this.PBImgModificarPr.Size = new System.Drawing.Size(47, 41);
+            this.PBImgModificarPr.TabIndex = 7;
+            this.PBImgModificarPr.TabStop = false;
             // 
-            // BShowListaPr
+            // BReturnToBack
             // 
-            this.BShowListaPr.BackColor = System.Drawing.Color.Black;
-            this.BShowListaPr.BackgroundColor = System.Drawing.Color.Black;
-            this.BShowListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowListaPr.BackgroundImage")));
-            this.BShowListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BShowListaPr.BorderColor = System.Drawing.Color.Lime;
-            this.BShowListaPr.BorderRadius = 20;
-            this.BShowListaPr.BorderSize = 1;
-            this.BShowListaPr.FlatAppearance.BorderSize = 0;
-            this.BShowListaPr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BShowListaPr.ForeColor = System.Drawing.Color.White;
-            this.BShowListaPr.Location = new System.Drawing.Point(516, 273);
-            this.BShowListaPr.Name = "BShowListaPr";
-            this.BShowListaPr.Size = new System.Drawing.Size(84, 76);
-            this.BShowListaPr.TabIndex = 4;
-            this.BShowListaPr.TextColor = System.Drawing.Color.White;
-            this.BShowListaPr.UseVisualStyleBackColor = false;
-            this.BShowListaPr.Click += new System.EventHandler(this.BShowListaPr_Click);
+            this.BReturnToBack.BackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReturnToBack.BackgroundImage")));
+            this.BReturnToBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BReturnToBack.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BReturnToBack.BorderRadius = 17;
+            this.BReturnToBack.BorderSize = 1;
+            this.BReturnToBack.FlatAppearance.BorderSize = 0;
+            this.BReturnToBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BReturnToBack.ForeColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.Location = new System.Drawing.Point(628, 12);
+            this.BReturnToBack.Name = "BReturnToBack";
+            this.BReturnToBack.Size = new System.Drawing.Size(34, 34);
+            this.BReturnToBack.TabIndex = 13;
+            this.BReturnToBack.TextColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.UseVisualStyleBackColor = false;
+            this.BReturnToBack.Click += new System.EventHandler(this.BReturnToBack_Click);
             // 
-            // BRegistrarPr
+            // BModificarPr
             // 
-            this.BRegistrarPr.BackColor = System.Drawing.Color.Black;
-            this.BRegistrarPr.BackgroundColor = System.Drawing.Color.Black;
-            this.BRegistrarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BRegistrarPr.BackgroundImage")));
-            this.BRegistrarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BRegistrarPr.BorderColor = System.Drawing.Color.Lime;
-            this.BRegistrarPr.BorderRadius = 20;
-            this.BRegistrarPr.BorderSize = 1;
-            this.BRegistrarPr.FlatAppearance.BorderSize = 0;
-            this.BRegistrarPr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BRegistrarPr.ForeColor = System.Drawing.Color.White;
-            this.BRegistrarPr.Location = new System.Drawing.Point(516, 149);
-            this.BRegistrarPr.Name = "BRegistrarPr";
-            this.BRegistrarPr.Size = new System.Drawing.Size(84, 76);
-            this.BRegistrarPr.TabIndex = 3;
-            this.BRegistrarPr.TextColor = System.Drawing.Color.White;
-            this.BRegistrarPr.UseVisualStyleBackColor = false;
+            this.BModificarPr.BackColor = System.Drawing.Color.Black;
+            this.BModificarPr.BackgroundColor = System.Drawing.Color.Black;
+            this.BModificarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BModificarPr.BackgroundImage")));
+            this.BModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BModificarPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BModificarPr.BorderRadius = 20;
+            this.BModificarPr.BorderSize = 1;
+            this.BModificarPr.FlatAppearance.BorderSize = 0;
+            this.BModificarPr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BModificarPr.ForeColor = System.Drawing.Color.White;
+            this.BModificarPr.Location = new System.Drawing.Point(510, 198);
+            this.BModificarPr.Name = "BModificarPr";
+            this.BModificarPr.Size = new System.Drawing.Size(84, 76);
+            this.BModificarPr.TabIndex = 10;
+            this.BModificarPr.TextColor = System.Drawing.Color.White;
+            this.BModificarPr.UseVisualStyleBackColor = false;
             // 
             // TStockPr
             // 
             this.TStockPr.BackColor = System.Drawing.Color.Black;
-            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TStockPr.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TStockPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.TStockPr.BorderSize = 2;
             this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TStockPr.ForeColor = System.Drawing.Color.White;
@@ -234,8 +223,8 @@
             // TPrecioPr
             // 
             this.TPrecioPr.BackColor = System.Drawing.Color.Black;
-            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.TPrecioPr.BorderSize = 2;
             this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPrecioPr.ForeColor = System.Drawing.Color.White;
@@ -253,8 +242,8 @@
             // TDescripcionPr
             // 
             this.TDescripcionPr.BackColor = System.Drawing.Color.Black;
-            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.TDescripcionPr.BorderSize = 2;
             this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
@@ -272,8 +261,8 @@
             // TNombrePr
             // 
             this.TNombrePr.BackColor = System.Drawing.Color.Black;
-            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TNombrePr.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TNombrePr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.TNombrePr.BorderSize = 2;
             this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNombrePr.ForeColor = System.Drawing.Color.White;
@@ -288,29 +277,29 @@
             this.TNombrePr.Texts = "";
             this.TNombrePr.UnderlinedStyle = true;
             // 
-            // AltaProducto
+            // ModificarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.BShowLista);
+            this.Controls.Add(this.BReturnToBack);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BShowListaPr);
-            this.Controls.Add(this.BRegistrarPr);
-            this.Controls.Add(this.PContAltaPr);
-            this.Controls.Add(this.LTituloAltaPr);
-            this.Controls.Add(this.PBImgAltaPr);
+            this.Controls.Add(this.BModificarPr);
+            this.Controls.Add(this.PContModificarPr);
+            this.Controls.Add(this.LTituloModificarPr);
+            this.Controls.Add(this.PBImgModificarPr);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AltaProducto";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AltaProducto";
-            ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaPr)).EndInit();
-            this.PContAltaPr.ResumeLayout(false);
-            this.PContAltaPr.PerformLayout();
+            this.Name = "ModificarProducto";
+            this.Text = "ModificarProducto";
+            this.Load += new System.EventHandler(this.ModificarProducto_Load);
+            this.PContModificarPr.ResumeLayout(false);
+            this.PContModificarPr.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,21 +307,20 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox PBImgAltaPr;
-        private System.Windows.Forms.Label LTituloAltaPr;
-        private System.Windows.Forms.Panel PContAltaPr;
-        private RJButton BRegistrarPr;
-        private RJButton BShowListaPr;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label BShowLista;
+        private RJButton BModificarPr;
+        private System.Windows.Forms.Panel PContModificarPr;
+        private RJControls.RJTextBox TStockPr;
+        private RJControls.RJTextBox TPrecioPr;
+        private RJControls.RJTextBox TDescripcionPr;
         private RJControls.RJTextBox TNombrePr;
         private System.Windows.Forms.Label LCategoriaPr;
         private System.Windows.Forms.Label LStockPr;
         private System.Windows.Forms.Label LDescripcionPr;
         private System.Windows.Forms.Label LPrecioPr;
         private System.Windows.Forms.Label LNombrePr;
-        private RJControls.RJTextBox TStockPr;
-        private RJControls.RJTextBox TPrecioPr;
-        private RJControls.RJTextBox TDescripcionPr;
+        private System.Windows.Forms.Label LTituloModificarPr;
+        private System.Windows.Forms.PictureBox PBImgModificarPr;
+        private RJButton BReturnToBack;
     }
 }
