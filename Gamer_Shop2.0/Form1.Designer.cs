@@ -101,11 +101,11 @@
             this.TBValidacion2.AutoSize = true;
             this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(2, 202);
+            this.TBValidacion2.Location = new System.Drawing.Point(0, 203);
             this.TBValidacion2.Name = "TBValidacion2";
-            this.TBValidacion2.Size = new System.Drawing.Size(218, 14);
+            this.TBValidacion2.Size = new System.Drawing.Size(220, 14);
             this.TBValidacion2.TabIndex = 9;
-            this.TBValidacion2.Text = "La contraseña debe tener mas de 7 caracteres.";
+            this.TBValidacion2.Text = "La contraseña debe tener de 7 a 20 caracteres.";
             this.TBValidacion2.Visible = false;
             // 
             // TBValidacion
@@ -113,11 +113,11 @@
             this.TBValidacion.AutoSize = true;
             this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(19, 159);
+            this.TBValidacion.Location = new System.Drawing.Point(18, 160);
             this.TBValidacion.Name = "TBValidacion";
-            this.TBValidacion.Size = new System.Drawing.Size(200, 14);
+            this.TBValidacion.Size = new System.Drawing.Size(202, 14);
             this.TBValidacion.TabIndex = 8;
-            this.TBValidacion.Text = "El usuario debe tener mas de 7 caracteres.";
+            this.TBValidacion.Text = "El usuario debe tener de 7 a 20 caracteres.";
             this.TBValidacion.Visible = false;
             // 
             // LGamerShop
@@ -153,7 +153,9 @@
             this.TBContraseña.TabIndex = 11;
             this.TBContraseña.Texts = "";
             this.TBContraseña.UnderlinedStyle = true;
+            this.TBContraseña._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             this.TBContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuarioUs_KeyPress);
+            this.TBContraseña.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // TBUsuario
             // 
