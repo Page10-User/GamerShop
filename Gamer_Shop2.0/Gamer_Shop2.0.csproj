@@ -100,12 +100,6 @@
     <Compile Include="Formularios\GestionVenta\ListaVenta.Designer.cs">
       <DependentUpon>ListaVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\GestionVenta\ModificarVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\GestionVenta\ModificarVenta.Designer.cs">
-      <DependentUpon>ModificarVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\InterfazUsuarios\AdministradorOptions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionVenta\AltaVenta.resx">
       <DependentUpon>AltaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionVenta\ListaVenta.resx">
+      <DependentUpon>ListaVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\InterfazUsuarios\AdministradorOptions.resx">
       <DependentUpon>AdministradorOptions.cs</DependentUpon>

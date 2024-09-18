@@ -34,14 +34,14 @@
             this.LUsuario = new System.Windows.Forms.Label();
             this.LContraseña = new System.Windows.Forms.Label();
             this.PInicio = new System.Windows.Forms.Panel();
-            this.TBUsuarioUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion2 = new System.Windows.Forms.Label();
             this.TBValidacion = new System.Windows.Forms.Label();
-            this.TBContraseña = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.BIniciar = new Gamer_Shop2._0.RJButton();
             this.LGamerShop = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TBContraseña = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBUsuario = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BSalir = new Gamer_Shop2._0.RJButton();
+            this.BIniciar = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PInicio.SuspendLayout();
             this.SuspendLayout();
@@ -82,10 +82,10 @@
             // PInicio
             // 
             this.PInicio.BackColor = System.Drawing.Color.Black;
-            this.PInicio.Controls.Add(this.TBUsuarioUs);
-            this.PInicio.Controls.Add(this.TBValidacion2);
-            this.PInicio.Controls.Add(this.TBValidacion);
             this.PInicio.Controls.Add(this.TBContraseña);
+            this.PInicio.Controls.Add(this.TBValidacion2);
+            this.PInicio.Controls.Add(this.TBUsuario);
+            this.PInicio.Controls.Add(this.TBValidacion);
             this.PInicio.Controls.Add(this.BIniciar);
             this.PInicio.Controls.Add(this.LGamerShop);
             this.PInicio.Controls.Add(this.LContraseña);
@@ -95,26 +95,6 @@
             this.PInicio.Name = "PInicio";
             this.PInicio.Size = new System.Drawing.Size(223, 285);
             this.PInicio.TabIndex = 0;
-            // 
-            // TBUsuarioUs
-            // 
-            this.TBUsuarioUs.BackColor = System.Drawing.Color.Black;
-            this.TBUsuarioUs.BorderColor = System.Drawing.Color.Lime;
-            this.TBUsuarioUs.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TBUsuarioUs.BorderSize = 1;
-            this.TBUsuarioUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBUsuarioUs.ForeColor = System.Drawing.Color.DimGray;
-            this.TBUsuarioUs.Location = new System.Drawing.Point(104, 129);
-            this.TBUsuarioUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TBUsuarioUs.Multiline = false;
-            this.TBUsuarioUs.Name = "TBUsuarioUs";
-            this.TBUsuarioUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TBUsuarioUs.PasswordChar = false;
-            this.TBUsuarioUs.Size = new System.Drawing.Size(100, 31);
-            this.TBUsuarioUs.TabIndex = 10;
-            this.TBUsuarioUs.Texts = "";
-            this.TBUsuarioUs.UnderlinedStyle = true;
-            this.TBUsuarioUs._TextChanged += new System.EventHandler(this.TBUsuarioUs__TextChanged);
             // 
             // TBValidacion2
             // 
@@ -140,46 +120,6 @@
             this.TBValidacion.Text = "El usuario debe tener mas de 7 caracteres.";
             this.TBValidacion.Visible = false;
             // 
-            // TBContraseña
-            // 
-            this.TBContraseña.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.TBContraseña.BorderColor = System.Drawing.Color.Lime;
-            this.TBContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBContraseña.BorderSize = 2;
-            this.TBContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBContraseña.ForeColor = System.Drawing.Color.White;
-            this.TBContraseña.Location = new System.Drawing.Point(104, 175);
-            this.TBContraseña.Margin = new System.Windows.Forms.Padding(4);
-            this.TBContraseña.Multiline = false;
-            this.TBContraseña.Name = "TBContraseña";
-            this.TBContraseña.Padding = new System.Windows.Forms.Padding(7);
-            this.TBContraseña.PasswordChar = true;
-            this.TBContraseña.Size = new System.Drawing.Size(100, 28);
-            this.TBContraseña.TabIndex = 2;
-            this.TBContraseña.Texts = "";
-            this.TBContraseña.UnderlinedStyle = true;
-            this.TBContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuarioUs_KeyPress);
-            // 
-            // BIniciar
-            // 
-            this.BIniciar.BackColor = System.Drawing.SystemColors.Window;
-            this.BIniciar.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.BIniciar.BorderColor = System.Drawing.Color.Lime;
-            this.BIniciar.BorderRadius = 14;
-            this.BIniciar.BorderSize = 2;
-            this.BIniciar.FlatAppearance.BorderSize = 0;
-            this.BIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BIniciar.ForeColor = System.Drawing.Color.Black;
-            this.BIniciar.Location = new System.Drawing.Point(18, 240);
-            this.BIniciar.Name = "BIniciar";
-            this.BIniciar.Size = new System.Drawing.Size(113, 29);
-            this.BIniciar.TabIndex = 1;
-            this.BIniciar.Text = "Iniciar";
-            this.BIniciar.TextColor = System.Drawing.Color.Black;
-            this.BIniciar.UseVisualStyleBackColor = false;
-            this.BIniciar.Click += new System.EventHandler(this.BIniciar_Click);
-            // 
             // LGamerShop
             // 
             this.LGamerShop.AutoSize = true;
@@ -191,6 +131,52 @@
             this.LGamerShop.Size = new System.Drawing.Size(156, 29);
             this.LGamerShop.TabIndex = 5;
             this.LGamerShop.Text = "Gamer_Shop";
+            // 
+            // TBContraseña
+            // 
+            this.TBContraseña.BackColor = System.Drawing.Color.Black;
+            this.TBContraseña.BorderColor = System.Drawing.Color.Lime;
+            this.TBContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.TBContraseña.BorderRadius = 0;
+            this.TBContraseña.BorderSize = 2;
+            this.TBContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBContraseña.Location = new System.Drawing.Point(105, 172);
+            this.TBContraseña.Margin = new System.Windows.Forms.Padding(4);
+            this.TBContraseña.Multiline = false;
+            this.TBContraseña.Name = "TBContraseña";
+            this.TBContraseña.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBContraseña.PasswordChar = false;
+            this.TBContraseña.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBContraseña.PlaceholderText = "";
+            this.TBContraseña.Size = new System.Drawing.Size(103, 31);
+            this.TBContraseña.TabIndex = 11;
+            this.TBContraseña.Texts = "";
+            this.TBContraseña.UnderlinedStyle = true;
+            this.TBContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuarioUs_KeyPress);
+            // 
+            // TBUsuario
+            // 
+            this.TBUsuario.BackColor = System.Drawing.Color.Black;
+            this.TBUsuario.BorderColor = System.Drawing.Color.Lime;
+            this.TBUsuario.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.TBUsuario.BorderRadius = 0;
+            this.TBUsuario.BorderSize = 2;
+            this.TBUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBUsuario.Location = new System.Drawing.Point(105, 126);
+            this.TBUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.TBUsuario.Multiline = false;
+            this.TBUsuario.Name = "TBUsuario";
+            this.TBUsuario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBUsuario.PasswordChar = false;
+            this.TBUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBUsuario.PlaceholderText = "";
+            this.TBUsuario.Size = new System.Drawing.Size(103, 31);
+            this.TBUsuario.TabIndex = 10;
+            this.TBUsuario.Texts = "";
+            this.TBUsuario.UnderlinedStyle = true;
+            this.TBUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuarioUs_KeyPress);
             // 
             // BSalir
             // 
@@ -212,6 +198,26 @@
             this.BSalir.TextColor = System.Drawing.Color.White;
             this.BSalir.UseVisualStyleBackColor = false;
             this.BSalir.Click += new System.EventHandler(this.BSalir_Click);
+            // 
+            // BIniciar
+            // 
+            this.BIniciar.BackColor = System.Drawing.SystemColors.Window;
+            this.BIniciar.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.BIniciar.BorderColor = System.Drawing.Color.Lime;
+            this.BIniciar.BorderRadius = 14;
+            this.BIniciar.BorderSize = 2;
+            this.BIniciar.FlatAppearance.BorderSize = 0;
+            this.BIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BIniciar.ForeColor = System.Drawing.Color.Black;
+            this.BIniciar.Location = new System.Drawing.Point(18, 240);
+            this.BIniciar.Name = "BIniciar";
+            this.BIniciar.Size = new System.Drawing.Size(113, 29);
+            this.BIniciar.TabIndex = 1;
+            this.BIniciar.Text = "Iniciar";
+            this.BIniciar.TextColor = System.Drawing.Color.Black;
+            this.BIniciar.UseVisualStyleBackColor = false;
+            this.BIniciar.Click += new System.EventHandler(this.BIniciar_Click);
             // 
             // Form1
             // 
@@ -243,11 +249,11 @@
         private System.Windows.Forms.Label LGamerShop;
         private System.Windows.Forms.Timer timer1;
         private RJButton BIniciar;
-        private RJControls.RJTextBox TBContraseña;
         private RJButton BSalir;
         private System.Windows.Forms.Label TBValidacion;
         private System.Windows.Forms.Label TBValidacion2;
-        private RJControls.RJTextBox TBUsuarioUs;
+        private RJControls.RJTextBox_radio_ TBUsuario;
+        private RJControls.RJTextBox_radio_ TBContraseña;
     }
 }
 

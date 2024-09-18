@@ -72,19 +72,19 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             LabelContainer.Visible = false;
 
             // Mostrar form
-            AltaVenta formAltaVn = new AltaVenta();
-            formAltaVn.TopLevel = false;
-            formAltaVn.PanelContainer = PanelContainer;
+            ListaVenta formListaVn = new ListaVenta();
+            formListaVn.TopLevel = false;
+            formListaVn.PanelContainer = PanelContainer;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
-            PanelContainer.Controls.Add(formAltaVn);
+            PanelContainer.Controls.Add(formListaVn);
             PanelContainer.BringToFront();
 
-            formAltaVn.Show();
+            formListaVn.Show();
         }
 
         private void BCatalogo_Click(object sender, EventArgs e)
         {
-            //Cerrar el menú tras elegír una opción
+            //Cerrar el menú tras elegír una opción 
             MainForm.BContracMenu_Click(sender, e);
 
             //Ocultar Otros.

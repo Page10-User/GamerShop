@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.GestionVenta;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,7 +46,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
                 panel.Region = new Region(path);
 
 
-                using (Pen pen = new Pen(Color.Red, 3))
+                using (Pen pen = new Pen(Color.Violet, 3))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -91,6 +93,25 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             {
                 e.Graphics.DrawPath(pen, path);
             }
+        }
+
+        private void BReturn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BListaVenta_Click(object sender, EventArgs e)
+        {
+            // Crear una nueva instancia de ListaProductos
+            ListaVenta listVn = new ListaVenta();
+            listVn.TopLevel = false;
+
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(listVn);
+            listVn.PanelContainer = PanelContainer;
+            listVn.Show();
+            this.Close();
         }
     }
 }

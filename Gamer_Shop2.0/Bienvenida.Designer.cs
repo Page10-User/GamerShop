@@ -42,9 +42,9 @@
             this.THorario = new System.Windows.Forms.Timer(this.components);
             this.PAddB = new System.Windows.Forms.Panel();
             this.PShowOptions = new System.Windows.Forms.Panel();
+            this.LVersion = new System.Windows.Forms.Label();
             this.BSalir = new Gamer_Shop2._0.RJButton();
             this.BExpandMenu = new Gamer_Shop2._0.RJButton();
-            this.LVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.PMenuUS.SuspendLayout();
             this.PFondoBienvenida.SuspendLayout();
@@ -173,6 +173,18 @@
             this.PShowOptions.Size = new System.Drawing.Size(684, 436);
             this.PShowOptions.TabIndex = 17;
             // 
+            // LVersion
+            // 
+            this.LVersion.AutoSize = true;
+            this.LVersion.BackColor = System.Drawing.Color.Transparent;
+            this.LVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVersion.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.LVersion.Location = new System.Drawing.Point(731, 341);
+            this.LVersion.Name = "LVersion";
+            this.LVersion.Size = new System.Drawing.Size(84, 16);
+            this.LVersion.TabIndex = 18;
+            this.LVersion.Text = "Version 1.0";
+            // 
             // BSalir
             // 
             this.BSalir.BackColor = System.Drawing.Color.Transparent;
@@ -216,18 +228,6 @@
             this.BExpandMenu.TextColor = System.Drawing.Color.Black;
             this.BExpandMenu.UseVisualStyleBackColor = false;
             this.BExpandMenu.Click += new System.EventHandler(this.BExpandMenu_Click);
-            // 
-            // LVersion
-            // 
-            this.LVersion.AutoSize = true;
-            this.LVersion.BackColor = System.Drawing.Color.Transparent;
-            this.LVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LVersion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LVersion.Location = new System.Drawing.Point(731, 341);
-            this.LVersion.Name = "LVersion";
-            this.LVersion.Size = new System.Drawing.Size(84, 16);
-            this.LVersion.TabIndex = 18;
-            this.LVersion.Text = "Version 1.0";
             // 
             // Bienvenida
             // 

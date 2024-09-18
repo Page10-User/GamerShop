@@ -20,9 +20,9 @@ namespace Gamer_Shop2._0
             InitializeComponent();
             this.Paint += new PaintEventHandler(Form1_Paint);
             this.PInicio.Paint += new PaintEventHandler(panel1_Paint);
-            TBUsuarioUs.Validating += new CancelEventHandler(TextBox_Validating);
+            TBUsuario.Validating += new CancelEventHandler(TextBox_Validating);
             TBContraseña.Validating += new CancelEventHandler(TextBox_Validating);
-            TBUsuarioUs.KeyPress += new KeyPressEventHandler(TBUsuarioUs_KeyPress);
+            TBUsuario.KeyPress += new KeyPressEventHandler(TBUsuarioUs_KeyPress);
 
         }
 
@@ -70,13 +70,13 @@ namespace Gamer_Shop2._0
 
         private void TextBox_Validating(object sender, CancelEventArgs e)
         {
-            var textBox = sender as RJControls.RJTextBox;
+            var textBox = sender as RJControls.RJTextBox_radio_;
             if (textBox != null)
             {
                 if (textBox.Texts.Length <= 7 || textBox.Texts.Length >= 20)
                 {
                     e.Cancel = true;
-                    if (textBox == TBUsuarioUs)
+                    if (textBox == TBUsuario)
                     {
                         TBValidacion.Visible = true;
                     }
@@ -87,7 +87,7 @@ namespace Gamer_Shop2._0
                 }
                 else
                 {
-                    if (textBox == TBUsuarioUs)
+                    if (textBox == TBUsuario)
                     {
                         TBValidacion.Visible = false;
                     }
@@ -101,7 +101,7 @@ namespace Gamer_Shop2._0
 
 
 
-        private void TBUsuarioUs__TextChanged(object sender, EventArgs e)
+        private void TBUsuario__TextChanged(object sender, EventArgs e)
         {
             this.AutoValidate = AutoValidate.EnablePreventFocusChange;
         }
@@ -114,7 +114,7 @@ namespace Gamer_Shop2._0
 
         private void BIniciar_Click(object sender, EventArgs e)
         {
-            if (TBUsuarioUs.Validate() == true && TBContraseña.Validate() == true){
+            if (TBUsuario.Validate() == true && TBContraseña.Validate() == true){
                 Bienvenida bienvenida = new Bienvenida();
                 bienvenida.Show();
                 this.Hide();
@@ -127,7 +127,7 @@ namespace Gamer_Shop2._0
         private void TBUsuarioUs_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBUsuarioUs.Texts.Trim().Length < 21;
+            bool longitud = TBUsuario.Texts.Trim().Length < 21;
 
             if (longitud || escontrol)
             {
@@ -138,7 +138,5 @@ namespace Gamer_Shop2._0
                 e.Handled = true;
             }
         }
-
-        
     }
 }
