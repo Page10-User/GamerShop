@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -100,6 +101,100 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             listPr.PanelContainer = PanelContainer;
             listPr.Show();
             this.Close();
+        }
+
+        private void TextBox_Validating(object sender, CancelEventArgs e)
+        {
+            var textBox = sender as RJControls.RJTextBox;
+            if (textBox != null)
+            {
+                if (textBox == TNombrePr)
+                {
+                    if (textBox.Texts.Length >= 50)
+                    {
+                        e.Cancel = true;
+                        TBValidacion.Visible = true;
+
+                    }
+                    else
+                    {
+                        TBValidacion.Visible = false;
+                    }
+                }
+                else if (textBox == TDescripcionPr)
+                {
+                    if (textBox.Texts.Length >= 200)
+                    {
+                        e.Cancel = true;
+                        TBValidacion2.Visible = true;
+                    }
+                    else
+                    {
+                        TBValidacion2.Visible = false;
+                    }
+                }
+                else if (textBox == TStockPr)
+                {
+                    int number;
+                    if (!int.TryParse(textBox.Texts, out number))
+                    {
+                        e.Cancel = true;
+                        TBValidacion4.Visible = true;
+                    }
+                    else
+                    {
+                        TBValidacion4.Visible = false;
+                    }
+                }
+                else if (textBox == TPrecioPr)
+                {
+                    float number;
+                    if (!float.TryParse(textBox.Texts, out number))
+                    {
+                        e.Cancel = true;
+                        TBValidacion3.Visible = true;
+                    }
+                    else
+                    {
+                        TBValidacion3.Visible = false;
+                    }
+                }
+            }
+        }
+                
+            
+        
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.AutoValidate = AutoValidate.EnablePreventFocusChange;
+        }
+
+        private void BRegistrarPr_Click(object sender, EventArgs e)
+        {
+            if (TNombrePr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty)
+            {
+                MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else
+            {
+                MessageBox.Show("Debe completar todos los campos para registrar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool escontrol = Char.IsControl(e.KeyChar);
+            bool longitud = TNombrePr.Texts.Trim().Length < 50;
+
+            if (longitud || escontrol)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -32,10 +32,6 @@
             this.PBImgAltaPr = new System.Windows.Forms.PictureBox();
             this.LTituloAltaPr = new System.Windows.Forms.Label();
             this.PContAltaPr = new System.Windows.Forms.Panel();
-            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LCategoriaPr = new System.Windows.Forms.Label();
             this.LStockPr = new System.Windows.Forms.Label();
             this.LDescripcionPr = new System.Windows.Forms.Label();
@@ -43,8 +39,16 @@
             this.LNombrePr = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BShowLista = new System.Windows.Forms.Label();
+            this.TBValidacion = new System.Windows.Forms.Label();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
+            this.TBValidacion3 = new System.Windows.Forms.Label();
+            this.TBValidacion4 = new System.Windows.Forms.Label();
             this.BShowListaPr = new Gamer_Shop2._0.RJButton();
             this.BRegistrarPr = new Gamer_Shop2._0.RJButton();
+            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaPr)).BeginInit();
             this.PContAltaPr.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +79,10 @@
             // PContAltaPr
             // 
             this.PContAltaPr.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaPr.Controls.Add(this.TBValidacion4);
+            this.PContAltaPr.Controls.Add(this.TBValidacion3);
+            this.PContAltaPr.Controls.Add(this.TBValidacion2);
+            this.PContAltaPr.Controls.Add(this.TBValidacion);
             this.PContAltaPr.Controls.Add(this.TStockPr);
             this.PContAltaPr.Controls.Add(this.TPrecioPr);
             this.PContAltaPr.Controls.Add(this.TDescripcionPr);
@@ -88,82 +96,6 @@
             this.PContAltaPr.Name = "PContAltaPr";
             this.PContAltaPr.Size = new System.Drawing.Size(315, 290);
             this.PContAltaPr.TabIndex = 2;
-            // 
-            // TStockPr
-            // 
-            this.TStockPr.BackColor = System.Drawing.Color.Black;
-            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TStockPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TStockPr.BorderSize = 2;
-            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TStockPr.ForeColor = System.Drawing.Color.White;
-            this.TStockPr.Location = new System.Drawing.Point(128, 145);
-            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TStockPr.Multiline = false;
-            this.TStockPr.Name = "TStockPr";
-            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TStockPr.PasswordChar = false;
-            this.TStockPr.Size = new System.Drawing.Size(172, 31);
-            this.TStockPr.TabIndex = 15;
-            this.TStockPr.Texts = "";
-            this.TStockPr.UnderlinedStyle = true;
-            // 
-            // TPrecioPr
-            // 
-            this.TPrecioPr.BackColor = System.Drawing.Color.Black;
-            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TPrecioPr.BorderSize = 2;
-            this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TPrecioPr.ForeColor = System.Drawing.Color.White;
-            this.TPrecioPr.Location = new System.Drawing.Point(128, 103);
-            this.TPrecioPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TPrecioPr.Multiline = false;
-            this.TPrecioPr.Name = "TPrecioPr";
-            this.TPrecioPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TPrecioPr.PasswordChar = false;
-            this.TPrecioPr.Size = new System.Drawing.Size(172, 31);
-            this.TPrecioPr.TabIndex = 14;
-            this.TPrecioPr.Texts = "";
-            this.TPrecioPr.UnderlinedStyle = true;
-            // 
-            // TDescripcionPr
-            // 
-            this.TDescripcionPr.BackColor = System.Drawing.Color.Black;
-            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TDescripcionPr.BorderSize = 2;
-            this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
-            this.TDescripcionPr.Location = new System.Drawing.Point(128, 62);
-            this.TDescripcionPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TDescripcionPr.Multiline = true;
-            this.TDescripcionPr.Name = "TDescripcionPr";
-            this.TDescripcionPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TDescripcionPr.PasswordChar = false;
-            this.TDescripcionPr.Size = new System.Drawing.Size(172, 31);
-            this.TDescripcionPr.TabIndex = 13;
-            this.TDescripcionPr.Texts = "";
-            this.TDescripcionPr.UnderlinedStyle = true;
-            // 
-            // TNombrePr
-            // 
-            this.TNombrePr.BackColor = System.Drawing.Color.Black;
-            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TNombrePr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TNombrePr.BorderSize = 2;
-            this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombrePr.ForeColor = System.Drawing.Color.White;
-            this.TNombrePr.Location = new System.Drawing.Point(128, 21);
-            this.TNombrePr.Margin = new System.Windows.Forms.Padding(4);
-            this.TNombrePr.Multiline = false;
-            this.TNombrePr.Name = "TNombrePr";
-            this.TNombrePr.Padding = new System.Windows.Forms.Padding(7);
-            this.TNombrePr.PasswordChar = false;
-            this.TNombrePr.Size = new System.Drawing.Size(172, 31);
-            this.TNombrePr.TabIndex = 12;
-            this.TNombrePr.Texts = "";
-            this.TNombrePr.UnderlinedStyle = true;
             // 
             // LCategoriaPr
             // 
@@ -249,6 +181,54 @@
             this.BShowLista.TabIndex = 6;
             this.BShowLista.Text = "Lista de Productos";
             // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion.Location = new System.Drawing.Point(86, 54);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(214, 14);
+            this.TBValidacion.TabIndex = 16;
+            this.TBValidacion.Text = "El nombre no debe superar los 50 carácteres.";
+            this.TBValidacion.Visible = false;
+            // 
+            // TBValidacion2
+            // 
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion2.Location = new System.Drawing.Point(61, 93);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(239, 14);
+            this.TBValidacion2.TabIndex = 17;
+            this.TBValidacion2.Text = "La descripción no debe superar los 200 carácteres.";
+            this.TBValidacion2.Visible = false;
+            // 
+            // TBValidacion3
+            // 
+            this.TBValidacion3.AutoSize = true;
+            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion3.Location = new System.Drawing.Point(100, 134);
+            this.TBValidacion3.Name = "TBValidacion3";
+            this.TBValidacion3.Size = new System.Drawing.Size(200, 14);
+            this.TBValidacion3.TabIndex = 18;
+            this.TBValidacion3.Text = "Ingrese únicamente carácteres numéricos.";
+            this.TBValidacion3.Visible = false;
+            // 
+            // TBValidacion4
+            // 
+            this.TBValidacion4.AutoSize = true;
+            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion4.Location = new System.Drawing.Point(63, 177);
+            this.TBValidacion4.Name = "TBValidacion4";
+            this.TBValidacion4.Size = new System.Drawing.Size(237, 14);
+            this.TBValidacion4.TabIndex = 19;
+            this.TBValidacion4.Text = "Ingrese únicamente carácteres numéricos exactos.";
+            this.TBValidacion4.Visible = false;
+            // 
             // BShowListaPr
             // 
             this.BShowListaPr.BackColor = System.Drawing.Color.Black;
@@ -287,6 +267,95 @@
             this.BRegistrarPr.TabIndex = 3;
             this.BRegistrarPr.TextColor = System.Drawing.Color.White;
             this.BRegistrarPr.UseVisualStyleBackColor = false;
+            this.BRegistrarPr.Click += new System.EventHandler(this.BRegistrarPr_Click);
+            // 
+            // TStockPr
+            // 
+            this.TStockPr.BackColor = System.Drawing.Color.Black;
+            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TStockPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TStockPr.BorderSize = 2;
+            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TStockPr.ForeColor = System.Drawing.Color.White;
+            this.TStockPr.Location = new System.Drawing.Point(128, 145);
+            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TStockPr.Multiline = false;
+            this.TStockPr.Name = "TStockPr";
+            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TStockPr.PasswordChar = false;
+            this.TStockPr.Size = new System.Drawing.Size(172, 31);
+            this.TStockPr.TabIndex = 15;
+            this.TStockPr.Texts = "";
+            this.TStockPr.UnderlinedStyle = true;
+            this.TStockPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TStockPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            this.TStockPr.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            // 
+            // TPrecioPr
+            // 
+            this.TPrecioPr.BackColor = System.Drawing.Color.Black;
+            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TPrecioPr.BorderSize = 2;
+            this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPrecioPr.ForeColor = System.Drawing.Color.White;
+            this.TPrecioPr.Location = new System.Drawing.Point(128, 103);
+            this.TPrecioPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TPrecioPr.Multiline = false;
+            this.TPrecioPr.Name = "TPrecioPr";
+            this.TPrecioPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TPrecioPr.PasswordChar = false;
+            this.TPrecioPr.Size = new System.Drawing.Size(172, 31);
+            this.TPrecioPr.TabIndex = 14;
+            this.TPrecioPr.Texts = "";
+            this.TPrecioPr.UnderlinedStyle = true;
+            this.TPrecioPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TPrecioPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            this.TPrecioPr.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            // 
+            // TDescripcionPr
+            // 
+            this.TDescripcionPr.BackColor = System.Drawing.Color.Black;
+            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TDescripcionPr.BorderSize = 2;
+            this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
+            this.TDescripcionPr.Location = new System.Drawing.Point(128, 62);
+            this.TDescripcionPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TDescripcionPr.Multiline = true;
+            this.TDescripcionPr.Name = "TDescripcionPr";
+            this.TDescripcionPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TDescripcionPr.PasswordChar = false;
+            this.TDescripcionPr.Size = new System.Drawing.Size(172, 31);
+            this.TDescripcionPr.TabIndex = 13;
+            this.TDescripcionPr.Texts = "";
+            this.TDescripcionPr.UnderlinedStyle = true;
+            this.TDescripcionPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TDescripcionPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            this.TDescripcionPr.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            // 
+            // TNombrePr
+            // 
+            this.TNombrePr.BackColor = System.Drawing.Color.Black;
+            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TNombrePr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TNombrePr.BorderSize = 2;
+            this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombrePr.ForeColor = System.Drawing.Color.White;
+            this.TNombrePr.Location = new System.Drawing.Point(128, 21);
+            this.TNombrePr.Margin = new System.Windows.Forms.Padding(4);
+            this.TNombrePr.Multiline = false;
+            this.TNombrePr.Name = "TNombrePr";
+            this.TNombrePr.Padding = new System.Windows.Forms.Padding(7);
+            this.TNombrePr.PasswordChar = false;
+            this.TNombrePr.Size = new System.Drawing.Size(172, 31);
+            this.TNombrePr.TabIndex = 12;
+            this.TNombrePr.Texts = "";
+            this.TNombrePr.UnderlinedStyle = true;
+            this.TNombrePr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TNombrePr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            this.TNombrePr.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // AltaProducto
             // 
@@ -334,5 +403,9 @@
         private RJControls.RJTextBox TStockPr;
         private RJControls.RJTextBox TPrecioPr;
         private RJControls.RJTextBox TDescripcionPr;
+        private System.Windows.Forms.Label TBValidacion;
+        private System.Windows.Forms.Label TBValidacion4;
+        private System.Windows.Forms.Label TBValidacion3;
+        private System.Windows.Forms.Label TBValidacion2;
     }
 }
