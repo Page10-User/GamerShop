@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.RJControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -96,16 +98,213 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            // Crear una nueva instancia de ListaProductos
-            ListaUsuario listUs = new ListaUsuario();
-            listUs.TopLevel = false;
+            DialogResult = MessageBox.Show("Está seguro que desea volver? Se perderán los cambios realizados", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DialogResult == DialogResult.Yes)
+            {
+                // Crear una nueva instancia de ListaProductos
+                ListaUsuario listUs = new ListaUsuario();
+                listUs.TopLevel = false;
 
-            // Limpiar el panel actual y volver al anterior formulario.
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(listUs);
-            listUs.PanelContainer = PanelContainer;
-            listUs.Show();
-            this.Close();
+                // Limpiar el panel actual y volver al anterior formulario.
+                PanelContainer.Controls.Clear();
+                PanelContainer.Controls.Add(listUs);
+                listUs.PanelContainer = PanelContainer;
+                listUs.Show();
+                this.Close();
+            }
+        }
+
+        private void TNombrePr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (TNombreUs.Texts.Length >= 100)
+                {
+                    e.Cancel = true;
+                    TBValidacion.Visible = true;
+
+                }
+                else
+                {
+                    TBValidacion.Visible = false;
+                }
+            }
+        }
+
+        private void TApellidoUs_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (TApellidoUs.Texts.Length >= 100)
+                {
+                    e.Cancel = true;
+                    TBValidacion2.Visible = true;
+
+                }
+                else
+                {
+                    TBValidacion2.Visible = false;
+                }
+            }
+        }
+
+        private void TCuilUs_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                string patron = @"^\d{2}-\d{8}-\d{1}$";
+
+                bool esValido = Regex.IsMatch(TCuilUs.Texts, patron);
+
+                if (!esValido)
+                {
+                    e.Cancel = true;
+                    TBValidacion3.Visible = true;
+                }
+                else
+                {
+                    TBValidacion3.Visible = false;
+                }
+            }
+        }
+
+        private void TUsuarioUs_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (TNombreUsuario.Texts.Length >= 20)
+                {
+                    e.Cancel = true;
+                    TBValidacion4.Visible = true;
+
+                }
+                else
+                {
+                    TBValidacion4.Visible = false;
+                }
+            }
+        }
+
+        private void TContraseñaUs_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (TContraseñaUs.Texts.Length >= 100)
+                {
+                    e.Cancel = true;
+                    TBValidacion6.Visible = true;
+
+                }
+                else
+                {
+                    TBValidacion6.Visible = false;
+                }
+            }
+        }
+
+        private void TEmailUs_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+                bool esValido = Regex.IsMatch(TEmailUs.Texts, patronCorreo);
+
+                if (!esValido)
+                {
+                    e.Cancel = true;
+                    TBValidacion5.Visible = true;
+
+                }
+                else
+                {
+                    TBValidacion5.Visible = false;
+                }
+            }
+        }
+
+        private void TNombreUs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool escontrol = Char.IsControl(e.KeyChar);
+            bool longitud = TNombreUs.Texts.Trim().Length < 100;
+
+            if (longitud || escontrol)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TApellidoUs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool escontrol = Char.IsControl(e.KeyChar);
+            bool longitud = TApellidoUs.Texts.Trim().Length < 100;
+
+            if (longitud || escontrol)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TCuilUs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool escontrol = Char.IsControl(e.KeyChar);
+            bool longitud = TCuilUs.Texts.Trim().Length < 12;
+
+            if (longitud || escontrol)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TLoginUs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var textbox = sender as RJTextBox;
+            bool escontrol = Char.IsControl(e.KeyChar);
+            bool longitud = textbox.Texts.Trim().Length < 20;
+
+            if (longitud || escontrol)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TEmailUs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.AutoValidate = AutoValidate.EnablePreventFocusChange;
+        }
+
+        private void BModificarUs_Click(object sender, EventArgs e)
+        {
+            if (TNombreUs.Texts != string.Empty && TApellidoUs.Texts != string.Empty && TCuilUs.Texts != string.Empty && TNombreUsuario.Texts != string.Empty && TContraseñaUs.Texts != string.Empty && TEmailUs.Texts != string.Empty)
+            {
+                MessageBox.Show("Usuario modificado con éxito", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos para modificar", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
     }
 }

@@ -115,10 +115,11 @@ namespace Gamer_Shop2._0
             }
         }
 
-        private void TBUsuarioUs_KeyPress(object sender, KeyPressEventArgs e)
+        private void TBUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
+            var textbox = sender as RJTextBox_radio_;
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBUsuario.Texts.Trim().Length < 21;
+            bool longitud = TBUsuarioUs.Texts.Trim().Length < 21;
 
             if (longitud || escontrol)
             {

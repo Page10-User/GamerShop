@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Gamer_Shop2._0.RJControls;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
 {
@@ -103,67 +105,90 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             this.Close();
         }
 
-        private void TextBox_Validating(object sender, CancelEventArgs e)
+        private void TNombrePr_Validating(object sender, CancelEventArgs e)
         {
-            var textBox = sender as RJControls.RJTextBox;
-            if (textBox != null)
+            if (this != null)
             {
-                if (textBox == TNombrePr)
+                if (TNombrePr.Texts.Length >= 50)
                 {
-                    if (textBox.Texts.Length >= 50)
-                    {
-                        e.Cancel = true;
-                        TBValidacion.Visible = true;
+                    e.Cancel = true;
+                    TBValidacion.Visible = true;
 
-                    }
-                    else
-                    {
-                        TBValidacion.Visible = false;
-                    }
                 }
-                else if (textBox == TDescripcionPr)
+                else
                 {
-                    if (textBox.Texts.Length >= 200)
-                    {
-                        e.Cancel = true;
-                        TBValidacion2.Visible = true;
-                    }
-                    else
-                    {
-                        TBValidacion2.Visible = false;
-                    }
-                }
-                else if (textBox == TStockPr)
-                {
-                    int number;
-                    if (!int.TryParse(textBox.Texts, out number))
-                    {
-                        e.Cancel = true;
-                        TBValidacion4.Visible = true;
-                    }
-                    else
-                    {
-                        TBValidacion4.Visible = false;
-                    }
-                }
-                else if (textBox == TPrecioPr)
-                {
-                    float number;
-                    if (!float.TryParse(textBox.Texts, out number))
-                    {
-                        e.Cancel = true;
-                        TBValidacion3.Visible = true;
-                    }
-                    else
-                    {
-                        TBValidacion3.Visible = false;
-                    }
+                    TBValidacion.Visible = false;
                 }
             }
         }
-                
-            
-        
+
+        private void TDescripcionPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (TDescripcionPr.Texts.Length >= 200)
+                {
+                    e.Cancel = true;
+                    TBValidacion.Visible = true;
+
+                }
+                else
+                {
+                    TBValidacion.Visible = false;
+                }
+            }
+        }
+
+        private void TPrecioPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                float number;
+                if (!float.TryParse(TPrecioPr.Texts, out number))
+                {
+                    e.Cancel = true;
+                    TBValidacion3.Visible = true;
+                }
+                else
+                {
+                    TBValidacion3.Visible = false;
+                }
+            }
+        }
+
+        private void TStockPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                int number;
+                if (!int.TryParse(TStockPr.Texts, out number))
+                {
+                    e.Cancel = true;
+                    TBValidacion4.Visible = true;
+                }
+                else
+                {
+                    TBValidacion4.Visible = false;
+                }
+            }
+        }
+
+        private void CBCategoriaPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (CBCategoriaPr.SelectedIndex == -1)
+                {
+                    e.Cancel = true;
+                    TBValidacion4.Visible = true;
+                }
+                else
+                {
+                    TBValidacion4.Visible = false;
+                }
+            }
+        }
+
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
@@ -172,7 +197,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BRegistrarPr_Click(object sender, EventArgs e)
         {
-            if (TNombrePr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty)
+            if (TNombrePr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null)
             {
                 MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
@@ -182,10 +207,41 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
-        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void TNombrePr_KeyPress (object sender, KeyPressEventArgs e)
         {
             bool escontrol = Char.IsControl(e.KeyChar);
             bool longitud = TNombrePr.Texts.Trim().Length < 50;
+
+            if (longitud || escontrol)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TDescripcionPr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool escontrol = Char.IsControl(e.KeyChar);
+            bool longitud = TDescripcionPr.Texts.Trim().Length < 200;
+
+            if (longitud || escontrol)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TNumberPr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var textbox = sender as RJTextBox;
+            bool escontrol = Char.IsControl(e.KeyChar);
+            bool longitud = TPrecioPr.Texts.Trim().Length < 15;
 
             if (longitud || escontrol)
             {

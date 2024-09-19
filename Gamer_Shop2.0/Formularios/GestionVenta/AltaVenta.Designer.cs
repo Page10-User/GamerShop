@@ -44,17 +44,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LShowLista = new System.Windows.Forms.Label();
             this.PContAltaUs = new System.Windows.Forms.Panel();
+            this.TBEmail = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBMonto = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBDni = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBValidacion4 = new System.Windows.Forms.Label();
+            this.TBValidacion3 = new System.Windows.Forms.Label();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
+            this.TBValidacion = new System.Windows.Forms.Label();
+            this.CBCategoria = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.TBFecha = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LContraseñaUs = new System.Windows.Forms.Label();
-            this.TBEmail = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LEmailUs = new System.Windows.Forms.Label();
             this.LNombreUsuario = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TBDni = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBMonto = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.PProductoVn = new System.Windows.Forms.Panel();
-            this.DGListaPr = new System.Windows.Forms.DataGridView();
+            this.DGListaVn = new System.Windows.Forms.DataGridView();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).BeginInit();
             this.PContAltaUs.SuspendLayout();
             this.PProductoVn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGListaPr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).BeginInit();
             this.SuspendLayout();
             // 
             // LTituloAltaVn
@@ -107,6 +112,7 @@
             this.BRegistrarVn.TabIndex = 24;
             this.BRegistrarVn.TextColor = System.Drawing.Color.White;
             this.BRegistrarVn.UseVisualStyleBackColor = false;
+            this.BRegistrarVn.Click += new System.EventHandler(this.BRegistrarVn_Click);
             // 
             // BShowListaVn
             // 
@@ -154,50 +160,24 @@
             // PContAltaUs
             // 
             this.PContAltaUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaUs.Controls.Add(this.TBEmail);
             this.PContAltaUs.Controls.Add(this.TBMonto);
             this.PContAltaUs.Controls.Add(this.TBDni);
+            this.PContAltaUs.Controls.Add(this.TBValidacion4);
+            this.PContAltaUs.Controls.Add(this.TBValidacion3);
+            this.PContAltaUs.Controls.Add(this.TBValidacion2);
+            this.PContAltaUs.Controls.Add(this.TBValidacion);
+            this.PContAltaUs.Controls.Add(this.CBCategoria);
             this.PContAltaUs.Controls.Add(this.label3);
             this.PContAltaUs.Controls.Add(this.label2);
             this.PContAltaUs.Controls.Add(this.TBFecha);
             this.PContAltaUs.Controls.Add(this.LContraseñaUs);
-            this.PContAltaUs.Controls.Add(this.TBEmail);
             this.PContAltaUs.Controls.Add(this.LEmailUs);
             this.PContAltaUs.Controls.Add(this.LNombreUsuario);
             this.PContAltaUs.Location = new System.Drawing.Point(27, 273);
             this.PContAltaUs.Name = "PContAltaUs";
             this.PContAltaUs.Size = new System.Drawing.Size(496, 151);
             this.PContAltaUs.TabIndex = 28;
-            // 
-            // TBFecha
-            // 
-            this.TBFecha.BackColor = System.Drawing.Color.Black;
-            this.TBFecha.BorderColor = System.Drawing.Color.Violet;
-            this.TBFecha.BorderFocusColor = System.Drawing.Color.Magenta;
-            this.TBFecha.BorderSize = 2;
-            this.TBFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBFecha.ForeColor = System.Drawing.Color.White;
-            this.TBFecha.Location = new System.Drawing.Point(100, 12);
-            this.TBFecha.Margin = new System.Windows.Forms.Padding(4);
-            this.TBFecha.Multiline = false;
-            this.TBFecha.Name = "TBFecha";
-            this.TBFecha.Padding = new System.Windows.Forms.Padding(7);
-            this.TBFecha.PasswordChar = false;
-            this.TBFecha.Size = new System.Drawing.Size(141, 31);
-            this.TBFecha.TabIndex = 17;
-            this.TBFecha.Texts = "";
-            this.TBFecha.UnderlinedStyle = true;
-            // 
-            // LContraseñaUs
-            // 
-            this.LContraseñaUs.AutoSize = true;
-            this.LContraseñaUs.BackColor = System.Drawing.Color.Transparent;
-            this.LContraseñaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LContraseñaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LContraseñaUs.Location = new System.Drawing.Point(25, 108);
-            this.LContraseñaUs.Name = "LContraseñaUs";
-            this.LContraseñaUs.Size = new System.Drawing.Size(98, 18);
-            this.LContraseñaUs.TabIndex = 16;
-            this.LContraseñaUs.Text = "Metodo Pago";
             // 
             // TBEmail
             // 
@@ -213,10 +193,191 @@
             this.TBEmail.Name = "TBEmail";
             this.TBEmail.Padding = new System.Windows.Forms.Padding(7);
             this.TBEmail.PasswordChar = false;
+            this.TBEmail.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBEmail.PlaceholderText = "ejemplo@gmail.com";
             this.TBEmail.Size = new System.Drawing.Size(150, 31);
             this.TBEmail.TabIndex = 15;
             this.TBEmail.Texts = "";
             this.TBEmail.UnderlinedStyle = true;
+            this.TBEmail._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBEmail_KeyPress);
+            this.TBEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TBEmail_Validating);
+            // 
+            // TBMonto
+            // 
+            this.TBMonto.BackColor = System.Drawing.Color.Black;
+            this.TBMonto.BorderColor = System.Drawing.Color.Violet;
+            this.TBMonto.BorderFocusColor = System.Drawing.Color.Magenta;
+            this.TBMonto.BorderSize = 2;
+            this.TBMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBMonto.ForeColor = System.Drawing.Color.White;
+            this.TBMonto.Location = new System.Drawing.Point(100, 59);
+            this.TBMonto.Margin = new System.Windows.Forms.Padding(4);
+            this.TBMonto.Multiline = false;
+            this.TBMonto.Name = "TBMonto";
+            this.TBMonto.Padding = new System.Windows.Forms.Padding(7);
+            this.TBMonto.PasswordChar = false;
+            this.TBMonto.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBMonto.PlaceholderText = "";
+            this.TBMonto.Size = new System.Drawing.Size(141, 31);
+            this.TBMonto.TabIndex = 22;
+            this.TBMonto.Texts = "";
+            this.TBMonto.UnderlinedStyle = true;
+            this.TBMonto._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBMonto_KeyPress);
+            this.TBMonto.Validating += new System.ComponentModel.CancelEventHandler(this.TBMonto_Validating);
+            // 
+            // TBDni
+            // 
+            this.TBDni.BackColor = System.Drawing.Color.Black;
+            this.TBDni.BorderColor = System.Drawing.Color.Violet;
+            this.TBDni.BorderFocusColor = System.Drawing.Color.Magenta;
+            this.TBDni.BorderSize = 2;
+            this.TBDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBDni.ForeColor = System.Drawing.Color.White;
+            this.TBDni.Location = new System.Drawing.Point(319, 12);
+            this.TBDni.Margin = new System.Windows.Forms.Padding(4);
+            this.TBDni.Multiline = false;
+            this.TBDni.Name = "TBDni";
+            this.TBDni.Padding = new System.Windows.Forms.Padding(7);
+            this.TBDni.PasswordChar = false;
+            this.TBDni.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBDni.PlaceholderText = "";
+            this.TBDni.Size = new System.Drawing.Size(150, 31);
+            this.TBDni.TabIndex = 21;
+            this.TBDni.Texts = "";
+            this.TBDni.UnderlinedStyle = true;
+            this.TBDni._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDni_KeyPress);
+            this.TBDni.Validating += new System.ComponentModel.CancelEventHandler(this.TBFecha_Validating);
+            // 
+            // TBValidacion4
+            // 
+            this.TBValidacion4.AutoSize = true;
+            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion4.ForeColor = System.Drawing.Color.Violet;
+            this.TBValidacion4.Location = new System.Drawing.Point(347, 90);
+            this.TBValidacion4.Name = "TBValidacion4";
+            this.TBValidacion4.Size = new System.Drawing.Size(122, 14);
+            this.TBValidacion4.TabIndex = 27;
+            this.TBValidacion4.Text = "Ingrese un correo válido.";
+            this.TBValidacion4.Visible = false;
+            // 
+            // TBValidacion3
+            // 
+            this.TBValidacion3.AutoSize = true;
+            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.Violet;
+            this.TBValidacion3.Location = new System.Drawing.Point(120, 90);
+            this.TBValidacion3.Name = "TBValidacion3";
+            this.TBValidacion3.Size = new System.Drawing.Size(123, 14);
+            this.TBValidacion3.TabIndex = 26;
+            this.TBValidacion3.Text = "Ingrese un monto válido.";
+            this.TBValidacion3.Visible = false;
+            // 
+            // TBValidacion2
+            // 
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Violet;
+            this.TBValidacion2.Location = new System.Drawing.Point(306, 42);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(163, 14);
+            this.TBValidacion2.TabIndex = 25;
+            this.TBValidacion2.Text = "Ingrese un número de DNI válido.";
+            this.TBValidacion2.Visible = false;
+            // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Violet;
+            this.TBValidacion.Location = new System.Drawing.Point(120, 43);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(121, 14);
+            this.TBValidacion.TabIndex = 24;
+            this.TBValidacion.Text = "Ingrese una fecha válida.";
+            this.TBValidacion.Visible = false;
+            // 
+            // CBCategoria
+            // 
+            this.CBCategoria.BackColor = System.Drawing.Color.Black;
+            this.CBCategoria.BorderColor = System.Drawing.Color.Magenta;
+            this.CBCategoria.BorderSize = 1;
+            this.CBCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CBCategoria.ForeColor = System.Drawing.Color.DimGray;
+            this.CBCategoria.IconColor = System.Drawing.Color.Magenta;
+            this.CBCategoria.ListBackColor = System.Drawing.Color.Black;
+            this.CBCategoria.ListTextColor = System.Drawing.Color.Magenta;
+            this.CBCategoria.Location = new System.Drawing.Point(201, 113);
+            this.CBCategoria.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBCategoria.Name = "CBCategoria";
+            this.CBCategoria.Padding = new System.Windows.Forms.Padding(1);
+            this.CBCategoria.Size = new System.Drawing.Size(183, 30);
+            this.CBCategoria.TabIndex = 23;
+            this.CBCategoria.Texts = "";
+            this.CBCategoria.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoria_Validating);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(267, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 18);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "DNI";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(267, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 18);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Email";
+            // 
+            // TBFecha
+            // 
+            this.TBFecha.BackColor = System.Drawing.Color.Black;
+            this.TBFecha.BorderColor = System.Drawing.Color.Violet;
+            this.TBFecha.BorderFocusColor = System.Drawing.Color.Magenta;
+            this.TBFecha.BorderSize = 2;
+            this.TBFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFecha.ForeColor = System.Drawing.Color.White;
+            this.TBFecha.Location = new System.Drawing.Point(100, 12);
+            this.TBFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFecha.Multiline = false;
+            this.TBFecha.Name = "TBFecha";
+            this.TBFecha.Padding = new System.Windows.Forms.Padding(7);
+            this.TBFecha.PasswordChar = false;
+            this.TBFecha.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBFecha.PlaceholderText = "DD-MM-AAAA";
+            this.TBFecha.Size = new System.Drawing.Size(141, 31);
+            this.TBFecha.TabIndex = 17;
+            this.TBFecha.Texts = "";
+            this.TBFecha.UnderlinedStyle = true;
+            this.TBFecha._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBFecha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFecha_KeyPress);
+            this.TBFecha.Validating += new System.ComponentModel.CancelEventHandler(this.TBFecha_Validating);
+            // 
+            // LContraseñaUs
+            // 
+            this.LContraseñaUs.AutoSize = true;
+            this.LContraseñaUs.BackColor = System.Drawing.Color.Transparent;
+            this.LContraseñaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LContraseñaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LContraseñaUs.Location = new System.Drawing.Point(88, 119);
+            this.LContraseñaUs.Name = "LContraseñaUs";
+            this.LContraseñaUs.Size = new System.Drawing.Size(98, 18);
+            this.LContraseñaUs.TabIndex = 16;
+            this.LContraseñaUs.Text = "Metodo Pago";
             // 
             // LEmailUs
             // 
@@ -224,7 +385,7 @@
             this.LEmailUs.BackColor = System.Drawing.Color.Transparent;
             this.LEmailUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LEmailUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LEmailUs.Location = new System.Drawing.Point(25, 66);
+            this.LEmailUs.Location = new System.Drawing.Point(25, 72);
             this.LEmailUs.Name = "LEmailUs";
             this.LEmailUs.Size = new System.Drawing.Size(51, 18);
             this.LEmailUs.TabIndex = 11;
@@ -242,81 +403,19 @@
             this.LNombreUsuario.TabIndex = 10;
             this.LNombreUsuario.Text = "Fecha";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(267, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 18);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Email";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(267, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 18);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Dni";
-            // 
-            // TBDni
-            // 
-            this.TBDni.BackColor = System.Drawing.Color.Black;
-            this.TBDni.BorderColor = System.Drawing.Color.Violet;
-            this.TBDni.BorderFocusColor = System.Drawing.Color.Magenta;
-            this.TBDni.BorderSize = 2;
-            this.TBDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBDni.ForeColor = System.Drawing.Color.White;
-            this.TBDni.Location = new System.Drawing.Point(319, 12);
-            this.TBDni.Margin = new System.Windows.Forms.Padding(4);
-            this.TBDni.Multiline = false;
-            this.TBDni.Name = "TBDni";
-            this.TBDni.Padding = new System.Windows.Forms.Padding(7);
-            this.TBDni.PasswordChar = false;
-            this.TBDni.Size = new System.Drawing.Size(150, 31);
-            this.TBDni.TabIndex = 21;
-            this.TBDni.Texts = "";
-            this.TBDni.UnderlinedStyle = true;
-            // 
-            // TBMonto
-            // 
-            this.TBMonto.BackColor = System.Drawing.Color.Black;
-            this.TBMonto.BorderColor = System.Drawing.Color.Violet;
-            this.TBMonto.BorderFocusColor = System.Drawing.Color.Magenta;
-            this.TBMonto.BorderSize = 2;
-            this.TBMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBMonto.ForeColor = System.Drawing.Color.White;
-            this.TBMonto.Location = new System.Drawing.Point(100, 54);
-            this.TBMonto.Margin = new System.Windows.Forms.Padding(4);
-            this.TBMonto.Multiline = false;
-            this.TBMonto.Name = "TBMonto";
-            this.TBMonto.Padding = new System.Windows.Forms.Padding(7);
-            this.TBMonto.PasswordChar = false;
-            this.TBMonto.Size = new System.Drawing.Size(141, 31);
-            this.TBMonto.TabIndex = 22;
-            this.TBMonto.Texts = "";
-            this.TBMonto.UnderlinedStyle = true;
-            // 
             // PProductoVn
             // 
             this.PProductoVn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PProductoVn.Controls.Add(this.DGListaPr);
+            this.PProductoVn.Controls.Add(this.DGListaVn);
             this.PProductoVn.Location = new System.Drawing.Point(27, 104);
             this.PProductoVn.Name = "PProductoVn";
             this.PProductoVn.Size = new System.Drawing.Size(496, 151);
             this.PProductoVn.TabIndex = 29;
             // 
-            // DGListaPr
+            // DGListaVn
             // 
-            this.DGListaPr.BackgroundColor = System.Drawing.Color.Black;
-            this.DGListaPr.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.DGListaVn.BackgroundColor = System.Drawing.Color.Black;
+            this.DGListaVn.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -324,9 +423,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaPr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DGListaPr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGListaPr.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGListaVn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGListaVn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGListaVn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CNombre,
             this.CPrecio,
             this.CCantidad,
@@ -339,10 +438,10 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGListaPr.DefaultCellStyle = dataGridViewCellStyle6;
-            this.DGListaPr.GridColor = System.Drawing.Color.Black;
-            this.DGListaPr.Location = new System.Drawing.Point(3, 0);
-            this.DGListaPr.Name = "DGListaPr";
+            this.DGListaVn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DGListaVn.GridColor = System.Drawing.Color.Black;
+            this.DGListaVn.Location = new System.Drawing.Point(3, 0);
+            this.DGListaVn.Name = "DGListaVn";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -350,14 +449,15 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaPr.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.DGListaVn.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGListaPr.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.DGListaPr.Size = new System.Drawing.Size(490, 148);
-            this.DGListaPr.TabIndex = 1;
+            this.DGListaVn.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.DGListaVn.Size = new System.Drawing.Size(490, 148);
+            this.DGListaVn.TabIndex = 1;
+            this.DGListaVn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaVn_CellClick);
             // 
             // CNombre
             // 
@@ -432,7 +532,7 @@
             this.PContAltaUs.ResumeLayout(false);
             this.PContAltaUs.PerformLayout();
             this.PProductoVn.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGListaPr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,11 +556,16 @@
         private System.Windows.Forms.Label label2;
         private RJControls.RJTextBox TBMonto;
         private System.Windows.Forms.Panel PProductoVn;
-        private System.Windows.Forms.DataGridView DGListaPr;
+        private System.Windows.Forms.DataGridView DGListaVn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCategoria;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
+        private RJControls.RJComboBox CBCategoria;
+        private System.Windows.Forms.Label TBValidacion4;
+        private System.Windows.Forms.Label TBValidacion3;
+        private System.Windows.Forms.Label TBValidacion2;
+        private System.Windows.Forms.Label TBValidacion;
     }
 }

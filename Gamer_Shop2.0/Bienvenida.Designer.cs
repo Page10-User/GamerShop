@@ -194,6 +194,7 @@
             this.BSalir.BorderColor = System.Drawing.Color.Transparent;
             this.BSalir.BorderRadius = 0;
             this.BSalir.BorderSize = 0;
+            this.BSalir.CausesValidation = false;
             this.BSalir.FlatAppearance.BorderSize = 0;
             this.BSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
