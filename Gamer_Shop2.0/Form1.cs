@@ -119,7 +119,7 @@ namespace Gamer_Shop2._0
         {
             var textbox = sender as RJTextBox_radio_;
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBUsuarioUs.Texts.Trim().Length < 21;
+            bool longitud = textbox.Texts.Trim().Length < 20;
 
             if (longitud || escontrol)
             {
