@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamer_Shop2._0.RJControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,13 +68,13 @@ namespace Gamer_Shop2._0
 
         private void TextBox_Validating(object sender, CancelEventArgs e)
         {
-            var textBox = sender as RJControls.RJTextBox;
+            var textBox = sender as RJTextBox_radio_;
             if (textBox != null)
             {
                 if (textBox.Texts.Length <= 7 || textBox.Texts.Length >= 20)
                 {
                     e.Cancel = true;
-                    if (textBox == TBUsuarioUs)
+                    if (textBox == TBUsuario)
                     {
                         TBValidacion.Visible = true;
                     }
@@ -84,7 +85,7 @@ namespace Gamer_Shop2._0
                 }
                 else
                 {
-                    if (textBox == TBUsuarioUs)
+                    if (textBox == TBUsuario)
                     {
                         TBValidacion.Visible = false;
                     }
@@ -103,7 +104,7 @@ namespace Gamer_Shop2._0
 
         private void BIniciar_Click(object sender, EventArgs e)
         {
-            if (TBUsuarioUs.Texts != string.Empty && TBContraseña.Texts != string.Empty)
+            if (TBUsuario.Texts != string.Empty && TBContraseña.Texts != string.Empty)
             {
                 Bienvenida bienvenida = new Bienvenida();
                 bienvenida.Show();
@@ -117,7 +118,7 @@ namespace Gamer_Shop2._0
         private void TBUsuarioUs_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBUsuarioUs.Texts.Trim().Length < 21;
+            bool longitud = TBUsuario.Texts.Trim().Length < 21;
 
             if (longitud || escontrol)
             {
