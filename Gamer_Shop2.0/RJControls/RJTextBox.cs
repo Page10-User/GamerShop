@@ -21,9 +21,38 @@ namespace Gamer_Shop2._0.RJControls
         private Color borderFocusColor = Color.HotPink;
         private bool isFocused = false;
 
+        private Color placeholderColor = Color.DarkGray;
+        private string placeholderText = "";
+        private bool isPlaceholder = false;
+        private bool isPasswordChar = false;
+
         //Private methods
+
+        private void SetPlaceholder()
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text) && placeholderText != "")
+            {
+                isPlaceholder = true;
+                textBox1.Text = placeholderText;
+                textBox1.ForeColor = placeholderColor;
+                if (isPasswordChar)
+                    textBox1.UseSystemPasswordChar = false;
+            }
+        }
+        private void RemovePlaceholder()
+        {
+            if (isPlaceholder && placeholderText != "")
+            {
+                isPlaceholder = false;
+                textBox1.Text = "";
+                textBox1.ForeColor = this.ForeColor;
+                if (isPasswordChar)
+                    textBox1.UseSystemPasswordChar = true;
+            }
+        }
         private void UpdateControlHeight()
         {
+
             if (textBox1.Multiline == false)
             {
                 int txtHeight = TextRenderer.MeasureText("Text", this.Font).Height + 1;
@@ -71,8 +100,13 @@ namespace Gamer_Shop2._0.RJControls
         [Category("RJ Code Advance")]
         public bool PasswordChar
         {
-            get { return textBox1.UseSystemPasswordChar; }
-            set { textBox1.UseSystemPasswordChar = value; }
+            get { return isPasswordChar; }
+            set
+            {
+                isPasswordChar = value;
+                if (!isPlaceholder)
+                    textBox1.UseSystemPasswordChar = value;
+            }
         }
 
         [Category("RJ Code Advance")]
@@ -120,8 +154,24 @@ namespace Gamer_Shop2._0.RJControls
         [Category("RJ Code Advance")]
         public string Texts
         {
-            get { return textBox1.Text; }
-            set { textBox1.Text = value; }
+            get
+            {
+                return isPlaceholder ? "" : textBox1.Text;
+
+            }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    RemovePlaceholder();
+                    textBox1.Text = value;
+                }
+                else
+                {
+                    textBox1.Text = "";
+                    SetPlaceholder();
+                }
+            }
         }
 
         [Category("RJ Code Advance")]
@@ -129,6 +179,29 @@ namespace Gamer_Shop2._0.RJControls
         {
             get { return borderFocusColor; }
             set { borderFocusColor = value; }
+        }
+        [Category("RJ Code Advance")]
+        public Color PlaceholderColor
+        {
+            get { return placeholderColor; }
+            set
+            {
+                placeholderColor = value;
+                if (isPlaceholder)
+                    textBox1.ForeColor = value;
+            }
+        }
+
+        [Category("RJ Code Advance")]
+        public string PlaceholderText
+        {
+            get { return placeholderText; }
+            set
+            {
+                placeholderText = value;
+                textBox1.Text = "";
+                SetPlaceholder();
+            }
         }
 
         //Overridden methods
@@ -169,14 +242,32 @@ namespace Gamer_Shop2._0.RJControls
         {
             isFocused = true;
             this.Invalidate();
+            RemovePlaceholder();
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
             isFocused = false;
             this.Invalidate();
+            SetPlaceholder();
         }
 
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            this.OnClick(e);
+        }
+        private void textBox1_MouseEnter(object sender, EventArgs e)
+        {
+            this.OnMouseEnter(e);
+        }
+        private void textBox1_MouseLeave(object sender, EventArgs e)
+        {
+            this.OnMouseLeave(e);
+        }
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.OnKeyPress(e);
+        }
 
         public RJTextBox()
         {
@@ -188,6 +279,11 @@ namespace Gamer_Shop2._0.RJControls
         {
             if (_TextChanged != null)
                 _TextChanged.Invoke(sender, e);
+        }
+
+        private void RJTextBox_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

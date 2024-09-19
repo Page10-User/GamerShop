@@ -131,6 +131,16 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 ModificarUs.Show();
                 this.Close();
             }
+            else if (e.ColumnIndex == DGListaUs.Columns["CEliminar"].Index && e.RowIndex >= 0)
+            {
+                DialogResult = MessageBox.Show("Está seguro que desea eliminar este usuario?", "Eliminar usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (DialogResult == DialogResult.Yes)
+                {
+                    // Momentaneamente elimina totalmente la fila.
+                    // Debería pasar a una lista de "inactivos" xEliminacion logica
+                    DGListaUs.Rows.RemoveAt(e.RowIndex);
+                }
+            }
         }
     }
 }

@@ -130,6 +130,17 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 ModificarPr.Show();
                 this.Close();
             }
+            else if (e.ColumnIndex == DGListaPr.Columns["CEliminar"].Index && e.RowIndex >= 0)
+            {
+                DialogResult = MessageBox.Show("Está seguro que desea eliminar este producto?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (DialogResult == DialogResult.Yes)
+                {
+                    // Momentaneamente elimina totalmente la fila.
+                    // Debería pasar a una lista de "inactivos" xEliminacion logica
+                    DGListaPr.Rows.RemoveAt(e.RowIndex);
+                }
+            }
         }
+
     }
 }
