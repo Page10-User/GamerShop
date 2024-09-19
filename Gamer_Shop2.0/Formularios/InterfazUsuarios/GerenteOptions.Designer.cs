@@ -30,12 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerenteOptions));
             this.BGestionUsuario = new System.Windows.Forms.Button();
-            this.BOptionsEmpleado = new Gamer_Shop2._0.RJButton();
             this.LNombreUs = new System.Windows.Forms.Label();
             this.PBImgUs = new System.Windows.Forms.PictureBox();
-            this.BGestionVenta = new System.Windows.Forms.Button();
-            this.BGestionCliente = new System.Windows.Forms.Button();
-            this.BGestionPr = new System.Windows.Forms.Button();
+            this.BAccederInformes = new System.Windows.Forms.Button();
+            this.BOptionsGerente = new Gamer_Shop2._0.RJButton();
+            this.PPersonalOptions = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgUs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +48,7 @@
             this.BGestionUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BGestionUsuario.ForeColor = System.Drawing.Color.White;
             this.BGestionUsuario.Image = ((System.Drawing.Image)(resources.GetObject("BGestionUsuario.Image")));
-            this.BGestionUsuario.Location = new System.Drawing.Point(0, 316);
+            this.BGestionUsuario.Location = new System.Drawing.Point(0, 165);
             this.BGestionUsuario.Name = "BGestionUsuario";
             this.BGestionUsuario.Size = new System.Drawing.Size(198, 45);
             this.BGestionUsuario.TabIndex = 20;
@@ -57,27 +56,7 @@
             this.BGestionUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BGestionUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BGestionUsuario.UseVisualStyleBackColor = true;
-            // 
-            // BOptionsEmpleado
-            // 
-            this.BOptionsEmpleado.BackColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BOptionsEmpleado.BackgroundImage")));
-            this.BOptionsEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BOptionsEmpleado.BorderColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.BorderRadius = 0;
-            this.BOptionsEmpleado.BorderSize = 0;
-            this.BOptionsEmpleado.FlatAppearance.BorderSize = 0;
-            this.BOptionsEmpleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BOptionsEmpleado.ForeColor = System.Drawing.Color.White;
-            this.BOptionsEmpleado.Location = new System.Drawing.Point(12, 478);
-            this.BOptionsEmpleado.Name = "BOptionsEmpleado";
-            this.BOptionsEmpleado.Size = new System.Drawing.Size(42, 34);
-            this.BOptionsEmpleado.TabIndex = 19;
-            this.BOptionsEmpleado.TextColor = System.Drawing.Color.White;
-            this.BOptionsEmpleado.UseVisualStyleBackColor = false;
+            this.BGestionUsuario.Click += new System.EventHandler(this.BGestionUsuario_Click);
             // 
             // LNombreUs
             // 
@@ -100,63 +79,54 @@
             this.PBImgUs.TabIndex = 14;
             this.PBImgUs.TabStop = false;
             // 
-            // BGestionVenta
+            // BAccederInformes
             // 
-            this.BGestionVenta.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
-            this.BGestionVenta.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.BGestionVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.BGestionVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.BGestionVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BGestionVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BGestionVenta.ForeColor = System.Drawing.Color.White;
-            this.BGestionVenta.Image = ((System.Drawing.Image)(resources.GetObject("BGestionVenta.Image")));
-            this.BGestionVenta.Location = new System.Drawing.Point(0, 265);
-            this.BGestionVenta.Name = "BGestionVenta";
-            this.BGestionVenta.Size = new System.Drawing.Size(198, 45);
-            this.BGestionVenta.TabIndex = 23;
-            this.BGestionVenta.Text = "    Gestion Venta";
-            this.BGestionVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BGestionVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BGestionVenta.UseVisualStyleBackColor = true;
+            this.BAccederInformes.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.BAccederInformes.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.BAccederInformes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.BAccederInformes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.BAccederInformes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BAccederInformes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BAccederInformes.ForeColor = System.Drawing.Color.White;
+            this.BAccederInformes.Image = ((System.Drawing.Image)(resources.GetObject("BAccederInformes.Image")));
+            this.BAccederInformes.Location = new System.Drawing.Point(0, 216);
+            this.BAccederInformes.Name = "BAccederInformes";
+            this.BAccederInformes.Size = new System.Drawing.Size(198, 45);
+            this.BAccederInformes.TabIndex = 21;
+            this.BAccederInformes.Text = "Gestion Informes";
+            this.BAccederInformes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BAccederInformes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BAccederInformes.UseVisualStyleBackColor = true;
             // 
-            // BGestionCliente
+            // BOptionsGerente
             // 
-            this.BGestionCliente.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
-            this.BGestionCliente.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.BGestionCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.BGestionCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.BGestionCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BGestionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BGestionCliente.ForeColor = System.Drawing.Color.White;
-            this.BGestionCliente.Image = ((System.Drawing.Image)(resources.GetObject("BGestionCliente.Image")));
-            this.BGestionCliente.Location = new System.Drawing.Point(0, 214);
-            this.BGestionCliente.Name = "BGestionCliente";
-            this.BGestionCliente.Size = new System.Drawing.Size(198, 45);
-            this.BGestionCliente.TabIndex = 22;
-            this.BGestionCliente.Text = "    Gestion Cliente";
-            this.BGestionCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BGestionCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BGestionCliente.UseVisualStyleBackColor = true;
+            this.BOptionsGerente.BackColor = System.Drawing.Color.Transparent;
+            this.BOptionsGerente.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BOptionsGerente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BOptionsGerente.BackgroundImage")));
+            this.BOptionsGerente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BOptionsGerente.BorderColor = System.Drawing.Color.Transparent;
+            this.BOptionsGerente.BorderRadius = 0;
+            this.BOptionsGerente.BorderSize = 0;
+            this.BOptionsGerente.FlatAppearance.BorderSize = 0;
+            this.BOptionsGerente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BOptionsGerente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BOptionsGerente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOptionsGerente.ForeColor = System.Drawing.Color.White;
+            this.BOptionsGerente.Location = new System.Drawing.Point(12, 478);
+            this.BOptionsGerente.Name = "BOptionsGerente";
+            this.BOptionsGerente.Size = new System.Drawing.Size(42, 34);
+            this.BOptionsGerente.TabIndex = 22;
+            this.BOptionsGerente.TextColor = System.Drawing.Color.White;
+            this.BOptionsGerente.UseVisualStyleBackColor = false;
+            this.BOptionsGerente.Click += new System.EventHandler(this.BOptionsGerente_Click);
             // 
-            // BGestionPr
+            // PPersonalOptions
             // 
-            this.BGestionPr.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
-            this.BGestionPr.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.BGestionPr.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.BGestionPr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.BGestionPr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BGestionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BGestionPr.ForeColor = System.Drawing.Color.White;
-            this.BGestionPr.Image = ((System.Drawing.Image)(resources.GetObject("BGestionPr.Image")));
-            this.BGestionPr.Location = new System.Drawing.Point(0, 163);
-            this.BGestionPr.Name = "BGestionPr";
-            this.BGestionPr.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BGestionPr.Size = new System.Drawing.Size(198, 45);
-            this.BGestionPr.TabIndex = 21;
-            this.BGestionPr.Text = "    Gestion Producto";
-            this.BGestionPr.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BGestionPr.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BGestionPr.UseVisualStyleBackColor = true;
+            this.PPersonalOptions.BackColor = System.Drawing.Color.Transparent;
+            this.PPersonalOptions.Location = new System.Drawing.Point(40, 368);
+            this.PPersonalOptions.Name = "PPersonalOptions";
+            this.PPersonalOptions.Size = new System.Drawing.Size(146, 113);
+            this.PPersonalOptions.TabIndex = 29;
             // 
             // GerenteOptions
             // 
@@ -164,11 +134,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(198, 524);
-            this.Controls.Add(this.BGestionVenta);
-            this.Controls.Add(this.BGestionCliente);
-            this.Controls.Add(this.BGestionPr);
+            this.Controls.Add(this.PPersonalOptions);
+            this.Controls.Add(this.BOptionsGerente);
+            this.Controls.Add(this.BAccederInformes);
             this.Controls.Add(this.BGestionUsuario);
-            this.Controls.Add(this.BOptionsEmpleado);
             this.Controls.Add(this.LNombreUs);
             this.Controls.Add(this.PBImgUs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -183,11 +152,10 @@
         #endregion
 
         private System.Windows.Forms.Button BGestionUsuario;
-        private RJButton BOptionsEmpleado;
         private System.Windows.Forms.Label LNombreUs;
         private System.Windows.Forms.PictureBox PBImgUs;
-        private System.Windows.Forms.Button BGestionVenta;
-        private System.Windows.Forms.Button BGestionCliente;
-        private System.Windows.Forms.Button BGestionPr;
+        private System.Windows.Forms.Button BAccederInformes;
+        private RJButton BOptionsGerente;
+        private System.Windows.Forms.Panel PPersonalOptions;
     }
 }

@@ -36,6 +36,7 @@
             this.BGestionVenta = new System.Windows.Forms.Button();
             this.BOptionsEmpleado = new Gamer_Shop2._0.RJButton();
             this.BCatalogo = new System.Windows.Forms.Button();
+            this.PPersonalOptions = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgUs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,6 +142,7 @@
             this.BOptionsEmpleado.TabIndex = 6;
             this.BOptionsEmpleado.TextColor = System.Drawing.Color.White;
             this.BOptionsEmpleado.UseVisualStyleBackColor = false;
+            this.BOptionsEmpleado.Click += new System.EventHandler(this.BOptionsEmpleado_Click);
             // 
             // BCatalogo
             // 
@@ -161,12 +163,21 @@
             this.BCatalogo.UseVisualStyleBackColor = true;
             this.BCatalogo.Click += new System.EventHandler(this.BCatalogo_Click);
             // 
+            // PPersonalOptions
+            // 
+            this.PPersonalOptions.BackColor = System.Drawing.Color.Transparent;
+            this.PPersonalOptions.Location = new System.Drawing.Point(40, 371);
+            this.PPersonalOptions.Name = "PPersonalOptions";
+            this.PPersonalOptions.Size = new System.Drawing.Size(146, 113);
+            this.PPersonalOptions.TabIndex = 8;
+            // 
             // EmpleadoOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(198, 524);
+            this.Controls.Add(this.PPersonalOptions);
             this.Controls.Add(this.BCatalogo);
             this.Controls.Add(this.BOptionsEmpleado);
             this.Controls.Add(this.BGestionVenta);
@@ -192,5 +203,6 @@
         private System.Windows.Forms.Button BGestionVenta;
         private RJButton BOptionsEmpleado;
         private System.Windows.Forms.Button BCatalogo;
+        private System.Windows.Forms.Panel PPersonalOptions;
     }
 }

@@ -1,6 +1,4 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
-using Gamer_Shop2._0.Formularios.GestionVenta;
-using Gamer_Shop2._0.Formularios.Inicio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,31 +10,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gamer_Shop2._0.Formularios.Comercio
+namespace Gamer_Shop2._0.Formularios.GestionCliente
 {
-    public partial class Catalogo : Form
+    public partial class ModificarCliente : Form
     {
-        private int borderRadius = 90; // Radio del borde redondeado
-        private int borderWidth = 3; // Grosor del borde
+        private int borderRadius = 100; // Radio del borde redondeado
+        private int borderWidth = 5; // Grosor del borde
 
         public Panel PanelContainer { get; set; }
-        public Label LabelContainer { get; set; }
-        public Catalogo()
+        public ModificarCliente()
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(Catalogo_Load);
-            PBuscadorCt.Paint += new PaintEventHandler(PBuscadorCt_Paint);
+            this.Load += new EventHandler(ModificarCliente_Load);
+            PContModificarCl.Paint += new PaintEventHandler(PContModificarCl_Paint);
         }
 
-        private void PBuscadorCt_Paint(object sender, PaintEventArgs e)
+        private void PContModificarCl_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
             if (panel != null)
             {
 
                 GraphicsPath path = new GraphicsPath();
-                int borderRadius = 10;
+                int borderRadius = 60;
                 path.StartFigure();
                 path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
                 path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
@@ -48,7 +45,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
                 panel.Region = new Region(path);
 
 
-                using (Pen pen = new Pen(Color.Violet, 3))
+                using (Pen pen = new Pen(Color.Lime, 3))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -56,7 +53,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             }
         }
 
-        private void Catalogo_Load(object sender, EventArgs e)
+        private void ModificarCliente_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
@@ -91,42 +88,23 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             // dibujar el borde redondeado
             GraphicsPath path = CreateRoundedPath();
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (Pen pen = new Pen(Color.Red, borderWidth))
+            using (Pen pen = new Pen(Color.Lime, borderWidth))
             {
                 e.Graphics.DrawPath(pen, path);
             }
         }
 
-        private void BReturn_Click(object sender, EventArgs e)
+        private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            // Crear una nueva instancia de ListaProductos
-            InicioDetalle inicioD = new InicioDetalle();
-            inicioD.TopLevel = false;
+            // Crear una nueva instancia de ListaCLiente
+            ListaCliente listCl = new ListaCliente();
+            listCl.TopLevel = false;
 
-            // Poner visible version sistema.
-            LabelContainer.Visible = true;
-            LabelContainer.BringToFront();
-
-            // Limpiar el panel actual y añadir el nuevo formulario
+            // Limpiar el panel actual y volver al anterior formulario.
             PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(inicioD);
-            inicioD.PanelContainer = PanelContainer;
-            inicioD.Show();
-            inicioD.Location = new Point(50,130);
-            this.Close();
-        }
-
-        private void BListaVenta_Click(object sender, EventArgs e)
-        {
-            // Crear una nueva instancia de ListaProductos
-            ListaVenta listVn = new ListaVenta();
-            listVn.TopLevel = false;
-
-            // Limpiar el panel actual y añadir el nuevo formulario
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(listVn);
-            listVn.PanelContainer = PanelContainer;
-            listVn.Show();
+            PanelContainer.Controls.Add(listCl);
+            listCl.PanelContainer = PanelContainer;
+            listCl.Show();
             this.Close();
         }
     }

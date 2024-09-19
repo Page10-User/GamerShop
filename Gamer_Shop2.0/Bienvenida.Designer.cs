@@ -28,63 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bienvenida));
-            this.PBLogo = new System.Windows.Forms.PictureBox();
-            this.LTítulo = new System.Windows.Forms.Label();
-            this.LBievenida = new System.Windows.Forms.Label();
             this.PMenuUS = new System.Windows.Forms.Panel();
             this.PEBorde = new System.Windows.Forms.Panel();
             this.BContracMenu = new System.Windows.Forms.Button();
-            this.PFondoBienvenida = new System.Windows.Forms.Panel();
-            this.LFActual = new System.Windows.Forms.Label();
-            this.LReloj = new System.Windows.Forms.Label();
-            this.THorario = new System.Windows.Forms.Timer(this.components);
             this.PAddB = new System.Windows.Forms.Panel();
             this.PShowOptions = new System.Windows.Forms.Panel();
             this.LVersion = new System.Windows.Forms.Label();
             this.BSalir = new Gamer_Shop2._0.RJButton();
             this.BExpandMenu = new Gamer_Shop2._0.RJButton();
-            ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.PMenuUS.SuspendLayout();
-            this.PFondoBienvenida.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // PBLogo
-            // 
-            this.PBLogo.BackColor = System.Drawing.Color.Transparent;
-            this.PBLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBLogo.BackgroundImage")));
-            this.PBLogo.Image = ((System.Drawing.Image)(resources.GetObject("PBLogo.Image")));
-            this.PBLogo.Location = new System.Drawing.Point(100, 12);
-            this.PBLogo.Name = "PBLogo";
-            this.PBLogo.Size = new System.Drawing.Size(110, 116);
-            this.PBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBLogo.TabIndex = 2;
-            this.PBLogo.TabStop = false;
-            // 
-            // LTítulo
-            // 
-            this.LTítulo.AutoSize = true;
-            this.LTítulo.BackColor = System.Drawing.Color.Transparent;
-            this.LTítulo.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTítulo.ForeColor = System.Drawing.Color.White;
-            this.LTítulo.Location = new System.Drawing.Point(79, 116);
-            this.LTítulo.Name = "LTítulo";
-            this.LTítulo.Size = new System.Drawing.Size(162, 29);
-            this.LTítulo.TabIndex = 3;
-            this.LTítulo.Text = "Gamer_Shop";
-            // 
-            // LBievenida
-            // 
-            this.LBievenida.AutoSize = true;
-            this.LBievenida.BackColor = System.Drawing.Color.Transparent;
-            this.LBievenida.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBievenida.ForeColor = System.Drawing.Color.White;
-            this.LBievenida.Location = new System.Drawing.Point(37, 176);
-            this.LBievenida.Name = "LBievenida";
-            this.LBievenida.Size = new System.Drawing.Size(510, 29);
-            this.LBievenida.TabIndex = 4;
-            this.LBievenida.Text = "Bievenido al sistema de venta Gamer_Shop";
             // 
             // PMenuUS
             // 
@@ -118,44 +72,6 @@
             this.BContracMenu.UseVisualStyleBackColor = false;
             this.BContracMenu.Visible = false;
             this.BContracMenu.Click += new System.EventHandler(this.BContracMenu_Click);
-            // 
-            // PFondoBienvenida
-            // 
-            this.PFondoBienvenida.BackColor = System.Drawing.Color.Black;
-            this.PFondoBienvenida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PFondoBienvenida.BackgroundImage")));
-            this.PFondoBienvenida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PFondoBienvenida.Controls.Add(this.LFActual);
-            this.PFondoBienvenida.Controls.Add(this.LReloj);
-            this.PFondoBienvenida.Controls.Add(this.LTítulo);
-            this.PFondoBienvenida.Controls.Add(this.LBievenida);
-            this.PFondoBienvenida.Controls.Add(this.PBLogo);
-            this.PFondoBienvenida.Location = new System.Drawing.Point(127, 175);
-            this.PFondoBienvenida.Name = "PFondoBienvenida";
-            this.PFondoBienvenida.Size = new System.Drawing.Size(584, 237);
-            this.PFondoBienvenida.TabIndex = 13;
-            // 
-            // LFActual
-            // 
-            this.LFActual.AutoSize = true;
-            this.LFActual.BackColor = System.Drawing.Color.Transparent;
-            this.LFActual.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LFActual.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.LFActual.Location = new System.Drawing.Point(321, 111);
-            this.LFActual.Name = "LFActual";
-            this.LFActual.Size = new System.Drawing.Size(158, 29);
-            this.LFActual.TabIndex = 6;
-            this.LFActual.Text = "Fecha actual";
-            // 
-            // LReloj
-            // 
-            this.LReloj.AutoSize = true;
-            this.LReloj.BackColor = System.Drawing.Color.Transparent;
-            this.LReloj.Font = new System.Drawing.Font("Arial Narrow", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LReloj.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.LReloj.Location = new System.Drawing.Point(296, 54);
-            this.LReloj.Name = "LReloj";
-            this.LReloj.Size = new System.Drawing.Size(0, 57);
-            this.LReloj.TabIndex = 5;
             // 
             // PAddB
             // 
@@ -241,7 +157,6 @@
             this.Controls.Add(this.PAddB);
             this.Controls.Add(this.PMenuUS);
             this.Controls.Add(this.BSalir);
-            this.Controls.Add(this.PFondoBienvenida);
             this.Controls.Add(this.BExpandMenu);
             this.Controls.Add(this.PShowOptions);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -249,27 +164,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenida";
             this.Load += new System.EventHandler(this.Bienvenida_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).EndInit();
             this.PMenuUS.ResumeLayout(false);
-            this.PFondoBienvenida.ResumeLayout(false);
-            this.PFondoBienvenida.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox PBLogo;
-        private System.Windows.Forms.Label LTítulo;
-        private System.Windows.Forms.Label LBievenida;
         private RJButton BSalir;
         private System.Windows.Forms.Panel PMenuUS;
         private System.Windows.Forms.Button BContracMenu;
-        private System.Windows.Forms.Panel PFondoBienvenida;
-        private System.Windows.Forms.Label LReloj;
-        private System.Windows.Forms.Timer THorario;
-        private System.Windows.Forms.Label LFActual;
         private RJButton BExpandMenu;
         private System.Windows.Forms.Panel PEBorde;
         private System.Windows.Forms.Panel PAddB;

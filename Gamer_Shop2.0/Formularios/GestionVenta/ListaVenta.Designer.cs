@@ -40,8 +40,6 @@
             this.BDescargarListVn = new Gamer_Shop2._0.RJButton();
             this.PContListaUs = new System.Windows.Forms.Panel();
             this.DGListaVn = new System.Windows.Forms.DataGridView();
-            this.LTituloListaUs = new System.Windows.Forms.Label();
-            this.PBImgListaUs = new System.Windows.Forms.PictureBox();
             this.CNombreUs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CApellidoUs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCuil = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +47,8 @@
             this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CContraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEliminarUs = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LTituloListaUs = new System.Windows.Forms.Label();
+            this.PBImgListaUs = new System.Windows.Forms.PictureBox();
             this.PContListaUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).BeginInit();
@@ -194,29 +194,6 @@
             this.DGListaVn.Size = new System.Drawing.Size(433, 286);
             this.DGListaVn.TabIndex = 28;
             // 
-            // LTituloListaUs
-            // 
-            this.LTituloListaUs.AutoSize = true;
-            this.LTituloListaUs.BackColor = System.Drawing.Color.Transparent;
-            this.LTituloListaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTituloListaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloListaUs.Location = new System.Drawing.Point(219, 26);
-            this.LTituloListaUs.Name = "LTituloListaUs";
-            this.LTituloListaUs.Size = new System.Drawing.Size(269, 42);
-            this.LTituloListaUs.TabIndex = 30;
-            this.LTituloListaUs.Text = "Lista Usuarios";
-            // 
-            // PBImgListaUs
-            // 
-            this.PBImgListaUs.BackColor = System.Drawing.Color.Transparent;
-            this.PBImgListaUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaUs.BackgroundImage")));
-            this.PBImgListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgListaUs.Location = new System.Drawing.Point(131, 36);
-            this.PBImgListaUs.Name = "PBImgListaUs";
-            this.PBImgListaUs.Size = new System.Drawing.Size(47, 41);
-            this.PBImgListaUs.TabIndex = 29;
-            this.PBImgListaUs.TabStop = false;
-            // 
             // CNombreUs
             // 
             this.CNombreUs.HeaderText = "Nombre";
@@ -253,6 +230,29 @@
             this.CEliminarUs.Name = "CEliminarUs";
             this.CEliminarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CEliminarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // LTituloListaUs
+            // 
+            this.LTituloListaUs.AutoSize = true;
+            this.LTituloListaUs.BackColor = System.Drawing.Color.Transparent;
+            this.LTituloListaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTituloListaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LTituloListaUs.Location = new System.Drawing.Point(208, 23);
+            this.LTituloListaUs.Name = "LTituloListaUs";
+            this.LTituloListaUs.Size = new System.Drawing.Size(291, 42);
+            this.LTituloListaUs.TabIndex = 30;
+            this.LTituloListaUs.Text = "Lista de Ventas";
+            // 
+            // PBImgListaUs
+            // 
+            this.PBImgListaUs.BackColor = System.Drawing.Color.Transparent;
+            this.PBImgListaUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaUs.BackgroundImage")));
+            this.PBImgListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PBImgListaUs.Location = new System.Drawing.Point(131, 24);
+            this.PBImgListaUs.Name = "PBImgListaUs";
+            this.PBImgListaUs.Size = new System.Drawing.Size(47, 41);
+            this.PBImgListaUs.TabIndex = 29;
+            this.PBImgListaUs.TabStop = false;
             // 
             // ListaVenta
             // 

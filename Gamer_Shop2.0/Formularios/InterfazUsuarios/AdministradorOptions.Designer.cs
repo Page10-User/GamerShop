@@ -29,36 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministradorOptions));
-            this.BOptionsEmpleado = new Gamer_Shop2._0.RJButton();
             this.LNombreUs = new System.Windows.Forms.Label();
             this.PBImgUs = new System.Windows.Forms.PictureBox();
             this.BGestionVenta = new System.Windows.Forms.Button();
             this.BGestionCliente = new System.Windows.Forms.Button();
             this.BGestionPr = new System.Windows.Forms.Button();
             this.BGestionUsuario = new System.Windows.Forms.Button();
+            this.PPersonalOptions = new System.Windows.Forms.Panel();
+            this.BOptionsAdmin = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgUs)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BOptionsEmpleado
-            // 
-            this.BOptionsEmpleado.BackColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BOptionsEmpleado.BackgroundImage")));
-            this.BOptionsEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BOptionsEmpleado.BorderColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.BorderRadius = 0;
-            this.BOptionsEmpleado.BorderSize = 0;
-            this.BOptionsEmpleado.FlatAppearance.BorderSize = 0;
-            this.BOptionsEmpleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BOptionsEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BOptionsEmpleado.ForeColor = System.Drawing.Color.White;
-            this.BOptionsEmpleado.Location = new System.Drawing.Point(13, 479);
-            this.BOptionsEmpleado.Name = "BOptionsEmpleado";
-            this.BOptionsEmpleado.Size = new System.Drawing.Size(42, 34);
-            this.BOptionsEmpleado.TabIndex = 12;
-            this.BOptionsEmpleado.TextColor = System.Drawing.Color.White;
-            this.BOptionsEmpleado.UseVisualStyleBackColor = false;
             // 
             // LNombreUs
             // 
@@ -99,6 +79,7 @@
             this.BGestionVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BGestionVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BGestionVenta.UseVisualStyleBackColor = true;
+            this.BGestionVenta.Click += new System.EventHandler(this.BGestionVenta_Click);
             // 
             // BGestionCliente
             // 
@@ -118,6 +99,7 @@
             this.BGestionCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BGestionCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BGestionCliente.UseVisualStyleBackColor = true;
+            this.BGestionCliente.Click += new System.EventHandler(this.BGestionCliente_Click);
             // 
             // BGestionPr
             // 
@@ -138,6 +120,7 @@
             this.BGestionPr.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BGestionPr.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BGestionPr.UseVisualStyleBackColor = true;
+            this.BGestionPr.Click += new System.EventHandler(this.BGestionPr_Click);
             // 
             // BGestionUsuario
             // 
@@ -157,6 +140,37 @@
             this.BGestionUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BGestionUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BGestionUsuario.UseVisualStyleBackColor = true;
+            this.BGestionUsuario.Click += new System.EventHandler(this.BGestionUsuario_Click);
+            // 
+            // PPersonalOptions
+            // 
+            this.PPersonalOptions.BackColor = System.Drawing.Color.Transparent;
+            this.PPersonalOptions.Location = new System.Drawing.Point(52, 365);
+            this.PPersonalOptions.Name = "PPersonalOptions";
+            this.PPersonalOptions.Size = new System.Drawing.Size(134, 129);
+            this.PPersonalOptions.TabIndex = 28;
+            // 
+            // BOptionsAdmin
+            // 
+            this.BOptionsAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.BOptionsAdmin.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BOptionsAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BOptionsAdmin.BackgroundImage")));
+            this.BOptionsAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BOptionsAdmin.BorderColor = System.Drawing.Color.Transparent;
+            this.BOptionsAdmin.BorderRadius = 0;
+            this.BOptionsAdmin.BorderSize = 0;
+            this.BOptionsAdmin.FlatAppearance.BorderSize = 0;
+            this.BOptionsAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BOptionsAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BOptionsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOptionsAdmin.ForeColor = System.Drawing.Color.White;
+            this.BOptionsAdmin.Location = new System.Drawing.Point(12, 478);
+            this.BOptionsAdmin.Name = "BOptionsAdmin";
+            this.BOptionsAdmin.Size = new System.Drawing.Size(42, 34);
+            this.BOptionsAdmin.TabIndex = 29;
+            this.BOptionsAdmin.TextColor = System.Drawing.Color.White;
+            this.BOptionsAdmin.UseVisualStyleBackColor = false;
+            this.BOptionsAdmin.Click += new System.EventHandler(this.BOptionsAdmin_Click);
             // 
             // AdministradorOptions
             // 
@@ -164,11 +178,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(198, 524);
+            this.Controls.Add(this.BOptionsAdmin);
+            this.Controls.Add(this.PPersonalOptions);
             this.Controls.Add(this.BGestionVenta);
             this.Controls.Add(this.BGestionCliente);
             this.Controls.Add(this.BGestionPr);
             this.Controls.Add(this.BGestionUsuario);
-            this.Controls.Add(this.BOptionsEmpleado);
             this.Controls.Add(this.LNombreUs);
             this.Controls.Add(this.PBImgUs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -181,13 +196,13 @@
         }
 
         #endregion
-
-        private RJButton BOptionsEmpleado;
         private System.Windows.Forms.Label LNombreUs;
         private System.Windows.Forms.PictureBox PBImgUs;
         private System.Windows.Forms.Button BGestionVenta;
         private System.Windows.Forms.Button BGestionCliente;
         private System.Windows.Forms.Button BGestionPr;
         private System.Windows.Forms.Button BGestionUsuario;
+        private System.Windows.Forms.Panel PPersonalOptions;
+        private RJButton BOptionsAdmin;
     }
 }

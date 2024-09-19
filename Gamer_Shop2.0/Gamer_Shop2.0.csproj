@@ -76,6 +76,18 @@
     <Compile Include="Formularios\Comercio\Catalogo.Designer.cs">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\GestionCliente\ListaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionCliente\ListaCliente.Designer.cs">
+      <DependentUpon>ListaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionCliente\ModificarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionCliente\ModificarCliente.Designer.cs">
+      <DependentUpon>ModificarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\GestionUsuario\ListaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +111,12 @@
     </Compile>
     <Compile Include="Formularios\GestionVenta\ListaVenta.Designer.cs">
       <DependentUpon>ListaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Inicio\InicioDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Inicio\InicioDetalle.Designer.cs">
+      <DependentUpon>InicioDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\InterfazUsuarios\AdministradorOptions.cs">
       <SubType>Form</SubType>
@@ -142,6 +160,18 @@
     <Compile Include="Formularios\GestionProducto\ModificarProducto.Designer.cs">
       <DependentUpon>ModificarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\InterfazUsuarios\PersonalOptions%28NB%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\InterfazUsuarios\PersonalOptions%28NB%29.Designer.cs">
+      <DependentUpon>PersonalOptions%28NB%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\InterfazUsuarios\PersonalOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\InterfazUsuarios\PersonalOptions.Designer.cs">
+      <DependentUpon>PersonalOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RJControls\MenuColorTable.cs" />
@@ -179,6 +209,12 @@
     <EmbeddedResource Include="Formularios\Comercio\Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionCliente\ListaCliente.resx">
+      <DependentUpon>ListaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionCliente\ModificarCliente.resx">
+      <DependentUpon>ModificarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionUsuario\AltaUsuario.resx">
       <DependentUpon>AltaUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionVenta\ListaVenta.resx">
       <DependentUpon>ListaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Inicio\InicioDetalle.resx">
+      <DependentUpon>InicioDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\InterfazUsuarios\AdministradorOptions.resx">
       <DependentUpon>AdministradorOptions.cs</DependentUpon>
@@ -211,6 +250,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionProducto\ModificarProducto.resx">
       <DependentUpon>ModificarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\InterfazUsuarios\PersonalOptions%28NB%29.resx">
+      <DependentUpon>PersonalOptions%28NB%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\InterfazUsuarios\PersonalOptions.resx">
+      <DependentUpon>PersonalOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -250,8 +295,6 @@
   <ItemGroup>
     <None Include="bin\Debug\img\FondoI_S.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formularios\GestionCliente\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

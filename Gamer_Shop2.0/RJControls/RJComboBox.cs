@@ -87,7 +87,7 @@ namespace Gamer_Shop2._0.RJControls
         //Private methods
         private void AdjustComboBoxDimensions()
         {
-            cmbList.Width = lblText.Width;
+            cmbList.Width = this.Width;
             cmbList.Location = new Point()
             {
                 X = this.Width - this.Padding.Right - cmbList.Width,

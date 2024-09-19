@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios.Comercio;
+using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.GestionVenta;
@@ -17,12 +18,19 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 {
     public partial class EmpleadoOptions : Form
     {
-        public Panel PanelContainer { get; set; }
-        public Label LabelContainer { get; set; }
-        public Bienvenida MainForm { get; set; }
+        bool isExpandedOption = false;
+        public Panel PanelContainer { get; set; } //Referencia a Control para los forms de gestion.
+        public Label LabelContainer { get; set; } //Referencia al Label de version para poner visible o no.
+        public Bienvenida MainForm { get; set; } //Referencia a Bienvenida para usar su función MenuContract.
+        public bool isExpandedOps { get; set; } //Referencia al booleano utilizado para evaluar si la configuración está abierta o no.
+
+        //Options definido globalmente para mejor manejo.
+        private PersonalOptions_NB_ Poptions ;
+
         public EmpleadoOptions()
         {
             InitializeComponent();
+            Poptions = new PersonalOptions_NB_();
         }
 
         private void BGestionPr_Click(object sender, EventArgs e)
@@ -53,14 +61,14 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             LabelContainer.Visible = false;
 
             // Mostrar form
-            AltaUsuario formAltaUs = new AltaUsuario();
-            formAltaUs.TopLevel = false;
-            formAltaUs.PanelContainer = PanelContainer;
+            ListaCliente formCliente = new ListaCliente();
+            formCliente.TopLevel = false;
+            formCliente.PanelContainer = PanelContainer;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
-            PanelContainer.Controls.Add(formAltaUs);
+            PanelContainer.Controls.Add(formCliente);
             PanelContainer.BringToFront();
 
-            formAltaUs.Show();
+            formCliente.Show();
         }
 
         private void BGestionVenta_Click(object sender, EventArgs e)
@@ -94,11 +102,41 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             Catalogo formCatalogo = new Catalogo();
             formCatalogo.TopLevel = false;
             formCatalogo.PanelContainer = PanelContainer;
+            formCatalogo.LabelContainer = LabelContainer;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formCatalogo);
             PanelContainer.BringToFront();
 
             formCatalogo.Show();
+        }
+
+        private void BOptionsEmpleado_Click(object sender, EventArgs e)
+        {
+            if (!isExpandedOption || !isExpandedOps)
+            {
+                // Mostrar form
+                Poptions = new PersonalOptions_NB_();
+                Poptions.TopLevel = false;
+                Poptions.PanelContainer = PanelContainer;
+                Poptions.Mainform = MainForm;
+                PPersonalOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+                PPersonalOptions.Controls.Add(Poptions);
+                Poptions.Location = new Point(1, 1);
+
+                Poptions.Show();
+                isExpandedOption = true;
+
+                //Pasamos Poptions ah Bienvenida.cs
+                MainForm.PersonalOpsNB = Poptions;
+                MainForm.isExpandedOpts = true;
+                isExpandedOps = true;
+            }
+            else
+            {
+                Poptions.Close();
+                isExpandedOption = false;
+                MainForm.isExpandedOpts = false;
+            }
         }
     }
 }

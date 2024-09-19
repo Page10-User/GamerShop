@@ -31,7 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarUsuario));
             this.label1 = new System.Windows.Forms.Label();
             this.PContModificarUs = new System.Windows.Forms.Panel();
+            this.TContraseñaUs = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TEmailUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LContraseñaUs = new System.Windows.Forms.Label();
+            this.TNombreUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TCuilUs = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TApellidoUs = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TNombreUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LEmailUs = new System.Windows.Forms.Label();
             this.LNombreUsuario = new System.Windows.Forms.Label();
             this.LApellidoUs = new System.Windows.Forms.Label();
@@ -41,12 +47,6 @@
             this.PBImgModificarUs = new System.Windows.Forms.PictureBox();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarUs = new Gamer_Shop2._0.RJButton();
-            this.TContraseñaUs = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TEmailUs = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TNombreUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TCuilUs = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TApellidoUs = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TNombreUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.PContModificarUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarUs)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +83,44 @@
             this.PContModificarUs.Size = new System.Drawing.Size(315, 290);
             this.PContModificarUs.TabIndex = 23;
             // 
+            // TContraseñaUs
+            // 
+            this.TContraseñaUs.BackColor = System.Drawing.Color.Black;
+            this.TContraseñaUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TContraseñaUs.BorderFocusColor = System.Drawing.Color.Cyan;
+            this.TContraseñaUs.BorderSize = 2;
+            this.TContraseñaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TContraseñaUs.ForeColor = System.Drawing.Color.White;
+            this.TContraseñaUs.Location = new System.Drawing.Point(129, 223);
+            this.TContraseñaUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TContraseñaUs.Multiline = false;
+            this.TContraseñaUs.Name = "TContraseñaUs";
+            this.TContraseñaUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TContraseñaUs.PasswordChar = false;
+            this.TContraseñaUs.Size = new System.Drawing.Size(172, 31);
+            this.TContraseñaUs.TabIndex = 18;
+            this.TContraseñaUs.Texts = "";
+            this.TContraseñaUs.UnderlinedStyle = true;
+            // 
+            // TEmailUs
+            // 
+            this.TEmailUs.BackColor = System.Drawing.Color.Black;
+            this.TEmailUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TEmailUs.BorderFocusColor = System.Drawing.Color.Cyan;
+            this.TEmailUs.BorderSize = 2;
+            this.TEmailUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TEmailUs.ForeColor = System.Drawing.Color.White;
+            this.TEmailUs.Location = new System.Drawing.Point(129, 181);
+            this.TEmailUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TEmailUs.Multiline = false;
+            this.TEmailUs.Name = "TEmailUs";
+            this.TEmailUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TEmailUs.PasswordChar = false;
+            this.TEmailUs.Size = new System.Drawing.Size(172, 31);
+            this.TEmailUs.TabIndex = 17;
+            this.TEmailUs.Texts = "";
+            this.TEmailUs.UnderlinedStyle = true;
+            // 
             // LContraseñaUs
             // 
             this.LContraseñaUs.AutoSize = true;
@@ -94,6 +132,82 @@
             this.LContraseñaUs.Size = new System.Drawing.Size(85, 18);
             this.LContraseñaUs.TabIndex = 16;
             this.LContraseñaUs.Text = "Contraseña";
+            // 
+            // TNombreUsuario
+            // 
+            this.TNombreUsuario.BackColor = System.Drawing.Color.Black;
+            this.TNombreUsuario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TNombreUsuario.BorderFocusColor = System.Drawing.Color.Cyan;
+            this.TNombreUsuario.BorderSize = 2;
+            this.TNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombreUsuario.ForeColor = System.Drawing.Color.White;
+            this.TNombreUsuario.Location = new System.Drawing.Point(129, 140);
+            this.TNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.TNombreUsuario.Multiline = false;
+            this.TNombreUsuario.Name = "TNombreUsuario";
+            this.TNombreUsuario.Padding = new System.Windows.Forms.Padding(7);
+            this.TNombreUsuario.PasswordChar = false;
+            this.TNombreUsuario.Size = new System.Drawing.Size(172, 31);
+            this.TNombreUsuario.TabIndex = 15;
+            this.TNombreUsuario.Texts = "";
+            this.TNombreUsuario.UnderlinedStyle = true;
+            // 
+            // TCuilUs
+            // 
+            this.TCuilUs.BackColor = System.Drawing.Color.Black;
+            this.TCuilUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TCuilUs.BorderFocusColor = System.Drawing.Color.Cyan;
+            this.TCuilUs.BorderSize = 2;
+            this.TCuilUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCuilUs.ForeColor = System.Drawing.Color.White;
+            this.TCuilUs.Location = new System.Drawing.Point(129, 98);
+            this.TCuilUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TCuilUs.Multiline = false;
+            this.TCuilUs.Name = "TCuilUs";
+            this.TCuilUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TCuilUs.PasswordChar = false;
+            this.TCuilUs.Size = new System.Drawing.Size(172, 31);
+            this.TCuilUs.TabIndex = 14;
+            this.TCuilUs.Texts = "";
+            this.TCuilUs.UnderlinedStyle = true;
+            // 
+            // TApellidoUs
+            // 
+            this.TApellidoUs.BackColor = System.Drawing.Color.Black;
+            this.TApellidoUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TApellidoUs.BorderFocusColor = System.Drawing.Color.Cyan;
+            this.TApellidoUs.BorderSize = 2;
+            this.TApellidoUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TApellidoUs.ForeColor = System.Drawing.Color.White;
+            this.TApellidoUs.Location = new System.Drawing.Point(129, 57);
+            this.TApellidoUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TApellidoUs.Multiline = true;
+            this.TApellidoUs.Name = "TApellidoUs";
+            this.TApellidoUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TApellidoUs.PasswordChar = false;
+            this.TApellidoUs.Size = new System.Drawing.Size(172, 31);
+            this.TApellidoUs.TabIndex = 13;
+            this.TApellidoUs.Texts = "";
+            this.TApellidoUs.UnderlinedStyle = true;
+            // 
+            // TNombreUs
+            // 
+            this.TNombreUs.BackColor = System.Drawing.Color.Black;
+            this.TNombreUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TNombreUs.BorderFocusColor = System.Drawing.Color.Cyan;
+            this.TNombreUs.BorderSize = 2;
+            this.TNombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombreUs.ForeColor = System.Drawing.Color.White;
+            this.TNombreUs.Location = new System.Drawing.Point(129, 16);
+            this.TNombreUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TNombreUs.Multiline = false;
+            this.TNombreUs.Name = "TNombreUs";
+            this.TNombreUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TNombreUs.PasswordChar = false;
+            this.TNombreUs.Size = new System.Drawing.Size(172, 31);
+            this.TNombreUs.TabIndex = 12;
+            this.TNombreUs.Texts = "";
+            this.TNombreUs.UnderlinedStyle = true;
             // 
             // LEmailUs
             // 
@@ -218,120 +332,6 @@
             this.BModificarUs.TabIndex = 24;
             this.BModificarUs.TextColor = System.Drawing.Color.White;
             this.BModificarUs.UseVisualStyleBackColor = false;
-            // 
-            // TContraseñaUs
-            // 
-            this.TContraseñaUs.BackColor = System.Drawing.Color.Black;
-            this.TContraseñaUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.TContraseñaUs.BorderFocusColor = System.Drawing.Color.Cyan;
-            this.TContraseñaUs.BorderSize = 2;
-            this.TContraseñaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TContraseñaUs.ForeColor = System.Drawing.Color.White;
-            this.TContraseñaUs.Location = new System.Drawing.Point(129, 223);
-            this.TContraseñaUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TContraseñaUs.Multiline = false;
-            this.TContraseñaUs.Name = "TContraseñaUs";
-            this.TContraseñaUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TContraseñaUs.PasswordChar = false;
-            this.TContraseñaUs.Size = new System.Drawing.Size(172, 31);
-            this.TContraseñaUs.TabIndex = 18;
-            this.TContraseñaUs.Texts = "";
-            this.TContraseñaUs.UnderlinedStyle = true;
-            // 
-            // TEmailUs
-            // 
-            this.TEmailUs.BackColor = System.Drawing.Color.Black;
-            this.TEmailUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.TEmailUs.BorderFocusColor = System.Drawing.Color.Cyan;
-            this.TEmailUs.BorderSize = 2;
-            this.TEmailUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TEmailUs.ForeColor = System.Drawing.Color.White;
-            this.TEmailUs.Location = new System.Drawing.Point(129, 181);
-            this.TEmailUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TEmailUs.Multiline = false;
-            this.TEmailUs.Name = "TEmailUs";
-            this.TEmailUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TEmailUs.PasswordChar = false;
-            this.TEmailUs.Size = new System.Drawing.Size(172, 31);
-            this.TEmailUs.TabIndex = 17;
-            this.TEmailUs.Texts = "";
-            this.TEmailUs.UnderlinedStyle = true;
-            // 
-            // TNombreUsuario
-            // 
-            this.TNombreUsuario.BackColor = System.Drawing.Color.Black;
-            this.TNombreUsuario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.TNombreUsuario.BorderFocusColor = System.Drawing.Color.Cyan;
-            this.TNombreUsuario.BorderSize = 2;
-            this.TNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.TNombreUsuario.Location = new System.Drawing.Point(129, 140);
-            this.TNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
-            this.TNombreUsuario.Multiline = false;
-            this.TNombreUsuario.Name = "TNombreUsuario";
-            this.TNombreUsuario.Padding = new System.Windows.Forms.Padding(7);
-            this.TNombreUsuario.PasswordChar = false;
-            this.TNombreUsuario.Size = new System.Drawing.Size(172, 31);
-            this.TNombreUsuario.TabIndex = 15;
-            this.TNombreUsuario.Texts = "";
-            this.TNombreUsuario.UnderlinedStyle = true;
-            // 
-            // TCuilUs
-            // 
-            this.TCuilUs.BackColor = System.Drawing.Color.Black;
-            this.TCuilUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.TCuilUs.BorderFocusColor = System.Drawing.Color.Cyan;
-            this.TCuilUs.BorderSize = 2;
-            this.TCuilUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCuilUs.ForeColor = System.Drawing.Color.White;
-            this.TCuilUs.Location = new System.Drawing.Point(129, 98);
-            this.TCuilUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TCuilUs.Multiline = false;
-            this.TCuilUs.Name = "TCuilUs";
-            this.TCuilUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TCuilUs.PasswordChar = false;
-            this.TCuilUs.Size = new System.Drawing.Size(172, 31);
-            this.TCuilUs.TabIndex = 14;
-            this.TCuilUs.Texts = "";
-            this.TCuilUs.UnderlinedStyle = true;
-            // 
-            // TApellidoUs
-            // 
-            this.TApellidoUs.BackColor = System.Drawing.Color.Black;
-            this.TApellidoUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.TApellidoUs.BorderFocusColor = System.Drawing.Color.Cyan;
-            this.TApellidoUs.BorderSize = 2;
-            this.TApellidoUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TApellidoUs.ForeColor = System.Drawing.Color.White;
-            this.TApellidoUs.Location = new System.Drawing.Point(129, 57);
-            this.TApellidoUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TApellidoUs.Multiline = true;
-            this.TApellidoUs.Name = "TApellidoUs";
-            this.TApellidoUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TApellidoUs.PasswordChar = false;
-            this.TApellidoUs.Size = new System.Drawing.Size(172, 31);
-            this.TApellidoUs.TabIndex = 13;
-            this.TApellidoUs.Texts = "";
-            this.TApellidoUs.UnderlinedStyle = true;
-            // 
-            // TNombreUs
-            // 
-            this.TNombreUs.BackColor = System.Drawing.Color.Black;
-            this.TNombreUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.TNombreUs.BorderFocusColor = System.Drawing.Color.Cyan;
-            this.TNombreUs.BorderSize = 2;
-            this.TNombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombreUs.ForeColor = System.Drawing.Color.White;
-            this.TNombreUs.Location = new System.Drawing.Point(129, 16);
-            this.TNombreUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TNombreUs.Multiline = false;
-            this.TNombreUs.Name = "TNombreUs";
-            this.TNombreUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TNombreUs.PasswordChar = false;
-            this.TNombreUs.Size = new System.Drawing.Size(172, 31);
-            this.TNombreUs.TabIndex = 12;
-            this.TNombreUs.Texts = "";
-            this.TNombreUs.UnderlinedStyle = true;
             // 
             // ModificarUsuario
             // 

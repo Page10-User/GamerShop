@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios;
+using Gamer_Shop2._0.Formularios.Inicio;
 using Gamer_Shop2._0.Formularios.InterfazUsuarios;
 using System;
 using System.Drawing;
@@ -15,7 +16,11 @@ namespace Gamer_Shop2._0
         private Form formBG;
 
         //Options definido globalmente para mejor manejo.
-        private EmpleadoOptions empleadoOptions;
+        private EmpleadoOptions userOptions;
+
+        public PersonalOptions PersonalOps { get; set; }
+        public PersonalOptions_NB_ PersonalOpsNB { get; set; }
+        public bool isExpandedOpts { get; set; }
 
         public Bienvenida()
         {
@@ -23,12 +28,11 @@ namespace Gamer_Shop2._0
             this.Load += new EventHandler(Bienvenida_Load);
             this.Paint += new PaintEventHandler(Bievenida_Paint);
             PMenuUS.Paint += new PaintEventHandler(PMenuUS_Paint);
-            this.PFondoBienvenida.Paint += new PaintEventHandler(PFondoBienvenida_Paint);
-            empleadoOptions = new EmpleadoOptions();
-            empleadoOptions.MainForm = this;
-            empleadoOptions.PanelContainer = PShowOptions;
-            empleadoOptions.LabelContainer = LVersion;
-            empleadoOptions.TopLevel = false;
+            userOptions = new EmpleadoOptions();
+            userOptions.MainForm = this;
+            userOptions.PanelContainer = PShowOptions;
+            userOptions.LabelContainer = LVersion;
+            userOptions.TopLevel = false;
         }
 
         private void PFondoBienvenida_Paint(object sender, PaintEventArgs e)
@@ -65,13 +69,16 @@ namespace Gamer_Shop2._0
             BExpandMenu.Location = new Point(12, 38);
             BContracMenu.BringToFront();
 
-            //Mostrando fecha actual.
-            LFActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            //Cargar detalles de inicio.
+            // Crear una nueva instancia de ListaProductos
+            InicioDetalle inicioD = new InicioDetalle();
+            inicioD.TopLevel = false;
 
-            //Mostrando el horario en tiempo real.
-            THorario.Interval = 1000;
-            THorario.Tick += THorario_Tick;
-            THorario.Start();
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PShowOptions.Controls.Clear();
+            PShowOptions.Controls.Add(inicioD);
+            inicioD.Show();
+            inicioD.Location = new Point(50, 130);
         }
 
         // Función botón Exit
@@ -90,9 +97,25 @@ namespace Gamer_Shop2._0
             PEBorde.Visible = true;
             formBG.Close();
 
-            // Eliminar contenido del menú
-            PMenuUS.Controls.Add(empleadoOptions);
-            empleadoOptions.Visible = false;
+            // Ocultar contenido del menú.
+            userOptions.Visible = false;
+
+            if (isExpandedOpts)
+            {
+                bool isExpnd = false;
+                if (userOptions is AdministradorOptions)
+                {
+                    //Cerramos la configuración personal (Admin).
+                    PersonalOps.Close();
+                    userOptions.isExpandedOps = isExpnd;
+                }
+                else
+                {
+                    //Cerramos la configuración personal (Empleado y Gerente).
+                    PersonalOpsNB.Close();
+                    userOptions.isExpandedOps = isExpnd;
+                }
+            }
         }
 
         // Botón expandir Menú.
@@ -127,9 +150,9 @@ namespace Gamer_Shop2._0
             formBG.Show();
 
             // Cargar contenido del menú.
-            PMenuUS.Controls.Add(empleadoOptions);
-            empleadoOptions.Location = new Point(0, 1);
-            empleadoOptions.Visible = true;
+            PMenuUS.Controls.Add(userOptions);
+            userOptions.Location = new Point(0, 1);
+            userOptions.Visible = true;
         }
 
         // Diseño del bordeado del formulario
@@ -164,13 +187,6 @@ namespace Gamer_Shop2._0
             {
                 e.Graphics.DrawRectangle(borderPen, borderRectangle);
             }
-        }
-
-        //Reloj a tiempo real
-        private void THorario_Tick(object sender, EventArgs e)
-        {
-            // Actualizar el texto del Label con la hora actual
-            LReloj.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }
