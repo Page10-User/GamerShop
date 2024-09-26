@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarProducto));
             this.label1 = new System.Windows.Forms.Label();
             this.PContModificarPr = new System.Windows.Forms.Panel();
+            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
@@ -39,7 +40,6 @@
             this.TBValidacion2 = new System.Windows.Forms.Label();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LCategoriaPr = new System.Windows.Forms.Label();
             this.LStockPr = new System.Windows.Forms.Label();
             this.LDescripcionPr = new System.Windows.Forms.Label();
@@ -86,6 +86,30 @@
             this.PContModificarPr.Name = "PContModificarPr";
             this.PContModificarPr.Size = new System.Drawing.Size(315, 290);
             this.PContModificarPr.TabIndex = 9;
+            // 
+            // TStockPr
+            // 
+            this.TStockPr.BackColor = System.Drawing.Color.Black;
+            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TStockPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TStockPr.BorderSize = 2;
+            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TStockPr.ForeColor = System.Drawing.Color.White;
+            this.TStockPr.Location = new System.Drawing.Point(128, 148);
+            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TStockPr.Multiline = false;
+            this.TStockPr.Name = "TStockPr";
+            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TStockPr.PasswordChar = false;
+            this.TStockPr.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TStockPr.PlaceholderText = "";
+            this.TStockPr.Size = new System.Drawing.Size(172, 31);
+            this.TStockPr.TabIndex = 15;
+            this.TStockPr.Texts = "";
+            this.TStockPr.UnderlinedStyle = true;
+            this.TStockPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TStockPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
+            this.TStockPr.Validating += new System.ComponentModel.CancelEventHandler(this.TStockPr_Validating);
             // 
             // TPrecioPr
             // 
@@ -232,30 +256,6 @@
             this.CBCategoriaPr.Texts = "";
             this.CBCategoriaPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
             // 
-            // TStockPr
-            // 
-            this.TStockPr.BackColor = System.Drawing.Color.Black;
-            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TStockPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TStockPr.BorderSize = 2;
-            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TStockPr.ForeColor = System.Drawing.Color.White;
-            this.TStockPr.Location = new System.Drawing.Point(128, 148);
-            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TStockPr.Multiline = false;
-            this.TStockPr.Name = "TStockPr";
-            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TStockPr.PasswordChar = false;
-            this.TStockPr.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TStockPr.PlaceholderText = "";
-            this.TStockPr.Size = new System.Drawing.Size(172, 31);
-            this.TStockPr.TabIndex = 15;
-            this.TStockPr.Texts = "";
-            this.TStockPr.UnderlinedStyle = true;
-            this.TStockPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TStockPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
-            this.TStockPr.Validating += new System.ComponentModel.CancelEventHandler(this.TStockPr_Validating);
-            // 
             // LCategoriaPr
             // 
             this.LCategoriaPr.AutoSize = true;
@@ -367,7 +367,7 @@
             this.BModificarPr.BackColor = System.Drawing.Color.Black;
             this.BModificarPr.BackgroundColor = System.Drawing.Color.Black;
             this.BModificarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BModificarPr.BackgroundImage")));
-            this.BModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BModificarPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BModificarPr.BorderRadius = 20;
             this.BModificarPr.BorderSize = 1;

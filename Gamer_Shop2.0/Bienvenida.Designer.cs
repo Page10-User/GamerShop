@@ -95,7 +95,7 @@
             this.LVersion.BackColor = System.Drawing.Color.Transparent;
             this.LVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LVersion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LVersion.Location = new System.Drawing.Point(731, 341);
+            this.LVersion.Location = new System.Drawing.Point(743, 501);
             this.LVersion.Name = "LVersion";
             this.LVersion.Size = new System.Drawing.Size(84, 16);
             this.LVersion.TabIndex = 18;
@@ -103,22 +103,22 @@
             // 
             // BSalir
             // 
-            this.BSalir.BackColor = System.Drawing.Color.Transparent;
-            this.BSalir.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BSalir.BackColor = System.Drawing.Color.Black;
+            this.BSalir.BackgroundColor = System.Drawing.Color.Black;
             this.BSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BSalir.BackgroundImage")));
-            this.BSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BSalir.BorderColor = System.Drawing.Color.Transparent;
-            this.BSalir.BorderRadius = 0;
-            this.BSalir.BorderSize = 0;
+            this.BSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BSalir.BorderColor = System.Drawing.Color.Lime;
+            this.BSalir.BorderRadius = 15;
+            this.BSalir.BorderSize = 1;
             this.BSalir.CausesValidation = false;
             this.BSalir.FlatAppearance.BorderSize = 0;
             this.BSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSalir.ForeColor = System.Drawing.Color.White;
-            this.BSalir.Location = new System.Drawing.Point(794, 12);
+            this.BSalir.Location = new System.Drawing.Point(783, 23);
             this.BSalir.Name = "BSalir";
-            this.BSalir.Size = new System.Drawing.Size(33, 31);
+            this.BSalir.Size = new System.Drawing.Size(32, 32);
             this.BSalir.TabIndex = 10;
             this.BSalir.TextColor = System.Drawing.Color.White;
             this.BSalir.UseVisualStyleBackColor = false;

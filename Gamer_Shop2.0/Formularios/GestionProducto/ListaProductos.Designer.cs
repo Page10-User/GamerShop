@@ -90,7 +90,7 @@
             this.BShowRegistrarPr.BackColor = System.Drawing.Color.Black;
             this.BShowRegistrarPr.BackgroundColor = System.Drawing.Color.Black;
             this.BShowRegistrarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowRegistrarPr.BackgroundImage")));
-            this.BShowRegistrarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BShowRegistrarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BShowRegistrarPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BShowRegistrarPr.BorderRadius = 20;
             this.BShowRegistrarPr.BorderSize = 1;

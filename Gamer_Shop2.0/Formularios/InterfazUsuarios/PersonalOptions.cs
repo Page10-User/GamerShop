@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios.GestionUsuario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
         private int borderWidth = 3; // Grosor del borde
 
         public Panel PanelContainer { get; set; }
+        public Panel LabelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
         public PersonalOptions()
         {
@@ -70,6 +72,26 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             form.Show();
             Mainform.BContracMenu_Click(sender, e);
             Mainform.Hide();
+        }
+
+        private void BMiPerfil_Click(object sender, EventArgs e)
+        {
+            //Cerrar el menú tras elegír una opción
+            Mainform.BContracMenu_Click(sender, e);
+
+            //Ocultar Otros.
+            //LabelContainer.Visible = false;
+
+            // Crear una nueva instancia de EditarPerfil
+            EditarPerfil editarPerfil = new EditarPerfil();
+            editarPerfil.TopLevel = false;
+
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(editarPerfil);
+            //editarPerfil.PanelContainer = PanelContainer;
+            editarPerfil.Show();
+            this.Close();
         }
     }
 }

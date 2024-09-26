@@ -132,6 +132,11 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             }
         }
 
-
+        public event EventHandler<int> AgregarAlCarritoClick;
+        private void BAgregarCarrito_Click(object sender, EventArgs e)
+        {
+            //Pasamos el id del producto al catálogo.
+            AgregarAlCarritoClick?.Invoke(this, id);
+        }
     }
 }

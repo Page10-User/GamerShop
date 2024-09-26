@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BotonesArticulo));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LCategoria = new System.Windows.Forms.Label();
             this.BAgregarCarrito = new Gamer_Shop2._0.RJButton();
             this.BComprarAhora = new Gamer_Shop2._0.RJButton();
             this.PFotoPr = new System.Windows.Forms.Panel();
             this.PBfotoPr = new System.Windows.Forms.PictureBox();
             this.LPrecio = new System.Windows.Forms.Label();
             this.LNombreProducto = new System.Windows.Forms.Label();
-            this.LCategoria = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.PFotoPr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBfotoPr)).BeginInit();
@@ -56,6 +56,17 @@
             this.panel1.Size = new System.Drawing.Size(160, 263);
             this.panel1.TabIndex = 0;
             // 
+            // LCategoria
+            // 
+            this.LCategoria.AutoSize = true;
+            this.LCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCategoria.ForeColor = System.Drawing.Color.White;
+            this.LCategoria.Location = new System.Drawing.Point(13, 125);
+            this.LCategoria.Name = "LCategoria";
+            this.LCategoria.Size = new System.Drawing.Size(75, 16);
+            this.LCategoria.TabIndex = 7;
+            this.LCategoria.Text = "Categoria";
+            // 
             // BAgregarCarrito
             // 
             this.BAgregarCarrito.BackColor = System.Drawing.Color.Maroon;
@@ -74,6 +85,7 @@
             this.BAgregarCarrito.Text = "Agregar al Carrito";
             this.BAgregarCarrito.TextColor = System.Drawing.Color.White;
             this.BAgregarCarrito.UseVisualStyleBackColor = false;
+            this.BAgregarCarrito.Click += new System.EventHandler(this.BAgregarCarrito_Click);
             // 
             // BComprarAhora
             // 
@@ -135,17 +147,6 @@
             this.LNombreProducto.Size = new System.Drawing.Size(128, 32);
             this.LNombreProducto.TabIndex = 2;
             this.LNombreProducto.Text = "Nombre Producto\r\n\r\n";
-            // 
-            // LCategoria
-            // 
-            this.LCategoria.AutoSize = true;
-            this.LCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LCategoria.ForeColor = System.Drawing.Color.White;
-            this.LCategoria.Location = new System.Drawing.Point(13, 125);
-            this.LCategoria.Name = "LCategoria";
-            this.LCategoria.Size = new System.Drawing.Size(75, 16);
-            this.LCategoria.TabIndex = 7;
-            this.LCategoria.Text = "Categoria";
             // 
             // BotonesArticulo
             // 

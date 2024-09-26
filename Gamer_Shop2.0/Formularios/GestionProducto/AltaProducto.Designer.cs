@@ -32,8 +32,13 @@
             this.PBImgAltaPr = new System.Windows.Forms.PictureBox();
             this.LTituloAltaPr = new System.Windows.Forms.Label();
             this.PContAltaPr = new System.Windows.Forms.Panel();
-            this.TBValidacion4 = new System.Windows.Forms.Label();
+            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion3 = new System.Windows.Forms.Label();
+            this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.TBValidacion4 = new System.Windows.Forms.Label();
             this.TBValidacion2 = new System.Windows.Forms.Label();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.LCategoriaPr = new System.Windows.Forms.Label();
@@ -45,11 +50,6 @@
             this.BShowLista = new System.Windows.Forms.Label();
             this.BShowListaPr = new Gamer_Shop2._0.RJButton();
             this.BRegistrarPr = new Gamer_Shop2._0.RJButton();
-            this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaPr)).BeginInit();
             this.PContAltaPr.SuspendLayout();
             this.SuspendLayout();
@@ -99,17 +99,101 @@
             this.PContAltaPr.Size = new System.Drawing.Size(315, 290);
             this.PContAltaPr.TabIndex = 2;
             // 
-            // TBValidacion4
+            // TStockPr
             // 
-            this.TBValidacion4.AutoSize = true;
-            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TBValidacion4.Location = new System.Drawing.Point(63, 188);
-            this.TBValidacion4.Name = "TBValidacion4";
-            this.TBValidacion4.Size = new System.Drawing.Size(237, 14);
-            this.TBValidacion4.TabIndex = 19;
-            this.TBValidacion4.Text = "Ingrese únicamente carácteres numéricos exactos.";
-            this.TBValidacion4.Visible = false;
+            this.TStockPr.BackColor = System.Drawing.Color.Black;
+            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TStockPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TStockPr.BorderSize = 2;
+            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TStockPr.ForeColor = System.Drawing.Color.White;
+            this.TStockPr.Location = new System.Drawing.Point(128, 158);
+            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TStockPr.Multiline = true;
+            this.TStockPr.Name = "TStockPr";
+            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TStockPr.PasswordChar = false;
+            this.TStockPr.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TStockPr.PlaceholderText = "";
+            this.TStockPr.Size = new System.Drawing.Size(172, 31);
+            this.TStockPr.TabIndex = 23;
+            this.TStockPr.Texts = "";
+            this.TStockPr.UnderlinedStyle = true;
+            this.TStockPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TStockPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
+            this.TStockPr.Validating += new System.ComponentModel.CancelEventHandler(this.TStockPr_Validating);
+            // 
+            // TPrecioPr
+            // 
+            this.TPrecioPr.BackColor = System.Drawing.Color.Black;
+            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TPrecioPr.BorderSize = 2;
+            this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPrecioPr.ForeColor = System.Drawing.Color.White;
+            this.TPrecioPr.Location = new System.Drawing.Point(128, 112);
+            this.TPrecioPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TPrecioPr.Multiline = true;
+            this.TPrecioPr.Name = "TPrecioPr";
+            this.TPrecioPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TPrecioPr.PasswordChar = false;
+            this.TPrecioPr.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TPrecioPr.PlaceholderText = "";
+            this.TPrecioPr.Size = new System.Drawing.Size(172, 31);
+            this.TPrecioPr.TabIndex = 22;
+            this.TPrecioPr.Texts = "";
+            this.TPrecioPr.UnderlinedStyle = true;
+            this.TPrecioPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TPrecioPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
+            this.TPrecioPr.Validating += new System.ComponentModel.CancelEventHandler(this.TPrecioPr_Validating);
+            // 
+            // TDescripcionPr
+            // 
+            this.TDescripcionPr.BackColor = System.Drawing.Color.Black;
+            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TDescripcionPr.BorderSize = 2;
+            this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
+            this.TDescripcionPr.Location = new System.Drawing.Point(128, 62);
+            this.TDescripcionPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TDescripcionPr.Multiline = true;
+            this.TDescripcionPr.Name = "TDescripcionPr";
+            this.TDescripcionPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TDescripcionPr.PasswordChar = false;
+            this.TDescripcionPr.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TDescripcionPr.PlaceholderText = "";
+            this.TDescripcionPr.Size = new System.Drawing.Size(172, 31);
+            this.TDescripcionPr.TabIndex = 13;
+            this.TDescripcionPr.Texts = "";
+            this.TDescripcionPr.UnderlinedStyle = true;
+            this.TDescripcionPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TDescripcionPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDescripcionPr_KeyPress);
+            this.TDescripcionPr.Validating += new System.ComponentModel.CancelEventHandler(this.TDescripcionPr_Validating);
+            // 
+            // TNombrePr
+            // 
+            this.TNombrePr.BackColor = System.Drawing.Color.Black;
+            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TNombrePr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TNombrePr.BorderSize = 2;
+            this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombrePr.ForeColor = System.Drawing.Color.White;
+            this.TNombrePr.Location = new System.Drawing.Point(128, 21);
+            this.TNombrePr.Margin = new System.Windows.Forms.Padding(4);
+            this.TNombrePr.Multiline = true;
+            this.TNombrePr.Name = "TNombrePr";
+            this.TNombrePr.Padding = new System.Windows.Forms.Padding(7);
+            this.TNombrePr.PasswordChar = false;
+            this.TNombrePr.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TNombrePr.PlaceholderText = "";
+            this.TNombrePr.Size = new System.Drawing.Size(172, 31);
+            this.TNombrePr.TabIndex = 21;
+            this.TNombrePr.Texts = "";
+            this.TNombrePr.UnderlinedStyle = true;
+            this.TNombrePr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TNombrePr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombrePr_KeyPress);
+            this.TNombrePr.Validating += new System.ComponentModel.CancelEventHandler(this.TNombrePr_Validating);
             // 
             // TBValidacion3
             // 
@@ -122,6 +206,43 @@
             this.TBValidacion3.TabIndex = 18;
             this.TBValidacion3.Text = "Ingrese únicamente carácteres numéricos.";
             this.TBValidacion3.Visible = false;
+            // 
+            // CBCategoriaPr
+            // 
+            this.CBCategoriaPr.BackColor = System.Drawing.Color.Black;
+            this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.BorderSize = 1;
+            this.CBCategoriaPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CBCategoriaPr.ForeColor = System.Drawing.Color.DimGray;
+            this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.Items.AddRange(new object[] {
+            "xd",
+            "procesador",
+            "ola",
+            "a"});
+            this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
+            this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.Location = new System.Drawing.Point(128, 220);
+            this.CBCategoriaPr.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBCategoriaPr.Name = "CBCategoriaPr";
+            this.CBCategoriaPr.Padding = new System.Windows.Forms.Padding(1);
+            this.CBCategoriaPr.Size = new System.Drawing.Size(172, 30);
+            this.CBCategoriaPr.TabIndex = 20;
+            this.CBCategoriaPr.Texts = "";
+            this.CBCategoriaPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
+            // 
+            // TBValidacion4
+            // 
+            this.TBValidacion4.AutoSize = true;
+            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion4.Location = new System.Drawing.Point(63, 188);
+            this.TBValidacion4.Name = "TBValidacion4";
+            this.TBValidacion4.Size = new System.Drawing.Size(237, 14);
+            this.TBValidacion4.TabIndex = 19;
+            this.TBValidacion4.Text = "Ingrese únicamente carácteres numéricos exactos.";
+            this.TBValidacion4.Visible = false;
             // 
             // TBValidacion2
             // 
@@ -256,7 +377,7 @@
             this.BRegistrarPr.BackColor = System.Drawing.Color.Black;
             this.BRegistrarPr.BackgroundColor = System.Drawing.Color.Black;
             this.BRegistrarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BRegistrarPr.BackgroundImage")));
-            this.BRegistrarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BRegistrarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BRegistrarPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BRegistrarPr.BorderRadius = 20;
             this.BRegistrarPr.BorderSize = 1;
@@ -270,127 +391,6 @@
             this.BRegistrarPr.TextColor = System.Drawing.Color.White;
             this.BRegistrarPr.UseVisualStyleBackColor = false;
             this.BRegistrarPr.Click += new System.EventHandler(this.BRegistrarPr_Click);
-            // 
-            // CBCategoriaPr
-            // 
-            this.CBCategoriaPr.BackColor = System.Drawing.Color.Black;
-            this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.CBCategoriaPr.BorderSize = 1;
-            this.CBCategoriaPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.CBCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CBCategoriaPr.ForeColor = System.Drawing.Color.DimGray;
-            this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.CBCategoriaPr.Items.AddRange(new object[] {
-            "xd",
-            "procesador",
-            "ola",
-            "a"});
-            this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
-            this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.CBCategoriaPr.Location = new System.Drawing.Point(128, 220);
-            this.CBCategoriaPr.MinimumSize = new System.Drawing.Size(30, 30);
-            this.CBCategoriaPr.Name = "CBCategoriaPr";
-            this.CBCategoriaPr.Padding = new System.Windows.Forms.Padding(1);
-            this.CBCategoriaPr.Size = new System.Drawing.Size(172, 30);
-            this.CBCategoriaPr.TabIndex = 20;
-            this.CBCategoriaPr.Texts = "";
-            this.CBCategoriaPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
-            // 
-            // TDescripcionPr
-            // 
-            this.TDescripcionPr.BackColor = System.Drawing.Color.Black;
-            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TDescripcionPr.BorderSize = 2;
-            this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
-            this.TDescripcionPr.Location = new System.Drawing.Point(128, 62);
-            this.TDescripcionPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TDescripcionPr.Multiline = true;
-            this.TDescripcionPr.Name = "TDescripcionPr";
-            this.TDescripcionPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TDescripcionPr.PasswordChar = false;
-            this.TDescripcionPr.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TDescripcionPr.PlaceholderText = "";
-            this.TDescripcionPr.Size = new System.Drawing.Size(172, 31);
-            this.TDescripcionPr.TabIndex = 13;
-            this.TDescripcionPr.Texts = "";
-            this.TDescripcionPr.UnderlinedStyle = true;
-            this.TDescripcionPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TDescripcionPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDescripcionPr_KeyPress);
-            this.TDescripcionPr.Validating += new System.ComponentModel.CancelEventHandler(this.TDescripcionPr_Validating);
-            // 
-            // TNombrePr
-            // 
-            this.TNombrePr.BackColor = System.Drawing.Color.Black;
-            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TNombrePr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TNombrePr.BorderSize = 2;
-            this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombrePr.ForeColor = System.Drawing.Color.White;
-            this.TNombrePr.Location = new System.Drawing.Point(128, 21);
-            this.TNombrePr.Margin = new System.Windows.Forms.Padding(4);
-            this.TNombrePr.Multiline = true;
-            this.TNombrePr.Name = "TNombrePr";
-            this.TNombrePr.Padding = new System.Windows.Forms.Padding(7);
-            this.TNombrePr.PasswordChar = false;
-            this.TNombrePr.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TNombrePr.PlaceholderText = "";
-            this.TNombrePr.Size = new System.Drawing.Size(172, 31);
-            this.TNombrePr.TabIndex = 21;
-            this.TNombrePr.Texts = "";
-            this.TNombrePr.UnderlinedStyle = true;
-            this.TNombrePr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TNombrePr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombrePr_KeyPress);
-            this.TNombrePr.Validating += new System.ComponentModel.CancelEventHandler(this.TNombrePr_Validating);
-            // 
-            // TPrecioPr
-            // 
-            this.TPrecioPr.BackColor = System.Drawing.Color.Black;
-            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TPrecioPr.BorderSize = 2;
-            this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TPrecioPr.ForeColor = System.Drawing.Color.White;
-            this.TPrecioPr.Location = new System.Drawing.Point(128, 112);
-            this.TPrecioPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TPrecioPr.Multiline = true;
-            this.TPrecioPr.Name = "TPrecioPr";
-            this.TPrecioPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TPrecioPr.PasswordChar = false;
-            this.TPrecioPr.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TPrecioPr.PlaceholderText = "";
-            this.TPrecioPr.Size = new System.Drawing.Size(172, 31);
-            this.TPrecioPr.TabIndex = 22;
-            this.TPrecioPr.Texts = "";
-            this.TPrecioPr.UnderlinedStyle = true;
-            this.TPrecioPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TPrecioPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
-            this.TPrecioPr.Validating += new System.ComponentModel.CancelEventHandler(this.TPrecioPr_Validating);
-            // 
-            // TStockPr
-            // 
-            this.TStockPr.BackColor = System.Drawing.Color.Black;
-            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TStockPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TStockPr.BorderSize = 2;
-            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TStockPr.ForeColor = System.Drawing.Color.White;
-            this.TStockPr.Location = new System.Drawing.Point(128, 158);
-            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TStockPr.Multiline = true;
-            this.TStockPr.Name = "TStockPr";
-            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TStockPr.PasswordChar = false;
-            this.TStockPr.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TStockPr.PlaceholderText = "";
-            this.TStockPr.Size = new System.Drawing.Size(172, 31);
-            this.TStockPr.TabIndex = 23;
-            this.TStockPr.Texts = "";
-            this.TStockPr.UnderlinedStyle = true;
-            this.TStockPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TStockPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
-            this.TStockPr.Validating += new System.ComponentModel.CancelEventHandler(this.TStockPr_Validating);
             // 
             // AltaProducto
             // 

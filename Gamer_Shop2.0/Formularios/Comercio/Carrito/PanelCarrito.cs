@@ -1,6 +1,4 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
-using Gamer_Shop2._0.Formularios.GestionUsuario;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,24 +9,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
+namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 {
-    public partial class PersonalOptions_NB_ : Form
+    public partial class PanelCarrito : Form
     {
-        private int borderRadius = 30; // Radio del borde redondeado
+        private int borderRadius = 10; // Radio del borde redondeado
         private int borderWidth = 3; // Grosor del borde
 
-        public Panel PanelContainer { get; set; }
-        public Bienvenida Mainform { get; set; }
-        public PersonalOptions_NB_()
+        public List<int> idPrCr { get; set; }
+
+        public Panel PanelContainerCr { get; set; }
+        public PanelCarrito()
         {
             InitializeComponent();
+            this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
+            this.Load += new EventHandler(PanelCarrito_Load);
         }
 
-        private void PersonalOptions_Load(object sender, EventArgs e)
+        private void PanelCarrito_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            FLPContenidoPrCarrito.Controls.Clear();
+
+            //Cargar productos al carrito.
+            for (int i = 0;  i < idPrCr.Count; i++)
+            {
+                BotonesArticuloCr ArticuloCr = new BotonesArticuloCr();
+                ArticuloCr.EliminarDelCarritoClick += BEliminarPrCarrito_Click;
+                FLPContenidoPrCarrito.Controls.Add(ArticuloCr);
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -60,36 +70,24 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             // dibujar el borde redondeado
             GraphicsPath path = CreateRoundedPath();
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (Pen pen = new Pen(Color.Lime, borderWidth))
+            using (Pen pen = new Pen(Color.Red, borderWidth))
             {
                 e.Graphics.DrawPath(pen, path);
             }
         }
 
-        private void BCerrarSesion_Click(object sender, EventArgs e)
+        private void BExitCarrito_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.Show();
-            Mainform.BContracMenu_Click(sender, e);
-            Mainform.Hide();
+            PanelContainerCr.Controls.Clear();
+            PanelContainerCr.SendToBack();
+            this.Close();
         }
 
-        private void BMiPerfil_Click(object sender, EventArgs e)
+        public event EventHandler<int> EliminarPrCarritoClick;
+        private void BEliminarPrCarrito_Click(object sender, int num)
         {
-            //Cerrar el menú tras elegír una opción
-            Mainform.BContracMenu_Click(sender, e);
-
-
-            // Crear una nueva instancia de ListaProductos
-            EditarPerfil editarPerfil = new EditarPerfil();
-            editarPerfil.TopLevel = false;
-
-            // Limpiar el panel actual y añadir el nuevo formulario
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(editarPerfil);
-            //editarPerfil.PanelContainer = PanelContainer;
-            editarPerfil.Show();
-            this.Close();
+            //Pasamos el id del producto al catálogo.
+            EliminarPrCarritoClick?.Invoke(this, num);
         }
     }
 }

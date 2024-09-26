@@ -77,6 +77,7 @@
             this.BMiPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BMiPerfil.TextColor = System.Drawing.Color.White;
             this.BMiPerfil.UseVisualStyleBackColor = false;
+            this.BMiPerfil.Click += new System.EventHandler(this.BMiPerfil_Click);
             // 
             // BCerrarSesion
             // 

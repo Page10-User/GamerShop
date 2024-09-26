@@ -1,8 +1,10 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+﻿using Gamer_Shop2._0.Formularios.Comercio.Carrito;
+using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.Inicio;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -16,8 +18,10 @@ namespace Gamer_Shop2._0.Formularios.Comercio
 {
     public partial class Catalogo : Form
     {
-        private int borderRadius = 90; // Radio del borde redondeado
+        private int borderRadius = 10; // Radio del borde redondeado
         private int borderWidth = 3; // Grosor del borde
+
+        List<int> idPrCarrito = new List<int>();
 
         public Panel PanelContainer { get; set; }
         public Label LabelContainer { get; set; }
@@ -60,6 +64,18 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            FLPContCatalogo.Controls.Clear();
+
+            // Cargar productos.
+            for (int i = 0; i < 5; i++)
+            {
+                // Instanciamos un/os Producto/s.
+                BotonesArticulo articuloCt = new BotonesArticulo();
+                articuloCt.Id = i;
+                articuloCt.AgregarAlCarritoClick += ArticuloCt_AgregarAlCarritoClick;
+                FLPContCatalogo.Controls.Add(articuloCt);
+                articuloCt.Show();
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -112,7 +128,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             PanelContainer.Controls.Add(inicioD);
             inicioD.PanelContainer = PanelContainer;
             inicioD.Show();
-            inicioD.Location = new Point(50,130);
+            inicioD.Location = new Point(50, 130);
             this.Close();
         }
 
@@ -128,6 +144,41 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             listVn.PanelContainer = PanelContainer;
             listVn.Show();
             this.Close();
+        }
+
+        private void BCarrito_Click(object sender, EventArgs e)
+        {
+            if (idPrCarrito.Count == 0)
+            {
+                PanelCarrito_V_ Pcarrito_V = new PanelCarrito_V_();
+                Pcarrito_V.TopLevel = false;
+                PContCarrito.Controls.Add(Pcarrito_V);
+                Pcarrito_V.PanelContainerCr = PContCarrito;
+                PContCarrito.BringToFront();
+                Pcarrito_V.Show();
+            }
+            else
+            {
+                PanelCarrito Pcarrito = new PanelCarrito();
+                Pcarrito.TopLevel = false;
+                PContCarrito.Controls.Add(Pcarrito);
+                Pcarrito.PanelContainerCr = PContCarrito;
+                Pcarrito.EliminarPrCarritoClick += ArticuloCr_EliminarPrCarritoClick;
+                Pcarrito.idPrCr = idPrCarrito;
+                PContCarrito.BringToFront();
+                Pcarrito.Show();
+            }
+        }
+       private void ArticuloCt_AgregarAlCarritoClick(object sender, int productoId)
+        {
+            // Agregar la ID del producto al carrito
+            idPrCarrito.Add(productoId);
+       }
+
+        private void ArticuloCr_EliminarPrCarritoClick(object sender, int productoId)
+        {
+            // Agregar la ID del producto al carrito
+            idPrCarrito.RemoveAt(idPrCarrito.Count - 1);
         }
     }
 }

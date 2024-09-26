@@ -30,21 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Catalogo));
             this.FLPContCatalogo = new System.Windows.Forms.FlowLayoutPanel();
-            this.botonesArticulo1 = new Gamer_Shop2._0.Formularios.Comercio.BotonesArticulo();
-            this.botonesArticulo2 = new Gamer_Shop2._0.Formularios.Comercio.BotonesArticulo();
-            this.botonesArticulo3 = new Gamer_Shop2._0.Formularios.Comercio.BotonesArticulo();
             this.label1 = new System.Windows.Forms.Label();
             this.PBCatalogo = new System.Windows.Forms.PictureBox();
             this.PBuscadorCt = new System.Windows.Forms.Panel();
-            this.BBuscadorCt = new Gamer_Shop2._0.RJButton();
             this.TBuscarCt = new System.Windows.Forms.TextBox();
+            this.PContCarrito = new System.Windows.Forms.Panel();
             this.BReturn = new Gamer_Shop2._0.RJButton();
             this.BListaVenta = new Gamer_Shop2._0.RJButton();
             this.BCarrito = new Gamer_Shop2._0.RJButton();
-            this.botonesArticulo4 = new Gamer_Shop2._0.Formularios.Comercio.BotonesArticulo();
-            this.botonesArticulo5 = new Gamer_Shop2._0.Formularios.Comercio.BotonesArticulo();
-            this.botonesArticulo6 = new Gamer_Shop2._0.Formularios.Comercio.BotonesArticulo();
-            this.FLPContCatalogo.SuspendLayout();
+            this.BBuscadorCt = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBCatalogo)).BeginInit();
             this.PBuscadorCt.SuspendLayout();
             this.SuspendLayout();
@@ -54,58 +48,10 @@
             this.FLPContCatalogo.AutoScroll = true;
             this.FLPContCatalogo.BackColor = System.Drawing.Color.Transparent;
             this.FLPContCatalogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FLPContCatalogo.Controls.Add(this.botonesArticulo1);
-            this.FLPContCatalogo.Controls.Add(this.botonesArticulo2);
-            this.FLPContCatalogo.Controls.Add(this.botonesArticulo3);
-            this.FLPContCatalogo.Controls.Add(this.botonesArticulo4);
-            this.FLPContCatalogo.Controls.Add(this.botonesArticulo5);
-            this.FLPContCatalogo.Controls.Add(this.botonesArticulo6);
             this.FLPContCatalogo.Location = new System.Drawing.Point(82, 65);
             this.FLPContCatalogo.Name = "FLPContCatalogo";
             this.FLPContCatalogo.Size = new System.Drawing.Size(525, 359);
             this.FLPContCatalogo.TabIndex = 0;
-            // 
-            // botonesArticulo1
-            // 
-            this.botonesArticulo1.BackColor = System.Drawing.Color.Transparent;
-            this.botonesArticulo1.Categoria = "Procesador";
-            this.botonesArticulo1.Descripcion = "Descripción del Producto";
-            this.botonesArticulo1.Id = 1;
-            this.botonesArticulo1.ImgProducto = null;
-            this.botonesArticulo1.Location = new System.Drawing.Point(3, 3);
-            this.botonesArticulo1.Name = "botonesArticulo1";
-            this.botonesArticulo1.NombreProducto = "Ryzen 5 5600G";
-            this.botonesArticulo1.Precio = "$ 450.000";
-            this.botonesArticulo1.Size = new System.Drawing.Size(162, 267);
-            this.botonesArticulo1.TabIndex = 0;
-            // 
-            // botonesArticulo2
-            // 
-            this.botonesArticulo2.BackColor = System.Drawing.Color.Transparent;
-            this.botonesArticulo2.Categoria = "Tarjeta de Video";
-            this.botonesArticulo2.Descripcion = "Descripción del Producto";
-            this.botonesArticulo2.Id = 2;
-            this.botonesArticulo2.ImgProducto = null;
-            this.botonesArticulo2.Location = new System.Drawing.Point(171, 3);
-            this.botonesArticulo2.Name = "botonesArticulo2";
-            this.botonesArticulo2.NombreProducto = "RTX 4090";
-            this.botonesArticulo2.Precio = "$ 3.250.000";
-            this.botonesArticulo2.Size = new System.Drawing.Size(162, 267);
-            this.botonesArticulo2.TabIndex = 1;
-            // 
-            // botonesArticulo3
-            // 
-            this.botonesArticulo3.BackColor = System.Drawing.Color.Transparent;
-            this.botonesArticulo3.Categoria = "Procesador";
-            this.botonesArticulo3.Descripcion = "Descripción del Producto";
-            this.botonesArticulo3.Id = 3;
-            this.botonesArticulo3.ImgProducto = null;
-            this.botonesArticulo3.Location = new System.Drawing.Point(339, 3);
-            this.botonesArticulo3.Name = "botonesArticulo3";
-            this.botonesArticulo3.NombreProducto = "I7 11750";
-            this.botonesArticulo3.Precio = "$ 250.000";
-            this.botonesArticulo3.Size = new System.Drawing.Size(162, 267);
-            this.botonesArticulo3.TabIndex = 2;
             // 
             // label1
             // 
@@ -136,31 +82,10 @@
             this.PBuscadorCt.BackColor = System.Drawing.Color.Black;
             this.PBuscadorCt.Controls.Add(this.BBuscadorCt);
             this.PBuscadorCt.Controls.Add(this.TBuscarCt);
-            this.PBuscadorCt.Location = new System.Drawing.Point(473, 19);
+            this.PBuscadorCt.Location = new System.Drawing.Point(179, 18);
             this.PBuscadorCt.Name = "PBuscadorCt";
             this.PBuscadorCt.Size = new System.Drawing.Size(188, 31);
             this.PBuscadorCt.TabIndex = 3;
-            // 
-            // BBuscadorCt
-            // 
-            this.BBuscadorCt.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorCt.BackgroundImage")));
-            this.BBuscadorCt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorCt.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BorderRadius = 0;
-            this.BBuscadorCt.BorderSize = 0;
-            this.BBuscadorCt.FlatAppearance.BorderSize = 0;
-            this.BBuscadorCt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.BBuscadorCt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorCt.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorCt.Location = new System.Drawing.Point(6, 2);
-            this.BBuscadorCt.Name = "BBuscadorCt";
-            this.BBuscadorCt.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorCt.TabIndex = 4;
-            this.BBuscadorCt.TextColor = System.Drawing.Color.White;
-            this.BBuscadorCt.UseVisualStyleBackColor = false;
             // 
             // TBuscarCt
             // 
@@ -173,6 +98,14 @@
             this.TBuscarCt.Size = new System.Drawing.Size(132, 17);
             this.TBuscarCt.TabIndex = 4;
             this.TBuscarCt.Text = "Buscar...";
+            // 
+            // PContCarrito
+            // 
+            this.PContCarrito.BackColor = System.Drawing.Color.Transparent;
+            this.PContCarrito.Location = new System.Drawing.Point(488, 2);
+            this.PContCarrito.Name = "PContCarrito";
+            this.PContCarrito.Size = new System.Drawing.Size(194, 430);
+            this.PContCarrito.TabIndex = 7;
             // 
             // BReturn
             // 
@@ -210,7 +143,7 @@
             this.BListaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BListaVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BListaVenta.ForeColor = System.Drawing.Color.Transparent;
-            this.BListaVenta.Location = new System.Drawing.Point(180, 17);
+            this.BListaVenta.Location = new System.Drawing.Point(509, 18);
             this.BListaVenta.Name = "BListaVenta";
             this.BListaVenta.Size = new System.Drawing.Size(153, 33);
             this.BListaVenta.TabIndex = 5;
@@ -233,55 +166,35 @@
             this.BCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BCarrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BCarrito.ForeColor = System.Drawing.Color.Transparent;
-            this.BCarrito.Location = new System.Drawing.Point(349, 17);
+            this.BCarrito.Location = new System.Drawing.Point(387, 17);
             this.BCarrito.Name = "BCarrito";
             this.BCarrito.Size = new System.Drawing.Size(105, 33);
             this.BCarrito.TabIndex = 4;
             this.BCarrito.Text = "Carrito";
             this.BCarrito.TextColor = System.Drawing.Color.Transparent;
             this.BCarrito.UseVisualStyleBackColor = false;
+            this.BCarrito.Click += new System.EventHandler(this.BCarrito_Click);
             // 
-            // botonesArticulo4
+            // BBuscadorCt
             // 
-            this.botonesArticulo4.BackColor = System.Drawing.Color.Transparent;
-            this.botonesArticulo4.Categoria = "Categoria";
-            this.botonesArticulo4.Descripcion = "Descripción del Producto";
-            this.botonesArticulo4.Id = 0;
-            this.botonesArticulo4.ImgProducto = null;
-            this.botonesArticulo4.Location = new System.Drawing.Point(3, 276);
-            this.botonesArticulo4.Name = "botonesArticulo4";
-            this.botonesArticulo4.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonesArticulo4.Precio = "$ 250.000";
-            this.botonesArticulo4.Size = new System.Drawing.Size(162, 267);
-            this.botonesArticulo4.TabIndex = 3;
-            // 
-            // botonesArticulo5
-            // 
-            this.botonesArticulo5.BackColor = System.Drawing.Color.Transparent;
-            this.botonesArticulo5.Categoria = "Categoria";
-            this.botonesArticulo5.Descripcion = "Descripción del Producto";
-            this.botonesArticulo5.Id = 0;
-            this.botonesArticulo5.ImgProducto = null;
-            this.botonesArticulo5.Location = new System.Drawing.Point(171, 276);
-            this.botonesArticulo5.Name = "botonesArticulo5";
-            this.botonesArticulo5.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonesArticulo5.Precio = "$ 250.000";
-            this.botonesArticulo5.Size = new System.Drawing.Size(162, 267);
-            this.botonesArticulo5.TabIndex = 4;
-            // 
-            // botonesArticulo6
-            // 
-            this.botonesArticulo6.BackColor = System.Drawing.Color.Transparent;
-            this.botonesArticulo6.Categoria = "Categoria";
-            this.botonesArticulo6.Descripcion = "Descripción del Producto";
-            this.botonesArticulo6.Id = 0;
-            this.botonesArticulo6.ImgProducto = null;
-            this.botonesArticulo6.Location = new System.Drawing.Point(339, 276);
-            this.botonesArticulo6.Name = "botonesArticulo6";
-            this.botonesArticulo6.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonesArticulo6.Precio = "$ 250.000";
-            this.botonesArticulo6.Size = new System.Drawing.Size(162, 267);
-            this.botonesArticulo6.TabIndex = 5;
+            this.BBuscadorCt.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorCt.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscadorCt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorCt.BackgroundImage")));
+            this.BBuscadorCt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscadorCt.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscadorCt.BorderRadius = 0;
+            this.BBuscadorCt.BorderSize = 0;
+            this.BBuscadorCt.FlatAppearance.BorderSize = 0;
+            this.BBuscadorCt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorCt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.BBuscadorCt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscadorCt.ForeColor = System.Drawing.Color.White;
+            this.BBuscadorCt.Location = new System.Drawing.Point(6, 2);
+            this.BBuscadorCt.Name = "BBuscadorCt";
+            this.BBuscadorCt.Size = new System.Drawing.Size(26, 26);
+            this.BBuscadorCt.TabIndex = 4;
+            this.BBuscadorCt.TextColor = System.Drawing.Color.White;
+            this.BBuscadorCt.UseVisualStyleBackColor = false;
             // 
             // Catalogo
             // 
@@ -298,11 +211,11 @@
             this.Controls.Add(this.PBCatalogo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FLPContCatalogo);
+            this.Controls.Add(this.PContCarrito);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Catalogo";
             this.Text = "Catalogo";
-            this.FLPContCatalogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBCatalogo)).EndInit();
             this.PBuscadorCt.ResumeLayout(false);
             this.PBuscadorCt.PerformLayout();
@@ -321,12 +234,7 @@
         private RJButton BBuscadorCt;
         private RJButton BCarrito;
         private RJButton BListaVenta;
-        private BotonesArticulo botonesArticulo1;
-        private BotonesArticulo botonesArticulo2;
-        private BotonesArticulo botonesArticulo3;
         private RJButton BReturn;
-        private BotonesArticulo botonesArticulo4;
-        private BotonesArticulo botonesArticulo5;
-        private BotonesArticulo botonesArticulo6;
+        private System.Windows.Forms.Panel PContCarrito;
     }
 }
