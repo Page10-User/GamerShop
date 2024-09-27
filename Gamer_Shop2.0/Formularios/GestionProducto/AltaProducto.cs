@@ -173,6 +173,23 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        private void TSerialPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                long number;
+                if (!long.TryParse(TSerialPr.Texts, out number))
+                {
+                    e.Cancel = true;
+                    TBValidacion5.Visible = true;
+                }
+                else
+                {
+                    TBValidacion5.Visible = false;
+                }
+            }
+        }
+
         private void CBCategoriaPr_Validating(object sender, CancelEventArgs e)
         {
             if (this != null)
@@ -197,7 +214,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BRegistrarPr_Click(object sender, EventArgs e)
         {
-            if (TNombrePr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null)
+            if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null)
             {
                 MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
@@ -241,7 +258,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             var textbox = sender as RJTextBox;
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TPrecioPr.Texts.Trim().Length < 15;
+            bool longitud = TPrecioPr.Texts.Trim().Length < 25;
 
             if (longitud || escontrol)
             {
@@ -252,5 +269,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 e.Handled = true;
             }
         }
+
+        
     }
 }

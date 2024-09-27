@@ -129,6 +129,23 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        private void TSerialPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                long number;
+                if (!long.TryParse(TSerialPr.Texts, out number))
+                {
+                    e.Cancel = true;
+                    TBValidacion3.Visible = true;
+                }
+                else
+                {
+                    TBValidacion3.Visible = false;
+                }
+            }
+        }
+
         private void TDescripcionPr_Validating(object sender, CancelEventArgs e)
         {
             if (this != null)
@@ -195,64 +212,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 }
             }
         }
-        private void TextBox_Validating(object sender, CancelEventArgs e)
-        {
-            var textBox = sender as RJControls.RJTextBox;
-            if (textBox != null)
-            {
-                if (textBox == TNombrePr)
-                {
-                    if (textBox.Texts.Length >= 50)
-                    {
-                        e.Cancel = true;
-                        TBValidacion.Visible = true;
-
-                    }
-                    else
-                    {
-                        TBValidacion.Visible = false;
-                    }
-                }
-                else if (textBox == TDescripcionPr)
-                {
-                    if (textBox.Texts.Length >= 200)
-                    {
-                        e.Cancel = true;
-                        TBValidacion2.Visible = true;
-                    }
-                    else
-                    {
-                        TBValidacion2.Visible = false;
-                    }
-                }
-                else if (textBox == TStockPr)
-                {
-                    int number;
-                    if (!int.TryParse(textBox.Texts, out number))
-                    {
-                        e.Cancel = true;
-                        TBValidacion4.Visible = true;
-                    }
-                    else
-                    {
-                        TBValidacion4.Visible = false;
-                    }
-                }
-                else if (textBox == TPrecioPr)
-                {
-                    float number;
-                    if (!float.TryParse(textBox.Texts, out number))
-                    {
-                        e.Cancel = true;
-                        TBValidacion3.Visible = true;
-                    }
-                    else
-                    {
-                        TBValidacion3.Visible = false;
-                    }
-                }
-            }
-        }
+        
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
@@ -261,7 +221,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BModificarPr_Click(object sender, EventArgs e)
         {
-            if (TNombrePr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty)
+            if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty)
             {
                 MessageBox.Show("Producto modificado con éxito", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

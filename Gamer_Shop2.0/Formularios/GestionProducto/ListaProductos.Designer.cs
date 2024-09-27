@@ -46,16 +46,17 @@
             this.BDescargarPr = new Gamer_Shop2._0.RJButton();
             this.PContListaPr = new System.Windows.Forms.Panel();
             this.DGListaPr = new System.Windows.Forms.DataGridView();
+            this.LTituloListaPr = new System.Windows.Forms.Label();
+            this.PBImgListaPr = new System.Windows.Forms.PictureBox();
+            this.rjButton1 = new Gamer_Shop2._0.RJButton();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CModificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.LTituloListaPr = new System.Windows.Forms.Label();
-            this.PBImgListaPr = new System.Windows.Forms.PictureBox();
-            this.rjButton1 = new Gamer_Shop2._0.RJButton();
             this.PContListaPr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaPr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).BeginInit();
@@ -148,6 +149,7 @@
             this.DGListaPr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaPr.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CNombre,
+            this.CSerial,
             this.CDescripcion,
             this.CPrecio,
             this.CStock,
@@ -181,6 +183,49 @@
             this.DGListaPr.Size = new System.Drawing.Size(433, 286);
             this.DGListaPr.TabIndex = 0;
             // 
+            // LTituloListaPr
+            // 
+            this.LTituloListaPr.AutoSize = true;
+            this.LTituloListaPr.BackColor = System.Drawing.Color.Transparent;
+            this.LTituloListaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTituloListaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LTituloListaPr.Location = new System.Drawing.Point(166, 31);
+            this.LTituloListaPr.Name = "LTituloListaPr";
+            this.LTituloListaPr.Size = new System.Drawing.Size(346, 42);
+            this.LTituloListaPr.TabIndex = 8;
+            this.LTituloListaPr.Text = "Lista de Productos";
+            // 
+            // PBImgListaPr
+            // 
+            this.PBImgListaPr.BackColor = System.Drawing.Color.Transparent;
+            this.PBImgListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaPr.BackgroundImage")));
+            this.PBImgListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PBImgListaPr.Location = new System.Drawing.Point(113, 36);
+            this.PBImgListaPr.Name = "PBImgListaPr";
+            this.PBImgListaPr.Size = new System.Drawing.Size(47, 41);
+            this.PBImgListaPr.TabIndex = 7;
+            this.PBImgListaPr.TabStop = false;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.Color.Black;
+            this.rjButton1.BackgroundColor = System.Drawing.Color.Black;
+            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.rjButton1.BorderRadius = 12;
+            this.rjButton1.BorderSize = 1;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(390, 77);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(84, 31);
+            this.rjButton1.TabIndex = 14;
+            this.rjButton1.Text = "Buscar";
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            // 
             // CNombre
             // 
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -191,6 +236,11 @@
             this.CNombre.DefaultCellStyle = dataGridViewCellStyle2;
             this.CNombre.HeaderText = "Nombre";
             this.CNombre.Name = "CNombre";
+            // 
+            // CSerial
+            // 
+            this.CSerial.HeaderText = "N° Serial";
+            this.CSerial.Name = "CSerial";
             // 
             // CDescripcion
             // 
@@ -258,49 +308,6 @@
             this.CEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // LTituloListaPr
-            // 
-            this.LTituloListaPr.AutoSize = true;
-            this.LTituloListaPr.BackColor = System.Drawing.Color.Transparent;
-            this.LTituloListaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTituloListaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloListaPr.Location = new System.Drawing.Point(166, 31);
-            this.LTituloListaPr.Name = "LTituloListaPr";
-            this.LTituloListaPr.Size = new System.Drawing.Size(346, 42);
-            this.LTituloListaPr.TabIndex = 8;
-            this.LTituloListaPr.Text = "Lista de Productos";
-            // 
-            // PBImgListaPr
-            // 
-            this.PBImgListaPr.BackColor = System.Drawing.Color.Transparent;
-            this.PBImgListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaPr.BackgroundImage")));
-            this.PBImgListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgListaPr.Location = new System.Drawing.Point(113, 36);
-            this.PBImgListaPr.Name = "PBImgListaPr";
-            this.PBImgListaPr.Size = new System.Drawing.Size(47, 41);
-            this.PBImgListaPr.TabIndex = 7;
-            this.PBImgListaPr.TabStop = false;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.Black;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.Black;
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.rjButton1.BorderRadius = 12;
-            this.rjButton1.BorderSize = 1;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(390, 77);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(84, 31);
-            this.rjButton1.TabIndex = 14;
-            this.rjButton1.Text = "Buscar";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            // 
             // ListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,13 +347,14 @@
         private System.Windows.Forms.Label LTituloListaPr;
         private System.Windows.Forms.PictureBox PBImgListaPr;
         private System.Windows.Forms.DataGridView DGListaPr;
+        private RJButton rjButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CSerial;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn CStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCategoria;
         private System.Windows.Forms.DataGridViewButtonColumn CModificar;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
-        private RJButton rjButton1;
     }
 }

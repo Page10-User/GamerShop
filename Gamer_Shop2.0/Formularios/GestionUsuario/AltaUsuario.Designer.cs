@@ -32,6 +32,7 @@
             this.LShowLista = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PContAltaUs = new System.Windows.Forms.Panel();
+            this.TCuilUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TContraseñaUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TEmailUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TNombreUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
@@ -44,7 +45,6 @@
             this.TNombreUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.LContraseñaUs = new System.Windows.Forms.Label();
-            this.TCuilUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LEmailUs = new System.Windows.Forms.Label();
             this.LNombreUsuario = new System.Windows.Forms.Label();
             this.LApellidoUs = new System.Windows.Forms.Label();
@@ -107,6 +107,30 @@
             this.PContAltaUs.Name = "PContAltaUs";
             this.PContAltaUs.Size = new System.Drawing.Size(315, 290);
             this.PContAltaUs.TabIndex = 16;
+            // 
+            // TCuilUs
+            // 
+            this.TCuilUs.BackColor = System.Drawing.Color.Black;
+            this.TCuilUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TCuilUs.BorderFocusColor = System.Drawing.Color.Cyan;
+            this.TCuilUs.BorderSize = 2;
+            this.TCuilUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCuilUs.ForeColor = System.Drawing.Color.White;
+            this.TCuilUs.Location = new System.Drawing.Point(129, 98);
+            this.TCuilUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TCuilUs.Multiline = false;
+            this.TCuilUs.Name = "TCuilUs";
+            this.TCuilUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TCuilUs.PasswordChar = false;
+            this.TCuilUs.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TCuilUs.PlaceholderText = "XX-XXXXXXXX-X";
+            this.TCuilUs.Size = new System.Drawing.Size(172, 31);
+            this.TCuilUs.TabIndex = 14;
+            this.TCuilUs.Texts = "";
+            this.TCuilUs.UnderlinedStyle = true;
+            this.TCuilUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TCuilUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TCuilUs_KeyPress);
+            this.TCuilUs.Validating += new System.ComponentModel.CancelEventHandler(this.TCuilUs_Validating);
             // 
             // TContraseñaUs
             // 
@@ -311,30 +335,6 @@
             this.LContraseñaUs.Size = new System.Drawing.Size(85, 18);
             this.LContraseñaUs.TabIndex = 16;
             this.LContraseñaUs.Text = "Contraseña";
-            // 
-            // TCuilUs
-            // 
-            this.TCuilUs.BackColor = System.Drawing.Color.Black;
-            this.TCuilUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.TCuilUs.BorderFocusColor = System.Drawing.Color.Cyan;
-            this.TCuilUs.BorderSize = 2;
-            this.TCuilUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCuilUs.ForeColor = System.Drawing.Color.White;
-            this.TCuilUs.Location = new System.Drawing.Point(129, 98);
-            this.TCuilUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TCuilUs.Multiline = false;
-            this.TCuilUs.Name = "TCuilUs";
-            this.TCuilUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TCuilUs.PasswordChar = false;
-            this.TCuilUs.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TCuilUs.PlaceholderText = "XX-XXXXXXXX-X";
-            this.TCuilUs.Size = new System.Drawing.Size(172, 31);
-            this.TCuilUs.TabIndex = 14;
-            this.TCuilUs.Texts = "";
-            this.TCuilUs.UnderlinedStyle = true;
-            this.TCuilUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TCuilUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TCuilUs_KeyPress);
-            this.TCuilUs.Validating += new System.ComponentModel.CancelEventHandler(this.TCuilUs_Validating);
             // 
             // LEmailUs
             // 

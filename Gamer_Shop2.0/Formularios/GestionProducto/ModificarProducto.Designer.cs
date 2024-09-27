@@ -49,6 +49,9 @@
             this.PBImgModificarPr = new System.Windows.Forms.PictureBox();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarPr = new Gamer_Shop2._0.RJButton();
+            this.TBValidacion5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TSerialPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.PContModificarPr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).BeginInit();
             this.SuspendLayout();
@@ -68,8 +71,11 @@
             // PContModificarPr
             // 
             this.PContModificarPr.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContModificarPr.Controls.Add(this.TStockPr);
             this.PContModificarPr.Controls.Add(this.TPrecioPr);
+            this.PContModificarPr.Controls.Add(this.TSerialPr);
+            this.PContModificarPr.Controls.Add(this.TBValidacion5);
+            this.PContModificarPr.Controls.Add(this.label2);
+            this.PContModificarPr.Controls.Add(this.TStockPr);
             this.PContModificarPr.Controls.Add(this.TDescripcionPr);
             this.PContModificarPr.Controls.Add(this.TNombrePr);
             this.PContModificarPr.Controls.Add(this.TBValidacion4);
@@ -95,7 +101,11 @@
             this.TStockPr.BorderSize = 2;
             this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TStockPr.ForeColor = System.Drawing.Color.White;
+<<<<<<< Updated upstream
             this.TStockPr.Location = new System.Drawing.Point(128, 148);
+=======
+            this.TStockPr.Location = new System.Drawing.Point(128, 183);
+>>>>>>> Stashed changes
             this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
             this.TStockPr.Multiline = false;
             this.TStockPr.Name = "TStockPr";
@@ -119,7 +129,7 @@
             this.TPrecioPr.BorderSize = 2;
             this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPrecioPr.ForeColor = System.Drawing.Color.White;
-            this.TPrecioPr.Location = new System.Drawing.Point(128, 103);
+            this.TPrecioPr.Location = new System.Drawing.Point(128, 138);
             this.TPrecioPr.Margin = new System.Windows.Forms.Padding(4);
             this.TPrecioPr.Multiline = false;
             this.TPrecioPr.Name = "TPrecioPr";
@@ -143,7 +153,7 @@
             this.TDescripcionPr.BorderSize = 2;
             this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
-            this.TDescripcionPr.Location = new System.Drawing.Point(128, 62);
+            this.TDescripcionPr.Location = new System.Drawing.Point(128, 92);
             this.TDescripcionPr.Margin = new System.Windows.Forms.Padding(4);
             this.TDescripcionPr.Multiline = true;
             this.TDescripcionPr.Name = "TDescripcionPr";
@@ -167,7 +177,7 @@
             this.TNombrePr.BorderSize = 2;
             this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNombrePr.ForeColor = System.Drawing.Color.White;
-            this.TNombrePr.Location = new System.Drawing.Point(128, 21);
+            this.TNombrePr.Location = new System.Drawing.Point(128, 4);
             this.TNombrePr.Margin = new System.Windows.Forms.Padding(4);
             this.TNombrePr.Multiline = false;
             this.TNombrePr.Name = "TNombrePr";
@@ -188,7 +198,7 @@
             this.TBValidacion4.AutoSize = true;
             this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TBValidacion4.Location = new System.Drawing.Point(63, 177);
+            this.TBValidacion4.Location = new System.Drawing.Point(63, 213);
             this.TBValidacion4.Name = "TBValidacion4";
             this.TBValidacion4.Size = new System.Drawing.Size(237, 14);
             this.TBValidacion4.TabIndex = 25;
@@ -200,7 +210,7 @@
             this.TBValidacion3.AutoSize = true;
             this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TBValidacion3.Location = new System.Drawing.Point(100, 133);
+            this.TBValidacion3.Location = new System.Drawing.Point(100, 80);
             this.TBValidacion3.Name = "TBValidacion3";
             this.TBValidacion3.Size = new System.Drawing.Size(200, 14);
             this.TBValidacion3.TabIndex = 24;
@@ -212,7 +222,7 @@
             this.TBValidacion2.AutoSize = true;
             this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TBValidacion2.Location = new System.Drawing.Point(61, 92);
+            this.TBValidacion2.Location = new System.Drawing.Point(61, 123);
             this.TBValidacion2.Name = "TBValidacion2";
             this.TBValidacion2.Size = new System.Drawing.Size(239, 14);
             this.TBValidacion2.TabIndex = 23;
@@ -224,7 +234,7 @@
             this.TBValidacion.AutoSize = true;
             this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TBValidacion.Location = new System.Drawing.Point(86, 51);
+            this.TBValidacion.Location = new System.Drawing.Point(86, 35);
             this.TBValidacion.Name = "TBValidacion";
             this.TBValidacion.Size = new System.Drawing.Size(214, 14);
             this.TBValidacion.TabIndex = 22;
@@ -247,7 +257,7 @@
             "a"});
             this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.CBCategoriaPr.Location = new System.Drawing.Point(128, 203);
+            this.CBCategoriaPr.Location = new System.Drawing.Point(128, 244);
             this.CBCategoriaPr.MinimumSize = new System.Drawing.Size(30, 30);
             this.CBCategoriaPr.Name = "CBCategoriaPr";
             this.CBCategoriaPr.Padding = new System.Windows.Forms.Padding(1);
@@ -262,7 +272,7 @@
             this.LCategoriaPr.BackColor = System.Drawing.Color.Transparent;
             this.LCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCategoriaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LCategoriaPr.Location = new System.Drawing.Point(15, 210);
+            this.LCategoriaPr.Location = new System.Drawing.Point(13, 249);
             this.LCategoriaPr.Name = "LCategoriaPr";
             this.LCategoriaPr.Size = new System.Drawing.Size(72, 18);
             this.LCategoriaPr.TabIndex = 11;
@@ -274,7 +284,7 @@
             this.LStockPr.BackColor = System.Drawing.Color.Transparent;
             this.LStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LStockPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LStockPr.Location = new System.Drawing.Point(15, 161);
+            this.LStockPr.Location = new System.Drawing.Point(13, 196);
             this.LStockPr.Name = "LStockPr";
             this.LStockPr.Size = new System.Drawing.Size(47, 18);
             this.LStockPr.TabIndex = 10;
@@ -286,7 +296,7 @@
             this.LDescripcionPr.BackColor = System.Drawing.Color.Transparent;
             this.LDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDescripcionPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LDescripcionPr.Location = new System.Drawing.Point(15, 75);
+            this.LDescripcionPr.Location = new System.Drawing.Point(15, 105);
             this.LDescripcionPr.Name = "LDescripcionPr";
             this.LDescripcionPr.Size = new System.Drawing.Size(87, 18);
             this.LDescripcionPr.TabIndex = 9;
@@ -298,7 +308,7 @@
             this.LPrecioPr.BackColor = System.Drawing.Color.Transparent;
             this.LPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPrecioPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LPrecioPr.Location = new System.Drawing.Point(15, 116);
+            this.LPrecioPr.Location = new System.Drawing.Point(15, 146);
             this.LPrecioPr.Name = "LPrecioPr";
             this.LPrecioPr.Size = new System.Drawing.Size(51, 18);
             this.LPrecioPr.TabIndex = 8;
@@ -310,7 +320,7 @@
             this.LNombrePr.BackColor = System.Drawing.Color.Transparent;
             this.LNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombrePr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LNombrePr.Location = new System.Drawing.Point(15, 34);
+            this.LNombrePr.Location = new System.Drawing.Point(15, 17);
             this.LNombrePr.Name = "LNombrePr";
             this.LNombrePr.Size = new System.Drawing.Size(62, 18);
             this.LNombrePr.TabIndex = 7;
@@ -382,6 +392,54 @@
             this.BModificarPr.UseVisualStyleBackColor = false;
             this.BModificarPr.Click += new System.EventHandler(this.BModificarPr_Click);
             // 
+            // TBValidacion5
+            // 
+            this.TBValidacion5.AutoSize = true;
+            this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion5.Location = new System.Drawing.Point(100, 168);
+            this.TBValidacion5.Name = "TBValidacion5";
+            this.TBValidacion5.Size = new System.Drawing.Size(200, 14);
+            this.TBValidacion5.TabIndex = 30;
+            this.TBValidacion5.Text = "Ingrese únicamente carácteres numéricos.";
+            this.TBValidacion5.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(15, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 18);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Serial";
+            // 
+            // TSerialPr
+            // 
+            this.TSerialPr.BackColor = System.Drawing.Color.Black;
+            this.TSerialPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TSerialPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TSerialPr.BorderSize = 2;
+            this.TSerialPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TSerialPr.ForeColor = System.Drawing.Color.White;
+            this.TSerialPr.Location = new System.Drawing.Point(128, 50);
+            this.TSerialPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TSerialPr.Multiline = true;
+            this.TSerialPr.Name = "TSerialPr";
+            this.TSerialPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TSerialPr.PasswordChar = false;
+            this.TSerialPr.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TSerialPr.PlaceholderText = "";
+            this.TSerialPr.Size = new System.Drawing.Size(172, 31);
+            this.TSerialPr.TabIndex = 28;
+            this.TSerialPr.Texts = "";
+            this.TSerialPr.UnderlinedStyle = true;
+            this.TSerialPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TSerialPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
+            this.TSerialPr.Validating += new System.ComponentModel.CancelEventHandler(this.TSerialPr_Validating);
+            // 
             // ModificarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,5 +490,8 @@
         private System.Windows.Forms.Label TBValidacion2;
         private System.Windows.Forms.Label TBValidacion3;
         private System.Windows.Forms.Label TBValidacion4;
+        private RJControls.RJTextBox TSerialPr;
+        private System.Windows.Forms.Label TBValidacion5;
+        private System.Windows.Forms.Label label2;
     }
 }
