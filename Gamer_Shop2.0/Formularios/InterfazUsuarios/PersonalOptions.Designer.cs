@@ -47,7 +47,7 @@
             this.BBackups.ForeColor = System.Drawing.Color.White;
             this.BBackups.Image = ((System.Drawing.Image)(resources.GetObject("BBackups.Image")));
             this.BBackups.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BBackups.Location = new System.Drawing.Point(12, 43);
+            this.BBackups.Location = new System.Drawing.Point(12, 48);
             this.BBackups.Name = "BBackups";
             this.BBackups.Size = new System.Drawing.Size(80, 31);
             this.BBackups.TabIndex = 1;
@@ -55,6 +55,7 @@
             this.BBackups.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BBackups.TextColor = System.Drawing.Color.White;
             this.BBackups.UseVisualStyleBackColor = false;
+            this.BBackups.Click += new System.EventHandler(this.BBackups_Click);
             // 
             // BMiPerfil
             // 
@@ -69,7 +70,7 @@
             this.BMiPerfil.ForeColor = System.Drawing.Color.White;
             this.BMiPerfil.Image = ((System.Drawing.Image)(resources.GetObject("BMiPerfil.Image")));
             this.BMiPerfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BMiPerfil.Location = new System.Drawing.Point(12, 4);
+            this.BMiPerfil.Location = new System.Drawing.Point(12, 10);
             this.BMiPerfil.Name = "BMiPerfil";
             this.BMiPerfil.Size = new System.Drawing.Size(80, 31);
             this.BMiPerfil.TabIndex = 0;
@@ -92,7 +93,7 @@
             this.BCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.BCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("BCerrarSesion.Image")));
             this.BCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BCerrarSesion.Location = new System.Drawing.Point(12, 80);
+            this.BCerrarSesion.Location = new System.Drawing.Point(12, 86);
             this.BCerrarSesion.Name = "BCerrarSesion";
             this.BCerrarSesion.Size = new System.Drawing.Size(106, 31);
             this.BCerrarSesion.TabIndex = 4;
@@ -107,7 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(130, 118);
+            this.ClientSize = new System.Drawing.Size(134, 129);
             this.Controls.Add(this.BCerrarSesion);
             this.Controls.Add(this.BBackups);
             this.Controls.Add(this.BMiPerfil);

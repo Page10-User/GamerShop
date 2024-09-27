@@ -32,20 +32,19 @@
             this.LTituloModificarPerfil = new System.Windows.Forms.Label();
             this.PBImgAltaPr = new System.Windows.Forms.PictureBox();
             this.PContModificarPerfil = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PContImgPerfil = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.PBImagenPerfil = new System.Windows.Forms.PictureBox();
-            this.LContraseñaUs = new System.Windows.Forms.Label();
-            this.LEmailUs = new System.Windows.Forms.Label();
-            this.LNombreUsuario = new System.Windows.Forms.Label();
-            this.LApellidoUs = new System.Windows.Forms.Label();
-            this.LNombreUs = new System.Windows.Forms.Label();
             this.TContraseñaUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TEmailUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TNombreUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TApellidoUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TNombreUs = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.LContraseñaUs = new System.Windows.Forms.Label();
+            this.LEmailUs = new System.Windows.Forms.Label();
+            this.LNombreUsuario = new System.Windows.Forms.Label();
+            this.LApellidoUs = new System.Windows.Forms.Label();
+            this.LNombreUs = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PContImgPerfil = new System.Windows.Forms.Panel();
+            this.PBImagenPerfil = new System.Windows.Forms.PictureBox();
             this.BModificarPerfil = new Gamer_Shop2._0.RJButton();
             this.BModificarFotoPerfil = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaPr)).BeginInit();
@@ -95,109 +94,6 @@
             this.PContModificarPerfil.Name = "PContModificarPerfil";
             this.PContModificarPerfil.Size = new System.Drawing.Size(394, 290);
             this.PContModificarPerfil.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(513, 353);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 18);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Editar Perfil";
-            // 
-            // PContImgPerfil
-            // 
-            this.PContImgPerfil.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContImgPerfil.Controls.Add(this.PBImagenPerfil);
-            this.PContImgPerfil.Location = new System.Drawing.Point(516, 138);
-            this.PContImgPerfil.Name = "PContImgPerfil";
-            this.PContImgPerfil.Size = new System.Drawing.Size(84, 76);
-            this.PContImgPerfil.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(503, 253);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 18);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Imagen Perfil";
-            // 
-            // PBImagenPerfil
-            // 
-            this.PBImagenPerfil.Image = ((System.Drawing.Image)(resources.GetObject("PBImagenPerfil.Image")));
-            this.PBImagenPerfil.Location = new System.Drawing.Point(4, 5);
-            this.PBImagenPerfil.Name = "PBImagenPerfil";
-            this.PBImagenPerfil.Size = new System.Drawing.Size(75, 65);
-            this.PBImagenPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBImagenPerfil.TabIndex = 0;
-            this.PBImagenPerfil.TabStop = false;
-            // 
-            // LContraseñaUs
-            // 
-            this.LContraseñaUs.AutoSize = true;
-            this.LContraseñaUs.BackColor = System.Drawing.Color.Transparent;
-            this.LContraseñaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LContraseñaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LContraseñaUs.Location = new System.Drawing.Point(47, 226);
-            this.LContraseñaUs.Name = "LContraseñaUs";
-            this.LContraseñaUs.Size = new System.Drawing.Size(85, 18);
-            this.LContraseñaUs.TabIndex = 34;
-            this.LContraseñaUs.Text = "Contraseña";
-            // 
-            // LEmailUs
-            // 
-            this.LEmailUs.AutoSize = true;
-            this.LEmailUs.BackColor = System.Drawing.Color.Transparent;
-            this.LEmailUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LEmailUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LEmailUs.Location = new System.Drawing.Point(47, 183);
-            this.LEmailUs.Name = "LEmailUs";
-            this.LEmailUs.Size = new System.Drawing.Size(45, 18);
-            this.LEmailUs.TabIndex = 29;
-            this.LEmailUs.Text = "Email";
-            // 
-            // LNombreUsuario
-            // 
-            this.LNombreUsuario.AutoSize = true;
-            this.LNombreUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.LNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LNombreUsuario.Location = new System.Drawing.Point(47, 130);
-            this.LNombreUsuario.Name = "LNombreUsuario";
-            this.LNombreUsuario.Size = new System.Drawing.Size(81, 18);
-            this.LNombreUsuario.TabIndex = 28;
-            this.LNombreUsuario.Text = "NombreUs";
-            // 
-            // LApellidoUs
-            // 
-            this.LApellidoUs.AutoSize = true;
-            this.LApellidoUs.BackColor = System.Drawing.Color.Transparent;
-            this.LApellidoUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LApellidoUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LApellidoUs.Location = new System.Drawing.Point(47, 82);
-            this.LApellidoUs.Name = "LApellidoUs";
-            this.LApellidoUs.Size = new System.Drawing.Size(59, 18);
-            this.LApellidoUs.TabIndex = 27;
-            this.LApellidoUs.Text = "Apellido";
-            // 
-            // LNombreUs
-            // 
-            this.LNombreUs.AutoSize = true;
-            this.LNombreUs.BackColor = System.Drawing.Color.Transparent;
-            this.LNombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNombreUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LNombreUs.Location = new System.Drawing.Point(47, 37);
-            this.LNombreUs.Name = "LNombreUs";
-            this.LNombreUs.Size = new System.Drawing.Size(62, 18);
-            this.LNombreUs.TabIndex = 25;
-            this.LNombreUs.Text = "Nombre";
             // 
             // TContraseñaUs
             // 
@@ -304,6 +200,97 @@
             this.TNombreUs.Texts = "";
             this.TNombreUs.UnderlinedStyle = true;
             // 
+            // LContraseñaUs
+            // 
+            this.LContraseñaUs.AutoSize = true;
+            this.LContraseñaUs.BackColor = System.Drawing.Color.Transparent;
+            this.LContraseñaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LContraseñaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LContraseñaUs.Location = new System.Drawing.Point(47, 226);
+            this.LContraseñaUs.Name = "LContraseñaUs";
+            this.LContraseñaUs.Size = new System.Drawing.Size(85, 18);
+            this.LContraseñaUs.TabIndex = 34;
+            this.LContraseñaUs.Text = "Contraseña";
+            // 
+            // LEmailUs
+            // 
+            this.LEmailUs.AutoSize = true;
+            this.LEmailUs.BackColor = System.Drawing.Color.Transparent;
+            this.LEmailUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LEmailUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LEmailUs.Location = new System.Drawing.Point(47, 183);
+            this.LEmailUs.Name = "LEmailUs";
+            this.LEmailUs.Size = new System.Drawing.Size(45, 18);
+            this.LEmailUs.TabIndex = 29;
+            this.LEmailUs.Text = "Email";
+            // 
+            // LNombreUsuario
+            // 
+            this.LNombreUsuario.AutoSize = true;
+            this.LNombreUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.LNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LNombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LNombreUsuario.Location = new System.Drawing.Point(47, 130);
+            this.LNombreUsuario.Name = "LNombreUsuario";
+            this.LNombreUsuario.Size = new System.Drawing.Size(81, 18);
+            this.LNombreUsuario.TabIndex = 28;
+            this.LNombreUsuario.Text = "NombreUs";
+            // 
+            // LApellidoUs
+            // 
+            this.LApellidoUs.AutoSize = true;
+            this.LApellidoUs.BackColor = System.Drawing.Color.Transparent;
+            this.LApellidoUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LApellidoUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LApellidoUs.Location = new System.Drawing.Point(47, 82);
+            this.LApellidoUs.Name = "LApellidoUs";
+            this.LApellidoUs.Size = new System.Drawing.Size(59, 18);
+            this.LApellidoUs.TabIndex = 27;
+            this.LApellidoUs.Text = "Apellido";
+            // 
+            // LNombreUs
+            // 
+            this.LNombreUs.AutoSize = true;
+            this.LNombreUs.BackColor = System.Drawing.Color.Transparent;
+            this.LNombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LNombreUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LNombreUs.Location = new System.Drawing.Point(47, 37);
+            this.LNombreUs.Name = "LNombreUs";
+            this.LNombreUs.Size = new System.Drawing.Size(62, 18);
+            this.LNombreUs.TabIndex = 25;
+            this.LNombreUs.Text = "Nombre";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(513, 353);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 18);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Editar Perfil";
+            // 
+            // PContImgPerfil
+            // 
+            this.PContImgPerfil.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContImgPerfil.Controls.Add(this.PBImagenPerfil);
+            this.PContImgPerfil.Location = new System.Drawing.Point(516, 138);
+            this.PContImgPerfil.Name = "PContImgPerfil";
+            this.PContImgPerfil.Size = new System.Drawing.Size(84, 76);
+            this.PContImgPerfil.TabIndex = 5;
+            // 
+            // PBImagenPerfil
+            // 
+            this.PBImagenPerfil.Image = ((System.Drawing.Image)(resources.GetObject("PBImagenPerfil.Image")));
+            this.PBImagenPerfil.Location = new System.Drawing.Point(4, 5);
+            this.PBImagenPerfil.Name = "PBImagenPerfil";
+            this.PBImagenPerfil.Size = new System.Drawing.Size(75, 65);
+            this.PBImagenPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBImagenPerfil.TabIndex = 0;
+            this.PBImagenPerfil.TabStop = false;
+            // 
             // BModificarPerfil
             // 
             this.BModificarPerfil.BackColor = System.Drawing.Color.Black;
@@ -352,7 +339,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.PContImgPerfil);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PContModificarPerfil);
@@ -382,7 +368,6 @@
         private System.Windows.Forms.Label label1;
         private RJButton BModificarPerfil;
         private System.Windows.Forms.Panel PContImgPerfil;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox PBImagenPerfil;
         private RJControls.RJTextBox TContraseñaUs;
         private RJControls.RJTextBox TEmailUs;

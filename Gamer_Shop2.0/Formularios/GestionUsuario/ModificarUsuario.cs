@@ -47,7 +47,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 panel.Region = new Region(path);
 
 
-                using (Pen pen = new Pen(Color.Cyan, 3))
+                using (Pen pen = new Pen(Color.LightGreen, 3))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -90,7 +90,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             // dibujar el borde redondeado
             GraphicsPath path = CreateRoundedPath();
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (Pen pen = new Pen(Color.Cyan, borderWidth))
+            using (Pen pen = new Pen(Color.LightGreen, borderWidth))
             {
                 e.Graphics.DrawPath(pen, path);
             }

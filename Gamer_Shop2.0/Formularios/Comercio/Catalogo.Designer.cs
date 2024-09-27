@@ -33,12 +33,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PBCatalogo = new System.Windows.Forms.PictureBox();
             this.PBuscadorCt = new System.Windows.Forms.Panel();
+            this.BBuscadorCt = new Gamer_Shop2._0.RJButton();
             this.TBuscarCt = new System.Windows.Forms.TextBox();
             this.PContCarrito = new System.Windows.Forms.Panel();
             this.BReturn = new Gamer_Shop2._0.RJButton();
             this.BListaVenta = new Gamer_Shop2._0.RJButton();
             this.BCarrito = new Gamer_Shop2._0.RJButton();
-            this.BBuscadorCt = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBCatalogo)).BeginInit();
             this.PBuscadorCt.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,27 @@
             this.PBuscadorCt.Size = new System.Drawing.Size(188, 31);
             this.PBuscadorCt.TabIndex = 3;
             // 
+            // BBuscadorCt
+            // 
+            this.BBuscadorCt.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorCt.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscadorCt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorCt.BackgroundImage")));
+            this.BBuscadorCt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscadorCt.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscadorCt.BorderRadius = 0;
+            this.BBuscadorCt.BorderSize = 0;
+            this.BBuscadorCt.FlatAppearance.BorderSize = 0;
+            this.BBuscadorCt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorCt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.BBuscadorCt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscadorCt.ForeColor = System.Drawing.Color.White;
+            this.BBuscadorCt.Location = new System.Drawing.Point(6, 2);
+            this.BBuscadorCt.Name = "BBuscadorCt";
+            this.BBuscadorCt.Size = new System.Drawing.Size(26, 26);
+            this.BBuscadorCt.TabIndex = 4;
+            this.BBuscadorCt.TextColor = System.Drawing.Color.White;
+            this.BBuscadorCt.UseVisualStyleBackColor = false;
+            // 
             // TBuscarCt
             // 
             this.TBuscarCt.BackColor = System.Drawing.Color.Black;
@@ -113,11 +134,11 @@
             this.BReturn.BackgroundColor = System.Drawing.Color.Transparent;
             this.BReturn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReturn.BackgroundImage")));
             this.BReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BReturn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BReturn.BorderRadius = 0;
-            this.BReturn.BorderSize = 0;
+            this.BReturn.BorderColor = System.Drawing.Color.Lime;
+            this.BReturn.BorderRadius = 14;
+            this.BReturn.BorderSize = 1;
             this.BReturn.FlatAppearance.BorderSize = 0;
-            this.BReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.BReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BReturn.ForeColor = System.Drawing.Color.White;
@@ -174,27 +195,6 @@
             this.BCarrito.TextColor = System.Drawing.Color.Transparent;
             this.BCarrito.UseVisualStyleBackColor = false;
             this.BCarrito.Click += new System.EventHandler(this.BCarrito_Click);
-            // 
-            // BBuscadorCt
-            // 
-            this.BBuscadorCt.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorCt.BackgroundImage")));
-            this.BBuscadorCt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorCt.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BorderRadius = 0;
-            this.BBuscadorCt.BorderSize = 0;
-            this.BBuscadorCt.FlatAppearance.BorderSize = 0;
-            this.BBuscadorCt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.BBuscadorCt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorCt.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorCt.Location = new System.Drawing.Point(6, 2);
-            this.BBuscadorCt.Name = "BBuscadorCt";
-            this.BBuscadorCt.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorCt.TabIndex = 4;
-            this.BBuscadorCt.TextColor = System.Drawing.Color.White;
-            this.BBuscadorCt.UseVisualStyleBackColor = false;
             // 
             // Catalogo
             // 

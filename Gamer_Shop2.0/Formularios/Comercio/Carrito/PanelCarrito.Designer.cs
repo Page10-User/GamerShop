@@ -40,7 +40,7 @@
             // FLPContenidoPrCarrito
             // 
             this.FLPContenidoPrCarrito.AutoScroll = true;
-            this.FLPContenidoPrCarrito.BackColor = System.Drawing.Color.DarkGray;
+            this.FLPContenidoPrCarrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.FLPContenidoPrCarrito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FLPContenidoPrCarrito.Location = new System.Drawing.Point(12, 37);
             this.FLPContenidoPrCarrito.Name = "FLPContenidoPrCarrito";

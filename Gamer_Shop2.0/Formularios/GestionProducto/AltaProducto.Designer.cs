@@ -62,7 +62,7 @@
             this.PBImgAltaPr.BackColor = System.Drawing.Color.Transparent;
             this.PBImgAltaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgAltaPr.BackgroundImage")));
             this.PBImgAltaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgAltaPr.Location = new System.Drawing.Point(137, 35);
+            this.PBImgAltaPr.Location = new System.Drawing.Point(186, 35);
             this.PBImgAltaPr.Name = "PBImgAltaPr";
             this.PBImgAltaPr.Size = new System.Drawing.Size(47, 41);
             this.PBImgAltaPr.TabIndex = 0;
@@ -108,8 +108,8 @@
             // TSerialPr
             // 
             this.TSerialPr.BackColor = System.Drawing.Color.Black;
-            this.TSerialPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TSerialPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TSerialPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TSerialPr.BorderFocusColor = System.Drawing.Color.Lime;
             this.TSerialPr.BorderSize = 2;
             this.TSerialPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSerialPr.ForeColor = System.Drawing.Color.White;
@@ -133,7 +133,7 @@
             // 
             this.TBValidacion5.AutoSize = true;
             this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion5.Location = new System.Drawing.Point(100, 80);
             this.TBValidacion5.Name = "TBValidacion5";
             this.TBValidacion5.Size = new System.Drawing.Size(200, 14);
@@ -156,8 +156,8 @@
             // TStockPr
             // 
             this.TStockPr.BackColor = System.Drawing.Color.Black;
-            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TStockPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TStockPr.BorderFocusColor = System.Drawing.Color.Lime;
             this.TStockPr.BorderSize = 2;
             this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TStockPr.ForeColor = System.Drawing.Color.White;
@@ -180,8 +180,8 @@
             // TPrecioPr
             // 
             this.TPrecioPr.BackColor = System.Drawing.Color.Black;
-            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.Lime;
             this.TPrecioPr.BorderSize = 2;
             this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPrecioPr.ForeColor = System.Drawing.Color.White;
@@ -204,8 +204,8 @@
             // TDescripcionPr
             // 
             this.TDescripcionPr.BackColor = System.Drawing.Color.Black;
-            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.Lime;
             this.TDescripcionPr.BorderSize = 2;
             this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
@@ -228,8 +228,8 @@
             // TNombrePr
             // 
             this.TNombrePr.BackColor = System.Drawing.Color.Black;
-            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TNombrePr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TNombrePr.BorderFocusColor = System.Drawing.Color.Lime;
             this.TNombrePr.BorderSize = 2;
             this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNombrePr.ForeColor = System.Drawing.Color.White;
@@ -253,7 +253,7 @@
             // 
             this.TBValidacion3.AutoSize = true;
             this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion3.Location = new System.Drawing.Point(100, 170);
             this.TBValidacion3.Name = "TBValidacion3";
             this.TBValidacion3.Size = new System.Drawing.Size(200, 14);
@@ -264,19 +264,19 @@
             // CBCategoriaPr
             // 
             this.CBCategoriaPr.BackColor = System.Drawing.Color.Black;
-            this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.BorderSize = 1;
             this.CBCategoriaPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CBCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CBCategoriaPr.ForeColor = System.Drawing.Color.DimGray;
-            this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.Items.AddRange(new object[] {
             "xd",
             "procesador",
             "ola",
             "a"});
             this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
-            this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.Location = new System.Drawing.Point(128, 245);
             this.CBCategoriaPr.MinimumSize = new System.Drawing.Size(30, 30);
             this.CBCategoriaPr.Name = "CBCategoriaPr";
@@ -290,7 +290,7 @@
             // 
             this.TBValidacion4.AutoSize = true;
             this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion4.Location = new System.Drawing.Point(63, 214);
             this.TBValidacion4.Name = "TBValidacion4";
             this.TBValidacion4.Size = new System.Drawing.Size(237, 14);
@@ -302,7 +302,7 @@
             // 
             this.TBValidacion2.AutoSize = true;
             this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion2.Location = new System.Drawing.Point(61, 125);
             this.TBValidacion2.Name = "TBValidacion2";
             this.TBValidacion2.Size = new System.Drawing.Size(239, 14);
@@ -314,7 +314,7 @@
             // 
             this.TBValidacion.AutoSize = true;
             this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion.Location = new System.Drawing.Point(86, 34);
             this.TBValidacion.Name = "TBValidacion";
             this.TBValidacion.Size = new System.Drawing.Size(214, 14);
@@ -412,7 +412,7 @@
             this.BShowListaPr.BackgroundColor = System.Drawing.Color.Black;
             this.BShowListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowListaPr.BackgroundImage")));
             this.BShowListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BShowListaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BShowListaPr.BorderColor = System.Drawing.Color.Lime;
             this.BShowListaPr.BorderRadius = 20;
             this.BShowListaPr.BorderSize = 1;
             this.BShowListaPr.FlatAppearance.BorderSize = 0;
@@ -432,7 +432,7 @@
             this.BRegistrarPr.BackgroundColor = System.Drawing.Color.Black;
             this.BRegistrarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BRegistrarPr.BackgroundImage")));
             this.BRegistrarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BRegistrarPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BRegistrarPr.BorderColor = System.Drawing.Color.Lime;
             this.BRegistrarPr.BorderRadius = 20;
             this.BRegistrarPr.BorderSize = 1;
             this.BRegistrarPr.FlatAppearance.BorderSize = 0;

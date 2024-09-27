@@ -204,20 +204,20 @@
             // 
             // BSalir
             // 
-            this.BSalir.BackColor = System.Drawing.Color.White;
-            this.BSalir.BackgroundColor = System.Drawing.Color.White;
+            this.BSalir.BackColor = System.Drawing.Color.Transparent;
+            this.BSalir.BackgroundColor = System.Drawing.Color.Transparent;
             this.BSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BSalir.BackgroundImage")));
             this.BSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BSalir.BorderColor = System.Drawing.Color.Lime;
-            this.BSalir.BorderRadius = 19;
-            this.BSalir.BorderSize = 2;
+            this.BSalir.BorderRadius = 1;
+            this.BSalir.BorderSize = 0;
             this.BSalir.CausesValidation = false;
             this.BSalir.FlatAppearance.BorderSize = 0;
             this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSalir.ForeColor = System.Drawing.Color.White;
-            this.BSalir.Location = new System.Drawing.Point(792, 12);
+            this.BSalir.Location = new System.Drawing.Point(795, 22);
             this.BSalir.Name = "BSalir";
-            this.BSalir.Size = new System.Drawing.Size(39, 40);
+            this.BSalir.Size = new System.Drawing.Size(25, 25);
             this.BSalir.TabIndex = 9;
             this.BSalir.TextColor = System.Drawing.Color.White;
             this.BSalir.UseVisualStyleBackColor = false;
@@ -229,7 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(843, 526);
             this.Controls.Add(this.BSalir);
             this.Controls.Add(this.PInicio);

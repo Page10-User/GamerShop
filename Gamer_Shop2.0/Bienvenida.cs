@@ -16,10 +16,17 @@ namespace Gamer_Shop2._0
         private Form formBG;
 
         //Options definido globalmente para mejor manejo.
-        private EmpleadoOptions userOptions;
+        private AdministradorOptions userOptions;
 
+        //Panel Poptions del Menu (A)
         public PersonalOptions PersonalOps { get; set; }
+        //Panel Poptions del Menu (E,G)
         public PersonalOptions_NB_ PersonalOpsNB { get; set; }
+
+        //Botones Proveedor y Compra del Menu (temas visuales).
+        public Button botonCompra {  get; set; }
+        public Button botonProveedor {  get; set; }
+
         public bool isExpandedOpts { get; set; }
 
         public Bienvenida()
@@ -28,7 +35,7 @@ namespace Gamer_Shop2._0
             this.Load += new EventHandler(Bienvenida_Load);
             this.Paint += new PaintEventHandler(Bievenida_Paint);
             PMenuUS.Paint += new PaintEventHandler(PMenuUS_Paint);
-            userOptions = new EmpleadoOptions();
+            userOptions = new AdministradorOptions();
             userOptions.MainForm = this;
             userOptions.PanelContainer = PShowOptions;
             userOptions.LabelContainer = LVersion;
@@ -106,12 +113,18 @@ namespace Gamer_Shop2._0
                 if (userOptions is AdministradorOptions)
                 {
                     //Cerramos la configuración personal (Admin).
+                    PersonalOps.SendToBack();
                     PersonalOps.Close();
+
+                    //Posicionamos los botones de compra y proveedor.
+                    botonCompra.BringToFront();
+                    botonProveedor.BringToFront();
                     userOptions.isExpandedOps = isExpnd;
                 }
                 else
                 {
                     //Cerramos la configuración personal (Empleado y Gerente).
+                    PersonalOps.SendToBack();
                     PersonalOpsNB.Close();
                     userOptions.isExpandedOps = isExpnd;
                 }

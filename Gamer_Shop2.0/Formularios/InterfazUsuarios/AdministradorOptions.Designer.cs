@@ -36,6 +36,8 @@
             this.BGestionPr = new System.Windows.Forms.Button();
             this.BGestionUsuario = new System.Windows.Forms.Button();
             this.PPersonalOptions = new System.Windows.Forms.Panel();
+            this.BGestionCompras = new System.Windows.Forms.Button();
+            this.BGestionProveedor = new System.Windows.Forms.Button();
             this.BOptionsAdmin = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgUs)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +73,7 @@
             this.BGestionVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BGestionVenta.ForeColor = System.Drawing.Color.White;
             this.BGestionVenta.Image = ((System.Drawing.Image)(resources.GetObject("BGestionVenta.Image")));
-            this.BGestionVenta.Location = new System.Drawing.Point(0, 263);
+            this.BGestionVenta.Location = new System.Drawing.Point(0, 261);
             this.BGestionVenta.Name = "BGestionVenta";
             this.BGestionVenta.Size = new System.Drawing.Size(198, 45);
             this.BGestionVenta.TabIndex = 27;
@@ -91,7 +93,7 @@
             this.BGestionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BGestionCliente.ForeColor = System.Drawing.Color.White;
             this.BGestionCliente.Image = ((System.Drawing.Image)(resources.GetObject("BGestionCliente.Image")));
-            this.BGestionCliente.Location = new System.Drawing.Point(0, 212);
+            this.BGestionCliente.Location = new System.Drawing.Point(0, 210);
             this.BGestionCliente.Name = "BGestionCliente";
             this.BGestionCliente.Size = new System.Drawing.Size(198, 45);
             this.BGestionCliente.TabIndex = 26;
@@ -111,7 +113,7 @@
             this.BGestionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BGestionPr.ForeColor = System.Drawing.Color.White;
             this.BGestionPr.Image = ((System.Drawing.Image)(resources.GetObject("BGestionPr.Image")));
-            this.BGestionPr.Location = new System.Drawing.Point(0, 161);
+            this.BGestionPr.Location = new System.Drawing.Point(0, 159);
             this.BGestionPr.Name = "BGestionPr";
             this.BGestionPr.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BGestionPr.Size = new System.Drawing.Size(198, 45);
@@ -132,7 +134,7 @@
             this.BGestionUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BGestionUsuario.ForeColor = System.Drawing.Color.White;
             this.BGestionUsuario.Image = ((System.Drawing.Image)(resources.GetObject("BGestionUsuario.Image")));
-            this.BGestionUsuario.Location = new System.Drawing.Point(0, 314);
+            this.BGestionUsuario.Location = new System.Drawing.Point(0, 312);
             this.BGestionUsuario.Name = "BGestionUsuario";
             this.BGestionUsuario.Size = new System.Drawing.Size(198, 45);
             this.BGestionUsuario.TabIndex = 24;
@@ -150,6 +152,46 @@
             this.PPersonalOptions.Size = new System.Drawing.Size(134, 129);
             this.PPersonalOptions.TabIndex = 28;
             // 
+            // BGestionCompras
+            // 
+            this.BGestionCompras.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.BGestionCompras.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.BGestionCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.BGestionCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.BGestionCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BGestionCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BGestionCompras.ForeColor = System.Drawing.Color.White;
+            this.BGestionCompras.Image = ((System.Drawing.Image)(resources.GetObject("BGestionCompras.Image")));
+            this.BGestionCompras.Location = new System.Drawing.Point(0, 363);
+            this.BGestionCompras.Name = "BGestionCompras";
+            this.BGestionCompras.Size = new System.Drawing.Size(198, 45);
+            this.BGestionCompras.TabIndex = 30;
+            this.BGestionCompras.Text = "    Gestion Compra";
+            this.BGestionCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BGestionCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BGestionCompras.UseVisualStyleBackColor = true;
+            this.BGestionCompras.Click += new System.EventHandler(this.BGestionCompras_Click);
+            // 
+            // BGestionProveedor
+            // 
+            this.BGestionProveedor.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.BGestionProveedor.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.BGestionProveedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.BGestionProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.BGestionProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BGestionProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BGestionProveedor.ForeColor = System.Drawing.Color.White;
+            this.BGestionProveedor.Image = ((System.Drawing.Image)(resources.GetObject("BGestionProveedor.Image")));
+            this.BGestionProveedor.Location = new System.Drawing.Point(0, 414);
+            this.BGestionProveedor.Name = "BGestionProveedor";
+            this.BGestionProveedor.Size = new System.Drawing.Size(198, 45);
+            this.BGestionProveedor.TabIndex = 31;
+            this.BGestionProveedor.Text = " Gestion Proveedor";
+            this.BGestionProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BGestionProveedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BGestionProveedor.UseVisualStyleBackColor = true;
+            this.BGestionProveedor.Click += new System.EventHandler(this.BGestionProveedor_Click);
+            // 
             // BOptionsAdmin
             // 
             this.BOptionsAdmin.BackColor = System.Drawing.Color.Transparent;
@@ -164,7 +206,7 @@
             this.BOptionsAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BOptionsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BOptionsAdmin.ForeColor = System.Drawing.Color.White;
-            this.BOptionsAdmin.Location = new System.Drawing.Point(12, 478);
+            this.BOptionsAdmin.Location = new System.Drawing.Point(10, 478);
             this.BOptionsAdmin.Name = "BOptionsAdmin";
             this.BOptionsAdmin.Size = new System.Drawing.Size(42, 34);
             this.BOptionsAdmin.TabIndex = 29;
@@ -178,14 +220,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(198, 524);
+            this.Controls.Add(this.BGestionProveedor);
+            this.Controls.Add(this.BGestionCompras);
             this.Controls.Add(this.BOptionsAdmin);
-            this.Controls.Add(this.PPersonalOptions);
             this.Controls.Add(this.BGestionVenta);
             this.Controls.Add(this.BGestionCliente);
             this.Controls.Add(this.BGestionPr);
             this.Controls.Add(this.BGestionUsuario);
             this.Controls.Add(this.LNombreUs);
             this.Controls.Add(this.PBImgUs);
+            this.Controls.Add(this.PPersonalOptions);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdministradorOptions";
             this.Text = "AdministradorOptions";
@@ -204,5 +248,7 @@
         private System.Windows.Forms.Button BGestionUsuario;
         private System.Windows.Forms.Panel PPersonalOptions;
         private RJButton BOptionsAdmin;
+        private System.Windows.Forms.Button BGestionCompras;
+        private System.Windows.Forms.Button BGestionProveedor;
     }
 }

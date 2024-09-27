@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios;
+using Gamer_Shop2._0.Formularios.Comercio;
 using Gamer_Shop2._0.Formularios.Comercio.Carrito;
 using Gamer_Shop2._0.Formularios.Inicio;
 using System;
@@ -19,7 +20,7 @@ namespace Gamer_Shop2._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Bienvenida());
+            Application.Run(new Form1());
         }
     }
 }

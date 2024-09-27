@@ -94,11 +94,23 @@
     <Compile Include="Formularios\Comercio\Catalogo.Designer.cs">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Gestion Compra\AltaCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Gestion Compra\AltaCompra.Designer.cs">
+      <DependentUpon>AltaCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Gestion Compra\ListaCompra.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Gestion Compra\ListaCompra.Designer.cs">
       <DependentUpon>ListaCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionBackups\Backups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionBackups\Backups.Designer.cs">
+      <DependentUpon>Backups.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\GestionCliente\ListaCliente.cs">
       <SubType>Form</SubType>
@@ -111,6 +123,24 @@
     </Compile>
     <Compile Include="Formularios\GestionCliente\ModificarCliente.Designer.cs">
       <DependentUpon>ModificarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionProveedor\AltaProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionProveedor\AltaProveedor.Designer.cs">
+      <DependentUpon>AltaProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionProveedor\ListaProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionProveedor\ListaProveedor.Designer.cs">
+      <DependentUpon>ListaProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GestionProveedor\ModificarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionProveedor\ModificarProveedor.Designer.cs">
+      <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\GestionUsuario\EditarPerfil.cs">
       <SubType>Form</SubType>
@@ -248,14 +278,29 @@
     <EmbeddedResource Include="Formularios\Comercio\Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Gestion Compra\AltaCompra.resx">
+      <DependentUpon>AltaCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Gestion Compra\ListaCompra.resx">
       <DependentUpon>ListaCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionBackups\Backups.resx">
+      <DependentUpon>Backups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionCliente\ListaCliente.resx">
       <DependentUpon>ListaCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionCliente\ModificarCliente.resx">
       <DependentUpon>ModificarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionProveedor\AltaProveedor.resx">
+      <DependentUpon>AltaProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionProveedor\ListaProveedor.resx">
+      <DependentUpon>ListaProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionProveedor\ModificarProveedor.resx">
+      <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionUsuario\AltaUsuario.resx">
       <DependentUpon>AltaUsuario.cs</DependentUpon>

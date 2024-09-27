@@ -31,8 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarProducto));
             this.label1 = new System.Windows.Forms.Label();
             this.PContModificarPr = new System.Windows.Forms.Panel();
-            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TSerialPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBValidacion5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion4 = new System.Windows.Forms.Label();
@@ -49,9 +52,6 @@
             this.PBImgModificarPr = new System.Windows.Forms.PictureBox();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarPr = new Gamer_Shop2._0.RJButton();
-            this.TBValidacion5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TSerialPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.PContModificarPr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).BeginInit();
             this.SuspendLayout();
@@ -93,39 +93,11 @@
             this.PContModificarPr.Size = new System.Drawing.Size(315, 290);
             this.PContModificarPr.TabIndex = 9;
             // 
-            // TStockPr
-            // 
-            this.TStockPr.BackColor = System.Drawing.Color.Black;
-            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TStockPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TStockPr.BorderSize = 2;
-            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TStockPr.ForeColor = System.Drawing.Color.White;
-<<<<<<< Updated upstream
-            this.TStockPr.Location = new System.Drawing.Point(128, 148);
-=======
-            this.TStockPr.Location = new System.Drawing.Point(128, 183);
->>>>>>> Stashed changes
-            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TStockPr.Multiline = false;
-            this.TStockPr.Name = "TStockPr";
-            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TStockPr.PasswordChar = false;
-            this.TStockPr.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TStockPr.PlaceholderText = "";
-            this.TStockPr.Size = new System.Drawing.Size(172, 31);
-            this.TStockPr.TabIndex = 15;
-            this.TStockPr.Texts = "";
-            this.TStockPr.UnderlinedStyle = true;
-            this.TStockPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TStockPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
-            this.TStockPr.Validating += new System.ComponentModel.CancelEventHandler(this.TStockPr_Validating);
-            // 
             // TPrecioPr
             // 
             this.TPrecioPr.BackColor = System.Drawing.Color.Black;
-            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TPrecioPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TPrecioPr.BorderFocusColor = System.Drawing.Color.Lime;
             this.TPrecioPr.BorderSize = 2;
             this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPrecioPr.ForeColor = System.Drawing.Color.White;
@@ -145,11 +117,83 @@
             this.TPrecioPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
             this.TPrecioPr.Validating += new System.ComponentModel.CancelEventHandler(this.TPrecioPr_Validating);
             // 
+            // TSerialPr
+            // 
+            this.TSerialPr.BackColor = System.Drawing.Color.Black;
+            this.TSerialPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TSerialPr.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TSerialPr.BorderSize = 2;
+            this.TSerialPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TSerialPr.ForeColor = System.Drawing.Color.White;
+            this.TSerialPr.Location = new System.Drawing.Point(128, 50);
+            this.TSerialPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TSerialPr.Multiline = true;
+            this.TSerialPr.Name = "TSerialPr";
+            this.TSerialPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TSerialPr.PasswordChar = false;
+            this.TSerialPr.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TSerialPr.PlaceholderText = "";
+            this.TSerialPr.Size = new System.Drawing.Size(172, 31);
+            this.TSerialPr.TabIndex = 28;
+            this.TSerialPr.Texts = "";
+            this.TSerialPr.UnderlinedStyle = true;
+            this.TSerialPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TSerialPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
+            this.TSerialPr.Validating += new System.ComponentModel.CancelEventHandler(this.TSerialPr_Validating);
+            // 
+            // TBValidacion5
+            // 
+            this.TBValidacion5.AutoSize = true;
+            this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion5.Location = new System.Drawing.Point(100, 168);
+            this.TBValidacion5.Name = "TBValidacion5";
+            this.TBValidacion5.Size = new System.Drawing.Size(200, 14);
+            this.TBValidacion5.TabIndex = 30;
+            this.TBValidacion5.Text = "Ingrese únicamente carácteres numéricos.";
+            this.TBValidacion5.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(15, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 18);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Serial";
+            // 
+            // TStockPr
+            // 
+            this.TStockPr.BackColor = System.Drawing.Color.Black;
+            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TStockPr.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TStockPr.BorderSize = 2;
+            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TStockPr.ForeColor = System.Drawing.Color.White;
+            this.TStockPr.Location = new System.Drawing.Point(128, 183);
+            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
+            this.TStockPr.Multiline = false;
+            this.TStockPr.Name = "TStockPr";
+            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
+            this.TStockPr.PasswordChar = false;
+            this.TStockPr.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TStockPr.PlaceholderText = "";
+            this.TStockPr.Size = new System.Drawing.Size(172, 31);
+            this.TStockPr.TabIndex = 15;
+            this.TStockPr.Texts = "";
+            this.TStockPr.UnderlinedStyle = true;
+            this.TStockPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TStockPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
+            this.TStockPr.Validating += new System.ComponentModel.CancelEventHandler(this.TStockPr_Validating);
+            // 
             // TDescripcionPr
             // 
             this.TDescripcionPr.BackColor = System.Drawing.Color.Black;
-            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TDescripcionPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TDescripcionPr.BorderFocusColor = System.Drawing.Color.Lime;
             this.TDescripcionPr.BorderSize = 2;
             this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
@@ -172,8 +216,8 @@
             // TNombrePr
             // 
             this.TNombrePr.BackColor = System.Drawing.Color.Black;
-            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TNombrePr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TNombrePr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TNombrePr.BorderFocusColor = System.Drawing.Color.Lime;
             this.TNombrePr.BorderSize = 2;
             this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNombrePr.ForeColor = System.Drawing.Color.White;
@@ -197,7 +241,7 @@
             // 
             this.TBValidacion4.AutoSize = true;
             this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion4.Location = new System.Drawing.Point(63, 213);
             this.TBValidacion4.Name = "TBValidacion4";
             this.TBValidacion4.Size = new System.Drawing.Size(237, 14);
@@ -209,7 +253,7 @@
             // 
             this.TBValidacion3.AutoSize = true;
             this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion3.Location = new System.Drawing.Point(100, 80);
             this.TBValidacion3.Name = "TBValidacion3";
             this.TBValidacion3.Size = new System.Drawing.Size(200, 14);
@@ -221,7 +265,7 @@
             // 
             this.TBValidacion2.AutoSize = true;
             this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion2.Location = new System.Drawing.Point(61, 123);
             this.TBValidacion2.Name = "TBValidacion2";
             this.TBValidacion2.Size = new System.Drawing.Size(239, 14);
@@ -233,7 +277,7 @@
             // 
             this.TBValidacion.AutoSize = true;
             this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion.Location = new System.Drawing.Point(86, 35);
             this.TBValidacion.Name = "TBValidacion";
             this.TBValidacion.Size = new System.Drawing.Size(214, 14);
@@ -244,19 +288,19 @@
             // CBCategoriaPr
             // 
             this.CBCategoriaPr.BackColor = System.Drawing.Color.Black;
-            this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.BorderSize = 1;
             this.CBCategoriaPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CBCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CBCategoriaPr.ForeColor = System.Drawing.Color.DimGray;
-            this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.Items.AddRange(new object[] {
             "xd",
             "procesador",
             "ola",
             "a"});
             this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
-            this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.Location = new System.Drawing.Point(128, 244);
             this.CBCategoriaPr.MinimumSize = new System.Drawing.Size(30, 30);
             this.CBCategoriaPr.Name = "CBCategoriaPr";
@@ -355,7 +399,7 @@
             this.BReturnToBack.BackgroundColor = System.Drawing.Color.Transparent;
             this.BReturnToBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReturnToBack.BackgroundImage")));
             this.BReturnToBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BReturnToBack.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BReturnToBack.BorderColor = System.Drawing.Color.Lime;
             this.BReturnToBack.BorderRadius = 17;
             this.BReturnToBack.BorderSize = 1;
             this.BReturnToBack.CausesValidation = false;
@@ -377,8 +421,8 @@
             this.BModificarPr.BackColor = System.Drawing.Color.Black;
             this.BModificarPr.BackgroundColor = System.Drawing.Color.Black;
             this.BModificarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BModificarPr.BackgroundImage")));
-            this.BModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BModificarPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BModificarPr.BorderColor = System.Drawing.Color.Lime;
             this.BModificarPr.BorderRadius = 20;
             this.BModificarPr.BorderSize = 1;
             this.BModificarPr.FlatAppearance.BorderSize = 0;
@@ -391,54 +435,6 @@
             this.BModificarPr.TextColor = System.Drawing.Color.White;
             this.BModificarPr.UseVisualStyleBackColor = false;
             this.BModificarPr.Click += new System.EventHandler(this.BModificarPr_Click);
-            // 
-            // TBValidacion5
-            // 
-            this.TBValidacion5.AutoSize = true;
-            this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TBValidacion5.Location = new System.Drawing.Point(100, 168);
-            this.TBValidacion5.Name = "TBValidacion5";
-            this.TBValidacion5.Size = new System.Drawing.Size(200, 14);
-            this.TBValidacion5.TabIndex = 30;
-            this.TBValidacion5.Text = "Ingrese únicamente carácteres numéricos.";
-            this.TBValidacion5.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(15, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 18);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Serial";
-            // 
-            // TSerialPr
-            // 
-            this.TSerialPr.BackColor = System.Drawing.Color.Black;
-            this.TSerialPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.TSerialPr.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TSerialPr.BorderSize = 2;
-            this.TSerialPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TSerialPr.ForeColor = System.Drawing.Color.White;
-            this.TSerialPr.Location = new System.Drawing.Point(128, 50);
-            this.TSerialPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TSerialPr.Multiline = true;
-            this.TSerialPr.Name = "TSerialPr";
-            this.TSerialPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TSerialPr.PasswordChar = false;
-            this.TSerialPr.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TSerialPr.PlaceholderText = "";
-            this.TSerialPr.Size = new System.Drawing.Size(172, 31);
-            this.TSerialPr.TabIndex = 28;
-            this.TSerialPr.Texts = "";
-            this.TSerialPr.UnderlinedStyle = true;
-            this.TSerialPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TSerialPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
-            this.TSerialPr.Validating += new System.ComponentModel.CancelEventHandler(this.TSerialPr_Validating);
             // 
             // ModificarProducto
             // 

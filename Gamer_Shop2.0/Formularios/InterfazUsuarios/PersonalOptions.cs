@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.Formularios.GestionUsuario;
+﻿using Gamer_Shop2._0.Formularios.GestionBackups;
+using Gamer_Shop2._0.Formularios.GestionUsuario;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +61,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             // dibujar el borde redondeado
             GraphicsPath path = CreateRoundedPath();
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (Pen pen = new Pen(Color.Lime, borderWidth))
+            using (Pen pen = new Pen(Color.LightGreen, borderWidth))
             {
                 e.Graphics.DrawPath(pen, path);
             }
@@ -91,6 +92,26 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             PanelContainer.Controls.Add(editarPerfil);
             //editarPerfil.PanelContainer = PanelContainer;
             editarPerfil.Show();
+            this.Close();
+        }
+
+        private void BBackups_Click(object sender, EventArgs e)
+        {
+            //Cerrar el menú tras elegír una opción
+            Mainform.BContracMenu_Click(sender, e);
+
+            //Ocultar Otros.
+            //LabelContainer.Visible = false;
+
+            // Crear una nueva instancia de EditarPerfil
+            Backups backups = new Backups();
+            backups.TopLevel = false;
+
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(backups);
+            //editarPerfil.PanelContainer = PanelContainer;
+            backups.Show();
             this.Close();
         }
     }

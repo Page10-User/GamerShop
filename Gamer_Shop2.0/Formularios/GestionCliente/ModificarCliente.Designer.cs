@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BModificarCl = new Gamer_Shop2._0.RJButton();
             this.PContModificarCl = new System.Windows.Forms.Panel();
+            this.TEmailCl = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion4 = new System.Windows.Forms.Label();
             this.TTelefonoCl = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion3 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.TBValidacion2 = new System.Windows.Forms.Label();
             this.TNombreCl = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion = new System.Windows.Forms.Label();
-            this.TEmailCl = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LCorreoCl = new System.Windows.Forms.Label();
             this.LApellidoCl = new System.Windows.Forms.Label();
             this.LTeléfono = new System.Windows.Forms.Label();
@@ -125,6 +125,30 @@
             this.PContModificarCl.Size = new System.Drawing.Size(552, 190);
             this.PContModificarCl.TabIndex = 16;
             // 
+            // TEmailCl
+            // 
+            this.TEmailCl.BackColor = System.Drawing.Color.Black;
+            this.TEmailCl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TEmailCl.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TEmailCl.BorderSize = 2;
+            this.TEmailCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TEmailCl.ForeColor = System.Drawing.Color.White;
+            this.TEmailCl.Location = new System.Drawing.Point(217, 125);
+            this.TEmailCl.Margin = new System.Windows.Forms.Padding(4);
+            this.TEmailCl.Multiline = false;
+            this.TEmailCl.Name = "TEmailCl";
+            this.TEmailCl.Padding = new System.Windows.Forms.Padding(7);
+            this.TEmailCl.PasswordChar = false;
+            this.TEmailCl.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TEmailCl.PlaceholderText = "";
+            this.TEmailCl.Size = new System.Drawing.Size(172, 31);
+            this.TEmailCl.TabIndex = 15;
+            this.TEmailCl.Texts = "";
+            this.TEmailCl.UnderlinedStyle = true;
+            this.TEmailCl._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TEmailCl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TEmailCl_KeyPress);
+            this.TEmailCl.Validating += new System.ComponentModel.CancelEventHandler(this.TEmailCl_Validating);
+            // 
             // TBValidacion4
             // 
             this.TBValidacion4.AutoSize = true;
@@ -140,7 +164,7 @@
             // TTelefonoCl
             // 
             this.TTelefonoCl.BackColor = System.Drawing.Color.Black;
-            this.TTelefonoCl.BorderColor = System.Drawing.Color.Lime;
+            this.TTelefonoCl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.TTelefonoCl.BorderFocusColor = System.Drawing.Color.Lime;
             this.TTelefonoCl.BorderSize = 2;
             this.TTelefonoCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -176,7 +200,7 @@
             // TApellidoCl
             // 
             this.TApellidoCl.BackColor = System.Drawing.Color.Black;
-            this.TApellidoCl.BorderColor = System.Drawing.Color.Lime;
+            this.TApellidoCl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.TApellidoCl.BorderFocusColor = System.Drawing.Color.Lime;
             this.TApellidoCl.BorderSize = 2;
             this.TApellidoCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,7 +236,7 @@
             // TNombreCl
             // 
             this.TNombreCl.BackColor = System.Drawing.Color.Black;
-            this.TNombreCl.BorderColor = System.Drawing.Color.Lime;
+            this.TNombreCl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.TNombreCl.BorderFocusColor = System.Drawing.Color.Lime;
             this.TNombreCl.BorderSize = 2;
             this.TNombreCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -244,30 +268,6 @@
             this.TBValidacion.TabIndex = 20;
             this.TBValidacion.Text = "El nombre no debe superar los 100 carácteres.";
             this.TBValidacion.Visible = false;
-            // 
-            // TEmailCl
-            // 
-            this.TEmailCl.BackColor = System.Drawing.Color.Black;
-            this.TEmailCl.BorderColor = System.Drawing.Color.Lime;
-            this.TEmailCl.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TEmailCl.BorderSize = 2;
-            this.TEmailCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TEmailCl.ForeColor = System.Drawing.Color.White;
-            this.TEmailCl.Location = new System.Drawing.Point(217, 125);
-            this.TEmailCl.Margin = new System.Windows.Forms.Padding(4);
-            this.TEmailCl.Multiline = false;
-            this.TEmailCl.Name = "TEmailCl";
-            this.TEmailCl.Padding = new System.Windows.Forms.Padding(7);
-            this.TEmailCl.PasswordChar = false;
-            this.TEmailCl.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TEmailCl.PlaceholderText = "";
-            this.TEmailCl.Size = new System.Drawing.Size(172, 31);
-            this.TEmailCl.TabIndex = 15;
-            this.TEmailCl.Texts = "";
-            this.TEmailCl.UnderlinedStyle = true;
-            this.TEmailCl._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TEmailCl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TEmailCl_KeyPress);
-            this.TEmailCl.Validating += new System.ComponentModel.CancelEventHandler(this.TEmailCl_Validating);
             // 
             // LCorreoCl
             // 
@@ -334,7 +334,7 @@
             this.PBImgModificarCl.BackColor = System.Drawing.Color.Transparent;
             this.PBImgModificarCl.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgModificarCl.BackgroundImage")));
             this.PBImgModificarCl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgModificarCl.Location = new System.Drawing.Point(121, 40);
+            this.PBImgModificarCl.Location = new System.Drawing.Point(155, 40);
             this.PBImgModificarCl.Name = "PBImgModificarCl";
             this.PBImgModificarCl.Size = new System.Drawing.Size(47, 41);
             this.PBImgModificarCl.TabIndex = 14;

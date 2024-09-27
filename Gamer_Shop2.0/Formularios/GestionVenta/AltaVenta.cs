@@ -62,7 +62,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             // dibujar el borde redondeado
             GraphicsPath path = CreateRoundedPath();
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (Pen pen = new Pen(Color.Violet, borderWidth))
+            using (Pen pen = new Pen(Color.LightGreen, borderWidth))
             {
                 e.Graphics.DrawPath(pen, path);
             }
