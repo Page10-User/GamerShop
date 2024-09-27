@@ -1,6 +1,8 @@
-﻿using Gamer_Shop2._0.RJControls;
+﻿using Gamer_Shop2._0.Negocio;
+using Gamer_Shop2._0.RJControls;
 using System;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -212,10 +214,24 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             this.AutoValidate = AutoValidate.EnablePreventFocusChange;
         }
 
+
         private void BRegistrarPr_Click(object sender, EventArgs e)
         {
             if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null)
             {
+                Producto nuevoProducto = new Producto()
+                {
+                    Serial = int.Parse(TSerialPr.Texts),
+                    Nombre = TNombrePr.Texts,
+                    Descripcion = TDescripcionPr.Texts,
+                    Stock = int.Parse(TStockPr.Texts),
+                    Precio = float.Parse(TPrecioPr.Texts),
+                    ID_Categoria = 1
+                };
+
+                ProductoRepository productoRepository = new ProductoRepository();
+                productoRepository.GuardarProducto(nuevoProducto);
+
                 MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
             {

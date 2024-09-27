@@ -286,7 +286,17 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         private void TEmailUs_KeyPress(object sender, KeyPressEventArgs e)
         {
+            bool escontrol = Char.IsControl(e.KeyChar);
+            bool longitud = TEmailUs.Texts.Trim().Length < 50;
 
+            if (longitud || escontrol)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
