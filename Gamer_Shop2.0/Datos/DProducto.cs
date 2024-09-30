@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gamer_Shop2._0.Excepciones;
 
 namespace Gamer_Shop2._0.Datos
 {
@@ -27,7 +28,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(producto) == true)
             {
-             throw new Exception("El número de serial del producto ya existe.");
+             throw new ExisteRegistroException();
             } else { 
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 { 

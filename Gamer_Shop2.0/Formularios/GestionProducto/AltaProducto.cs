@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Negocio;
+using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.RJControls;
 using System;
 using System.ComponentModel;
@@ -228,10 +229,15 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                         );
                     MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception)
+                catch (ExisteRegistroException ex)
                 {
-                    MessageBox.Show("Este producto ya existe", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    // Manejo de la excepción cuando el número de serial ya existe
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de cualquier otra excepción
+                    MessageBox.Show("Ocurrió un error inesperado: " + ex.Message);
                 }
             } else
             {
