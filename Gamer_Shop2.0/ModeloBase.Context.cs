@@ -13,10 +13,10 @@ namespace Gamer_Shop2._0
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProyectoTallerIIEntities : DbContext
+    public partial class ProyectoTallerIIEntities1 : DbContext
     {
-        public ProyectoTallerIIEntities()
-            : base("name=ProyectoTallerIIEntities")
+        public ProyectoTallerIIEntities1()
+            : base("name=ProyectoTallerIIEntities1")
         {
         }
     

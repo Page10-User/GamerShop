@@ -224,7 +224,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     NProducto nproducto = new NProducto();
                     nproducto.NAgregarProducto(
                         int.Parse(TSerialPr.Texts), TNombrePr.Texts, TDescripcionPr.Texts,
-                        int.Parse(TStockPr.Texts), float.Parse(TPrecioPr.Texts), CBCategoriaPr.SelectedIndex
+                        int.Parse(TStockPr.Texts), float.Parse(TPrecioPr.Texts), CBCategoriaPr.SelectedIndex+1
                         );
                     MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

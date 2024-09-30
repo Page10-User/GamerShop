@@ -29,7 +29,7 @@ namespace Gamer_Shop2._0.Datos
             {
              throw new Exception("El número de serial del producto ya existe.");
             } else { 
-                using (ProyectoTallerIIEntities context = new ProyectoTallerIIEntities())
+                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 { 
                 context.Producto.Add(producto);
                 context.SaveChanges();
