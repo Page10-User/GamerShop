@@ -81,33 +81,34 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         //Validación de cantidad del producto.
         private void cantidadPr_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si la tecla presionada es un número o una tecla de control (como backspace)
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; // No permitir la entrada
+                e.Handled = true;
             }
         }
 
         // Manejar el evento TextChanged para verificar si el número es negativo
         private void cantidadPr_TextChanged(object sender, EventArgs e)
         {
-            // Si el texto está vacío, no hacemos nada
             if (string.IsNullOrWhiteSpace(TBCantidadPr.Text)) return;
 
-            // Verificar si el texto es un número positivo
             if (int.TryParse(TBCantidadPr.Text, out int result))
             {
-                // Verificar si es negativo
                 if (result < 0)
                 {
-                    MessageBox.Show("El valor no puede ser negativo.");
-                    TBCantidadPr.Text = ""; // Limpiar el TextBox si es negativo
+                    MessageBox.Show(new Form { TopMost = true }, "El valor no puede ser negativo.");
+                    TBCantidadPr.Text = "";
+                }
+                else if (result == 0)
+                {
+                    MessageBox.Show(new Form { TopMost = true }, "El valor no puede ser 0.");
+                    TBCantidadPr.Text = "";
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, ingrese un número entero positivo.");
-                TBCantidadPr.Text = ""; // Limpiar el TextBox si no es un número entero
+                MessageBox.Show(new Form { TopMost = true }, "Por favor, ingrese un número entero positivo.");
+                TBCantidadPr.Text = "";
             }
         }
     }

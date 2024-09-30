@@ -16,7 +16,7 @@ namespace Gamer_Shop2._0
         private Form formBG;
 
         //Options definido globalmente para mejor manejo.
-        private AdministradorOptions userOptions; //Manejo de opciones del menu segun el usuario <-------
+        private EmpleadoOptions userOptions; //Manejo de opciones del menu segun el usuario <-------
 
         //Panel Poptions del Menu (A)
         public PersonalOptions PersonalOps { get; set; }
@@ -39,7 +39,7 @@ namespace Gamer_Shop2._0
             this.Load += new EventHandler(Bienvenida_Load);
             this.Paint += new PaintEventHandler(Bievenida_Paint);
             PMenuUS.Paint += new PaintEventHandler(PMenuUS_Paint);
-            userOptions = new AdministradorOptions(); //Manejo de opciones del menu segun el usuario <-------
+            userOptions = new EmpleadoOptions(); //Manejo de opciones del menu segun el usuario <-------
             userOptions.MainForm = this;
             userOptions.PanelContainer = PShowOptions;
             userOptions.LabelContainer = LVersion;
