@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios.GestionVenta;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,14 @@ namespace Gamer_Shop2._0.Formularios.Comercio
     public partial class BotonesArticulo : UserControl
     {
 
-        private int borderRadius = 20; // Radio del borde redondeado
-        private int borderWidth = 5; // Grosor del borde
+        private int borderRadius = 1; // Radio del borde redondeado
+        private int borderWidth = 2; // Grosor del borde
         private int id = 0;
         private string descripcion = "Descripción del Producto";
+
+        public Panel PanelContainer { get; set; }
+        public Catalogo MainCatalogo { get; set; }
+        public Bienvenida MainForm { get; set; }
 
         public BotonesArticulo()
         {
@@ -124,7 +129,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
                 panel.Region = new Region(path);
 
 
-                using (Pen pen = new Pen(Color.Red, 3))
+                using (Pen pen = new Pen(Color.LightGreen, 3))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -137,6 +142,21 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         {
             //Pasamos el id del producto al catálogo.
             AgregarAlCarritoClick?.Invoke(this, id);
+        }
+
+        private void BComprarAhora_Click(object sender, EventArgs e)
+        {
+            // Crear una nueva instancia de Lista de 
+            AltaVenta AltaVn = new AltaVenta();
+            AltaVn.TopLevel = false;
+
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(AltaVn);
+            AltaVn.PanelContainer = PanelContainer;
+            AltaVn.MainForm = MainForm;
+            AltaVn.Show();
+            MainCatalogo.Close();
         }
     }
 }

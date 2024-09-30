@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaCliente));
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaCl = new System.Windows.Forms.Panel();
@@ -46,10 +46,15 @@
             this.LTituloListaPr = new System.Windows.Forms.Label();
             this.PBImgListaPr = new System.Windows.Forms.PictureBox();
             this.BDescargarCliente = new Gamer_Shop2._0.RJButton();
-            this.rjButton1 = new Gamer_Shop2._0.RJButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BAltaCliente = new Gamer_Shop2._0.RJButton();
+            this.PBuscadorListaCl = new System.Windows.Forms.Panel();
+            this.BBuscadorListaCl = new Gamer_Shop2._0.RJButton();
+            this.TBuscarListaCl = new System.Windows.Forms.TextBox();
             this.PContListaCl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).BeginInit();
+            this.PBuscadorListaCl.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -77,14 +82,14 @@
             // 
             this.DGListaCliente.BackgroundColor = System.Drawing.Color.Black;
             this.DGListaCliente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CNombre,
@@ -93,41 +98,41 @@
             this.CTelefono,
             this.CCorreoElectronico,
             this.CModificarCl});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGListaCliente.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGListaCliente.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGListaCliente.GridColor = System.Drawing.Color.Black;
             this.DGListaCliente.Location = new System.Drawing.Point(2, 2);
             this.DGListaCliente.Name = "DGListaCliente";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGListaCliente.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGListaCliente.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGListaCliente.Size = new System.Drawing.Size(433, 286);
             this.DGListaCliente.TabIndex = 0;
             // 
             // CNombre
             // 
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
-            this.CNombre.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.CNombre.DefaultCellStyle = dataGridViewCellStyle2;
             this.CNombre.HeaderText = "Nombre";
             this.CNombre.Name = "CNombre";
             // 
@@ -173,7 +178,7 @@
             this.PBImgListaPr.BackColor = System.Drawing.Color.Transparent;
             this.PBImgListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaPr.BackgroundImage")));
             this.PBImgListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgListaPr.Location = new System.Drawing.Point(110, 35);
+            this.PBImgListaPr.Location = new System.Drawing.Point(144, 35);
             this.PBImgListaPr.Name = "PBImgListaPr";
             this.PBImgListaPr.Size = new System.Drawing.Size(47, 41);
             this.PBImgListaPr.TabIndex = 15;
@@ -198,25 +203,81 @@
             this.BDescargarCliente.TextColor = System.Drawing.Color.White;
             this.BDescargarCliente.UseVisualStyleBackColor = false;
             // 
-            // rjButton1
+            // label2
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.Black;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.Black;
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjButton1.BorderColor = System.Drawing.Color.Lime;
-            this.rjButton1.BorderRadius = 12;
-            this.rjButton1.BorderSize = 1;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(387, 76);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(84, 31);
-            this.rjButton1.TabIndex = 22;
-            this.rjButton1.Text = "Buscar";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(552, 329);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 18);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Registrar";
+            // 
+            // BAltaCliente
+            // 
+            this.BAltaCliente.BackColor = System.Drawing.Color.Black;
+            this.BAltaCliente.BackgroundColor = System.Drawing.Color.Black;
+            this.BAltaCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BAltaCliente.BackgroundImage")));
+            this.BAltaCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BAltaCliente.BorderColor = System.Drawing.Color.Lime;
+            this.BAltaCliente.BorderRadius = 20;
+            this.BAltaCliente.BorderSize = 1;
+            this.BAltaCliente.FlatAppearance.BorderSize = 0;
+            this.BAltaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BAltaCliente.ForeColor = System.Drawing.Color.White;
+            this.BAltaCliente.Location = new System.Drawing.Point(548, 250);
+            this.BAltaCliente.Name = "BAltaCliente";
+            this.BAltaCliente.Size = new System.Drawing.Size(84, 76);
+            this.BAltaCliente.TabIndex = 23;
+            this.BAltaCliente.TextColor = System.Drawing.Color.White;
+            this.BAltaCliente.UseVisualStyleBackColor = false;
+            this.BAltaCliente.Click += new System.EventHandler(this.BAltaCliente_Click);
+            // 
+            // PBuscadorListaCl
+            // 
+            this.PBuscadorListaCl.BackColor = System.Drawing.Color.Black;
+            this.PBuscadorListaCl.Controls.Add(this.BBuscadorListaCl);
+            this.PBuscadorListaCl.Controls.Add(this.TBuscarListaCl);
+            this.PBuscadorListaCl.Location = new System.Drawing.Point(314, 74);
+            this.PBuscadorListaCl.Name = "PBuscadorListaCl";
+            this.PBuscadorListaCl.Size = new System.Drawing.Size(188, 31);
+            this.PBuscadorListaCl.TabIndex = 25;
+            this.PBuscadorListaCl.Paint += new System.Windows.Forms.PaintEventHandler(this.PBuscadorListaCl_Paint);
+            // 
+            // BBuscadorListaCl
+            // 
+            this.BBuscadorListaCl.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaCl.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaCl.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorListaCl.BackgroundImage")));
+            this.BBuscadorListaCl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscadorListaCl.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaCl.BorderRadius = 0;
+            this.BBuscadorListaCl.BorderSize = 0;
+            this.BBuscadorListaCl.FlatAppearance.BorderSize = 0;
+            this.BBuscadorListaCl.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaCl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.BBuscadorListaCl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscadorListaCl.ForeColor = System.Drawing.Color.White;
+            this.BBuscadorListaCl.Location = new System.Drawing.Point(6, 2);
+            this.BBuscadorListaCl.Name = "BBuscadorListaCl";
+            this.BBuscadorListaCl.Size = new System.Drawing.Size(26, 26);
+            this.BBuscadorListaCl.TabIndex = 4;
+            this.BBuscadorListaCl.TextColor = System.Drawing.Color.White;
+            this.BBuscadorListaCl.UseVisualStyleBackColor = false;
+            // 
+            // TBuscarListaCl
+            // 
+            this.TBuscarListaCl.BackColor = System.Drawing.Color.Black;
+            this.TBuscarListaCl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBuscarListaCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBuscarListaCl.ForeColor = System.Drawing.Color.Silver;
+            this.TBuscarListaCl.Location = new System.Drawing.Point(34, 6);
+            this.TBuscarListaCl.Name = "TBuscarListaCl";
+            this.TBuscarListaCl.Size = new System.Drawing.Size(132, 17);
+            this.TBuscarListaCl.TabIndex = 4;
+            this.TBuscarListaCl.Text = "Buscar...";
             // 
             // ListaCliente
             // 
@@ -226,12 +287,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.PBuscadorListaCl);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BAltaCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BDescargarCliente);
             this.Controls.Add(this.PContListaCl);
             this.Controls.Add(this.LTituloListaPr);
             this.Controls.Add(this.PBImgListaPr);
-            this.Controls.Add(this.rjButton1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListaCliente";
@@ -239,6 +302,8 @@
             this.PContListaCl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).EndInit();
+            this.PBuscadorListaCl.ResumeLayout(false);
+            this.PBuscadorListaCl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,12 +317,16 @@
         private System.Windows.Forms.DataGridView DGListaCliente;
         private System.Windows.Forms.Label LTituloListaPr;
         private System.Windows.Forms.PictureBox PBImgListaPr;
-        private RJButton rjButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDni;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCorreoElectronico;
         private System.Windows.Forms.DataGridViewTextBoxColumn CModificarCl;
+        private System.Windows.Forms.Label label2;
+        private RJButton BAltaCliente;
+        private System.Windows.Forms.Panel PBuscadorListaCl;
+        private RJButton BBuscadorListaCl;
+        private System.Windows.Forms.TextBox TBuscarListaCl;
     }
 }

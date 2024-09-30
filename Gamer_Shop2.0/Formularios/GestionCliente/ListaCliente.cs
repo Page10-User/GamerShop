@@ -21,23 +21,41 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         public ListaCliente()
         {
             InitializeComponent();
-            this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ListaProductos_Load);
-            PContListaCl.Paint += new PaintEventHandler(PContListaCl_Paint);
-            DGListaCliente.CellClick += DGListaCliente_CellClick;
+            this.Padding = new Padding(borderWidth);
+            SubscrirseEventos();  // Añade un relleno para el borde redondeado
+        }
+
+        private void PBuscadorListaCl_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 10;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-
-            //Rellenar DatGridView (Ejemplo)
-            DGListaCliente.Rows.Add("Teclado Gamer", "Teclado mecánico RGB", "4500", "10", "Periféricos");
-            DGListaCliente.Rows.Add("Mouse Gamer", "Mouse óptico 16000 DPI", "3000", "15", "Periféricos");
-            DGListaCliente.Rows.Add("Monitor", "Monitor 24' Full HD", "25000", "5", "Monitores");
-            DGListaCliente.Rows.Add("Placa de Video", "RTX 3060 12GB", "120000", "3", "Componentes");
-            DGListaCliente.Rows.Add("Auriculares", "Auriculares 7.1 Surround", "7500", "12", "Periféricos");
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -105,7 +123,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (e.ColumnIndex == DGListaCliente.Columns["CModificarCl"].Index && e.RowIndex >= 0)
             {
-                // Crear una nueva instancia de ListaProductos
+                // Crear una nueva instancia de Alta Cliente
                 ModificarCliente ModificarCl = new ModificarCliente();
                 ModificarCl.TopLevel = false;
 
@@ -116,6 +134,26 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 ModificarCl.Show();
                 this.Close();
             }
+        }
+
+        private void BAltaCliente_Click(object sender, EventArgs e)
+        {
+            // Crear una nueva instancia de Alta CLiente
+            AltaCliente AltaCl = new AltaCliente(true);
+            AltaCl.TopLevel = false;
+
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(AltaCl);
+            AltaCl.PanelContainer = PanelContainer;
+            AltaCl.Show();
+            this.Close();
+        }
+        private void SubscrirseEventos()
+        {
+            this.Load += new EventHandler(ListaProductos_Load);
+            PContListaCl.Paint += new PaintEventHandler(PContListaCl_Paint);
+            DGListaCliente.CellClick += DGListaCliente_CellClick;
         }
     }
 }

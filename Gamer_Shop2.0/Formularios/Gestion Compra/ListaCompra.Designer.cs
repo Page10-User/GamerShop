@@ -34,13 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaCompra));
             this.DGListaCompra = new System.Windows.Forms.DataGridView();
-            this.CProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CFechaCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEstadoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCancelarCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BShowLista = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaCompra = new System.Windows.Forms.Panel();
@@ -49,6 +42,13 @@
             this.BShowRegistrarCompra = new Gamer_Shop2._0.RJButton();
             this.BDescargar = new Gamer_Shop2._0.RJButton();
             this.rjButton1 = new Gamer_Shop2._0.RJButton();
+            this.CProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFechaCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstadoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCancelarCompra = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCompra)).BeginInit();
             this.PContListaCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaCom)).BeginInit();
@@ -101,41 +101,6 @@
             this.DGListaCompra.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaCompra.Size = new System.Drawing.Size(435, 288);
             this.DGListaCompra.TabIndex = 1;
-            // 
-            // CProveedor
-            // 
-            this.CProveedor.HeaderText = "Nombre Proveedor";
-            this.CProveedor.Name = "CProveedor";
-            // 
-            // CFechaCompra
-            // 
-            this.CFechaCompra.HeaderText = "Fecha Compra";
-            this.CFechaCompra.Name = "CFechaCompra";
-            // 
-            // CProducto
-            // 
-            this.CProducto.HeaderText = "Producto/s";
-            this.CProducto.Name = "CProducto";
-            // 
-            // CPrecioUnitario
-            // 
-            this.CPrecioUnitario.HeaderText = "Precio Unitario/s";
-            this.CPrecioUnitario.Name = "CPrecioUnitario";
-            // 
-            // CPrecioTotal
-            // 
-            this.CPrecioTotal.HeaderText = "Total";
-            this.CPrecioTotal.Name = "CPrecioTotal";
-            // 
-            // CEstadoCompra
-            // 
-            this.CEstadoCompra.HeaderText = "Estado Compra";
-            this.CEstadoCompra.Name = "CEstadoCompra";
-            // 
-            // CCancelarCompra
-            // 
-            this.CCancelarCompra.HeaderText = "Cancelar";
-            this.CCancelarCompra.Name = "CCancelarCompra";
             // 
             // BShowLista
             // 
@@ -252,6 +217,43 @@
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
+            // CProveedor
+            // 
+            this.CProveedor.HeaderText = "Nombre Proveedor";
+            this.CProveedor.Name = "CProveedor";
+            // 
+            // CFechaCompra
+            // 
+            this.CFechaCompra.HeaderText = "Fecha Compra";
+            this.CFechaCompra.Name = "CFechaCompra";
+            // 
+            // CProducto
+            // 
+            this.CProducto.HeaderText = "Producto/s";
+            this.CProducto.Name = "CProducto";
+            // 
+            // CPrecioUnitario
+            // 
+            this.CPrecioUnitario.HeaderText = "Precio Unitario/s";
+            this.CPrecioUnitario.Name = "CPrecioUnitario";
+            // 
+            // CPrecioTotal
+            // 
+            this.CPrecioTotal.HeaderText = "Total";
+            this.CPrecioTotal.Name = "CPrecioTotal";
+            // 
+            // CEstadoCompra
+            // 
+            this.CEstadoCompra.HeaderText = "Estado Compra";
+            this.CEstadoCompra.Name = "CEstadoCompra";
+            // 
+            // CCancelarCompra
+            // 
+            this.CCancelarCompra.HeaderText = "Cancelar";
+            this.CCancelarCompra.Name = "CCancelarCompra";
+            this.CCancelarCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CCancelarCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // ListaCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,13 +285,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DGListaCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CFechaCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCancelarCompra;
         private System.Windows.Forms.Label BShowLista;
         private System.Windows.Forms.Label label1;
         private RJButton BShowRegistrarCompra;
@@ -298,5 +293,12 @@
         private System.Windows.Forms.Label LTituloListaCompra;
         private System.Windows.Forms.PictureBox PBImgListaCom;
         private RJButton rjButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CFechaCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoCompra;
+        private System.Windows.Forms.DataGridViewButtonColumn CCancelarCompra;
     }
 }

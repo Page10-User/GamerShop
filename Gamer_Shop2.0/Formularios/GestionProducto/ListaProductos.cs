@@ -30,14 +30,33 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-
-            //Rellenar DatGridView (Ejemplo)
-            DGListaPr.Rows.Add("Teclado Gamer", "Teclado mecánico RGB", "4500", "10", "Periféricos");
-            DGListaPr.Rows.Add("Mouse Gamer", "Mouse óptico 16000 DPI", "3000", "15", "Periféricos");
-            DGListaPr.Rows.Add("Monitor", "Monitor 24' Full HD", "25000", "5", "Monitores");
-            DGListaPr.Rows.Add("Placa de Video", "RTX 3060 12GB", "120000", "3", "Componentes");
-            DGListaPr.Rows.Add("Auriculares", "Auriculares 7.1 Surround", "7500", "12", "Periféricos");
         }
+        private void PBuscadorListaPr_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 10;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }   
 
         private GraphicsPath CreateRoundedPath()
         {
@@ -135,12 +154,9 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 DialogResult = MessageBox.Show("Está seguro que desea eliminar este producto?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (DialogResult == DialogResult.Yes)
                 {
-                    // Momentaneamente elimina totalmente la fila.
-                    // Debería pasar a una lista de "inactivos" xEliminacion logica
                     DGListaPr.Rows.RemoveAt(e.RowIndex);
                 }
             }
         }
-
     }
 }

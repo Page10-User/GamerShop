@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaUsuario));
             this.LShowRegistrarUs = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,10 +49,13 @@
             this.PBImgListaUs = new System.Windows.Forms.PictureBox();
             this.BShowRegistrar = new Gamer_Shop2._0.RJButton();
             this.BDescargarListUs = new Gamer_Shop2._0.RJButton();
-            this.BBuscarUs = new Gamer_Shop2._0.RJButton();
+            this.PBuscadorListaUs = new System.Windows.Forms.Panel();
+            this.BBuscadorListaUs = new Gamer_Shop2._0.RJButton();
+            this.TBuscarListaUs = new System.Windows.Forms.TextBox();
             this.PContListaUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaUs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).BeginInit();
+            this.PBuscadorListaUs.SuspendLayout();
             this.SuspendLayout();
             // 
             // LShowRegistrarUs
@@ -92,14 +95,14 @@
             // 
             this.DGListaUs.BackgroundColor = System.Drawing.Color.Black;
             this.DGListaUs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaUs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaUs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaUs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaUs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CNombreUs,
@@ -110,30 +113,30 @@
             this.CContraseña,
             this.CModificarUs,
             this.CEliminarUs});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGListaUs.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGListaUs.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGListaUs.GridColor = System.Drawing.Color.Black;
             this.DGListaUs.Location = new System.Drawing.Point(1, 1);
             this.DGListaUs.Name = "DGListaUs";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaUs.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGListaUs.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaUs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGListaUs.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaUs.Size = new System.Drawing.Size(433, 286);
             this.DGListaUs.TabIndex = 28;
             // 
@@ -187,7 +190,7 @@
             this.LTituloListaUs.BackColor = System.Drawing.Color.Transparent;
             this.LTituloListaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTituloListaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloListaUs.Location = new System.Drawing.Point(218, 34);
+            this.LTituloListaUs.Location = new System.Drawing.Point(218, 20);
             this.LTituloListaUs.Name = "LTituloListaUs";
             this.LTituloListaUs.Size = new System.Drawing.Size(269, 42);
             this.LTituloListaUs.TabIndex = 22;
@@ -198,7 +201,7 @@
             this.PBImgListaUs.BackColor = System.Drawing.Color.Transparent;
             this.PBImgListaUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaUs.BackgroundImage")));
             this.PBImgListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgListaUs.Location = new System.Drawing.Point(175, 36);
+            this.PBImgListaUs.Location = new System.Drawing.Point(175, 22);
             this.PBImgListaUs.Name = "PBImgListaUs";
             this.PBImgListaUs.Size = new System.Drawing.Size(47, 41);
             this.PBImgListaUs.TabIndex = 21;
@@ -209,7 +212,7 @@
             this.BShowRegistrar.BackColor = System.Drawing.Color.Black;
             this.BShowRegistrar.BackgroundColor = System.Drawing.Color.Black;
             this.BShowRegistrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowRegistrar.BackgroundImage")));
-            this.BShowRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BShowRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BShowRegistrar.BorderColor = System.Drawing.Color.Lime;
             this.BShowRegistrar.BorderRadius = 20;
             this.BShowRegistrar.BorderSize = 2;
@@ -243,25 +246,49 @@
             this.BDescargarListUs.TextColor = System.Drawing.Color.White;
             this.BDescargarListUs.UseVisualStyleBackColor = false;
             // 
-            // BBuscarUs
+            // PBuscadorListaUs
             // 
-            this.BBuscarUs.BackColor = System.Drawing.Color.Black;
-            this.BBuscarUs.BackgroundColor = System.Drawing.Color.Black;
-            this.BBuscarUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BBuscarUs.BorderColor = System.Drawing.Color.Lime;
-            this.BBuscarUs.BorderRadius = 12;
-            this.BBuscarUs.BorderSize = 1;
-            this.BBuscarUs.FlatAppearance.BorderSize = 0;
-            this.BBuscarUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscarUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BBuscarUs.ForeColor = System.Drawing.Color.White;
-            this.BBuscarUs.Location = new System.Drawing.Point(389, 76);
-            this.BBuscarUs.Name = "BBuscarUs";
-            this.BBuscarUs.Size = new System.Drawing.Size(84, 31);
-            this.BBuscarUs.TabIndex = 28;
-            this.BBuscarUs.Text = "Buscar";
-            this.BBuscarUs.TextColor = System.Drawing.Color.White;
-            this.BBuscarUs.UseVisualStyleBackColor = false;
+            this.PBuscadorListaUs.BackColor = System.Drawing.Color.Black;
+            this.PBuscadorListaUs.Controls.Add(this.BBuscadorListaUs);
+            this.PBuscadorListaUs.Controls.Add(this.TBuscarListaUs);
+            this.PBuscadorListaUs.Location = new System.Drawing.Point(311, 72);
+            this.PBuscadorListaUs.Name = "PBuscadorListaUs";
+            this.PBuscadorListaUs.Size = new System.Drawing.Size(188, 31);
+            this.PBuscadorListaUs.TabIndex = 29;
+            this.PBuscadorListaUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaUs_Paint);
+            // 
+            // BBuscadorListaUs
+            // 
+            this.BBuscadorListaUs.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaUs.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorListaUs.BackgroundImage")));
+            this.BBuscadorListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscadorListaUs.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaUs.BorderRadius = 0;
+            this.BBuscadorListaUs.BorderSize = 0;
+            this.BBuscadorListaUs.FlatAppearance.BorderSize = 0;
+            this.BBuscadorListaUs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaUs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.BBuscadorListaUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscadorListaUs.ForeColor = System.Drawing.Color.White;
+            this.BBuscadorListaUs.Location = new System.Drawing.Point(6, 2);
+            this.BBuscadorListaUs.Name = "BBuscadorListaUs";
+            this.BBuscadorListaUs.Size = new System.Drawing.Size(26, 26);
+            this.BBuscadorListaUs.TabIndex = 4;
+            this.BBuscadorListaUs.TextColor = System.Drawing.Color.White;
+            this.BBuscadorListaUs.UseVisualStyleBackColor = false;
+            // 
+            // TBuscarListaUs
+            // 
+            this.TBuscarListaUs.BackColor = System.Drawing.Color.Black;
+            this.TBuscarListaUs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBuscarListaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBuscarListaUs.ForeColor = System.Drawing.Color.Silver;
+            this.TBuscarListaUs.Location = new System.Drawing.Point(34, 6);
+            this.TBuscarListaUs.Name = "TBuscarListaUs";
+            this.TBuscarListaUs.Size = new System.Drawing.Size(132, 17);
+            this.TBuscarListaUs.TabIndex = 4;
+            this.TBuscarListaUs.Text = "Buscar...";
             // 
             // ListaUsuario
             // 
@@ -271,7 +298,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.BBuscarUs);
+            this.Controls.Add(this.PBuscadorListaUs);
             this.Controls.Add(this.LShowRegistrarUs);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BShowRegistrar);
@@ -286,6 +313,8 @@
             this.PContListaUs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaUs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).EndInit();
+            this.PBuscadorListaUs.ResumeLayout(false);
+            this.PBuscadorListaUs.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,6 +338,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CContraseña;
         private System.Windows.Forms.DataGridViewButtonColumn CModificarUs;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminarUs;
-        private RJButton BBuscarUs;
+        private System.Windows.Forms.Panel PBuscadorListaUs;
+        private RJButton BBuscadorListaUs;
+        private System.Windows.Forms.TextBox TBuscarListaUs;
     }
 }

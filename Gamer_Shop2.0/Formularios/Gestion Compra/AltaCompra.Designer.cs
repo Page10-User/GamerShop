@@ -32,6 +32,10 @@
             this.LTituloAltaCompra = new System.Windows.Forms.Label();
             this.PBImgAltaCom = new System.Windows.Forms.PictureBox();
             this.PContAltaCompra = new System.Windows.Forms.Panel();
+            this.TBValidacion4 = new System.Windows.Forms.Label();
+            this.TBValidacion3 = new System.Windows.Forms.Label();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
+            this.TBValidacion = new System.Windows.Forms.Label();
             this.TBPrecioPrCompra = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.TBCantidadPrCompra = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.TBNombrePrCompra = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
@@ -43,20 +47,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PListaPrCompra = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGListaPrCompra = new System.Windows.Forms.DataGridView();
             this.CNombrePr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCantidadPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecioPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTotalPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminarPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BComprar = new Gamer_Shop2._0.RJButton();
-            this.BAgregarPrLista = new Gamer_Shop2._0.RJButton();
-            this.BListaDeCompras = new Gamer_Shop2._0.RJButton();
+            this.CEliminarPr = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PContAltaListaCompra = new System.Windows.Forms.Panel();
+            this.BAgregarPrLista = new Gamer_Shop2._0.RJButton();
+            this.BComprar = new Gamer_Shop2._0.RJButton();
+            this.BListaDeCompras = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaCom)).BeginInit();
             this.PContAltaCompra.SuspendLayout();
             this.PListaPrCompra.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGListaPrCompra)).BeginInit();
             this.PContAltaListaCompra.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,6 +91,10 @@
             // PContAltaCompra
             // 
             this.PContAltaCompra.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaCompra.Controls.Add(this.TBValidacion4);
+            this.PContAltaCompra.Controls.Add(this.TBValidacion3);
+            this.PContAltaCompra.Controls.Add(this.TBValidacion2);
+            this.PContAltaCompra.Controls.Add(this.TBValidacion);
             this.PContAltaCompra.Controls.Add(this.TBPrecioPrCompra);
             this.PContAltaCompra.Controls.Add(this.TBCantidadPrCompra);
             this.PContAltaCompra.Controls.Add(this.TBNombrePrCompra);
@@ -99,6 +107,54 @@
             this.PContAltaCompra.Name = "PContAltaCompra";
             this.PContAltaCompra.Size = new System.Drawing.Size(425, 189);
             this.PContAltaCompra.TabIndex = 6;
+            // 
+            // TBValidacion4
+            // 
+            this.TBValidacion4.AutoSize = true;
+            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion4.Location = new System.Drawing.Point(163, 55);
+            this.TBValidacion4.Name = "TBValidacion4";
+            this.TBValidacion4.Size = new System.Drawing.Size(160, 14);
+            this.TBValidacion4.TabIndex = 57;
+            this.TBValidacion4.Text = "Por favor, elija una opción válida";
+            this.TBValidacion4.Visible = false;
+            // 
+            // TBValidacion3
+            // 
+            this.TBValidacion3.AutoSize = true;
+            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion3.Location = new System.Drawing.Point(134, 165);
+            this.TBValidacion3.Name = "TBValidacion3";
+            this.TBValidacion3.Size = new System.Drawing.Size(197, 14);
+            this.TBValidacion3.TabIndex = 40;
+            this.TBValidacion3.Text = "Ingrese únicamente carácteres numéricos";
+            this.TBValidacion3.Visible = false;
+            // 
+            // TBValidacion2
+            // 
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion2.Location = new System.Drawing.Point(134, 128);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(234, 14);
+            this.TBValidacion2.TabIndex = 39;
+            this.TBValidacion2.Text = "Ingrese únicamente carácteres numéricos exactos";
+            this.TBValidacion2.Visible = false;
+            // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion.Location = new System.Drawing.Point(135, 90);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(211, 14);
+            this.TBValidacion.TabIndex = 38;
+            this.TBValidacion.Text = "El nombre no debe superar los 50 carácteres";
+            this.TBValidacion.Visible = false;
             // 
             // TBPrecioPrCompra
             // 
@@ -121,6 +177,9 @@
             this.TBPrecioPrCompra.TabIndex = 37;
             this.TBPrecioPrCompra.Texts = "";
             this.TBPrecioPrCompra.UnderlinedStyle = true;
+            this.TBPrecioPrCompra._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBPrecioPrCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBPrecioPrCompra_KeyPress);
+            this.TBPrecioPrCompra.Validating += new System.ComponentModel.CancelEventHandler(this.TBNumberPrCompra_Validating);
             // 
             // TBCantidadPrCompra
             // 
@@ -143,6 +202,9 @@
             this.TBCantidadPrCompra.TabIndex = 36;
             this.TBCantidadPrCompra.Texts = "";
             this.TBCantidadPrCompra.UnderlinedStyle = true;
+            this.TBCantidadPrCompra._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBCantidadPrCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBNombrePrCompra_KeyPress);
+            this.TBCantidadPrCompra.Validating += new System.ComponentModel.CancelEventHandler(this.TBCantidadPr_Validating);
             // 
             // TBNombrePrCompra
             // 
@@ -162,9 +224,12 @@
             this.TBNombrePrCompra.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TBNombrePrCompra.PlaceholderText = "";
             this.TBNombrePrCompra.Size = new System.Drawing.Size(214, 31);
-            this.TBNombrePrCompra.TabIndex = 35;
+            this.TBNombrePrCompra.TabIndex = 28;
             this.TBNombrePrCompra.Texts = "";
             this.TBNombrePrCompra.UnderlinedStyle = true;
+            this.TBNombrePrCompra._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBNombrePrCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBNombrePrCompra_KeyPress);
+            this.TBNombrePrCompra.Validating += new System.ComponentModel.CancelEventHandler(this.TBNombrePrCompra_Validating);
             // 
             // LPrecio
             // 
@@ -220,6 +285,7 @@
             this.CBCategoriaPr.Size = new System.Drawing.Size(214, 30);
             this.CBCategoriaPr.TabIndex = 31;
             this.CBCategoriaPr.Texts = "";
+            this.CBCategoriaPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
             // 
             // LSelectProveedor
             // 
@@ -259,25 +325,26 @@
             // 
             // PListaPrCompra
             // 
-            this.PListaPrCompra.Controls.Add(this.dataGridView1);
+            this.PListaPrCompra.Controls.Add(this.DGListaPrCompra);
             this.PListaPrCompra.Location = new System.Drawing.Point(137, 20);
             this.PListaPrCompra.Name = "PListaPrCompra";
             this.PListaPrCompra.Size = new System.Drawing.Size(265, 115);
             this.PListaPrCompra.TabIndex = 39;
             // 
-            // dataGridView1
+            // DGListaPrCompra
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGListaPrCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGListaPrCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CNombrePr,
             this.CCantidadPr,
             this.CPrecioPr,
             this.CTotalPr,
             this.CEliminarPr});
-            this.dataGridView1.Location = new System.Drawing.Point(1, 1);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(263, 113);
-            this.dataGridView1.TabIndex = 0;
+            this.DGListaPrCompra.Location = new System.Drawing.Point(1, 1);
+            this.DGListaPrCompra.Name = "DGListaPrCompra";
+            this.DGListaPrCompra.Size = new System.Drawing.Size(263, 113);
+            this.DGListaPrCompra.TabIndex = 0;
+            this.DGListaPrCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaPr_CellClick);
             // 
             // CNombrePr
             // 
@@ -303,6 +370,38 @@
             // 
             this.CEliminarPr.HeaderText = "Eliminar";
             this.CEliminarPr.Name = "CEliminarPr";
+            this.CEliminarPr.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CEliminarPr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // PContAltaListaCompra
+            // 
+            this.PContAltaListaCompra.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaListaCompra.Controls.Add(this.BAgregarPrLista);
+            this.PContAltaListaCompra.Controls.Add(this.PListaPrCompra);
+            this.PContAltaListaCompra.Location = new System.Drawing.Point(67, 273);
+            this.PContAltaListaCompra.Name = "PContAltaListaCompra";
+            this.PContAltaListaCompra.Size = new System.Drawing.Size(425, 151);
+            this.PContAltaListaCompra.TabIndex = 38;
+            // 
+            // BAgregarPrLista
+            // 
+            this.BAgregarPrLista.BackColor = System.Drawing.Color.Black;
+            this.BAgregarPrLista.BackgroundColor = System.Drawing.Color.Black;
+            this.BAgregarPrLista.BorderColor = System.Drawing.Color.Lime;
+            this.BAgregarPrLista.BorderRadius = 15;
+            this.BAgregarPrLista.BorderSize = 1;
+            this.BAgregarPrLista.FlatAppearance.BorderSize = 0;
+            this.BAgregarPrLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BAgregarPrLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BAgregarPrLista.ForeColor = System.Drawing.Color.White;
+            this.BAgregarPrLista.Location = new System.Drawing.Point(11, 16);
+            this.BAgregarPrLista.Name = "BAgregarPrLista";
+            this.BAgregarPrLista.Size = new System.Drawing.Size(121, 34);
+            this.BAgregarPrLista.TabIndex = 38;
+            this.BAgregarPrLista.Text = "Agregar a la lista";
+            this.BAgregarPrLista.TextColor = System.Drawing.Color.White;
+            this.BAgregarPrLista.UseVisualStyleBackColor = false;
+            this.BAgregarPrLista.Click += new System.EventHandler(this.BAgregarPrLista_Click);
             // 
             // BComprar
             // 
@@ -323,25 +422,7 @@
             this.BComprar.TabIndex = 28;
             this.BComprar.TextColor = System.Drawing.Color.White;
             this.BComprar.UseVisualStyleBackColor = false;
-            // 
-            // BAgregarPrLista
-            // 
-            this.BAgregarPrLista.BackColor = System.Drawing.Color.Black;
-            this.BAgregarPrLista.BackgroundColor = System.Drawing.Color.Black;
-            this.BAgregarPrLista.BorderColor = System.Drawing.Color.Lime;
-            this.BAgregarPrLista.BorderRadius = 15;
-            this.BAgregarPrLista.BorderSize = 1;
-            this.BAgregarPrLista.FlatAppearance.BorderSize = 0;
-            this.BAgregarPrLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BAgregarPrLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BAgregarPrLista.ForeColor = System.Drawing.Color.White;
-            this.BAgregarPrLista.Location = new System.Drawing.Point(11, 16);
-            this.BAgregarPrLista.Name = "BAgregarPrLista";
-            this.BAgregarPrLista.Size = new System.Drawing.Size(121, 34);
-            this.BAgregarPrLista.TabIndex = 38;
-            this.BAgregarPrLista.Text = "Agregar a la lista";
-            this.BAgregarPrLista.TextColor = System.Drawing.Color.White;
-            this.BAgregarPrLista.UseVisualStyleBackColor = false;
+            this.BComprar.Click += new System.EventHandler(this.BComprar_Click);
             // 
             // BListaDeCompras
             // 
@@ -362,16 +443,6 @@
             this.BListaDeCompras.TextColor = System.Drawing.Color.White;
             this.BListaDeCompras.UseVisualStyleBackColor = false;
             this.BListaDeCompras.Click += new System.EventHandler(this.BListaDeCompras_Click);
-            // 
-            // PContAltaListaCompra
-            // 
-            this.PContAltaListaCompra.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContAltaListaCompra.Controls.Add(this.BAgregarPrLista);
-            this.PContAltaListaCompra.Controls.Add(this.PListaPrCompra);
-            this.PContAltaListaCompra.Location = new System.Drawing.Point(67, 273);
-            this.PContAltaListaCompra.Name = "PContAltaListaCompra";
-            this.PContAltaListaCompra.Size = new System.Drawing.Size(425, 151);
-            this.PContAltaListaCompra.TabIndex = 38;
             // 
             // AltaCompra
             // 
@@ -397,7 +468,7 @@
             this.PContAltaCompra.ResumeLayout(false);
             this.PContAltaCompra.PerformLayout();
             this.PListaPrCompra.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGListaPrCompra)).EndInit();
             this.PContAltaListaCompra.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -423,12 +494,16 @@
         private System.Windows.Forms.Label LCantidad;
         private RJButton BAgregarPrLista;
         private System.Windows.Forms.Panel PListaPrCompra;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGListaPrCompra;
+        private System.Windows.Forms.Panel PContAltaListaCompra;
+        private System.Windows.Forms.Label TBValidacion3;
+        private System.Windows.Forms.Label TBValidacion2;
+        private System.Windows.Forms.Label TBValidacion;
+        private System.Windows.Forms.Label TBValidacion4;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombrePr;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCantidadPr;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioPr;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTotalPr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CEliminarPr;
-        private System.Windows.Forms.Panel PContAltaListaCompra;
+        private System.Windows.Forms.DataGridViewButtonColumn CEliminarPr;
     }
 }

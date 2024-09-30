@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.GestionVenta;
+using Gamer_Shop2._0.Formularios.Informe;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
         public Panel PanelContainer { get; set; }
         public Label LabelContainer { get; set; }
         public Bienvenida MainForm { get; set; }
+        public Form FondoOscuroCatalogo {  get; set; }
 
         public bool isExpandedOps { get; set; } //Referencia al booleano utilizado para evaluar si la configuración está abierta o no.
 
@@ -77,6 +79,30 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 isExpandedOption = false;
                 MainForm.isExpandedOpts = false;
             }
+        }
+
+        private void BAccederInformes_Click(object sender, EventArgs e)
+        {
+            //Cerrar el menú tras elegír una opción
+            MainForm.BContracMenu_Click(sender, e);
+
+            //Ocultar Otros.
+            LabelContainer.Visible = false;
+            
+            // Mostrar form
+            InstanciarYMostrarReporte();
+        }
+
+        private void InstanciarYMostrarReporte()
+        {
+            Reporte formReporte = new Reporte();
+            formReporte.TopLevel = false;
+            formReporte.PanelContainer = PanelContainer;
+            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+            PanelContainer.Controls.Add(formReporte);
+            PanelContainer.BringToFront();
+
+            formReporte.Show();
         }
     }
 }

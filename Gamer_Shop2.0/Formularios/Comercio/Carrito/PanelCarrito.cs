@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios.GestionCliente;
+using Gamer_Shop2._0.Formularios.GestionVenta;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +15,17 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 {
     public partial class PanelCarrito : Form
     {
-        private int borderRadius = 10; // Radio del borde redondeado
+        private int borderRadius = 5; // Radio del borde redondeado
         private int borderWidth = 3; // Grosor del borde
 
         public List<int> idPrCr { get; set; }
 
         public Panel PanelContainerCr { get; set; }
+        public Panel PanelContainer {  get; set; }
+        public Catalogo MainCatalogo { get; set; }
+        public Form FondoOscuro { get; set; }
+
+        public Bienvenida MainForm {  get; set; }
         public PanelCarrito()
         {
             InitializeComponent();
@@ -38,6 +45,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
                 BotonesArticuloCr ArticuloCr = new BotonesArticuloCr();
                 ArticuloCr.EliminarDelCarritoClick += BEliminarPrCarrito_Click;
                 FLPContenidoPrCarrito.Controls.Add(ArticuloCr);
+                ArticuloCr.TBCantidadPr.Text = "1";
             }
         }
 
@@ -70,7 +78,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             // dibujar el borde redondeado
             GraphicsPath path = CreateRoundedPath();
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (Pen pen = new Pen(Color.LightGreen, borderWidth))
+            using (Pen pen = new Pen(Color.SpringGreen, borderWidth))
             {
                 e.Graphics.DrawPath(pen, path);
             }
@@ -80,6 +88,8 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         {
             PanelContainerCr.Controls.Clear();
             PanelContainerCr.SendToBack();
+            FondoOscuro.Close();
+            MainForm.FondoOscuroCatalogo = null;
             this.Close();
         }
 
@@ -88,6 +98,53 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         {
             //Pasamos el id del producto al catálogo.
             EliminarPrCarritoClick?.Invoke(this, num);
+        }
+
+        private void BRegistrarVenta_Click(object sender, EventArgs e)
+        {
+            if (VerificarSiHayProductosCargados() == 0)
+            {
+                MessageBox.Show(new Form { TopMost = true }, "Debe cargar como mínimo un producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(new Form { TopMost = true }, "Está seguro que quiere realizar la venta?", "Venta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    InstanciarYMostrarAltaVenta();
+                }
+            }
+        }
+
+        private void InstanciarYMostrarAltaVenta()
+        {
+            AltaVenta AltaVn = new AltaVenta();
+            AltaVn.TopLevel = false;
+
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(AltaVn);
+            AltaVn.PanelContainer = PanelContainer;
+            AltaVn.MainForm = MainForm;
+            AltaVn.Show();
+            FondoOscuro.Close();
+            MainForm.FondoOscuroCatalogo = null;
+            MainCatalogo.Close();
+        }
+
+        private int VerificarSiHayProductosCargados()
+        {
+            int contador = 0;
+
+            // Recorremos todos los controles del FlowLayoutPanel
+            foreach (Control control in FLPContenidoPrCarrito.Controls)
+            {
+                if (control is BotonesArticuloCr)
+                {
+                    contador++;
+                }
+            }
+            return contador;
         }
     }
 }

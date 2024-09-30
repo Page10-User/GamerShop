@@ -22,6 +22,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
         public Panel PanelContainer { get; set; } //Referencia a Control para los forms de gestion.
         public Label LabelContainer { get; set; } //Referencia al Label de version para poner visible o no.
         public Bienvenida MainForm { get; set; } //Referencia a Bienvenida para usar su función MenuContract.
+        public Form FondoOscuroCatalogo { get; set; } //Referencia al fondo oscuro del catalogo para cerrarlo tras click a algún boton del menu.
         public bool isExpandedOps { get; set; } //Referencia al booleano utilizado para evaluar si la configuración está abierta o no.
 
         //Options definido globalmente para mejor manejo.
@@ -49,6 +50,9 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             PanelContainer.Controls.Add(formAltaProducto);
             PanelContainer.BringToFront();
 
+            //Cerrar FondoOscuroCatalogo en caso de existir.
+            CloseFondoOscuro();
+
             formAltaProducto.Show();
         }
 
@@ -61,12 +65,15 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             LabelContainer.Visible = false;
 
             // Mostrar form
-            ListaCliente formCliente = new ListaCliente();
+            AltaCliente formCliente = new AltaCliente(true);
             formCliente.TopLevel = false;
             formCliente.PanelContainer = PanelContainer;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formCliente);
             PanelContainer.BringToFront();
+
+            //Cerrar FondoOscuroCatalogo en caso de existir.
+            CloseFondoOscuro();
 
             formCliente.Show();
         }
@@ -80,12 +87,16 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             LabelContainer.Visible = false;
 
             // Mostrar form
-            ListaVenta formListaVn = new ListaVenta();
+            ListaVenta formListaVn = new ListaVenta(true);
             formListaVn.TopLevel = false;
             formListaVn.PanelContainer = PanelContainer;
+            formListaVn.Mainform = MainForm;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formListaVn);
             PanelContainer.BringToFront();
+
+            //Cerrar FondoOscuroCatalogo en caso de existir.
+            CloseFondoOscuro();
 
             formListaVn.Show();
         }
@@ -103,9 +114,13 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             formCatalogo.TopLevel = false;
             formCatalogo.PanelContainer = PanelContainer;
             formCatalogo.LabelContainer = LabelContainer;
+            formCatalogo.MainForm = MainForm;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formCatalogo);
             PanelContainer.BringToFront();
+
+            //Cerrar FondoOscuroCatalogo en caso de existir.
+            CloseFondoOscuro();
 
             formCatalogo.Show();
         }
@@ -119,6 +134,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 Poptions.TopLevel = false;
                 Poptions.PanelContainer = PanelContainer;
                 Poptions.Mainform = MainForm;
+                Poptions.FondoOscuroCat = FondoOscuroCatalogo;
                 PPersonalOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
                 PPersonalOptions.Controls.Add(Poptions);
                 Poptions.Location = new Point(1, 1);
@@ -136,6 +152,15 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 Poptions.Close();
                 isExpandedOption = false;
                 MainForm.isExpandedOpts = false;
+            }
+        }
+
+        private void CloseFondoOscuro()
+        {
+            if (FondoOscuroCatalogo is Form)
+            {
+                FondoOscuroCatalogo.Close();
+                MainForm.FondoOscuroCatalogo = null;
             }
         }
     }

@@ -33,12 +33,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PBCatalogo = new System.Windows.Forms.PictureBox();
             this.PBuscadorCt = new System.Windows.Forms.Panel();
-            this.BBuscadorCt = new Gamer_Shop2._0.RJButton();
             this.TBuscarCt = new System.Windows.Forms.TextBox();
             this.PContCarrito = new System.Windows.Forms.Panel();
             this.BReturn = new Gamer_Shop2._0.RJButton();
             this.BListaVenta = new Gamer_Shop2._0.RJButton();
             this.BCarrito = new Gamer_Shop2._0.RJButton();
+            this.BBuscadorCt = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBCatalogo)).BeginInit();
             this.PBuscadorCt.SuspendLayout();
             this.SuspendLayout();
@@ -46,9 +46,10 @@
             // FLPContCatalogo
             // 
             this.FLPContCatalogo.AutoScroll = true;
-            this.FLPContCatalogo.BackColor = System.Drawing.Color.Transparent;
+            this.FLPContCatalogo.BackColor = System.Drawing.Color.Black;
+            this.FLPContCatalogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FLPContCatalogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FLPContCatalogo.Location = new System.Drawing.Point(82, 65);
+            this.FLPContCatalogo.Location = new System.Drawing.Point(86, 65);
             this.FLPContCatalogo.Name = "FLPContCatalogo";
             this.FLPContCatalogo.Size = new System.Drawing.Size(525, 359);
             this.FLPContCatalogo.TabIndex = 0;
@@ -69,9 +70,9 @@
             // 
             this.PBCatalogo.BackColor = System.Drawing.Color.Transparent;
             this.PBCatalogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBCatalogo.BackgroundImage")));
-            this.PBCatalogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PBCatalogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PBCatalogo.InitialImage = null;
-            this.PBCatalogo.Location = new System.Drawing.Point(26, 19);
+            this.PBCatalogo.Location = new System.Drawing.Point(20, 19);
             this.PBCatalogo.Name = "PBCatalogo";
             this.PBCatalogo.Size = new System.Drawing.Size(38, 31);
             this.PBCatalogo.TabIndex = 2;
@@ -86,6 +87,94 @@
             this.PBuscadorCt.Name = "PBuscadorCt";
             this.PBuscadorCt.Size = new System.Drawing.Size(188, 31);
             this.PBuscadorCt.TabIndex = 3;
+            // 
+            // TBuscarCt
+            // 
+            this.TBuscarCt.BackColor = System.Drawing.Color.Black;
+            this.TBuscarCt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBuscarCt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBuscarCt.ForeColor = System.Drawing.Color.Silver;
+            this.TBuscarCt.Location = new System.Drawing.Point(34, 6);
+            this.TBuscarCt.Name = "TBuscarCt";
+            this.TBuscarCt.Size = new System.Drawing.Size(132, 17);
+            this.TBuscarCt.TabIndex = 4;
+            this.TBuscarCt.Text = "Buscar...";
+            // 
+            // PContCarrito
+            // 
+            this.PContCarrito.BackColor = System.Drawing.Color.Transparent;
+            this.PContCarrito.Location = new System.Drawing.Point(488, 2);
+            this.PContCarrito.Name = "PContCarrito";
+            this.PContCarrito.Size = new System.Drawing.Size(194, 432);
+            this.PContCarrito.TabIndex = 7;
+            // 
+            // BReturn
+            // 
+            this.BReturn.BackColor = System.Drawing.Color.Transparent;
+            this.BReturn.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BReturn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReturn.BackgroundImage")));
+            this.BReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BReturn.BorderColor = System.Drawing.Color.Lime;
+            this.BReturn.BorderRadius = 14;
+            this.BReturn.BorderSize = 1;
+            this.BReturn.FlatAppearance.BorderSize = 0;
+            this.BReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BReturn.ForeColor = System.Drawing.Color.White;
+            this.BReturn.Location = new System.Drawing.Point(26, 386);
+            this.BReturn.Name = "BReturn";
+            this.BReturn.Size = new System.Drawing.Size(28, 28);
+            this.BReturn.TabIndex = 6;
+            this.BReturn.TextColor = System.Drawing.Color.White;
+            this.BReturn.UseVisualStyleBackColor = false;
+            this.BReturn.Click += new System.EventHandler(this.BReturn_Click);
+            // 
+            // BListaVenta
+            // 
+            this.BListaVenta.BackColor = System.Drawing.Color.Transparent;
+            this.BListaVenta.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BListaVenta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BListaVenta.BorderRadius = 0;
+            this.BListaVenta.BorderSize = 0;
+            this.BListaVenta.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BListaVenta.FlatAppearance.BorderSize = 0;
+            this.BListaVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BListaVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BListaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BListaVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BListaVenta.ForeColor = System.Drawing.Color.Transparent;
+            this.BListaVenta.Location = new System.Drawing.Point(509, 18);
+            this.BListaVenta.Name = "BListaVenta";
+            this.BListaVenta.Size = new System.Drawing.Size(153, 33);
+            this.BListaVenta.TabIndex = 5;
+            this.BListaVenta.Text = "Lista de Ventas";
+            this.BListaVenta.TextColor = System.Drawing.Color.Transparent;
+            this.BListaVenta.UseVisualStyleBackColor = false;
+            this.BListaVenta.Click += new System.EventHandler(this.BListaVenta_Click);
+            // 
+            // BCarrito
+            // 
+            this.BCarrito.BackColor = System.Drawing.Color.Transparent;
+            this.BCarrito.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BCarrito.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BCarrito.BorderRadius = 0;
+            this.BCarrito.BorderSize = 0;
+            this.BCarrito.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BCarrito.FlatAppearance.BorderSize = 0;
+            this.BCarrito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BCarrito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BCarrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BCarrito.ForeColor = System.Drawing.Color.Transparent;
+            this.BCarrito.Location = new System.Drawing.Point(387, 17);
+            this.BCarrito.Name = "BCarrito";
+            this.BCarrito.Size = new System.Drawing.Size(105, 33);
+            this.BCarrito.TabIndex = 4;
+            this.BCarrito.Text = "Carrito";
+            this.BCarrito.TextColor = System.Drawing.Color.Transparent;
+            this.BCarrito.UseVisualStyleBackColor = false;
+            this.BCarrito.Click += new System.EventHandler(this.BCarrito_Click);
             // 
             // BBuscadorCt
             // 
@@ -107,94 +196,6 @@
             this.BBuscadorCt.TabIndex = 4;
             this.BBuscadorCt.TextColor = System.Drawing.Color.White;
             this.BBuscadorCt.UseVisualStyleBackColor = false;
-            // 
-            // TBuscarCt
-            // 
-            this.TBuscarCt.BackColor = System.Drawing.Color.Black;
-            this.TBuscarCt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBuscarCt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBuscarCt.ForeColor = System.Drawing.Color.White;
-            this.TBuscarCt.Location = new System.Drawing.Point(34, 6);
-            this.TBuscarCt.Name = "TBuscarCt";
-            this.TBuscarCt.Size = new System.Drawing.Size(132, 17);
-            this.TBuscarCt.TabIndex = 4;
-            this.TBuscarCt.Text = "Buscar...";
-            // 
-            // PContCarrito
-            // 
-            this.PContCarrito.BackColor = System.Drawing.Color.Transparent;
-            this.PContCarrito.Location = new System.Drawing.Point(488, 2);
-            this.PContCarrito.Name = "PContCarrito";
-            this.PContCarrito.Size = new System.Drawing.Size(194, 430);
-            this.PContCarrito.TabIndex = 7;
-            // 
-            // BReturn
-            // 
-            this.BReturn.BackColor = System.Drawing.Color.Transparent;
-            this.BReturn.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BReturn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReturn.BackgroundImage")));
-            this.BReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BReturn.BorderColor = System.Drawing.Color.Lime;
-            this.BReturn.BorderRadius = 14;
-            this.BReturn.BorderSize = 1;
-            this.BReturn.FlatAppearance.BorderSize = 0;
-            this.BReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BReturn.ForeColor = System.Drawing.Color.White;
-            this.BReturn.Location = new System.Drawing.Point(26, 386);
-            this.BReturn.Name = "BReturn";
-            this.BReturn.Size = new System.Drawing.Size(32, 28);
-            this.BReturn.TabIndex = 6;
-            this.BReturn.TextColor = System.Drawing.Color.White;
-            this.BReturn.UseVisualStyleBackColor = false;
-            this.BReturn.Click += new System.EventHandler(this.BReturn_Click);
-            // 
-            // BListaVenta
-            // 
-            this.BListaVenta.BackColor = System.Drawing.Color.Transparent;
-            this.BListaVenta.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BListaVenta.BorderColor = System.Drawing.Color.Red;
-            this.BListaVenta.BorderRadius = 0;
-            this.BListaVenta.BorderSize = 0;
-            this.BListaVenta.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.BListaVenta.FlatAppearance.BorderSize = 0;
-            this.BListaVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.BListaVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BListaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BListaVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BListaVenta.ForeColor = System.Drawing.Color.Transparent;
-            this.BListaVenta.Location = new System.Drawing.Point(509, 18);
-            this.BListaVenta.Name = "BListaVenta";
-            this.BListaVenta.Size = new System.Drawing.Size(153, 33);
-            this.BListaVenta.TabIndex = 5;
-            this.BListaVenta.Text = "Lista de Ventas";
-            this.BListaVenta.TextColor = System.Drawing.Color.Transparent;
-            this.BListaVenta.UseVisualStyleBackColor = false;
-            this.BListaVenta.Click += new System.EventHandler(this.BListaVenta_Click);
-            // 
-            // BCarrito
-            // 
-            this.BCarrito.BackColor = System.Drawing.Color.Transparent;
-            this.BCarrito.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BCarrito.BorderColor = System.Drawing.Color.Red;
-            this.BCarrito.BorderRadius = 0;
-            this.BCarrito.BorderSize = 0;
-            this.BCarrito.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.BCarrito.FlatAppearance.BorderSize = 0;
-            this.BCarrito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.BCarrito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BCarrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BCarrito.ForeColor = System.Drawing.Color.Transparent;
-            this.BCarrito.Location = new System.Drawing.Point(387, 17);
-            this.BCarrito.Name = "BCarrito";
-            this.BCarrito.Size = new System.Drawing.Size(105, 33);
-            this.BCarrito.TabIndex = 4;
-            this.BCarrito.Text = "Carrito";
-            this.BCarrito.TextColor = System.Drawing.Color.Transparent;
-            this.BCarrito.UseVisualStyleBackColor = false;
-            this.BCarrito.Click += new System.EventHandler(this.BCarrito_Click);
             // 
             // Catalogo
             // 

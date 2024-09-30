@@ -20,6 +20,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 
         public Panel PanelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
+        public Form FondoOscuroCat {  get; set; }
         public PersonalOptions_NB_()
         {
             InitializeComponent();
@@ -68,10 +69,16 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 
         private void BCerrarSesion_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.Show();
-            Mainform.BContracMenu_Click(sender, e);
-            Mainform.Hide();
+            DialogResult result = MessageBox.Show(new Form { TopMost = true }, "Está seguro que desea cerrar sesion?", "Cerrar Sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Form1 form = new Form1();
+                CloseFondoCatalogo();
+                form.Show();
+                Mainform.BContracMenu_Click(sender, e);
+                Mainform.Hide();
+                MessageBox.Show(new Form { TopMost = true }, "Sesion cerrada con éxito", "Sesion cerrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void BMiPerfil_Click(object sender, EventArgs e)
@@ -79,6 +86,8 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             //Cerrar el menú tras elegír una opción
             Mainform.BContracMenu_Click(sender, e);
 
+            //Cerramos el fondoOscuroCatalogo en caso de existir.
+            CloseFondoCatalogo();
 
             // Crear una nueva instancia de ListaProductos
             EditarPerfil editarPerfil = new EditarPerfil();
@@ -90,6 +99,15 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             //editarPerfil.PanelContainer = PanelContainer;
             editarPerfil.Show();
             this.Close();
+        }
+
+        private void CloseFondoCatalogo()
+        {
+            if(FondoOscuroCat is Form)
+            {
+                FondoOscuroCat.Close();
+                Mainform.FondoOscuroCatalogo = null;
+            }
         }
     }
 }

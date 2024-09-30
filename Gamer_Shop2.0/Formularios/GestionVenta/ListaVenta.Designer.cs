@@ -29,50 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaVenta));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.BBuscarUs = new Gamer_Shop2._0.RJButton();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LShowCatalogo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BShowCatalogo = new Gamer_Shop2._0.RJButton();
             this.BDescargarListVn = new Gamer_Shop2._0.RJButton();
-            this.PContListaUs = new System.Windows.Forms.Panel();
+            this.PContListaVn = new System.Windows.Forms.Panel();
             this.DGListaVn = new System.Windows.Forms.DataGridView();
-            this.CNombreUs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellidoUs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCuil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CContraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.LTituloListaUs = new System.Windows.Forms.Label();
             this.PBImgListaUs = new System.Windows.Forms.PictureBox();
-            this.PContListaUs.SuspendLayout();
+            this.PBuscadorListaVn = new System.Windows.Forms.Panel();
+            this.BBuscadorListaVn = new Gamer_Shop2._0.RJButton();
+            this.TBuscarListaVn = new System.Windows.Forms.TextBox();
+            this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstadoVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PContListaVn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).BeginInit();
+            this.PBuscadorListaVn.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BBuscarUs
-            // 
-            this.BBuscarUs.BackColor = System.Drawing.Color.Black;
-            this.BBuscarUs.BackgroundColor = System.Drawing.Color.Black;
-            this.BBuscarUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BBuscarUs.BorderColor = System.Drawing.Color.Lime;
-            this.BBuscarUs.BorderRadius = 12;
-            this.BBuscarUs.BorderSize = 1;
-            this.BBuscarUs.FlatAppearance.BorderSize = 0;
-            this.BBuscarUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscarUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BBuscarUs.ForeColor = System.Drawing.Color.White;
-            this.BBuscarUs.Location = new System.Drawing.Point(390, 68);
-            this.BBuscarUs.Name = "BBuscarUs";
-            this.BBuscarUs.Size = new System.Drawing.Size(84, 31);
-            this.BBuscarUs.TabIndex = 36;
-            this.BBuscarUs.Text = "Buscar";
-            this.BBuscarUs.TextColor = System.Drawing.Color.White;
-            this.BBuscarUs.UseVisualStyleBackColor = false;
             // 
             // LShowCatalogo
             // 
@@ -116,6 +99,7 @@
             this.BShowCatalogo.TabIndex = 33;
             this.BShowCatalogo.TextColor = System.Drawing.Color.White;
             this.BShowCatalogo.UseVisualStyleBackColor = false;
+            this.BShowCatalogo.Visible = false;
             this.BShowCatalogo.Click += new System.EventHandler(this.BShowCatalogo_Click);
             // 
             // BDescargarListVn
@@ -137,99 +121,63 @@
             this.BDescargarListVn.TextColor = System.Drawing.Color.White;
             this.BDescargarListVn.UseVisualStyleBackColor = false;
             // 
-            // PContListaUs
+            // PContListaVn
             // 
-            this.PContListaUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContListaUs.Controls.Add(this.DGListaVn);
-            this.PContListaUs.Location = new System.Drawing.Point(65, 100);
-            this.PContListaUs.Name = "PContListaUs";
-            this.PContListaUs.Size = new System.Drawing.Size(435, 288);
-            this.PContListaUs.TabIndex = 31;
+            this.PContListaVn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContListaVn.Controls.Add(this.DGListaVn);
+            this.PContListaVn.Location = new System.Drawing.Point(65, 100);
+            this.PContListaVn.Name = "PContListaVn";
+            this.PContListaVn.Size = new System.Drawing.Size(435, 288);
+            this.PContListaVn.TabIndex = 31;
+            this.PContListaVn.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaVn_Paint);
             // 
             // DGListaVn
             // 
             this.DGListaVn.BackgroundColor = System.Drawing.Color.Black;
             this.DGListaVn.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaVn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaVn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaVn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaVn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CNombreUs,
-            this.CApellidoUs,
-            this.CCuil,
-            this.CNombreUsuario,
-            this.CEmail,
-            this.CContraseña,
-            this.CEliminarUs});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGListaVn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.CCliente,
+            this.CFechaVenta,
+            this.CProductos,
+            this.CCantidad,
+            this.CCPrecio,
+            this.CTotal,
+            this.CEstadoVenta});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGListaVn.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGListaVn.GridColor = System.Drawing.Color.Black;
             this.DGListaVn.Location = new System.Drawing.Point(1, 1);
             this.DGListaVn.Name = "DGListaVn";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaVn.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGListaVn.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaVn.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGListaVn.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaVn.Size = new System.Drawing.Size(433, 286);
             this.DGListaVn.TabIndex = 28;
-            // 
-            // CNombreUs
-            // 
-            this.CNombreUs.HeaderText = "Nombre";
-            this.CNombreUs.Name = "CNombreUs";
-            // 
-            // CApellidoUs
-            // 
-            this.CApellidoUs.HeaderText = "Apellido";
-            this.CApellidoUs.Name = "CApellidoUs";
-            // 
-            // CCuil
-            // 
-            this.CCuil.HeaderText = "Cuil";
-            this.CCuil.Name = "CCuil";
-            // 
-            // CNombreUsuario
-            // 
-            this.CNombreUsuario.HeaderText = "Nombre Usuario";
-            this.CNombreUsuario.Name = "CNombreUsuario";
-            // 
-            // CEmail
-            // 
-            this.CEmail.HeaderText = "Email";
-            this.CEmail.Name = "CEmail";
-            // 
-            // CContraseña
-            // 
-            this.CContraseña.HeaderText = "Contraseña";
-            this.CContraseña.Name = "CContraseña";
-            // 
-            // CEliminarUs
-            // 
-            this.CEliminarUs.HeaderText = "Entrega";
-            this.CEliminarUs.Name = "CEliminarUs";
-            this.CEliminarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CEliminarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // LTituloListaUs
             // 
@@ -237,7 +185,7 @@
             this.LTituloListaUs.BackColor = System.Drawing.Color.Transparent;
             this.LTituloListaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTituloListaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloListaUs.Location = new System.Drawing.Point(208, 23);
+            this.LTituloListaUs.Location = new System.Drawing.Point(209, 19);
             this.LTituloListaUs.Name = "LTituloListaUs";
             this.LTituloListaUs.Size = new System.Drawing.Size(291, 42);
             this.LTituloListaUs.TabIndex = 30;
@@ -248,11 +196,90 @@
             this.PBImgListaUs.BackColor = System.Drawing.Color.Transparent;
             this.PBImgListaUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaUs.BackgroundImage")));
             this.PBImgListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgListaUs.Location = new System.Drawing.Point(162, 24);
+            this.PBImgListaUs.Location = new System.Drawing.Point(163, 20);
             this.PBImgListaUs.Name = "PBImgListaUs";
             this.PBImgListaUs.Size = new System.Drawing.Size(47, 41);
             this.PBImgListaUs.TabIndex = 29;
             this.PBImgListaUs.TabStop = false;
+            // 
+            // PBuscadorListaVn
+            // 
+            this.PBuscadorListaVn.BackColor = System.Drawing.Color.Black;
+            this.PBuscadorListaVn.Controls.Add(this.BBuscadorListaVn);
+            this.PBuscadorListaVn.Controls.Add(this.TBuscarListaVn);
+            this.PBuscadorListaVn.Location = new System.Drawing.Point(312, 64);
+            this.PBuscadorListaVn.Name = "PBuscadorListaVn";
+            this.PBuscadorListaVn.Size = new System.Drawing.Size(188, 31);
+            this.PBuscadorListaVn.TabIndex = 36;
+            this.PBuscadorListaVn.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaVn_Paint);
+            // 
+            // BBuscadorListaVn
+            // 
+            this.BBuscadorListaVn.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaVn.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorListaVn.BackgroundImage")));
+            this.BBuscadorListaVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscadorListaVn.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaVn.BorderRadius = 0;
+            this.BBuscadorListaVn.BorderSize = 0;
+            this.BBuscadorListaVn.FlatAppearance.BorderSize = 0;
+            this.BBuscadorListaVn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaVn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.BBuscadorListaVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscadorListaVn.ForeColor = System.Drawing.Color.White;
+            this.BBuscadorListaVn.Location = new System.Drawing.Point(6, 2);
+            this.BBuscadorListaVn.Name = "BBuscadorListaVn";
+            this.BBuscadorListaVn.Size = new System.Drawing.Size(26, 26);
+            this.BBuscadorListaVn.TabIndex = 4;
+            this.BBuscadorListaVn.TextColor = System.Drawing.Color.White;
+            this.BBuscadorListaVn.UseVisualStyleBackColor = false;
+            // 
+            // TBuscarListaVn
+            // 
+            this.TBuscarListaVn.BackColor = System.Drawing.Color.Black;
+            this.TBuscarListaVn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBuscarListaVn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBuscarListaVn.ForeColor = System.Drawing.Color.Silver;
+            this.TBuscarListaVn.Location = new System.Drawing.Point(34, 6);
+            this.TBuscarListaVn.Name = "TBuscarListaVn";
+            this.TBuscarListaVn.Size = new System.Drawing.Size(132, 17);
+            this.TBuscarListaVn.TabIndex = 4;
+            this.TBuscarListaVn.Text = "Buscar...";
+            // 
+            // CCliente
+            // 
+            this.CCliente.HeaderText = "Cliente";
+            this.CCliente.Name = "CCliente";
+            // 
+            // CFechaVenta
+            // 
+            this.CFechaVenta.HeaderText = "FechaVenta";
+            this.CFechaVenta.Name = "CFechaVenta";
+            // 
+            // CProductos
+            // 
+            this.CProductos.HeaderText = "Producto/s";
+            this.CProductos.Name = "CProductos";
+            // 
+            // CCantidad
+            // 
+            this.CCantidad.HeaderText = "Cantidad";
+            this.CCantidad.Name = "CCantidad";
+            // 
+            // CCPrecio
+            // 
+            this.CCPrecio.HeaderText = "Precio";
+            this.CCPrecio.Name = "CCPrecio";
+            // 
+            // CTotal
+            // 
+            this.CTotal.HeaderText = "Total";
+            this.CTotal.Name = "CTotal";
+            // 
+            // CEstadoVenta
+            // 
+            this.CEstadoVenta.HeaderText = "EstadoVenta";
+            this.CEstadoVenta.Name = "CEstadoVenta";
             // 
             // ListaVenta
             // 
@@ -262,43 +289,46 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.BBuscarUs);
+            this.Controls.Add(this.PBuscadorListaVn);
             this.Controls.Add(this.LShowCatalogo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BShowCatalogo);
             this.Controls.Add(this.BDescargarListVn);
-            this.Controls.Add(this.PContListaUs);
+            this.Controls.Add(this.PContListaVn);
             this.Controls.Add(this.LTituloListaUs);
             this.Controls.Add(this.PBImgListaUs);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListaVenta";
             this.Text = "ListaVenta";
-            this.PContListaUs.ResumeLayout(false);
+            this.PContListaVn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).EndInit();
+            this.PBuscadorListaVn.ResumeLayout(false);
+            this.PBuscadorListaVn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private RJButton BBuscarUs;
         private System.Windows.Forms.Label LShowCatalogo;
         private System.Windows.Forms.Label label1;
         private RJButton BShowCatalogo;
         private RJButton BDescargarListVn;
-        private System.Windows.Forms.Panel PContListaUs;
+        private System.Windows.Forms.Panel PContListaVn;
         private System.Windows.Forms.DataGridView DGListaVn;
         private System.Windows.Forms.Label LTituloListaUs;
         private System.Windows.Forms.PictureBox PBImgListaUs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombreUs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CApellidoUs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCuil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombreUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CContraseña;
-        private System.Windows.Forms.DataGridViewButtonColumn CEliminarUs;
+        private System.Windows.Forms.Panel PBuscadorListaVn;
+        private RJButton BBuscadorListaVn;
+        private System.Windows.Forms.TextBox TBuscarListaVn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CFechaVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoVenta;
     }
 }

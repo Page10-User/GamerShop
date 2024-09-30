@@ -47,8 +47,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DataVisualization.Design" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -148,6 +150,12 @@
     <Compile Include="Formularios\GestionBackups\Backups.Designer.cs">
       <DependentUpon>Backups.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\GestionCliente\AltaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionCliente\AltaCliente.Designer.cs">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\GestionCliente\ListaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,11 +210,23 @@
     <Compile Include="Formularios\GestionVenta\AltaVenta.Designer.cs">
       <DependentUpon>AltaVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\GestionVenta\BotonArticuloVn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionVenta\BotonArticuloVn.Designer.cs">
+      <DependentUpon>BotonArticuloVn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\GestionVenta\ListaVenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\GestionVenta\ListaVenta.Designer.cs">
       <DependentUpon>ListaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Informe\Reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Informe\Reporte.Designer.cs">
+      <DependentUpon>Reporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Inicio\InicioDetalle.cs">
       <SubType>Form</SubType>
@@ -327,6 +347,9 @@
     <EmbeddedResource Include="Formularios\GestionBackups\Backups.resx">
       <DependentUpon>Backups.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionCliente\AltaCliente.resx">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionCliente\ListaCliente.resx">
       <DependentUpon>ListaCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,8 +380,14 @@
     <EmbeddedResource Include="Formularios\GestionVenta\AltaVenta.resx">
       <DependentUpon>AltaVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionVenta\BotonArticuloVn.resx">
+      <DependentUpon>BotonArticuloVn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionVenta\ListaVenta.resx">
       <DependentUpon>ListaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Informe\Reporte.resx">
+      <DependentUpon>Reporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Inicio\InicioDetalle.resx">
       <DependentUpon>InicioDetalle.cs</DependentUpon>

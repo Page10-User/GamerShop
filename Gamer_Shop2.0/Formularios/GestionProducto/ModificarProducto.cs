@@ -137,11 +137,11 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 if (!long.TryParse(TSerialPr.Texts, out number))
                 {
                     e.Cancel = true;
-                    TBValidacion3.Visible = true;
+                    TBValidacion2.Visible = true;
                 }
                 else
                 {
-                    TBValidacion3.Visible = false;
+                    TBValidacion2.Visible = false;
                 }
             }
         }
@@ -153,12 +153,12 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 if (TDescripcionPr.Texts.Length >= 200)
                 {
                     e.Cancel = true;
-                    TBValidacion.Visible = true;
+                    TBValidacion3.Visible = true;
 
                 }
                 else
                 {
-                    TBValidacion.Visible = false;
+                    TBValidacion3.Visible = false;
                 }
             }
         }
@@ -171,11 +171,11 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 if (!float.TryParse(TPrecioPr.Texts, out number))
                 {
                     e.Cancel = true;
-                    TBValidacion3.Visible = true;
+                    TBValidacion4.Visible = true;
                 }
                 else
                 {
-                    TBValidacion3.Visible = false;
+                    TBValidacion4.Visible = false;
                 }
             }
         }
@@ -188,11 +188,11 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 if (!int.TryParse(TStockPr.Texts, out number))
                 {
                     e.Cancel = true;
-                    TBValidacion4.Visible = true;
+                    TBValidacion5.Visible = true;
                 }
                 else
                 {
-                    TBValidacion4.Visible = false;
+                    TBValidacion5.Visible = false;
                 }
             }
         }
@@ -204,11 +204,11 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 if (CBCategoriaPr.SelectedIndex == -1)
                 {
                     e.Cancel = true;
-                    TBValidacion4.Visible = true;
+                    TBValidacion6.Visible = true;
                 }
                 else
                 {
-                    TBValidacion4.Visible = false;
+                    TBValidacion6.Visible = false;
                 }
             }
         }

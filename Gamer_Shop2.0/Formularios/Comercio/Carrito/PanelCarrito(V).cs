@@ -14,10 +14,12 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
     public partial class PanelCarrito_V_ : Form
     {
 
-        private int borderRadius = 10; // Radio del borde redondeado
+        private int borderRadius = 5; // Radio del borde redondeado
         private int borderWidth = 3; // Grosor del borde
 
         public Panel PanelContainerCr { get; set; }
+        public Form FondoOscuro {  get; set; }
+        public  Bienvenida MainForm { get; set; }
         public PanelCarrito_V_()
         {
             InitializeComponent();
@@ -45,7 +47,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
                 panel.Region = new Region(path);
 
 
-                using (Pen pen = new Pen(Color.Red, 3))
+                using (Pen pen = new Pen(Color.GreenYellow, 3))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -87,7 +89,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             // dibujar el borde redondeado
             GraphicsPath path = CreateRoundedPath();
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (Pen pen = new Pen(Color.LightGreen, borderWidth))
+            using (Pen pen = new Pen(Color.SpringGreen, borderWidth))
             {
                 e.Graphics.DrawPath(pen, path);
             }
@@ -97,6 +99,8 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         {
             PanelContainerCr.Controls.Clear();
             PanelContainerCr.SendToBack();
+            FondoOscuro.Close();
+            MainForm.FondoOscuroCatalogo = null;
             this.Close();
         }
     }

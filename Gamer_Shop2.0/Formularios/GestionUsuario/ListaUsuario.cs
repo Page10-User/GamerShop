@@ -27,6 +27,32 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             DGListaUs.CellClick += DGListaUs_CellClick;
         }
 
+        private void PBuscadorListaUs_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 10;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
         private void PContListaUs_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
@@ -58,13 +84,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-
-            //Rellenar DatGridViewUs (Ejemplo)
-            DGListaUs.Rows.Add("Juan", "Perez", "759285", "JuanLi10", "juan@gmail.com", "*******");
-            DGListaUs.Rows.Add("Juan", "Perez", "759285", "JuanLi10", "juan@gmail.com", "*******");
-            DGListaUs.Rows.Add("Juan", "Perez", "759285", "JuanLi10", "juan@gmail.com", "*******");
-            DGListaUs.Rows.Add("Juan", "Perez", "759285", "JuanLi10", "juan@gmail.com", "*******");
-            DGListaUs.Rows.Add("Juan", "Perez", "759285", "JuanLi10", "juan@gmail.com", "*******");
         }
 
         private GraphicsPath CreateRoundedPath()

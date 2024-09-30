@@ -114,11 +114,11 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             }
         }
 
-        private void TNombrePr_Validating(object sender, CancelEventArgs e)
+        private void TNombreUs_Validating(object sender, CancelEventArgs e)
         {
             if (this != null)
             {
-                if (TNombreUs.Texts.Length >= 100)
+                if (TNombreUs.Texts.Length >= 35)
                 {
                     e.Cancel = true;
                     TBValidacion.Visible = true;
@@ -135,7 +135,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (this != null)
             {
-                if (TApellidoUs.Texts.Length >= 100)
+                if (TApellidoUs.Texts.Length >= 35)
                 {
                     e.Cancel = true;
                     TBValidacion2.Visible = true;
@@ -226,7 +226,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         private void TNombreUs_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TNombreUs.Texts.Trim().Length < 100;
+            bool longitud = TNombreUs.Texts.Trim().Length < 35;
 
             if (longitud || escontrol)
             {
@@ -241,7 +241,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         private void TApellidoUs_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TApellidoUs.Texts.Trim().Length < 100;
+            bool longitud = TApellidoUs.Texts.Trim().Length < 35;
 
             if (longitud || escontrol)
             {
@@ -256,7 +256,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         private void TCuilUs_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TCuilUs.Texts.Trim().Length < 12;
+            bool longitud = TCuilUs.Texts.Trim().Length <= 12;
 
             if (longitud || escontrol)
             {
@@ -312,7 +312,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             }
             else
             {
-                MessageBox.Show("Debe completar todos los campos para modificar", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe completar todos los campos para modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }

@@ -26,6 +26,33 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             PContListaProveedor.Paint += new PaintEventHandler(PContListaProveedor_Paint);
         }
 
+        private void PBuscadorListaProveedor_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 10;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
+
         private void ListaProveedor_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
@@ -131,11 +158,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             PanelContainer.BringToFront();
 
             formAltaProovedor.Show();
-        }
-
-        private void ListaProveedor_Load_1(object sender, EventArgs e)
-        {
-            DGListaProveedor.Rows.Add("Teclado Gamer", "Teclado mecánico RGB", "4500", "10", "Periféricos");
         }
     }
 }

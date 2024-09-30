@@ -29,46 +29,45 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AltaVenta));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LTituloAltaVn = new System.Windows.Forms.Label();
             this.PBImgAltaVn = new System.Windows.Forms.PictureBox();
-            this.BRegistrarVn = new Gamer_Shop2._0.RJButton();
-            this.BShowListaVn = new Gamer_Shop2._0.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.LShowLista = new System.Windows.Forms.Label();
-            this.PContAltaUs = new System.Windows.Forms.Panel();
-            this.TBEmail = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBMonto = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBDni = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBValidacion4 = new System.Windows.Forms.Label();
+            this.PContAltaVn2 = new System.Windows.Forms.Panel();
+            this.PContBuscarDni = new System.Windows.Forms.Panel();
+            this.BBuscarCliente_Dni_ = new Gamer_Shop2._0.RJButton();
+            this.TBDniClienteExistente = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.BNuevoCliente = new Gamer_Shop2._0.RJButton();
+            this.BClienteExistente = new Gamer_Shop2._0.RJButton();
             this.TBValidacion3 = new System.Windows.Forms.Label();
-            this.TBValidacion2 = new System.Windows.Forms.Label();
+            this.PContAltaVn1 = new System.Windows.Forms.Panel();
             this.TBValidacion = new System.Windows.Forms.Label();
-            this.CBCategoria = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LNombreUsuario = new System.Windows.Forms.Label();
             this.TBFecha = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LContraseñaUs = new System.Windows.Forms.Label();
             this.LEmailUs = new System.Windows.Forms.Label();
-            this.LNombreUsuario = new System.Windows.Forms.Label();
-            this.PProductoVn = new System.Windows.Forms.Panel();
-            this.DGListaVn = new System.Windows.Forms.DataGridView();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PContAltaVn3 = new System.Windows.Forms.Panel();
+            this.TBMonto = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.PContAltaVn4 = new System.Windows.Forms.Panel();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
+            this.CBCategoria = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.FLPListaProductosVenta = new System.Windows.Forms.FlowLayoutPanel();
+            this.botonArticuloVn1 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
+            this.botonArticuloVn2 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
+            this.botonArticuloVn3 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
+            this.PBuscadorPrVn = new System.Windows.Forms.Panel();
+            this.BBuscadorPrVn = new Gamer_Shop2._0.RJButton();
+            this.TBuscarPrVn = new System.Windows.Forms.TextBox();
+            this.BShowListaVn = new Gamer_Shop2._0.RJButton();
+            this.BRegistrarVn = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).BeginInit();
-            this.PContAltaUs.SuspendLayout();
-            this.PProductoVn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).BeginInit();
+            this.PContAltaVn2.SuspendLayout();
+            this.PContBuscarDni.SuspendLayout();
+            this.PContAltaVn1.SuspendLayout();
+            this.PContAltaVn3.SuspendLayout();
+            this.PContAltaVn4.SuspendLayout();
+            this.FLPListaProductosVenta.SuspendLayout();
+            this.PBuscadorPrVn.SuspendLayout();
             this.SuspendLayout();
             // 
             // LTituloAltaVn
@@ -77,7 +76,7 @@
             this.LTituloAltaVn.BackColor = System.Drawing.Color.Transparent;
             this.LTituloAltaVn.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTituloAltaVn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloAltaVn.Location = new System.Drawing.Point(239, 35);
+            this.LTituloAltaVn.Location = new System.Drawing.Point(257, 35);
             this.LTituloAltaVn.Name = "LTituloAltaVn";
             this.LTituloAltaVn.Size = new System.Drawing.Size(200, 42);
             this.LTituloAltaVn.TabIndex = 22;
@@ -88,50 +87,11 @@
             this.PBImgAltaVn.BackColor = System.Drawing.Color.Transparent;
             this.PBImgAltaVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgAltaVn.BackgroundImage")));
             this.PBImgAltaVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgAltaVn.Location = new System.Drawing.Point(197, 36);
+            this.PBImgAltaVn.Location = new System.Drawing.Point(215, 36);
             this.PBImgAltaVn.Name = "PBImgAltaVn";
             this.PBImgAltaVn.Size = new System.Drawing.Size(47, 41);
             this.PBImgAltaVn.TabIndex = 21;
             this.PBImgAltaVn.TabStop = false;
-            // 
-            // BRegistrarVn
-            // 
-            this.BRegistrarVn.BackColor = System.Drawing.Color.Black;
-            this.BRegistrarVn.BackgroundColor = System.Drawing.Color.Black;
-            this.BRegistrarVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BRegistrarVn.BackgroundImage")));
-            this.BRegistrarVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BRegistrarVn.BorderColor = System.Drawing.Color.Lime;
-            this.BRegistrarVn.BorderRadius = 20;
-            this.BRegistrarVn.BorderSize = 2;
-            this.BRegistrarVn.FlatAppearance.BorderSize = 0;
-            this.BRegistrarVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BRegistrarVn.ForeColor = System.Drawing.Color.White;
-            this.BRegistrarVn.Location = new System.Drawing.Point(558, 136);
-            this.BRegistrarVn.Name = "BRegistrarVn";
-            this.BRegistrarVn.Size = new System.Drawing.Size(84, 76);
-            this.BRegistrarVn.TabIndex = 24;
-            this.BRegistrarVn.TextColor = System.Drawing.Color.White;
-            this.BRegistrarVn.UseVisualStyleBackColor = false;
-            this.BRegistrarVn.Click += new System.EventHandler(this.BRegistrarVn_Click);
-            // 
-            // BShowListaVn
-            // 
-            this.BShowListaVn.BackColor = System.Drawing.Color.Black;
-            this.BShowListaVn.BackgroundColor = System.Drawing.Color.Black;
-            this.BShowListaVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowListaVn.BackgroundImage")));
-            this.BShowListaVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BShowListaVn.BorderColor = System.Drawing.Color.Lime;
-            this.BShowListaVn.BorderRadius = 20;
-            this.BShowListaVn.BorderSize = 2;
-            this.BShowListaVn.FlatAppearance.BorderSize = 0;
-            this.BShowListaVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BShowListaVn.ForeColor = System.Drawing.Color.White;
-            this.BShowListaVn.Location = new System.Drawing.Point(558, 298);
-            this.BShowListaVn.Name = "BShowListaVn";
-            this.BShowListaVn.Size = new System.Drawing.Size(84, 76);
-            this.BShowListaVn.TabIndex = 25;
-            this.BShowListaVn.TextColor = System.Drawing.Color.White;
-            this.BShowListaVn.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -157,201 +117,166 @@
             this.LShowLista.TabIndex = 27;
             this.LShowLista.Text = "Generar Recibo";
             // 
-            // PContAltaUs
+            // PContAltaVn2
             // 
-            this.PContAltaUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContAltaUs.Controls.Add(this.TBEmail);
-            this.PContAltaUs.Controls.Add(this.TBMonto);
-            this.PContAltaUs.Controls.Add(this.TBDni);
-            this.PContAltaUs.Controls.Add(this.TBValidacion4);
-            this.PContAltaUs.Controls.Add(this.TBValidacion3);
-            this.PContAltaUs.Controls.Add(this.TBValidacion2);
-            this.PContAltaUs.Controls.Add(this.TBValidacion);
-            this.PContAltaUs.Controls.Add(this.CBCategoria);
-            this.PContAltaUs.Controls.Add(this.label3);
-            this.PContAltaUs.Controls.Add(this.label2);
-            this.PContAltaUs.Controls.Add(this.TBFecha);
-            this.PContAltaUs.Controls.Add(this.LContraseñaUs);
-            this.PContAltaUs.Controls.Add(this.LEmailUs);
-            this.PContAltaUs.Controls.Add(this.LNombreUsuario);
-            this.PContAltaUs.Location = new System.Drawing.Point(27, 273);
-            this.PContAltaUs.Name = "PContAltaUs";
-            this.PContAltaUs.Size = new System.Drawing.Size(496, 151);
-            this.PContAltaUs.TabIndex = 28;
+            this.PContAltaVn2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaVn2.Controls.Add(this.PContBuscarDni);
+            this.PContAltaVn2.Controls.Add(this.BNuevoCliente);
+            this.PContAltaVn2.Controls.Add(this.BClienteExistente);
+            this.PContAltaVn2.Location = new System.Drawing.Point(28, 375);
+            this.PContAltaVn2.Name = "PContAltaVn2";
+            this.PContAltaVn2.Size = new System.Drawing.Size(496, 49);
+            this.PContAltaVn2.TabIndex = 28;
             // 
-            // TBEmail
+            // PContBuscarDni
             // 
-            this.TBEmail.BackColor = System.Drawing.Color.Black;
-            this.TBEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBEmail.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBEmail.BorderSize = 2;
-            this.TBEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBEmail.ForeColor = System.Drawing.Color.White;
-            this.TBEmail.Location = new System.Drawing.Point(319, 59);
-            this.TBEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.TBEmail.Multiline = false;
-            this.TBEmail.Name = "TBEmail";
-            this.TBEmail.Padding = new System.Windows.Forms.Padding(7);
-            this.TBEmail.PasswordChar = false;
-            this.TBEmail.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBEmail.PlaceholderText = "ejemplo@gmail.com";
-            this.TBEmail.Size = new System.Drawing.Size(150, 31);
-            this.TBEmail.TabIndex = 15;
-            this.TBEmail.Texts = "";
-            this.TBEmail.UnderlinedStyle = true;
-            this.TBEmail._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBEmail_KeyPress);
-            this.TBEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TBEmail_Validating);
+            this.PContBuscarDni.Controls.Add(this.BBuscarCliente_Dni_);
+            this.PContBuscarDni.Controls.Add(this.TBDniClienteExistente);
+            this.PContBuscarDni.Location = new System.Drawing.Point(187, 4);
+            this.PContBuscarDni.Name = "PContBuscarDni";
+            this.PContBuscarDni.Size = new System.Drawing.Size(121, 40);
+            this.PContBuscarDni.TabIndex = 31;
+            this.PContBuscarDni.Visible = false;
             // 
-            // TBMonto
+            // BBuscarCliente_Dni_
             // 
-            this.TBMonto.BackColor = System.Drawing.Color.Black;
-            this.TBMonto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBMonto.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBMonto.BorderSize = 2;
-            this.TBMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBMonto.ForeColor = System.Drawing.Color.White;
-            this.TBMonto.Location = new System.Drawing.Point(100, 59);
-            this.TBMonto.Margin = new System.Windows.Forms.Padding(4);
-            this.TBMonto.Multiline = false;
-            this.TBMonto.Name = "TBMonto";
-            this.TBMonto.Padding = new System.Windows.Forms.Padding(7);
-            this.TBMonto.PasswordChar = false;
-            this.TBMonto.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBMonto.PlaceholderText = "";
-            this.TBMonto.Size = new System.Drawing.Size(141, 31);
-            this.TBMonto.TabIndex = 22;
-            this.TBMonto.Texts = "";
-            this.TBMonto.UnderlinedStyle = true;
-            this.TBMonto._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBMonto_KeyPress);
-            this.TBMonto.Validating += new System.ComponentModel.CancelEventHandler(this.TBMonto_Validating);
+            this.BBuscarCliente_Dni_.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscarCliente_Dni_.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscarCliente_Dni_.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscarCliente_Dni_.BackgroundImage")));
+            this.BBuscarCliente_Dni_.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BBuscarCliente_Dni_.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscarCliente_Dni_.BorderRadius = 15;
+            this.BBuscarCliente_Dni_.BorderSize = 1;
+            this.BBuscarCliente_Dni_.FlatAppearance.BorderSize = 0;
+            this.BBuscarCliente_Dni_.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.BBuscarCliente_Dni_.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.BBuscarCliente_Dni_.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscarCliente_Dni_.ForeColor = System.Drawing.Color.White;
+            this.BBuscarCliente_Dni_.Location = new System.Drawing.Point(86, 3);
+            this.BBuscarCliente_Dni_.Name = "BBuscarCliente_Dni_";
+            this.BBuscarCliente_Dni_.Size = new System.Drawing.Size(32, 32);
+            this.BBuscarCliente_Dni_.TabIndex = 30;
+            this.BBuscarCliente_Dni_.TextColor = System.Drawing.Color.White;
+            this.BBuscarCliente_Dni_.UseVisualStyleBackColor = false;
             // 
-            // TBDni
+            // TBDniClienteExistente
             // 
-            this.TBDni.BackColor = System.Drawing.Color.Black;
-            this.TBDni.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBDni.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBDni.BorderSize = 2;
-            this.TBDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBDni.ForeColor = System.Drawing.Color.White;
-            this.TBDni.Location = new System.Drawing.Point(319, 12);
-            this.TBDni.Margin = new System.Windows.Forms.Padding(4);
-            this.TBDni.Multiline = false;
-            this.TBDni.Name = "TBDni";
-            this.TBDni.Padding = new System.Windows.Forms.Padding(7);
-            this.TBDni.PasswordChar = false;
-            this.TBDni.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBDni.PlaceholderText = "";
-            this.TBDni.Size = new System.Drawing.Size(150, 31);
-            this.TBDni.TabIndex = 21;
-            this.TBDni.Texts = "";
-            this.TBDni.UnderlinedStyle = true;
-            this.TBDni._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDni_KeyPress);
-            this.TBDni.Validating += new System.ComponentModel.CancelEventHandler(this.TBFecha_Validating);
+            this.TBDniClienteExistente.BackColor = System.Drawing.Color.Black;
+            this.TBDniClienteExistente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBDniClienteExistente.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBDniClienteExistente.BorderRadius = 0;
+            this.TBDniClienteExistente.BorderSize = 1;
+            this.TBDniClienteExistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBDniClienteExistente.ForeColor = System.Drawing.Color.Silver;
+            this.TBDniClienteExistente.Location = new System.Drawing.Point(4, 5);
+            this.TBDniClienteExistente.Margin = new System.Windows.Forms.Padding(4);
+            this.TBDniClienteExistente.Multiline = false;
+            this.TBDniClienteExistente.Name = "TBDniClienteExistente";
+            this.TBDniClienteExistente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBDniClienteExistente.PasswordChar = false;
+            this.TBDniClienteExistente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBDniClienteExistente.PlaceholderText = "";
+            this.TBDniClienteExistente.Size = new System.Drawing.Size(102, 31);
+            this.TBDniClienteExistente.TabIndex = 29;
+            this.TBDniClienteExistente.Texts = "DNI";
+            this.TBDniClienteExistente.UnderlinedStyle = true;
             // 
-            // TBValidacion4
+            // BNuevoCliente
             // 
-            this.TBValidacion4.AutoSize = true;
-            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion4.Location = new System.Drawing.Point(347, 90);
-            this.TBValidacion4.Name = "TBValidacion4";
-            this.TBValidacion4.Size = new System.Drawing.Size(122, 14);
-            this.TBValidacion4.TabIndex = 27;
-            this.TBValidacion4.Text = "Ingrese un correo válido.";
-            this.TBValidacion4.Visible = false;
+            this.BNuevoCliente.BackColor = System.Drawing.Color.Black;
+            this.BNuevoCliente.BackgroundColor = System.Drawing.Color.Black;
+            this.BNuevoCliente.BorderColor = System.Drawing.Color.Lime;
+            this.BNuevoCliente.BorderRadius = 18;
+            this.BNuevoCliente.BorderSize = 1;
+            this.BNuevoCliente.FlatAppearance.BorderSize = 0;
+            this.BNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BNuevoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BNuevoCliente.ForeColor = System.Drawing.Color.White;
+            this.BNuevoCliente.Location = new System.Drawing.Point(314, 4);
+            this.BNuevoCliente.Name = "BNuevoCliente";
+            this.BNuevoCliente.Size = new System.Drawing.Size(150, 40);
+            this.BNuevoCliente.TabIndex = 28;
+            this.BNuevoCliente.Text = "Nuevo Cliente";
+            this.BNuevoCliente.TextColor = System.Drawing.Color.White;
+            this.BNuevoCliente.UseVisualStyleBackColor = false;
+            this.BNuevoCliente.Click += new System.EventHandler(this.BNuevoCliente_Click);
+            // 
+            // BClienteExistente
+            // 
+            this.BClienteExistente.BackColor = System.Drawing.Color.Black;
+            this.BClienteExistente.BackgroundColor = System.Drawing.Color.Black;
+            this.BClienteExistente.BorderColor = System.Drawing.Color.Lime;
+            this.BClienteExistente.BorderRadius = 18;
+            this.BClienteExistente.BorderSize = 1;
+            this.BClienteExistente.FlatAppearance.BorderSize = 0;
+            this.BClienteExistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BClienteExistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BClienteExistente.ForeColor = System.Drawing.Color.White;
+            this.BClienteExistente.Location = new System.Drawing.Point(31, 4);
+            this.BClienteExistente.Name = "BClienteExistente";
+            this.BClienteExistente.Size = new System.Drawing.Size(150, 40);
+            this.BClienteExistente.TabIndex = 27;
+            this.BClienteExistente.Text = "Cliente Existente";
+            this.BClienteExistente.TextColor = System.Drawing.Color.White;
+            this.BClienteExistente.UseVisualStyleBackColor = false;
+            this.BClienteExistente.Click += new System.EventHandler(this.BClienteExistente_Click);
             // 
             // TBValidacion3
             // 
             this.TBValidacion3.AutoSize = true;
             this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion3.Location = new System.Drawing.Point(120, 90);
+            this.TBValidacion3.Location = new System.Drawing.Point(77, 40);
             this.TBValidacion3.Name = "TBValidacion3";
             this.TBValidacion3.Size = new System.Drawing.Size(123, 14);
-            this.TBValidacion3.TabIndex = 26;
+            this.TBValidacion3.TabIndex = 34;
             this.TBValidacion3.Text = "Ingrese un monto válido.";
             this.TBValidacion3.Visible = false;
             // 
-            // TBValidacion2
+            // PContAltaVn1
             // 
-            this.TBValidacion2.AutoSize = true;
-            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(306, 42);
-            this.TBValidacion2.Name = "TBValidacion2";
-            this.TBValidacion2.Size = new System.Drawing.Size(163, 14);
-            this.TBValidacion2.TabIndex = 25;
-            this.TBValidacion2.Text = "Ingrese un número de DNI válido.";
-            this.TBValidacion2.Visible = false;
+            this.PContAltaVn1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaVn1.Controls.Add(this.TBValidacion);
+            this.PContAltaVn1.Controls.Add(this.LNombreUsuario);
+            this.PContAltaVn1.Controls.Add(this.TBFecha);
+            this.PContAltaVn1.Location = new System.Drawing.Point(28, 241);
+            this.PContAltaVn1.Name = "PContAltaVn1";
+            this.PContAltaVn1.Size = new System.Drawing.Size(257, 61);
+            this.PContAltaVn1.TabIndex = 32;
             // 
             // TBValidacion
             // 
             this.TBValidacion.AutoSize = true;
             this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(120, 43);
+            this.TBValidacion.Location = new System.Drawing.Point(77, 39);
             this.TBValidacion.Name = "TBValidacion";
             this.TBValidacion.Size = new System.Drawing.Size(121, 14);
-            this.TBValidacion.TabIndex = 24;
+            this.TBValidacion.TabIndex = 33;
             this.TBValidacion.Text = "Ingrese una fecha válida.";
             this.TBValidacion.Visible = false;
             // 
-            // CBCategoria
+            // LNombreUsuario
             // 
-            this.CBCategoria.BackColor = System.Drawing.Color.Black;
-            this.CBCategoria.BorderColor = System.Drawing.Color.Lime;
-            this.CBCategoria.BorderSize = 1;
-            this.CBCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.CBCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CBCategoria.ForeColor = System.Drawing.Color.DimGray;
-            this.CBCategoria.IconColor = System.Drawing.Color.Lime;
-            this.CBCategoria.ListBackColor = System.Drawing.Color.Black;
-            this.CBCategoria.ListTextColor = System.Drawing.Color.Lime;
-            this.CBCategoria.Location = new System.Drawing.Point(201, 113);
-            this.CBCategoria.MinimumSize = new System.Drawing.Size(30, 30);
-            this.CBCategoria.Name = "CBCategoria";
-            this.CBCategoria.Padding = new System.Windows.Forms.Padding(1);
-            this.CBCategoria.Size = new System.Drawing.Size(183, 30);
-            this.CBCategoria.TabIndex = 23;
-            this.CBCategoria.Texts = "";
-            this.CBCategoria.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoria_Validating);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(267, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 18);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "DNI";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(267, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 18);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Email";
+            this.LNombreUsuario.AutoSize = true;
+            this.LNombreUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.LNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LNombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LNombreUsuario.Location = new System.Drawing.Point(12, 20);
+            this.LNombreUsuario.Name = "LNombreUsuario";
+            this.LNombreUsuario.Size = new System.Drawing.Size(49, 18);
+            this.LNombreUsuario.TabIndex = 27;
+            this.LNombreUsuario.Text = "Fecha";
             // 
             // TBFecha
             // 
             this.TBFecha.BackColor = System.Drawing.Color.Black;
             this.TBFecha.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.TBFecha.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBFecha.BorderSize = 2;
+            this.TBFecha.BorderSize = 1;
             this.TBFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBFecha.ForeColor = System.Drawing.Color.White;
-            this.TBFecha.Location = new System.Drawing.Point(100, 12);
+            this.TBFecha.Location = new System.Drawing.Point(68, 15);
             this.TBFecha.Margin = new System.Windows.Forms.Padding(4);
             this.TBFecha.Multiline = false;
             this.TBFecha.Name = "TBFecha";
@@ -360,9 +285,9 @@
             this.TBFecha.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TBFecha.PlaceholderText = "DD-MM-AAAA";
             this.TBFecha.Size = new System.Drawing.Size(141, 31);
-            this.TBFecha.TabIndex = 17;
+            this.TBFecha.TabIndex = 30;
             this.TBFecha.Texts = "";
-            this.TBFecha.UnderlinedStyle = true;
+            this.TBFecha.UnderlinedStyle = false;
             this.TBFecha._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             this.TBFecha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFecha_KeyPress);
             this.TBFecha.Validating += new System.ComponentModel.CancelEventHandler(this.TBFecha_Validating);
@@ -373,10 +298,10 @@
             this.LContraseñaUs.BackColor = System.Drawing.Color.Transparent;
             this.LContraseñaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LContraseñaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LContraseñaUs.Location = new System.Drawing.Point(88, 119);
+            this.LContraseñaUs.Location = new System.Drawing.Point(9, 4);
             this.LContraseñaUs.Name = "LContraseñaUs";
             this.LContraseñaUs.Size = new System.Drawing.Size(98, 18);
-            this.LContraseñaUs.TabIndex = 16;
+            this.LContraseñaUs.TabIndex = 29;
             this.LContraseñaUs.Text = "Metodo Pago";
             // 
             // LEmailUs
@@ -385,128 +310,220 @@
             this.LEmailUs.BackColor = System.Drawing.Color.Transparent;
             this.LEmailUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LEmailUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LEmailUs.Location = new System.Drawing.Point(25, 72);
+            this.LEmailUs.Location = new System.Drawing.Point(10, 20);
             this.LEmailUs.Name = "LEmailUs";
             this.LEmailUs.Size = new System.Drawing.Size(51, 18);
-            this.LEmailUs.TabIndex = 11;
+            this.LEmailUs.TabIndex = 28;
             this.LEmailUs.Text = "Monto";
             // 
-            // LNombreUsuario
+            // PContAltaVn3
             // 
-            this.LNombreUsuario.AutoSize = true;
-            this.LNombreUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.LNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LNombreUsuario.Location = new System.Drawing.Point(27, 25);
-            this.LNombreUsuario.Name = "LNombreUsuario";
-            this.LNombreUsuario.Size = new System.Drawing.Size(49, 18);
-            this.LNombreUsuario.TabIndex = 10;
-            this.LNombreUsuario.Text = "Fecha";
+            this.PContAltaVn3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaVn3.Controls.Add(this.LEmailUs);
+            this.PContAltaVn3.Controls.Add(this.TBValidacion3);
+            this.PContAltaVn3.Controls.Add(this.TBMonto);
+            this.PContAltaVn3.Location = new System.Drawing.Point(28, 308);
+            this.PContAltaVn3.Name = "PContAltaVn3";
+            this.PContAltaVn3.Size = new System.Drawing.Size(257, 61);
+            this.PContAltaVn3.TabIndex = 33;
             // 
-            // PProductoVn
+            // TBMonto
             // 
-            this.PProductoVn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PProductoVn.Controls.Add(this.DGListaVn);
-            this.PProductoVn.Location = new System.Drawing.Point(27, 104);
-            this.PProductoVn.Name = "PProductoVn";
-            this.PProductoVn.Size = new System.Drawing.Size(496, 151);
-            this.PProductoVn.TabIndex = 29;
+            this.TBMonto.BackColor = System.Drawing.Color.Black;
+            this.TBMonto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBMonto.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBMonto.BorderSize = 1;
+            this.TBMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBMonto.ForeColor = System.Drawing.Color.White;
+            this.TBMonto.Location = new System.Drawing.Point(68, 15);
+            this.TBMonto.Margin = new System.Windows.Forms.Padding(4);
+            this.TBMonto.Multiline = false;
+            this.TBMonto.Name = "TBMonto";
+            this.TBMonto.Padding = new System.Windows.Forms.Padding(7);
+            this.TBMonto.PasswordChar = false;
+            this.TBMonto.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBMonto.PlaceholderText = "";
+            this.TBMonto.Size = new System.Drawing.Size(141, 31);
+            this.TBMonto.TabIndex = 31;
+            this.TBMonto.Texts = "";
+            this.TBMonto.UnderlinedStyle = false;
+            this.TBMonto._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBMonto_KeyPress);
+            this.TBMonto.Validating += new System.ComponentModel.CancelEventHandler(this.TBMonto_Validating);
             // 
-            // DGListaVn
+            // PContAltaVn4
             // 
-            this.DGListaVn.BackgroundColor = System.Drawing.Color.Black;
-            this.DGListaVn.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaVn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DGListaVn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGListaVn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CNombre,
-            this.CPrecio,
-            this.CCantidad,
-            this.CCategoria,
-            this.CEliminar});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGListaVn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.DGListaVn.GridColor = System.Drawing.Color.Black;
-            this.DGListaVn.Location = new System.Drawing.Point(3, 0);
-            this.DGListaVn.Name = "DGListaVn";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaVn.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGListaVn.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.DGListaVn.Size = new System.Drawing.Size(490, 148);
-            this.DGListaVn.TabIndex = 1;
-            this.DGListaVn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaVn_CellClick);
+            this.PContAltaVn4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaVn4.Controls.Add(this.TBValidacion2);
+            this.PContAltaVn4.Controls.Add(this.CBCategoria);
+            this.PContAltaVn4.Controls.Add(this.LContraseñaUs);
+            this.PContAltaVn4.Location = new System.Drawing.Point(291, 239);
+            this.PContAltaVn4.Name = "PContAltaVn4";
+            this.PContAltaVn4.Size = new System.Drawing.Size(233, 130);
+            this.PContAltaVn4.TabIndex = 34;
             // 
-            // CNombre
+            // TBValidacion2
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.CNombre.DefaultCellStyle = dataGridViewCellStyle2;
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion2.Location = new System.Drawing.Point(41, 58);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(160, 14);
+            this.TBValidacion2.TabIndex = 57;
+            this.TBValidacion2.Text = "Por favor, elija una opción válida";
+            this.TBValidacion2.Visible = false;
             // 
-            // CPrecio
+            // CBCategoria
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.CPrecio.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CPrecio.HeaderText = "Precio";
-            this.CPrecio.Name = "CPrecio";
+            this.CBCategoria.BackColor = System.Drawing.Color.Black;
+            this.CBCategoria.BorderColor = System.Drawing.Color.Lime;
+            this.CBCategoria.BorderSize = 1;
+            this.CBCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CBCategoria.ForeColor = System.Drawing.Color.DimGray;
+            this.CBCategoria.IconColor = System.Drawing.Color.Lime;
+            this.CBCategoria.Items.AddRange(new object[] {
+            "Efectivo"});
+            this.CBCategoria.ListBackColor = System.Drawing.Color.Black;
+            this.CBCategoria.ListTextColor = System.Drawing.Color.Lime;
+            this.CBCategoria.Location = new System.Drawing.Point(12, 25);
+            this.CBCategoria.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBCategoria.Name = "CBCategoria";
+            this.CBCategoria.Padding = new System.Windows.Forms.Padding(1);
+            this.CBCategoria.Size = new System.Drawing.Size(207, 30);
+            this.CBCategoria.TabIndex = 32;
+            this.CBCategoria.Texts = "";
+            this.CBCategoria.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoria_Validating);
             // 
-            // CCantidad
+            // FLPListaProductosVenta
             // 
-            this.CCantidad.HeaderText = "Cantidad";
-            this.CCantidad.Name = "CCantidad";
+            this.FLPListaProductosVenta.AutoScroll = true;
+            this.FLPListaProductosVenta.BackColor = System.Drawing.Color.Black;
+            this.FLPListaProductosVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FLPListaProductosVenta.Controls.Add(this.botonArticuloVn1);
+            this.FLPListaProductosVenta.Controls.Add(this.botonArticuloVn2);
+            this.FLPListaProductosVenta.Controls.Add(this.botonArticuloVn3);
+            this.FLPListaProductosVenta.Location = new System.Drawing.Point(28, 83);
+            this.FLPListaProductosVenta.Name = "FLPListaProductosVenta";
+            this.FLPListaProductosVenta.Padding = new System.Windows.Forms.Padding(10);
+            this.FLPListaProductosVenta.Size = new System.Drawing.Size(496, 152);
+            this.FLPListaProductosVenta.TabIndex = 35;
             // 
-            // CCategoria
+            // botonArticuloVn1
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.CCategoria.DefaultCellStyle = dataGridViewCellStyle4;
-            this.CCategoria.HeaderText = "Categoría";
-            this.CCategoria.Name = "CCategoria";
+            this.botonArticuloVn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
+            this.botonArticuloVn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloVn1.BackgroundImage")));
+            this.botonArticuloVn1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.botonArticuloVn1.Location = new System.Drawing.Point(13, 13);
+            this.botonArticuloVn1.Name = "botonArticuloVn1";
+            this.botonArticuloVn1.Padding = new System.Windows.Forms.Padding(5);
+            this.botonArticuloVn1.Size = new System.Drawing.Size(451, 56);
+            this.botonArticuloVn1.TabIndex = 0;
             // 
-            // CEliminar
+            // botonArticuloVn2
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.CEliminar.DefaultCellStyle = dataGridViewCellStyle5;
-            this.CEliminar.HeaderText = "Eliminar";
-            this.CEliminar.Name = "CEliminar";
-            this.CEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.botonArticuloVn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
+            this.botonArticuloVn2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloVn2.BackgroundImage")));
+            this.botonArticuloVn2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.botonArticuloVn2.Location = new System.Drawing.Point(13, 75);
+            this.botonArticuloVn2.Name = "botonArticuloVn2";
+            this.botonArticuloVn2.Padding = new System.Windows.Forms.Padding(5);
+            this.botonArticuloVn2.Size = new System.Drawing.Size(451, 56);
+            this.botonArticuloVn2.TabIndex = 1;
+            // 
+            // botonArticuloVn3
+            // 
+            this.botonArticuloVn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
+            this.botonArticuloVn3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloVn3.BackgroundImage")));
+            this.botonArticuloVn3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.botonArticuloVn3.Location = new System.Drawing.Point(13, 137);
+            this.botonArticuloVn3.Name = "botonArticuloVn3";
+            this.botonArticuloVn3.Padding = new System.Windows.Forms.Padding(5);
+            this.botonArticuloVn3.Size = new System.Drawing.Size(451, 56);
+            this.botonArticuloVn3.TabIndex = 2;
+            // 
+            // PBuscadorPrVn
+            // 
+            this.PBuscadorPrVn.BackColor = System.Drawing.Color.Black;
+            this.PBuscadorPrVn.Controls.Add(this.BBuscadorPrVn);
+            this.PBuscadorPrVn.Controls.Add(this.TBuscarPrVn);
+            this.PBuscadorPrVn.Location = new System.Drawing.Point(28, 46);
+            this.PBuscadorPrVn.Name = "PBuscadorPrVn";
+            this.PBuscadorPrVn.Size = new System.Drawing.Size(181, 31);
+            this.PBuscadorPrVn.TabIndex = 36;
+            // 
+            // BBuscadorPrVn
+            // 
+            this.BBuscadorPrVn.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorPrVn.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscadorPrVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorPrVn.BackgroundImage")));
+            this.BBuscadorPrVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscadorPrVn.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscadorPrVn.BorderRadius = 0;
+            this.BBuscadorPrVn.BorderSize = 0;
+            this.BBuscadorPrVn.FlatAppearance.BorderSize = 0;
+            this.BBuscadorPrVn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorPrVn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorPrVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscadorPrVn.ForeColor = System.Drawing.Color.White;
+            this.BBuscadorPrVn.Location = new System.Drawing.Point(6, 2);
+            this.BBuscadorPrVn.Name = "BBuscadorPrVn";
+            this.BBuscadorPrVn.Size = new System.Drawing.Size(26, 26);
+            this.BBuscadorPrVn.TabIndex = 4;
+            this.BBuscadorPrVn.TextColor = System.Drawing.Color.White;
+            this.BBuscadorPrVn.UseVisualStyleBackColor = false;
+            // 
+            // TBuscarPrVn
+            // 
+            this.TBuscarPrVn.BackColor = System.Drawing.Color.Black;
+            this.TBuscarPrVn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBuscarPrVn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBuscarPrVn.ForeColor = System.Drawing.Color.Silver;
+            this.TBuscarPrVn.Location = new System.Drawing.Point(34, 6);
+            this.TBuscarPrVn.Name = "TBuscarPrVn";
+            this.TBuscarPrVn.Size = new System.Drawing.Size(132, 17);
+            this.TBuscarPrVn.TabIndex = 4;
+            this.TBuscarPrVn.Text = "Buscar...";
+            // 
+            // BShowListaVn
+            // 
+            this.BShowListaVn.BackColor = System.Drawing.Color.Black;
+            this.BShowListaVn.BackgroundColor = System.Drawing.Color.Black;
+            this.BShowListaVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowListaVn.BackgroundImage")));
+            this.BShowListaVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BShowListaVn.BorderColor = System.Drawing.Color.Lime;
+            this.BShowListaVn.BorderRadius = 20;
+            this.BShowListaVn.BorderSize = 2;
+            this.BShowListaVn.FlatAppearance.BorderSize = 0;
+            this.BShowListaVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BShowListaVn.ForeColor = System.Drawing.Color.White;
+            this.BShowListaVn.Location = new System.Drawing.Point(558, 298);
+            this.BShowListaVn.Name = "BShowListaVn";
+            this.BShowListaVn.Size = new System.Drawing.Size(84, 76);
+            this.BShowListaVn.TabIndex = 25;
+            this.BShowListaVn.TextColor = System.Drawing.Color.White;
+            this.BShowListaVn.UseVisualStyleBackColor = false;
+            // 
+            // BRegistrarVn
+            // 
+            this.BRegistrarVn.BackColor = System.Drawing.Color.Black;
+            this.BRegistrarVn.BackgroundColor = System.Drawing.Color.Black;
+            this.BRegistrarVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BRegistrarVn.BackgroundImage")));
+            this.BRegistrarVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BRegistrarVn.BorderColor = System.Drawing.Color.Lime;
+            this.BRegistrarVn.BorderRadius = 20;
+            this.BRegistrarVn.BorderSize = 2;
+            this.BRegistrarVn.FlatAppearance.BorderSize = 0;
+            this.BRegistrarVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BRegistrarVn.ForeColor = System.Drawing.Color.White;
+            this.BRegistrarVn.Location = new System.Drawing.Point(558, 136);
+            this.BRegistrarVn.Name = "BRegistrarVn";
+            this.BRegistrarVn.Size = new System.Drawing.Size(84, 76);
+            this.BRegistrarVn.TabIndex = 24;
+            this.BRegistrarVn.TextColor = System.Drawing.Color.White;
+            this.BRegistrarVn.UseVisualStyleBackColor = false;
+            this.BRegistrarVn.Click += new System.EventHandler(this.BRegistrarVn_Click);
             // 
             // AltaVenta
             // 
@@ -516,8 +533,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.PProductoVn);
-            this.Controls.Add(this.PContAltaUs);
+            this.Controls.Add(this.PBuscadorPrVn);
+            this.Controls.Add(this.FLPListaProductosVenta);
+            this.Controls.Add(this.PContAltaVn4);
+            this.Controls.Add(this.PContAltaVn3);
+            this.Controls.Add(this.PContAltaVn1);
+            this.Controls.Add(this.PContAltaVn2);
             this.Controls.Add(this.LShowLista);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BShowListaVn);
@@ -529,10 +550,17 @@
             this.Name = "AltaVenta";
             this.Text = "AltaVenta";
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).EndInit();
-            this.PContAltaUs.ResumeLayout(false);
-            this.PContAltaUs.PerformLayout();
-            this.PProductoVn.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).EndInit();
+            this.PContAltaVn2.ResumeLayout(false);
+            this.PContBuscarDni.ResumeLayout(false);
+            this.PContAltaVn1.ResumeLayout(false);
+            this.PContAltaVn1.PerformLayout();
+            this.PContAltaVn3.ResumeLayout(false);
+            this.PContAltaVn3.PerformLayout();
+            this.PContAltaVn4.ResumeLayout(false);
+            this.PContAltaVn4.PerformLayout();
+            this.FLPListaProductosVenta.ResumeLayout(false);
+            this.PBuscadorPrVn.ResumeLayout(false);
+            this.PBuscadorPrVn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -545,27 +573,30 @@
         private RJButton BShowListaVn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LShowLista;
-        private System.Windows.Forms.Panel PContAltaUs;
+        private System.Windows.Forms.Panel PContAltaVn2;
+        private RJButton BNuevoCliente;
+        private RJButton BClienteExistente;
+        private RJControls.RJTextBox_radio_ TBDniClienteExistente;
+        private RJButton BBuscarCliente_Dni_;
+        private System.Windows.Forms.Panel PContBuscarDni;
+        private System.Windows.Forms.Panel PContAltaVn1;
+        private RJControls.RJTextBox TBMonto;
+        private System.Windows.Forms.Label TBValidacion3;
+        private System.Windows.Forms.Label TBValidacion;
+        private RJControls.RJComboBox CBCategoria;
         private RJControls.RJTextBox TBFecha;
         private System.Windows.Forms.Label LContraseñaUs;
-        private RJControls.RJTextBox TBEmail;
         private System.Windows.Forms.Label LEmailUs;
         private System.Windows.Forms.Label LNombreUsuario;
-        private RJControls.RJTextBox TBDni;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private RJControls.RJTextBox TBMonto;
-        private System.Windows.Forms.Panel PProductoVn;
-        private System.Windows.Forms.DataGridView DGListaVn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCategoria;
-        private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
-        private RJControls.RJComboBox CBCategoria;
-        private System.Windows.Forms.Label TBValidacion4;
-        private System.Windows.Forms.Label TBValidacion3;
+        private System.Windows.Forms.Panel PContAltaVn3;
+        private System.Windows.Forms.Panel PContAltaVn4;
+        private System.Windows.Forms.FlowLayoutPanel FLPListaProductosVenta;
         private System.Windows.Forms.Label TBValidacion2;
-        private System.Windows.Forms.Label TBValidacion;
+        private System.Windows.Forms.Panel PBuscadorPrVn;
+        private RJButton BBuscadorPrVn;
+        private System.Windows.Forms.TextBox TBuscarPrVn;
+        private BotonArticuloVn botonArticuloVn1;
+        private BotonArticuloVn botonArticuloVn2;
+        private BotonArticuloVn botonArticuloVn3;
     }
 }

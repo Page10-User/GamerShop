@@ -40,7 +40,7 @@
             // FLPContenidoPrCarrito
             // 
             this.FLPContenidoPrCarrito.AutoScroll = true;
-            this.FLPContenidoPrCarrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.FLPContenidoPrCarrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.FLPContenidoPrCarrito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FLPContenidoPrCarrito.Location = new System.Drawing.Point(12, 37);
             this.FLPContenidoPrCarrito.Name = "FLPContenidoPrCarrito";
@@ -85,31 +85,32 @@
             // 
             // BComprar
             // 
-            this.BComprar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.BComprar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.BComprar.BorderColor = System.Drawing.Color.Red;
+            this.BComprar.BackColor = System.Drawing.Color.White;
+            this.BComprar.BackgroundColor = System.Drawing.Color.White;
+            this.BComprar.BorderColor = System.Drawing.Color.DarkGreen;
             this.BComprar.BorderRadius = 18;
-            this.BComprar.BorderSize = 1;
+            this.BComprar.BorderSize = 2;
             this.BComprar.FlatAppearance.BorderSize = 0;
             this.BComprar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BComprar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BComprar.ForeColor = System.Drawing.Color.White;
+            this.BComprar.ForeColor = System.Drawing.Color.Black;
             this.BComprar.Location = new System.Drawing.Point(4, 378);
             this.BComprar.Name = "BComprar";
             this.BComprar.Size = new System.Drawing.Size(186, 40);
             this.BComprar.TabIndex = 5;
-            this.BComprar.Text = "Comprar";
-            this.BComprar.TextColor = System.Drawing.Color.White;
+            this.BComprar.Text = "Registrar Venta";
+            this.BComprar.TextColor = System.Drawing.Color.Black;
             this.BComprar.UseVisualStyleBackColor = false;
+            this.BComprar.Click += new System.EventHandler(this.BRegistrarVenta_Click);
             // 
             // BExitCarrito
             // 
             this.BExitCarrito.BackColor = System.Drawing.Color.Transparent;
             this.BExitCarrito.BackgroundColor = System.Drawing.Color.Transparent;
             this.BExitCarrito.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BExitCarrito.BackgroundImage")));
-            this.BExitCarrito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BExitCarrito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BExitCarrito.BorderColor = System.Drawing.Color.Transparent;
             this.BExitCarrito.BorderRadius = 0;
             this.BExitCarrito.BorderSize = 0;
@@ -118,9 +119,9 @@
             this.BExitCarrito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BExitCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BExitCarrito.ForeColor = System.Drawing.Color.White;
-            this.BExitCarrito.Location = new System.Drawing.Point(157, 8);
+            this.BExitCarrito.Location = new System.Drawing.Point(162, 9);
             this.BExitCarrito.Name = "BExitCarrito";
-            this.BExitCarrito.Size = new System.Drawing.Size(25, 25);
+            this.BExitCarrito.Size = new System.Drawing.Size(20, 20);
             this.BExitCarrito.TabIndex = 2;
             this.BExitCarrito.TextColor = System.Drawing.Color.White;
             this.BExitCarrito.UseVisualStyleBackColor = false;
@@ -131,7 +132,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(194, 430);
+            this.ClientSize = new System.Drawing.Size(194, 432);
             this.Controls.Add(this.BComprar);
             this.Controls.Add(this.LPrTotalCr);
             this.Controls.Add(this.LTotalCr);

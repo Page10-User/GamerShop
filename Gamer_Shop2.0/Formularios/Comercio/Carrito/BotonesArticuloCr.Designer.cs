@@ -102,6 +102,8 @@
             this.TBCantidadPr.Name = "TBCantidadPr";
             this.TBCantidadPr.Size = new System.Drawing.Size(33, 20);
             this.TBCantidadPr.TabIndex = 12;
+            this.TBCantidadPr.TextChanged += new System.EventHandler(this.cantidadPr_TextChanged);
+            this.TBCantidadPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cantidadPr_KeyPress);
             // 
             // BEliminarPrCr
             // 
@@ -110,8 +112,8 @@
             this.BEliminarPrCr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BEliminarPrCr.BackgroundImage")));
             this.BEliminarPrCr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BEliminarPrCr.BorderColor = System.Drawing.Color.Transparent;
-            this.BEliminarPrCr.BorderRadius = 12;
-            this.BEliminarPrCr.BorderSize = 1;
+            this.BEliminarPrCr.BorderRadius = 0;
+            this.BEliminarPrCr.BorderSize = 0;
             this.BEliminarPrCr.FlatAppearance.BorderSize = 0;
             this.BEliminarPrCr.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BEliminarPrCr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -129,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
             this.Controls.Add(this.BEliminarPrCr);
             this.Controls.Add(this.TBCantidadPr);
             this.Controls.Add(this.PBfotoPr);
@@ -152,7 +154,7 @@
         private System.Windows.Forms.Label LPrecio;
         private System.Windows.Forms.PictureBox PBfotoPr;
         private System.Windows.Forms.Label LCantidadPr;
-        private System.Windows.Forms.TextBox TBCantidadPr;
         private RJButton BEliminarPrCr;
+        public System.Windows.Forms.TextBox TBCantidadPr;
     }
 }

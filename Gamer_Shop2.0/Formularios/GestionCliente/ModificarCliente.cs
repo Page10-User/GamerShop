@@ -117,7 +117,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (this != null)
             {
-                if (TNombreCl.Texts.Length >= 100)
+                if (TNombreCl.Texts.Length >= 35)
                 {
                     e.Cancel = true;
                     TBValidacion.Visible = true;
@@ -134,7 +134,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (this != null)
             {
-                if (TApellidoCl.Texts.Length >= 100)
+                if (TApellidoCl.Texts.Length >= 35)
                 {
                     e.Cancel = true;
                     TBValidacion2.Visible = true;
@@ -189,7 +189,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         private void TNombreCl_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TNombreCl.Texts.Trim().Length < 100;
+            bool longitud = TNombreCl.Texts.Trim().Length < 35;
 
             if (longitud || escontrol)
             {
@@ -204,7 +204,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         private void TApellidoCl_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TApellidoCl.Texts.Trim().Length < 100;
+            bool longitud = TApellidoCl.Texts.Trim().Length < 35;
 
             if (longitud || escontrol)
             {

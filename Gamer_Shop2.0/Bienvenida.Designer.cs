@@ -103,22 +103,22 @@
             // 
             // BSalir
             // 
-            this.BSalir.BackColor = System.Drawing.Color.Black;
-            this.BSalir.BackgroundColor = System.Drawing.Color.Black;
+            this.BSalir.BackColor = System.Drawing.Color.Transparent;
+            this.BSalir.BackgroundColor = System.Drawing.Color.Transparent;
             this.BSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BSalir.BackgroundImage")));
             this.BSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BSalir.BorderColor = System.Drawing.Color.Lime;
-            this.BSalir.BorderRadius = 15;
-            this.BSalir.BorderSize = 1;
+            this.BSalir.BorderRadius = 0;
+            this.BSalir.BorderSize = 0;
             this.BSalir.CausesValidation = false;
             this.BSalir.FlatAppearance.BorderSize = 0;
             this.BSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSalir.ForeColor = System.Drawing.Color.White;
-            this.BSalir.Location = new System.Drawing.Point(783, 23);
+            this.BSalir.Location = new System.Drawing.Point(787, 27);
             this.BSalir.Name = "BSalir";
-            this.BSalir.Size = new System.Drawing.Size(32, 32);
+            this.BSalir.Size = new System.Drawing.Size(25, 25);
             this.BSalir.TabIndex = 10;
             this.BSalir.TextColor = System.Drawing.Color.White;
             this.BSalir.UseVisualStyleBackColor = false;
@@ -160,10 +160,12 @@
             this.Controls.Add(this.BSalir);
             this.Controls.Add(this.BExpandMenu);
             this.Controls.Add(this.PShowOptions);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Bienvenida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenida";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Bienvenida_Load);
             this.PMenuUS.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -90,5 +90,30 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
                 e.Graphics.DrawPath(pen, path);
             }
         }
+
+        private void BBackupCompleto_Click(object sender, EventArgs e)
+        {
+            DialogResult = MessageBox.Show("Está seguro que desea realizar un Backup Completo", "Backup Completo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DialogResult == DialogResult.Yes)
+            {
+                MessageBox.Show("Backup completo realizado con éxito!", "Backup Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void BBackupPersonalizado_Click(object sender, EventArgs e)
+        {
+            if (CBGestionCompra.Checked || CBGestionProducto.Checked || CBGestionProveedor.Checked || CBGestionUsuario.Checked || CBGestionVenta.Checked)
+            {
+                DialogResult = MessageBox.Show("Está seguro que desea realizar un Backup Personalizado", "Backup Personalizado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (DialogResult == DialogResult.Yes)
+                {
+                    MessageBox.Show("Backup personalizado realizado con éxito!", "Backup Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una opción para Backup Personalizado por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

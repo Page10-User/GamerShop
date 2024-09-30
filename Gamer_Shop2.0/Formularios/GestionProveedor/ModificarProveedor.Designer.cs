@@ -33,20 +33,26 @@
             this.LTituloModificarProveedor = new System.Windows.Forms.Label();
             this.PBImgModificarProveedor = new System.Windows.Forms.PictureBox();
             this.PContInfoModificarProveedor = new System.Windows.Forms.Panel();
+            this.TBValidacion5 = new System.Windows.Forms.Label();
+            this.TBValidacion4 = new System.Windows.Forms.Label();
+            this.TBValidacion3 = new System.Windows.Forms.Label();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
+            this.TBValidacion = new System.Windows.Forms.Label();
+            this.CBCategoriaPrProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.TBDireccion = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBCorreo = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBContacto = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBRepresentante = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBRazon = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.CBCategoriaPrProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.TBDirección = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBCorreo = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBContacto = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBRepresentante = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBRazon = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarProveedor = new Gamer_Shop2._0.RJButton();
+            this.TBValidacion6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarProveedor)).BeginInit();
             this.PContInfoModificarProveedor.SuspendLayout();
             this.SuspendLayout();
@@ -69,18 +75,18 @@
             this.LTituloModificarProveedor.BackColor = System.Drawing.Color.Transparent;
             this.LTituloModificarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTituloModificarProveedor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloModificarProveedor.Location = new System.Drawing.Point(159, 37);
+            this.LTituloModificarProveedor.Location = new System.Drawing.Point(150, 35);
             this.LTituloModificarProveedor.Name = "LTituloModificarProveedor";
-            this.LTituloModificarProveedor.Size = new System.Drawing.Size(347, 42);
+            this.LTituloModificarProveedor.Size = new System.Drawing.Size(371, 42);
             this.LTituloModificarProveedor.TabIndex = 15;
-            this.LTituloModificarProveedor.Text = "Modificar Producto";
+            this.LTituloModificarProveedor.Text = "Modificar Proveedor";
             // 
             // PBImgModificarProveedor
             // 
             this.PBImgModificarProveedor.BackColor = System.Drawing.Color.Transparent;
             this.PBImgModificarProveedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgModificarProveedor.BackgroundImage")));
             this.PBImgModificarProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgModificarProveedor.Location = new System.Drawing.Point(106, 37);
+            this.PBImgModificarProveedor.Location = new System.Drawing.Point(97, 35);
             this.PBImgModificarProveedor.Name = "PBImgModificarProveedor";
             this.PBImgModificarProveedor.Size = new System.Drawing.Size(47, 41);
             this.PBImgModificarProveedor.TabIndex = 14;
@@ -88,8 +94,14 @@
             // 
             // PContInfoModificarProveedor
             // 
+            this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion6);
+            this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion5);
+            this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion4);
+            this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion3);
+            this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion2);
+            this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion);
             this.PContInfoModificarProveedor.Controls.Add(this.CBCategoriaPrProveedor);
-            this.PContInfoModificarProveedor.Controls.Add(this.TBDirección);
+            this.PContInfoModificarProveedor.Controls.Add(this.TBDireccion);
             this.PContInfoModificarProveedor.Controls.Add(this.TBCorreo);
             this.PContInfoModificarProveedor.Controls.Add(this.TBContacto);
             this.PContInfoModificarProveedor.Controls.Add(this.TBRepresentante);
@@ -105,77 +117,65 @@
             this.PContInfoModificarProveedor.Size = new System.Drawing.Size(456, 302);
             this.PContInfoModificarProveedor.TabIndex = 35;
             // 
-            // label7
+            // TBValidacion5
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(18, 247);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 20);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Categoría de Productos";
+            this.TBValidacion5.AutoSize = true;
+            this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion5.Location = new System.Drawing.Point(95, 225);
+            this.TBValidacion5.Name = "TBValidacion5";
+            this.TBValidacion5.Size = new System.Drawing.Size(226, 14);
+            this.TBValidacion5.TabIndex = 54;
+            this.TBValidacion5.Text = "La dirección no debe superar los 150 carácteres";
+            this.TBValidacion5.Visible = false;
             // 
-            // label6
+            // TBValidacion4
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(18, 201);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Dirección";
+            this.TBValidacion4.AutoSize = true;
+            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion4.Location = new System.Drawing.Point(203, 180);
+            this.TBValidacion4.Name = "TBValidacion4";
+            this.TBValidacion4.Size = new System.Drawing.Size(174, 14);
+            this.TBValidacion4.TabIndex = 53;
+            this.TBValidacion4.Text = "Ingrese un correo electrónico válido";
+            this.TBValidacion4.Visible = false;
             // 
-            // label5
+            // TBValidacion3
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(18, 156);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Correo Electrónico";
+            this.TBValidacion3.AutoSize = true;
+            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion3.Location = new System.Drawing.Point(207, 135);
+            this.TBValidacion3.Name = "TBValidacion3";
+            this.TBValidacion3.Size = new System.Drawing.Size(181, 14);
+            this.TBValidacion3.TabIndex = 52;
+            this.TBValidacion3.Text = "Ingrese un número de teléfono válido";
+            this.TBValidacion3.Visible = false;
             // 
-            // label4
+            // TBValidacion2
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(18, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Teléfono de Contacto";
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion2.Location = new System.Drawing.Point(207, 87);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(211, 14);
+            this.TBValidacion2.TabIndex = 51;
+            this.TBValidacion2.Text = "El nombre no debe superar los 35 carácteres";
+            this.TBValidacion2.Visible = false;
             // 
-            // label3
+            // TBValidacion
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(18, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Nombre Representante";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre / Razón Social";
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion.Location = new System.Drawing.Point(207, 49);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(232, 14);
+            this.TBValidacion.TabIndex = 50;
+            this.TBValidacion.Text = "La razón social no debe superar los 35 carácteres";
+            this.TBValidacion.Visible = false;
             // 
             // CBCategoriaPrProveedor
             // 
@@ -192,35 +192,39 @@
             "Tal vez"});
             this.CBCategoriaPrProveedor.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPrProveedor.ListTextColor = System.Drawing.Color.Lime;
-            this.CBCategoriaPrProveedor.Location = new System.Drawing.Point(212, 237);
+            this.CBCategoriaPrProveedor.Location = new System.Drawing.Point(210, 244);
             this.CBCategoriaPrProveedor.MinimumSize = new System.Drawing.Size(30, 30);
             this.CBCategoriaPrProveedor.Name = "CBCategoriaPrProveedor";
             this.CBCategoriaPrProveedor.Padding = new System.Windows.Forms.Padding(1);
             this.CBCategoriaPrProveedor.Size = new System.Drawing.Size(225, 30);
-            this.CBCategoriaPrProveedor.TabIndex = 32;
+            this.CBCategoriaPrProveedor.TabIndex = 49;
             this.CBCategoriaPrProveedor.Texts = "";
+            this.CBCategoriaPrProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPrProveedor_Validating);
             // 
-            // TBDirección
+            // TBDireccion
             // 
-            this.TBDirección.BackColor = System.Drawing.Color.Black;
-            this.TBDirección.BorderColor = System.Drawing.Color.Lime;
-            this.TBDirección.BorderFocusColor = System.Drawing.Color.SpringGreen;
-            this.TBDirección.BorderRadius = 0;
-            this.TBDirección.BorderSize = 2;
-            this.TBDirección.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBDirección.ForeColor = System.Drawing.Color.White;
-            this.TBDirección.Location = new System.Drawing.Point(100, 190);
-            this.TBDirección.Margin = new System.Windows.Forms.Padding(4);
-            this.TBDirección.Multiline = false;
-            this.TBDirección.Name = "TBDirección";
-            this.TBDirección.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TBDirección.PasswordChar = false;
-            this.TBDirección.PlaceholderColor = System.Drawing.Color.White;
-            this.TBDirección.PlaceholderText = "";
-            this.TBDirección.Size = new System.Drawing.Size(337, 31);
-            this.TBDirección.TabIndex = 10;
-            this.TBDirección.Texts = "";
-            this.TBDirección.UnderlinedStyle = true;
+            this.TBDireccion.BackColor = System.Drawing.Color.Black;
+            this.TBDireccion.BorderColor = System.Drawing.Color.Lime;
+            this.TBDireccion.BorderFocusColor = System.Drawing.Color.SpringGreen;
+            this.TBDireccion.BorderRadius = 0;
+            this.TBDireccion.BorderSize = 2;
+            this.TBDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBDireccion.ForeColor = System.Drawing.Color.White;
+            this.TBDireccion.Location = new System.Drawing.Point(98, 190);
+            this.TBDireccion.Margin = new System.Windows.Forms.Padding(4);
+            this.TBDireccion.Multiline = false;
+            this.TBDireccion.Name = "TBDireccion";
+            this.TBDireccion.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBDireccion.PasswordChar = false;
+            this.TBDireccion.PlaceholderColor = System.Drawing.Color.White;
+            this.TBDireccion.PlaceholderText = "";
+            this.TBDireccion.Size = new System.Drawing.Size(337, 31);
+            this.TBDireccion.TabIndex = 48;
+            this.TBDireccion.Texts = "";
+            this.TBDireccion.UnderlinedStyle = true;
+            this.TBDireccion._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDireccion_KeyPress);
+            this.TBDireccion.Validating += new System.ComponentModel.CancelEventHandler(this.TBDireccion_Validating);
             // 
             // TBCorreo
             // 
@@ -231,7 +235,7 @@
             this.TBCorreo.BorderSize = 2;
             this.TBCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBCorreo.ForeColor = System.Drawing.Color.White;
-            this.TBCorreo.Location = new System.Drawing.Point(212, 145);
+            this.TBCorreo.Location = new System.Drawing.Point(210, 145);
             this.TBCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.TBCorreo.Multiline = false;
             this.TBCorreo.Name = "TBCorreo";
@@ -240,9 +244,12 @@
             this.TBCorreo.PlaceholderColor = System.Drawing.Color.White;
             this.TBCorreo.PlaceholderText = "";
             this.TBCorreo.Size = new System.Drawing.Size(225, 31);
-            this.TBCorreo.TabIndex = 9;
+            this.TBCorreo.TabIndex = 47;
             this.TBCorreo.Texts = "";
             this.TBCorreo.UnderlinedStyle = true;
+            this.TBCorreo._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCorreo_KeyPress);
+            this.TBCorreo.Validating += new System.ComponentModel.CancelEventHandler(this.TBCorreo_Validating);
             // 
             // TBContacto
             // 
@@ -253,7 +260,7 @@
             this.TBContacto.BorderSize = 2;
             this.TBContacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBContacto.ForeColor = System.Drawing.Color.White;
-            this.TBContacto.Location = new System.Drawing.Point(212, 100);
+            this.TBContacto.Location = new System.Drawing.Point(210, 100);
             this.TBContacto.Margin = new System.Windows.Forms.Padding(4);
             this.TBContacto.Multiline = false;
             this.TBContacto.Name = "TBContacto";
@@ -262,9 +269,12 @@
             this.TBContacto.PlaceholderColor = System.Drawing.Color.White;
             this.TBContacto.PlaceholderText = "";
             this.TBContacto.Size = new System.Drawing.Size(225, 31);
-            this.TBContacto.TabIndex = 8;
+            this.TBContacto.TabIndex = 46;
             this.TBContacto.Texts = "";
             this.TBContacto.UnderlinedStyle = true;
+            this.TBContacto._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBContacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBContacto_KeyPress);
+            this.TBContacto.Validating += new System.ComponentModel.CancelEventHandler(this.TBContacto_Validating);
             // 
             // TBRepresentante
             // 
@@ -275,7 +285,7 @@
             this.TBRepresentante.BorderSize = 2;
             this.TBRepresentante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBRepresentante.ForeColor = System.Drawing.Color.White;
-            this.TBRepresentante.Location = new System.Drawing.Point(212, 53);
+            this.TBRepresentante.Location = new System.Drawing.Point(210, 53);
             this.TBRepresentante.Margin = new System.Windows.Forms.Padding(4);
             this.TBRepresentante.Multiline = false;
             this.TBRepresentante.Name = "TBRepresentante";
@@ -284,9 +294,12 @@
             this.TBRepresentante.PlaceholderColor = System.Drawing.Color.White;
             this.TBRepresentante.PlaceholderText = "";
             this.TBRepresentante.Size = new System.Drawing.Size(225, 31);
-            this.TBRepresentante.TabIndex = 7;
+            this.TBRepresentante.TabIndex = 45;
             this.TBRepresentante.Texts = "";
             this.TBRepresentante.UnderlinedStyle = true;
+            this.TBRepresentante._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBRepresentante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBRepresentante_KeyPress);
+            this.TBRepresentante.Validating += new System.ComponentModel.CancelEventHandler(this.TBRepresentante_Validating);
             // 
             // TBRazon
             // 
@@ -297,7 +310,7 @@
             this.TBRazon.BorderSize = 2;
             this.TBRazon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBRazon.ForeColor = System.Drawing.Color.White;
-            this.TBRazon.Location = new System.Drawing.Point(212, 14);
+            this.TBRazon.Location = new System.Drawing.Point(210, 14);
             this.TBRazon.Margin = new System.Windows.Forms.Padding(4);
             this.TBRazon.Multiline = false;
             this.TBRazon.Name = "TBRazon";
@@ -306,9 +319,84 @@
             this.TBRazon.PlaceholderColor = System.Drawing.Color.White;
             this.TBRazon.PlaceholderText = "";
             this.TBRazon.Size = new System.Drawing.Size(225, 31);
-            this.TBRazon.TabIndex = 6;
+            this.TBRazon.TabIndex = 44;
             this.TBRazon.Texts = "";
             this.TBRazon.UnderlinedStyle = true;
+            this.TBRazon._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBRazon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBRazon_KeyPress);
+            this.TBRazon.Validating += new System.ComponentModel.CancelEventHandler(this.TBNombre_Validating);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(16, 254);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(176, 20);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Categoría de Productos";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(16, 201);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Dirección";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(16, 156);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 20);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Correo Electrónico";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(16, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 20);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Teléfono de Contacto";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(16, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 20);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "Nombre Representante";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(16, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 20);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Nombre / Razón Social";
             // 
             // BReturnToBack
             // 
@@ -351,6 +439,19 @@
             this.BModificarProveedor.TabIndex = 17;
             this.BModificarProveedor.TextColor = System.Drawing.Color.White;
             this.BModificarProveedor.UseVisualStyleBackColor = false;
+            this.BModificarProveedor.Click += new System.EventHandler(this.BModificarProveedor_Click);
+            // 
+            // TBValidacion6
+            // 
+            this.TBValidacion6.AutoSize = true;
+            this.TBValidacion6.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion6.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion6.Location = new System.Drawing.Point(242, 277);
+            this.TBValidacion6.Name = "TBValidacion6";
+            this.TBValidacion6.Size = new System.Drawing.Size(160, 14);
+            this.TBValidacion6.TabIndex = 55;
+            this.TBValidacion6.Text = "Por favor, elija una opción válida";
+            this.TBValidacion6.Visible = false;
             // 
             // ModificarProveedor
             // 
@@ -366,6 +467,7 @@
             this.Controls.Add(this.BModificarProveedor);
             this.Controls.Add(this.LTituloModificarProveedor);
             this.Controls.Add(this.PBImgModificarProveedor);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ModificarProveedor";
             this.Text = "ModificarProveedor";
@@ -386,8 +488,13 @@
         private System.Windows.Forms.Label LTituloModificarProveedor;
         private System.Windows.Forms.PictureBox PBImgModificarProveedor;
         private System.Windows.Forms.Panel PContInfoModificarProveedor;
+        private System.Windows.Forms.Label TBValidacion5;
+        private System.Windows.Forms.Label TBValidacion4;
+        private System.Windows.Forms.Label TBValidacion3;
+        private System.Windows.Forms.Label TBValidacion2;
+        private System.Windows.Forms.Label TBValidacion;
         private RJControls.RJComboBox CBCategoriaPrProveedor;
-        private RJControls.RJTextBox_radio_ TBDirección;
+        private RJControls.RJTextBox_radio_ TBDireccion;
         private RJControls.RJTextBox_radio_ TBCorreo;
         private RJControls.RJTextBox_radio_ TBContacto;
         private RJControls.RJTextBox_radio_ TBRepresentante;
@@ -398,5 +505,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label TBValidacion6;
     }
 }

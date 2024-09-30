@@ -16,16 +16,20 @@ namespace Gamer_Shop2._0
         private Form formBG;
 
         //Options definido globalmente para mejor manejo.
-        private AdministradorOptions userOptions;
+        private AdministradorOptions userOptions; //Manejo de opciones del menu segun el usuario <-------
 
         //Panel Poptions del Menu (A)
         public PersonalOptions PersonalOps { get; set; }
         //Panel Poptions del Menu (E,G)
         public PersonalOptions_NB_ PersonalOpsNB { get; set; }
 
+        //Fondo oscuro Catalogo
+        public Form FondoOscuroCatalogo { get; set; }
+
         //Botones Proveedor y Compra del Menu (temas visuales).
         public Button botonCompra {  get; set; }
         public Button botonProveedor {  get; set; }
+        public Button botonInforme { get; set; }
 
         public bool isExpandedOpts { get; set; }
 
@@ -35,7 +39,7 @@ namespace Gamer_Shop2._0
             this.Load += new EventHandler(Bienvenida_Load);
             this.Paint += new PaintEventHandler(Bievenida_Paint);
             PMenuUS.Paint += new PaintEventHandler(PMenuUS_Paint);
-            userOptions = new AdministradorOptions();
+            userOptions = new AdministradorOptions(); //Manejo de opciones del menu segun el usuario <-------
             userOptions.MainForm = this;
             userOptions.PanelContainer = PShowOptions;
             userOptions.LabelContainer = LVersion;
@@ -105,30 +109,10 @@ namespace Gamer_Shop2._0
             formBG.Close();
 
             // Ocultar contenido del menú.
-            userOptions.Visible = false;
+            OcultarContenidoMenu();
 
-            if (isExpandedOpts)
-            {
-                bool isExpnd = false;
-                if (userOptions is AdministradorOptions)
-                {
-                    //Cerramos la configuración personal (Admin).
-                    PersonalOps.SendToBack();
-                    PersonalOps.Close();
-
-                    //Posicionamos los botones de compra y proveedor.
-                    botonCompra.BringToFront();
-                    botonProveedor.BringToFront();
-                    userOptions.isExpandedOps = isExpnd;
-                }
-                else
-                {
-                    //Cerramos la configuración personal (Empleado y Gerente).
-                    PersonalOps.SendToBack();
-                    PersonalOpsNB.Close();
-                    userOptions.isExpandedOps = isExpnd;
-                }
-            }
+            //Mostrar FondoOscuroCatalogo
+            FondoOscuroShow();
         }
 
         // Botón expandir Menú.
@@ -142,30 +126,22 @@ namespace Gamer_Shop2._0
             BContracMenu.Visible = true;
             PEBorde.Visible = false;
 
-            // Crear un nuevo formulario para el efecto de oscurecimiento
-            Point thisLocation = this.Location;
-            Point formBGLocation = new Point(thisLocation.X + 200, thisLocation.Y + 1);
-            formBG = new Form
-            {
-                StartPosition = FormStartPosition.Manual,
-                FormBorderStyle = FormBorderStyle.None,
-                Opacity = 0.70d, // 70% de opacidad
-                BackColor = Color.Black,
-                Width = 638 - 2,
-                Height = this.Height - 4,
-                Location = formBGLocation,
-                WindowState = FormWindowState.Normal,
-                TopMost = true,
-                ShowInTaskbar = false
-            };
+            //Generamos fondo oscuro tras abrir el menú.
+            GenerarFondoOscuro();
 
-            // Mostrar el formulario de oscurecimiento
-            formBG.Show();
+            //Quitamos TopMost de Bienvenida.
+            this.TopMost = false;
 
             // Cargar contenido del menú.
             PMenuUS.Controls.Add(userOptions);
             userOptions.Location = new Point(0, 1);
             userOptions.Visible = true;
+
+            //Quitamos el fondo negro del catalogo para evitar bug visuales.
+            FondoOscuroHide();
+
+            //Pasamos el fondo a userOptions (caso EmpleadoOptions).
+            PasarFondoOscuroEmpleadoOptions();
         }
 
         // Diseño del bordeado del formulario
@@ -200,6 +176,82 @@ namespace Gamer_Shop2._0
             {
                 e.Graphics.DrawRectangle(borderPen, borderRectangle);
             }
+        }
+
+        private void GenerarFondoOscuro()
+        {
+            // Crear un nuevo formulario para el efecto de oscurecimiento
+            Point thisLocation = this.Location;
+            Point formBGLocation = new Point(thisLocation.X + 200, thisLocation.Y + 1);
+            formBG = new Form
+            {
+                StartPosition = FormStartPosition.Manual,
+                FormBorderStyle = FormBorderStyle.None,
+                Opacity = 0.70d, // 70% de opacidad
+                BackColor = Color.Black,
+                Width = 638 - 2,
+                Height = this.Height - 4,
+                Location = formBGLocation,
+                WindowState = FormWindowState.Normal,
+                TopMost = true,
+                ShowInTaskbar = false
+            };
+
+            // Mostrar el formulario de oscurecimiento
+            formBG.Show();
+        }
+        private void OcultarContenidoMenu()
+        {
+            userOptions.Visible = false;
+
+            if (isExpandedOpts)
+            {
+                bool isExpnd = false;
+                if (userOptions is AdministradorOptions)
+                {
+                    //Cerramos la configuración personal (Admin).
+                    PersonalOps.SendToBack();
+                    PersonalOps.Close();
+
+                    //Posicionamos los botones de compra y proveedor.
+                    TraerBotonesAlfrente();
+                    userOptions.isExpandedOps = isExpnd;
+                }
+                else
+                {
+                    //Cerramos la configuración personal (Empleado y Gerente).
+                    PersonalOpsNB.SendToBack();
+                    PersonalOpsNB.Close();
+                    userOptions.isExpandedOps = isExpnd;
+                }
+            }
+        }
+        private void FondoOscuroHide()
+        {
+            if (FondoOscuroCatalogo is Form)
+            {
+                FondoOscuroCatalogo.Hide();
+            }
+        }
+        private void FondoOscuroShow()
+        {
+            if (FondoOscuroCatalogo is Form)
+            {
+                FondoOscuroCatalogo.Show();
+            }
+        }
+        private void PasarFondoOscuroEmpleadoOptions()
+        {
+            if (FondoOscuroCatalogo is Form && userOptions is EmpleadoOptions)
+            {
+                userOptions.FondoOscuroCatalogo = FondoOscuroCatalogo;
+            }
+        }
+        private void TraerBotonesAlfrente()
+        {
+            botonCompra.BringToFront();
+            botonProveedor.BringToFront();
+            botonInforme.BringToFront();
         }
     }
 }

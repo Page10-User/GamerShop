@@ -145,7 +145,7 @@
             this.TContraseñaUs.Multiline = false;
             this.TContraseñaUs.Name = "TContraseñaUs";
             this.TContraseñaUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TContraseñaUs.PasswordChar = false;
+            this.TContraseñaUs.PasswordChar = true;
             this.TContraseñaUs.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TContraseñaUs.PlaceholderText = "";
             this.TContraseñaUs.Size = new System.Drawing.Size(172, 31);
@@ -283,9 +283,9 @@
             this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion2.Location = new System.Drawing.Point(87, 82);
             this.TBValidacion2.Name = "TBValidacion2";
-            this.TBValidacion2.Size = new System.Drawing.Size(221, 14);
+            this.TBValidacion2.Size = new System.Drawing.Size(215, 14);
             this.TBValidacion2.TabIndex = 20;
-            this.TBValidacion2.Text = "El apellido no debe superar los 100 carácteres.";
+            this.TBValidacion2.Text = "El apellido no debe superar los 35 carácteres.";
             this.TBValidacion2.Visible = false;
             // 
             // TNombreUs
@@ -319,9 +319,9 @@
             this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion.Location = new System.Drawing.Point(87, 36);
             this.TBValidacion.Name = "TBValidacion";
-            this.TBValidacion.Size = new System.Drawing.Size(220, 14);
+            this.TBValidacion.Size = new System.Drawing.Size(214, 14);
             this.TBValidacion.TabIndex = 19;
-            this.TBValidacion.Text = "El nombre no debe superar los 100 carácteres.";
+            this.TBValidacion.Text = "El nombre no debe superar los 35 carácteres.";
             this.TBValidacion.Visible = false;
             // 
             // LContraseñaUs
@@ -424,7 +424,7 @@
             this.BShowListaUs.BackColor = System.Drawing.Color.Black;
             this.BShowListaUs.BackgroundColor = System.Drawing.Color.Black;
             this.BShowListaUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowListaUs.BackgroundImage")));
-            this.BShowListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BShowListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BShowListaUs.BorderColor = System.Drawing.Color.Lime;
             this.BShowListaUs.BorderRadius = 20;
             this.BShowListaUs.BorderSize = 2;
@@ -444,7 +444,7 @@
             this.BRegistrarUs.BackColor = System.Drawing.Color.Black;
             this.BRegistrarUs.BackgroundColor = System.Drawing.Color.Black;
             this.BRegistrarUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BRegistrarUs.BackgroundImage")));
-            this.BRegistrarUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BRegistrarUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BRegistrarUs.BorderColor = System.Drawing.Color.Lime;
             this.BRegistrarUs.BorderRadius = 20;
             this.BRegistrarUs.BorderSize = 2;

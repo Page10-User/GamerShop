@@ -18,16 +18,16 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         private int borderWidth = 5; // Grosor del borde
 
         public Panel PanelContainer { get; set; }
-        public ListaVenta()
+        public Bienvenida Mainform { get; set; }
+        public ListaVenta(bool desdeDonde)
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
             this.Load += new EventHandler(ListaUsuario_Load);
-            PContListaUs.Paint += new PaintEventHandler(PContListaUs_Paint);
-            //DGListaVn.CellClick += DGListaVn_CellClick;
+            ManejarVisibilidadBotonCatalogo(desdeDonde);
         }
 
-        private void PContListaUs_Paint(object sender, PaintEventArgs e)
+        private void PContListaVn_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
             if (panel != null)
@@ -54,12 +54,25 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
         }
 
+        private void ManejarVisibilidadBotonCatalogo(bool desdeDonde)
+        {
+            if (desdeDonde)
+            {
+                BShowCatalogo.Visible = true;
+                LShowCatalogo.Visible = true;
+            }
+            else
+            {
+                BShowCatalogo.Visible = false;
+                LShowCatalogo.Visible = false;
+            }
+        }
+
         private void ListaUsuario_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
 
-            //Rellenar DatGridViewUs (Ejemplo)
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -103,6 +116,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             Catalogo formCatalogo = new Catalogo();
             formCatalogo.TopLevel = false;
             formCatalogo.PanelContainer = PanelContainer;
+            formCatalogo.MainForm = Mainform;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formCatalogo);
             PanelContainer.BringToFront();

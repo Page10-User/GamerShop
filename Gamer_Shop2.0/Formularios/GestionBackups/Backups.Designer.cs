@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Backups));
             this.PContInfBackups = new System.Windows.Forms.Panel();
+            this.CBGestionCompra = new System.Windows.Forms.CheckBox();
+            this.CBGestionProveedor = new System.Windows.Forms.CheckBox();
+            this.CBGestionUsuario = new System.Windows.Forms.CheckBox();
+            this.CBGestionProducto = new System.Windows.Forms.CheckBox();
+            this.CBGestionVenta = new System.Windows.Forms.CheckBox();
+            this.PRallaDivisora = new System.Windows.Forms.Panel();
+            this.LRBP = new System.Windows.Forms.Label();
+            this.LRBC = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LTituloBackups = new System.Windows.Forms.Label();
-            this.LRBC = new System.Windows.Forms.Label();
-            this.LRBP = new System.Windows.Forms.Label();
-            this.PRallaDivisora = new System.Windows.Forms.Panel();
-            this.BBackupCompleto = new Gamer_Shop2._0.RJButton();
-            this.CBGestionVenta = new System.Windows.Forms.CheckBox();
-            this.CBGestionProducto = new System.Windows.Forms.CheckBox();
-            this.CBGestionUsuario = new System.Windows.Forms.CheckBox();
-            this.CBGestionProveedor = new System.Windows.Forms.CheckBox();
-            this.CBGestionCompra = new System.Windows.Forms.CheckBox();
             this.BBackupPersonalizado = new Gamer_Shop2._0.RJButton();
+            this.BBackupCompleto = new Gamer_Shop2._0.RJButton();
             this.PContInfBackups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +62,100 @@
             this.PContInfBackups.Name = "PContInfBackups";
             this.PContInfBackups.Size = new System.Drawing.Size(611, 318);
             this.PContInfBackups.TabIndex = 5;
+            // 
+            // CBGestionCompra
+            // 
+            this.CBGestionCompra.AutoSize = true;
+            this.CBGestionCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBGestionCompra.ForeColor = System.Drawing.Color.White;
+            this.CBGestionCompra.Location = new System.Drawing.Point(368, 140);
+            this.CBGestionCompra.Name = "CBGestionCompra";
+            this.CBGestionCompra.Size = new System.Drawing.Size(186, 29);
+            this.CBGestionCompra.TabIndex = 8;
+            this.CBGestionCompra.Text = "Gestion Compra";
+            this.CBGestionCompra.UseVisualStyleBackColor = true;
+            // 
+            // CBGestionProveedor
+            // 
+            this.CBGestionProveedor.AutoSize = true;
+            this.CBGestionProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBGestionProveedor.ForeColor = System.Drawing.Color.White;
+            this.CBGestionProveedor.Location = new System.Drawing.Point(36, 245);
+            this.CBGestionProveedor.Name = "CBGestionProveedor";
+            this.CBGestionProveedor.Size = new System.Drawing.Size(210, 29);
+            this.CBGestionProveedor.TabIndex = 7;
+            this.CBGestionProveedor.Text = "Gestion Proveedor";
+            this.CBGestionProveedor.UseVisualStyleBackColor = true;
+            // 
+            // CBGestionUsuario
+            // 
+            this.CBGestionUsuario.AutoSize = true;
+            this.CBGestionUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBGestionUsuario.ForeColor = System.Drawing.Color.White;
+            this.CBGestionUsuario.Location = new System.Drawing.Point(36, 210);
+            this.CBGestionUsuario.Name = "CBGestionUsuario";
+            this.CBGestionUsuario.Size = new System.Drawing.Size(185, 29);
+            this.CBGestionUsuario.TabIndex = 6;
+            this.CBGestionUsuario.Text = "Gestion Usuario";
+            this.CBGestionUsuario.UseVisualStyleBackColor = true;
+            // 
+            // CBGestionProducto
+            // 
+            this.CBGestionProducto.AutoSize = true;
+            this.CBGestionProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBGestionProducto.ForeColor = System.Drawing.Color.White;
+            this.CBGestionProducto.Location = new System.Drawing.Point(36, 175);
+            this.CBGestionProducto.Name = "CBGestionProducto";
+            this.CBGestionProducto.Size = new System.Drawing.Size(197, 29);
+            this.CBGestionProducto.TabIndex = 5;
+            this.CBGestionProducto.Text = "Gestion Producto";
+            this.CBGestionProducto.UseVisualStyleBackColor = true;
+            // 
+            // CBGestionVenta
+            // 
+            this.CBGestionVenta.AutoSize = true;
+            this.CBGestionVenta.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.CBGestionVenta.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            this.CBGestionVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBGestionVenta.ForeColor = System.Drawing.Color.White;
+            this.CBGestionVenta.Location = new System.Drawing.Point(36, 140);
+            this.CBGestionVenta.Name = "CBGestionVenta";
+            this.CBGestionVenta.Size = new System.Drawing.Size(167, 29);
+            this.CBGestionVenta.TabIndex = 4;
+            this.CBGestionVenta.Text = "Gestion Venta";
+            this.CBGestionVenta.UseVisualStyleBackColor = true;
+            // 
+            // PRallaDivisora
+            // 
+            this.PRallaDivisora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.PRallaDivisora.Location = new System.Drawing.Point(0, 76);
+            this.PRallaDivisora.Name = "PRallaDivisora";
+            this.PRallaDivisora.Size = new System.Drawing.Size(611, 3);
+            this.PRallaDivisora.TabIndex = 2;
+            // 
+            // LRBP
+            // 
+            this.LRBP.AutoSize = true;
+            this.LRBP.BackColor = System.Drawing.Color.Transparent;
+            this.LRBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LRBP.ForeColor = System.Drawing.Color.White;
+            this.LRBP.Location = new System.Drawing.Point(31, 95);
+            this.LRBP.Name = "LRBP";
+            this.LRBP.Size = new System.Drawing.Size(347, 29);
+            this.LRBP.TabIndex = 1;
+            this.LRBP.Text = "Realizar Backup Personalizado";
+            // 
+            // LRBC
+            // 
+            this.LRBC.AutoSize = true;
+            this.LRBC.BackColor = System.Drawing.Color.Transparent;
+            this.LRBC.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LRBC.ForeColor = System.Drawing.Color.White;
+            this.LRBC.Location = new System.Drawing.Point(31, 25);
+            this.LRBC.Name = "LRBC";
+            this.LRBC.Size = new System.Drawing.Size(298, 29);
+            this.LRBC.TabIndex = 0;
+            this.LRBC.Text = "Realizar Backup Completo";
             // 
             // pictureBox1
             // 
@@ -87,37 +181,25 @@
             this.LTituloBackups.Text = "Backups";
             this.LTituloBackups.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // LRBC
+            // BBackupPersonalizado
             // 
-            this.LRBC.AutoSize = true;
-            this.LRBC.BackColor = System.Drawing.Color.Transparent;
-            this.LRBC.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LRBC.ForeColor = System.Drawing.Color.White;
-            this.LRBC.Location = new System.Drawing.Point(31, 25);
-            this.LRBC.Name = "LRBC";
-            this.LRBC.Size = new System.Drawing.Size(298, 29);
-            this.LRBC.TabIndex = 0;
-            this.LRBC.Text = "Realizar Backup Completo";
-            // 
-            // LRBP
-            // 
-            this.LRBP.AutoSize = true;
-            this.LRBP.BackColor = System.Drawing.Color.Transparent;
-            this.LRBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LRBP.ForeColor = System.Drawing.Color.White;
-            this.LRBP.Location = new System.Drawing.Point(31, 95);
-            this.LRBP.Name = "LRBP";
-            this.LRBP.Size = new System.Drawing.Size(347, 29);
-            this.LRBP.TabIndex = 1;
-            this.LRBP.Text = "Realizar Backup Personalizado";
-            // 
-            // PRallaDivisora
-            // 
-            this.PRallaDivisora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.PRallaDivisora.Location = new System.Drawing.Point(0, 76);
-            this.PRallaDivisora.Name = "PRallaDivisora";
-            this.PRallaDivisora.Size = new System.Drawing.Size(611, 3);
-            this.PRallaDivisora.TabIndex = 2;
+            this.BBackupPersonalizado.BackColor = System.Drawing.Color.Black;
+            this.BBackupPersonalizado.BackgroundColor = System.Drawing.Color.Black;
+            this.BBackupPersonalizado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BBackupPersonalizado.BorderRadius = 15;
+            this.BBackupPersonalizado.BorderSize = 2;
+            this.BBackupPersonalizado.FlatAppearance.BorderSize = 0;
+            this.BBackupPersonalizado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBackupPersonalizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBackupPersonalizado.ForeColor = System.Drawing.Color.White;
+            this.BBackupPersonalizado.Location = new System.Drawing.Point(368, 237);
+            this.BBackupPersonalizado.Name = "BBackupPersonalizado";
+            this.BBackupPersonalizado.Size = new System.Drawing.Size(159, 37);
+            this.BBackupPersonalizado.TabIndex = 9;
+            this.BBackupPersonalizado.Text = "Personalizado";
+            this.BBackupPersonalizado.TextColor = System.Drawing.Color.White;
+            this.BBackupPersonalizado.UseVisualStyleBackColor = false;
+            this.BBackupPersonalizado.Click += new System.EventHandler(this.BBackupPersonalizado_Click);
             // 
             // BBackupCompleto
             // 
@@ -137,87 +219,7 @@
             this.BBackupCompleto.Text = "Completo";
             this.BBackupCompleto.TextColor = System.Drawing.Color.White;
             this.BBackupCompleto.UseVisualStyleBackColor = false;
-            // 
-            // CBGestionVenta
-            // 
-            this.CBGestionVenta.AutoSize = true;
-            this.CBGestionVenta.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.CBGestionVenta.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.CBGestionVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBGestionVenta.ForeColor = System.Drawing.Color.White;
-            this.CBGestionVenta.Location = new System.Drawing.Point(36, 140);
-            this.CBGestionVenta.Name = "CBGestionVenta";
-            this.CBGestionVenta.Size = new System.Drawing.Size(167, 29);
-            this.CBGestionVenta.TabIndex = 4;
-            this.CBGestionVenta.Text = "Gestion Venta";
-            this.CBGestionVenta.UseVisualStyleBackColor = true;
-            // 
-            // CBGestionProducto
-            // 
-            this.CBGestionProducto.AutoSize = true;
-            this.CBGestionProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBGestionProducto.ForeColor = System.Drawing.Color.White;
-            this.CBGestionProducto.Location = new System.Drawing.Point(36, 175);
-            this.CBGestionProducto.Name = "CBGestionProducto";
-            this.CBGestionProducto.Size = new System.Drawing.Size(197, 29);
-            this.CBGestionProducto.TabIndex = 5;
-            this.CBGestionProducto.Text = "Gestion Producto";
-            this.CBGestionProducto.UseVisualStyleBackColor = true;
-            // 
-            // CBGestionUsuario
-            // 
-            this.CBGestionUsuario.AutoSize = true;
-            this.CBGestionUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBGestionUsuario.ForeColor = System.Drawing.Color.White;
-            this.CBGestionUsuario.Location = new System.Drawing.Point(36, 210);
-            this.CBGestionUsuario.Name = "CBGestionUsuario";
-            this.CBGestionUsuario.Size = new System.Drawing.Size(185, 29);
-            this.CBGestionUsuario.TabIndex = 6;
-            this.CBGestionUsuario.Text = "Gestion Usuario";
-            this.CBGestionUsuario.UseVisualStyleBackColor = true;
-            // 
-            // CBGestionProveedor
-            // 
-            this.CBGestionProveedor.AutoSize = true;
-            this.CBGestionProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBGestionProveedor.ForeColor = System.Drawing.Color.White;
-            this.CBGestionProveedor.Location = new System.Drawing.Point(36, 245);
-            this.CBGestionProveedor.Name = "CBGestionProveedor";
-            this.CBGestionProveedor.Size = new System.Drawing.Size(210, 29);
-            this.CBGestionProveedor.TabIndex = 7;
-            this.CBGestionProveedor.Text = "Gestion Proveedor";
-            this.CBGestionProveedor.UseVisualStyleBackColor = true;
-            // 
-            // CBGestionCompra
-            // 
-            this.CBGestionCompra.AutoSize = true;
-            this.CBGestionCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBGestionCompra.ForeColor = System.Drawing.Color.White;
-            this.CBGestionCompra.Location = new System.Drawing.Point(368, 140);
-            this.CBGestionCompra.Name = "CBGestionCompra";
-            this.CBGestionCompra.Size = new System.Drawing.Size(186, 29);
-            this.CBGestionCompra.TabIndex = 8;
-            this.CBGestionCompra.Text = "Gestion Compra";
-            this.CBGestionCompra.UseVisualStyleBackColor = true;
-            // 
-            // BBackupPersonalizado
-            // 
-            this.BBackupPersonalizado.BackColor = System.Drawing.Color.Black;
-            this.BBackupPersonalizado.BackgroundColor = System.Drawing.Color.Black;
-            this.BBackupPersonalizado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BBackupPersonalizado.BorderRadius = 15;
-            this.BBackupPersonalizado.BorderSize = 2;
-            this.BBackupPersonalizado.FlatAppearance.BorderSize = 0;
-            this.BBackupPersonalizado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBackupPersonalizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BBackupPersonalizado.ForeColor = System.Drawing.Color.White;
-            this.BBackupPersonalizado.Location = new System.Drawing.Point(368, 237);
-            this.BBackupPersonalizado.Name = "BBackupPersonalizado";
-            this.BBackupPersonalizado.Size = new System.Drawing.Size(135, 37);
-            this.BBackupPersonalizado.TabIndex = 9;
-            this.BBackupPersonalizado.Text = "Personalizado";
-            this.BBackupPersonalizado.TextColor = System.Drawing.Color.White;
-            this.BBackupPersonalizado.UseVisualStyleBackColor = false;
+            this.BBackupCompleto.Click += new System.EventHandler(this.BBackupCompleto_Click);
             // 
             // Backups
             // 

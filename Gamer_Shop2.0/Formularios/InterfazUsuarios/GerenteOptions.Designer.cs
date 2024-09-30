@@ -93,10 +93,11 @@
             this.BAccederInformes.Name = "BAccederInformes";
             this.BAccederInformes.Size = new System.Drawing.Size(198, 45);
             this.BAccederInformes.TabIndex = 21;
-            this.BAccederInformes.Text = "Gestion Informes";
-            this.BAccederInformes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BAccederInformes.Text = "     Informes";
+            this.BAccederInformes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BAccederInformes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BAccederInformes.UseVisualStyleBackColor = true;
+            this.BAccederInformes.Click += new System.EventHandler(this.BAccederInformes_Click);
             // 
             // BOptionsGerente
             // 

@@ -91,7 +91,7 @@
             this.PInicio.Controls.Add(this.LContraseña);
             this.PInicio.Controls.Add(this.LUsuario);
             this.PInicio.Controls.Add(this.pictureBox1);
-            this.PInicio.Location = new System.Drawing.Point(311, 111);
+            this.PInicio.Location = new System.Drawing.Point(310, 111);
             this.PInicio.Name = "PInicio";
             this.PInicio.Size = new System.Drawing.Size(223, 285);
             this.PInicio.TabIndex = 0;

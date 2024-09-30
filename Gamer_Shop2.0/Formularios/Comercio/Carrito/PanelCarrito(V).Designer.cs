@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelCarrito_V_));
             this.LCarrito = new System.Windows.Forms.Label();
             this.PCarritoVacio = new System.Windows.Forms.Panel();
-            this.BExitCarrito = new Gamer_Shop2._0.RJButton();
             this.LMsjContenidoCarritoVacio = new System.Windows.Forms.Label();
+            this.BExitCarrito = new Gamer_Shop2._0.RJButton();
             this.PCarritoVacio.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,12 +50,25 @@
             // 
             // PCarritoVacio
             // 
-            this.PCarritoVacio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.PCarritoVacio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(25)))), ((int)(((byte)(0)))));
             this.PCarritoVacio.Controls.Add(this.LMsjContenidoCarritoVacio);
             this.PCarritoVacio.Location = new System.Drawing.Point(8, 58);
             this.PCarritoVacio.Name = "PCarritoVacio";
             this.PCarritoVacio.Size = new System.Drawing.Size(178, 33);
             this.PCarritoVacio.TabIndex = 5;
+            // 
+            // LMsjContenidoCarritoVacio
+            // 
+            this.LMsjContenidoCarritoVacio.AutoSize = true;
+            this.LMsjContenidoCarritoVacio.BackColor = System.Drawing.Color.Transparent;
+            this.LMsjContenidoCarritoVacio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LMsjContenidoCarritoVacio.ForeColor = System.Drawing.Color.White;
+            this.LMsjContenidoCarritoVacio.Location = new System.Drawing.Point(3, 9);
+            this.LMsjContenidoCarritoVacio.Name = "LMsjContenidoCarritoVacio";
+            this.LMsjContenidoCarritoVacio.Size = new System.Drawing.Size(172, 13);
+            this.LMsjContenidoCarritoVacio.TabIndex = 6;
+            this.LMsjContenidoCarritoVacio.Text = "No se cargó ningun producto";
+            this.LMsjContenidoCarritoVacio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BExitCarrito
             // 
@@ -71,33 +84,20 @@
             this.BExitCarrito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BExitCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BExitCarrito.ForeColor = System.Drawing.Color.White;
-            this.BExitCarrito.Location = new System.Drawing.Point(157, 8);
+            this.BExitCarrito.Location = new System.Drawing.Point(162, 13);
             this.BExitCarrito.Name = "BExitCarrito";
-            this.BExitCarrito.Size = new System.Drawing.Size(25, 25);
+            this.BExitCarrito.Size = new System.Drawing.Size(20, 20);
             this.BExitCarrito.TabIndex = 4;
             this.BExitCarrito.TextColor = System.Drawing.Color.White;
             this.BExitCarrito.UseVisualStyleBackColor = false;
             this.BExitCarrito.Click += new System.EventHandler(this.BExitCarrito_Click);
-            // 
-            // LMsjContenidoCarritoVacio
-            // 
-            this.LMsjContenidoCarritoVacio.AutoSize = true;
-            this.LMsjContenidoCarritoVacio.BackColor = System.Drawing.Color.Transparent;
-            this.LMsjContenidoCarritoVacio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LMsjContenidoCarritoVacio.ForeColor = System.Drawing.Color.White;
-            this.LMsjContenidoCarritoVacio.Location = new System.Drawing.Point(3, 9);
-            this.LMsjContenidoCarritoVacio.Name = "LMsjContenidoCarritoVacio";
-            this.LMsjContenidoCarritoVacio.Size = new System.Drawing.Size(172, 13);
-            this.LMsjContenidoCarritoVacio.TabIndex = 6;
-            this.LMsjContenidoCarritoVacio.Text = "No se cargó ningun producto";
-            this.LMsjContenidoCarritoVacio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PanelCarrito_V_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(194, 430);
+            this.ClientSize = new System.Drawing.Size(194, 432);
             this.Controls.Add(this.PCarritoVacio);
             this.Controls.Add(this.BExitCarrito);
             this.Controls.Add(this.LCarrito);

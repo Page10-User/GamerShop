@@ -44,7 +44,10 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(0)))));
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.LCategoria);
             this.panel1.Controls.Add(this.BAgregarCarrito);
             this.panel1.Controls.Add(this.BComprarAhora);
@@ -59,9 +62,10 @@
             // LCategoria
             // 
             this.LCategoria.AutoSize = true;
+            this.LCategoria.BackColor = System.Drawing.Color.Transparent;
             this.LCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCategoria.ForeColor = System.Drawing.Color.White;
-            this.LCategoria.Location = new System.Drawing.Point(13, 125);
+            this.LCategoria.Location = new System.Drawing.Point(12, 125);
             this.LCategoria.Name = "LCategoria";
             this.LCategoria.Size = new System.Drawing.Size(75, 16);
             this.LCategoria.TabIndex = 7;
@@ -69,48 +73,49 @@
             // 
             // BAgregarCarrito
             // 
-            this.BAgregarCarrito.BackColor = System.Drawing.Color.Maroon;
-            this.BAgregarCarrito.BackgroundColor = System.Drawing.Color.Maroon;
-            this.BAgregarCarrito.BorderColor = System.Drawing.Color.Navy;
+            this.BAgregarCarrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(255)))), ((int)(((byte)(230)))));
+            this.BAgregarCarrito.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(255)))), ((int)(((byte)(230)))));
+            this.BAgregarCarrito.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
             this.BAgregarCarrito.BorderRadius = 12;
             this.BAgregarCarrito.BorderSize = 0;
             this.BAgregarCarrito.FlatAppearance.BorderSize = 0;
             this.BAgregarCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BAgregarCarrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BAgregarCarrito.ForeColor = System.Drawing.Color.White;
-            this.BAgregarCarrito.Location = new System.Drawing.Point(2, 221);
+            this.BAgregarCarrito.ForeColor = System.Drawing.Color.Black;
+            this.BAgregarCarrito.Location = new System.Drawing.Point(1, 221);
             this.BAgregarCarrito.Name = "BAgregarCarrito";
             this.BAgregarCarrito.Size = new System.Drawing.Size(154, 29);
             this.BAgregarCarrito.TabIndex = 6;
             this.BAgregarCarrito.Text = "Agregar al Carrito";
-            this.BAgregarCarrito.TextColor = System.Drawing.Color.White;
+            this.BAgregarCarrito.TextColor = System.Drawing.Color.Black;
             this.BAgregarCarrito.UseVisualStyleBackColor = false;
             this.BAgregarCarrito.Click += new System.EventHandler(this.BAgregarCarrito_Click);
             // 
             // BComprarAhora
             // 
-            this.BComprarAhora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.BComprarAhora.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.BComprarAhora.BorderColor = System.Drawing.Color.Red;
+            this.BComprarAhora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
+            this.BComprarAhora.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
+            this.BComprarAhora.BorderColor = System.Drawing.Color.Lime;
             this.BComprarAhora.BorderRadius = 12;
             this.BComprarAhora.BorderSize = 1;
             this.BComprarAhora.FlatAppearance.BorderSize = 0;
             this.BComprarAhora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BComprarAhora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BComprarAhora.ForeColor = System.Drawing.Color.White;
-            this.BComprarAhora.Location = new System.Drawing.Point(2, 186);
+            this.BComprarAhora.Location = new System.Drawing.Point(1, 186);
             this.BComprarAhora.Name = "BComprarAhora";
             this.BComprarAhora.Size = new System.Drawing.Size(154, 29);
             this.BComprarAhora.TabIndex = 5;
-            this.BComprarAhora.Text = "Comprar Ahora";
+            this.BComprarAhora.Text = "Vender Producto";
             this.BComprarAhora.TextColor = System.Drawing.Color.White;
             this.BComprarAhora.UseVisualStyleBackColor = false;
+            this.BComprarAhora.Click += new System.EventHandler(this.BComprarAhora_Click);
             // 
             // PFotoPr
             // 
-            this.PFotoPr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(2)))), ((int)(((byte)(64)))));
+            this.PFotoPr.BackColor = System.Drawing.Color.Transparent;
             this.PFotoPr.Controls.Add(this.PBfotoPr);
-            this.PFotoPr.Location = new System.Drawing.Point(15, 3);
+            this.PFotoPr.Location = new System.Drawing.Point(14, 3);
             this.PFotoPr.Name = "PFotoPr";
             this.PFotoPr.Size = new System.Drawing.Size(129, 87);
             this.PFotoPr.TabIndex = 4;
@@ -129,9 +134,10 @@
             // LPrecio
             // 
             this.LPrecio.AutoSize = true;
+            this.LPrecio.BackColor = System.Drawing.Color.Transparent;
             this.LPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.LPrecio.Location = new System.Drawing.Point(12, 158);
+            this.LPrecio.Location = new System.Drawing.Point(11, 158);
             this.LPrecio.Name = "LPrecio";
             this.LPrecio.Size = new System.Drawing.Size(71, 16);
             this.LPrecio.TabIndex = 3;
@@ -140,9 +146,10 @@
             // LNombreProducto
             // 
             this.LNombreProducto.AutoSize = true;
+            this.LNombreProducto.BackColor = System.Drawing.Color.Transparent;
             this.LNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombreProducto.ForeColor = System.Drawing.Color.White;
-            this.LNombreProducto.Location = new System.Drawing.Point(13, 93);
+            this.LNombreProducto.Location = new System.Drawing.Point(12, 93);
             this.LNombreProducto.Name = "LNombreProducto";
             this.LNombreProducto.Size = new System.Drawing.Size(128, 32);
             this.LNombreProducto.TabIndex = 2;

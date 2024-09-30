@@ -69,10 +69,15 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 
         private void BCerrarSesion_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.Show();
-            Mainform.BContracMenu_Click(sender, e);
-            Mainform.Hide();
+            DialogResult result = MessageBox.Show(new Form { TopMost = true }, "Está seguro que desea cerrar sesion?", "Cerrar Sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Form1 form = new Form1();
+                form.Show();
+                Mainform.BContracMenu_Click(sender, e);
+                Mainform.Hide();
+                MessageBox.Show(new Form { TopMost = true }, "Sesion cerrada con éxito", "Sesion cerrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void BMiPerfil_Click(object sender, EventArgs e)

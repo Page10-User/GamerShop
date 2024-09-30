@@ -228,9 +228,9 @@
             this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion2.Location = new System.Drawing.Point(307, 52);
             this.TBValidacion2.Name = "TBValidacion2";
-            this.TBValidacion2.Size = new System.Drawing.Size(221, 14);
+            this.TBValidacion2.Size = new System.Drawing.Size(215, 14);
             this.TBValidacion2.TabIndex = 21;
-            this.TBValidacion2.Text = "El apellido no debe superar los 100 carácteres.";
+            this.TBValidacion2.Text = "El apellido no debe superar los 35 carácteres.";
             this.TBValidacion2.Visible = false;
             // 
             // TNombreCl
@@ -264,9 +264,9 @@
             this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion.Location = new System.Drawing.Point(41, 51);
             this.TBValidacion.Name = "TBValidacion";
-            this.TBValidacion.Size = new System.Drawing.Size(220, 14);
+            this.TBValidacion.Size = new System.Drawing.Size(214, 14);
             this.TBValidacion.TabIndex = 20;
-            this.TBValidacion.Text = "El nombre no debe superar los 100 carácteres.";
+            this.TBValidacion.Text = "El nombre no debe superar los 35 carácteres.";
             this.TBValidacion.Visible = false;
             // 
             // LCorreoCl

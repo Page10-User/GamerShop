@@ -5,6 +5,7 @@ using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionProveedor;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.GestionVenta;
+using Gamer_Shop2._0.Formularios.Informe;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
         public Panel PanelContainer { get; set; }
         public Label LabelContainer { get; set; }
         public Bienvenida MainForm { get; set; }
+        public Form FondoOscuroCatalogo {  get; set; }
         public bool isExpandedOps { get; set; } //Referencia al booleano utilizado para evaluar si la configuración está abierta o no.
 
         //Options definido globalmente para mejor manejo.
@@ -89,7 +91,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             LabelContainer.Visible = false;
 
             // Mostrar form
-            ListaCliente formCliente = new ListaCliente();
+            AltaCliente formCliente = new AltaCliente(true);
             formCliente.TopLevel = false;
             formCliente.PanelContainer = PanelContainer;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
@@ -108,7 +110,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             LabelContainer.Visible = false;
 
             // Mostrar form
-            ListaVenta formListaVn = new ListaVenta();
+            ListaVenta formListaVn = new ListaVenta(false);
             formListaVn.TopLevel = false;
             formListaVn.PanelContainer = PanelContainer;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
@@ -147,8 +149,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 Poptions.PanelContainer = PanelContainer;
                 Poptions.Mainform = MainForm;
                 Poptions.BringToFront();
-                BGestionCompras.SendToBack();
-                BGestionProveedor.SendToBack();
+                MandarAtrasBotones();
                 PPersonalOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
                 PPersonalOptions.Controls.Add(Poptions);
 
@@ -160,15 +161,13 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 MainForm.isExpandedOpts = true;
 
                 //Pasamos los Botones (proveedor y compra).
-                MainForm.botonCompra = BGestionCompras;
-                MainForm.botonProveedor = BGestionProveedor;
+                PasarBotonesBienvenida();
                 isExpandedOps = true;
             }
             else
             {
                 Poptions.SendToBack();
-                BGestionCompras.BringToFront();
-                BGestionProveedor.BringToFront();
+                MandarAdelanteBotones();
                 Poptions.Close();
                 isExpandedOption = false;
                 MainForm.isExpandedOpts = false;
@@ -213,6 +212,48 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             PanelContainer.BringToFront();
 
             formAltaProovedor.Show();
+        }
+
+        private void BAccederInformes_Click(object sender, EventArgs e)
+        {
+            //Cerrar el menú tras elegír una opción
+            MainForm.BContracMenu_Click(sender, e);
+
+            //Ocultar Otros.
+            LabelContainer.Visible = false;
+
+            // Mostrar form
+            InstanciarYMostrarReporte();
+        }
+
+        private void InstanciarYMostrarReporte()
+        {
+            Reporte formReporte = new Reporte();
+            formReporte.TopLevel = false;
+            formReporte.PanelContainer = PanelContainer;
+            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+            PanelContainer.Controls.Add(formReporte);
+            PanelContainer.BringToFront();
+
+            formReporte.Show();
+        }
+        private void MandarAtrasBotones()
+        {
+            BGestionCompras.SendToBack();
+            BGestionProveedor.SendToBack();
+            BAccederInformes.SendToBack();
+        }
+        private void MandarAdelanteBotones()
+        {
+            BGestionCompras.BringToFront();
+            BGestionProveedor.BringToFront();
+            BAccederInformes.BringToFront();
+        }
+        private void PasarBotonesBienvenida()
+        {
+            MainForm.botonCompra = BGestionCompras;
+            MainForm.botonProveedor = BGestionProveedor;
+            MainForm.botonInforme = BAccederInformes;
         }
     }
 }
