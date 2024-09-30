@@ -219,20 +219,20 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null)
             {
-                Producto nuevoProducto = new Producto()
+                try
                 {
-                    Serial = int.Parse(TSerialPr.Texts),
-                    Nombre = TNombrePr.Texts,
-                    Descripcion = TDescripcionPr.Texts,
-                    Stock = int.Parse(TStockPr.Texts),
-                    Precio = float.Parse(TPrecioPr.Texts),
-                    ID_Categoria = 1
-                };
+                    NProducto nproducto = new NProducto();
+                    nproducto.NAgregarProducto(
+                        int.Parse(TSerialPr.Texts), TNombrePr.Texts, TDescripcionPr.Texts,
+                        int.Parse(TStockPr.Texts), float.Parse(TPrecioPr.Texts), 1
+                        );
+                    MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Este producto ya existe", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                ProductoRepository productoRepository = new ProductoRepository();
-                productoRepository.GuardarProducto(nuevoProducto);
-
-                MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             } else
             {
                 MessageBox.Show("Debe completar todos los campos para registrar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -271,10 +271,8 @@
             this.CBCategoriaPr.ForeColor = System.Drawing.Color.DimGray;
             this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.Items.AddRange(new object[] {
-            "xd",
-            "procesador",
-            "ola",
-            "a"});
+            "componentes",
+            "telefonia movil"});
             this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.Location = new System.Drawing.Point(128, 245);

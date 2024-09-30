@@ -211,10 +211,6 @@
             this.CBCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CBCategoriaPr.ForeColor = System.Drawing.Color.DimGray;
             this.CBCategoriaPr.IconColor = System.Drawing.Color.Lime;
-            this.CBCategoriaPr.Items.AddRange(new object[] {
-            "SI",
-            "NO",
-            "Tal vez"});
             this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPr.ListTextColor = System.Drawing.Color.Lime;
             this.CBCategoriaPr.Location = new System.Drawing.Point(137, 22);
