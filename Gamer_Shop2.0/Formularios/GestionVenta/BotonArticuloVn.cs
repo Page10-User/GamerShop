@@ -64,5 +64,6 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 TBCantidadPr.Text = "";
             }
         }
+
     }
 }

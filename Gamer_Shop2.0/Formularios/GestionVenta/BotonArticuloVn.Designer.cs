@@ -53,7 +53,7 @@
             this.LCategoria.AutoSize = true;
             this.LCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCategoria.ForeColor = System.Drawing.Color.White;
-            this.LCategoria.Location = new System.Drawing.Point(188, 12);
+            this.LCategoria.Location = new System.Drawing.Point(191, 12);
             this.LCategoria.Name = "LCategoria";
             this.LCategoria.Size = new System.Drawing.Size(61, 13);
             this.LCategoria.TabIndex = 16;
@@ -68,7 +68,7 @@
             this.LPrecio.Name = "LPrecio";
             this.LPrecio.Size = new System.Drawing.Size(64, 13);
             this.LPrecio.TabIndex = 17;
-            this.LPrecio.Text = "$ 250.000";
+            this.LPrecio.Text = "$ 250,000";
             // 
             // TBCantidadPr
             // 

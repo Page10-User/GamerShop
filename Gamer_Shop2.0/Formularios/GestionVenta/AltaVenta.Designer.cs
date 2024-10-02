@@ -116,6 +116,7 @@
             this.LShowLista.Size = new System.Drawing.Size(127, 18);
             this.LShowLista.TabIndex = 27;
             this.LShowLista.Text = "Generar Recibo";
+            this.LShowLista.Visible = false;
             // 
             // PContAltaVn2
             // 
@@ -226,7 +227,7 @@
             this.TBValidacion3.AutoSize = true;
             this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion3.Location = new System.Drawing.Point(77, 40);
+            this.TBValidacion3.Location = new System.Drawing.Point(77, 44);
             this.TBValidacion3.Name = "TBValidacion3";
             this.TBValidacion3.Size = new System.Drawing.Size(123, 14);
             this.TBValidacion3.TabIndex = 34;
@@ -236,9 +237,9 @@
             // PContAltaVn1
             // 
             this.PContAltaVn1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaVn1.Controls.Add(this.TBFecha);
             this.PContAltaVn1.Controls.Add(this.TBValidacion);
             this.PContAltaVn1.Controls.Add(this.LNombreUsuario);
-            this.PContAltaVn1.Controls.Add(this.TBFecha);
             this.PContAltaVn1.Location = new System.Drawing.Point(28, 241);
             this.PContAltaVn1.Name = "PContAltaVn1";
             this.PContAltaVn1.Size = new System.Drawing.Size(257, 61);
@@ -249,7 +250,7 @@
             this.TBValidacion.AutoSize = true;
             this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(77, 39);
+            this.TBValidacion.Location = new System.Drawing.Point(77, 44);
             this.TBValidacion.Name = "TBValidacion";
             this.TBValidacion.Size = new System.Drawing.Size(121, 14);
             this.TBValidacion.TabIndex = 33;
@@ -283,7 +284,7 @@
             this.TBFecha.Padding = new System.Windows.Forms.Padding(7);
             this.TBFecha.PasswordChar = false;
             this.TBFecha.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBFecha.PlaceholderText = "DD-MM-AAAA";
+            this.TBFecha.PlaceholderText = "";
             this.TBFecha.Size = new System.Drawing.Size(141, 31);
             this.TBFecha.TabIndex = 30;
             this.TBFecha.Texts = "";
@@ -319,9 +320,9 @@
             // PContAltaVn3
             // 
             this.PContAltaVn3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaVn3.Controls.Add(this.TBMonto);
             this.PContAltaVn3.Controls.Add(this.LEmailUs);
             this.PContAltaVn3.Controls.Add(this.TBValidacion3);
-            this.PContAltaVn3.Controls.Add(this.TBMonto);
             this.PContAltaVn3.Location = new System.Drawing.Point(28, 308);
             this.PContAltaVn3.Name = "PContAltaVn3";
             this.PContAltaVn3.Size = new System.Drawing.Size(257, 61);
@@ -504,6 +505,7 @@
             this.BShowListaVn.TabIndex = 25;
             this.BShowListaVn.TextColor = System.Drawing.Color.White;
             this.BShowListaVn.UseVisualStyleBackColor = false;
+            this.BShowListaVn.Visible = false;
             // 
             // BRegistrarVn
             // 

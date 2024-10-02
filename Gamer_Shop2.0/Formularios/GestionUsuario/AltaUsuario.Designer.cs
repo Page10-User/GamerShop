@@ -54,6 +54,8 @@
             this.PBImgAltaUs = new System.Windows.Forms.PictureBox();
             this.BShowListaUs = new Gamer_Shop2._0.RJButton();
             this.BRegistrarUs = new Gamer_Shop2._0.RJButton();
+            this.TBValidacion7 = new System.Windows.Forms.Label();
+            this.TBValidacion8 = new System.Windows.Forms.Label();
             this.PContAltaUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaUs)).BeginInit();
             this.SuspendLayout();
@@ -85,6 +87,8 @@
             // PContAltaUs
             // 
             this.PContAltaUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaUs.Controls.Add(this.TBValidacion8);
+            this.PContAltaUs.Controls.Add(this.TBValidacion7);
             this.PContAltaUs.Controls.Add(this.TCuilUs);
             this.PContAltaUs.Controls.Add(this.TContraseñaUs);
             this.PContAltaUs.Controls.Add(this.TEmailUs);
@@ -123,7 +127,7 @@
             this.TCuilUs.Padding = new System.Windows.Forms.Padding(7);
             this.TCuilUs.PasswordChar = false;
             this.TCuilUs.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TCuilUs.PlaceholderText = "XX-XXXXXXXX-X";
+            this.TCuilUs.PlaceholderText = "";
             this.TCuilUs.Size = new System.Drawing.Size(172, 31);
             this.TCuilUs.TabIndex = 14;
             this.TCuilUs.Texts = "";
@@ -459,6 +463,30 @@
             this.BRegistrarUs.UseVisualStyleBackColor = false;
             this.BRegistrarUs.Click += new System.EventHandler(this.BRegistrarUs_Click);
             // 
+            // TBValidacion7
+            // 
+            this.TBValidacion7.AutoSize = true;
+            this.TBValidacion7.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion7.Location = new System.Drawing.Point(99, 36);
+            this.TBValidacion7.Name = "TBValidacion7";
+            this.TBValidacion7.Size = new System.Drawing.Size(202, 14);
+            this.TBValidacion7.TabIndex = 59;
+            this.TBValidacion7.Text = "Ingrese únicamente carácteres alfabéticos.";
+            this.TBValidacion7.Visible = false;
+            // 
+            // TBValidacion8
+            // 
+            this.TBValidacion8.AutoSize = true;
+            this.TBValidacion8.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion8.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion8.Location = new System.Drawing.Point(98, 82);
+            this.TBValidacion8.Name = "TBValidacion8";
+            this.TBValidacion8.Size = new System.Drawing.Size(202, 14);
+            this.TBValidacion8.TabIndex = 60;
+            this.TBValidacion8.Text = "Ingrese únicamente carácteres alfabéticos.";
+            this.TBValidacion8.Visible = false;
+            // 
             // AltaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,5 +541,7 @@
         private System.Windows.Forms.Label TBValidacion3;
         private System.Windows.Forms.Label TBValidacion2;
         private System.Windows.Forms.Label TBValidacion;
+        private System.Windows.Forms.Label TBValidacion8;
+        private System.Windows.Forms.Label TBValidacion7;
     }
 }

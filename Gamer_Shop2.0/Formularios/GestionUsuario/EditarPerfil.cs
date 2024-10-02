@@ -125,6 +125,11 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (this != null)
             {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TNombreUs.Texts, @"^[a-zA-Z]+$"))
+                {
+                    e.Cancel = true;
+                    TBValidacion6.Visible = true;
+                }
                 if (TNombreUs.Texts.Length >= 100)
                 {
                     e.Cancel = true;
@@ -142,6 +147,11 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (this != null)
             {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TApellidoUs.Texts, @"^[a-zA-Z]+$"))
+                {
+                    e.Cancel = true;
+                    TBValidacion7.Visible = true;
+                }
                 if (TApellidoUs.Texts.Length >= 100)
                 {
                     e.Cancel = true;

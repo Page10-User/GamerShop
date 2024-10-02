@@ -118,6 +118,11 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (this != null)
             {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TNombreUs.Texts, @"^[a-zA-Z]+$"))
+                {
+                    e.Cancel = true;
+                    TBValidacion7.Visible = true;
+                }
                 if (TNombreUs.Texts.Length >= 35)
                 {
                     e.Cancel = true;
@@ -135,6 +140,11 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (this != null)
             {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TApellidoUs.Texts, @"^[a-zA-Z]+$"))
+                {
+                    e.Cancel = true;
+                    TBValidacion8.Visible = true;
+                }
                 if (TApellidoUs.Texts.Length >= 35)
                 {
                     e.Cancel = true;
@@ -152,11 +162,8 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (this != null)
             {
-                string patron = @"^\d{2}-\d{8}-\d{1}$";
-
-                bool esValido = Regex.IsMatch(TCuilUs.Texts, patron);
-
-                if (!esValido)
+                long number;
+                if (!long.TryParse(TCuilUs.Texts, out number))
                 {
                     e.Cancel = true;
                     TBValidacion3.Visible = true;

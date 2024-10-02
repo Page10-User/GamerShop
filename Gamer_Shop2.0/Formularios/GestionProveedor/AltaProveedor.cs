@@ -167,6 +167,11 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         {
             if (this != null)
             {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TBRepresentante.Texts, @"^[a-zA-Z]+$"))
+                {
+                    e.Cancel = true;
+                    TBValidacion7.Visible = true;
+                }
                 if (TBRepresentante.Texts.Length >= 35)
                 {
                     e.Cancel = true;
@@ -200,7 +205,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         {
             if (this != null)
             {
-                if (TBContacto.Texts.Length >= 15)
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TBContacto.Texts, @"^\d+$") ||  TBContacto.Texts.Length >= 15)
                 {
                     e.Cancel = true;
                     TBValidacion3.Visible = true;
@@ -314,5 +319,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 MessageBox.Show("Debe completar todos los campos para registrar un proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

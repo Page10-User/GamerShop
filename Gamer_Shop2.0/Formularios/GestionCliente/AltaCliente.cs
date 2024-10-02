@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gamer_Shop2._0.Formularios.GestionCliente
 {
@@ -115,7 +116,12 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (this != null)
             {
-                if (TBNombre.Texts.Length >= 35)
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TBNombre.Texts, @"^[a-zA-Z]+$"))
+                {
+                    e.Cancel = true;
+                    TBValidacion6.Visible = true;
+                }
+                    if (TBNombre.Texts.Length >= 35)
                 {
                     e.Cancel = true;
                     TBValidacion.Visible = true;
@@ -131,6 +137,11 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (this != null)
             {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TBNombre.Texts, @"^[a-zA-Z]+$"))
+                {
+                    e.Cancel = true;
+                    TBValidacion7.Visible = true;
+                }
                 if (TBApellido.Texts.Length >= 35)
                 {
                     e.Cancel = true;
@@ -164,7 +175,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (this != null)
             {
-                if (TBTelefono.Texts.Length >= 15)
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TBTelefono.Texts, @"^\d+$") || TBTelefono.Texts.Length >= 15)
                 {
                     e.Cancel = true;
                     TBValidacion4.Visible = true;

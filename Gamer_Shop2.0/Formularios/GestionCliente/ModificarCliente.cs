@@ -117,6 +117,11 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (this != null)
             {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TNombreCl.Texts, @"^[a-zA-Z]+$"))
+                {
+                    e.Cancel = true;
+                    TBValidacion5.Visible = true;
+                }
                 if (TNombreCl.Texts.Length >= 35)
                 {
                     e.Cancel = true;
@@ -134,6 +139,11 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (this != null)
             {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TApellidoCl.Texts, @"^[a-zA-Z]+$"))
+                {
+                    e.Cancel = true;
+                    TBValidacion6.Visible = true;
+                }
                 if (TApellidoCl.Texts.Length >= 35)
                 {
                     e.Cancel = true;
@@ -152,7 +162,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             if (this != null)
             {
                 long number;
-                if (!long.TryParse(TTelefonoCl.Texts, out number))
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TTelefonoCl.Texts, @"^\d+$") || !long.TryParse(TTelefonoCl.Texts, out number))
                 {
                     e.Cancel = true;
                     TBValidacion3.Visible = true;
@@ -263,5 +273,6 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
 
             }
         }
+
     }
 }

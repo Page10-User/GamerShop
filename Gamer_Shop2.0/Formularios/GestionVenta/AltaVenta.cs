@@ -34,6 +34,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            TBFecha.Texts = DateTime.Now.Date.ToString();
         }
 
         private void PContAltaVn_Paint(object sender, PaintEventArgs e)

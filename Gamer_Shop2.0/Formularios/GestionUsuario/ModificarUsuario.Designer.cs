@@ -53,6 +53,8 @@
             this.PBImgModificarUs = new System.Windows.Forms.PictureBox();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarUs = new Gamer_Shop2._0.RJButton();
+            this.TBValidacion7 = new System.Windows.Forms.Label();
+            this.TBValidacion8 = new System.Windows.Forms.Label();
             this.PContModificarUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarUs)).BeginInit();
             this.SuspendLayout();
@@ -72,11 +74,13 @@
             // PContModificarUs
             // 
             this.PContModificarUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContModificarUs.Controls.Add(this.TApellidoUs);
+            this.PContModificarUs.Controls.Add(this.TBValidacion8);
+            this.PContModificarUs.Controls.Add(this.TNombreUs);
+            this.PContModificarUs.Controls.Add(this.TBValidacion7);
             this.PContModificarUs.Controls.Add(this.TEmailUs);
             this.PContModificarUs.Controls.Add(this.TNombreUsuario);
             this.PContModificarUs.Controls.Add(this.TCuilUs);
-            this.PContModificarUs.Controls.Add(this.TApellidoUs);
-            this.PContModificarUs.Controls.Add(this.TNombreUs);
             this.PContModificarUs.Controls.Add(this.TBValidacion6);
             this.PContModificarUs.Controls.Add(this.TBValidacion5);
             this.PContModificarUs.Controls.Add(this.TBValidacion4);
@@ -268,7 +272,7 @@
             this.TBValidacion2.AutoSize = true;
             this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(97, 92);
+            this.TBValidacion2.Location = new System.Drawing.Point(87, 89);
             this.TBValidacion2.Name = "TBValidacion2";
             this.TBValidacion2.Size = new System.Drawing.Size(215, 14);
             this.TBValidacion2.TabIndex = 21;
@@ -448,6 +452,30 @@
             this.BModificarUs.UseVisualStyleBackColor = false;
             this.BModificarUs.Click += new System.EventHandler(this.BModificarUs_Click);
             // 
+            // TBValidacion7
+            // 
+            this.TBValidacion7.AutoSize = true;
+            this.TBValidacion7.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion7.Location = new System.Drawing.Point(100, 42);
+            this.TBValidacion7.Name = "TBValidacion7";
+            this.TBValidacion7.Size = new System.Drawing.Size(202, 14);
+            this.TBValidacion7.TabIndex = 60;
+            this.TBValidacion7.Text = "Ingrese únicamente carácteres alfabéticos.";
+            this.TBValidacion7.Visible = false;
+            // 
+            // TBValidacion8
+            // 
+            this.TBValidacion8.AutoSize = true;
+            this.TBValidacion8.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion8.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion8.Location = new System.Drawing.Point(100, 88);
+            this.TBValidacion8.Name = "TBValidacion8";
+            this.TBValidacion8.Size = new System.Drawing.Size(202, 14);
+            this.TBValidacion8.TabIndex = 61;
+            this.TBValidacion8.Text = "Ingrese únicamente carácteres alfabéticos.";
+            this.TBValidacion8.Visible = false;
+            // 
             // ModificarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,5 +528,7 @@
         private System.Windows.Forms.Label TBValidacion4;
         private System.Windows.Forms.Label TBValidacion5;
         private System.Windows.Forms.Label TBValidacion6;
+        private System.Windows.Forms.Label TBValidacion7;
+        private System.Windows.Forms.Label TBValidacion8;
     }
 }

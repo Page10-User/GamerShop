@@ -91,17 +91,17 @@
             // PContAltaCompra
             // 
             this.PContAltaCompra.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaCompra.Controls.Add(this.TBPrecioPrCompra);
+            this.PContAltaCompra.Controls.Add(this.TBCantidadPrCompra);
+            this.PContAltaCompra.Controls.Add(this.TBNombrePrCompra);
+            this.PContAltaCompra.Controls.Add(this.CBCategoriaPr);
             this.PContAltaCompra.Controls.Add(this.TBValidacion4);
             this.PContAltaCompra.Controls.Add(this.TBValidacion3);
             this.PContAltaCompra.Controls.Add(this.TBValidacion2);
             this.PContAltaCompra.Controls.Add(this.TBValidacion);
-            this.PContAltaCompra.Controls.Add(this.TBPrecioPrCompra);
-            this.PContAltaCompra.Controls.Add(this.TBCantidadPrCompra);
-            this.PContAltaCompra.Controls.Add(this.TBNombrePrCompra);
             this.PContAltaCompra.Controls.Add(this.LPrecio);
             this.PContAltaCompra.Controls.Add(this.LCantidad);
             this.PContAltaCompra.Controls.Add(this.LNombrePr);
-            this.PContAltaCompra.Controls.Add(this.CBCategoriaPr);
             this.PContAltaCompra.Controls.Add(this.LSelectProveedor);
             this.PContAltaCompra.Location = new System.Drawing.Point(67, 78);
             this.PContAltaCompra.Name = "PContAltaCompra";
@@ -113,7 +113,7 @@
             this.TBValidacion4.AutoSize = true;
             this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion4.Location = new System.Drawing.Point(163, 55);
+            this.TBValidacion4.Location = new System.Drawing.Point(246, 37);
             this.TBValidacion4.Name = "TBValidacion4";
             this.TBValidacion4.Size = new System.Drawing.Size(160, 14);
             this.TBValidacion4.TabIndex = 57;
@@ -125,7 +125,7 @@
             this.TBValidacion3.AutoSize = true;
             this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion3.Location = new System.Drawing.Point(134, 165);
+            this.TBValidacion3.Location = new System.Drawing.Point(209, 171);
             this.TBValidacion3.Name = "TBValidacion3";
             this.TBValidacion3.Size = new System.Drawing.Size(197, 14);
             this.TBValidacion3.TabIndex = 40;
@@ -137,7 +137,7 @@
             this.TBValidacion2.AutoSize = true;
             this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(134, 128);
+            this.TBValidacion2.Location = new System.Drawing.Point(172, 127);
             this.TBValidacion2.Name = "TBValidacion2";
             this.TBValidacion2.Size = new System.Drawing.Size(234, 14);
             this.TBValidacion2.TabIndex = 39;
@@ -149,7 +149,7 @@
             this.TBValidacion.AutoSize = true;
             this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(135, 90);
+            this.TBValidacion.Location = new System.Drawing.Point(195, 82);
             this.TBValidacion.Name = "TBValidacion";
             this.TBValidacion.Size = new System.Drawing.Size(211, 14);
             this.TBValidacion.TabIndex = 38;
@@ -165,7 +165,7 @@
             this.TBPrecioPrCompra.BorderSize = 1;
             this.TBPrecioPrCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBPrecioPrCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TBPrecioPrCompra.Location = new System.Drawing.Point(137, 130);
+            this.TBPrecioPrCompra.Location = new System.Drawing.Point(187, 142);
             this.TBPrecioPrCompra.Margin = new System.Windows.Forms.Padding(4);
             this.TBPrecioPrCompra.Multiline = false;
             this.TBPrecioPrCompra.Name = "TBPrecioPrCompra";
@@ -190,7 +190,7 @@
             this.TBCantidadPrCompra.BorderSize = 1;
             this.TBCantidadPrCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBCantidadPrCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TBCantidadPrCompra.Location = new System.Drawing.Point(137, 93);
+            this.TBCantidadPrCompra.Location = new System.Drawing.Point(192, 97);
             this.TBCantidadPrCompra.Margin = new System.Windows.Forms.Padding(4);
             this.TBCantidadPrCompra.Multiline = false;
             this.TBCantidadPrCompra.Name = "TBCantidadPrCompra";
@@ -215,7 +215,7 @@
             this.TBNombrePrCompra.BorderSize = 1;
             this.TBNombrePrCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBNombrePrCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TBNombrePrCompra.Location = new System.Drawing.Point(137, 55);
+            this.TBNombrePrCompra.Location = new System.Drawing.Point(192, 52);
             this.TBNombrePrCompra.Margin = new System.Windows.Forms.Padding(4);
             this.TBNombrePrCompra.Multiline = false;
             this.TBNombrePrCompra.Name = "TBNombrePrCompra";
@@ -237,7 +237,7 @@
             this.LPrecio.BackColor = System.Drawing.Color.Transparent;
             this.LPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPrecio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LPrecio.Location = new System.Drawing.Point(28, 137);
+            this.LPrecio.Location = new System.Drawing.Point(28, 149);
             this.LPrecio.Name = "LPrecio";
             this.LPrecio.Size = new System.Drawing.Size(64, 24);
             this.LPrecio.TabIndex = 34;
@@ -249,7 +249,7 @@
             this.LCantidad.BackColor = System.Drawing.Color.Transparent;
             this.LCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCantidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LCantidad.Location = new System.Drawing.Point(28, 100);
+            this.LCantidad.Location = new System.Drawing.Point(28, 104);
             this.LCantidad.Name = "LCantidad";
             this.LCantidad.Size = new System.Drawing.Size(84, 24);
             this.LCantidad.TabIndex = 33;
@@ -261,11 +261,11 @@
             this.LNombrePr.BackColor = System.Drawing.Color.Transparent;
             this.LNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombrePr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LNombrePr.Location = new System.Drawing.Point(28, 62);
+            this.LNombrePr.Location = new System.Drawing.Point(28, 59);
             this.LNombrePr.Name = "LNombrePr";
-            this.LNombrePr.Size = new System.Drawing.Size(102, 24);
+            this.LNombrePr.Size = new System.Drawing.Size(160, 24);
             this.LNombrePr.TabIndex = 32;
-            this.LNombrePr.Text = "Nombre Pr";
+            this.LNombrePr.Text = "Nombre Producto";
             // 
             // CBCategoriaPr
             // 
@@ -276,9 +276,12 @@
             this.CBCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CBCategoriaPr.ForeColor = System.Drawing.Color.DimGray;
             this.CBCategoriaPr.IconColor = System.Drawing.Color.Lime;
+            this.CBCategoriaPr.Items.AddRange(new object[] {
+            "PROVEEDOR 1",
+            "PROVEEDOR 2"});
             this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPr.ListTextColor = System.Drawing.Color.Lime;
-            this.CBCategoriaPr.Location = new System.Drawing.Point(137, 22);
+            this.CBCategoriaPr.Location = new System.Drawing.Point(192, 8);
             this.CBCategoriaPr.MinimumSize = new System.Drawing.Size(30, 30);
             this.CBCategoriaPr.Name = "CBCategoriaPr";
             this.CBCategoriaPr.Padding = new System.Windows.Forms.Padding(1);
@@ -293,7 +296,7 @@
             this.LSelectProveedor.BackColor = System.Drawing.Color.Transparent;
             this.LSelectProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LSelectProveedor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LSelectProveedor.Location = new System.Drawing.Point(28, 24);
+            this.LSelectProveedor.Location = new System.Drawing.Point(28, 11);
             this.LSelectProveedor.Name = "LSelectProveedor";
             this.LSelectProveedor.Size = new System.Drawing.Size(98, 24);
             this.LSelectProveedor.TabIndex = 30;
