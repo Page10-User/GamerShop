@@ -2,6 +2,7 @@
 using Gamer_Shop2._0.Formularios.Inicio;
 using Gamer_Shop2._0.Formularios.InterfazUsuarios;
 using System;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -16,19 +17,24 @@ namespace Gamer_Shop2._0
         private Form formBG;
 
         //Options definido globalmente para mejor manejo.
-        private EmpleadoOptions userOptions; //Manejo de opciones del menu segun el usuario <-------
+
+        //private EmpleadoOptions userOptions; //Manejo de opciones del menu segun el usuario <------- Eliminar
+        public UserOptionsBase userOptions { get; set; }
 
         //Panel Poptions del Menu (A)
         public PersonalOptions PersonalOps { get; set; }
         //Panel Poptions del Menu (E,G)
         public PersonalOptions_NB_ PersonalOpsNB { get; set; }
 
+        //Form de inicio para evitar instancias innecesarias.
+        public Form1 Forminicio { get; set; }
+
         //Fondo oscuro Catalogo
         public Form FondoOscuroCatalogo { get; set; }
 
         //Botones Proveedor y Compra del Menu (temas visuales).
-        public Button botonCompra {  get; set; }
-        public Button botonProveedor {  get; set; }
+        public Button botonCompra { get; set; }
+        public Button botonProveedor { get; set; }
         public Button botonInforme { get; set; }
 
         public bool isExpandedOpts { get; set; }
@@ -39,11 +45,6 @@ namespace Gamer_Shop2._0
             this.Load += new EventHandler(Bienvenida_Load);
             this.Paint += new PaintEventHandler(Bievenida_Paint);
             PMenuUS.Paint += new PaintEventHandler(PMenuUS_Paint);
-            userOptions = new EmpleadoOptions(); //Manejo de opciones del menu segun el usuario <-------
-            userOptions.MainForm = this;
-            userOptions.PanelContainer = PShowOptions;
-            userOptions.LabelContainer = LVersion;
-            userOptions.TopLevel = false;
         }
 
         private void PFondoBienvenida_Paint(object sender, PaintEventArgs e)
@@ -90,6 +91,9 @@ namespace Gamer_Shop2._0
             PShowOptions.Controls.Add(inicioD);
             inicioD.Show();
             inicioD.Location = new Point(50, 130);
+
+            // Pasamos los valores correspondientes al usaerOptions.
+            InstanciarUserOptions();
         }
 
         // Función botón Exit
@@ -134,6 +138,7 @@ namespace Gamer_Shop2._0
 
             // Cargar contenido del menú.
             PMenuUS.Controls.Add(userOptions);
+            userOptions.Forminicio = Forminicio;
             userOptions.Location = new Point(0, 1);
             userOptions.Visible = true;
 
@@ -252,6 +257,15 @@ namespace Gamer_Shop2._0
             botonCompra.BringToFront();
             botonProveedor.BringToFront();
             botonInforme.BringToFront();
+        }
+
+        private void InstanciarUserOptions()
+        {
+            userOptions.MainForm = this;
+            userOptions.PanelContainer = PShowOptions;
+            userOptions.LabelContainer = LVersion;
+            userOptions.Forminicio = Forminicio;
+            userOptions.TopLevel = false;
         }
     }
 }

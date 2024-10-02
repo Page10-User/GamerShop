@@ -14,16 +14,10 @@ using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 {
-    public partial class GerenteOptions : Form
+    public partial class GerenteOptions : UserOptionsBase
     {
 
         bool isExpandedOption = false;
-        public Panel PanelContainer { get; set; }
-        public Label LabelContainer { get; set; }
-        public Bienvenida MainForm { get; set; }
-        public Form FondoOscuroCatalogo {  get; set; }
-
-        public bool isExpandedOps { get; set; } //Referencia al booleano utilizado para evaluar si la configuración está abierta o no.
 
         //Options definido globalmente para mejor manejo.
         private PersonalOptions_NB_ Poptions;
@@ -61,6 +55,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 Poptions.TopLevel = false;
                 Poptions.PanelContainer = PanelContainer;
                 Poptions.Mainform = MainForm;
+                Poptions.Forminicio = Forminicio;
                 PPersonalOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
                 PPersonalOptions.Controls.Add(Poptions);
                 Poptions.Location = new Point(1, 1);
