@@ -318,6 +318,9 @@
     <Compile Include="RJControls\RJTextBox.Designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserOptionsBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="Bienvenida.resx">
       <DependentUpon>Bienvenida.cs</DependentUpon>
     </EmbeddedResource>

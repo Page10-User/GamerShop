@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.RJControls;
+﻿using Gamer_Shop2._0.Formularios.InterfazUsuarios;
+using Gamer_Shop2._0.RJControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,14 @@ namespace Gamer_Shop2._0
 {
     public partial class Form1 : Form
     {
+        Bienvenida existeBienvenida {  get; set; }
+
+        Bienvenida bienvenida;
         public Form1()
         {
             InitializeComponent();
             this.Paint += new PaintEventHandler(Form1_Paint);
             this.PInicio.Paint += new PaintEventHandler(panel1_Paint);
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -102,19 +105,6 @@ namespace Gamer_Shop2._0
             this.AutoValidate = AutoValidate.EnablePreventFocusChange;
         }
 
-        private void BIniciar_Click(object sender, EventArgs e)
-        {
-            if (TBUsuario.Texts != string.Empty && TBContraseña.Texts != string.Empty)
-            {
-                Bienvenida bienvenida = new Bienvenida();
-                bienvenida.Show();
-                this.Hide();
-            } else
-            {
-                MessageBox.Show("Por favor, ingrese su usuario y contraseña", "Iniciar sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void TBUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             var textbox = sender as RJTextBox_radio_;
@@ -130,7 +120,57 @@ namespace Gamer_Shop2._0
                 e.Handled = true;
             }
         }
+        private void BIniciar_Click(object sender, EventArgs e)
+        {
+            if (TBUsuario.Texts != string.Empty && TBContraseña.Texts != string.Empty)
+            {
+                MostrarOInstanciarBienvenidaCS();
 
-        
+                if (TBUsuario.Texts == "EmpleadoUser" && TBContraseña.Texts == "12345678")
+                {
+                    EmpleadoOptions userOptions = new EmpleadoOptions();
+                    bienvenida.userOptions = userOptions;
+                    bienvenida.Show();
+                    bienvenida.Forminicio = this;
+                    this.Hide();
+                }
+                else if (TBUsuario.Texts == "AdministradorUser" && TBContraseña.Texts == "12345678")
+                {
+                    AdministradorOptions userOptions = new AdministradorOptions();
+                    bienvenida.userOptions = userOptions;
+                    bienvenida.Show();
+                    bienvenida.Forminicio = this;
+                    this.Hide();
+                }
+                else if (TBUsuario.Texts == "GerenteUser" && TBContraseña.Texts == "12345678")
+                {
+                    GerenteOptions userOptions = new GerenteOptions();
+                    bienvenida.userOptions = userOptions;
+                    bienvenida.Show();
+                    bienvenida.Forminicio = this;
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese un usuario y contraseña válidos", "Iniciar sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese su usuario y contraseña", "Iniciar sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void MostrarOInstanciarBienvenidaCS()
+        {
+            if (existeBienvenida == null)
+            {
+                Bienvenida bienvenidaForm = new Bienvenida();
+                bienvenida = bienvenidaForm;
+            }
+            else
+            {
+                existeBienvenida.Show();
+            }
+        }
     }
 }

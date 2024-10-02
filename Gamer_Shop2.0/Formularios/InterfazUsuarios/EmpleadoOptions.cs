@@ -16,14 +16,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 {
-    public partial class EmpleadoOptions : Form
+    public partial class EmpleadoOptions : UserOptionsBase
     {
         bool isExpandedOption = false;
-        public Panel PanelContainer { get; set; } //Referencia a Control para los forms de gestion.
-        public Label LabelContainer { get; set; } //Referencia al Label de version para poner visible o no.
-        public Bienvenida MainForm { get; set; } //Referencia a Bienvenida para usar su función MenuContract.
-        public Form FondoOscuroCatalogo { get; set; } //Referencia al fondo oscuro del catalogo para cerrarlo tras click a algún boton del menu.
-        public bool isExpandedOps { get; set; } //Referencia al booleano utilizado para evaluar si la configuración está abierta o no.
 
         //Options definido globalmente para mejor manejo.
         private PersonalOptions_NB_ Poptions ;
@@ -134,6 +129,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 Poptions.TopLevel = false;
                 Poptions.PanelContainer = PanelContainer;
                 Poptions.Mainform = MainForm;
+                Poptions.Forminicio = Forminicio;
                 Poptions.FondoOscuroCat = FondoOscuroCatalogo;
                 PPersonalOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
                 PPersonalOptions.Controls.Add(Poptions);
