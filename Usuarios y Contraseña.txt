@@ -1,0 +1,18 @@
+Usuario y contraseña de los distintos usuarios.
+
+
+Usuario empleado  *********************************
+	-Usuario: EmpleadoUser
+	-Contraseña: 12345678
+
+
+
+Usuario Administrador  ****************************
+	-Usuario: AdministradorUser
+	-Contraseña: 12345678
+
+
+
+Usuario Gerente  **********************************
+	-Usuario: GerenteUser
+	-Contraseña: 12345678
