@@ -182,6 +182,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             AltaCompra formAltaCo = new AltaCompra();
             formAltaCo.TopLevel = false;
             formAltaCo.PanelContainer = PanelContainer;
+            formAltaCo.MainForm = MainForm;
 
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formAltaCo);

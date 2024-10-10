@@ -236,20 +236,8 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         private void BNuevoCliente_Click(object sender, EventArgs e)
         {
             // Crear un nuevo formulario para el efecto de oscurecimiento
-            Form formBG;
-            formBG = new Form
-            {
-                StartPosition = FormStartPosition.Manual,
-                FormBorderStyle = FormBorderStyle.None,
-                Opacity = 0.70d, // 70% de opacidad
-                BackColor = Color.Black,
-                Width = 638 - 2,
-                Height = this.Height - 4,
-                Location = this.Location,
-                WindowState = FormWindowState.Maximized,
-                TopMost = true,
-                ShowInTaskbar = false
-            };
+            Form formBG = new Form();
+            personalizarFondoNegro(formBG);
 
             // Mostrar el formulario de oscurecimiento
             formBG.Show();
@@ -284,6 +272,20 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             PContAltaVn3.Paint += new PaintEventHandler(PContAltaVn_Paint);
             PContAltaVn4.Paint += new PaintEventHandler(PContAltaVn_Paint);
             PBuscadorPrVn.Paint += new PaintEventHandler(PContAltaVn_Paint);
+        }
+
+        private void personalizarFondoNegro(Form fondoBg)
+        {
+            fondoBg.StartPosition = FormStartPosition.Manual;
+            fondoBg.FormBorderStyle = FormBorderStyle.None;
+            fondoBg.Opacity = 0.70d;
+            fondoBg.BackColor = Color.Black;
+            fondoBg.Width = 638 - 2;
+            fondoBg.Height = this.Height - 4;
+            fondoBg.Location = this.Location;
+            fondoBg.WindowState = FormWindowState.Maximized;
+            fondoBg.TopMost = true;
+            fondoBg.ShowInTaskbar = false;
         }
     }
 }

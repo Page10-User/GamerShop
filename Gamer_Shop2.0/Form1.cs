@@ -172,5 +172,21 @@ namespace Gamer_Shop2._0
                 existeBienvenida.Show();
             }
         }
+
+        //Eliminar más adelante...
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            TBUsuario.Texts = "AdministradorUser";
+            TBContraseña.Texts = "12345678";
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Llamar al evento del botón Iniciar
+                BIniciar_Click(sender, e);
+            }
+        }
     }
 }

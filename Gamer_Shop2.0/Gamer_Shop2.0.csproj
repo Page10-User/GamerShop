@@ -81,6 +81,18 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Excepciones\ExisteRegistroException.cs" />
+    <Compile Include="Formularios\Gestion Compra\Lista Producto Compra\BotonArticuloCompra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Gestion Compra\Lista Producto Compra\BotonArticuloCompra.Designer.cs">
+      <DependentUpon>BotonArticuloCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Gestion Compra\Lista Producto Compra\ListaProductosCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Gestion Compra\Lista Producto Compra\ListaProductosCompra.Designer.cs">
+      <DependentUpon>ListaProductosCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModeloBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -345,8 +357,14 @@
     <EmbeddedResource Include="Formularios\Gestion Compra\AltaCompra.resx">
       <DependentUpon>AltaCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Gestion Compra\Lista Producto Compra\BotonArticuloCompra.resx">
+      <DependentUpon>BotonArticuloCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Gestion Compra\ListaCompra.resx">
       <DependentUpon>ListaCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Gestion Compra\Lista Producto Compra\ListaProductosCompra.resx">
+      <DependentUpon>ListaProductosCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionBackups\Backups.resx">
       <DependentUpon>Backups.cs</DependentUpon>
@@ -492,6 +510,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Validacion\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

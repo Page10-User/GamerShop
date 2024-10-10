@@ -213,6 +213,8 @@
             this.BSalir.BorderSize = 0;
             this.BSalir.CausesValidation = false;
             this.BSalir.FlatAppearance.BorderSize = 0;
+            this.BSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSalir.ForeColor = System.Drawing.Color.White;
             this.BSalir.Location = new System.Drawing.Point(795, 22);
@@ -235,9 +237,12 @@
             this.Controls.Add(this.PInicio);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PInicio.ResumeLayout(false);
             this.PInicio.PerformLayout();

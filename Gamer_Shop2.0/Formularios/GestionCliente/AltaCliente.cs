@@ -1,4 +1,4 @@
-﻿    using Gamer_Shop2._0.RJControls;
+﻿using Gamer_Shop2._0.RJControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -120,38 +120,50 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 {
                     e.Cancel = true;
                     TBValidacion6.Visible = true;
+                    //TBValidacion.Visible = false;
                 }
-                    if (TBNombre.Texts.Length >= 35)
+                if (TBNombre.Texts.Length >= 35)
                 {
                     e.Cancel = true;
                     TBValidacion.Visible = true;
+                    TBValidacion6.Visible = false;
 
                 }
                 else
                 {
                     TBValidacion.Visible = false;
+                    TBValidacion6.Visible = false;
                 }
             }
         }
         private void TBApellido_Validating(object sender, CancelEventArgs e)
         {
-            if (this != null)
+            if (TBApellido.Texts != "")
             {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(TBNombre.Texts, @"^[a-zA-Z]+$"))
+                if (!System.Text.RegularExpressions.Regex.IsMatch(TBApellido.Texts, @"^[a-zA-Z]+$"))
                 {
                     e.Cancel = true;
                     TBValidacion7.Visible = true;
-                }
-                if (TBApellido.Texts.Length >= 35)
-                {
-                    e.Cancel = true;
-                    TBValidacion2.Visible = true;
-
+                    TBValidacion2.Visible = false;
                 }
                 else
                 {
-                    TBValidacion2.Visible = false;
+                    //2da validación
+                    if (TBApellido.Texts.Length >= 35)
+                    {
+                        e.Cancel = true;
+                        TBValidacion2.Visible = true;
+                        TBValidacion7.Visible = false;
+                    }
+                    else
+                    {
+                        OcultarValidaciones();
+                    }
                 }
+            }
+            else
+            {
+                OcultarValidaciones();
             }
         }
         private void TBDni_Validating(object sender, CancelEventArgs e)
@@ -304,7 +316,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             {
                 BShowListaCl.Visible = true;
                 LShowLista.Visible = true;
-                BCloseAltaCliente.Visible = false;  
+                BCloseAltaCliente.Visible = false;
             }
             else
             {
@@ -319,6 +331,17 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             MainForm.TopMost = true;
             FondoOscurecido.Close();
             this.Close();
+        }
+
+        private void OcultarValidaciones()
+        {
+            TBValidacion.Visible = false;
+            TBValidacion2.Visible = false;
+            TBValidacion3.Visible = false;
+            TBValidacion4.Visible = false;
+            TBValidacion5.Visible = false;
+            TBValidacion6.Visible = false;
+            TBValidacion7.Visible = false;
         }
     }
 }
