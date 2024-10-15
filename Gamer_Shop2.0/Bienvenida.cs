@@ -199,10 +199,8 @@ namespace Gamer_Shop2._0
                 Location = formBGLocation,
                 WindowState = FormWindowState.Normal,
                 TopMost = true,
-                ShowInTaskbar = false
+                ShowInTaskbar = false,
             };
-
-            // Mostrar el formulario de oscurecimiento
             formBG.Show();
         }
         private void OcultarContenidoMenu()

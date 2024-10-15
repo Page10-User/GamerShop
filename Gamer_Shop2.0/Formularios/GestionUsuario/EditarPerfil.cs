@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.RJControls;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.RJControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -292,13 +293,26 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (TNombreUs.Texts != string.Empty && TApellidoUs.Texts != string.Empty && TNombreUsuario.Texts != string.Empty && TContraseñaUs.Texts != string.Empty && TEmailUs.Texts != string.Empty)
             {
-                MessageBox.Show("Perfil modificado con éxito", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Perfil modificado con éxito", "Modificación", "Informacion", null);
+                mensaje.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Debe completar todos los campos para modificar", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para editar tu perfil", "Error", "Error", generarListaCampos());
+                mensaje.ShowDialog();
             }
+        }
+
+        private List<string> generarListaCampos()
+        {
+            List<string> campos = new List<string>{
+                TNombreUs.Texts,
+                TApellidoUs.Texts,
+                TNombreUsuario.Texts,
+                TEmailUs.Texts,
+                TContraseñaUs.Texts,
+             };
+            return campos;
         }
     }
 }

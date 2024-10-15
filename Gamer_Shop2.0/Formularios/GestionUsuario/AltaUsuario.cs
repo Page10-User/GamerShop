@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.RJControls;
 using System;
 using System.Collections.Generic;
@@ -311,13 +312,26 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (TNombreUs.Texts != string.Empty && TApellidoUs.Texts != string.Empty && TCuilUs.Texts != string.Empty && TNombreUsuario.Texts != string.Empty && TContraseñaUs.Texts != string.Empty && TEmailUs.Texts != string.Empty)
             {
-                MessageBox.Show("Usuario registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Usuario registrado con éxito", "Registro", "Informacion", null);
+                mensaje.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Debe completar todos los campos para registrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar un usuario", "Error", "Error", generarListaCampos());
+                mensaje.ShowDialog();
             }
+        }
+        private List<string> generarListaCampos()
+        {
+            List<string> campos = new List<string>{
+                TNombreUs.Texts,
+                TApellidoUs.Texts,
+                TCuilUs.Texts,
+                TNombreUsuario.Texts,
+                TEmailUs.Texts,
+                TContraseñaUs.Texts,
+             };
+            return campos;
         }
     }
 }

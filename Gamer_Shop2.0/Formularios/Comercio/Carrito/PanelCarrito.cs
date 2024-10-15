@@ -1,5 +1,6 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.GestionVenta;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -104,14 +105,22 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         {
             if (VerificarSiHayProductosCargados() == 0)
             {
-                MessageBox.Show(new Form { TopMost = true }, "Debe cargar como mínimo un producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe cargar como mínimo un producto", "Error", "Error", null);
+                mensaje.ShowDialog();
             }
             else
             {
-                DialogResult result = MessageBox.Show(new Form { TopMost = true }, "Está seguro que quiere realizar la venta?", "Venta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que quiere seguir con la venta?", "Eliminar Producto", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+
                 if (result == DialogResult.Yes)
                 {
                     InstanciarYMostrarAltaVenta();
+                    mensaje.Close();
+                }
+                else
+                {
+                    mensaje.Close();
                 }
             }
         }

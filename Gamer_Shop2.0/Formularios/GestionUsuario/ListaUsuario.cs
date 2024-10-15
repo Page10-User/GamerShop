@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -152,12 +153,17 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             }
             else if (e.ColumnIndex == DGListaUs.Columns["CEliminar"].Index && e.RowIndex >= 0)
             {
-                DialogResult = MessageBox.Show("Está seguro que desea eliminar este usuario?", "Eliminar usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (DialogResult == DialogResult.Yes)
+                MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea eliminar este usuario?", "Eliminar Usuario", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+                if (result == DialogResult.Yes)
                 {
-                    // Momentaneamente elimina totalmente la fila.
-                    // Debería pasar a una lista de "inactivos" xEliminacion logica
+                    //Cerramos el mensaje que está en Hide.
+                    mensaje.Close();
                     DGListaUs.Rows.RemoveAt(e.RowIndex);
+                }
+                else
+                {
+                    mensaje.Close();
                 }
             }
         }

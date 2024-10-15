@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -23,11 +24,16 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         private void BEliminarPrVn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Está seguro que desea eliminar el producto de la lista?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea eliminar el producto de la lista?", "Eliminar Producto", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
             if (result == DialogResult.Yes)
             {
+                //Cerramos el mensaje que está en Hide
+                mensaje.Close();
                 this.Parent.Controls.Remove(this);
                 MessageBox.Show("Producto eliminado correctamente de la lista", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mensaje = new MsgPersonalizado("Producto eliminado correctamente de la lista", "Eliminación", "Informacion", null);
+                mensaje.ShowDialog();
             }
         }
 
@@ -49,18 +55,21 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             {
                 if (result < 0)
                 {
-                    MessageBox.Show("El valor no puede ser negativo.");
+                    MsgPersonalizado mensaje = new MsgPersonalizado("El valor no puede ser negativo", "Error", "Error", null);
+                    mensaje.ShowDialog();
                     TBCantidadPr.Text = "";
                 }
                 else if (result == 0)
                 {
-                    MessageBox.Show("El valor no puede ser 0.");
+                    MsgPersonalizado mensaje = new MsgPersonalizado("El valor no puede ser 0", "Error", "Error", null);
+                    mensaje.ShowDialog();
                     TBCantidadPr.Text = "";
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, ingrese un número entero positivo.");
+                MsgPersonalizado mensaje = new MsgPersonalizado("Por favor, ingrese un número entero positivo.", "Error", "Error", null);
+                mensaje.ShowDialog();
                 TBCantidadPr.Text = "";
             }
         }

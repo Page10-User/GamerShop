@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -93,10 +94,17 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
 
         private void BBackupCompleto_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("Está seguro que desea realizar un Backup Completo", "Backup Completo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (DialogResult == DialogResult.Yes)
+            MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea realizar un 'Backup Completo'?", "Backup Completo", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Backup completo realizado con éxito!", "Backup Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mensaje.Close(); // Cerramos el anterior mensaje que está en "Hide".
+                mensaje = new MsgPersonalizado("'Backup Completo' realizado con éxito!", "Backup Exitoso", "Informacion", null);
+                mensaje.ShowDialog();
+            }   
+            else
+            {
+                mensaje.Close();
             }
         }
 
@@ -104,15 +112,23 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
         {
             if (CBGestionCompra.Checked || CBGestionProducto.Checked || CBGestionProveedor.Checked || CBGestionUsuario.Checked || CBGestionVenta.Checked)
             {
-                DialogResult = MessageBox.Show("Está seguro que desea realizar un Backup Personalizado", "Backup Personalizado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (DialogResult == DialogResult.Yes)
+                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea realizar un 'Backup Personalizado'?", "Backup Personalizado", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Backup personalizado realizado con éxito!", "Backup Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mensaje.Close();
+                    mensaje = new MsgPersonalizado("'Backup Personalizado' realizado con éxito!", "Backup Personalizado", "Informacion", null);
+                    mensaje.ShowDialog();
+                }
+                else
+                {
+                    mensaje.Close();
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione una opción para Backup Personalizado por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Seleccione una opción para Backup Personalizado por favor", "Error", "Error",null);
+                mensaje.ShowDialog();
             }
         }
     }

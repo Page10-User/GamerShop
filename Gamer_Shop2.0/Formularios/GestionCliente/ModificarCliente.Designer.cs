@@ -33,15 +33,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BModificarCl = new Gamer_Shop2._0.RJButton();
             this.PContModificarCl = new System.Windows.Forms.Panel();
+            this.TBValidacion8 = new System.Windows.Forms.Label();
+            this.TBValidacion7 = new System.Windows.Forms.Label();
             this.TBValidacion6 = new System.Windows.Forms.Label();
             this.TBValidacion5 = new System.Windows.Forms.Label();
-            this.TEmailCl = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBCorreo = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion4 = new System.Windows.Forms.Label();
-            this.TTelefonoCl = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBTelefono = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion3 = new System.Windows.Forms.Label();
-            this.TApellidoCl = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBApellido = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion2 = new System.Windows.Forms.Label();
-            this.TNombreCl = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBNombre = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.LCorreoCl = new System.Windows.Forms.Label();
             this.LApellidoCl = new System.Windows.Forms.Label();
@@ -110,15 +112,17 @@
             // PContModificarCl
             // 
             this.PContModificarCl.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContModificarCl.Controls.Add(this.TBValidacion8);
+            this.PContModificarCl.Controls.Add(this.TBValidacion7);
             this.PContModificarCl.Controls.Add(this.TBValidacion6);
             this.PContModificarCl.Controls.Add(this.TBValidacion5);
-            this.PContModificarCl.Controls.Add(this.TEmailCl);
+            this.PContModificarCl.Controls.Add(this.TBCorreo);
             this.PContModificarCl.Controls.Add(this.TBValidacion4);
-            this.PContModificarCl.Controls.Add(this.TTelefonoCl);
+            this.PContModificarCl.Controls.Add(this.TBTelefono);
             this.PContModificarCl.Controls.Add(this.TBValidacion3);
-            this.PContModificarCl.Controls.Add(this.TApellidoCl);
+            this.PContModificarCl.Controls.Add(this.TBApellido);
             this.PContModificarCl.Controls.Add(this.TBValidacion2);
-            this.PContModificarCl.Controls.Add(this.TNombreCl);
+            this.PContModificarCl.Controls.Add(this.TBNombre);
             this.PContModificarCl.Controls.Add(this.TBValidacion);
             this.PContModificarCl.Controls.Add(this.LCorreoCl);
             this.PContModificarCl.Controls.Add(this.LApellidoCl);
@@ -129,12 +133,36 @@
             this.PContModificarCl.Size = new System.Drawing.Size(552, 190);
             this.PContModificarCl.TabIndex = 16;
             // 
+            // TBValidacion8
+            // 
+            this.TBValidacion8.AutoSize = true;
+            this.TBValidacion8.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion8.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion8.Location = new System.Drawing.Point(178, 160);
+            this.TBValidacion8.Name = "TBValidacion8";
+            this.TBValidacion8.Size = new System.Drawing.Size(211, 14);
+            this.TBValidacion8.TabIndex = 37;
+            this.TBValidacion8.Text = "El correo no debe superar los 100 caracteres";
+            this.TBValidacion8.Visible = false;
+            // 
+            // TBValidacion7
+            // 
+            this.TBValidacion7.AutoSize = true;
+            this.TBValidacion7.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion7.Location = new System.Drawing.Point(192, 107);
+            this.TBValidacion7.Name = "TBValidacion7";
+            this.TBValidacion7.Size = new System.Drawing.Size(197, 14);
+            this.TBValidacion7.TabIndex = 36;
+            this.TBValidacion7.Text = "Ingrese unicamente caracteres numéricos";
+            this.TBValidacion7.Visible = false;
+            // 
             // TBValidacion6
             // 
             this.TBValidacion6.AutoSize = true;
             this.TBValidacion6.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion6.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion6.Location = new System.Drawing.Point(314, 52);
+            this.TBValidacion6.Location = new System.Drawing.Point(325, 52);
             this.TBValidacion6.Name = "TBValidacion6";
             this.TBValidacion6.Size = new System.Drawing.Size(202, 14);
             this.TBValidacion6.TabIndex = 35;
@@ -146,151 +174,152 @@
             this.TBValidacion5.AutoSize = true;
             this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion5.Location = new System.Drawing.Point(48, 52);
+            this.TBValidacion5.Location = new System.Drawing.Point(59, 52);
             this.TBValidacion5.Name = "TBValidacion5";
             this.TBValidacion5.Size = new System.Drawing.Size(202, 14);
             this.TBValidacion5.TabIndex = 34;
             this.TBValidacion5.Text = "Ingrese únicamente carácteres alfabéticos.";
             this.TBValidacion5.Visible = false;
             // 
-            // TEmailCl
+            // TBCorreo
             // 
-            this.TEmailCl.BackColor = System.Drawing.Color.Black;
-            this.TEmailCl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TEmailCl.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TEmailCl.BorderSize = 2;
-            this.TEmailCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TEmailCl.ForeColor = System.Drawing.Color.White;
-            this.TEmailCl.Location = new System.Drawing.Point(217, 125);
-            this.TEmailCl.Margin = new System.Windows.Forms.Padding(4);
-            this.TEmailCl.Multiline = false;
-            this.TEmailCl.Name = "TEmailCl";
-            this.TEmailCl.Padding = new System.Windows.Forms.Padding(7);
-            this.TEmailCl.PasswordChar = false;
-            this.TEmailCl.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TEmailCl.PlaceholderText = "ejemplo@gmail.com";
-            this.TEmailCl.Size = new System.Drawing.Size(172, 31);
-            this.TEmailCl.TabIndex = 15;
-            this.TEmailCl.Texts = "";
-            this.TEmailCl.UnderlinedStyle = true;
-            this.TEmailCl._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TEmailCl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TEmailCl_KeyPress);
-            this.TEmailCl.Validating += new System.ComponentModel.CancelEventHandler(this.TEmailCl_Validating);
+            this.TBCorreo.BackColor = System.Drawing.Color.Black;
+            this.TBCorreo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBCorreo.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBCorreo.BorderSize = 2;
+            this.TBCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBCorreo.ForeColor = System.Drawing.Color.White;
+            this.TBCorreo.Location = new System.Drawing.Point(217, 125);
+            this.TBCorreo.Margin = new System.Windows.Forms.Padding(4);
+            this.TBCorreo.Multiline = false;
+            this.TBCorreo.Name = "TBCorreo";
+            this.TBCorreo.Padding = new System.Windows.Forms.Padding(7);
+            this.TBCorreo.PasswordChar = false;
+            this.TBCorreo.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBCorreo.PlaceholderText = "ejemplo@gmail.com";
+            this.TBCorreo.Size = new System.Drawing.Size(172, 31);
+            this.TBCorreo.TabIndex = 15;
+            this.TBCorreo.Texts = "";
+            this.TBCorreo.UnderlinedStyle = true;
+            this.TBCorreo._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCorreo_KeyPress);
+            this.TBCorreo.Validating += new System.ComponentModel.CancelEventHandler(this.TBCorreo_Validating);
             // 
             // TBValidacion4
             // 
             this.TBValidacion4.AutoSize = true;
             this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion4.Location = new System.Drawing.Point(243, 160);
+            this.TBValidacion4.Location = new System.Drawing.Point(267, 160);
             this.TBValidacion4.Name = "TBValidacion4";
             this.TBValidacion4.Size = new System.Drawing.Size(122, 14);
             this.TBValidacion4.TabIndex = 23;
             this.TBValidacion4.Text = "Ingrese un correo válido.";
             this.TBValidacion4.Visible = false;
             // 
-            // TTelefonoCl
+            // TBTelefono
             // 
-            this.TTelefonoCl.BackColor = System.Drawing.Color.Black;
-            this.TTelefonoCl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TTelefonoCl.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TTelefonoCl.BorderSize = 2;
-            this.TTelefonoCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TTelefonoCl.ForeColor = System.Drawing.Color.White;
-            this.TTelefonoCl.Location = new System.Drawing.Point(217, 69);
-            this.TTelefonoCl.Margin = new System.Windows.Forms.Padding(4);
-            this.TTelefonoCl.Multiline = false;
-            this.TTelefonoCl.Name = "TTelefonoCl";
-            this.TTelefonoCl.Padding = new System.Windows.Forms.Padding(7);
-            this.TTelefonoCl.PasswordChar = false;
-            this.TTelefonoCl.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TTelefonoCl.PlaceholderText = "";
-            this.TTelefonoCl.Size = new System.Drawing.Size(172, 31);
-            this.TTelefonoCl.TabIndex = 14;
-            this.TTelefonoCl.Texts = "";
-            this.TTelefonoCl.UnderlinedStyle = true;
-            this.TTelefonoCl._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TTelefonoCl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTelefonoCl_KeyPress);
-            this.TTelefonoCl.Validating += new System.ComponentModel.CancelEventHandler(this.TTelefonoCl_Validating);
+            this.TBTelefono.BackColor = System.Drawing.Color.Black;
+            this.TBTelefono.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBTelefono.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBTelefono.BorderSize = 2;
+            this.TBTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBTelefono.ForeColor = System.Drawing.Color.White;
+            this.TBTelefono.Location = new System.Drawing.Point(217, 69);
+            this.TBTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.TBTelefono.Multiline = false;
+            this.TBTelefono.Name = "TBTelefono";
+            this.TBTelefono.Padding = new System.Windows.Forms.Padding(7);
+            this.TBTelefono.PasswordChar = false;
+            this.TBTelefono.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBTelefono.PlaceholderText = "";
+            this.TBTelefono.Size = new System.Drawing.Size(172, 31);
+            this.TBTelefono.TabIndex = 14;
+            this.TBTelefono.Texts = "";
+            this.TBTelefono.UnderlinedStyle = true;
+            this.TBTelefono._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBTelefono.Enter += new System.EventHandler(this.TBTelefono_Enter);
+            this.TBTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBTelefono_KeyPress);
+            this.TBTelefono.Validating += new System.ComponentModel.CancelEventHandler(this.TBTelefono_Validating);
             // 
             // TBValidacion3
             // 
             this.TBValidacion3.AutoSize = true;
             this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion3.Location = new System.Drawing.Point(205, 99);
+            this.TBValidacion3.Location = new System.Drawing.Point(205, 104);
             this.TBValidacion3.Name = "TBValidacion3";
             this.TBValidacion3.Size = new System.Drawing.Size(184, 14);
             this.TBValidacion3.TabIndex = 22;
             this.TBValidacion3.Text = "Ingrese un número de teléfono válido.";
             this.TBValidacion3.Visible = false;
             // 
-            // TApellidoCl
+            // TBApellido
             // 
-            this.TApellidoCl.BackColor = System.Drawing.Color.Black;
-            this.TApellidoCl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TApellidoCl.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TApellidoCl.BorderSize = 2;
-            this.TApellidoCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TApellidoCl.ForeColor = System.Drawing.Color.White;
-            this.TApellidoCl.Location = new System.Drawing.Point(355, 21);
-            this.TApellidoCl.Margin = new System.Windows.Forms.Padding(4);
-            this.TApellidoCl.Multiline = true;
-            this.TApellidoCl.Name = "TApellidoCl";
-            this.TApellidoCl.Padding = new System.Windows.Forms.Padding(7);
-            this.TApellidoCl.PasswordChar = false;
-            this.TApellidoCl.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TApellidoCl.PlaceholderText = "";
-            this.TApellidoCl.Size = new System.Drawing.Size(172, 31);
-            this.TApellidoCl.TabIndex = 13;
-            this.TApellidoCl.Texts = "";
-            this.TApellidoCl.UnderlinedStyle = true;
-            this.TApellidoCl._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TApellidoCl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TApellidoCl_KeyPress);
-            this.TApellidoCl.Validating += new System.ComponentModel.CancelEventHandler(this.TApellidoCl_Validating);
+            this.TBApellido.BackColor = System.Drawing.Color.Black;
+            this.TBApellido.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBApellido.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBApellido.BorderSize = 2;
+            this.TBApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBApellido.ForeColor = System.Drawing.Color.White;
+            this.TBApellido.Location = new System.Drawing.Point(355, 21);
+            this.TBApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.TBApellido.Multiline = true;
+            this.TBApellido.Name = "TBApellido";
+            this.TBApellido.Padding = new System.Windows.Forms.Padding(7);
+            this.TBApellido.PasswordChar = false;
+            this.TBApellido.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBApellido.PlaceholderText = "";
+            this.TBApellido.Size = new System.Drawing.Size(172, 31);
+            this.TBApellido.TabIndex = 13;
+            this.TBApellido.Texts = "";
+            this.TBApellido.UnderlinedStyle = true;
+            this.TBApellido._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBApellido_KeyPress);
+            this.TBApellido.Validating += new System.ComponentModel.CancelEventHandler(this.TBApellido_Validating);
             // 
             // TBValidacion2
             // 
             this.TBValidacion2.AutoSize = true;
             this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(307, 52);
+            this.TBValidacion2.Location = new System.Drawing.Point(312, 52);
             this.TBValidacion2.Name = "TBValidacion2";
             this.TBValidacion2.Size = new System.Drawing.Size(215, 14);
             this.TBValidacion2.TabIndex = 21;
             this.TBValidacion2.Text = "El apellido no debe superar los 35 carácteres.";
             this.TBValidacion2.Visible = false;
             // 
-            // TNombreCl
+            // TBNombre
             // 
-            this.TNombreCl.BackColor = System.Drawing.Color.Black;
-            this.TNombreCl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TNombreCl.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TNombreCl.BorderSize = 2;
-            this.TNombreCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombreCl.ForeColor = System.Drawing.Color.White;
-            this.TNombreCl.Location = new System.Drawing.Point(89, 21);
-            this.TNombreCl.Margin = new System.Windows.Forms.Padding(4);
-            this.TNombreCl.Multiline = false;
-            this.TNombreCl.Name = "TNombreCl";
-            this.TNombreCl.Padding = new System.Windows.Forms.Padding(7);
-            this.TNombreCl.PasswordChar = false;
-            this.TNombreCl.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TNombreCl.PlaceholderText = "";
-            this.TNombreCl.Size = new System.Drawing.Size(172, 31);
-            this.TNombreCl.TabIndex = 12;
-            this.TNombreCl.Texts = "";
-            this.TNombreCl.UnderlinedStyle = true;
-            this.TNombreCl._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TNombreCl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombreCl_KeyPress);
-            this.TNombreCl.Validating += new System.ComponentModel.CancelEventHandler(this.TNombreCl_Validating);
+            this.TBNombre.BackColor = System.Drawing.Color.Black;
+            this.TBNombre.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBNombre.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBNombre.BorderSize = 2;
+            this.TBNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBNombre.ForeColor = System.Drawing.Color.White;
+            this.TBNombre.Location = new System.Drawing.Point(89, 21);
+            this.TBNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.TBNombre.Multiline = false;
+            this.TBNombre.Name = "TBNombre";
+            this.TBNombre.Padding = new System.Windows.Forms.Padding(7);
+            this.TBNombre.PasswordChar = false;
+            this.TBNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBNombre.PlaceholderText = "";
+            this.TBNombre.Size = new System.Drawing.Size(172, 31);
+            this.TBNombre.TabIndex = 12;
+            this.TBNombre.Texts = "";
+            this.TBNombre.UnderlinedStyle = true;
+            this.TBNombre._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBNombre_KeyPress);
+            this.TBNombre.Validating += new System.ComponentModel.CancelEventHandler(this.TBNombre_Validating);
             // 
             // TBValidacion
             // 
             this.TBValidacion.AutoSize = true;
             this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(41, 51);
+            this.TBValidacion.Location = new System.Drawing.Point(47, 52);
             this.TBValidacion.Name = "TBValidacion";
             this.TBValidacion.Size = new System.Drawing.Size(214, 14);
             this.TBValidacion.TabIndex = 20;
@@ -400,10 +429,10 @@
         private System.Windows.Forms.Label label1;
         private RJButton BModificarCl;
         private System.Windows.Forms.Panel PContModificarCl;
-        private RJControls.RJTextBox TEmailCl;
-        private RJControls.RJTextBox TTelefonoCl;
-        private RJControls.RJTextBox TApellidoCl;
-        private RJControls.RJTextBox TNombreCl;
+        private RJControls.RJTextBox TBCorreo;
+        private RJControls.RJTextBox TBTelefono;
+        private RJControls.RJTextBox TBApellido;
+        private RJControls.RJTextBox TBNombre;
         private System.Windows.Forms.Label LCorreoCl;
         private System.Windows.Forms.Label LApellidoCl;
         private System.Windows.Forms.Label LTeléfono;
@@ -416,5 +445,7 @@
         private System.Windows.Forms.Label TBValidacion4;
         private System.Windows.Forms.Label TBValidacion5;
         private System.Windows.Forms.Label TBValidacion6;
+        private System.Windows.Forms.Label TBValidacion7;
+        private System.Windows.Forms.Label TBValidacion8;
     }
 }

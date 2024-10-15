@@ -1,0 +1,194 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Gamer_Shop2._0.Validacion
+{
+    internal class ClaseValidacion
+    {
+        //   //---------------------------------------------------------------------------------------------------------\\
+        //  //-----------------------------------------------------------------------------------------------------------\\
+        //  ||Validaciones Generales                                                                                     ||
+        //  \\-----------------------------------------------------------------------------------------------------------//
+        //   \\---------------------------------------------------------------------------------------------------------//
+        // Validación para verificar la longitud aplicando límite.
+        public bool ValidarLongitudConLimite(string texto, int longitudMaxima, char keyChar)
+        {
+            if (texto.Length >= longitudMaxima && !char.IsControl(keyChar))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        //validar longitud máxima.
+        public bool ValidarLongitud(string texto, int longitudMaxima)
+        {
+            return texto.Length <= longitudMaxima;
+        }
+
+        // Validar longitud exacta
+        public bool ValidarLongitudExacta(string texto, int longitudExacta)
+        {
+            return texto.Length == longitudExacta;
+        }
+
+        // Validar longitud mínima.
+        public bool ValidarLongitudMinima(string texto, int longitudMinima)
+        {
+            return texto.Length >= longitudMinima;
+        }
+
+        // Validar que el campo solo contenga caracteres numéricos
+        public bool ValidarCaracteresNumericos(string texto)
+        {
+            return texto.All(char.IsDigit);
+        }
+
+        // Validar el KeyPress para permitir solo números
+        public bool ValidarKeyPressSoloNumeros(char keyChar)
+        {
+            return char.IsDigit(keyChar) || char.IsControl(keyChar);
+        }
+
+        // Validar que el campo no sea solo numérico o solo caracteres especiales
+        public bool ValidarNoSoloNumerosNiEspeciales(string texto)
+        {
+            // Verifica si contiene al menos una letra
+            return texto.Any(char.IsLetter);
+        }
+
+        // Función para poner en mayúscula la primera letra de cada palabra
+        public string MayusculaPrimeraLetra(string texto)
+        {
+            if (string.IsNullOrEmpty(texto))
+            {
+                return texto;
+            }
+            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(texto.ToLower());
+        }
+        //    //---------------------------------------------------------------------------------------------------------\\
+        //   //-----------------------------------------------------------------------------------------------------------\\
+        //   ||Validaciones específicas                                                                                   ||
+        //   \\-----------------------------------------------------------------------------------------------------------//
+        //    \\---------------------------------------------------------------------------------------------------------//
+        //Validaciones para campos que no permitan numeros.
+        public bool ValidarCaracteresNombreSinNumeros(string texto)
+        {
+            string regexPattern = @"^[a-zA-Z\s\.\'\-]+$";
+            return System.Text.RegularExpressions.Regex.IsMatch(texto, regexPattern);
+        }
+
+        public bool ValidarKeyPressNombreSinNumeros(char keyChar)
+        {
+            if (char.IsLetter(keyChar) || char.IsWhiteSpace(keyChar) || keyChar == '.' || keyChar == '\'' || keyChar == '-' || char.IsControl(keyChar))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        // Función para remover el formato telefónico
+        public string RemoverFormatoTelefonico(string telefonoFormateado)
+        {
+            return telefonoFormateado.Replace("+", "").Replace("-", "").Replace(" ", "");
+        }
+
+        // Validación que aplica el formato telefónico "+54 9 XXX XXX-XXXX"
+        public string AplicarFormatoTelefonico(string numero)
+        {
+            string numeroLimpio = new string(numero.Where(char.IsDigit).ToArray());
+
+            if (numeroLimpio.Length == 13)
+            {
+                // Aplicar el formato: "+54 9 XXX XXX-XXXX"
+                string codigoPais = numeroLimpio.Substring(0, 2); // "+54"
+                string numeroInicial = numeroLimpio.Substring(2, 1); // "9"
+                string codigoArea = numeroLimpio.Substring(3, 3); // "XXX"
+                string primeraParte = numeroLimpio.Substring(6, 3); // "XXX"
+                string segundaParte = numeroLimpio.Substring(9, 4); // "XXXX"
+
+                return $"+{codigoPais} {numeroInicial} {codigoArea} {primeraParte}-{segundaParte}";
+            }
+            else
+            {
+                return numero;
+            }
+        }
+
+        //Validación para campos como Correo Electrónico.
+        public bool ValidarCorreoElectronico(string correo)
+        {
+            // Patrón para la primera parte
+            string patronUsuario = @"^[^@\s]+";
+
+            // Patrón para la segunda parte
+            string patronDominioYExtension = @"@[a-zA-Z0-9.-]+\.(com|com\.ar|com\.ar\.or)$";
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(correo, patronUsuario + patronDominioYExtension))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        // Validar que el texto solo contenga letras, números, espacios y ciertos caracteres especiales
+        public bool ValidarCaracteresLNECE(string texto)
+        {
+            string regexPattern = @"^[a-zA-Z0-9\s\.\'\-\&]+$";
+            return System.Text.RegularExpressions.Regex.IsMatch(texto, regexPattern);
+        }
+
+        public bool ValidarKeyPressLNECE(char keyChar)
+        {
+            if (char.IsLetterOrDigit(keyChar) || char.IsWhiteSpace(keyChar) ||
+                keyChar == '.' || keyChar == '\'' || keyChar == '-' || keyChar == '&' ||
+                char.IsControl(keyChar))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // Validar caracteres para direcciones
+        public bool ValidarCaracteresDireccion(string texto)
+        {
+            string regexPattern = @"^[a-zA-Z0-9\s\,\.\-\/\&]+$";
+            return System.Text.RegularExpressions.Regex.IsMatch(texto, regexPattern);
+        }
+
+        public bool ValidarKeyPressDireccion(char keyChar)
+        {
+            if (char.IsLetterOrDigit(keyChar) ||
+                char.IsWhiteSpace(keyChar) ||
+                keyChar == ',' ||
+                keyChar == '.' ||
+                keyChar == '-' ||
+                keyChar == '/' ||
+                keyChar == '&' ||
+                char.IsControl(keyChar))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Validación para campos como ComboBoxs
+        public bool ValidarSeleccion(string seleccion)
+        {
+            return !string.IsNullOrEmpty(seleccion) && seleccion != "Seleccionar...";
+        }
+        //-----------------------------------------------------------------------------------------------------------\\
+    }
+}

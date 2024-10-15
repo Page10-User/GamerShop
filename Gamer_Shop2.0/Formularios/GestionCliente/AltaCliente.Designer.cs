@@ -46,6 +46,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LTituloAltaCl = new System.Windows.Forms.Label();
             this.PBImgAltaCl = new System.Windows.Forms.PictureBox();
+            this.TBValidacion8 = new System.Windows.Forms.Label();
+            this.TBValidacion9 = new System.Windows.Forms.Label();
+            this.TBValidacion10 = new System.Windows.Forms.Label();
             this.BCloseAltaCliente = new Gamer_Shop2._0.RJButton();
             this.BShowListaCl = new Gamer_Shop2._0.RJButton();
             this.BRegistrarCl = new Gamer_Shop2._0.RJButton();
@@ -85,6 +88,9 @@
             // PContAltaCl
             // 
             this.PContAltaCl.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaCl.Controls.Add(this.TBValidacion10);
+            this.PContAltaCl.Controls.Add(this.TBValidacion9);
+            this.PContAltaCl.Controls.Add(this.TBValidacion8);
             this.PContAltaCl.Controls.Add(this.TBValidacion7);
             this.PContAltaCl.Controls.Add(this.TBValidacion6);
             this.PContAltaCl.Controls.Add(this.TBValidacion4);
@@ -269,6 +275,42 @@
             this.PBImgAltaCl.TabIndex = 7;
             this.PBImgAltaCl.TabStop = false;
             // 
+            // TBValidacion8
+            // 
+            this.TBValidacion8.AutoSize = true;
+            this.TBValidacion8.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion8.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion8.Location = new System.Drawing.Point(98, 153);
+            this.TBValidacion8.Name = "TBValidacion8";
+            this.TBValidacion8.Size = new System.Drawing.Size(197, 14);
+            this.TBValidacion8.TabIndex = 34;
+            this.TBValidacion8.Text = "Ingrese unicamente caracteres numéricos";
+            this.TBValidacion8.Visible = false;
+            // 
+            // TBValidacion9
+            // 
+            this.TBValidacion9.AutoSize = true;
+            this.TBValidacion9.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion9.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion9.Location = new System.Drawing.Point(99, 199);
+            this.TBValidacion9.Name = "TBValidacion9";
+            this.TBValidacion9.Size = new System.Drawing.Size(197, 14);
+            this.TBValidacion9.TabIndex = 35;
+            this.TBValidacion9.Text = "Ingrese unicamente caracteres numéricos";
+            this.TBValidacion9.Visible = false;
+            // 
+            // TBValidacion10
+            // 
+            this.TBValidacion10.AutoSize = true;
+            this.TBValidacion10.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion10.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion10.Location = new System.Drawing.Point(89, 255);
+            this.TBValidacion10.Name = "TBValidacion10";
+            this.TBValidacion10.Size = new System.Drawing.Size(211, 14);
+            this.TBValidacion10.TabIndex = 36;
+            this.TBValidacion10.Text = "El correo no debe superar los 100 caracteres";
+            this.TBValidacion10.Visible = false;
+            // 
             // BCloseAltaCliente
             // 
             this.BCloseAltaCliente.BackColor = System.Drawing.Color.Transparent;
@@ -348,10 +390,10 @@
             this.TBCorreo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.TBCorreo.PasswordChar = false;
             this.TBCorreo.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBCorreo.PlaceholderText = "";
+            this.TBCorreo.PlaceholderText = "ejemplo@gmail.com";
             this.TBCorreo.Size = new System.Drawing.Size(199, 31);
             this.TBCorreo.TabIndex = 9;
-            this.TBCorreo.Texts = "example@gmail.com";
+            this.TBCorreo.Texts = "";
             this.TBCorreo.UnderlinedStyle = true;
             this.TBCorreo._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             this.TBCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCorreo_KeyPress);
@@ -379,6 +421,7 @@
             this.TBTelefono.Texts = "";
             this.TBTelefono.UnderlinedStyle = true;
             this.TBTelefono._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBTelefono.Enter += new System.EventHandler(this.TBTelefono_Enter);
             this.TBTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBTelefono_KeyPress);
             this.TBTelefono.Validating += new System.ComponentModel.CancelEventHandler(this.TBTelefono_Validating);
             // 
@@ -512,5 +555,8 @@
         private RJButton BCloseAltaCliente;
         private System.Windows.Forms.Label TBValidacion7;
         private System.Windows.Forms.Label TBValidacion6;
+        private System.Windows.Forms.Label TBValidacion8;
+        private System.Windows.Forms.Label TBValidacion9;
+        private System.Windows.Forms.Label TBValidacion10;
     }
 }

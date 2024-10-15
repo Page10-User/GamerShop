@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -138,10 +139,16 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             }
             else if (e.ColumnIndex == DGListaProveedor.Columns["CEliminar"].Index && e.RowIndex >= 0)
             {
-                DialogResult = MessageBox.Show("Está seguro que desea eliminar este proveedor?", "Eliminar proveedor", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (DialogResult == DialogResult.Yes)
+                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea eliminar este proveedor?", "Eliminar Proveedor", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+                if (result == DialogResult.Yes)
                 {
+                    mensaje.Close();
                     DGListaProveedor.Rows.RemoveAt(e.RowIndex);
+                }
+                else
+                {
+                    mensaje.Close();
                 }
             }
         }

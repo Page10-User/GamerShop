@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionCliente;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.RJControls;
 using System;
 using System.Collections.Generic;
@@ -164,18 +165,21 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         {
             if (DGListaPrCompra.Rows.Count == 0 || DGListaPrCompra.Rows.Count == 1 && DGListaPrCompra.Rows[0].IsNewRow)
             {
-                MessageBox.Show("Debe cargar por lo menos 1 producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe cargar po lo menos 1 producto", "Error", "Error", null);
+                mensaje.ShowDialog();
             }
             else
             {
                 if (CBProveedor.SelectedIndex != -1)
                 {
-                    MessageBox.Show("Compra registrada con éxito", "Compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Venta registrada con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
                     DGListaPrCompra.Rows.Clear();
                 }
                 else
                 {
-                    MessageBox.Show("Por favor seleccione un proveedor para registrar la compra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Por favor seleccione un proveedor para registrar la compra", "Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
             }
         }
@@ -190,10 +194,17 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 
                 if (columnaClave != null && !string.IsNullOrWhiteSpace(columnaClave.ToString()))
                 {
-                    DialogResult = MessageBox.Show("Está seguro que desea eliminar este producto?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (DialogResult == DialogResult.Yes)
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea eliminar este producto?", "Eliminar Producto", "Interrogacion", null);
+                    DialogResult result = mensaje.ShowDialog();
+
+                    if (result == DialogResult.Yes)
                     {
                         DGListaPrCompra.Rows.RemoveAt(e.RowIndex);
+                        mensaje.Close();
+                    }
+                    else
+                    {
+                        mensaje.Close();
                     }
                 }
             }
@@ -288,7 +299,8 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                 if (!int.TryParse(valorIngresado, out int cantidad) || cantidad < 0)
                 {
                     e.Cancel = true;
-                    MessageBox.Show("Por favor, ingrese un número entero válido.", "Valor inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Por favor, ingrese un número entero válido.", "Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
             }
         }

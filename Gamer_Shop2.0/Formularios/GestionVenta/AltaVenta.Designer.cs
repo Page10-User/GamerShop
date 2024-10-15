@@ -41,9 +41,9 @@
             this.BClienteExistente = new Gamer_Shop2._0.RJButton();
             this.TBValidacion3 = new System.Windows.Forms.Label();
             this.PContAltaVn1 = new System.Windows.Forms.Panel();
+            this.TBFecha = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.LNombreUsuario = new System.Windows.Forms.Label();
-            this.TBFecha = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LContraseñaUs = new System.Windows.Forms.Label();
             this.LEmailUs = new System.Windows.Forms.Label();
             this.PContAltaVn3 = new System.Windows.Forms.Panel();
@@ -176,10 +176,10 @@
             this.TBDniClienteExistente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.TBDniClienteExistente.PasswordChar = false;
             this.TBDniClienteExistente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBDniClienteExistente.PlaceholderText = "";
+            this.TBDniClienteExistente.PlaceholderText = "DNI";
             this.TBDniClienteExistente.Size = new System.Drawing.Size(102, 31);
             this.TBDniClienteExistente.TabIndex = 29;
-            this.TBDniClienteExistente.Texts = "DNI";
+            this.TBDniClienteExistente.Texts = "";
             this.TBDniClienteExistente.UnderlinedStyle = true;
             // 
             // BNuevoCliente
@@ -245,30 +245,6 @@
             this.PContAltaVn1.Size = new System.Drawing.Size(257, 61);
             this.PContAltaVn1.TabIndex = 32;
             // 
-            // TBValidacion
-            // 
-            this.TBValidacion.AutoSize = true;
-            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(77, 44);
-            this.TBValidacion.Name = "TBValidacion";
-            this.TBValidacion.Size = new System.Drawing.Size(121, 14);
-            this.TBValidacion.TabIndex = 33;
-            this.TBValidacion.Text = "Ingrese una fecha válida.";
-            this.TBValidacion.Visible = false;
-            // 
-            // LNombreUsuario
-            // 
-            this.LNombreUsuario.AutoSize = true;
-            this.LNombreUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.LNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LNombreUsuario.Location = new System.Drawing.Point(12, 20);
-            this.LNombreUsuario.Name = "LNombreUsuario";
-            this.LNombreUsuario.Size = new System.Drawing.Size(49, 18);
-            this.LNombreUsuario.TabIndex = 27;
-            this.LNombreUsuario.Text = "Fecha";
-            // 
             // TBFecha
             // 
             this.TBFecha.BackColor = System.Drawing.Color.Black;
@@ -292,6 +268,30 @@
             this.TBFecha._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             this.TBFecha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFecha_KeyPress);
             this.TBFecha.Validating += new System.ComponentModel.CancelEventHandler(this.TBFecha_Validating);
+            // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion.Location = new System.Drawing.Point(77, 44);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(121, 14);
+            this.TBValidacion.TabIndex = 33;
+            this.TBValidacion.Text = "Ingrese una fecha válida.";
+            this.TBValidacion.Visible = false;
+            // 
+            // LNombreUsuario
+            // 
+            this.LNombreUsuario.AutoSize = true;
+            this.LNombreUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.LNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LNombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LNombreUsuario.Location = new System.Drawing.Point(12, 20);
+            this.LNombreUsuario.Name = "LNombreUsuario";
+            this.LNombreUsuario.Size = new System.Drawing.Size(49, 18);
+            this.LNombreUsuario.TabIndex = 27;
+            this.LNombreUsuario.Text = "Fecha";
             // 
             // LContraseñaUs
             // 

@@ -1,7 +1,10 @@
-﻿using Gamer_Shop2._0.RJControls;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.RJControls;
+using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -111,205 +114,292 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             formCliente.Show();
         }
 
-        //Mostrar validaciones
+        //Validaciones
+
+        //INICIO Key Press  y Validating TBNombre
+        private void TBNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+
+            string texto = TBNombre.Texts;
+
+            // Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 35, e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Validar el carácter ingresado
+            if (!validador.ValidarKeyPressNombreSinNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void TBNombre_Validating(object sender, CancelEventArgs e)
         {
-            if (this != null)
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBNombre.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
             {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(TBNombre.Texts, @"^[a-zA-Z]+$"))
+                // Validar longitud minima
+                if (!validador.ValidarLongitudMinima(texto, 2))
+                {
+                    e.Cancel = true;
+                    TBValidacion6.Visible = false;
+                    return;
+                }
+
+                // Validar caracteres
+                if (!validador.ValidarCaracteresNombreSinNumeros(texto))
                 {
                     e.Cancel = true;
                     TBValidacion6.Visible = true;
-                    //TBValidacion.Visible = false;
+                    return;
                 }
-                if (TBNombre.Texts.Length >= 35)
+
+                // Validar longitud maxima
+                if (!validador.ValidarLongitud(texto, 35))
                 {
                     e.Cancel = true;
                     TBValidacion.Visible = true;
-                    TBValidacion6.Visible = false;
+                    return;
+                }
+                TBNombre.Texts = validador.MayusculaPrimeraLetra(texto);
+            }
+        }
+        //FIN Key Press  y Validating TBNombre
+        //---------------------------------------------------------------------------------------------\\
+        //INICIO Key Press  y Validating TBApellido
+        private void TBApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBApellido.Texts;
 
-                }
-                else
-                {
-                    TBValidacion.Visible = false;
-                    TBValidacion6.Visible = false;
-                }
+            // Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 35, e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Validar el carácter ingresado
+            if (!validador.ValidarKeyPressNombreSinNumeros(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
         private void TBApellido_Validating(object sender, CancelEventArgs e)
         {
-            if (TBApellido.Texts != "")
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBApellido.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
             {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(TBApellido.Texts, @"^[a-zA-Z]+$"))
+                // Validar longitud minima
+                if (!validador.ValidarLongitudMinima(texto, 2))
+                {
+                    e.Cancel = true;
+                    TBValidacion6.Visible = false;
+                    return;
+                }
+
+                // Validar caracteres
+                if (!validador.ValidarCaracteresNombreSinNumeros(texto))
                 {
                     e.Cancel = true;
                     TBValidacion7.Visible = true;
-                    TBValidacion2.Visible = false;
+                    return;
                 }
-                else
+
+                // Validar longitud maxima
+                if (!validador.ValidarLongitud(texto, 35))
                 {
-                    //2da validación
-                    if (TBApellido.Texts.Length >= 35)
-                    {
-                        e.Cancel = true;
-                        TBValidacion2.Visible = true;
-                        TBValidacion7.Visible = false;
-                    }
-                    else
-                    {
-                        OcultarValidaciones();
-                    }
+                    e.Cancel = true;
+                    TBValidacion2.Visible = true;
+                    return;
                 }
-            }
-            else
-            {
-                OcultarValidaciones();
+                TBApellido.Texts = validador.MayusculaPrimeraLetra(texto);
             }
         }
-        private void TBDni_Validating(object sender, CancelEventArgs e)
+        //FIN Key Press  y Validating TBApellido
+        //---------------------------------------------------------------------------------------------\\
+        //INICIO Key Press  y Validating TBDni
+        private void TBDni_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (this != null)
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBDni.Texts;
+
+            // Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 8, e.KeyChar))
             {
-                int number;
-                if (TBDni.Texts.Length > 8 || !int.TryParse(TBDni.Texts, out number))
+                e.Handled = true;
+                return;
+            }
+            // Validar que solo se ingresen números
+            if (!validador.ValidarKeyPressSoloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TBDni_Validating(Object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBDni.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                // Validar que solo contenga números
+                if (!validador.ValidarCaracteresNumericos(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion8.Visible = true;
+                    return;
+                }
+
+                // Validar que la longitud sea exactamente 8 caracteres
+                if (!validador.ValidarLongitudExacta(texto, 8))
                 {
                     e.Cancel = true;
                     TBValidacion3.Visible = true;
+                    return;
+                }
+            }
+        }
+        //FIN Key Press  y Validating TBDni
+        //---------------------------------------------------------------------------------------------\\
+        //INICIO Key Press  y Validating TBTelefono
+        private void TBTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBTelefono.Texts;
 
-                }
-                else
-                {
-                    TBValidacion3.Visible = false;
-                }
+            // Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 13, e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Validar que solo se ingresen números
+            if (!validador.ValidarKeyPressSoloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        // Función para quitar el formato del teléfono para editar.
+        private void TBTelefono_Enter(object sender, EventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBTelefono.Texts.Trim();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                TBTelefono.Texts = validador.RemoverFormatoTelefonico(texto);
             }
         }
         private void TBTelefono_Validating(object sender, CancelEventArgs e)
         {
-            if (this != null)
+            
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBTelefono.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
             {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(TBTelefono.Texts, @"^\d+$") || TBTelefono.Texts.Length >= 15)
+                // Validar que solo contenga números
+                if (!validador.ValidarCaracteresNumericos(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion9.Visible = true;
+                    return;
+                }
+                // Validar que la longitud sea exactamente 13 caracteres
+                if (!validador.ValidarLongitudExacta(texto, 13))
                 {
                     e.Cancel = true;
                     TBValidacion4.Visible = true;
+                    return;
+                }
+                TBTelefono.Texts = validador.AplicarFormatoTelefonico(texto);
+            }
+        }
+        //FIN Key Press  y Validating TBTelefono
+        //---------------------------------------------------------------------------------------------\\
+        //INICIO Key Press  y Validating TBCorreo
+        private void TBCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBCorreo.Texts;
 
-                }
-                else
-                {
-                    TBValidacion4.Visible = false;
-                }
+            // Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 100, e.KeyChar))
+            {
+                e.Handled = true;
+                return;
             }
         }
         private void TBCorreo_Validating(object sender, CancelEventArgs e)
         {
-            if (this != null)
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBCorreo.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
             {
-                string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+                //validar longitud del correo elctrónico
+                if (!validador.ValidarLongitud(texto, 100))
+                {
+                    e.Cancel = true;
+                    TBValidacion10.Visible = true;
+                    return;
+                }
 
-                bool esValido = Regex.IsMatch(TBCorreo.Texts, patronCorreo);
-
-                if (!esValido)
+                // Validar el formato del correo electrónico
+                if (!validador.ValidarCorreoElectronico(texto))
                 {
                     e.Cancel = true;
                     TBValidacion5.Visible = true;
-                }
-                else
-                {
-                    TBValidacion5.Visible = false;
-                }
+                    return;
+                }     
             }
         }
+        //FIN Key Press  y Validating TBCorreo
+        //---------------------------------------------------------------------------------------------\\
 
-        // Validación
-        private void TBNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBNombre.Texts.Trim().Length < 35;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-        private void TBApellido_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBApellido.Texts.Trim().Length < 35;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-        private void TBDni_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBDni.Texts.Trim().Length < 8;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-        private void TBTelefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBTelefono.Texts.Trim().Length < 15;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-        private void TBCorreo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var textbox = sender as RJTextBox;
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBCorreo.Texts.Trim().Length < 50;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
+        //Inicio TextChanged
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             this.AutoValidate = AutoValidate.EnablePreventFocusChange;
         }
+        //Fin TextChanged
 
         //Boton registrar + validación de los campos.
         private void BRegistrarCl_Click(object sender, EventArgs e)
         {
             if (TBDni.Texts != string.Empty && TBCorreo.Texts != string.Empty && TBNombre.Texts != string.Empty && TBApellido.Texts != string.Empty && TBTelefono.Texts != string.Empty)
             {
-                MessageBox.Show("Cliente registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Cliente registrado con éxito", "Registro", "Informacion", null);
+                mensaje.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Debe completar todos los campos para registrar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar un cliente", "Error", "Error", generarListaCampos());
+                mensaje.ShowDialog();
             }
         }
 
+        //Mostrar u Ocultar boton de ListaCliente dependiendo del ingreso al mismo.
         private void MostrarBotonListaSegunDondeVenga(bool desdeDonde)
         {
             if (desdeDonde)
@@ -326,6 +416,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             }
         }
 
+        //Botón para cerrar el formulario AltaCliente.
         private void BCloseAltaCliente_Click(object sender, EventArgs e)
         {
             MainForm.TopMost = true;
@@ -333,6 +424,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             this.Close();
         }
 
+        //Agrupamos todas las validaciones y las ocultamos para evitar redundacia.
         private void OcultarValidaciones()
         {
             TBValidacion.Visible = false;
@@ -342,6 +434,22 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             TBValidacion5.Visible = false;
             TBValidacion6.Visible = false;
             TBValidacion7.Visible = false;
+            TBValidacion8.Visible = false;
+            TBValidacion9.Visible = false;
+            TBValidacion10.Visible = false;
+        }
+
+        //Generamos la lista de los contenidos de los campos para realizar un conteo de campos incompletos.
+        private List<string> generarListaCampos()
+        {
+            List<string> campos = new List<string>{
+                TBNombre.Texts,
+                TBApellido.Texts,
+                TBDni.Texts,
+                TBTelefono.Texts,
+                TBCorreo.Texts,
+             };
+            return campos;
         }
     }
 }

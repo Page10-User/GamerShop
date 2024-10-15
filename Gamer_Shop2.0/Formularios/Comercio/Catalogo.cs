@@ -3,6 +3,7 @@ using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.Inicio;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -120,10 +121,17 @@ namespace Gamer_Shop2._0.Formularios.Comercio
 
         private void BReturn_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("Está seguro que desea volver? Se perderán los cambios realizados", "Volver", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (DialogResult == DialogResult.Yes)
+            MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea volver? Se perderán los cambios realizados", "Volver", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+
+            if (result == DialogResult.Yes)
             {
                 VolverAlInicio();
+                mensaje.Close();
+            }
+            else
+            {
+                mensaje.Close();
             }
         }
 

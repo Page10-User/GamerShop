@@ -1,5 +1,6 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,15 +71,24 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 
         private void BCerrarSesion_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(new Form { TopMost = true }, "Está seguro que desea cerrar sesion?", "Cerrar Sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea cerrar sesion?", "Cerrar Sesión", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
             if (result == DialogResult.Yes)
             {
+                //Cerramos el mensaje que está en Hide
+                mensaje.Close();
+
                 CloseFondoCatalogo();
                 Forminicio.Show();
                 Mainform.BContracMenu_Click(sender, e);
                 this.Close();
                 Mainform.Hide();
-                MessageBox.Show(new Form { TopMost = true }, "Sesion cerrada con éxito", "Sesion cerrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mensaje = new MsgPersonalizado("Sesion cerrada con éxito", "Sesion Finalizada", "Informacion", null);
+                mensaje.ShowDialog();
+            }
+            else
+            {
+                mensaje.Close();
             }
         }
 

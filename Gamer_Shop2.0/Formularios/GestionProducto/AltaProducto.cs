@@ -8,6 +8,8 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using System.Collections.Generic;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
 {
@@ -227,22 +229,25 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                         int.Parse(TSerialPr.Texts), TNombrePr.Texts, TDescripcionPr.Texts,
                         int.Parse(TStockPr.Texts), float.Parse(TPrecioPr.Texts), CBCategoriaPr.SelectedIndex+1
                         );
-                    MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
                 }
                 catch (ExisteRegistroException ex)
                 {
                     // Manejo de la excepción cuando el número de serial ya existe
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
                 catch (Exception ex)
                 {
                     // Manejo de cualquier otra excepción
-                    MessageBox.Show("Ocurrió un error inesperado: " + ex.Message);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Ocurrió un error inesperado:" + ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
             } else
             {
-                MessageBox.Show("Debe completar todos los campos para registrar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar un Producto", "Error", "Error", generarListaCampos());
+                mensaje.ShowDialog();
             }
         }
 
@@ -291,7 +296,17 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 e.Handled = true;
             }
         }
-
-        
+        private List<string> generarListaCampos()
+        {
+            List<string> campos = new List<string>{
+                TNombrePr.Texts,
+                TSerialPr.Texts,
+                TDescripcionPr.Texts,
+                TPrecioPr.Texts,
+                TStockPr.Texts,
+                CBCategoriaPr.SelectedItem?.ToString()
+             };
+            return campos;
+        }
     }
 }

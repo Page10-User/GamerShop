@@ -93,6 +93,12 @@
     <Compile Include="Formularios\Gestion Compra\Lista Producto Compra\ListaProductosCompra.Designer.cs">
       <DependentUpon>ListaProductosCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\MSGPersonalizado\MsgPersonalizado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\MSGPersonalizado\MsgPersonalizado.Designer.cs">
+      <DependentUpon>MsgPersonalizado.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModeloBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -333,6 +339,7 @@
     <Compile Include="UserOptionsBase.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Validacion\ClaseValidacion.cs" />
     <EmbeddedResource Include="Bienvenida.resx">
       <DependentUpon>Bienvenida.cs</DependentUpon>
     </EmbeddedResource>
@@ -438,6 +445,9 @@
     <EmbeddedResource Include="Formularios\InterfazUsuarios\PersonalOptions.resx">
       <DependentUpon>PersonalOptions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\MSGPersonalizado\MsgPersonalizado.resx">
+      <DependentUpon>MsgPersonalizado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -511,8 +521,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Validacion\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

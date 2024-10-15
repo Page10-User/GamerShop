@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -151,10 +152,17 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
             else if (e.ColumnIndex == DGListaPr.Columns["CEliminar"].Index && e.RowIndex >= 0)
             {
-                DialogResult = MessageBox.Show("Está seguro que desea eliminar este producto?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (DialogResult == DialogResult.Yes)
+                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea eliminar este producto?", "Eliminar Producto", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+
+                if (result == DialogResult.Yes)
                 {
                     DGListaPr.Rows.RemoveAt(e.RowIndex);
+                    mensaje.Close();
+                }
+                else
+                {
+                    mensaje.Close();
                 }
             }
         }

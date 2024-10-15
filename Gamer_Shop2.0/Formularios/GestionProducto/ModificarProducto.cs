@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.RJControls;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.RJControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,9 +97,13 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("Está seguro que desea volver? Se perderán los cambios realizados", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (DialogResult == DialogResult.Yes)
+            MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea volver? Se perderán los cambios realizados", "Volver", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+            if (result == DialogResult.Yes)
             {
+                //Cerramos el mensaje que está en Hide();
+                mensaje.Close();
+
                 // Crear una nueva instancia de ListaProductos
                 ListaProductos listPr = new ListaProductos();
                 listPr.TopLevel = false;
@@ -109,6 +114,10 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 listPr.PanelContainer = PanelContainer;
                 listPr.Show();
                 this.Close();
+            }
+            else
+            {
+                mensaje.Close();
             }
         }
 
@@ -223,12 +232,13 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty)
             {
-                MessageBox.Show("Producto modificado con éxito", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Modificación", "Informacion", null);
+                mensaje.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Debe completar todos los campos para modificar", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para modificar un Producto", "Error", "Error", generarListaCampos());
+                mensaje.ShowDialog();
             }
         }
 
@@ -277,6 +287,17 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 e.Handled = true;
             }
         }
-
+        private List<string> generarListaCampos()
+        {
+            List<string> campos = new List<string>{
+                TNombrePr.Texts,
+                TSerialPr.Texts,
+                TDescripcionPr.Texts,
+                TPrecioPr.Texts,
+                TStockPr.Texts,
+                CBCategoriaPr.SelectedItem?.ToString()
+             };
+            return campos;
+        }
     }
 }

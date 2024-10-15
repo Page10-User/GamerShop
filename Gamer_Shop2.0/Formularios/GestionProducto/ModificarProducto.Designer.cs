@@ -435,7 +435,7 @@
             this.BModificarPr.BackColor = System.Drawing.Color.Black;
             this.BModificarPr.BackgroundColor = System.Drawing.Color.Black;
             this.BModificarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BModificarPr.BackgroundImage")));
-            this.BModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BModificarPr.BorderColor = System.Drawing.Color.Lime;
             this.BModificarPr.BorderRadius = 20;
             this.BModificarPr.BorderSize = 1;

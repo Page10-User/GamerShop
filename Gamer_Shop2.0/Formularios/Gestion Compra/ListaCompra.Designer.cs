@@ -34,14 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaCompra));
             this.DGListaCompra = new System.Windows.Forms.DataGridView();
-            this.BShowLista = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PContListaCompra = new System.Windows.Forms.Panel();
-            this.LTituloListaCompra = new System.Windows.Forms.Label();
-            this.PBImgListaCom = new System.Windows.Forms.PictureBox();
-            this.BShowRegistrarCompra = new Gamer_Shop2._0.RJButton();
-            this.BDescargar = new Gamer_Shop2._0.RJButton();
-            this.rjButton1 = new Gamer_Shop2._0.RJButton();
             this.CProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFechaCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,9 +41,20 @@
             this.CPrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEstadoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCancelarCompra = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.BShowLista = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PContListaCompra = new System.Windows.Forms.Panel();
+            this.LTituloListaCompra = new System.Windows.Forms.Label();
+            this.PBImgListaCom = new System.Windows.Forms.PictureBox();
+            this.BShowRegistrarCompra = new Gamer_Shop2._0.RJButton();
+            this.BDescargar = new Gamer_Shop2._0.RJButton();
+            this.PBuscadorListaCompras = new System.Windows.Forms.Panel();
+            this.BBuscadorListaCompra = new Gamer_Shop2._0.RJButton();
+            this.TBuscarListaCompra = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCompra)).BeginInit();
             this.PContListaCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaCom)).BeginInit();
+            this.PBuscadorListaCompras.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGListaCompra
@@ -101,6 +104,43 @@
             this.DGListaCompra.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaCompra.Size = new System.Drawing.Size(435, 288);
             this.DGListaCompra.TabIndex = 1;
+            // 
+            // CProveedor
+            // 
+            this.CProveedor.HeaderText = "Nombre Proveedor";
+            this.CProveedor.Name = "CProveedor";
+            // 
+            // CFechaCompra
+            // 
+            this.CFechaCompra.HeaderText = "Fecha Compra";
+            this.CFechaCompra.Name = "CFechaCompra";
+            // 
+            // CProducto
+            // 
+            this.CProducto.HeaderText = "Producto/s";
+            this.CProducto.Name = "CProducto";
+            // 
+            // CPrecioUnitario
+            // 
+            this.CPrecioUnitario.HeaderText = "Precio Unitario/s";
+            this.CPrecioUnitario.Name = "CPrecioUnitario";
+            // 
+            // CPrecioTotal
+            // 
+            this.CPrecioTotal.HeaderText = "Total";
+            this.CPrecioTotal.Name = "CPrecioTotal";
+            // 
+            // CEstadoCompra
+            // 
+            this.CEstadoCompra.HeaderText = "Estado Compra";
+            this.CEstadoCompra.Name = "CEstadoCompra";
+            // 
+            // CCancelarCompra
+            // 
+            this.CCancelarCompra.HeaderText = "Cancelar";
+            this.CCancelarCompra.Name = "CCancelarCompra";
+            this.CCancelarCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CCancelarCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // BShowLista
             // 
@@ -197,62 +237,48 @@
             this.BDescargar.TextColor = System.Drawing.Color.White;
             this.BDescargar.UseVisualStyleBackColor = false;
             // 
-            // rjButton1
+            // PBuscadorListaCompras
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.Black;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.Black;
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rjButton1.BorderColor = System.Drawing.Color.Lime;
-            this.rjButton1.BorderRadius = 12;
-            this.rjButton1.BorderSize = 1;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(383, 80);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(84, 31);
-            this.rjButton1.TabIndex = 22;
-            this.rjButton1.Text = "Buscar";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.PBuscadorListaCompras.BackColor = System.Drawing.Color.Black;
+            this.PBuscadorListaCompras.Controls.Add(this.BBuscadorListaCompra);
+            this.PBuscadorListaCompras.Controls.Add(this.TBuscarListaCompra);
+            this.PBuscadorListaCompras.Location = new System.Drawing.Point(316, 81);
+            this.PBuscadorListaCompras.Name = "PBuscadorListaCompras";
+            this.PBuscadorListaCompras.Size = new System.Drawing.Size(188, 31);
+            this.PBuscadorListaCompras.TabIndex = 26;
             // 
-            // CProveedor
+            // BBuscadorListaCompra
             // 
-            this.CProveedor.HeaderText = "Nombre Proveedor";
-            this.CProveedor.Name = "CProveedor";
+            this.BBuscadorListaCompra.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaCompra.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaCompra.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorListaCompra.BackgroundImage")));
+            this.BBuscadorListaCompra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscadorListaCompra.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaCompra.BorderRadius = 0;
+            this.BBuscadorListaCompra.BorderSize = 0;
+            this.BBuscadorListaCompra.FlatAppearance.BorderSize = 0;
+            this.BBuscadorListaCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorListaCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.BBuscadorListaCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscadorListaCompra.ForeColor = System.Drawing.Color.White;
+            this.BBuscadorListaCompra.Location = new System.Drawing.Point(6, 2);
+            this.BBuscadorListaCompra.Name = "BBuscadorListaCompra";
+            this.BBuscadorListaCompra.Size = new System.Drawing.Size(26, 26);
+            this.BBuscadorListaCompra.TabIndex = 4;
+            this.BBuscadorListaCompra.TextColor = System.Drawing.Color.White;
+            this.BBuscadorListaCompra.UseVisualStyleBackColor = false;
             // 
-            // CFechaCompra
+            // TBuscarListaCompra
             // 
-            this.CFechaCompra.HeaderText = "Fecha Compra";
-            this.CFechaCompra.Name = "CFechaCompra";
-            // 
-            // CProducto
-            // 
-            this.CProducto.HeaderText = "Producto/s";
-            this.CProducto.Name = "CProducto";
-            // 
-            // CPrecioUnitario
-            // 
-            this.CPrecioUnitario.HeaderText = "Precio Unitario/s";
-            this.CPrecioUnitario.Name = "CPrecioUnitario";
-            // 
-            // CPrecioTotal
-            // 
-            this.CPrecioTotal.HeaderText = "Total";
-            this.CPrecioTotal.Name = "CPrecioTotal";
-            // 
-            // CEstadoCompra
-            // 
-            this.CEstadoCompra.HeaderText = "Estado Compra";
-            this.CEstadoCompra.Name = "CEstadoCompra";
-            // 
-            // CCancelarCompra
-            // 
-            this.CCancelarCompra.HeaderText = "Cancelar";
-            this.CCancelarCompra.Name = "CCancelarCompra";
-            this.CCancelarCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CCancelarCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.TBuscarListaCompra.BackColor = System.Drawing.Color.Black;
+            this.TBuscarListaCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBuscarListaCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBuscarListaCompra.ForeColor = System.Drawing.Color.Silver;
+            this.TBuscarListaCompra.Location = new System.Drawing.Point(34, 6);
+            this.TBuscarListaCompra.Name = "TBuscarListaCompra";
+            this.TBuscarListaCompra.Size = new System.Drawing.Size(132, 17);
+            this.TBuscarListaCompra.TabIndex = 4;
+            this.TBuscarListaCompra.Text = "Buscar...";
             // 
             // ListaCompra
             // 
@@ -262,6 +288,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.PBuscadorListaCompras);
             this.Controls.Add(this.BShowLista);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BShowRegistrarCompra);
@@ -269,7 +296,6 @@
             this.Controls.Add(this.PContListaCompra);
             this.Controls.Add(this.LTituloListaCompra);
             this.Controls.Add(this.PBImgListaCom);
-            this.Controls.Add(this.rjButton1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListaCompra";
@@ -277,6 +303,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCompra)).EndInit();
             this.PContListaCompra.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaCom)).EndInit();
+            this.PBuscadorListaCompras.ResumeLayout(false);
+            this.PBuscadorListaCompras.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,7 +320,6 @@
         private System.Windows.Forms.Panel PContListaCompra;
         private System.Windows.Forms.Label LTituloListaCompra;
         private System.Windows.Forms.PictureBox PBImgListaCom;
-        private RJButton rjButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFechaCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
@@ -300,5 +327,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoCompra;
         private System.Windows.Forms.DataGridViewButtonColumn CCancelarCompra;
+        private System.Windows.Forms.Panel PBuscadorListaCompras;
+        private RJButton BBuscadorListaCompra;
+        private System.Windows.Forms.TextBox TBuscarListaCompra;
     }
 }

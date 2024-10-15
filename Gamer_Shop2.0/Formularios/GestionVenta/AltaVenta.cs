@@ -1,5 +1,6 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.RJControls;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -145,14 +147,13 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             {
                 string formato = "dd-mm-yyyy";
 
-                // Intentar convertir la fecha utilizando el formato
                 DateTime fechaValidada;
                 bool esFechaValida = DateTime.TryParseExact(
-                    TBFecha.Texts,                     // La cadena que contiene la fecha
-                    formato,                   // El formato esperado
-                    System.Globalization.CultureInfo.InvariantCulture, // Cultura invariable
-                    System.Globalization.DateTimeStyles.None,          // Sin estilos adicionales
-                    out fechaValidada);        // El resultado convertido
+                    TBFecha.Texts,                     
+                    formato,                 
+                    System.Globalization.CultureInfo.InvariantCulture, 
+                    System.Globalization.DateTimeStyles.None,          
+                    out fechaValidada);        
 
                 if (!esFechaValida)
                 {
@@ -219,17 +220,18 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
         }
         //Validacion Fin MetodoPago
-        
+
         private void BRegistrarVn_Click(object sender, EventArgs e)
         {
             if (TBFecha.Texts != string.Empty && TBMonto.Texts != string.Empty && CBCategoria.SelectedItem != null)
             {
-                MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Venta registrada con éxito", "Registro", "Informacion", null);
+                mensaje.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Debe completar todos los campos para registrar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar una venta", "Error", "Error", generarListaCampos());
+                mensaje.ShowDialog();
             }
         }
 
@@ -261,7 +263,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
             else
             {
-                PContBuscarDni.Visible= true;
+                PContBuscarDni.Visible = true;
             }
         }
 
@@ -286,6 +288,16 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             fondoBg.WindowState = FormWindowState.Maximized;
             fondoBg.TopMost = true;
             fondoBg.ShowInTaskbar = false;
+        }
+
+        private List<string> generarListaCampos()
+        {
+            List<string> campos = new List<string>{
+                TBFecha.Texts,
+                TBMonto.Texts,
+                CBCategoria.SelectedItem?.ToString()
+             };
+            return campos;
         }
     }
 }
