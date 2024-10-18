@@ -22,7 +22,7 @@ namespace Gamer_Shop2._0.Datos
                 {
                     // Consulta SQL con JOIN para traer nombres de categoría y proveedor
                     string query = @"
-                SELECT p.*
+                SELECT p.ID_Producto, p.Serial, p.Nombre, p.Descripcion, p.Stock, p.Precio, p.Activo,
                        c.Nombre_Categoria AS Categoria, 
                        pr.Razon_social AS Proveedor
                 FROM Producto p

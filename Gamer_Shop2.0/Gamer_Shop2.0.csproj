@@ -503,6 +503,7 @@
     <None Include="bin\Debug\img\FondoI_S.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="correcciones bdd.txt" />
     <Content Include="ModeloBase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModeloBase.edmx</DependentUpon>

@@ -62,7 +62,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void getProductos (DataGridView grid)
+        public void getProductosActivos (DataGridView grid)
         {
             if (grid == null)
             {
@@ -71,7 +71,9 @@ namespace Gamer_Shop2._0.Datos
             else
             {
                 DProductos productos = new DProductos();
-                grid.DataSource = productos.GetProductoAll();
+                DataView view = new DataView(productos.GetProductoAll());
+                view.RowFilter = "Activo = 'SI'";
+                grid.DataSource = view;
             }
         }
         public void DAgregarProducto(Producto producto)
@@ -121,6 +123,31 @@ namespace Gamer_Shop2._0.Datos
                     catch (Exception ex)
                     {
                         throw new Exception($"Error al modificar el producto: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public void DEliminarProducto(int serial)
+        {
+            if (ExisteRegistro(serial) == false)
+            {
+                throw new ExisteRegistroException("El producto no existe");
+            }
+            else
+            {
+                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+                {
+                    try
+                    {
+                        Producto prod = context.Producto.First(p => p.Serial == serial);
+
+                        prod.Activo = "NO";
+                        context.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Error al eliminar el producto: {ex.Message}");
                     }
                 }
             }

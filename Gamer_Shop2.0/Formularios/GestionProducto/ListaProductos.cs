@@ -17,6 +17,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        NProducto nproducto = new NProducto();
 
         public Panel PanelContainer { get; set; }
         public ListaProductos()
@@ -34,8 +35,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             this.Region = CreateRoundedRegion();
             try
             {
-                NProducto nproducto = new NProducto();
-                nproducto.listaProductos(DGListaPr);
+                
+                nproducto.listaProductosActivos(DGListaPr);
                 DGListaPr.Columns["ID_Producto"].Visible = false;
                 DGListaPr.Columns["CModificar"].DisplayIndex = 9;
                 DGListaPr.Columns["CEliminar"].DisplayIndex = 10;
@@ -171,7 +172,18 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 DialogResult = MessageBox.Show("Está seguro que desea eliminar este producto?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (DialogResult == DialogResult.Yes)
                 {
-                    DGListaPr.Rows.RemoveAt(e.RowIndex);
+                    try
+                    {
+                        int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
+                        nproducto.NEliminarProducto(id);
+                        DGListaPr.Rows.RemoveAt(e.RowIndex); //debería pasarse a la lista de inactivos
+                        MessageBox.Show("Producto eliminado con éxito", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("No se pudo eliminar el producto");
+                    }
                 }
             }
         }

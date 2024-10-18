@@ -37,7 +37,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void listaProductos (DataGridView grid)
+        public void listaProductosActivos (DataGridView grid)
         {
             if (dproducto == null)
             {
@@ -45,7 +45,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                dproducto.getProductos(grid);
+                dproducto.getProductosActivos(grid);
             }
         }
 
@@ -64,8 +64,12 @@ namespace Gamer_Shop2._0.Negocio
             {
                 throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
             }
-            dproducto.DModificarProducto(producto);
+            else
+            {
+                dproducto.DModificarProducto(producto);
+            }
         }
+
         public Producto GetProducto(int serial) {
             if (dproducto == null)
             {
@@ -74,6 +78,18 @@ namespace Gamer_Shop2._0.Negocio
             else
             {
                 return dproducto.getProducto(serial);
+            }
+        }
+
+        public void NEliminarProducto(int serial)
+        {
+            if (dproducto == null)
+            {
+                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+            }
+            else
+            {
+                dproducto.DEliminarProducto(serial);
             }
         }
     }
