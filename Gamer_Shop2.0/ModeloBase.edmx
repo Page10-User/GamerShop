@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProyectoTallerIIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProyectoTallerIIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoría_producto">
           <Key>
             <PropertyRef Name="ID_Categoria" />
           </Key>
-          <Property Name="ID_Categoria" Type="int" Nullable="false" />
           <Property Name="Nombre_Categoria" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -23,6 +23,19 @@
           <Property Name="Precio" Type="float" Nullable="false" />
           <Property Name="ID_Categoria" Type="int" Nullable="false" />
           <Property Name="ID_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Proveedor" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="ID_Proveedor" />
+          </Key>
+          <Property Name="Razon_social" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="Nombre_representante" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dirección" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ID_Proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <Association Name="FK_CategoriaProducto">
           <End Role="Categoría_producto" Type="Self.Categoría_producto" Multiplicity="1" />
@@ -36,16 +49,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Proveedor">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="ID_Proveedor" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="ID_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ProyectoTallerIIModelStoreContainer">
           <EntitySet Name="Categoría_producto" EntityType="Self.Categoría_producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CategoriaProducto" Association="Self.FK_CategoriaProducto">
             <End Role="Categoría_producto" EntitySet="Categoría_producto" />
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
+          <AssociationSet Name="FK_Proveedor" Association="Self.FK_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProyectoTallerIIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -69,6 +98,9 @@
           <Property Name="ID_Categoria" Type="Int32" Nullable="false" />
           <Property Name="ID_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Categoría_producto" Relationship="Self.FK_CategoriaProducto" FromRole="Producto" ToRole="Categoría_producto" />
+          <Property Name="ID_Proveedor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Proveedor" Relationship="ProyectoTallerIIModel.FK_Proveedor" FromRole="Producto" ToRole="Proveedor" />
+          <Property Name="Activo" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_CategoriaProducto">
           <End Role="Categoría_producto" Type="Self.Categoría_producto" Multiplicity="1" />
@@ -89,7 +121,36 @@
             <End Role="Categoría_producto" EntitySet="Categoría_producto" />
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
+          <EntitySet Name="Proveedor" EntityType="ProyectoTallerIIModel.Proveedor" />
+          <AssociationSet Name="FK_Proveedor" Association="ProyectoTallerIIModel.FK_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="ID_Proveedor" />
+          </Key>
+          <Property Name="ID_Proveedor" Type="Int32" Nullable="false" />
+          <Property Name="Razon_social" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_representante" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dirección" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Producto" Relationship="ProyectoTallerIIModel.FK_Proveedor" FromRole="Proveedor" ToRole="Producto" />
+        </EntityType>
+        <Association Name="FK_Proveedor">
+          <End Type="ProyectoTallerIIModel.Proveedor" Role="Proveedor" Multiplicity="1" />
+          <End Type="ProyectoTallerIIModel.Producto" Role="Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="ID_Proveedor" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="ID_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -107,6 +168,8 @@
           <EntitySetMapping Name="Producto">
             <EntityTypeMapping TypeName="ProyectoTallerIIModel.Producto">
               <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="ID_Proveedor" ColumnName="ID_Proveedor" />
                 <ScalarProperty Name="Serial" ColumnName="Serial" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -114,6 +177,18 @@
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
                 <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
                 <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedor">
+            <EntityTypeMapping TypeName="ProyectoTallerIIModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Nombre_representante" ColumnName="Nombre_representante" />
+                <ScalarProperty Name="Razon_social" ColumnName="Razon_social" />
+                <ScalarProperty Name="ID_Proveedor" ColumnName="ID_Proveedor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

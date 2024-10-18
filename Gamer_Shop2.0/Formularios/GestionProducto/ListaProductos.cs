@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Datos;
+using Gamer_Shop2._0.Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +32,20 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            try
+            {
+                NProducto nproducto = new NProducto();
+                nproducto.listaProductos(DGListaPr);
+                DGListaPr.Columns["ID_Producto"].Visible = false;
+                DGListaPr.Columns["CModificar"].DisplayIndex = 9;
+                DGListaPr.Columns["CEliminar"].DisplayIndex = 10;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de cualquier otra excepción
+                MessageBox.Show(ex.Message);
+            }
+
         }
         private void PBuscadorListaPr_Paint(object sender, PaintEventArgs e)
         {
@@ -139,7 +155,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             if (e.ColumnIndex == DGListaPr.Columns["CModificar"].Index && e.RowIndex >= 0)
             {
                 // Crear una nueva instancia de ListaProductos
-                ModificarProducto ModificarPr = new ModificarProducto();
+                int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
+                ModificarProducto ModificarPr = new ModificarProducto(id);
                 ModificarPr.TopLevel = false;
 
                 // Limpiar el panel actual y añadir el nuevo formulario

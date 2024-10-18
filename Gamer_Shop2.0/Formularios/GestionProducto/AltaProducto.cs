@@ -159,23 +159,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
-        private void TStockPr_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                int number;
-                if (!int.TryParse(TStockPr.Texts, out number))
-                {
-                    e.Cancel = true;
-                    TBValidacion5.Visible = true;
-                }
-                else
-                {
-                    TBValidacion5.Visible = false;
-                }
-            }
-        }
-
         private void TSerialPr_Validating(object sender, CancelEventArgs e)
         {
             if (this != null)
@@ -193,6 +176,21 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        private void CBproveedorPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (CBCategoriaPr.SelectedIndex == -1)
+                {
+                    e.Cancel = true;
+                    TBValidacion5.Visible = true;
+                }
+                else
+                {
+                    TBValidacion5.Visible = false;
+                }
+            }
+        }
         private void CBCategoriaPr_Validating(object sender, CancelEventArgs e)
         {
             if (this != null)
@@ -209,6 +207,22 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        private void CBProveedorPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (CBProveedorPr.SelectedIndex == -1)
+                {
+                    e.Cancel = true;
+                    TBValidacion5.Visible = true;
+                }
+                else
+                {
+                    TBValidacion5.Visible = false;
+                }
+            }
+        }
+
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
@@ -218,26 +232,32 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BRegistrarPr_Click(object sender, EventArgs e)
         {
-            if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null)
+            if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null)
             {
                 try
                 {
                     NProducto nproducto = new NProducto();
                     nproducto.NAgregarProducto(
-                        int.Parse(TSerialPr.Texts), TNombrePr.Texts, TDescripcionPr.Texts,
-                        int.Parse(TStockPr.Texts), float.Parse(TPrecioPr.Texts), CBCategoriaPr.SelectedIndex+1
+                        int.Parse(TSerialPr.Texts),
+                        TNombrePr.Texts,
+                        TDescripcionPr.Texts,
+                        0,
+                        "SI",
+                        float.Parse(TPrecioPr.Texts),
+                        CBCategoriaPr.SelectedIndex+1,
+                        CBProveedorPr.SelectedIndex + 1
                         );
                     MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (ExisteRegistroException ex)
                 {
-                    // Manejo de la excepción cuando el número de serial ya existe
+                    // Manejo de la excepción cuando el número de serial no existe
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
                     // Manejo de cualquier otra excepción
-                    MessageBox.Show("Ocurrió un error inesperado: " + ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             } else
             {

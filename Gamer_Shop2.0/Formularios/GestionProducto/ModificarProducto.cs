@@ -1,4 +1,6 @@
-﻿using Gamer_Shop2._0.RJControls;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Negocio;
+using Gamer_Shop2._0.RJControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +18,16 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        Producto productoActual = new Producto();
+        bool wasClicked = false;
 
         public Panel PanelContainer { get; set; }
-        public ModificarProducto()
+        public ModificarProducto(int id)
         {
             InitializeComponent();
+            NProducto producto = new NProducto();
+            
+            productoActual = producto.GetProducto(id);
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
             this.Load += new EventHandler(ModificarProducto_Load);
             PContModificarPr.Paint += new PaintEventHandler(PContModificarPr_Paint);
@@ -57,6 +64,13 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            TNombrePr.Texts = productoActual.Nombre;
+            TSerialPr.Texts = productoActual.Serial.ToString();
+            TDescripcionPr.Texts = productoActual.Descripcion;
+            TPrecioPr.Texts = productoActual.Stock.ToString();
+            CBCategoriaPr.SelectedIndex = productoActual.ID_Categoria-1;
+            CBProveedorPr.SelectedIndex = productoActual.ID_Proveedor - 1;
+
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -96,10 +110,25 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("Está seguro que desea volver? Se perderán los cambios realizados", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (DialogResult == DialogResult.Yes)
+            if (wasClicked != true)
             {
-                // Crear una nueva instancia de ListaProductos
+                DialogResult = MessageBox.Show("Está seguro que desea volver? Se perderán los cambios realizados", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (DialogResult == DialogResult.Yes)
+                {
+                    // Crear una nueva instancia de ListaProductos
+                    ListaProductos listPr = new ListaProductos();
+                    listPr.TopLevel = false;
+
+                    // Limpiar el panel actual y volver al anterior formulario.
+                    PanelContainer.Controls.Clear();
+                    PanelContainer.Controls.Add(listPr);
+                    listPr.PanelContainer = PanelContainer;
+                    listPr.Show();
+                    this.Close();
+                }
+            }
+            else
+            {
                 ListaProductos listPr = new ListaProductos();
                 listPr.TopLevel = false;
 
@@ -110,6 +139,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 listPr.Show();
                 this.Close();
             }
+            
         }
 
         private void TNombrePr_Validating(object sender, CancelEventArgs e)
@@ -179,13 +209,11 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 }
             }
         }
-
-        private void TStockPr_Validating(object sender, CancelEventArgs e)
+        private void CBproveedorPr_Validating(object sender, CancelEventArgs e)
         {
             if (this != null)
             {
-                int number;
-                if (!int.TryParse(TStockPr.Texts, out number))
+                if (CBCategoriaPr.SelectedIndex == -1)
                 {
                     e.Cancel = true;
                     TBValidacion5.Visible = true;
@@ -221,9 +249,34 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BModificarPr_Click(object sender, EventArgs e)
         {
-            if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty)
+            wasClicked = true;
+            if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && CBProveedorPr.SelectedItem != null)
             {
-                MessageBox.Show("Producto modificado con éxito", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    NProducto nproducto = new NProducto();
+                    nproducto.NModificarProducto(
+                        int.Parse(TSerialPr.Texts),
+                        TNombrePr.Texts,
+                        TDescripcionPr.Texts,
+                        float.Parse(TPrecioPr.Texts),
+                        CBCategoriaPr.SelectedIndex + 1,
+                        CBProveedorPr.SelectedIndex + 1
+                        );
+
+                    MessageBox.Show("Producto modificado con éxito", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+                catch (ExisteRegistroException ex)
+                {
+                    // Manejo de la excepción cuando el número de serial ya existe
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de cualquier otra excepción
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {

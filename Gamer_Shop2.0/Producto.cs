@@ -21,7 +21,10 @@ namespace Gamer_Shop2._0
         public double Precio { get; set; }
         public int ID_Categoria { get; set; }
         public int ID_Producto { get; set; }
+        public int ID_Proveedor { get; set; }
+        public string Activo { get; set; }
     
         public virtual Categoría_producto Categoría_producto { get; set; }
+        public virtual Proveedor Proveedor { get; set; }
     }
 }
