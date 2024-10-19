@@ -8,8 +8,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using System.Collections.Generic;
 using Gamer_Shop2._0.Validacion;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
@@ -20,7 +18,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         private int borderWidth = 5; // Grosor del borde
 
         bool isExpandedPAC = false;
-
         public Panel PanelContainer { get; set; }
 
         public AltaProducto()
@@ -84,11 +81,11 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 }
             }
         }
-
         private void AltaProducto_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+
 
             //Enviar detras el panel PAddCategoria al cargar el form
             PAddCategoria.SendToBack();
@@ -194,23 +191,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
-        private void TStockPr_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                int number;
-                if (!int.TryParse(TStockPr.Texts, out number))
-                {
-                    e.Cancel = true;
-                    TBValidacion5.Visible = true;
-                }
-                else
-                {
-                    TBValidacion5.Visible = false;
-                }
-            }
-        }
-
         private void TSerialPr_Validating(object sender, CancelEventArgs e)
         {
             if (this != null)
@@ -228,6 +208,21 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        private void CBproveedorPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (CBCategoriaPr.SelectedIndex == -1)
+                {
+                    e.Cancel = true;
+                    TBValidacion5.Visible = true;
+                }
+                else
+                {
+                    TBValidacion5.Visible = false;
+                }
+            }
+        }
         private void CBCategoriaPr_Validating(object sender, CancelEventArgs e)
         {
             if (this != null)
@@ -244,6 +239,22 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        private void CBProveedorPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (this != null)
+            {
+                if (CBProveedorPr.SelectedIndex == -1)
+                {
+                    e.Cancel = true;
+                    TBValidacion5.Visible = true;
+                }
+                else
+                {
+                    TBValidacion5.Visible = false;
+                }
+            }
+        }
+
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
@@ -253,34 +264,37 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BRegistrarPr_Click(object sender, EventArgs e)
         {
-            if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && TStockPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null)
+            if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null)
             {
                 try
                 {
                     NProducto nproducto = new NProducto();
                     nproducto.NAgregarProducto(
-                        int.Parse(TSerialPr.Texts), TNombrePr.Texts, TDescripcionPr.Texts,
-                        int.Parse(TStockPr.Texts), float.Parse(TPrecioPr.Texts), CBCategoriaPr.SelectedIndex+1
+                        int.Parse(TSerialPr.Texts),
+                        TNombrePr.Texts,
+                        TDescripcionPr.Texts,
+                        0,
+                        "SI",
+                        float.Parse(TPrecioPr.Texts),
+                        CBCategoriaPr.SelectedIndex+1,
+                        CBProveedorPr.SelectedIndex + 1
                         );
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
-                    mensaje.ShowDialog();
+                    MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (ExisteRegistroException ex)
                 {
-                    // Manejo de la excepción cuando el número de serial ya existe
-                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
-                    mensaje.ShowDialog();
+                    // Manejo de la excepción cuando el número de serial no existe
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
                     // Manejo de cualquier otra excepción
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Ocurrió un error inesperado:" + ex.Message, "Error", "Error", null);
-                    mensaje.ShowDialog();
+                    MessageBox.Show(ex.Message);
                 }
             } else
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar un Producto", "Error", "Error", generarListaCampos());
-                mensaje.ShowDialog();
+                MessageBox.Show("Debe completar todos los campos para registrar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -329,18 +343,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 e.Handled = true;
             }
         }
-        private List<string> generarListaCampos()
-        {
-            List<string> campos = new List<string>{
-                TNombrePr.Texts,
-                TSerialPr.Texts,
-                TDescripcionPr.Texts,
-                TPrecioPr.Texts,
-                TStockPr.Texts,
-                CBCategoriaPr.SelectedItem?.ToString()
-             };
-            return campos;
-        }
+
 
         // INICIO Validacion KeyPress y Validating TBAddCategoria
         private void TBAddCategoria_KeyPress(object sender, KeyPressEventArgs e)
@@ -398,7 +401,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BShowAddCategoria_Click(object sender, EventArgs e)
         {
-            if (isExpandedPAC == false) {
+            if (isExpandedPAC == false)
+            {
                 PAddCategoria.BringToFront();
                 PAddCategoria.Visible = true;
                 isExpandedPAC = true;

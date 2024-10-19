@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Datos;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        NProducto nproducto = new NProducto();
 
         public Panel PanelContainer { get; set; }
         public ListaProductos()
@@ -31,6 +33,20 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            try
+            {
+                
+                nproducto.listaProductosActivos(DGListaPr);
+                DGListaPr.Columns["ID_Producto"].Visible = false;
+                DGListaPr.Columns["CModificar"].DisplayIndex = 9;
+                DGListaPr.Columns["CEliminar"].DisplayIndex = 10;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de cualquier otra excepción
+                MessageBox.Show(ex.Message);
+            }
+
         }
         private void PBuscadorListaPr_Paint(object sender, PaintEventArgs e)
         {
@@ -140,7 +156,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             if (e.ColumnIndex == DGListaPr.Columns["CModificar"].Index && e.RowIndex >= 0)
             {
                 // Crear una nueva instancia de ListaProductos
-                ModificarProducto ModificarPr = new ModificarProducto();
+                int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
+                ModificarProducto ModificarPr = new ModificarProducto(id);
                 ModificarPr.TopLevel = false;
 
                 // Limpiar el panel actual y añadir el nuevo formulario
@@ -152,17 +169,21 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
             else if (e.ColumnIndex == DGListaPr.Columns["CEliminar"].Index && e.RowIndex >= 0)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea eliminar este producto?", "Eliminar Producto", "Interrogacion", null);
-                DialogResult result = mensaje.ShowDialog();
+                DialogResult = MessageBox.Show("Está seguro que desea eliminar este producto?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (DialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
+                        nproducto.NEliminarProducto(id);
+                        DGListaPr.Rows.RemoveAt(e.RowIndex); //debería pasarse a la lista de inactivos
+                        MessageBox.Show("Producto eliminado con éxito", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (result == DialogResult.Yes)
-                {
-                    DGListaPr.Rows.RemoveAt(e.RowIndex);
-                    mensaje.Close();
-                }
-                else
-                {
-                    mensaje.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("No se pudo eliminar el producto");
+                    }
                 }
             }
         }

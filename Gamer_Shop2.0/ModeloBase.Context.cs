@@ -27,5 +27,6 @@ namespace Gamer_Shop2._0
     
         public virtual DbSet<Categoría_producto> Categoría_producto { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
+        public virtual DbSet<Proveedor> Proveedor { get; set; }
     }
 }

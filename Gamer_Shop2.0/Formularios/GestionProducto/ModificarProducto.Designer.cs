@@ -31,21 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarProducto));
             this.label1 = new System.Windows.Forms.Label();
             this.PContModificarPr = new System.Windows.Forms.Panel();
+            this.TBValidacion5 = new System.Windows.Forms.Label();
             this.TBValidacion6 = new System.Windows.Forms.Label();
             this.TPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.CBProveedorPr = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.TSerialPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TStockPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBValidacion5 = new System.Windows.Forms.Label();
             this.TBValidacion2 = new System.Windows.Forms.Label();
             this.TBValidacion3 = new System.Windows.Forms.Label();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.LCategoriaPr = new System.Windows.Forms.Label();
-            this.LStockPr = new System.Windows.Forms.Label();
             this.LDescripcionPr = new System.Windows.Forms.Label();
             this.LPrecioPr = new System.Windows.Forms.Label();
             this.LNombrePr = new System.Windows.Forms.Label();
@@ -53,6 +53,9 @@
             this.PBImgModificarPr = new System.Windows.Forms.PictureBox();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarPr = new Gamer_Shop2._0.RJButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.RBOpcionSIPr = new System.Windows.Forms.RadioButton();
+            this.RBOpcionNOPr = new System.Windows.Forms.RadioButton();
             this.PContModificarPr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).BeginInit();
             this.SuspendLayout();
@@ -72,35 +75,50 @@
             // PContModificarPr
             // 
             this.PContModificarPr.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContModificarPr.Controls.Add(this.RBOpcionNOPr);
+            this.PContModificarPr.Controls.Add(this.RBOpcionSIPr);
+            this.PContModificarPr.Controls.Add(this.label3);
+            this.PContModificarPr.Controls.Add(this.CBProveedorPr);
+            this.PContModificarPr.Controls.Add(this.TBValidacion5);
             this.PContModificarPr.Controls.Add(this.TBValidacion6);
             this.PContModificarPr.Controls.Add(this.TPrecioPr);
+            this.PContModificarPr.Controls.Add(this.label4);
             this.PContModificarPr.Controls.Add(this.TSerialPr);
             this.PContModificarPr.Controls.Add(this.TBValidacion4);
             this.PContModificarPr.Controls.Add(this.label2);
-            this.PContModificarPr.Controls.Add(this.TStockPr);
             this.PContModificarPr.Controls.Add(this.TDescripcionPr);
             this.PContModificarPr.Controls.Add(this.TNombrePr);
-            this.PContModificarPr.Controls.Add(this.TBValidacion5);
             this.PContModificarPr.Controls.Add(this.TBValidacion2);
             this.PContModificarPr.Controls.Add(this.TBValidacion3);
             this.PContModificarPr.Controls.Add(this.TBValidacion);
             this.PContModificarPr.Controls.Add(this.CBCategoriaPr);
             this.PContModificarPr.Controls.Add(this.LCategoriaPr);
-            this.PContModificarPr.Controls.Add(this.LStockPr);
             this.PContModificarPr.Controls.Add(this.LDescripcionPr);
             this.PContModificarPr.Controls.Add(this.LPrecioPr);
             this.PContModificarPr.Controls.Add(this.LNombrePr);
-            this.PContModificarPr.Location = new System.Drawing.Point(111, 102);
+            this.PContModificarPr.Location = new System.Drawing.Point(111, 94);
             this.PContModificarPr.Name = "PContModificarPr";
-            this.PContModificarPr.Size = new System.Drawing.Size(315, 307);
+            this.PContModificarPr.Size = new System.Drawing.Size(315, 322);
             this.PContModificarPr.TabIndex = 9;
+            // 
+            // TBValidacion5
+            // 
+            this.TBValidacion5.AutoSize = true;
+            this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion5.Location = new System.Drawing.Point(141, 218);
+            this.TBValidacion5.Name = "TBValidacion5";
+            this.TBValidacion5.Size = new System.Drawing.Size(160, 14);
+            this.TBValidacion5.TabIndex = 61;
+            this.TBValidacion5.Text = "Por favor, elija una opción válida";
+            this.TBValidacion5.Visible = false;
             // 
             // TBValidacion6
             // 
             this.TBValidacion6.AutoSize = true;
             this.TBValidacion6.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion6.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion6.Location = new System.Drawing.Point(141, 283);
+            this.TBValidacion6.Location = new System.Drawing.Point(141, 266);
             this.TBValidacion6.Name = "TBValidacion6";
             this.TBValidacion6.Size = new System.Drawing.Size(160, 14);
             this.TBValidacion6.TabIndex = 58;
@@ -115,7 +133,7 @@
             this.TPrecioPr.BorderSize = 2;
             this.TPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPrecioPr.ForeColor = System.Drawing.Color.White;
-            this.TPrecioPr.Location = new System.Drawing.Point(129, 144);
+            this.TPrecioPr.Location = new System.Drawing.Point(129, 139);
             this.TPrecioPr.Margin = new System.Windows.Forms.Padding(4);
             this.TPrecioPr.Multiline = false;
             this.TPrecioPr.Name = "TPrecioPr";
@@ -131,6 +149,40 @@
             this.TPrecioPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
             this.TPrecioPr.Validating += new System.ComponentModel.CancelEventHandler(this.TPrecioPr_Validating);
             // 
+            // CBProveedorPr
+            // 
+            this.CBProveedorPr.BackColor = System.Drawing.Color.Black;
+            this.CBProveedorPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedorPr.BorderSize = 1;
+            this.CBProveedorPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBProveedorPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CBProveedorPr.ForeColor = System.Drawing.Color.DimGray;
+            this.CBProveedorPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedorPr.Items.AddRange(new object[] {
+            "PROVEEDOR 1",
+            "PROVEEDOR 2"});
+            this.CBProveedorPr.ListBackColor = System.Drawing.Color.Black;
+            this.CBProveedorPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedorPr.Location = new System.Drawing.Point(129, 189);
+            this.CBProveedorPr.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBProveedorPr.Name = "CBProveedorPr";
+            this.CBProveedorPr.Padding = new System.Windows.Forms.Padding(1);
+            this.CBProveedorPr.Size = new System.Drawing.Size(172, 30);
+            this.CBProveedorPr.TabIndex = 60;
+            this.CBProveedorPr.Texts = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(14, 195);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 18);
+            this.label4.TabIndex = 59;
+            this.label4.Text = "Proveedor";
+            // 
             // TSerialPr
             // 
             this.TSerialPr.BackColor = System.Drawing.Color.Black;
@@ -139,7 +191,7 @@
             this.TSerialPr.BorderSize = 2;
             this.TSerialPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSerialPr.ForeColor = System.Drawing.Color.White;
-            this.TSerialPr.Location = new System.Drawing.Point(129, 56);
+            this.TSerialPr.Location = new System.Drawing.Point(129, 49);
             this.TSerialPr.Margin = new System.Windows.Forms.Padding(4);
             this.TSerialPr.Multiline = true;
             this.TSerialPr.Name = "TSerialPr";
@@ -160,7 +212,7 @@
             this.TBValidacion4.AutoSize = true;
             this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion4.Location = new System.Drawing.Point(101, 174);
+            this.TBValidacion4.Location = new System.Drawing.Point(101, 169);
             this.TBValidacion4.Name = "TBValidacion4";
             this.TBValidacion4.Size = new System.Drawing.Size(200, 14);
             this.TBValidacion4.TabIndex = 30;
@@ -173,35 +225,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(16, 69);
+            this.label2.Location = new System.Drawing.Point(16, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 18);
             this.label2.TabIndex = 29;
             this.label2.Text = "Serial";
-            // 
-            // TStockPr
-            // 
-            this.TStockPr.BackColor = System.Drawing.Color.Black;
-            this.TStockPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TStockPr.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TStockPr.BorderSize = 2;
-            this.TStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TStockPr.ForeColor = System.Drawing.Color.White;
-            this.TStockPr.Location = new System.Drawing.Point(129, 189);
-            this.TStockPr.Margin = new System.Windows.Forms.Padding(4);
-            this.TStockPr.Multiline = false;
-            this.TStockPr.Name = "TStockPr";
-            this.TStockPr.Padding = new System.Windows.Forms.Padding(7);
-            this.TStockPr.PasswordChar = false;
-            this.TStockPr.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TStockPr.PlaceholderText = "";
-            this.TStockPr.Size = new System.Drawing.Size(172, 31);
-            this.TStockPr.TabIndex = 15;
-            this.TStockPr.Texts = "";
-            this.TStockPr.UnderlinedStyle = true;
-            this.TStockPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TStockPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNumberPr_KeyPress);
-            this.TStockPr.Validating += new System.ComponentModel.CancelEventHandler(this.TStockPr_Validating);
             // 
             // TDescripcionPr
             // 
@@ -211,7 +239,7 @@
             this.TDescripcionPr.BorderSize = 2;
             this.TDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDescripcionPr.ForeColor = System.Drawing.Color.White;
-            this.TDescripcionPr.Location = new System.Drawing.Point(129, 98);
+            this.TDescripcionPr.Location = new System.Drawing.Point(129, 94);
             this.TDescripcionPr.Margin = new System.Windows.Forms.Padding(4);
             this.TDescripcionPr.Multiline = true;
             this.TDescripcionPr.Name = "TDescripcionPr";
@@ -235,7 +263,7 @@
             this.TNombrePr.BorderSize = 2;
             this.TNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNombrePr.ForeColor = System.Drawing.Color.White;
-            this.TNombrePr.Location = new System.Drawing.Point(129, 10);
+            this.TNombrePr.Location = new System.Drawing.Point(129, 3);
             this.TNombrePr.Margin = new System.Windows.Forms.Padding(4);
             this.TNombrePr.Multiline = false;
             this.TNombrePr.Name = "TNombrePr";
@@ -251,24 +279,12 @@
             this.TNombrePr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombrePr_KeyPress);
             this.TNombrePr.Validating += new System.ComponentModel.CancelEventHandler(this.TNombrePr_Validating);
             // 
-            // TBValidacion5
-            // 
-            this.TBValidacion5.AutoSize = true;
-            this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion5.Location = new System.Drawing.Point(64, 219);
-            this.TBValidacion5.Name = "TBValidacion5";
-            this.TBValidacion5.Size = new System.Drawing.Size(237, 14);
-            this.TBValidacion5.TabIndex = 25;
-            this.TBValidacion5.Text = "Ingrese únicamente carácteres numéricos exactos.";
-            this.TBValidacion5.Visible = false;
-            // 
             // TBValidacion2
             // 
             this.TBValidacion2.AutoSize = true;
             this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(101, 86);
+            this.TBValidacion2.Location = new System.Drawing.Point(101, 79);
             this.TBValidacion2.Name = "TBValidacion2";
             this.TBValidacion2.Size = new System.Drawing.Size(200, 14);
             this.TBValidacion2.TabIndex = 24;
@@ -280,7 +296,7 @@
             this.TBValidacion3.AutoSize = true;
             this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion3.Location = new System.Drawing.Point(62, 129);
+            this.TBValidacion3.Location = new System.Drawing.Point(62, 124);
             this.TBValidacion3.Name = "TBValidacion3";
             this.TBValidacion3.Size = new System.Drawing.Size(239, 14);
             this.TBValidacion3.TabIndex = 23;
@@ -292,7 +308,7 @@
             this.TBValidacion.AutoSize = true;
             this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(87, 41);
+            this.TBValidacion.Location = new System.Drawing.Point(87, 34);
             this.TBValidacion.Name = "TBValidacion";
             this.TBValidacion.Size = new System.Drawing.Size(214, 14);
             this.TBValidacion.TabIndex = 22;
@@ -309,13 +325,11 @@
             this.CBCategoriaPr.ForeColor = System.Drawing.Color.DimGray;
             this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.Items.AddRange(new object[] {
-            "xd",
-            "procesador",
-            "ola",
-            "a"});
+            "componentes",
+            "telefonia movil"});
             this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBCategoriaPr.Location = new System.Drawing.Point(129, 250);
+            this.CBCategoriaPr.Location = new System.Drawing.Point(129, 236);
             this.CBCategoriaPr.MinimumSize = new System.Drawing.Size(30, 30);
             this.CBCategoriaPr.Name = "CBCategoriaPr";
             this.CBCategoriaPr.Padding = new System.Windows.Forms.Padding(1);
@@ -330,23 +344,11 @@
             this.LCategoriaPr.BackColor = System.Drawing.Color.Transparent;
             this.LCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCategoriaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LCategoriaPr.Location = new System.Drawing.Point(14, 255);
+            this.LCategoriaPr.Location = new System.Drawing.Point(14, 245);
             this.LCategoriaPr.Name = "LCategoriaPr";
             this.LCategoriaPr.Size = new System.Drawing.Size(72, 18);
             this.LCategoriaPr.TabIndex = 11;
             this.LCategoriaPr.Text = "Categoría";
-            // 
-            // LStockPr
-            // 
-            this.LStockPr.AutoSize = true;
-            this.LStockPr.BackColor = System.Drawing.Color.Transparent;
-            this.LStockPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LStockPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LStockPr.Location = new System.Drawing.Point(14, 202);
-            this.LStockPr.Name = "LStockPr";
-            this.LStockPr.Size = new System.Drawing.Size(47, 18);
-            this.LStockPr.TabIndex = 10;
-            this.LStockPr.Text = "Stock";
             // 
             // LDescripcionPr
             // 
@@ -354,7 +356,7 @@
             this.LDescripcionPr.BackColor = System.Drawing.Color.Transparent;
             this.LDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDescripcionPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LDescripcionPr.Location = new System.Drawing.Point(16, 111);
+            this.LDescripcionPr.Location = new System.Drawing.Point(16, 107);
             this.LDescripcionPr.Name = "LDescripcionPr";
             this.LDescripcionPr.Size = new System.Drawing.Size(87, 18);
             this.LDescripcionPr.TabIndex = 9;
@@ -378,7 +380,7 @@
             this.LNombrePr.BackColor = System.Drawing.Color.Transparent;
             this.LNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombrePr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LNombrePr.Location = new System.Drawing.Point(16, 23);
+            this.LNombrePr.Location = new System.Drawing.Point(16, 16);
             this.LNombrePr.Name = "LNombrePr";
             this.LNombrePr.Size = new System.Drawing.Size(62, 18);
             this.LNombrePr.TabIndex = 7;
@@ -450,6 +452,42 @@
             this.BModificarPr.UseVisualStyleBackColor = false;
             this.BModificarPr.Click += new System.EventHandler(this.BModificarPr_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(16, 287);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 18);
+            this.label3.TabIndex = 62;
+            this.label3.Text = "Activo";
+            // 
+            // RBOpcionSIPr
+            // 
+            this.RBOpcionSIPr.AutoSize = true;
+            this.RBOpcionSIPr.ForeColor = System.Drawing.Color.Lime;
+            this.RBOpcionSIPr.Location = new System.Drawing.Point(164, 289);
+            this.RBOpcionSIPr.Name = "RBOpcionSIPr";
+            this.RBOpcionSIPr.Size = new System.Drawing.Size(35, 17);
+            this.RBOpcionSIPr.TabIndex = 63;
+            this.RBOpcionSIPr.TabStop = true;
+            this.RBOpcionSIPr.Text = "SI";
+            this.RBOpcionSIPr.UseVisualStyleBackColor = true;
+            // 
+            // RBOpcionNOPr
+            // 
+            this.RBOpcionNOPr.AutoSize = true;
+            this.RBOpcionNOPr.ForeColor = System.Drawing.Color.Lime;
+            this.RBOpcionNOPr.Location = new System.Drawing.Point(216, 289);
+            this.RBOpcionNOPr.Name = "RBOpcionNOPr";
+            this.RBOpcionNOPr.Size = new System.Drawing.Size(41, 17);
+            this.RBOpcionNOPr.TabIndex = 64;
+            this.RBOpcionNOPr.TabStop = true;
+            this.RBOpcionNOPr.Text = "NO";
+            this.RBOpcionNOPr.UseVisualStyleBackColor = true;
+            // 
             // ModificarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,12 +521,10 @@
         private System.Windows.Forms.Label label1;
         private RJButton BModificarPr;
         private System.Windows.Forms.Panel PContModificarPr;
-        private RJControls.RJTextBox TStockPr;
         private RJControls.RJTextBox TPrecioPr;
         private RJControls.RJTextBox TDescripcionPr;
         private RJControls.RJTextBox TNombrePr;
         private System.Windows.Forms.Label LCategoriaPr;
-        private System.Windows.Forms.Label LStockPr;
         private System.Windows.Forms.Label LDescripcionPr;
         private System.Windows.Forms.Label LPrecioPr;
         private System.Windows.Forms.Label LNombrePr;
@@ -499,10 +535,15 @@
         private System.Windows.Forms.Label TBValidacion;
         private System.Windows.Forms.Label TBValidacion3;
         private System.Windows.Forms.Label TBValidacion2;
-        private System.Windows.Forms.Label TBValidacion5;
         private RJControls.RJTextBox TSerialPr;
         private System.Windows.Forms.Label TBValidacion4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label TBValidacion6;
+        private System.Windows.Forms.Label TBValidacion5;
+        private RJControls.RJComboBox CBProveedorPr;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton RBOpcionNOPr;
+        private System.Windows.Forms.RadioButton RBOpcionSIPr;
+        private System.Windows.Forms.Label label3;
     }
 }

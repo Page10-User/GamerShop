@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Categoría_producto" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Producto" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_CategoriaProducto" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProyectoTallerIIModel.Proveedor" Width="1.5" PointX="0.75" PointY="3.75" />
+        <AssociationConnector Association="ProyectoTallerIIModel.FK_Proveedor" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
