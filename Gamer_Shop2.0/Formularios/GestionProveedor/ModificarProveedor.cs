@@ -219,7 +219,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             if (!string.IsNullOrWhiteSpace(texto))
             {
                 // Validar longitud minima
-                if (!validador.ValidarLongitudMinima(texto, 2))
+                if (!validador.ValidarLongitudMinima(texto, 3))
                 {
                     e.Cancel = true;
                     TBValidacion5.Visible = false;
@@ -231,6 +231,14 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 {
                     e.Cancel = true;
                     TBValidacion6.Visible = true;
+                    return;
+                }
+
+                // Validar que no sean solo números o caracteres especiales.
+                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion17.Visible = true;
                     return;
                 }
 
@@ -481,6 +489,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             TBValidacion14.Visible = false;
             TBValidacion15.Visible = false;
             TBValidacion16.Visible = false;
+            TBValidacion17.Visible = false;
         }
     }
 }

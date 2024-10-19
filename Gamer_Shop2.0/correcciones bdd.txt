@@ -1,0 +1,38 @@
+use ProyectoTallerII;
+
+TRUNCATE TABLE Producto;
+
+-- Corrección primary key (Pasa a ser unicamente con el identity)
+ALTER TABLE Producto DROP CONSTRAINT PK_Producto;
+ALTER TABLE Producto ADD CONSTRAINT PK_Producto PRIMARY KEY (ID_Producto);
+ALTER TABLE Producto ADD CONSTRAINT UQ_Serial UNIQUE (Serial);
+ALTER TABLE Producto ADD Activo VARCHAR(2) NOT NULL;
+ALTER TABLE Producto ADD CONSTRAINT DF_Activo DEFAULT 'SI' FOR Activo;
+
+-- Corrección identity categoría
+ALTER TABLE Producto DROP CONSTRAINT FK_CategoriaProducto;
+ALTER TABLE Categoría_producto DROP CONSTRAINT PK_Categoria;
+ALTER TABLE Categoría_producto DROP COLUMN ID_Categoria;
+ALTER TABLE Categoría_producto ADD ID_Categoria INT NOT NULL IDENTITY;
+ALTER TABLE Categoría_producto ADD CONSTRAINT PK_Categoria PRIMARY KEY (ID_Categoria);
+ALTER TABLE Categoría_producto ADD CONSTRAINT FK_CategoriaProducto FOREIGN KEY (ID_Categoria) REFERENCES Categoría_producto(ID_Categoria);
+
+-- Creacion tabla proveedor 
+CREATE TABLE Proveedor
+(
+  ID_Proveedor INT NOT NULL IDENTITY,
+  Razon_social VARCHAR(35) NOT NULL,
+  Nombre_representante VARCHAR(35) NOT NULL,
+  Telefono VARCHAR(15) NOT NULL,
+  Correo VARCHAR(50) NOT NULL,
+  Dirección VARCHAR(150) NOT NULL,
+  CONSTRAINT PK_Proveedor PRIMARY KEY (ID_Proveedor),
+  CONSTRAINT UQ_Razon_social UNIQUE (Razon_social),
+  CONSTRAINT UQ_Telefono UNIQUE (Telefono),
+  CONSTRAINT UQ_Correo UNIQUE (Correo),
+  CONSTRAINT UQ_Dirección UNIQUE (Dirección)
+);
+
+-- Agrego atributo id_proveedor a tabla Producto
+ALTER TABLE Producto ADD ID_Proveedor INT NOT NULL;
+ALTER TABLE Producto ADD CONSTRAINT PK_Proveedor PRIMARY KEY (ID_Proveedor);

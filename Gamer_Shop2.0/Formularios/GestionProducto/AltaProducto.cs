@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System.Collections.Generic;
+using Gamer_Shop2._0.Validacion;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
 {
@@ -17,6 +18,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+
+        bool isExpandedPAC = false;
 
         public Panel PanelContainer { get; set; }
 
@@ -55,10 +58,40 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        private void PAddCategoria_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 20;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
+
         private void AltaProducto_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+
+            //Enviar detras el panel PAddCategoria al cargar el form
+            PAddCategoria.SendToBack();
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -307,6 +340,90 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 CBCategoriaPr.SelectedItem?.ToString()
              };
             return campos;
+        }
+
+        // INICIO Validacion KeyPress y Validating TBAddCategoria
+        private void TBAddCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBAddCategoria.Texts;
+
+            //validar caracteres.
+            if (!validador.ValidarKeyPressAlfabetico(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 20, e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void TBAddCategoria_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBAddCategoria.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                // Validar longitud minima
+                if (!validador.ValidarLongitudMinima(texto, 3))
+                {
+                    e.Cancel = true;
+                    TBValidacionCat.Visible = true;
+                    return;
+                }
+
+                // Validar que sea caracteres alfabéticos
+                if (!validador.ValidarCaracteresAlfabeticos(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacionCat2.Visible = true;
+                    return;
+                }
+
+                // Validar longitud Máxima
+                if (!validador.ValidarLongitud(texto, 20))
+                {
+                    e.Cancel = true;
+                    TBValidacionCat3.Visible = true;
+                }
+            }
+        }
+        // FIN Validacion KeyPress y Validating TBAddCategoria
+
+        private void BShowAddCategoria_Click(object sender, EventArgs e)
+        {
+            if (isExpandedPAC == false) {
+                PAddCategoria.BringToFront();
+                PAddCategoria.Visible = true;
+                isExpandedPAC = true;
+            }
+            else
+            {
+                PAddCategoria.SendToBack();
+                PAddCategoria.Visible = false;
+                isExpandedPAC = false;
+            }
+        }
+
+        private void OcultarValidaciones()
+        {
+            TBValidacionCat.Visible = false;
+            TBValidacionCat2.Visible = false;
+            TBValidacionCat3.Visible = false;
+        }
+
+        private void BAddCategoria_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TBAddCategoria.Texts))
+            {
+                this.Close();
+            }
         }
     }
 }

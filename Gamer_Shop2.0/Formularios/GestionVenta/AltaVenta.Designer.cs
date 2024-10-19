@@ -39,17 +39,14 @@
             this.TBDniClienteExistente = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BNuevoCliente = new Gamer_Shop2._0.RJButton();
             this.BClienteExistente = new Gamer_Shop2._0.RJButton();
-            this.TBValidacion3 = new System.Windows.Forms.Label();
             this.PContAltaVn1 = new System.Windows.Forms.Panel();
             this.TBFecha = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBValidacion = new System.Windows.Forms.Label();
             this.LNombreUsuario = new System.Windows.Forms.Label();
             this.LContraseñaUs = new System.Windows.Forms.Label();
             this.LEmailUs = new System.Windows.Forms.Label();
             this.PContAltaVn3 = new System.Windows.Forms.Panel();
             this.TBMonto = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.PContAltaVn4 = new System.Windows.Forms.Panel();
-            this.TBValidacion2 = new System.Windows.Forms.Label();
             this.CBCategoria = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.FLPListaProductosVenta = new System.Windows.Forms.FlowLayoutPanel();
             this.botonArticuloVn1 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
@@ -60,6 +57,9 @@
             this.TBuscarPrVn = new System.Windows.Forms.TextBox();
             this.BShowListaVn = new Gamer_Shop2._0.RJButton();
             this.BRegistrarVn = new Gamer_Shop2._0.RJButton();
+            this.TBValidacion = new System.Windows.Forms.Label();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
+            this.TBValidacion3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).BeginInit();
             this.PContAltaVn2.SuspendLayout();
             this.PContBuscarDni.SuspendLayout();
@@ -222,23 +222,12 @@
             this.BClienteExistente.UseVisualStyleBackColor = false;
             this.BClienteExistente.Click += new System.EventHandler(this.BClienteExistente_Click);
             // 
-            // TBValidacion3
-            // 
-            this.TBValidacion3.AutoSize = true;
-            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion3.Location = new System.Drawing.Point(77, 44);
-            this.TBValidacion3.Name = "TBValidacion3";
-            this.TBValidacion3.Size = new System.Drawing.Size(123, 14);
-            this.TBValidacion3.TabIndex = 34;
-            this.TBValidacion3.Text = "Ingrese un monto válido.";
-            this.TBValidacion3.Visible = false;
-            // 
             // PContAltaVn1
             // 
             this.PContAltaVn1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaVn1.Controls.Add(this.TBValidacion3);
+            this.PContAltaVn1.Controls.Add(this.TBValidacion2);
             this.PContAltaVn1.Controls.Add(this.TBFecha);
-            this.PContAltaVn1.Controls.Add(this.TBValidacion);
             this.PContAltaVn1.Controls.Add(this.LNombreUsuario);
             this.PContAltaVn1.Location = new System.Drawing.Point(28, 241);
             this.PContAltaVn1.Name = "PContAltaVn1";
@@ -266,20 +255,9 @@
             this.TBFecha.Texts = "";
             this.TBFecha.UnderlinedStyle = false;
             this.TBFecha._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBFecha.Enter += new System.EventHandler(this.TBFecha_Enter);
             this.TBFecha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFecha_KeyPress);
             this.TBFecha.Validating += new System.ComponentModel.CancelEventHandler(this.TBFecha_Validating);
-            // 
-            // TBValidacion
-            // 
-            this.TBValidacion.AutoSize = true;
-            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(77, 44);
-            this.TBValidacion.Name = "TBValidacion";
-            this.TBValidacion.Size = new System.Drawing.Size(121, 14);
-            this.TBValidacion.TabIndex = 33;
-            this.TBValidacion.Text = "Ingrese una fecha válida.";
-            this.TBValidacion.Visible = false;
             // 
             // LNombreUsuario
             // 
@@ -322,7 +300,6 @@
             this.PContAltaVn3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.PContAltaVn3.Controls.Add(this.TBMonto);
             this.PContAltaVn3.Controls.Add(this.LEmailUs);
-            this.PContAltaVn3.Controls.Add(this.TBValidacion3);
             this.PContAltaVn3.Location = new System.Drawing.Point(28, 308);
             this.PContAltaVn3.Name = "PContAltaVn3";
             this.PContAltaVn3.Size = new System.Drawing.Size(257, 61);
@@ -334,6 +311,7 @@
             this.TBMonto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.TBMonto.BorderFocusColor = System.Drawing.Color.Lime;
             this.TBMonto.BorderSize = 1;
+            this.TBMonto.Enabled = false;
             this.TBMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBMonto.ForeColor = System.Drawing.Color.White;
             this.TBMonto.Location = new System.Drawing.Point(68, 15);
@@ -349,34 +327,22 @@
             this.TBMonto.Texts = "";
             this.TBMonto.UnderlinedStyle = false;
             this.TBMonto._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBMonto_KeyPress);
-            this.TBMonto.Validating += new System.ComponentModel.CancelEventHandler(this.TBMonto_Validating);
             // 
             // PContAltaVn4
             // 
             this.PContAltaVn4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContAltaVn4.Controls.Add(this.TBValidacion2);
             this.PContAltaVn4.Controls.Add(this.CBCategoria);
+            this.PContAltaVn4.Controls.Add(this.TBValidacion);
             this.PContAltaVn4.Controls.Add(this.LContraseñaUs);
             this.PContAltaVn4.Location = new System.Drawing.Point(291, 239);
             this.PContAltaVn4.Name = "PContAltaVn4";
             this.PContAltaVn4.Size = new System.Drawing.Size(233, 130);
             this.PContAltaVn4.TabIndex = 34;
             // 
-            // TBValidacion2
-            // 
-            this.TBValidacion2.AutoSize = true;
-            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(41, 58);
-            this.TBValidacion2.Name = "TBValidacion2";
-            this.TBValidacion2.Size = new System.Drawing.Size(160, 14);
-            this.TBValidacion2.TabIndex = 57;
-            this.TBValidacion2.Text = "Por favor, elija una opción válida";
-            this.TBValidacion2.Visible = false;
-            // 
             // CBCategoria
             // 
+            this.CBCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CBCategoria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CBCategoria.BackColor = System.Drawing.Color.Black;
             this.CBCategoria.BorderColor = System.Drawing.Color.Lime;
             this.CBCategoria.BorderSize = 1;
@@ -394,7 +360,7 @@
             this.CBCategoria.Padding = new System.Windows.Forms.Padding(1);
             this.CBCategoria.Size = new System.Drawing.Size(207, 30);
             this.CBCategoria.TabIndex = 32;
-            this.CBCategoria.Texts = "";
+            this.CBCategoria.Texts = "Seleccionar...";
             this.CBCategoria.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoria_Validating);
             // 
             // FLPListaProductosVenta
@@ -527,6 +493,42 @@
             this.BRegistrarVn.UseVisualStyleBackColor = false;
             this.BRegistrarVn.Click += new System.EventHandler(this.BRegistrarVn_Click);
             // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion.Location = new System.Drawing.Point(48, 58);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(125, 14);
+            this.TBValidacion.TabIndex = 33;
+            this.TBValidacion.Text = "Ingrese una opción válida";
+            this.TBValidacion.Visible = false;
+            // 
+            // TBValidacion2
+            // 
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion2.Location = new System.Drawing.Point(84, 42);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(125, 14);
+            this.TBValidacion2.TabIndex = 34;
+            this.TBValidacion2.Text = "Ingrese una opción válida";
+            this.TBValidacion2.Visible = false;
+            // 
+            // TBValidacion3
+            // 
+            this.TBValidacion3.AutoSize = true;
+            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion3.Location = new System.Drawing.Point(32, 42);
+            this.TBValidacion3.Name = "TBValidacion3";
+            this.TBValidacion3.Size = new System.Drawing.Size(202, 14);
+            this.TBValidacion3.TabIndex = 35;
+            this.TBValidacion3.Text = "La fecha solo admite caracteres numéricos";
+            this.TBValidacion3.Visible = false;
+            // 
             // AltaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -583,8 +585,6 @@
         private System.Windows.Forms.Panel PContBuscarDni;
         private System.Windows.Forms.Panel PContAltaVn1;
         private RJControls.RJTextBox TBMonto;
-        private System.Windows.Forms.Label TBValidacion3;
-        private System.Windows.Forms.Label TBValidacion;
         private RJControls.RJComboBox CBCategoria;
         private RJControls.RJTextBox TBFecha;
         private System.Windows.Forms.Label LContraseñaUs;
@@ -593,12 +593,14 @@
         private System.Windows.Forms.Panel PContAltaVn3;
         private System.Windows.Forms.Panel PContAltaVn4;
         private System.Windows.Forms.FlowLayoutPanel FLPListaProductosVenta;
-        private System.Windows.Forms.Label TBValidacion2;
         private System.Windows.Forms.Panel PBuscadorPrVn;
         private RJButton BBuscadorPrVn;
         private System.Windows.Forms.TextBox TBuscarPrVn;
         private BotonArticuloVn botonArticuloVn1;
         private BotonArticuloVn botonArticuloVn2;
         private BotonArticuloVn botonArticuloVn3;
+        private System.Windows.Forms.Label TBValidacion;
+        private System.Windows.Forms.Label TBValidacion2;
+        private System.Windows.Forms.Label TBValidacion3;
     }
 }

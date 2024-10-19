@@ -2,6 +2,7 @@
 using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.RJControls;
+using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-            TBFecha.Texts = DateTime.Now.Date.ToString();
+            TBFecha.Texts = DateTime.Now.ToString("dd-MM-yyyy");
         }
 
         private void PContAltaVn_Paint(object sender, PaintEventArgs e)
@@ -119,107 +120,96 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
         }
 
+        //Validaciones
+
+        //INICIO Validacion Fecha
+        private void TBFecha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBFecha.Texts;
+
+            //Validar
+            if (!validador.ValidarKeyPressSoloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Validar longitud
+            if (!validador.ValidarLongitudExacta(texto, 8))
+            {
+                e.Handled = true;
+            }
+        }
+        private void TBFecha_Enter(object sender, EventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBFecha.Texts.Trim();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                TBFecha.Texts = validador.RemoverFormatoFecha(texto);
+            }
+        }
+
+        private void TBFecha_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBFecha.Texts;
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                //Validar caracteres
+                if (!validador.ValidarCaracteresNumericos(texto))
+                {
+                    e.Cancel=true;
+                    TBValidacion3.Visible = true;
+                    return;
+                }
+
+                //Validar longitud
+                if (!validador.ValidarLongitudExacta(texto, 8))
+                {
+                    e.Cancel = true;
+                    TBValidacion2.Visible = true;
+                    return;
+                }
+                TBFecha.Texts = validador.AplicarFormatoFecha(texto);
+            }
+        }
+        //FIN Validacion Fecha
+
+        //INICIO Validacion Monto
+
+        // Monto generado automaticamente por el sistema y además es inmodificable.
+            
+        //FIN Validacion Monto
+
+        //INICIO Validacion MetodoPago
+        private void CBCategoria_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string seleccion = CBCategoria.SelectedItem?.ToString();
+
+            OcultarValidaciones();
+
+            if (!validador.ValidarSeleccion(seleccion))
+            {
+                e.Cancel = true;
+                CBCategoria.Texts = "Seleccionar...";
+                TBValidacion.Visible = true;
+            }
+        }
+        //FIN Validacion MetodoPago
+
+        //Inicio TextChanged
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             this.AutoValidate = AutoValidate.EnablePreventFocusChange;
         }
-
-        //Validaciones
-
-        //Validacion Inicio Fecha
-        private void TBFecha_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBFecha.Texts.Trim().Length < 10;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-        private void TBFecha_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                string formato = "dd-mm-yyyy";
-
-                DateTime fechaValidada;
-                bool esFechaValida = DateTime.TryParseExact(
-                    TBFecha.Texts,                     
-                    formato,                 
-                    System.Globalization.CultureInfo.InvariantCulture, 
-                    System.Globalization.DateTimeStyles.None,          
-                    out fechaValidada);        
-
-                if (!esFechaValida)
-                {
-                    e.Cancel = true;
-                    TBValidacion.Visible = true;
-
-                }
-                else
-                {
-                    TBValidacion.Visible = false;
-                }
-            }
-        }
-        //Validacion Fin Fecha
-
-        //Validacion Inicio Monto
-        private void TBMonto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var textbox = sender as RJTextBox;
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TBMonto.Texts.Trim().Length < 15;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-        private void TBMonto_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                float number;
-                if (!float.TryParse(TBMonto.Texts, out number))
-                {
-                    e.Cancel = true;
-                    TBValidacion3.Visible = true;
-                }
-                else
-                {
-                    TBValidacion3.Visible = false;
-                }
-            }
-        }
-        //Validacion Fin Monto
-
-        //Validacion Inicio MetodoPago
-        private void CBCategoria_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                if (CBCategoria.SelectedIndex == -1)
-                {
-                    e.Cancel = true;
-                    TBValidacion2.Visible = true;
-                }
-                else
-                {
-                    TBValidacion2.Visible = false;
-                }
-            }
-        }
-        //Validacion Fin MetodoPago
+        //Fin TextChanged
 
         private void BRegistrarVn_Click(object sender, EventArgs e)
         {
@@ -298,6 +288,11 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 CBCategoria.SelectedItem?.ToString()
              };
             return campos;
+        }
+
+        private void OcultarValidaciones()
+        {
+            TBValidacion.Visible = false;
         }
     }
 }

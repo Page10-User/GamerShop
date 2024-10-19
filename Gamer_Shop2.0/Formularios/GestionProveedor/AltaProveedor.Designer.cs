@@ -34,36 +34,37 @@
             this.LRegistrarProveedor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PContInfoAltaProveedor = new System.Windows.Forms.Panel();
-            this.TBContacto = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBRepresentante = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBRazon = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBCorreo = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBValidacion = new System.Windows.Forms.Label();
-            this.CBCategoriaPrProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.TBDireccion = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBValidacion16 = new System.Windows.Forms.Label();
+            this.TBValidacion15 = new System.Windows.Forms.Label();
+            this.TBValidacion9 = new System.Windows.Forms.Label();
+            this.TBValidacion14 = new System.Windows.Forms.Label();
+            this.TBValidacion11 = new System.Windows.Forms.Label();
+            this.TBValidacion13 = new System.Windows.Forms.Label();
+            this.TBValidacion7 = new System.Windows.Forms.Label();
+            this.TBValidacion12 = new System.Windows.Forms.Label();
+            this.TBValidacion10 = new System.Windows.Forms.Label();
+            this.TBValidacion8 = new System.Windows.Forms.Label();
+            this.TBValidacion4 = new System.Windows.Forms.Label();
+            this.TBValidacion6 = new System.Windows.Forms.Label();
+            this.TBValidacion5 = new System.Windows.Forms.Label();
+            this.TBValidacion3 = new System.Windows.Forms.Label();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.TBValidacion = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.TBContacto = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBRepresentante = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBRazon = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBCorreo = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.CBCategoriaPrProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.TBDireccion = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BRegistrarProveedor = new Gamer_Shop2._0.RJButton();
             this.BListaProveedor = new Gamer_Shop2._0.RJButton();
-            this.TBValidacion2 = new System.Windows.Forms.Label();
-            this.TBValidacion3 = new System.Windows.Forms.Label();
-            this.TBValidacion4 = new System.Windows.Forms.Label();
-            this.TBValidacion5 = new System.Windows.Forms.Label();
-            this.TBValidacion6 = new System.Windows.Forms.Label();
-            this.TBValidacion7 = new System.Windows.Forms.Label();
-            this.TBValidacion8 = new System.Windows.Forms.Label();
-            this.TBValidacion9 = new System.Windows.Forms.Label();
-            this.TBValidacion10 = new System.Windows.Forms.Label();
-            this.TBValidacion11 = new System.Windows.Forms.Label();
-            this.TBValidacion12 = new System.Windows.Forms.Label();
-            this.TBValidacion13 = new System.Windows.Forms.Label();
-            this.TBValidacion14 = new System.Windows.Forms.Label();
-            this.TBValidacion15 = new System.Windows.Forms.Label();
-            this.TBValidacion16 = new System.Windows.Forms.Label();
+            this.TBValidacion17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaProveedor)).BeginInit();
             this.PContInfoAltaProveedor.SuspendLayout();
             this.SuspendLayout();
@@ -118,6 +119,7 @@
             // 
             // PContInfoAltaProveedor
             // 
+            this.PContInfoAltaProveedor.Controls.Add(this.TBValidacion17);
             this.PContInfoAltaProveedor.Controls.Add(this.TBValidacion16);
             this.PContInfoAltaProveedor.Controls.Add(this.TBValidacion15);
             this.PContInfoAltaProveedor.Controls.Add(this.TBValidacion9);
@@ -150,6 +152,270 @@
             this.PContInfoAltaProveedor.Name = "PContInfoAltaProveedor";
             this.PContInfoAltaProveedor.Size = new System.Drawing.Size(456, 327);
             this.PContInfoAltaProveedor.TabIndex = 34;
+            // 
+            // TBValidacion16
+            // 
+            this.TBValidacion16.AutoSize = true;
+            this.TBValidacion16.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion16.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion16.Location = new System.Drawing.Point(257, 294);
+            this.TBValidacion16.Name = "TBValidacion16";
+            this.TBValidacion16.Size = new System.Drawing.Size(180, 14);
+            this.TBValidacion16.TabIndex = 49;
+            this.TBValidacion16.Text = "Por favor, ingrese una elección válida";
+            this.TBValidacion16.Visible = false;
+            // 
+            // TBValidacion15
+            // 
+            this.TBValidacion15.AutoSize = true;
+            this.TBValidacion15.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion15.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion15.Location = new System.Drawing.Point(214, 239);
+            this.TBValidacion15.Name = "TBValidacion15";
+            this.TBValidacion15.Size = new System.Drawing.Size(226, 14);
+            this.TBValidacion15.TabIndex = 48;
+            this.TBValidacion15.Text = "La dirección no debe superar los 100 caracteres";
+            this.TBValidacion15.Visible = false;
+            // 
+            // TBValidacion9
+            // 
+            this.TBValidacion9.AutoSize = true;
+            this.TBValidacion9.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion9.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion9.Location = new System.Drawing.Point(193, 145);
+            this.TBValidacion9.Name = "TBValidacion9";
+            this.TBValidacion9.Size = new System.Drawing.Size(244, 14);
+            this.TBValidacion9.TabIndex = 42;
+            this.TBValidacion9.Text = "El teléfono debe tener una longitd de 13 caracteres";
+            this.TBValidacion9.Visible = false;
+            // 
+            // TBValidacion14
+            // 
+            this.TBValidacion14.AutoSize = true;
+            this.TBValidacion14.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion14.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion14.Location = new System.Drawing.Point(141, 239);
+            this.TBValidacion14.Name = "TBValidacion14";
+            this.TBValidacion14.Size = new System.Drawing.Size(296, 14);
+            this.TBValidacion14.TabIndex = 47;
+            this.TBValidacion14.Text = "La dirección no puede ser solo números o caracteres especiales";
+            this.TBValidacion14.Visible = false;
+            // 
+            // TBValidacion11
+            // 
+            this.TBValidacion11.AutoSize = true;
+            this.TBValidacion11.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion11.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion11.Location = new System.Drawing.Point(269, 187);
+            this.TBValidacion11.Name = "TBValidacion11";
+            this.TBValidacion11.Size = new System.Drawing.Size(168, 14);
+            this.TBValidacion11.TabIndex = 44;
+            this.TBValidacion11.Text = "Por favor, ingrese un correo válido";
+            this.TBValidacion11.Visible = false;
+            // 
+            // TBValidacion13
+            // 
+            this.TBValidacion13.AutoSize = true;
+            this.TBValidacion13.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion13.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion13.Location = new System.Drawing.Point(214, 239);
+            this.TBValidacion13.Name = "TBValidacion13";
+            this.TBValidacion13.Size = new System.Drawing.Size(223, 14);
+            this.TBValidacion13.TabIndex = 46;
+            this.TBValidacion13.Text = "Por favor, ingrese solamente caracteres válidos";
+            this.TBValidacion13.Visible = false;
+            // 
+            // TBValidacion7
+            // 
+            this.TBValidacion7.AutoSize = true;
+            this.TBValidacion7.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion7.Location = new System.Drawing.Point(226, 99);
+            this.TBValidacion7.Name = "TBValidacion7";
+            this.TBValidacion7.Size = new System.Drawing.Size(211, 14);
+            this.TBValidacion7.TabIndex = 40;
+            this.TBValidacion7.Text = "El nombre no debe superar los 35 caracteres";
+            this.TBValidacion7.Visible = false;
+            // 
+            // TBValidacion12
+            // 
+            this.TBValidacion12.AutoSize = true;
+            this.TBValidacion12.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion12.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion12.Location = new System.Drawing.Point(155, 239);
+            this.TBValidacion12.Name = "TBValidacion12";
+            this.TBValidacion12.Size = new System.Drawing.Size(282, 14);
+            this.TBValidacion12.TabIndex = 45;
+            this.TBValidacion12.Text = "La direccion debe tener una longitd mínima de 5 caracteres";
+            this.TBValidacion12.Visible = false;
+            // 
+            // TBValidacion10
+            // 
+            this.TBValidacion10.AutoSize = true;
+            this.TBValidacion10.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion10.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion10.Location = new System.Drawing.Point(163, 187);
+            this.TBValidacion10.Name = "TBValidacion10";
+            this.TBValidacion10.Size = new System.Drawing.Size(274, 14);
+            this.TBValidacion10.TabIndex = 43;
+            this.TBValidacion10.Text = "El correo debe tener una longitud menor a 100 caracteres";
+            this.TBValidacion10.Visible = false;
+            // 
+            // TBValidacion8
+            // 
+            this.TBValidacion8.AutoSize = true;
+            this.TBValidacion8.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion8.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion8.Location = new System.Drawing.Point(189, 145);
+            this.TBValidacion8.Name = "TBValidacion8";
+            this.TBValidacion8.Size = new System.Drawing.Size(248, 14);
+            this.TBValidacion8.TabIndex = 41;
+            this.TBValidacion8.Text = "El teléfono solo debe contener caracteres numéricos";
+            this.TBValidacion8.Visible = false;
+            // 
+            // TBValidacion4
+            // 
+            this.TBValidacion4.AutoSize = true;
+            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion4.Location = new System.Drawing.Point(205, 53);
+            this.TBValidacion4.Name = "TBValidacion4";
+            this.TBValidacion4.Size = new System.Drawing.Size(232, 14);
+            this.TBValidacion4.TabIndex = 37;
+            this.TBValidacion4.Text = "La razón social no debe superar los 35 caracteres";
+            this.TBValidacion4.Visible = false;
+            // 
+            // TBValidacion6
+            // 
+            this.TBValidacion6.AutoSize = true;
+            this.TBValidacion6.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion6.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion6.Location = new System.Drawing.Point(193, 99);
+            this.TBValidacion6.Name = "TBValidacion6";
+            this.TBValidacion6.Size = new System.Drawing.Size(244, 14);
+            this.TBValidacion6.TabIndex = 39;
+            this.TBValidacion6.Text = "El nombre no puede contener caracteres numéricos";
+            this.TBValidacion6.Visible = false;
+            // 
+            // TBValidacion5
+            // 
+            this.TBValidacion5.AutoSize = true;
+            this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion5.Location = new System.Drawing.Point(223, 99);
+            this.TBValidacion5.Name = "TBValidacion5";
+            this.TBValidacion5.Size = new System.Drawing.Size(214, 14);
+            this.TBValidacion5.TabIndex = 38;
+            this.TBValidacion5.Text = "El nombre no debe ser inferior a 2 caracteres";
+            this.TBValidacion5.Visible = false;
+            // 
+            // TBValidacion3
+            // 
+            this.TBValidacion3.AutoSize = true;
+            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion3.Location = new System.Drawing.Point(129, 53);
+            this.TBValidacion3.Name = "TBValidacion3";
+            this.TBValidacion3.Size = new System.Drawing.Size(308, 14);
+            this.TBValidacion3.TabIndex = 36;
+            this.TBValidacion3.Text = "La razón social no puede ser solo números o caracteres especiales";
+            this.TBValidacion3.Visible = false;
+            // 
+            // TBValidacion2
+            // 
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion2.Location = new System.Drawing.Point(242, 53);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(195, 14);
+            this.TBValidacion2.TabIndex = 35;
+            this.TBValidacion2.Text = "Por favor, ingrese solo caracteres válidos";
+            this.TBValidacion2.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(18, 271);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(176, 20);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Categoría de Productos";
+            // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion.Location = new System.Drawing.Point(198, 53);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(239, 14);
+            this.TBValidacion.TabIndex = 33;
+            this.TBValidacion.Text = "La razón social no debe ser infrerior a 5 caracteres";
+            this.TBValidacion.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(18, 215);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Dirección";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(23, 167);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Correo Electrónico";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(23, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Teléfono de Contacto";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(23, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Nombre Representante";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(23, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nombre / Razón Social";
             // 
             // TBContacto
             // 
@@ -252,18 +518,6 @@
             this.TBCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCorreo_KeyPress);
             this.TBCorreo.Validating += new System.ComponentModel.CancelEventHandler(this.TBCorreo_Validating);
             // 
-            // TBValidacion
-            // 
-            this.TBValidacion.AutoSize = true;
-            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(198, 53);
-            this.TBValidacion.Name = "TBValidacion";
-            this.TBValidacion.Size = new System.Drawing.Size(239, 14);
-            this.TBValidacion.TabIndex = 33;
-            this.TBValidacion.Text = "La razón social no debe ser infrerior a 5 caracteres";
-            this.TBValidacion.Visible = false;
-            // 
             // CBCategoriaPrProveedor
             // 
             this.CBCategoriaPrProveedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -315,78 +569,6 @@
             this.TBDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDireccion_KeyPress);
             this.TBDireccion.Validating += new System.ComponentModel.CancelEventHandler(this.TBDireccion_Validating);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(18, 271);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 20);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Categoría de Productos";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(18, 215);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Dirección";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(23, 167);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Correo Electrónico";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(23, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Teléfono de Contacto";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(23, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Nombre Representante";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(23, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre / Razón Social";
-            // 
             // BRegistrarProveedor
             // 
             this.BRegistrarProveedor.BackColor = System.Drawing.Color.Black;
@@ -428,185 +610,17 @@
             this.BListaProveedor.UseVisualStyleBackColor = false;
             this.BListaProveedor.Click += new System.EventHandler(this.BListaProveedor_Click);
             // 
-            // TBValidacion2
+            // TBValidacion17
             // 
-            this.TBValidacion2.AutoSize = true;
-            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(242, 53);
-            this.TBValidacion2.Name = "TBValidacion2";
-            this.TBValidacion2.Size = new System.Drawing.Size(195, 14);
-            this.TBValidacion2.TabIndex = 35;
-            this.TBValidacion2.Text = "Por favor, ingrese solo caracteres válidos";
-            this.TBValidacion2.Visible = false;
-            // 
-            // TBValidacion3
-            // 
-            this.TBValidacion3.AutoSize = true;
-            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion3.Location = new System.Drawing.Point(129, 53);
-            this.TBValidacion3.Name = "TBValidacion3";
-            this.TBValidacion3.Size = new System.Drawing.Size(308, 14);
-            this.TBValidacion3.TabIndex = 36;
-            this.TBValidacion3.Text = "La razón social no puede ser solo números o caracteres especiales";
-            this.TBValidacion3.Visible = false;
-            // 
-            // TBValidacion4
-            // 
-            this.TBValidacion4.AutoSize = true;
-            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion4.Location = new System.Drawing.Point(205, 53);
-            this.TBValidacion4.Name = "TBValidacion4";
-            this.TBValidacion4.Size = new System.Drawing.Size(232, 14);
-            this.TBValidacion4.TabIndex = 37;
-            this.TBValidacion4.Text = "La razón social no debe superar los 35 caracteres";
-            this.TBValidacion4.Visible = false;
-            // 
-            // TBValidacion5
-            // 
-            this.TBValidacion5.AutoSize = true;
-            this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion5.Location = new System.Drawing.Point(223, 99);
-            this.TBValidacion5.Name = "TBValidacion5";
-            this.TBValidacion5.Size = new System.Drawing.Size(214, 14);
-            this.TBValidacion5.TabIndex = 38;
-            this.TBValidacion5.Text = "El nombre no debe ser inferior a 2 caracteres";
-            this.TBValidacion5.Visible = false;
-            // 
-            // TBValidacion6
-            // 
-            this.TBValidacion6.AutoSize = true;
-            this.TBValidacion6.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion6.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion6.Location = new System.Drawing.Point(193, 99);
-            this.TBValidacion6.Name = "TBValidacion6";
-            this.TBValidacion6.Size = new System.Drawing.Size(244, 14);
-            this.TBValidacion6.TabIndex = 39;
-            this.TBValidacion6.Text = "El nombre no puede contener caracteres numéricos";
-            this.TBValidacion6.Visible = false;
-            // 
-            // TBValidacion7
-            // 
-            this.TBValidacion7.AutoSize = true;
-            this.TBValidacion7.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion7.Location = new System.Drawing.Point(226, 99);
-            this.TBValidacion7.Name = "TBValidacion7";
-            this.TBValidacion7.Size = new System.Drawing.Size(211, 14);
-            this.TBValidacion7.TabIndex = 40;
-            this.TBValidacion7.Text = "El nombre no debe superar los 35 caracteres";
-            this.TBValidacion7.Visible = false;
-            // 
-            // TBValidacion8
-            // 
-            this.TBValidacion8.AutoSize = true;
-            this.TBValidacion8.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion8.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion8.Location = new System.Drawing.Point(189, 145);
-            this.TBValidacion8.Name = "TBValidacion8";
-            this.TBValidacion8.Size = new System.Drawing.Size(248, 14);
-            this.TBValidacion8.TabIndex = 41;
-            this.TBValidacion8.Text = "El teléfono solo debe contener caracteres numéricos";
-            this.TBValidacion8.Visible = false;
-            // 
-            // TBValidacion9
-            // 
-            this.TBValidacion9.AutoSize = true;
-            this.TBValidacion9.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion9.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion9.Location = new System.Drawing.Point(193, 145);
-            this.TBValidacion9.Name = "TBValidacion9";
-            this.TBValidacion9.Size = new System.Drawing.Size(244, 14);
-            this.TBValidacion9.TabIndex = 42;
-            this.TBValidacion9.Text = "El teléfono debe tener una longitd de 13 caracteres";
-            this.TBValidacion9.Visible = false;
-            // 
-            // TBValidacion10
-            // 
-            this.TBValidacion10.AutoSize = true;
-            this.TBValidacion10.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion10.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion10.Location = new System.Drawing.Point(163, 187);
-            this.TBValidacion10.Name = "TBValidacion10";
-            this.TBValidacion10.Size = new System.Drawing.Size(274, 14);
-            this.TBValidacion10.TabIndex = 43;
-            this.TBValidacion10.Text = "El correo debe tener una longitud menor a 100 caracteres";
-            this.TBValidacion10.Visible = false;
-            // 
-            // TBValidacion11
-            // 
-            this.TBValidacion11.AutoSize = true;
-            this.TBValidacion11.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion11.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion11.Location = new System.Drawing.Point(269, 187);
-            this.TBValidacion11.Name = "TBValidacion11";
-            this.TBValidacion11.Size = new System.Drawing.Size(168, 14);
-            this.TBValidacion11.TabIndex = 44;
-            this.TBValidacion11.Text = "Por favor, ingrese un correo válido";
-            this.TBValidacion11.Visible = false;
-            // 
-            // TBValidacion12
-            // 
-            this.TBValidacion12.AutoSize = true;
-            this.TBValidacion12.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion12.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion12.Location = new System.Drawing.Point(155, 239);
-            this.TBValidacion12.Name = "TBValidacion12";
-            this.TBValidacion12.Size = new System.Drawing.Size(282, 14);
-            this.TBValidacion12.TabIndex = 45;
-            this.TBValidacion12.Text = "La direccion debe tener una longitd mínima de 5 caracteres";
-            this.TBValidacion12.Visible = false;
-            // 
-            // TBValidacion13
-            // 
-            this.TBValidacion13.AutoSize = true;
-            this.TBValidacion13.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion13.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion13.Location = new System.Drawing.Point(214, 239);
-            this.TBValidacion13.Name = "TBValidacion13";
-            this.TBValidacion13.Size = new System.Drawing.Size(223, 14);
-            this.TBValidacion13.TabIndex = 46;
-            this.TBValidacion13.Text = "Por favor, ingrese solamente caracteres válidos";
-            this.TBValidacion13.Visible = false;
-            // 
-            // TBValidacion14
-            // 
-            this.TBValidacion14.AutoSize = true;
-            this.TBValidacion14.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion14.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion14.Location = new System.Drawing.Point(141, 239);
-            this.TBValidacion14.Name = "TBValidacion14";
-            this.TBValidacion14.Size = new System.Drawing.Size(296, 14);
-            this.TBValidacion14.TabIndex = 47;
-            this.TBValidacion14.Text = "La dirección no puede ser solo números o caracteres especiales";
-            this.TBValidacion14.Visible = false;
-            // 
-            // TBValidacion15
-            // 
-            this.TBValidacion15.AutoSize = true;
-            this.TBValidacion15.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion15.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion15.Location = new System.Drawing.Point(214, 239);
-            this.TBValidacion15.Name = "TBValidacion15";
-            this.TBValidacion15.Size = new System.Drawing.Size(226, 14);
-            this.TBValidacion15.TabIndex = 48;
-            this.TBValidacion15.Text = "La dirección no debe superar los 100 caracteres";
-            this.TBValidacion15.Visible = false;
-            // 
-            // TBValidacion16
-            // 
-            this.TBValidacion16.AutoSize = true;
-            this.TBValidacion16.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion16.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion16.Location = new System.Drawing.Point(257, 294);
-            this.TBValidacion16.Name = "TBValidacion16";
-            this.TBValidacion16.Size = new System.Drawing.Size(180, 14);
-            this.TBValidacion16.TabIndex = 49;
-            this.TBValidacion16.Text = "Por favor, ingrese una elección válida";
-            this.TBValidacion16.Visible = false;
+            this.TBValidacion17.AutoSize = true;
+            this.TBValidacion17.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion17.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion17.Location = new System.Drawing.Point(167, 99);
+            this.TBValidacion17.Name = "TBValidacion17";
+            this.TBValidacion17.Size = new System.Drawing.Size(270, 14);
+            this.TBValidacion17.TabIndex = 50;
+            this.TBValidacion17.Text = "El nombre no puede ser unicamente caracteres especiales";
+            this.TBValidacion17.Visible = false;
             // 
             // AltaProveedor
             // 
@@ -672,5 +686,6 @@
         private System.Windows.Forms.Label TBValidacion14;
         private System.Windows.Forms.Label TBValidacion15;
         private System.Windows.Forms.Label TBValidacion16;
+        private System.Windows.Forms.Label TBValidacion17;
     }
 }

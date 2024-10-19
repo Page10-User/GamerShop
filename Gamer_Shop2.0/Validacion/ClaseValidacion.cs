@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Validacion
 {
@@ -39,6 +40,18 @@ namespace Gamer_Shop2._0.Validacion
         public bool ValidarLongitudMinima(string texto, int longitudMinima)
         {
             return texto.Length >= longitudMinima;
+        }
+
+        // Validar que el campo solo contenga caracteres alfabeticos
+        public bool ValidarCaracteresAlfabeticos(string texto)
+        {
+            return texto.All(char.IsLetter);
+        }
+
+        // Validar el KeyPress para permitir solo caracteres alfabeticos
+        public bool ValidarKeyPressAlfabetico(char KeyChar)
+        {
+            return char.IsLetter(KeyChar) || char.IsControl(KeyChar) || char.IsWhiteSpace(KeyChar);
         }
 
         // Validar que el campo solo contenga caracteres numéricos
@@ -105,9 +118,9 @@ namespace Gamer_Shop2._0.Validacion
 
             if (numeroLimpio.Length == 13)
             {
-                // Aplicar el formato: "+54 9 XXX XXX-XXXX"
-                string codigoPais = numeroLimpio.Substring(0, 2); // "+54"
-                string numeroInicial = numeroLimpio.Substring(2, 1); // "9"
+                // Aplicar el formato: "+XX X XXX XXX-XXXX"
+                string codigoPais = numeroLimpio.Substring(0, 2); // "+XX"
+                string numeroInicial = numeroLimpio.Substring(2, 1); // "X"
                 string codigoArea = numeroLimpio.Substring(3, 3); // "XXX"
                 string primeraParte = numeroLimpio.Substring(6, 3); // "XXX"
                 string segundaParte = numeroLimpio.Substring(9, 4); // "XXXX"
@@ -188,6 +201,57 @@ namespace Gamer_Shop2._0.Validacion
         public bool ValidarSeleccion(string seleccion)
         {
             return !string.IsNullOrEmpty(seleccion) && seleccion != "Seleccionar...";
+        }
+
+        // Función para remover el formato cuil
+        public string RemoverFormatoCuil(string cuilFormateado)
+        {
+            return cuilFormateado.Replace("-", "").Replace(" ", "");
+        }
+
+        // Validación que aplica el formato CUIL "XX-XXXXXXXX-X"
+        public string AplicarFormatoCuil(string numero)
+        {
+            string numeroLimpio = new string(numero.Where(char.IsDigit).ToArray());
+
+            if (numeroLimpio.Length == 11)
+            {
+                // Aplicar el formato: "XX-XXXXXXXX-X"
+                string parteInicial = numeroLimpio.Substring(0, 2); // "XX"
+                string numeroDocumento = numeroLimpio.Substring(2, 8); // "XXXXXXXX"
+                string digitoVerificador = numeroLimpio.Substring(10, 1); // "X"
+
+                return $"{parteInicial}-{numeroDocumento}-{digitoVerificador}";
+            }
+            else
+            {
+                return numero;
+            }
+        }
+
+        // Validación de fechas
+        public string AplicarFormatoFecha(string numero)
+        {
+            // Verificar que el número tenga exactamente 8 dígitos
+            if (numero.Length == 8)
+            {
+                string dia = numero.Substring(0, 2); // "dd"
+                string mes = numero.Substring(2, 2); // "mm"
+                string año = numero.Substring(4, 4); // "yyyy"
+
+                // Retornar la fecha con formato "dd-mm-yyyy"
+                return $"{dia}-{mes}-{año}";
+            }
+            else
+            {
+                return numero;
+            }
+        }
+
+        // Función para remover el formato fecha
+        public string RemoverFormatoFecha(string cuilFormateado)
+        {
+            return cuilFormateado.Replace("-", "").Replace(" ", "");
         }
         //-----------------------------------------------------------------------------------------------------------\\
     }

@@ -147,10 +147,10 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             if (!string.IsNullOrWhiteSpace(texto))
             {
                 // Validar longitud minima
-                if (!validador.ValidarLongitudMinima(texto, 2))
+                if (!validador.ValidarLongitudMinima(texto, 3))
                 {
                     e.Cancel = true;
-                    TBValidacion6.Visible = false;
+                    TBValidacion.Visible = true;
                     return;
                 }
 
@@ -158,7 +158,15 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 if (!validador.ValidarCaracteresNombreSinNumeros(texto))
                 {
                     e.Cancel = true;
-                    TBValidacion6.Visible = true;
+                    TBValidacion2.Visible = true;
+                    return;
+                }
+
+                // Validar que no sea unicamente caracteres especiales
+                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion13.Visible = true;
                     return;
                 }
 
@@ -166,7 +174,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 if (!validador.ValidarLongitud(texto, 35))
                 {
                     e.Cancel = true;
-                    TBValidacion.Visible = true;
+                    TBValidacion3.Visible = true;
                     return;
                 }
                 TBNombre.Texts = validador.MayusculaPrimeraLetra(texto);
@@ -203,10 +211,10 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             if (!string.IsNullOrWhiteSpace(texto))
             {
                 // Validar longitud minima
-                if (!validador.ValidarLongitudMinima(texto, 2))
+                if (!validador.ValidarLongitudMinima(texto, 3))
                 {
                     e.Cancel = true;
-                    TBValidacion6.Visible = false;
+                    TBValidacion4.Visible = true;
                     return;
                 }
 
@@ -214,7 +222,15 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 if (!validador.ValidarCaracteresNombreSinNumeros(texto))
                 {
                     e.Cancel = true;
-                    TBValidacion7.Visible = true;
+                    TBValidacion5.Visible = true;
+                    return;
+                }
+
+                // Validar que no sea unicamente caracteres especiales
+                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion14.Visible = true;
                     return;
                 }
 
@@ -222,7 +238,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 if (!validador.ValidarLongitud(texto, 35))
                 {
                     e.Cancel = true;
-                    TBValidacion2.Visible = true;
+                    TBValidacion6.Visible = true;
                     return;
                 }
                 TBApellido.Texts = validador.MayusculaPrimeraLetra(texto);
@@ -262,7 +278,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 if (!validador.ValidarCaracteresNumericos(texto))
                 {
                     e.Cancel = true;
-                    TBValidacion8.Visible = true;
+                    TBValidacion7.Visible = true;
                     return;
                 }
 
@@ -270,7 +286,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 if (!validador.ValidarLongitudExacta(texto, 8))
                 {
                     e.Cancel = true;
-                    TBValidacion3.Visible = true;
+                    TBValidacion8.Visible = true;
                     return;
                 }
             }
@@ -327,7 +343,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 if (!validador.ValidarLongitudExacta(texto, 13))
                 {
                     e.Cancel = true;
-                    TBValidacion4.Visible = true;
+                    TBValidacion10.Visible = true;
                     return;
                 }
                 TBTelefono.Texts = validador.AplicarFormatoTelefonico(texto);
@@ -361,7 +377,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 if (!validador.ValidarLongitud(texto, 100))
                 {
                     e.Cancel = true;
-                    TBValidacion10.Visible = true;
+                    TBValidacion11.Visible = true;
                     return;
                 }
 
@@ -369,7 +385,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 if (!validador.ValidarCorreoElectronico(texto))
                 {
                     e.Cancel = true;
-                    TBValidacion5.Visible = true;
+                    TBValidacion12.Visible = true;
                     return;
                 }     
             }
@@ -437,6 +453,10 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             TBValidacion8.Visible = false;
             TBValidacion9.Visible = false;
             TBValidacion10.Visible = false;
+            TBValidacion11.Visible = false;
+            TBValidacion12.Visible = false;
+            TBValidacion13.Visible = false;
+            TBValidacion14.Visible = false;
         }
 
         //Generamos la lista de los contenidos de los campos para realizar un conteo de campos incompletos.

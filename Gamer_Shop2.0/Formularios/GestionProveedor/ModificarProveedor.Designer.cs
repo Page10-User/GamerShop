@@ -49,20 +49,21 @@
             this.TBValidacion3 = new System.Windows.Forms.Label();
             this.TBValidacion2 = new System.Windows.Forms.Label();
             this.TBValidacion = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.TBRepresentante = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.TBDireccion = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.TBCorreo = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.TBContacto = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.CBCategoriaPrProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.TBRazon = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarProveedor = new Gamer_Shop2._0.RJButton();
+            this.TBValidacion17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarProveedor)).BeginInit();
             this.PContInfoModificarProveedor.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +105,7 @@
             // 
             // PContInfoModificarProveedor
             // 
+            this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion17);
             this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion16);
             this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion15);
             this.PContInfoModificarProveedor.Controls.Add(this.TBValidacion14);
@@ -329,78 +331,6 @@
             this.TBValidacion.Text = "La razón social no debe ser infrerior a 5 caracteres";
             this.TBValidacion.Visible = false;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(16, 266);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 20);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "Categoría de Productos";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(16, 213);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "Dirección";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(16, 166);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 20);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "Correo Electrónico";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(16, 119);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 20);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Teléfono de Contacto";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(16, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 20);
-            this.label3.TabIndex = 39;
-            this.label3.Text = "Nombre Representante";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(16, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 20);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Nombre / Razón Social";
-            // 
             // TBRepresentante
             // 
             this.TBRepresentante.BackColor = System.Drawing.Color.Black;
@@ -553,6 +483,78 @@
             this.TBRazon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBRazon_KeyPress);
             this.TBRazon.Validating += new System.ComponentModel.CancelEventHandler(this.TBRazon_Validating);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(16, 266);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(176, 20);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Categoría de Productos";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(16, 213);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Dirección";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(16, 166);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 20);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Correo Electrónico";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(16, 119);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 20);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Teléfono de Contacto";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(16, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 20);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "Nombre Representante";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(16, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 20);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Nombre / Razón Social";
+            // 
             // BReturnToBack
             // 
             this.BReturnToBack.BackColor = System.Drawing.Color.Transparent;
@@ -595,6 +597,18 @@
             this.BModificarProveedor.TextColor = System.Drawing.Color.White;
             this.BModificarProveedor.UseVisualStyleBackColor = false;
             this.BModificarProveedor.Click += new System.EventHandler(this.BModificarProveedor_Click);
+            // 
+            // TBValidacion17
+            // 
+            this.TBValidacion17.AutoSize = true;
+            this.TBValidacion17.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion17.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion17.Location = new System.Drawing.Point(165, 99);
+            this.TBValidacion17.Name = "TBValidacion17";
+            this.TBValidacion17.Size = new System.Drawing.Size(270, 14);
+            this.TBValidacion17.TabIndex = 66;
+            this.TBValidacion17.Text = "El nombre no puede ser unicamente caracteres especiales";
+            this.TBValidacion17.Visible = false;
             // 
             // ModificarProveedor
             // 
@@ -659,5 +673,6 @@
         private System.Windows.Forms.Label TBValidacion13;
         private System.Windows.Forms.Label TBValidacion12;
         private System.Windows.Forms.Label TBValidacion16;
+        private System.Windows.Forms.Label TBValidacion17;
     }
 }

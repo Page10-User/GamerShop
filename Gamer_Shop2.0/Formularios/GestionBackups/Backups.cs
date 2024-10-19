@@ -112,17 +112,24 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
         {
             if (CBGestionCompra.Checked || CBGestionProducto.Checked || CBGestionProveedor.Checked || CBGestionUsuario.Checked || CBGestionVenta.Checked)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea realizar un 'Backup Personalizado'?", "Backup Personalizado", "Interrogacion", null);
-                DialogResult result = mensaje.ShowDialog();
-                if (result == DialogResult.Yes)
+                if (CBGestionCompra.Checked && CBGestionProducto.Checked && CBGestionProveedor.Checked && CBGestionUsuario.Checked && CBGestionVenta.Checked)
                 {
-                    mensaje.Close();
-                    mensaje = new MsgPersonalizado("'Backup Personalizado' realizado con éxito!", "Backup Personalizado", "Informacion", null);
-                    mensaje.ShowDialog();
+                    this.BBackupCompleto_Click(sender, e);
                 }
                 else
                 {
-                    mensaje.Close();
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea realizar un 'Backup Personalizado'?", "Backup Personalizado", "Interrogacion", null);
+                    DialogResult result = mensaje.ShowDialog();
+                    if (result == DialogResult.Yes)
+                    {
+                        mensaje.Close();
+                        mensaje = new MsgPersonalizado("'Backup Personalizado' realizado con éxito!", "Backup Personalizado", "Informacion", null);
+                        mensaje.ShowDialog();
+                    }
+                    else
+                    {
+                        mensaje.Close();
+                    }
                 }
             }
             else

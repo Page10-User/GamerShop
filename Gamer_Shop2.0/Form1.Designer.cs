@@ -34,12 +34,17 @@
             this.LUsuario = new System.Windows.Forms.Label();
             this.LContraseña = new System.Windows.Forms.Label();
             this.PInicio = new System.Windows.Forms.Panel();
-            this.TBContraseña = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBValidacion2 = new System.Windows.Forms.Label();
+            this.TBValidacion7 = new System.Windows.Forms.Label();
+            this.TBContrasena = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.TBValidacion6 = new System.Windows.Forms.Label();
             this.TBUsuario = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.TBValidacion = new System.Windows.Forms.Label();
+            this.TBValidacion5 = new System.Windows.Forms.Label();
             this.BIniciar = new Gamer_Shop2._0.RJButton();
+            this.TBValidacion4 = new System.Windows.Forms.Label();
+            this.TBValidacion3 = new System.Windows.Forms.Label();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
             this.LGamerShop = new System.Windows.Forms.Label();
+            this.TBValidacion = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.BSalir = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,7 +55,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(59, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(58, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(110, 116);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -82,56 +87,73 @@
             // PInicio
             // 
             this.PInicio.BackColor = System.Drawing.Color.Black;
-            this.PInicio.Controls.Add(this.TBContraseña);
-            this.PInicio.Controls.Add(this.TBValidacion2);
+            this.PInicio.Controls.Add(this.TBValidacion7);
+            this.PInicio.Controls.Add(this.TBContrasena);
+            this.PInicio.Controls.Add(this.TBValidacion6);
             this.PInicio.Controls.Add(this.TBUsuario);
-            this.PInicio.Controls.Add(this.TBValidacion);
+            this.PInicio.Controls.Add(this.TBValidacion5);
             this.PInicio.Controls.Add(this.BIniciar);
+            this.PInicio.Controls.Add(this.TBValidacion4);
+            this.PInicio.Controls.Add(this.TBValidacion3);
+            this.PInicio.Controls.Add(this.TBValidacion2);
             this.PInicio.Controls.Add(this.LGamerShop);
             this.PInicio.Controls.Add(this.LContraseña);
             this.PInicio.Controls.Add(this.LUsuario);
             this.PInicio.Controls.Add(this.pictureBox1);
-            this.PInicio.Location = new System.Drawing.Point(310, 111);
+            this.PInicio.Controls.Add(this.TBValidacion);
+            this.PInicio.Location = new System.Drawing.Point(307, 111);
             this.PInicio.Name = "PInicio";
-            this.PInicio.Size = new System.Drawing.Size(223, 285);
+            this.PInicio.Size = new System.Drawing.Size(226, 285);
             this.PInicio.TabIndex = 0;
             // 
-            // TBContraseña
+            // TBValidacion7
             // 
-            this.TBContraseña.BackColor = System.Drawing.Color.Black;
-            this.TBContraseña.BorderColor = System.Drawing.Color.Lime;
-            this.TBContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.TBContraseña.BorderRadius = 0;
-            this.TBContraseña.BorderSize = 2;
-            this.TBContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TBContraseña.Location = new System.Drawing.Point(105, 179);
-            this.TBContraseña.Margin = new System.Windows.Forms.Padding(4);
-            this.TBContraseña.Multiline = false;
-            this.TBContraseña.Name = "TBContraseña";
-            this.TBContraseña.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TBContraseña.PasswordChar = true;
-            this.TBContraseña.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBContraseña.PlaceholderText = "";
-            this.TBContraseña.Size = new System.Drawing.Size(103, 31);
-            this.TBContraseña.TabIndex = 11;
-            this.TBContraseña.Texts = "";
-            this.TBContraseña.UnderlinedStyle = true;
-            this.TBContraseña._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuario_KeyPress);
-            this.TBContraseña.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            this.TBValidacion7.AutoSize = true;
+            this.TBValidacion7.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion7.Location = new System.Drawing.Point(45, 211);
+            this.TBValidacion7.Name = "TBValidacion7";
+            this.TBValidacion7.Size = new System.Drawing.Size(163, 14);
+            this.TBValidacion7.TabIndex = 15;
+            this.TBValidacion7.Text = "No debe superar los 20 caracteres";
+            this.TBValidacion7.Visible = false;
             // 
-            // TBValidacion2
+            // TBContrasena
             // 
-            this.TBValidacion2.AutoSize = true;
-            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(0, 210);
-            this.TBValidacion2.Name = "TBValidacion2";
-            this.TBValidacion2.Size = new System.Drawing.Size(220, 14);
-            this.TBValidacion2.TabIndex = 9;
-            this.TBValidacion2.Text = "La contraseña debe tener de 7 a 20 caracteres.";
-            this.TBValidacion2.Visible = false;
+            this.TBContrasena.BackColor = System.Drawing.Color.Black;
+            this.TBContrasena.BorderColor = System.Drawing.Color.Lime;
+            this.TBContrasena.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.TBContrasena.BorderRadius = 0;
+            this.TBContrasena.BorderSize = 2;
+            this.TBContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBContrasena.Location = new System.Drawing.Point(105, 179);
+            this.TBContrasena.Margin = new System.Windows.Forms.Padding(4);
+            this.TBContrasena.Multiline = false;
+            this.TBContrasena.Name = "TBContrasena";
+            this.TBContrasena.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBContrasena.PasswordChar = true;
+            this.TBContrasena.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBContrasena.PlaceholderText = "";
+            this.TBContrasena.Size = new System.Drawing.Size(103, 31);
+            this.TBContrasena.TabIndex = 11;
+            this.TBContrasena.Texts = "";
+            this.TBContrasena.UnderlinedStyle = true;
+            this.TBContrasena._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBContrasena_KeyPress);
+            this.TBContrasena.Validating += new System.ComponentModel.CancelEventHandler(this.TBContrasena_Validating);
+            // 
+            // TBValidacion6
+            // 
+            this.TBValidacion6.AutoSize = true;
+            this.TBValidacion6.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion6.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion6.Location = new System.Drawing.Point(32, 211);
+            this.TBValidacion6.Name = "TBValidacion6";
+            this.TBValidacion6.Size = new System.Drawing.Size(176, 14);
+            this.TBValidacion6.TabIndex = 14;
+            this.TBValidacion6.Text = "No puede tener caracteres especiales";
+            this.TBValidacion6.Visible = false;
             // 
             // TBUsuario
             // 
@@ -156,19 +178,19 @@
             this.TBUsuario.UnderlinedStyle = true;
             this.TBUsuario._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             this.TBUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuario_KeyPress);
-            this.TBUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            this.TBUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.TBUsuario_Validating);
             // 
-            // TBValidacion
+            // TBValidacion5
             // 
-            this.TBValidacion.AutoSize = true;
-            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(18, 164);
-            this.TBValidacion.Name = "TBValidacion";
-            this.TBValidacion.Size = new System.Drawing.Size(202, 14);
-            this.TBValidacion.TabIndex = 8;
-            this.TBValidacion.Text = "El usuario debe tener de 7 a 20 caracteres.";
-            this.TBValidacion.Visible = false;
+            this.TBValidacion5.AutoSize = true;
+            this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion5.Location = new System.Drawing.Point(10, 211);
+            this.TBValidacion5.Name = "TBValidacion5";
+            this.TBValidacion5.Size = new System.Drawing.Size(209, 14);
+            this.TBValidacion5.TabIndex = 13;
+            this.TBValidacion5.Text = "La contraseña debe ser mayor a 7 caracteres";
+            this.TBValidacion5.Visible = false;
             // 
             // BIniciar
             // 
@@ -181,7 +203,7 @@
             this.BIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BIniciar.ForeColor = System.Drawing.Color.Black;
-            this.BIniciar.Location = new System.Drawing.Point(18, 240);
+            this.BIniciar.Location = new System.Drawing.Point(13, 240);
             this.BIniciar.Name = "BIniciar";
             this.BIniciar.Size = new System.Drawing.Size(113, 29);
             this.BIniciar.TabIndex = 1;
@@ -190,17 +212,65 @@
             this.BIniciar.UseVisualStyleBackColor = false;
             this.BIniciar.Click += new System.EventHandler(this.BIniciar_Click);
             // 
+            // TBValidacion4
+            // 
+            this.TBValidacion4.AutoSize = true;
+            this.TBValidacion4.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion4.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion4.Location = new System.Drawing.Point(10, 167);
+            this.TBValidacion4.Name = "TBValidacion4";
+            this.TBValidacion4.Size = new System.Drawing.Size(209, 14);
+            this.TBValidacion4.TabIndex = 10;
+            this.TBValidacion4.Text = "El usuario no debe superar los 20 caracteres";
+            this.TBValidacion4.Visible = false;
+            // 
+            // TBValidacion3
+            // 
+            this.TBValidacion3.AutoSize = true;
+            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion3.Location = new System.Drawing.Point(36, 168);
+            this.TBValidacion3.Name = "TBValidacion3";
+            this.TBValidacion3.Size = new System.Drawing.Size(172, 14);
+            this.TBValidacion3.TabIndex = 11;
+            this.TBValidacion3.Text = "Por favor, ingrese un usuario válido";
+            this.TBValidacion3.Visible = false;
+            // 
+            // TBValidacion2
+            // 
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion2.Location = new System.Drawing.Point(1, 167);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(222, 14);
+            this.TBValidacion2.TabIndex = 12;
+            this.TBValidacion2.Text = "El usuario no puede tener caracteres especiales";
+            this.TBValidacion2.Visible = false;
+            // 
             // LGamerShop
             // 
             this.LGamerShop.AutoSize = true;
             this.LGamerShop.BackColor = System.Drawing.Color.Transparent;
             this.LGamerShop.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LGamerShop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LGamerShop.Location = new System.Drawing.Point(37, 103);
+            this.LGamerShop.Location = new System.Drawing.Point(36, 103);
             this.LGamerShop.Name = "LGamerShop";
             this.LGamerShop.Size = new System.Drawing.Size(156, 29);
             this.LGamerShop.TabIndex = 5;
             this.LGamerShop.Text = "Gamer_Shop";
+            // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion.Location = new System.Drawing.Point(17, 167);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(191, 14);
+            this.TBValidacion.TabIndex = 8;
+            this.TBValidacion.Text = "El usuario debe ser mayor a 7 caracteres";
+            this.TBValidacion.Visible = false;
             // 
             // BSalir
             // 
@@ -241,6 +311,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -260,9 +331,14 @@
         private RJButton BIniciar;
         private RJButton BSalir;
         private System.Windows.Forms.Label TBValidacion;
-        private System.Windows.Forms.Label TBValidacion2;
         private RJControls.RJTextBox_radio_ TBUsuario;
-        private RJControls.RJTextBox_radio_ TBContraseña;
+        private RJControls.RJTextBox_radio_ TBContrasena;
+        private System.Windows.Forms.Label TBValidacion4;
+        private System.Windows.Forms.Label TBValidacion3;
+        private System.Windows.Forms.Label TBValidacion2;
+        private System.Windows.Forms.Label TBValidacion5;
+        private System.Windows.Forms.Label TBValidacion6;
+        private System.Windows.Forms.Label TBValidacion7;
     }
 }
 

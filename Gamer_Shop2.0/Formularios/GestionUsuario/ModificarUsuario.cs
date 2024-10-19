@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.RJControls;
+using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -115,206 +116,368 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             }
         }
 
-        private void TNombreUs_Validating(object sender, CancelEventArgs e)
+        //Validaciones
+
+        //INICIO Key Press  y Validating TBNombreUs
+        private void TBNombreUs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (this != null)
+            ClaseValidacion validador = new ClaseValidacion();
+
+            string texto = TBNombreUs.Texts;
+
+            // Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 35, e.KeyChar))
             {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(TNombreUs.Texts, @"^[a-zA-Z]+$"))
-                {
-                    e.Cancel = true;
-                    TBValidacion7.Visible = true;
-                }
-                if (TNombreUs.Texts.Length >= 35)
+                e.Handled = true;
+                return;
+            }
+
+            // Validar el carácter ingresado
+            if (!validador.ValidarKeyPressNombreSinNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void TBNombreUs_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBNombreUs.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                // Validar longitud minima
+                if (!validador.ValidarLongitudMinima(texto, 3))
                 {
                     e.Cancel = true;
                     TBValidacion.Visible = true;
+                    return;
+                }
 
-                }
-                else
-                {
-                    TBValidacion.Visible = false;
-                }
-            }
-        }
-
-        private void TApellidoUs_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(TApellidoUs.Texts, @"^[a-zA-Z]+$"))
-                {
-                    e.Cancel = true;
-                    TBValidacion8.Visible = true;
-                }
-                if (TApellidoUs.Texts.Length >= 35)
+                // Validar caracteres
+                if (!validador.ValidarCaracteresNombreSinNumeros(texto))
                 {
                     e.Cancel = true;
                     TBValidacion2.Visible = true;
-
+                    return;
                 }
-                else
+
+                // Validar que no sea solamente caracteres especiales
+                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto))
                 {
-                    TBValidacion2.Visible = false;
+                    e.Cancel = true;
+                    TBValidacion18.Visible = true;
+                    return;
                 }
-            }
-        }
 
-        private void TCuilUs_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                long number;
-                if (!long.TryParse(TCuilUs.Texts, out number))
+                // Validar longitud maxima
+                if (!validador.ValidarLongitud(texto, 35))
                 {
                     e.Cancel = true;
                     TBValidacion3.Visible = true;
+                    return;
                 }
-                else
-                {
-                    TBValidacion3.Visible = false;
-                }
+                TBNombreUs.Texts = validador.MayusculaPrimeraLetra(texto);
             }
         }
+        //FIN Key Press  y Validating TBNombreUs
 
-        private void TUsuarioUs_Validating(object sender, CancelEventArgs e)
+        //INICIO Key Press  y Validating TBApellidoUs
+        private void TBApellidoUs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (this != null)
+            ClaseValidacion validador = new ClaseValidacion();
+
+            string texto = TBApellidoUs.Texts;
+
+            // Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 35, e.KeyChar))
             {
-                if (TNombreUsuario.Texts.Length >= 20)
+                e.Handled = true;
+                return;
+            }
+
+            // Validar el carácter ingresado
+            if (!validador.ValidarKeyPressNombreSinNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void TBApellidoUs_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBApellidoUs.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                // Validar longitud minima
+                if (!validador.ValidarLongitudMinima(texto, 3))
                 {
                     e.Cancel = true;
                     TBValidacion4.Visible = true;
-
+                    return;
                 }
-                else
-                {
-                    TBValidacion4.Visible = false;
-                }
-            }
-        }
 
-        private void TContraseñaUs_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                if (TContraseñaUs.Texts.Length >= 100)
-                {
-                    e.Cancel = true;
-                    TBValidacion6.Visible = true;
-
-                }
-                else
-                {
-                    TBValidacion6.Visible = false;
-                }
-            }
-        }
-
-        private void TEmailUs_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-
-                bool esValido = Regex.IsMatch(TEmailUs.Texts, patronCorreo);
-
-                if (!esValido)
+                // Validar caracteres
+                if (!validador.ValidarCaracteresNombreSinNumeros(texto))
                 {
                     e.Cancel = true;
                     TBValidacion5.Visible = true;
-
+                    return;
                 }
-                else
+
+                // Validar que no sea solamente caracteres especiales
+                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto))
                 {
-                    TBValidacion5.Visible = false;
+                    e.Cancel = true;
+                    TBValidacion19.Visible = true;
+                    return;
+                }
+
+                // Validar longitud maxima
+                if (!validador.ValidarLongitud(texto, 35))
+                {
+                    e.Cancel = true;
+                    TBValidacion6.Visible = true;
+                    return;
+                }
+                TBApellidoUs.Texts = validador.MayusculaPrimeraLetra(texto);
+            }
+        }
+        //FIN Key Press  y Validating TBApellidoUs
+
+        //INICIO Key Press y Validating TBCuilUs
+        private void TBCuilUs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBCuilUs.Texts;
+
+            //Validar caracteres numéricos
+            if (!validador.ValidarKeyPressSoloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            //Validar longitud
+            if (!validador.ValidarLongitudConLimite(texto, 11, e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TBCuilUs_Enter(object sender, EventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBCuilUs.Texts.Trim();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                TBCuilUs.Texts = validador.RemoverFormatoCuil(texto);
+            }
+        }
+
+        private void TBCuilUs_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBCuilUs.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                //Validar caracteres
+                if (!validador.ValidarCaracteresNumericos(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion16.Visible = true;
+                    return;
+                }
+
+                //Validar longitud
+                if (!validador.ValidarLongitudExacta(texto, 11))
+                {
+                    e.Cancel = true;
+                    TBValidacion17.Visible = true;
+                }
+
+                TBCuilUs.Texts = validador.AplicarFormatoCuil(texto);
+            }
+        }
+        //FIN Key Press y Validating TBCuilUS
+
+        //INICIO Key Press  y Validating TBUsuarioUs
+        private void TBUsuarioUs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBNombreUsuario.Texts;
+
+            //Validar longitud
+            if (!validador.ValidarLongitudConLimite(texto, 20, e.KeyChar))
+            {
+                e.Handled = true;
+                TBValidacion.Visible = true;
+                return;
+            }
+
+            //Validar que no se ingresen caracteres no deseados
+            if (!validador.ValidarKeyPressLNECE(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void TBUsuarioUs_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBNombreUsuario.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+
+                //Validar longitud minima.
+                if (!validador.ValidarLongitudMinima(texto, 7))
+                {
+                    e.Cancel = true;
+                    TBValidacion7.Visible = true;
+                    return;
+                }
+
+                //Validar caracteres especiales.
+                if (!validador.ValidarCaracteresLNECE(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion8.Visible = true;
+                    return;
+                }
+
+                //Validar que no sea solo números o caracteres especiales.
+                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion9.Visible = true;
+                    return;
+                }
+
+                //Validar longitud máxima.
+                if (!validador.ValidarLongitud(texto, 20))
+                {
+                    e.Cancel = true;
+                    TBValidacion10.Visible = true;
+                    return;
                 }
             }
         }
+        //FIN Key Press  y Validating TBUsuarioUs
 
-        private void TNombreUs_KeyPress(object sender, KeyPressEventArgs e)
+        //INICIO Key Press  y Validating TBEmailUs
+        private void TBEmailUs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TNombreUs.Texts.Trim().Length < 35;
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBEmailUs.Texts.Trim();
 
-            if (longitud || escontrol)
+            //Validar longitud
+            if (!validador.ValidarLongitudConLimite(texto, 100, e.KeyChar))
             {
-                e.Handled = false;
+                e.Handled = true;
+                return;
             }
-            else
+        }
+        private void TBEmailUs_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBEmailUs.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                //Validar caracteres especiales
+                if (!validador.ValidarCorreoElectronico(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion11.Visible = true;
+                    return;
+                }
+
+                //validar longitud maxima
+                if (!validador.ValidarLongitud(texto, 100))
+                {
+                    e.Cancel = true;
+                    TBValidacion12.Visible = true;
+                }
+            }
+        }
+        //FIN Key Press  y Validating TBEmailUs
+
+        //INICIO Key Press  y Validating TBContraseñaUs
+        private void TBContrasenaUs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBContrasenaUs.Texts;
+
+            //Validar que no se ingresen caracteres no deseados
+            if (!validador.ValidarKeyPressLNECE(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            //Validar longitud
+            if (!validador.ValidarLongitudConLimite(texto, 20, e.KeyChar))
             {
                 e.Handled = true;
             }
         }
-
-        private void TApellidoUs_KeyPress(object sender, KeyPressEventArgs e)
+        private void TBContrasenaUs_Validating(object sender, CancelEventArgs e)
         {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TApellidoUs.Texts.Trim().Length < 35;
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBContrasenaUs.Texts.Trim();
 
-            if (longitud || escontrol)
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
             {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
+                //Validar longitud mínima
+                if (!validador.ValidarLongitudMinima(texto, 7))
+                {
+                    e.Cancel = true;
+                    TBValidacion13.Visible = true;
+                    return;
+                }
+
+                //Validar caracteres especiales
+                if (!validador.ValidarCaracteresLNECE(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion14.Visible = true;
+                    return;
+                }
+
+                //Validar longitud máxima
+                if (!validador.ValidarLongitud(texto, 20))
+                {
+                    e.Cancel = true;
+                    TBValidacion15.Visible = true;
+                    return;
+                }
             }
         }
+        //FIN Key Press  y Validating TBContraseñaUs
 
-        private void TCuilUs_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TCuilUs.Texts.Trim().Length <= 12;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void TLoginUs_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var textbox = sender as RJTextBox;
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = textbox.Texts.Trim().Length < 20;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void TEmailUs_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TEmailUs.Texts.Trim().Length < 50;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
+        //Inicio TextChanged
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             this.AutoValidate = AutoValidate.EnablePreventFocusChange;
         }
+        //Fin TextChanged
 
         private void BModificarUs_Click(object sender, EventArgs e)
         {
-            if (TNombreUs.Texts != string.Empty && TApellidoUs.Texts != string.Empty && TCuilUs.Texts != string.Empty && TNombreUsuario.Texts != string.Empty && TContraseñaUs.Texts != string.Empty && TEmailUs.Texts != string.Empty)
+            if (TBNombreUs.Texts != string.Empty && TBApellidoUs.Texts != string.Empty && TBCuilUs.Texts != string.Empty && TBNombreUsuario.Texts != string.Empty && TBContrasenaUs.Texts != string.Empty && TBEmailUs.Texts != string.Empty)
             {
                 MsgPersonalizado mensaje = new MsgPersonalizado("Usuario Modificado con éxito", "Modificación", "Informacion", null);
                 mensaje.ShowDialog();
@@ -329,14 +492,37 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         private List<string> generarListaCampos()
         {
             List<string> campos = new List<string>{
-                TNombreUs.Texts,
-                TApellidoUs.Texts,
-                TCuilUs.Texts,
-                TNombreUsuario.Texts,
-                TEmailUs.Texts,
-                TContraseñaUs.Texts,
+                TBNombreUs.Texts,
+                TBApellidoUs.Texts,
+                TBCuilUs.Texts,
+                TBNombreUsuario.Texts,
+                TBEmailUs.Texts,
+                TBContrasenaUs.Texts,
              };
             return campos;
+        }
+
+        private void OcultarValidaciones()
+        {
+            TBValidacion.Visible = false;
+            TBValidacion2.Visible = false;
+            TBValidacion3.Visible = false;
+            TBValidacion4.Visible = false;
+            TBValidacion5.Visible = false;
+            TBValidacion6.Visible = false;
+            TBValidacion7.Visible = false;
+            TBValidacion8.Visible = false;
+            TBValidacion9.Visible = false;
+            TBValidacion10.Visible = false;
+            TBValidacion11.Visible = false;
+            TBValidacion12.Visible = false;
+            TBValidacion13.Visible = false;
+            TBValidacion14.Visible = false;
+            TBValidacion15.Visible = false;
+            TBValidacion16.Visible = false;
+            TBValidacion17.Visible = false;
+            TBValidacion18.Visible = false;
+            TBValidacion19.Visible = false;
         }
     }
 }

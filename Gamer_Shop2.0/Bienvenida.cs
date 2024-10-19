@@ -16,9 +16,6 @@ namespace Gamer_Shop2._0
         bool isExpanded = false;
         private Form formBG;
 
-        //Options definido globalmente para mejor manejo.
-
-        //private EmpleadoOptions userOptions; //Manejo de opciones del menu segun el usuario <------- Eliminar
         public UserOptionsBase userOptions { get; set; }
 
         //Panel Poptions del Menu (A)
