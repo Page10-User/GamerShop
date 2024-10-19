@@ -59,11 +59,30 @@ namespace Gamer_Shop2._0.Validacion
         {
             return texto.All(char.IsDigit);
         }
-
-        // Validar el KeyPress para permitir solo números
         public bool ValidarKeyPressSoloNumeros(char keyChar)
         {
             return char.IsDigit(keyChar) || char.IsControl(keyChar);
+        }
+
+        // Validar que el campo solo contenga caracteres numéricos (Caso float)
+        public bool ValidarCaracteresNumericosFloat(string texto)
+        {
+            return texto.Count(c => c == ',') <= 1 && texto.All(c => char.IsDigit(c) || c == ',');
+        }
+        public bool ValidarKeyPressSoloNumericosFloat(char keyChar, string textoActual)
+        {
+            if (char.IsDigit(keyChar) || char.IsControl(keyChar))
+            {
+                return true;
+            }
+            else if (keyChar == ',' && !textoActual.Contains(','))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         // Validar que el campo no sea solo numérico o solo caracteres especiales
@@ -252,6 +271,28 @@ namespace Gamer_Shop2._0.Validacion
         public string RemoverFormatoFecha(string cuilFormateado)
         {
             return cuilFormateado.Replace("-", "").Replace(" ", "");
+        }
+
+        // Validar que el texto solo contenga letras, números, espacios, apóstrofes, comillas dobles, y guiones
+        public bool ValidarNombreProducto(string texto)
+        {
+            // Permite letras, números, espacios, apóstrofes, comillas dobles, guiones, y puntos
+            string regexPattern = @"^[a-zA-Z0-9\s\'\""\-\.\,]+$";
+            return System.Text.RegularExpressions.Regex.IsMatch(texto, regexPattern);
+        }
+
+        public bool ValidarKeyPressNombreProducto(char keyChar)
+        {
+            if (char.IsLetterOrDigit(keyChar) || char.IsWhiteSpace(keyChar) ||
+                keyChar == '\'' || keyChar == '\"' || keyChar == '-' || keyChar == '.' || keyChar == ',' ||
+                char.IsControl(keyChar)) // Permite teclas de control como backspace
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         //-----------------------------------------------------------------------------------------------------------\\
     }

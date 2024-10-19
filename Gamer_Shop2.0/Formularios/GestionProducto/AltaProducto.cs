@@ -9,6 +9,8 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Gamer_Shop2._0.Validacion;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using System.Collections.Generic;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
 {
@@ -140,207 +142,312 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             this.Close();
         }
 
-        private void TNombrePr_Validating(object sender, CancelEventArgs e)
+        // Validaciones
+
+        // INICIO Validacion TBNombrePr
+        private void TBNombrePr_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (this != null)
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBNombrePr.Text;
+
+            //Validar caracteres
+            if (!validador.ValidarKeyPressNombreProducto(e.KeyChar))
             {
-                if (TNombrePr.Texts.Length >= 50)
+                e.Handled = true;
+                return;
+            }
+
+            //Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 100 ,e.KeyChar))
+            {
+                e.Handled= true;
+            }
+        }
+        private void TBNombrePr_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBNombrePr.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                // Validar longitud minima
+                if (!validador.ValidarLongitudMinima(texto, 2))
                 {
                     e.Cancel = true;
                     TBValidacion.Visible = true;
-
+                    return;
                 }
-                else
-                {
-                    TBValidacion.Visible = false;
-                }
-            }
-        }
 
-        private void TDescripcionPr_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                if (TDescripcionPr.Texts.Length >= 200)
+                // Validar que no sea solo caracteres especiales ni números
+                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto)){
+                    e.Cancel = true;
+                    TBValidacion2.Visible = true;
+                    return;
+                }
+
+                // validar caracteres especiales
+                if (!validador.ValidarNombreProducto(texto))
                 {
                     e.Cancel = true;
-                    TBValidacion3.Visible = true;
-
+                    TBValidacion3.Visible= true;
+                    return;
                 }
-                else
-                {
-                    TBValidacion3.Visible = false;
-                }
-            }
-        }
 
-        private void TPrecioPr_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                float number;
-                if (!float.TryParse(TPrecioPr.Texts, out number))
+                // Validar longitud máxima
+                if (!validador.ValidarLongitud(texto, 100))
                 {
                     e.Cancel = true;
                     TBValidacion4.Visible = true;
                 }
-                else
-                {
-                    TBValidacion4.Visible = false;
-                }
+                TBNombrePr.Texts = validador.MayusculaPrimeraLetra(texto);
             }
         }
+        // FIN Validacion TBNombrePr
 
-        private void TSerialPr_Validating(object sender, CancelEventArgs e)
+        // INICIO Validacion TBSerialPr
+        private void TBSerialPr_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (this != null)
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBSerialPr.Texts;
+
+            //Validar que solo se ingresen números
+            if (!validador.ValidarKeyPressSoloNumeros(e.KeyChar))
             {
-                long number;
-                if (!long.TryParse(TSerialPr.Texts, out number))
-                {
-                    e.Cancel = true;
-                    TBValidacion2.Visible = true;
-                }
-                else
-                {
-                    TBValidacion2.Visible = false;
-                }
+                e.Handled = true;
+                return;
+            }
+
+            //Validar longitud
+            if (!validador.ValidarLongitudConLimite(texto, 15, e.KeyChar))
+            {
+                e.Handled= true;
             }
         }
-
-        private void CBproveedorPr_Validating(object sender, CancelEventArgs e)
+        private void TBSerialPr_Validating(object sender, CancelEventArgs e)
         {
-            if (this != null)
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBSerialPr.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
             {
-                if (CBCategoriaPr.SelectedIndex == -1)
+                //Validar longitud minima.
+                if (!validador.ValidarLongitudMinima(texto,8))
                 {
                     e.Cancel = true;
                     TBValidacion5.Visible = true;
+                    return;
                 }
-                else
-                {
-                    TBValidacion5.Visible = false;
-                }
-            }
-        }
-        private void CBCategoriaPr_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                if (CBCategoriaPr.SelectedIndex == -1)
+
+                //Validar caracteres.
+                if (!validador.ValidarCaracteresNumericos(texto))
                 {
                     e.Cancel = true;
                     TBValidacion6.Visible = true;
+                    return;
                 }
-                else
-                {
-                    TBValidacion6.Visible = false;
-                }
-            }
-        }
 
-        private void CBProveedorPr_Validating(object sender, CancelEventArgs e)
-        {
-            if (this != null)
-            {
-                if (CBProveedorPr.SelectedIndex == -1)
+                //Validar longitud máxima.
+                if (!validador.ValidarLongitud(texto, 15))
                 {
                     e.Cancel = true;
-                    TBValidacion5.Visible = true;
-                }
-                else
-                {
-                    TBValidacion5.Visible = false;
+                    TBValidacion7.Visible = true;
                 }
             }
         }
+        // FIN Validacion TBSerialPr
+
+        // INICIO Validacion TBPrecioPr
+        private void TBPrecioPr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBPrecioPr.Texts;
+
+            //Validar que solo se ingresen números "y 1 coma"
+            if (!validador.ValidarKeyPressSoloNumericosFloat(e.KeyChar, texto))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            //Validar longitud
+            if (!validador.ValidarLongitudConLimite(texto, 11, e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void TBPrecioPr_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBPrecioPr.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                //Validar caracteres.
+                if (!validador.ValidarCaracteresNumericosFloat(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion8.Visible = true;
+                    return;
+                }
+
+                //Validar longitud máxima.
+                if (!validador.ValidarLongitud(texto, 11))
+                {
+                    e.Cancel = true;
+                    TBValidacion9.Visible = true;
+                }
+            }
+        }
+        // FIN Validacion TBPrecioPr
+
+        // INICIO Validacion CBProveedorPr
+        private void CBProveedorPr_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string seleccion = CBProveedorPr.SelectedItem?.ToString();
+
+            OcultarValidaciones();
+
+            if (!validador.ValidarSeleccion(seleccion))
+            {
+                e.Cancel = true;
+                CBProveedorPr.Texts = "Seleccionar...";
+                TBValidacion10.Visible = true;
+            }
+        }
+        // FIN Validacion CBProveedorPr
+
+        // INICIO Validacion CBCategoriaPr
+        private void CBCategoriaPr_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string seleccion = CBCategoriaPr.SelectedItem?.ToString();
+
+            OcultarValidaciones();
+
+            if (!validador.ValidarSeleccion(seleccion))
+            {
+                e.Cancel = true;
+                CBCategoriaPr.Texts = "Seleccionar...";
+                TBValidacion11.Visible = true;
+            }
+        }
+        // FIN Validacion CBCategoriaPr
+
+        // INICIO Validacion TBDescripcion
+        private void TBDescripcionPr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBDescripcionPr.Text;
+
+            //Validar caracteres
+            if (!validador.ValidarKeyPressNombreProducto(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            //Validar longitud con límite
+            if (!validador.ValidarLongitudConLimite(texto, 200, e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void TBDescripcionPr_Validating(object sender, CancelEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBDescripcionPr.Texts.Trim();
+
+            OcultarValidaciones();
+
+            if (!string.IsNullOrWhiteSpace(texto))
+            {
+                // Validar longitud minima
+                if (!validador.ValidarLongitudMinima(texto, 10))
+                {
+                    e.Cancel = true;
+                    TBValidacion12.Visible = true;
+                    return;
+                }
+
+                // Validar que no sea solo caracteres especiales ni números
+                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion13.Visible = true;
+                    return;
+                }
+
+                // validar caracteres especiales
+                if (!validador.ValidarNombreProducto(texto))
+                {
+                    e.Cancel = true;
+                    TBValidacion14.Visible = true;
+                    return;
+                }
+
+                // Validar longitud máxima
+                if (!validador.ValidarLongitud(texto, 200))
+                {
+                    e.Cancel = true;
+                    TBValidacion15.Visible = true;
+                }
+                TBDescripcionPr.Texts = validador.MayusculaPrimeraLetra(texto);
+            }
+        }
+        // FIN Validacion TBDescripcion
 
 
+        //Inicio TextChanged
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             this.AutoValidate = AutoValidate.EnablePreventFocusChange;
         }
+        //Fin TextChanged
 
 
         private void BRegistrarPr_Click(object sender, EventArgs e)
         {
-            if (TNombrePr.Texts != string.Empty && TSerialPr.Texts != string.Empty && TDescripcionPr.Texts != string.Empty && TPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null)
+            if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null)
             {
                 try
                 {
                     NProducto nproducto = new NProducto();
                     nproducto.NAgregarProducto(
-                        int.Parse(TSerialPr.Texts),
-                        TNombrePr.Texts,
-                        TDescripcionPr.Texts,
+                        int.Parse(TBSerialPr.Texts),
+                        TBNombrePr.Texts,
+                        TBDescripcionPr.Texts,
                         0,
                         "SI",
-                        float.Parse(TPrecioPr.Texts),
+                        float.Parse(TBPrecioPr.Texts),
                         CBCategoriaPr.SelectedIndex+1,
                         CBProveedorPr.SelectedIndex + 1
                         );
-                    MessageBox.Show("Producto registrado con éxito", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
                 }
                 catch (ExisteRegistroException ex)
                 {
                     // Manejo de la excepción cuando el número de serial no existe
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
                 catch (Exception ex)
                 {
                     // Manejo de cualquier otra excepción
-                    MessageBox.Show(ex.Message);
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
             } else
             {
-                MessageBox.Show("Debe completar todos los campos para registrar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-        }
-
-        private void TNombrePr_KeyPress (object sender, KeyPressEventArgs e)
-        {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TNombrePr.Texts.Trim().Length < 50;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void TDescripcionPr_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TDescripcionPr.Texts.Trim().Length < 200;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void TNumberPr_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var textbox = sender as RJTextBox;
-            bool escontrol = Char.IsControl(e.KeyChar);
-            bool longitud = TPrecioPr.Texts.Trim().Length < 25;
-
-            if (longitud || escontrol)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar", "Error", "Error", generarListaCampos());
+                mensaje.ShowDialog();
             }
         }
 
@@ -417,6 +524,21 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void OcultarValidaciones()
         {
+            TBValidacion.Visible = false;
+            TBValidacion2.Visible = false;
+            TBValidacion3.Visible = false;
+            TBValidacion4.Visible = false;
+            TBValidacion5.Visible = false;
+            TBValidacion6.Visible = false;
+            TBValidacion7.Visible = false;
+            TBValidacion8.Visible = false;
+            TBValidacion9.Visible = false;
+            TBValidacion10.Visible = false;
+            TBValidacion11.Visible = false;
+            TBValidacion12.Visible = false;
+            TBValidacion13.Visible = false;
+            TBValidacion14.Visible = false;
+            TBValidacion15.Visible = false;
             TBValidacionCat.Visible = false;
             TBValidacionCat2.Visible = false;
             TBValidacionCat3.Visible = false;
@@ -428,6 +550,19 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             {
                 this.Close();
             }
+        }
+
+        private List<string> generarListaCampos()
+        {
+            List<string> campos = new List<string>{
+                TBNombrePr.Texts,
+                TBDescripcionPr.Texts,
+                TBSerialPr.Texts,
+                TBPrecioPr.Texts,
+                CBProveedorPr.SelectedItem?.ToString(),
+                CBCategoriaPr.SelectedItem?.ToString(),
+             };
+            return campos;
         }
     }
 }

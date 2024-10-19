@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Datos;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
@@ -155,35 +156,52 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             if (e.ColumnIndex == DGListaPr.Columns["CModificar"].Index && e.RowIndex >= 0)
             {
-                // Crear una nueva instancia de ListaProductos
-                int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
-                ModificarProducto ModificarPr = new ModificarProducto(id);
-                ModificarPr.TopLevel = false;
+                // Crear una nueva instancia de ModificarProducto
+                try
+                {
+                    int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
+                    ModificarProducto ModificarPr = new ModificarProducto(id);
+                    ModificarPr.TopLevel = false;
 
-                // Limpiar el panel actual y añadir el nuevo formulario
-                PanelContainer.Controls.Clear();
-                PanelContainer.Controls.Add(ModificarPr);
-                ModificarPr.PanelContainer = PanelContainer;
-                ModificarPr.Show();
-                this.Close();
+                    // Limpiar el panel actual y añadir el nuevo formulario
+                    PanelContainer.Controls.Clear();
+                    PanelContainer.Controls.Add(ModificarPr);
+                    ModificarPr.PanelContainer = PanelContainer;
+                    ModificarPr.Show();
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el producto", "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
+                
+                
             }
             else if (e.ColumnIndex == DGListaPr.Columns["CEliminar"].Index && e.RowIndex >= 0)
             {
-                DialogResult = MessageBox.Show("Está seguro que desea eliminar este producto?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (DialogResult == DialogResult.Yes)
+                MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea eliminar este producto?", "Eliminar producto", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+                if (result == DialogResult.Yes)
                 {
                     try
                     {
+                        mensaje.Close();
                         int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
                         nproducto.NEliminarProducto(id);
                         DGListaPr.Rows.RemoveAt(e.RowIndex); //debería pasarse a la lista de inactivos
-                        MessageBox.Show("Producto eliminado con éxito", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        mensaje = new MsgPersonalizado("Producto eliminado con éxito", "Eliminación", "Error", null);
+                        mensaje.ShowDialog();
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("No se pudo eliminar el producto");
+                        mensaje = new MsgPersonalizado("No se pudo eliminar el producto", "Error", "Error", null);
+                        mensaje.ShowDialog();
                     }
+                }
+                else
+                {
+                    mensaje.Close();
                 }
             }
         }
