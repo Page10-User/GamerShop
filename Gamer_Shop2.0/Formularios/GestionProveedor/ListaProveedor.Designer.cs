@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaProveedor));
             this.BRegistrarProveedor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,13 +49,11 @@
             this.PBImgListaProveedor = new System.Windows.Forms.PictureBox();
             this.BShowRegistrarProveedor = new Gamer_Shop2._0.RJButton();
             this.BDescargar = new Gamer_Shop2._0.RJButton();
-            this.PBuscadorListaProveedor = new System.Windows.Forms.Panel();
-            this.BBuscadorListaProveedor = new Gamer_Shop2._0.RJButton();
-            this.TBuscarListaProveedor = new System.Windows.Forms.TextBox();
+            this.BBuscador = new Gamer_Shop2._0.RJButton();
+            this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.PContListaProveedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaProveedor)).BeginInit();
-            this.PBuscadorListaProveedor.SuspendLayout();
             this.SuspendLayout();
             // 
             // BRegistrarProveedor
@@ -95,14 +93,14 @@
             // 
             this.DGListaProveedor.BackgroundColor = System.Drawing.Color.Black;
             this.DGListaProveedor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaProveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CRazon,
@@ -113,30 +111,30 @@
             this.CCategoriaPrProveedor,
             this.CModificar,
             this.CEliminar});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGListaProveedor.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGListaProveedor.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGListaProveedor.GridColor = System.Drawing.Color.Black;
             this.DGListaProveedor.Location = new System.Drawing.Point(1, 1);
             this.DGListaProveedor.Name = "DGListaProveedor";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGListaProveedor.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGListaProveedor.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaProveedor.Size = new System.Drawing.Size(435, 288);
             this.DGListaProveedor.TabIndex = 1;
             this.DGListaProveedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaProveedor_CellClick);
@@ -243,49 +241,48 @@
             this.BDescargar.TextColor = System.Drawing.Color.White;
             this.BDescargar.UseVisualStyleBackColor = false;
             // 
-            // PBuscadorListaProveedor
+            // BBuscador
             // 
-            this.PBuscadorListaProveedor.BackColor = System.Drawing.Color.Black;
-            this.PBuscadorListaProveedor.Controls.Add(this.BBuscadorListaProveedor);
-            this.PBuscadorListaProveedor.Controls.Add(this.TBuscarListaProveedor);
-            this.PBuscadorListaProveedor.Location = new System.Drawing.Point(312, 78);
-            this.PBuscadorListaProveedor.Name = "PBuscadorListaProveedor";
-            this.PBuscadorListaProveedor.Size = new System.Drawing.Size(188, 31);
-            this.PBuscadorListaProveedor.TabIndex = 31;
-            this.PBuscadorListaProveedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaProveedor_Paint);
+            this.BBuscador.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscador.BackgroundImage")));
+            this.BBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscador.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BorderRadius = 0;
+            this.BBuscador.BorderSize = 0;
+            this.BBuscador.FlatAppearance.BorderSize = 0;
+            this.BBuscador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BBuscador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscador.ForeColor = System.Drawing.Color.White;
+            this.BBuscador.Location = new System.Drawing.Point(319, 79);
+            this.BBuscador.Name = "BBuscador";
+            this.BBuscador.Size = new System.Drawing.Size(26, 26);
+            this.BBuscador.TabIndex = 30;
+            this.BBuscador.TextColor = System.Drawing.Color.White;
+            this.BBuscador.UseVisualStyleBackColor = false;
             // 
-            // BBuscadorListaProveedor
+            // TBFiltro
             // 
-            this.BBuscadorListaProveedor.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaProveedor.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaProveedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorListaProveedor.BackgroundImage")));
-            this.BBuscadorListaProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorListaProveedor.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaProveedor.BorderRadius = 0;
-            this.BBuscadorListaProveedor.BorderSize = 0;
-            this.BBuscadorListaProveedor.FlatAppearance.BorderSize = 0;
-            this.BBuscadorListaProveedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.BBuscadorListaProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorListaProveedor.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorListaProveedor.Location = new System.Drawing.Point(6, 2);
-            this.BBuscadorListaProveedor.Name = "BBuscadorListaProveedor";
-            this.BBuscadorListaProveedor.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorListaProveedor.TabIndex = 4;
-            this.BBuscadorListaProveedor.TextColor = System.Drawing.Color.White;
-            this.BBuscadorListaProveedor.UseVisualStyleBackColor = false;
-            // 
-            // TBuscarListaProveedor
-            // 
-            this.TBuscarListaProveedor.BackColor = System.Drawing.Color.Black;
-            this.TBuscarListaProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBuscarListaProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBuscarListaProveedor.ForeColor = System.Drawing.Color.Silver;
-            this.TBuscarListaProveedor.Location = new System.Drawing.Point(34, 6);
-            this.TBuscarListaProveedor.Name = "TBuscarListaProveedor";
-            this.TBuscarListaProveedor.Size = new System.Drawing.Size(132, 17);
-            this.TBuscarListaProveedor.TabIndex = 4;
-            this.TBuscarListaProveedor.Text = "Buscar...";
+            this.TBFiltro.BackColor = System.Drawing.Color.Black;
+            this.TBFiltro.BorderColor = System.Drawing.Color.Lime;
+            this.TBFiltro.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBFiltro.BorderRadius = 2;
+            this.TBFiltro.BorderSize = 1;
+            this.TBFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFiltro.ForeColor = System.Drawing.Color.White;
+            this.TBFiltro.Location = new System.Drawing.Point(352, 77);
+            this.TBFiltro.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFiltro.Multiline = false;
+            this.TBFiltro.Name = "TBFiltro";
+            this.TBFiltro.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBFiltro.PasswordChar = false;
+            this.TBFiltro.PlaceholderColor = System.Drawing.Color.Gray;
+            this.TBFiltro.PlaceholderText = "Buscar...";
+            this.TBFiltro.Size = new System.Drawing.Size(148, 31);
+            this.TBFiltro.TabIndex = 31;
+            this.TBFiltro.Texts = "";
+            this.TBFiltro.UnderlinedStyle = false;
             // 
             // ListaProveedor
             // 
@@ -295,7 +292,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.PBuscadorListaProveedor);
+            this.Controls.Add(this.BBuscador);
+            this.Controls.Add(this.TBFiltro);
             this.Controls.Add(this.BRegistrarProveedor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BShowRegistrarProveedor);
@@ -311,8 +309,6 @@
             this.PContListaProveedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaProveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaProveedor)).EndInit();
-            this.PBuscadorListaProveedor.ResumeLayout(false);
-            this.PBuscadorListaProveedor.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,8 +332,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CCategoriaPrProveedor;
         private System.Windows.Forms.DataGridViewButtonColumn CModificar;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
-        private System.Windows.Forms.Panel PBuscadorListaProveedor;
-        private RJButton BBuscadorListaProveedor;
-        private System.Windows.Forms.TextBox TBuscarListaProveedor;
+        private RJButton BBuscador;
+        private RJControls.RJTextBox_radio_ TBFiltro;
     }
 }

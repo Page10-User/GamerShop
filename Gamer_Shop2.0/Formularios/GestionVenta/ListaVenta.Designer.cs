@@ -39,11 +39,6 @@
             this.BDescargarListVn = new Gamer_Shop2._0.RJButton();
             this.PContListaVn = new System.Windows.Forms.Panel();
             this.DGListaVn = new System.Windows.Forms.DataGridView();
-            this.LTituloListaUs = new System.Windows.Forms.Label();
-            this.PBImgListaUs = new System.Windows.Forms.PictureBox();
-            this.PBuscadorListaVn = new System.Windows.Forms.Panel();
-            this.BBuscadorListaVn = new Gamer_Shop2._0.RJButton();
-            this.TBuscarListaVn = new System.Windows.Forms.TextBox();
             this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,10 +46,13 @@
             this.CCPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEstadoVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LTituloListaUs = new System.Windows.Forms.Label();
+            this.PBImgListaUs = new System.Windows.Forms.PictureBox();
+            this.BBuscador = new Gamer_Shop2._0.RJButton();
+            this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.PContListaVn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).BeginInit();
-            this.PBuscadorListaVn.SuspendLayout();
             this.SuspendLayout();
             // 
             // LShowCatalogo
@@ -179,73 +177,6 @@
             this.DGListaVn.Size = new System.Drawing.Size(433, 286);
             this.DGListaVn.TabIndex = 28;
             // 
-            // LTituloListaUs
-            // 
-            this.LTituloListaUs.AutoSize = true;
-            this.LTituloListaUs.BackColor = System.Drawing.Color.Transparent;
-            this.LTituloListaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTituloListaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloListaUs.Location = new System.Drawing.Point(209, 19);
-            this.LTituloListaUs.Name = "LTituloListaUs";
-            this.LTituloListaUs.Size = new System.Drawing.Size(291, 42);
-            this.LTituloListaUs.TabIndex = 30;
-            this.LTituloListaUs.Text = "Lista de Ventas";
-            // 
-            // PBImgListaUs
-            // 
-            this.PBImgListaUs.BackColor = System.Drawing.Color.Transparent;
-            this.PBImgListaUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaUs.BackgroundImage")));
-            this.PBImgListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgListaUs.Location = new System.Drawing.Point(163, 20);
-            this.PBImgListaUs.Name = "PBImgListaUs";
-            this.PBImgListaUs.Size = new System.Drawing.Size(47, 41);
-            this.PBImgListaUs.TabIndex = 29;
-            this.PBImgListaUs.TabStop = false;
-            // 
-            // PBuscadorListaVn
-            // 
-            this.PBuscadorListaVn.BackColor = System.Drawing.Color.Black;
-            this.PBuscadorListaVn.Controls.Add(this.BBuscadorListaVn);
-            this.PBuscadorListaVn.Controls.Add(this.TBuscarListaVn);
-            this.PBuscadorListaVn.Location = new System.Drawing.Point(312, 64);
-            this.PBuscadorListaVn.Name = "PBuscadorListaVn";
-            this.PBuscadorListaVn.Size = new System.Drawing.Size(188, 31);
-            this.PBuscadorListaVn.TabIndex = 36;
-            this.PBuscadorListaVn.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaVn_Paint);
-            // 
-            // BBuscadorListaVn
-            // 
-            this.BBuscadorListaVn.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaVn.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorListaVn.BackgroundImage")));
-            this.BBuscadorListaVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorListaVn.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaVn.BorderRadius = 0;
-            this.BBuscadorListaVn.BorderSize = 0;
-            this.BBuscadorListaVn.FlatAppearance.BorderSize = 0;
-            this.BBuscadorListaVn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaVn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.BBuscadorListaVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorListaVn.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorListaVn.Location = new System.Drawing.Point(6, 2);
-            this.BBuscadorListaVn.Name = "BBuscadorListaVn";
-            this.BBuscadorListaVn.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorListaVn.TabIndex = 4;
-            this.BBuscadorListaVn.TextColor = System.Drawing.Color.White;
-            this.BBuscadorListaVn.UseVisualStyleBackColor = false;
-            // 
-            // TBuscarListaVn
-            // 
-            this.TBuscarListaVn.BackColor = System.Drawing.Color.Black;
-            this.TBuscarListaVn.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBuscarListaVn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBuscarListaVn.ForeColor = System.Drawing.Color.Silver;
-            this.TBuscarListaVn.Location = new System.Drawing.Point(34, 6);
-            this.TBuscarListaVn.Name = "TBuscarListaVn";
-            this.TBuscarListaVn.Size = new System.Drawing.Size(132, 17);
-            this.TBuscarListaVn.TabIndex = 4;
-            this.TBuscarListaVn.Text = "Buscar...";
-            // 
             // CCliente
             // 
             this.CCliente.HeaderText = "Cliente";
@@ -281,6 +212,72 @@
             this.CEstadoVenta.HeaderText = "EstadoVenta";
             this.CEstadoVenta.Name = "CEstadoVenta";
             // 
+            // LTituloListaUs
+            // 
+            this.LTituloListaUs.AutoSize = true;
+            this.LTituloListaUs.BackColor = System.Drawing.Color.Transparent;
+            this.LTituloListaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTituloListaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LTituloListaUs.Location = new System.Drawing.Point(209, 19);
+            this.LTituloListaUs.Name = "LTituloListaUs";
+            this.LTituloListaUs.Size = new System.Drawing.Size(291, 42);
+            this.LTituloListaUs.TabIndex = 30;
+            this.LTituloListaUs.Text = "Lista de Ventas";
+            // 
+            // PBImgListaUs
+            // 
+            this.PBImgListaUs.BackColor = System.Drawing.Color.Transparent;
+            this.PBImgListaUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaUs.BackgroundImage")));
+            this.PBImgListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PBImgListaUs.Location = new System.Drawing.Point(163, 20);
+            this.PBImgListaUs.Name = "PBImgListaUs";
+            this.PBImgListaUs.Size = new System.Drawing.Size(47, 41);
+            this.PBImgListaUs.TabIndex = 29;
+            this.PBImgListaUs.TabStop = false;
+            // 
+            // BBuscador
+            // 
+            this.BBuscador.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscador.BackgroundImage")));
+            this.BBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscador.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BorderRadius = 0;
+            this.BBuscador.BorderSize = 0;
+            this.BBuscador.FlatAppearance.BorderSize = 0;
+            this.BBuscador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BBuscador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscador.ForeColor = System.Drawing.Color.White;
+            this.BBuscador.Location = new System.Drawing.Point(318, 67);
+            this.BBuscador.Name = "BBuscador";
+            this.BBuscador.Size = new System.Drawing.Size(26, 26);
+            this.BBuscador.TabIndex = 36;
+            this.BBuscador.TextColor = System.Drawing.Color.White;
+            this.BBuscador.UseVisualStyleBackColor = false;
+            // 
+            // TBFiltro
+            // 
+            this.TBFiltro.BackColor = System.Drawing.Color.Black;
+            this.TBFiltro.BorderColor = System.Drawing.Color.Lime;
+            this.TBFiltro.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBFiltro.BorderRadius = 2;
+            this.TBFiltro.BorderSize = 1;
+            this.TBFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFiltro.ForeColor = System.Drawing.Color.White;
+            this.TBFiltro.Location = new System.Drawing.Point(351, 65);
+            this.TBFiltro.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFiltro.Multiline = false;
+            this.TBFiltro.Name = "TBFiltro";
+            this.TBFiltro.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBFiltro.PasswordChar = false;
+            this.TBFiltro.PlaceholderColor = System.Drawing.Color.Gray;
+            this.TBFiltro.PlaceholderText = "Buscar...";
+            this.TBFiltro.Size = new System.Drawing.Size(148, 31);
+            this.TBFiltro.TabIndex = 37;
+            this.TBFiltro.Texts = "";
+            this.TBFiltro.UnderlinedStyle = false;
+            // 
             // ListaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,7 +286,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.PBuscadorListaVn);
+            this.Controls.Add(this.BBuscador);
+            this.Controls.Add(this.TBFiltro);
             this.Controls.Add(this.LShowCatalogo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BShowCatalogo);
@@ -304,8 +302,6 @@
             this.PContListaVn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).EndInit();
-            this.PBuscadorListaVn.ResumeLayout(false);
-            this.PBuscadorListaVn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,9 +316,6 @@
         private System.Windows.Forms.DataGridView DGListaVn;
         private System.Windows.Forms.Label LTituloListaUs;
         private System.Windows.Forms.PictureBox PBImgListaUs;
-        private System.Windows.Forms.Panel PBuscadorListaVn;
-        private RJButton BBuscadorListaVn;
-        private System.Windows.Forms.TextBox TBuscarListaVn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFechaVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CProductos;
@@ -330,5 +323,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CCPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoVenta;
+        private RJButton BBuscador;
+        private RJControls.RJTextBox_radio_ TBFiltro;
     }
 }

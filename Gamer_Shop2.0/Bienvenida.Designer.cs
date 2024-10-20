@@ -61,6 +61,8 @@
             // 
             this.BContracMenu.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.BContracMenu.FlatAppearance.BorderSize = 0;
+            this.BContracMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BContracMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BContracMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BContracMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BContracMenu.ForeColor = System.Drawing.SystemColors.ControlLightLight;

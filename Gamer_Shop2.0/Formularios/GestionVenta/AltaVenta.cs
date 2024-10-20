@@ -263,7 +263,6 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             PContAltaVn2.Paint += new PaintEventHandler(PContAltaVn_Paint);
             PContAltaVn3.Paint += new PaintEventHandler(PContAltaVn_Paint);
             PContAltaVn4.Paint += new PaintEventHandler(PContAltaVn_Paint);
-            PBuscadorPrVn.Paint += new PaintEventHandler(PContAltaVn_Paint);
         }
 
         private void personalizarFondoNegro(Form fondoBg)

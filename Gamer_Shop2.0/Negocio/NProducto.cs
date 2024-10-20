@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gamer_Shop2._0.Datos;
 using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 
 namespace Gamer_Shop2._0.Negocio
 {

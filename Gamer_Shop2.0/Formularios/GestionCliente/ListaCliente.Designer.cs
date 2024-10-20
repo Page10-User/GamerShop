@@ -48,13 +48,11 @@
             this.BDescargarCliente = new Gamer_Shop2._0.RJButton();
             this.label2 = new System.Windows.Forms.Label();
             this.BAltaCliente = new Gamer_Shop2._0.RJButton();
-            this.PBuscadorListaCl = new System.Windows.Forms.Panel();
-            this.BBuscadorListaCl = new Gamer_Shop2._0.RJButton();
-            this.TBuscarListaCl = new System.Windows.Forms.TextBox();
+            this.BBuscador = new Gamer_Shop2._0.RJButton();
+            this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.PContListaCl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).BeginInit();
-            this.PBuscadorListaCl.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -235,49 +233,48 @@
             this.BAltaCliente.UseVisualStyleBackColor = false;
             this.BAltaCliente.Click += new System.EventHandler(this.BAltaCliente_Click);
             // 
-            // PBuscadorListaCl
+            // BBuscador
             // 
-            this.PBuscadorListaCl.BackColor = System.Drawing.Color.Black;
-            this.PBuscadorListaCl.Controls.Add(this.BBuscadorListaCl);
-            this.PBuscadorListaCl.Controls.Add(this.TBuscarListaCl);
-            this.PBuscadorListaCl.Location = new System.Drawing.Point(314, 74);
-            this.PBuscadorListaCl.Name = "PBuscadorListaCl";
-            this.PBuscadorListaCl.Size = new System.Drawing.Size(188, 31);
-            this.PBuscadorListaCl.TabIndex = 25;
-            this.PBuscadorListaCl.Paint += new System.Windows.Forms.PaintEventHandler(this.PBuscadorListaCl_Paint);
+            this.BBuscador.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscador.BackgroundImage")));
+            this.BBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscador.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BorderRadius = 0;
+            this.BBuscador.BorderSize = 0;
+            this.BBuscador.FlatAppearance.BorderSize = 0;
+            this.BBuscador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BBuscador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscador.ForeColor = System.Drawing.Color.White;
+            this.BBuscador.Location = new System.Drawing.Point(321, 77);
+            this.BBuscador.Name = "BBuscador";
+            this.BBuscador.Size = new System.Drawing.Size(26, 26);
+            this.BBuscador.TabIndex = 25;
+            this.BBuscador.TextColor = System.Drawing.Color.White;
+            this.BBuscador.UseVisualStyleBackColor = false;
             // 
-            // BBuscadorListaCl
+            // TBFiltro
             // 
-            this.BBuscadorListaCl.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaCl.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaCl.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorListaCl.BackgroundImage")));
-            this.BBuscadorListaCl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorListaCl.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaCl.BorderRadius = 0;
-            this.BBuscadorListaCl.BorderSize = 0;
-            this.BBuscadorListaCl.FlatAppearance.BorderSize = 0;
-            this.BBuscadorListaCl.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaCl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.BBuscadorListaCl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorListaCl.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorListaCl.Location = new System.Drawing.Point(6, 2);
-            this.BBuscadorListaCl.Name = "BBuscadorListaCl";
-            this.BBuscadorListaCl.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorListaCl.TabIndex = 4;
-            this.BBuscadorListaCl.TextColor = System.Drawing.Color.White;
-            this.BBuscadorListaCl.UseVisualStyleBackColor = false;
-            // 
-            // TBuscarListaCl
-            // 
-            this.TBuscarListaCl.BackColor = System.Drawing.Color.Black;
-            this.TBuscarListaCl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBuscarListaCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBuscarListaCl.ForeColor = System.Drawing.Color.Silver;
-            this.TBuscarListaCl.Location = new System.Drawing.Point(34, 6);
-            this.TBuscarListaCl.Name = "TBuscarListaCl";
-            this.TBuscarListaCl.Size = new System.Drawing.Size(132, 17);
-            this.TBuscarListaCl.TabIndex = 4;
-            this.TBuscarListaCl.Text = "Buscar...";
+            this.TBFiltro.BackColor = System.Drawing.Color.Black;
+            this.TBFiltro.BorderColor = System.Drawing.Color.Lime;
+            this.TBFiltro.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBFiltro.BorderRadius = 2;
+            this.TBFiltro.BorderSize = 1;
+            this.TBFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFiltro.ForeColor = System.Drawing.Color.White;
+            this.TBFiltro.Location = new System.Drawing.Point(354, 75);
+            this.TBFiltro.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFiltro.Multiline = false;
+            this.TBFiltro.Name = "TBFiltro";
+            this.TBFiltro.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBFiltro.PasswordChar = false;
+            this.TBFiltro.PlaceholderColor = System.Drawing.Color.Gray;
+            this.TBFiltro.PlaceholderText = "Buscar...";
+            this.TBFiltro.Size = new System.Drawing.Size(148, 31);
+            this.TBFiltro.TabIndex = 26;
+            this.TBFiltro.Texts = "";
+            this.TBFiltro.UnderlinedStyle = false;
             // 
             // ListaCliente
             // 
@@ -287,7 +284,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.PBuscadorListaCl);
+            this.Controls.Add(this.BBuscador);
+            this.Controls.Add(this.TBFiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BAltaCliente);
             this.Controls.Add(this.label1);
@@ -302,8 +300,6 @@
             this.PContListaCl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).EndInit();
-            this.PBuscadorListaCl.ResumeLayout(false);
-            this.PBuscadorListaCl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,8 +321,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CModificarCl;
         private System.Windows.Forms.Label label2;
         private RJButton BAltaCliente;
-        private System.Windows.Forms.Panel PBuscadorListaCl;
-        private RJButton BBuscadorListaCl;
-        private System.Windows.Forms.TextBox TBuscarListaCl;
+        private RJButton BBuscador;
+        private RJControls.RJTextBox_radio_ TBFiltro;
     }
 }

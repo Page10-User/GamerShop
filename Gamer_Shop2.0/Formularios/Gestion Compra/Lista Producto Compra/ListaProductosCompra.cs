@@ -74,29 +74,5 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
             FondoOscurecido.Close();
             this.Close();
         }
-
-        private void BordePanel(Panel panel, Color borderColor, int borderWidth)
-        {
-            // Asocia el evento Paint solo si no está ya asociado
-            panel.Paint += (sender, e) =>
-            {
-                // Dibujar el borde en el panel
-                Graphics g = e.Graphics;
-                Rectangle rect = new Rectangle(0, 0, panel.Width - 1, panel.Height - 1);
-                using (Pen pen = new Pen(borderColor, borderWidth))
-                {
-                    g.DrawRectangle(pen, rect);
-                }
-            };
-
-            // Forzar que el panel se repinte para que se vea el borde
-            panel.Invalidate();
-        }
-
-        private void ListaProductosCompra_Load_1(object sender, EventArgs e)
-        {
-            BordePanel(Panel1B, Color.LightGreen, 1);
-            BordePanel(Panel2B, Color.LightGreen, 1);
-        }
     }
 }

@@ -259,29 +259,6 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
             fondoBg.ShowInTaskbar = false;
         }
 
-        private void BordePanel(Panel panel, Color borderColor, int borderWidth)
-        {
-            // Asocia el evento Paint solo si no está ya asociado
-            panel.Paint += (sender, e) =>
-            {
-                // Dibujar el borde en el panel
-                Graphics g = e.Graphics;
-                Rectangle rect = new Rectangle(0, 0, panel.Width - 1, panel.Height - 1);
-                using (Pen pen = new Pen(borderColor, borderWidth))
-                {
-                    g.DrawRectangle(pen, rect);
-                }
-            };
-
-            // Forzar que el panel se repinte para que se vea el borde
-            panel.Invalidate();
-        }
-
-        private void AltaCompra_Load(object sender, EventArgs e)
-        {
-            BordePanel(Panel1B, Color.LightGreen, 1);
-        }
-
         private void DGListaPrCompra_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (DGListaPrCompra.Columns[e.ColumnIndex].Name == "CCantidadPr")

@@ -32,27 +32,25 @@
             this.LTituloAltaCompra = new System.Windows.Forms.Label();
             this.PBImgAltaCom = new System.Windows.Forms.PictureBox();
             this.PContAltaCompra = new System.Windows.Forms.Panel();
-            this.Panel1B = new System.Windows.Forms.Panel();
-            this.TBuscarCt = new System.Windows.Forms.TextBox();
             this.PListaPrCompra = new System.Windows.Forms.Panel();
             this.DGListaPrCompra = new System.Windows.Forms.DataGridView();
-            this.TBValidacion4 = new System.Windows.Forms.Label();
-            this.LSelectProveedor = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.BComprar = new Gamer_Shop2._0.RJButton();
-            this.BBuscadorCt = new Gamer_Shop2._0.RJButton();
-            this.BElegirPrLista = new Gamer_Shop2._0.RJButton();
-            this.CBProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.BListaDeCompras = new Gamer_Shop2._0.RJButton();
             this.CNombrePr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCantidadPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecioPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTotalPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEliminarPr = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.BElegirPrLista = new Gamer_Shop2._0.RJButton();
+            this.CBProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.TBValidacion4 = new System.Windows.Forms.Label();
+            this.LSelectProveedor = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BComprar = new Gamer_Shop2._0.RJButton();
+            this.BListaDeCompras = new Gamer_Shop2._0.RJButton();
+            this.BBuscador = new Gamer_Shop2._0.RJButton();
+            this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaCom)).BeginInit();
             this.PContAltaCompra.SuspendLayout();
-            this.Panel1B.SuspendLayout();
             this.PListaPrCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaPrCompra)).BeginInit();
             this.SuspendLayout();
@@ -84,8 +82,9 @@
             // PContAltaCompra
             // 
             this.PContAltaCompra.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContAltaCompra.Controls.Add(this.Panel1B);
+            this.PContAltaCompra.Controls.Add(this.BBuscador);
             this.PContAltaCompra.Controls.Add(this.PListaPrCompra);
+            this.PContAltaCompra.Controls.Add(this.TBFiltro);
             this.PContAltaCompra.Controls.Add(this.BElegirPrLista);
             this.PContAltaCompra.Controls.Add(this.CBProveedor);
             this.PContAltaCompra.Controls.Add(this.TBValidacion4);
@@ -94,28 +93,6 @@
             this.PContAltaCompra.Name = "PContAltaCompra";
             this.PContAltaCompra.Size = new System.Drawing.Size(464, 330);
             this.PContAltaCompra.TabIndex = 6;
-            // 
-            // Panel1B
-            // 
-            this.Panel1B.BackColor = System.Drawing.Color.Black;
-            this.Panel1B.Controls.Add(this.BBuscadorCt);
-            this.Panel1B.Controls.Add(this.TBuscarCt);
-            this.Panel1B.Location = new System.Drawing.Point(261, 63);
-            this.Panel1B.Name = "Panel1B";
-            this.Panel1B.Size = new System.Drawing.Size(188, 31);
-            this.Panel1B.TabIndex = 5;
-            // 
-            // TBuscarCt
-            // 
-            this.TBuscarCt.BackColor = System.Drawing.Color.Black;
-            this.TBuscarCt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBuscarCt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBuscarCt.ForeColor = System.Drawing.Color.Silver;
-            this.TBuscarCt.Location = new System.Drawing.Point(34, 6);
-            this.TBuscarCt.Name = "TBuscarCt";
-            this.TBuscarCt.Size = new System.Drawing.Size(142, 15);
-            this.TBuscarCt.TabIndex = 4;
-            this.TBuscarCt.Text = "Buscar por nombre";
             // 
             // PListaPrCompra
             // 
@@ -140,6 +117,80 @@
             this.DGListaPrCompra.TabIndex = 0;
             this.DGListaPrCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaPr_CellClick);
             this.DGListaPrCompra.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DGListaPrCompra_CellValidating);
+            // 
+            // CNombrePr
+            // 
+            this.CNombrePr.HeaderText = "Producto";
+            this.CNombrePr.Name = "CNombrePr";
+            this.CNombrePr.ReadOnly = true;
+            // 
+            // CCantidadPr
+            // 
+            this.CCantidadPr.HeaderText = "Cantidad";
+            this.CCantidadPr.Name = "CCantidadPr";
+            this.CCantidadPr.ReadOnly = true;
+            // 
+            // CPrecioPr
+            // 
+            this.CPrecioPr.HeaderText = "Precio";
+            this.CPrecioPr.Name = "CPrecioPr";
+            this.CPrecioPr.ReadOnly = true;
+            // 
+            // CTotalPr
+            // 
+            this.CTotalPr.HeaderText = "Total";
+            this.CTotalPr.Name = "CTotalPr";
+            this.CTotalPr.ReadOnly = true;
+            // 
+            // CEliminarPr
+            // 
+            this.CEliminarPr.HeaderText = "Eliminar";
+            this.CEliminarPr.Name = "CEliminarPr";
+            this.CEliminarPr.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CEliminarPr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // BElegirPrLista
+            // 
+            this.BElegirPrLista.BackColor = System.Drawing.Color.Black;
+            this.BElegirPrLista.BackgroundColor = System.Drawing.Color.Black;
+            this.BElegirPrLista.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BElegirPrLista.BorderRadius = 15;
+            this.BElegirPrLista.BorderSize = 1;
+            this.BElegirPrLista.FlatAppearance.BorderSize = 0;
+            this.BElegirPrLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BElegirPrLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BElegirPrLista.ForeColor = System.Drawing.Color.White;
+            this.BElegirPrLista.Location = new System.Drawing.Point(12, 59);
+            this.BElegirPrLista.Name = "BElegirPrLista";
+            this.BElegirPrLista.Size = new System.Drawing.Size(121, 34);
+            this.BElegirPrLista.TabIndex = 40;
+            this.BElegirPrLista.Text = "Agregar producto";
+            this.BElegirPrLista.TextColor = System.Drawing.Color.White;
+            this.BElegirPrLista.UseVisualStyleBackColor = false;
+            this.BElegirPrLista.Click += new System.EventHandler(this.BElegirPrLista_Click);
+            // 
+            // CBProveedor
+            // 
+            this.CBProveedor.BackColor = System.Drawing.Color.Black;
+            this.CBProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedor.BorderSize = 1;
+            this.CBProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CBProveedor.ForeColor = System.Drawing.Color.DimGray;
+            this.CBProveedor.IconColor = System.Drawing.Color.Lime;
+            this.CBProveedor.Items.AddRange(new object[] {
+            "PROVEEDOR 1",
+            "PROVEEDOR 2"});
+            this.CBProveedor.ListBackColor = System.Drawing.Color.Black;
+            this.CBProveedor.ListTextColor = System.Drawing.Color.Lime;
+            this.CBProveedor.Location = new System.Drawing.Point(144, 8);
+            this.CBProveedor.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBProveedor.Name = "CBProveedor";
+            this.CBProveedor.Padding = new System.Windows.Forms.Padding(1);
+            this.CBProveedor.Size = new System.Drawing.Size(296, 30);
+            this.CBProveedor.TabIndex = 31;
+            this.CBProveedor.Texts = "";
+            this.CBProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
             // 
             // TBValidacion4
             // 
@@ -210,70 +261,6 @@
             this.BComprar.UseVisualStyleBackColor = false;
             this.BComprar.Click += new System.EventHandler(this.BComprar_Click);
             // 
-            // BBuscadorCt
-            // 
-            this.BBuscadorCt.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorCt.BackgroundImage")));
-            this.BBuscadorCt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorCt.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BorderRadius = 0;
-            this.BBuscadorCt.BorderSize = 0;
-            this.BBuscadorCt.FlatAppearance.BorderSize = 0;
-            this.BBuscadorCt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.BBuscadorCt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorCt.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorCt.Location = new System.Drawing.Point(6, 2);
-            this.BBuscadorCt.Name = "BBuscadorCt";
-            this.BBuscadorCt.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorCt.TabIndex = 4;
-            this.BBuscadorCt.TextColor = System.Drawing.Color.White;
-            this.BBuscadorCt.UseVisualStyleBackColor = false;
-            // 
-            // BElegirPrLista
-            // 
-            this.BElegirPrLista.BackColor = System.Drawing.Color.Black;
-            this.BElegirPrLista.BackgroundColor = System.Drawing.Color.Black;
-            this.BElegirPrLista.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BElegirPrLista.BorderRadius = 15;
-            this.BElegirPrLista.BorderSize = 1;
-            this.BElegirPrLista.FlatAppearance.BorderSize = 0;
-            this.BElegirPrLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BElegirPrLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BElegirPrLista.ForeColor = System.Drawing.Color.White;
-            this.BElegirPrLista.Location = new System.Drawing.Point(12, 59);
-            this.BElegirPrLista.Name = "BElegirPrLista";
-            this.BElegirPrLista.Size = new System.Drawing.Size(121, 34);
-            this.BElegirPrLista.TabIndex = 40;
-            this.BElegirPrLista.Text = "Agregar producto";
-            this.BElegirPrLista.TextColor = System.Drawing.Color.White;
-            this.BElegirPrLista.UseVisualStyleBackColor = false;
-            this.BElegirPrLista.Click += new System.EventHandler(this.BElegirPrLista_Click);
-            // 
-            // CBProveedor
-            // 
-            this.CBProveedor.BackColor = System.Drawing.Color.Black;
-            this.CBProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBProveedor.BorderSize = 1;
-            this.CBProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.CBProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CBProveedor.ForeColor = System.Drawing.Color.DimGray;
-            this.CBProveedor.IconColor = System.Drawing.Color.Lime;
-            this.CBProveedor.Items.AddRange(new object[] {
-            "PROVEEDOR 1",
-            "PROVEEDOR 2"});
-            this.CBProveedor.ListBackColor = System.Drawing.Color.Black;
-            this.CBProveedor.ListTextColor = System.Drawing.Color.Lime;
-            this.CBProveedor.Location = new System.Drawing.Point(144, 8);
-            this.CBProveedor.MinimumSize = new System.Drawing.Size(30, 30);
-            this.CBProveedor.Name = "CBProveedor";
-            this.CBProveedor.Padding = new System.Windows.Forms.Padding(1);
-            this.CBProveedor.Size = new System.Drawing.Size(296, 30);
-            this.CBProveedor.TabIndex = 31;
-            this.CBProveedor.Texts = "";
-            this.CBProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
-            // 
             // BListaDeCompras
             // 
             this.BListaDeCompras.BackColor = System.Drawing.Color.Black;
@@ -294,36 +281,48 @@
             this.BListaDeCompras.UseVisualStyleBackColor = false;
             this.BListaDeCompras.Click += new System.EventHandler(this.BListaDeCompras_Click);
             // 
-            // CNombrePr
+            // BBuscador
             // 
-            this.CNombrePr.HeaderText = "Producto";
-            this.CNombrePr.Name = "CNombrePr";
-            this.CNombrePr.ReadOnly = true;
+            this.BBuscador.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscador.BackgroundImage")));
+            this.BBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscador.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BorderRadius = 0;
+            this.BBuscador.BorderSize = 0;
+            this.BBuscador.FlatAppearance.BorderSize = 0;
+            this.BBuscador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BBuscador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscador.ForeColor = System.Drawing.Color.White;
+            this.BBuscador.Location = new System.Drawing.Point(268, 64);
+            this.BBuscador.Name = "BBuscador";
+            this.BBuscador.Size = new System.Drawing.Size(26, 26);
+            this.BBuscador.TabIndex = 19;
+            this.BBuscador.TextColor = System.Drawing.Color.White;
+            this.BBuscador.UseVisualStyleBackColor = false;
             // 
-            // CCantidadPr
+            // TBFiltro
             // 
-            this.CCantidadPr.HeaderText = "Cantidad";
-            this.CCantidadPr.Name = "CCantidadPr";
-            this.CCantidadPr.ReadOnly = true;
-            // 
-            // CPrecioPr
-            // 
-            this.CPrecioPr.HeaderText = "Precio";
-            this.CPrecioPr.Name = "CPrecioPr";
-            this.CPrecioPr.ReadOnly = true;
-            // 
-            // CTotalPr
-            // 
-            this.CTotalPr.HeaderText = "Total";
-            this.CTotalPr.Name = "CTotalPr";
-            this.CTotalPr.ReadOnly = true;
-            // 
-            // CEliminarPr
-            // 
-            this.CEliminarPr.HeaderText = "Eliminar";
-            this.CEliminarPr.Name = "CEliminarPr";
-            this.CEliminarPr.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CEliminarPr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.TBFiltro.BackColor = System.Drawing.Color.Black;
+            this.TBFiltro.BorderColor = System.Drawing.Color.Lime;
+            this.TBFiltro.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBFiltro.BorderRadius = 2;
+            this.TBFiltro.BorderSize = 1;
+            this.TBFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFiltro.ForeColor = System.Drawing.Color.White;
+            this.TBFiltro.Location = new System.Drawing.Point(301, 62);
+            this.TBFiltro.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFiltro.Multiline = false;
+            this.TBFiltro.Name = "TBFiltro";
+            this.TBFiltro.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBFiltro.PasswordChar = false;
+            this.TBFiltro.PlaceholderColor = System.Drawing.Color.Gray;
+            this.TBFiltro.PlaceholderText = "Buscar...";
+            this.TBFiltro.Size = new System.Drawing.Size(148, 31);
+            this.TBFiltro.TabIndex = 20;
+            this.TBFiltro.Texts = "";
+            this.TBFiltro.UnderlinedStyle = false;
             // 
             // AltaCompra
             // 
@@ -344,12 +343,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AltaCompra";
             this.Text = "AltaCompra";
-            this.Load += new System.EventHandler(this.AltaCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaCom)).EndInit();
             this.PContAltaCompra.ResumeLayout(false);
             this.PContAltaCompra.PerformLayout();
-            this.Panel1B.ResumeLayout(false);
-            this.Panel1B.PerformLayout();
             this.PListaPrCompra.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaPrCompra)).EndInit();
             this.ResumeLayout(false);
@@ -372,13 +368,12 @@
         private System.Windows.Forms.DataGridView DGListaPrCompra;
         private System.Windows.Forms.Label TBValidacion4;
         private RJButton BElegirPrLista;
-        private System.Windows.Forms.Panel Panel1B;
-        private RJButton BBuscadorCt;
-        private System.Windows.Forms.TextBox TBuscarCt;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombrePr;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCantidadPr;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioPr;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTotalPr;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminarPr;
+        private RJButton BBuscador;
+        private RJControls.RJTextBox_radio_ TBFiltro;
     }
 }

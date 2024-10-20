@@ -31,9 +31,12 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 //Cerramos el mensaje que está en Hide
                 mensaje.Close();
                 this.Parent.Controls.Remove(this);
-                MessageBox.Show("Producto eliminado correctamente de la lista", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mensaje = new MsgPersonalizado("Producto eliminado correctamente de la lista", "Eliminación", "Informacion", null);
                 mensaje.ShowDialog();
+            }
+            else
+            {
+                mensaje.Close();
             }
         }
 

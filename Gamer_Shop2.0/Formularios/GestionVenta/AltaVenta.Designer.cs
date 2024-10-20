@@ -40,6 +40,8 @@
             this.BNuevoCliente = new Gamer_Shop2._0.RJButton();
             this.BClienteExistente = new Gamer_Shop2._0.RJButton();
             this.PContAltaVn1 = new System.Windows.Forms.Panel();
+            this.TBValidacion3 = new System.Windows.Forms.Label();
+            this.TBValidacion2 = new System.Windows.Forms.Label();
             this.TBFecha = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LNombreUsuario = new System.Windows.Forms.Label();
             this.LContraseñaUs = new System.Windows.Forms.Label();
@@ -48,18 +50,15 @@
             this.TBMonto = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.PContAltaVn4 = new System.Windows.Forms.Panel();
             this.CBCategoria = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.TBValidacion = new System.Windows.Forms.Label();
             this.FLPListaProductosVenta = new System.Windows.Forms.FlowLayoutPanel();
             this.botonArticuloVn1 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
             this.botonArticuloVn2 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
             this.botonArticuloVn3 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
-            this.PBuscadorPrVn = new System.Windows.Forms.Panel();
-            this.BBuscadorPrVn = new Gamer_Shop2._0.RJButton();
-            this.TBuscarPrVn = new System.Windows.Forms.TextBox();
             this.BShowListaVn = new Gamer_Shop2._0.RJButton();
             this.BRegistrarVn = new Gamer_Shop2._0.RJButton();
-            this.TBValidacion = new System.Windows.Forms.Label();
-            this.TBValidacion2 = new System.Windows.Forms.Label();
-            this.TBValidacion3 = new System.Windows.Forms.Label();
+            this.BBuscador = new Gamer_Shop2._0.RJButton();
+            this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).BeginInit();
             this.PContAltaVn2.SuspendLayout();
             this.PContBuscarDni.SuspendLayout();
@@ -67,7 +66,6 @@
             this.PContAltaVn3.SuspendLayout();
             this.PContAltaVn4.SuspendLayout();
             this.FLPListaProductosVenta.SuspendLayout();
-            this.PBuscadorPrVn.SuspendLayout();
             this.SuspendLayout();
             // 
             // LTituloAltaVn
@@ -234,12 +232,37 @@
             this.PContAltaVn1.Size = new System.Drawing.Size(257, 61);
             this.PContAltaVn1.TabIndex = 32;
             // 
+            // TBValidacion3
+            // 
+            this.TBValidacion3.AutoSize = true;
+            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion3.Location = new System.Drawing.Point(32, 42);
+            this.TBValidacion3.Name = "TBValidacion3";
+            this.TBValidacion3.Size = new System.Drawing.Size(202, 14);
+            this.TBValidacion3.TabIndex = 35;
+            this.TBValidacion3.Text = "La fecha solo admite caracteres numéricos";
+            this.TBValidacion3.Visible = false;
+            // 
+            // TBValidacion2
+            // 
+            this.TBValidacion2.AutoSize = true;
+            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion2.Location = new System.Drawing.Point(84, 42);
+            this.TBValidacion2.Name = "TBValidacion2";
+            this.TBValidacion2.Size = new System.Drawing.Size(125, 14);
+            this.TBValidacion2.TabIndex = 34;
+            this.TBValidacion2.Text = "Ingrese una opción válida";
+            this.TBValidacion2.Visible = false;
+            // 
             // TBFecha
             // 
             this.TBFecha.BackColor = System.Drawing.Color.Black;
             this.TBFecha.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.TBFecha.BorderFocusColor = System.Drawing.Color.Lime;
             this.TBFecha.BorderSize = 1;
+            this.TBFecha.Enabled = false;
             this.TBFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBFecha.ForeColor = System.Drawing.Color.White;
             this.TBFecha.Location = new System.Drawing.Point(68, 15);
@@ -363,6 +386,18 @@
             this.CBCategoria.Texts = "Seleccionar...";
             this.CBCategoria.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoria_Validating);
             // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion.Location = new System.Drawing.Point(48, 58);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(125, 14);
+            this.TBValidacion.TabIndex = 33;
+            this.TBValidacion.Text = "Ingrese una opción válida";
+            this.TBValidacion.Visible = false;
+            // 
             // FLPListaProductosVenta
             // 
             this.FLPListaProductosVenta.AutoScroll = true;
@@ -410,49 +445,6 @@
             this.botonArticuloVn3.Size = new System.Drawing.Size(451, 56);
             this.botonArticuloVn3.TabIndex = 2;
             // 
-            // PBuscadorPrVn
-            // 
-            this.PBuscadorPrVn.BackColor = System.Drawing.Color.Black;
-            this.PBuscadorPrVn.Controls.Add(this.BBuscadorPrVn);
-            this.PBuscadorPrVn.Controls.Add(this.TBuscarPrVn);
-            this.PBuscadorPrVn.Location = new System.Drawing.Point(28, 46);
-            this.PBuscadorPrVn.Name = "PBuscadorPrVn";
-            this.PBuscadorPrVn.Size = new System.Drawing.Size(181, 31);
-            this.PBuscadorPrVn.TabIndex = 36;
-            // 
-            // BBuscadorPrVn
-            // 
-            this.BBuscadorPrVn.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorPrVn.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorPrVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorPrVn.BackgroundImage")));
-            this.BBuscadorPrVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorPrVn.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorPrVn.BorderRadius = 0;
-            this.BBuscadorPrVn.BorderSize = 0;
-            this.BBuscadorPrVn.FlatAppearance.BorderSize = 0;
-            this.BBuscadorPrVn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorPrVn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorPrVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorPrVn.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorPrVn.Location = new System.Drawing.Point(6, 2);
-            this.BBuscadorPrVn.Name = "BBuscadorPrVn";
-            this.BBuscadorPrVn.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorPrVn.TabIndex = 4;
-            this.BBuscadorPrVn.TextColor = System.Drawing.Color.White;
-            this.BBuscadorPrVn.UseVisualStyleBackColor = false;
-            // 
-            // TBuscarPrVn
-            // 
-            this.TBuscarPrVn.BackColor = System.Drawing.Color.Black;
-            this.TBuscarPrVn.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBuscarPrVn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBuscarPrVn.ForeColor = System.Drawing.Color.Silver;
-            this.TBuscarPrVn.Location = new System.Drawing.Point(34, 6);
-            this.TBuscarPrVn.Name = "TBuscarPrVn";
-            this.TBuscarPrVn.Size = new System.Drawing.Size(132, 17);
-            this.TBuscarPrVn.TabIndex = 4;
-            this.TBuscarPrVn.Text = "Buscar...";
-            // 
             // BShowListaVn
             // 
             this.BShowListaVn.BackColor = System.Drawing.Color.Black;
@@ -493,41 +485,48 @@
             this.BRegistrarVn.UseVisualStyleBackColor = false;
             this.BRegistrarVn.Click += new System.EventHandler(this.BRegistrarVn_Click);
             // 
-            // TBValidacion
+            // BBuscador
             // 
-            this.TBValidacion.AutoSize = true;
-            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(48, 58);
-            this.TBValidacion.Name = "TBValidacion";
-            this.TBValidacion.Size = new System.Drawing.Size(125, 14);
-            this.TBValidacion.TabIndex = 33;
-            this.TBValidacion.Text = "Ingrese una opción válida";
-            this.TBValidacion.Visible = false;
+            this.BBuscador.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscador.BackgroundImage")));
+            this.BBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscador.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BorderRadius = 0;
+            this.BBuscador.BorderSize = 0;
+            this.BBuscador.FlatAppearance.BorderSize = 0;
+            this.BBuscador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BBuscador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscador.ForeColor = System.Drawing.Color.White;
+            this.BBuscador.Location = new System.Drawing.Point(28, 47);
+            this.BBuscador.Name = "BBuscador";
+            this.BBuscador.Size = new System.Drawing.Size(26, 26);
+            this.BBuscador.TabIndex = 21;
+            this.BBuscador.TextColor = System.Drawing.Color.White;
+            this.BBuscador.UseVisualStyleBackColor = false;
             // 
-            // TBValidacion2
+            // TBFiltro
             // 
-            this.TBValidacion2.AutoSize = true;
-            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(84, 42);
-            this.TBValidacion2.Name = "TBValidacion2";
-            this.TBValidacion2.Size = new System.Drawing.Size(125, 14);
-            this.TBValidacion2.TabIndex = 34;
-            this.TBValidacion2.Text = "Ingrese una opción válida";
-            this.TBValidacion2.Visible = false;
-            // 
-            // TBValidacion3
-            // 
-            this.TBValidacion3.AutoSize = true;
-            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion3.Location = new System.Drawing.Point(32, 42);
-            this.TBValidacion3.Name = "TBValidacion3";
-            this.TBValidacion3.Size = new System.Drawing.Size(202, 14);
-            this.TBValidacion3.TabIndex = 35;
-            this.TBValidacion3.Text = "La fecha solo admite caracteres numéricos";
-            this.TBValidacion3.Visible = false;
+            this.TBFiltro.BackColor = System.Drawing.Color.Black;
+            this.TBFiltro.BorderColor = System.Drawing.Color.Lime;
+            this.TBFiltro.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBFiltro.BorderRadius = 2;
+            this.TBFiltro.BorderSize = 1;
+            this.TBFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFiltro.ForeColor = System.Drawing.Color.White;
+            this.TBFiltro.Location = new System.Drawing.Point(61, 45);
+            this.TBFiltro.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFiltro.Multiline = false;
+            this.TBFiltro.Name = "TBFiltro";
+            this.TBFiltro.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBFiltro.PasswordChar = false;
+            this.TBFiltro.PlaceholderColor = System.Drawing.Color.Gray;
+            this.TBFiltro.PlaceholderText = "Buscar...";
+            this.TBFiltro.Size = new System.Drawing.Size(148, 31);
+            this.TBFiltro.TabIndex = 22;
+            this.TBFiltro.Texts = "";
+            this.TBFiltro.UnderlinedStyle = false;
             // 
             // AltaVenta
             // 
@@ -537,11 +536,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.PBuscadorPrVn);
             this.Controls.Add(this.FLPListaProductosVenta);
             this.Controls.Add(this.PContAltaVn4);
             this.Controls.Add(this.PContAltaVn3);
+            this.Controls.Add(this.BBuscador);
             this.Controls.Add(this.PContAltaVn1);
+            this.Controls.Add(this.TBFiltro);
             this.Controls.Add(this.PContAltaVn2);
             this.Controls.Add(this.LShowLista);
             this.Controls.Add(this.label1);
@@ -563,8 +563,6 @@
             this.PContAltaVn4.ResumeLayout(false);
             this.PContAltaVn4.PerformLayout();
             this.FLPListaProductosVenta.ResumeLayout(false);
-            this.PBuscadorPrVn.ResumeLayout(false);
-            this.PBuscadorPrVn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,14 +591,13 @@
         private System.Windows.Forms.Panel PContAltaVn3;
         private System.Windows.Forms.Panel PContAltaVn4;
         private System.Windows.Forms.FlowLayoutPanel FLPListaProductosVenta;
-        private System.Windows.Forms.Panel PBuscadorPrVn;
-        private RJButton BBuscadorPrVn;
-        private System.Windows.Forms.TextBox TBuscarPrVn;
         private BotonArticuloVn botonArticuloVn1;
         private BotonArticuloVn botonArticuloVn2;
         private BotonArticuloVn botonArticuloVn3;
         private System.Windows.Forms.Label TBValidacion;
         private System.Windows.Forms.Label TBValidacion2;
         private System.Windows.Forms.Label TBValidacion3;
+        private RJButton BBuscador;
+        private RJControls.RJTextBox_radio_ TBFiltro;
     }
 }

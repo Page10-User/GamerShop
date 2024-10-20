@@ -31,15 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaProductosCompra));
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Panel1B = new System.Windows.Forms.Panel();
-            this.TBuscarCt = new System.Windows.Forms.TextBox();
-            this.Panel2B = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.BBuscarNombre = new Gamer_Shop2._0.RJButton();
+            this.TBFiltroNombre = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.BBuscarCategoria = new Gamer_Shop2._0.RJButton();
+            this.TBFiltroCategoria = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BCloseListaProducto = new Gamer_Shop2._0.RJButton();
-            this.rjComboBox1 = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.rjButton1 = new Gamer_Shop2._0.RJButton();
-            this.BBuscadorCt = new Gamer_Shop2._0.RJButton();
+            this.CBFiltrado = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.botonArticuloCompra1 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
             this.botonArticuloCompra2 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
             this.botonArticuloCompra3 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
@@ -50,8 +48,6 @@
             this.botonArticuloCompra8 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
             this.botonArticuloCompra9 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
             this.flowLayoutPanel1.SuspendLayout();
-            this.Panel1B.SuspendLayout();
-            this.Panel2B.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -85,50 +81,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(660, 342);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // Panel1B
-            // 
-            this.Panel1B.BackColor = System.Drawing.Color.Black;
-            this.Panel1B.Controls.Add(this.BBuscadorCt);
-            this.Panel1B.Controls.Add(this.TBuscarCt);
-            this.Panel1B.Location = new System.Drawing.Point(12, 45);
-            this.Panel1B.Name = "Panel1B";
-            this.Panel1B.Size = new System.Drawing.Size(188, 31);
-            this.Panel1B.TabIndex = 4;
-            // 
-            // TBuscarCt
-            // 
-            this.TBuscarCt.BackColor = System.Drawing.Color.Black;
-            this.TBuscarCt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBuscarCt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBuscarCt.ForeColor = System.Drawing.Color.Silver;
-            this.TBuscarCt.Location = new System.Drawing.Point(34, 6);
-            this.TBuscarCt.Name = "TBuscarCt";
-            this.TBuscarCt.Size = new System.Drawing.Size(142, 15);
-            this.TBuscarCt.TabIndex = 4;
-            this.TBuscarCt.Text = "Buscar por nombre";
-            // 
-            // Panel2B
-            // 
-            this.Panel2B.BackColor = System.Drawing.Color.Black;
-            this.Panel2B.Controls.Add(this.rjButton1);
-            this.Panel2B.Controls.Add(this.textBox1);
-            this.Panel2B.Location = new System.Drawing.Point(229, 45);
-            this.Panel2B.Name = "Panel2B";
-            this.Panel2B.Size = new System.Drawing.Size(188, 31);
-            this.Panel2B.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Silver;
-            this.textBox1.Location = new System.Drawing.Point(34, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 15);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "Buscar por categoria";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -140,6 +92,92 @@
             this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 7;
             this.label2.Text = "Filtrar por";
+            // 
+            // BBuscarNombre
+            // 
+            this.BBuscarNombre.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscarNombre.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscarNombre.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscarNombre.BackgroundImage")));
+            this.BBuscarNombre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscarNombre.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscarNombre.BorderRadius = 0;
+            this.BBuscarNombre.BorderSize = 0;
+            this.BBuscarNombre.FlatAppearance.BorderSize = 0;
+            this.BBuscarNombre.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BBuscarNombre.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscarNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscarNombre.ForeColor = System.Drawing.Color.White;
+            this.BBuscarNombre.Location = new System.Drawing.Point(17, 41);
+            this.BBuscarNombre.Name = "BBuscarNombre";
+            this.BBuscarNombre.Size = new System.Drawing.Size(26, 26);
+            this.BBuscarNombre.TabIndex = 17;
+            this.BBuscarNombre.TextColor = System.Drawing.Color.White;
+            this.BBuscarNombre.UseVisualStyleBackColor = false;
+            // 
+            // TBFiltroNombre
+            // 
+            this.TBFiltroNombre.BackColor = System.Drawing.Color.Black;
+            this.TBFiltroNombre.BorderColor = System.Drawing.Color.Lime;
+            this.TBFiltroNombre.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBFiltroNombre.BorderRadius = 2;
+            this.TBFiltroNombre.BorderSize = 1;
+            this.TBFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFiltroNombre.ForeColor = System.Drawing.Color.White;
+            this.TBFiltroNombre.Location = new System.Drawing.Point(50, 39);
+            this.TBFiltroNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFiltroNombre.Multiline = false;
+            this.TBFiltroNombre.Name = "TBFiltroNombre";
+            this.TBFiltroNombre.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBFiltroNombre.PasswordChar = false;
+            this.TBFiltroNombre.PlaceholderColor = System.Drawing.Color.Gray;
+            this.TBFiltroNombre.PlaceholderText = "Buscar por nombre";
+            this.TBFiltroNombre.Size = new System.Drawing.Size(148, 31);
+            this.TBFiltroNombre.TabIndex = 18;
+            this.TBFiltroNombre.Texts = "";
+            this.TBFiltroNombre.UnderlinedStyle = false;
+            // 
+            // BBuscarCategoria
+            // 
+            this.BBuscarCategoria.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscarCategoria.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscarCategoria.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscarCategoria.BackgroundImage")));
+            this.BBuscarCategoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscarCategoria.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscarCategoria.BorderRadius = 0;
+            this.BBuscarCategoria.BorderSize = 0;
+            this.BBuscarCategoria.FlatAppearance.BorderSize = 0;
+            this.BBuscarCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BBuscarCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscarCategoria.ForeColor = System.Drawing.Color.White;
+            this.BBuscarCategoria.Location = new System.Drawing.Point(230, 44);
+            this.BBuscarCategoria.Name = "BBuscarCategoria";
+            this.BBuscarCategoria.Size = new System.Drawing.Size(26, 26);
+            this.BBuscarCategoria.TabIndex = 5;
+            this.BBuscarCategoria.TextColor = System.Drawing.Color.White;
+            this.BBuscarCategoria.UseVisualStyleBackColor = false;
+            // 
+            // TBFiltroCategoria
+            // 
+            this.TBFiltroCategoria.BackColor = System.Drawing.Color.Black;
+            this.TBFiltroCategoria.BorderColor = System.Drawing.Color.Lime;
+            this.TBFiltroCategoria.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBFiltroCategoria.BorderRadius = 2;
+            this.TBFiltroCategoria.BorderSize = 1;
+            this.TBFiltroCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFiltroCategoria.ForeColor = System.Drawing.Color.White;
+            this.TBFiltroCategoria.Location = new System.Drawing.Point(263, 42);
+            this.TBFiltroCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFiltroCategoria.Multiline = false;
+            this.TBFiltroCategoria.Name = "TBFiltroCategoria";
+            this.TBFiltroCategoria.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBFiltroCategoria.PasswordChar = false;
+            this.TBFiltroCategoria.PlaceholderColor = System.Drawing.Color.Gray;
+            this.TBFiltroCategoria.PlaceholderText = "Buscar por categoria";
+            this.TBFiltroCategoria.Size = new System.Drawing.Size(148, 31);
+            this.TBFiltroCategoria.TabIndex = 16;
+            this.TBFiltroCategoria.Texts = "";
+            this.TBFiltroCategoria.UnderlinedStyle = false;
             // 
             // BCloseListaProducto
             // 
@@ -164,73 +202,31 @@
             this.BCloseListaProducto.UseVisualStyleBackColor = false;
             this.BCloseListaProducto.Click += new System.EventHandler(this.BCloseListaProducto_Click);
             // 
-            // rjComboBox1
+            // CBFiltrado
             // 
-            this.rjComboBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rjComboBox1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjComboBox1.BorderSize = 1;
-            this.rjComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.rjComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjComboBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjComboBox1.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjComboBox1.Items.AddRange(new object[] {
+            this.CBFiltrado.BackColor = System.Drawing.Color.Black;
+            this.CBFiltrado.BorderColor = System.Drawing.Color.Lime;
+            this.CBFiltrado.BorderSize = 1;
+            this.CBFiltrado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBFiltrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBFiltrado.ForeColor = System.Drawing.Color.DimGray;
+            this.CBFiltrado.IconColor = System.Drawing.Color.Lime;
+            this.CBFiltrado.Items.AddRange(new object[] {
             "A-Z",
             "Z-A",
             "Mayor-Menor",
             "Menor-Mayor",
             "Menor Cantidad - Mayor Cantidad",
             "Mayor cantidad - Menor Cantidad"});
-            this.rjComboBox1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.rjComboBox1.ListTextColor = System.Drawing.Color.DimGray;
-            this.rjComboBox1.Location = new System.Drawing.Point(523, 45);
-            this.rjComboBox1.MinimumSize = new System.Drawing.Size(30, 30);
-            this.rjComboBox1.Name = "rjComboBox1";
-            this.rjComboBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.rjComboBox1.Size = new System.Drawing.Size(149, 30);
-            this.rjComboBox1.TabIndex = 6;
-            this.rjComboBox1.Texts = "";
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rjButton1.BackgroundImage")));
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.rjButton1.BorderColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BorderRadius = 0;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(6, 2);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(26, 26);
-            this.rjButton1.TabIndex = 4;
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            // 
-            // BBuscadorCt
-            // 
-            this.BBuscadorCt.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorCt.BackgroundImage")));
-            this.BBuscadorCt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorCt.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.BorderRadius = 0;
-            this.BBuscadorCt.BorderSize = 0;
-            this.BBuscadorCt.FlatAppearance.BorderSize = 0;
-            this.BBuscadorCt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorCt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.BBuscadorCt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorCt.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorCt.Location = new System.Drawing.Point(6, 2);
-            this.BBuscadorCt.Name = "BBuscadorCt";
-            this.BBuscadorCt.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorCt.TabIndex = 4;
-            this.BBuscadorCt.TextColor = System.Drawing.Color.White;
-            this.BBuscadorCt.UseVisualStyleBackColor = false;
+            this.CBFiltrado.ListBackColor = System.Drawing.Color.Black;
+            this.CBFiltrado.ListTextColor = System.Drawing.Color.Lime;
+            this.CBFiltrado.Location = new System.Drawing.Point(523, 45);
+            this.CBFiltrado.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBFiltrado.Name = "CBFiltrado";
+            this.CBFiltrado.Padding = new System.Windows.Forms.Padding(1);
+            this.CBFiltrado.Size = new System.Drawing.Size(149, 30);
+            this.CBFiltrado.TabIndex = 6;
+            this.CBFiltrado.Texts = "Filtrar...";
             // 
             // botonArticuloCompra1
             // 
@@ -401,23 +397,20 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.BBuscarNombre);
+            this.Controls.Add(this.TBFiltroNombre);
+            this.Controls.Add(this.BBuscarCategoria);
+            this.Controls.Add(this.TBFiltroCategoria);
             this.Controls.Add(this.BCloseListaProducto);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.rjComboBox1);
-            this.Controls.Add(this.Panel2B);
-            this.Controls.Add(this.Panel1B);
+            this.Controls.Add(this.CBFiltrado);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListaProductosCompra";
             this.Text = "ListaProductosCompra";
-            this.Load += new System.EventHandler(this.ListaProductosCompra_Load_1);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.Panel1B.ResumeLayout(false);
-            this.Panel1B.PerformLayout();
-            this.Panel2B.ResumeLayout(false);
-            this.Panel2B.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,13 +420,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel Panel1B;
-        private RJButton BBuscadorCt;
-        private System.Windows.Forms.TextBox TBuscarCt;
-        private System.Windows.Forms.Panel Panel2B;
-        private RJButton rjButton1;
-        private System.Windows.Forms.TextBox textBox1;
-        private RJControls.RJComboBox rjComboBox1;
+        private RJControls.RJComboBox CBFiltrado;
         private System.Windows.Forms.Label label2;
         private Comercio.BotonArticuloCompra botonArticuloCompra1;
         private Comercio.BotonArticuloCompra botonArticuloCompra2;
@@ -445,5 +432,9 @@
         private Comercio.BotonArticuloCompra botonArticuloCompra8;
         private Comercio.BotonArticuloCompra botonArticuloCompra9;
         private RJButton BCloseListaProducto;
+        private RJControls.RJTextBox_radio_ TBFiltroCategoria;
+        private RJButton BBuscarCategoria;
+        private RJButton BBuscarNombre;
+        private RJControls.RJTextBox_radio_ TBFiltroNombre;
     }
 }

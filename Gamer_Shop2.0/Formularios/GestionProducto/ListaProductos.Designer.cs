@@ -41,17 +41,15 @@
             this.BDescargarPr = new Gamer_Shop2._0.RJButton();
             this.PContListaPr = new System.Windows.Forms.Panel();
             this.DGListaPr = new System.Windows.Forms.DataGridView();
-            this.LTituloListaPr = new System.Windows.Forms.Label();
-            this.PBImgListaPr = new System.Windows.Forms.PictureBox();
-            this.PBuscadorListaPr = new System.Windows.Forms.Panel();
-            this.BBuscadorListaPr = new Gamer_Shop2._0.RJButton();
-            this.TBuscarListaPr = new System.Windows.Forms.TextBox();
             this.CModificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LTituloListaPr = new System.Windows.Forms.Label();
+            this.PBImgListaPr = new System.Windows.Forms.PictureBox();
+            this.BBuscador = new Gamer_Shop2._0.RJButton();
+            this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.PContListaPr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaPr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).BeginInit();
-            this.PBuscadorListaPr.SuspendLayout();
             this.SuspendLayout();
             // 
             // BShowLista
@@ -169,73 +167,6 @@
             this.DGListaPr.Size = new System.Drawing.Size(433, 286);
             this.DGListaPr.TabIndex = 0;
             // 
-            // LTituloListaPr
-            // 
-            this.LTituloListaPr.AutoSize = true;
-            this.LTituloListaPr.BackColor = System.Drawing.Color.Transparent;
-            this.LTituloListaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTituloListaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloListaPr.Location = new System.Drawing.Point(166, 31);
-            this.LTituloListaPr.Name = "LTituloListaPr";
-            this.LTituloListaPr.Size = new System.Drawing.Size(346, 42);
-            this.LTituloListaPr.TabIndex = 8;
-            this.LTituloListaPr.Text = "Lista de Productos";
-            // 
-            // PBImgListaPr
-            // 
-            this.PBImgListaPr.BackColor = System.Drawing.Color.Transparent;
-            this.PBImgListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaPr.BackgroundImage")));
-            this.PBImgListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgListaPr.Location = new System.Drawing.Point(113, 36);
-            this.PBImgListaPr.Name = "PBImgListaPr";
-            this.PBImgListaPr.Size = new System.Drawing.Size(47, 41);
-            this.PBImgListaPr.TabIndex = 7;
-            this.PBImgListaPr.TabStop = false;
-            // 
-            // PBuscadorListaPr
-            // 
-            this.PBuscadorListaPr.BackColor = System.Drawing.Color.Black;
-            this.PBuscadorListaPr.Controls.Add(this.BBuscadorListaPr);
-            this.PBuscadorListaPr.Controls.Add(this.TBuscarListaPr);
-            this.PBuscadorListaPr.Location = new System.Drawing.Point(317, 76);
-            this.PBuscadorListaPr.Name = "PBuscadorListaPr";
-            this.PBuscadorListaPr.Size = new System.Drawing.Size(188, 31);
-            this.PBuscadorListaPr.TabIndex = 26;
-            this.PBuscadorListaPr.Paint += new System.Windows.Forms.PaintEventHandler(this.PBuscadorListaPr_Paint);
-            // 
-            // BBuscadorListaPr
-            // 
-            this.BBuscadorListaPr.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaPr.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorListaPr.BackgroundImage")));
-            this.BBuscadorListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorListaPr.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaPr.BorderRadius = 0;
-            this.BBuscadorListaPr.BorderSize = 0;
-            this.BBuscadorListaPr.FlatAppearance.BorderSize = 0;
-            this.BBuscadorListaPr.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorListaPr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.BBuscadorListaPr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorListaPr.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorListaPr.Location = new System.Drawing.Point(6, 2);
-            this.BBuscadorListaPr.Name = "BBuscadorListaPr";
-            this.BBuscadorListaPr.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorListaPr.TabIndex = 4;
-            this.BBuscadorListaPr.TextColor = System.Drawing.Color.White;
-            this.BBuscadorListaPr.UseVisualStyleBackColor = false;
-            // 
-            // TBuscarListaPr
-            // 
-            this.TBuscarListaPr.BackColor = System.Drawing.Color.Black;
-            this.TBuscarListaPr.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBuscarListaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBuscarListaPr.ForeColor = System.Drawing.Color.Silver;
-            this.TBuscarListaPr.Location = new System.Drawing.Point(34, 6);
-            this.TBuscarListaPr.Name = "TBuscarListaPr";
-            this.TBuscarListaPr.Size = new System.Drawing.Size(132, 17);
-            this.TBuscarListaPr.TabIndex = 4;
-            this.TBuscarListaPr.Text = "Buscar...";
-            // 
             // CModificar
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -262,6 +193,72 @@
             this.CEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // LTituloListaPr
+            // 
+            this.LTituloListaPr.AutoSize = true;
+            this.LTituloListaPr.BackColor = System.Drawing.Color.Transparent;
+            this.LTituloListaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTituloListaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LTituloListaPr.Location = new System.Drawing.Point(166, 31);
+            this.LTituloListaPr.Name = "LTituloListaPr";
+            this.LTituloListaPr.Size = new System.Drawing.Size(346, 42);
+            this.LTituloListaPr.TabIndex = 8;
+            this.LTituloListaPr.Text = "Lista de Productos";
+            // 
+            // PBImgListaPr
+            // 
+            this.PBImgListaPr.BackColor = System.Drawing.Color.Transparent;
+            this.PBImgListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaPr.BackgroundImage")));
+            this.PBImgListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PBImgListaPr.Location = new System.Drawing.Point(113, 36);
+            this.PBImgListaPr.Name = "PBImgListaPr";
+            this.PBImgListaPr.Size = new System.Drawing.Size(47, 41);
+            this.PBImgListaPr.TabIndex = 7;
+            this.PBImgListaPr.TabStop = false;
+            // 
+            // BBuscador
+            // 
+            this.BBuscador.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscador.BackgroundImage")));
+            this.BBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscador.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscador.BorderRadius = 0;
+            this.BBuscador.BorderSize = 0;
+            this.BBuscador.FlatAppearance.BorderSize = 0;
+            this.BBuscador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BBuscador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscador.ForeColor = System.Drawing.Color.White;
+            this.BBuscador.Location = new System.Drawing.Point(324, 75);
+            this.BBuscador.Name = "BBuscador";
+            this.BBuscador.Size = new System.Drawing.Size(26, 26);
+            this.BBuscador.TabIndex = 21;
+            this.BBuscador.TextColor = System.Drawing.Color.White;
+            this.BBuscador.UseVisualStyleBackColor = false;
+            // 
+            // TBFiltro
+            // 
+            this.TBFiltro.BackColor = System.Drawing.Color.Black;
+            this.TBFiltro.BorderColor = System.Drawing.Color.Lime;
+            this.TBFiltro.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBFiltro.BorderRadius = 2;
+            this.TBFiltro.BorderSize = 1;
+            this.TBFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFiltro.ForeColor = System.Drawing.Color.White;
+            this.TBFiltro.Location = new System.Drawing.Point(357, 73);
+            this.TBFiltro.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFiltro.Multiline = false;
+            this.TBFiltro.Name = "TBFiltro";
+            this.TBFiltro.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBFiltro.PasswordChar = false;
+            this.TBFiltro.PlaceholderColor = System.Drawing.Color.Gray;
+            this.TBFiltro.PlaceholderText = "Buscar...";
+            this.TBFiltro.Size = new System.Drawing.Size(148, 31);
+            this.TBFiltro.TabIndex = 22;
+            this.TBFiltro.Texts = "";
+            this.TBFiltro.UnderlinedStyle = false;
+            // 
             // ListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,7 +267,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.PBuscadorListaPr);
+            this.Controls.Add(this.BBuscador);
+            this.Controls.Add(this.TBFiltro);
             this.Controls.Add(this.BShowLista);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BShowRegistrarPr);
@@ -286,8 +284,6 @@
             this.PContListaPr.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaPr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).EndInit();
-            this.PBuscadorListaPr.ResumeLayout(false);
-            this.PBuscadorListaPr.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,10 +299,9 @@
         private System.Windows.Forms.Label LTituloListaPr;
         private System.Windows.Forms.PictureBox PBImgListaPr;
         private System.Windows.Forms.DataGridView DGListaPr;
-        private System.Windows.Forms.Panel PBuscadorListaPr;
-        private RJButton BBuscadorListaPr;
-        private System.Windows.Forms.TextBox TBuscarListaPr;
         private System.Windows.Forms.DataGridViewButtonColumn CModificar;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
+        private RJButton BBuscador;
+        private RJControls.RJTextBox_radio_ TBFiltro;
     }
 }

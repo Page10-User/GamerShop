@@ -78,7 +78,6 @@ namespace Gamer_Shop2._0
             BExpandMenu.Location = new Point(12, 38);
             BContracMenu.BringToFront();
 
-            //Cargar detalles de inicio.
             // Crear una nueva instancia de ListaProductos
             InicioDetalle inicioD = new InicioDetalle();
             inicioD.TopLevel = false;
@@ -127,11 +126,11 @@ namespace Gamer_Shop2._0
             BContracMenu.Visible = true;
             PEBorde.Visible = false;
 
+            //Desactivamos el TopMost
+            this.TopMost = false;
+
             //Generamos fondo oscuro tras abrir el menú.
             GenerarFondoOscuro();
-
-            //Quitamos TopMost de Bienvenida.
-            this.TopMost = false;
 
             // Cargar contenido del menú.
             PMenuUS.Controls.Add(userOptions);
@@ -191,11 +190,11 @@ namespace Gamer_Shop2._0
                 FormBorderStyle = FormBorderStyle.None,
                 Opacity = 0.70d, // 70% de opacidad
                 BackColor = Color.Black,
-                Width = 638 - 2,
+                Width = 636,
                 Height = this.Height - 4,
                 Location = formBGLocation,
-                WindowState = FormWindowState.Normal,
                 TopMost = true,
+                WindowState = FormWindowState.Normal,
                 ShowInTaskbar = false,
             };
             formBG.Show();

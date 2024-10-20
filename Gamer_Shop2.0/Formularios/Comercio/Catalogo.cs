@@ -33,36 +33,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
             this.Load += new EventHandler(Catalogo_Load);
-            PBuscadorCt.Paint += new PaintEventHandler(PBuscadorCt_Paint);
         }
-
-        private void PBuscadorCt_Paint(object sender, PaintEventArgs e)
-        {
-            Panel panel = sender as Panel;
-            if (panel != null)
-            {
-
-                GraphicsPath path = new GraphicsPath();
-                int borderRadius = 10;
-                path.StartFigure();
-                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
-                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
-                path.CloseFigure();
-
-
-                panel.Region = new Region(path);
-
-
-                using (Pen pen = new Pen(Color.LightGreen, 3))
-                {
-                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    e.Graphics.DrawPath(pen, path);
-                }
-            }
-        }
-
         private void Catalogo_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario

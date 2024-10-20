@@ -12,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Gamer_Shop2._0.ColorTransition;
 
 
 namespace Gamer_Shop2._0
