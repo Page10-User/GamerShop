@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 
 namespace Gamer_Shop2._0.Datos
 {
@@ -43,13 +44,13 @@ namespace Gamer_Shop2._0.Datos
                     return dataTable;
                 }
             }
-
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error SQL: {ex.Message}\nDetalle: {ex.InnerException?.Message}");
+                string errorMessage = $"Error SQL: {ex.Message}\nDetalle: {ex.InnerException?.Message}";
+                MsgPersonalizado mensaje = new MsgPersonalizado(errorMessage, "Error","Error",null);
+                mensaje.ShowDialog();
                 return null;
             }
-            
         }
     }
 }

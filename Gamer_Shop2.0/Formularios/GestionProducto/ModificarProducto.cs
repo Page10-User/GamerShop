@@ -19,17 +19,20 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     public partial class ModificarProducto : Form
     {
         private int borderRadius = 100; // Radio del borde redondeado
-        private int borderWidth = 5; // Grosor del borde
-        Producto productoActual = new Producto();
-        bool wasClicked = false;
 
+        private int borderWidth = 5; // Grosor del borde
+
+        Producto productoActual = new Producto();
+
+        private List<string> camposActuales = new List<string>(new string[6]);
         public Panel PanelContainer { get; set; }
+
         public ModificarProducto(int id)
         {
             InitializeComponent();
 
             NProducto producto = new NProducto();
-            
+
             productoActual = producto.GetProducto(id);
             this.Padding = new Padding(borderWidth);
             this.Load += new EventHandler(ModificarProducto_Load);
@@ -71,9 +74,9 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             TBSerialPr.Texts = productoActual.Serial.ToString();
             TBDescripcionPr.Texts = productoActual.Descripcion;
             TBPrecioPr.Texts = productoActual.Precio.ToString();
-            CBCategoriaPr.SelectedIndex = productoActual.ID_Categoria-1;
+            CBCategoriaPr.SelectedIndex = productoActual.ID_Categoria - 1;
             CBProveedorPr.SelectedIndex = productoActual.ID_Proveedor - 1;
-
+            guardarCampos();
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -113,9 +116,9 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            if (wasClicked != true)
+            if (comprobarModif(camposActuales) == true)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea volver ? Se perderán los cambios realizados", "Volver", "Interrogacion", null);
+                MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea volver? Se perderán los cambios realizados", "Volver", "Interrogacion", null);
                 DialogResult result = mensaje.ShowDialog();
                 if (result == DialogResult.Yes)
                 {
@@ -150,7 +153,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 listPr.Show();
                 this.Close();
             }
-            
         }
 
         // Validaciones
@@ -425,33 +427,41 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BModificarPr_Click(object sender, EventArgs e)
         {
-            wasClicked = true;
             if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBProveedorPr.SelectedItem != null)
             {
-                try
+                if (comprobarModif(camposActuales))
                 {
-                    NProducto nproducto = new NProducto();
-                    nproducto.NModificarProducto(
-                        int.Parse(TBSerialPr.Texts),
-                        TBNombrePr.Texts,
-                        TBDescripcionPr.Texts,
-                        float.Parse(TBPrecioPr.Texts),
-                        CBCategoriaPr.SelectedIndex + 1,
-                        CBProveedorPr.SelectedIndex + 1
-                        );
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Modificación", "Informacion",null);
-                    mensaje.ShowDialog();
+                    try
+                    {
+                        NProducto nproducto = new NProducto();
+                        nproducto.NModificarProducto(
+                            int.Parse(TBSerialPr.Texts),
+                            TBNombrePr.Texts,
+                            TBDescripcionPr.Texts,
+                            float.Parse(TBPrecioPr.Texts),
+                            CBCategoriaPr.SelectedIndex + 1,
+                            CBProveedorPr.SelectedIndex + 1
+                            );
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Modificación", "Informacion", null);
+                        mensaje.ShowDialog();
+                        guardarCampos();
+                    }
+                    catch (ExisteRegistroException ex)
+                    {
+                        // Manejo de la excepción cuando el número de serial ya existe
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de cualquier otra excepción
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
                 }
-                catch (ExisteRegistroException ex)
+                else
                 {
-                    // Manejo de la excepción cuando el número de serial ya existe
-                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
-                    mensaje.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    // Manejo de cualquier otra excepción
-                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Debe realizar almenos un cambio para modificar el producto", "Error al Modificar", "Error", null);
                     mensaje.ShowDialog();
                 }
             }
@@ -493,5 +503,32 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             TBValidacion14.Visible = false;
             TBValidacion15.Visible = false;
         }
+
+        private void guardarCampos()
+        {
+            camposActuales[0] = TBSerialPr.Texts;
+            camposActuales[1] = TBNombrePr.Texts;
+            camposActuales[2] = TBPrecioPr.Texts;
+            camposActuales[3] = CBProveedorPr.SelectedItem.ToString();
+            camposActuales[4] = CBCategoriaPr.SelectedItem.ToString();
+            camposActuales[5] = TBDescripcionPr.Texts;
+        }
+        private bool comprobarModif(List<string> campos)
+        {
+            if (campos[0] != TBSerialPr.Texts ||
+                campos[1] != TBNombrePr.Texts ||
+                campos[2] != TBPrecioPr.Texts ||
+                campos[3] != CBProveedorPr.SelectedItem.ToString() ||
+                campos[4] != CBCategoriaPr.SelectedItem.ToString() ||
+                campos[5] != TBDescripcionPr.Texts)
+            {
+                return true; // Hay modificación
+            }
+            else
+            {
+                return false; // No hay modificación
+            }
+        }
+
     }
 }

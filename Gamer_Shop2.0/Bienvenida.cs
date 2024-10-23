@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Formularios;
 using Gamer_Shop2._0.Formularios.Inicio;
 using Gamer_Shop2._0.Formularios.InterfazUsuarios;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
@@ -95,7 +96,18 @@ namespace Gamer_Shop2._0
         // Función botón Exit
         private void BSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro de que desea cerrar la aplicación?", "Cerrar Aplicación", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                mensaje.Close();
+                Application.Exit();
+            }
+            else
+            {
+                mensaje.Close();
+            }
         }
 
         // Botón contraer Menú.

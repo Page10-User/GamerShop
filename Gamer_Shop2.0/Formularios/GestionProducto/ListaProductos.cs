@@ -172,7 +172,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 }
                 catch (Exception)
                 {
-                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el producto", "Error", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Error inesperado, no se pudo Modificar el producto", "Error", "Error", null);
                     mensaje.ShowDialog();
                 }
                 

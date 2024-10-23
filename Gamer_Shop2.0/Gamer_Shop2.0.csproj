@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Datos\DProductos.cs" />
     <Compile Include="Excepciones\ExisteRegistroException.cs" />
+    <Compile Include="Excepciones\NoModificationsException.cs" />
     <Compile Include="Formularios\Gestion Compra\Lista Producto Compra\BotonArticuloCompra.cs">
       <SubType>UserControl</SubType>
     </Compile>

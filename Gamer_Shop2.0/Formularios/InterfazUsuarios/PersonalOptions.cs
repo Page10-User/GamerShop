@@ -86,15 +86,16 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 mensaje = new MsgPersonalizado("Sesion cerrada con éxito", "Sesion Finalizada", "Informacion", null);
                 mensaje.ShowDialog();
             }
+            else
+            {
+                mensaje.Close();
+            }
         }
 
         private void BMiPerfil_Click(object sender, EventArgs e)
         {
             //Cerrar el menú tras elegír una opción
             Mainform.BContracMenu_Click(sender, e);
-
-            //Ocultar Otros.
-            //LabelContainer.Visible = false;
 
             // Crear una nueva instancia de EditarPerfil
             EditarPerfil editarPerfil = new EditarPerfil();
@@ -112,9 +113,6 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
         {
             //Cerrar el menú tras elegír una opción
             Mainform.BContracMenu_Click(sender, e);
-
-            //Ocultar Otros.
-            //LabelContainer.Visible = false;
 
             // Crear una nueva instancia de EditarPerfil
             Backups backups = new Backups();
