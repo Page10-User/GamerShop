@@ -24,7 +24,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         Producto productoActual = new Producto();
         string filePath;
-        bool wasClicked = false;
 
         private List<string> camposActuales = new List<string>(new string[6]);
         public Panel PanelContainer { get; set; }
@@ -443,7 +442,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                             TBDescripcionPr.Texts,
                             float.Parse(TBPrecioPr.Texts),
                             CBCategoriaPr.SelectedIndex + 1,
-                            CBProveedorPr.SelectedIndex + 1
+                            CBProveedorPr.SelectedIndex + 1,
+                            rjTextBox1.Texts
                             );
                         MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Modificación", "Informacion", null);
                         mensaje.ShowDialog();
