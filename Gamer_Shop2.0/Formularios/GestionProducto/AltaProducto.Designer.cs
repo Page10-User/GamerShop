@@ -32,6 +32,11 @@
             this.PBImgAltaPr = new System.Windows.Forms.PictureBox();
             this.LTituloAltaPr = new System.Windows.Forms.Label();
             this.PContAltaPr = new System.Windows.Forms.Panel();
+            this.BFotoProducto = new Gamer_Shop2._0.RJButton();
+            this.TBValidacionCat3 = new System.Windows.Forms.Label();
+            this.TBValidacionCat2 = new System.Windows.Forms.Label();
+            this.TBValidacionCat = new System.Windows.Forms.Label();
+            this.rjTextBox1 = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion15 = new System.Windows.Forms.Label();
             this.TBValidacion14 = new System.Windows.Forms.Label();
             this.TBValidacion13 = new System.Windows.Forms.Label();
@@ -43,13 +48,6 @@
             this.TBValidacion4 = new System.Windows.Forms.Label();
             this.TBValidacion8 = new System.Windows.Forms.Label();
             this.TBValidacion6 = new System.Windows.Forms.Label();
-            this.PAddCategoria = new System.Windows.Forms.Panel();
-            this.TBValidacionCat3 = new System.Windows.Forms.Label();
-            this.BAddCategoria = new Gamer_Shop2._0.RJButton();
-            this.TBValidacionCat2 = new System.Windows.Forms.Label();
-            this.TBAddCategoria = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBValidacionCat = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.TBValidacion5 = new System.Windows.Forms.Label();
             this.TBValidacion3 = new System.Windows.Forms.Label();
             this.BShowAddCategoria = new Gamer_Shop2._0.RJButton();
@@ -67,10 +65,15 @@
             this.LDescripcionPr = new System.Windows.Forms.Label();
             this.LPrecioPr = new System.Windows.Forms.Label();
             this.LNombrePr = new System.Windows.Forms.Label();
+            this.PAddCategoria = new System.Windows.Forms.Panel();
+            this.BAddCategoria = new Gamer_Shop2._0.RJButton();
+            this.TBAddCategoria = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BShowLista = new System.Windows.Forms.Label();
             this.BShowListaPr = new Gamer_Shop2._0.RJButton();
             this.BRegistrarPr = new Gamer_Shop2._0.RJButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaPr)).BeginInit();
             this.PContAltaPr.SuspendLayout();
             this.PAddCategoria.SuspendLayout();
@@ -102,6 +105,11 @@
             // PContAltaPr
             // 
             this.PContAltaPr.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaPr.Controls.Add(this.BFotoProducto);
+            this.PContAltaPr.Controls.Add(this.TBValidacionCat3);
+            this.PContAltaPr.Controls.Add(this.TBValidacionCat2);
+            this.PContAltaPr.Controls.Add(this.TBValidacionCat);
+            this.PContAltaPr.Controls.Add(this.rjTextBox1);
             this.PContAltaPr.Controls.Add(this.TBValidacion15);
             this.PContAltaPr.Controls.Add(this.TBValidacion14);
             this.PContAltaPr.Controls.Add(this.TBValidacion13);
@@ -113,7 +121,6 @@
             this.PContAltaPr.Controls.Add(this.TBValidacion4);
             this.PContAltaPr.Controls.Add(this.TBValidacion8);
             this.PContAltaPr.Controls.Add(this.TBValidacion6);
-            this.PContAltaPr.Controls.Add(this.PAddCategoria);
             this.PContAltaPr.Controls.Add(this.TBValidacion5);
             this.PContAltaPr.Controls.Add(this.TBValidacion3);
             this.PContAltaPr.Controls.Add(this.BShowAddCategoria);
@@ -131,17 +138,95 @@
             this.PContAltaPr.Controls.Add(this.LDescripcionPr);
             this.PContAltaPr.Controls.Add(this.LPrecioPr);
             this.PContAltaPr.Controls.Add(this.LNombrePr);
+            this.PContAltaPr.Controls.Add(this.PAddCategoria);
             this.PContAltaPr.Location = new System.Drawing.Point(40, 89);
             this.PContAltaPr.Name = "PContAltaPr";
             this.PContAltaPr.Size = new System.Drawing.Size(469, 307);
             this.PContAltaPr.TabIndex = 2;
+            // 
+            // BFotoProducto
+            // 
+            this.BFotoProducto.BackColor = System.Drawing.Color.Black;
+            this.BFotoProducto.BackgroundColor = System.Drawing.Color.Black;
+            this.BFotoProducto.BorderColor = System.Drawing.Color.Lime;
+            this.BFotoProducto.BorderRadius = 10;
+            this.BFotoProducto.BorderSize = 1;
+            this.BFotoProducto.FlatAppearance.BorderSize = 0;
+            this.BFotoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BFotoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BFotoProducto.ForeColor = System.Drawing.Color.White;
+            this.BFotoProducto.Location = new System.Drawing.Point(15, 249);
+            this.BFotoProducto.Name = "BFotoProducto";
+            this.BFotoProducto.Size = new System.Drawing.Size(72, 31);
+            this.BFotoProducto.TabIndex = 3;
+            this.BFotoProducto.Text = "Elegir foto";
+            this.BFotoProducto.TextColor = System.Drawing.Color.White;
+            this.BFotoProducto.UseVisualStyleBackColor = false;
+            this.BFotoProducto.Click += new System.EventHandler(this.BFotoProducto_Click);
+            // 
+            // TBValidacionCat3
+            // 
+            this.TBValidacionCat3.AutoSize = true;
+            this.TBValidacionCat3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacionCat3.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacionCat3.Location = new System.Drawing.Point(298, 279);
+            this.TBValidacionCat3.Name = "TBValidacionCat3";
+            this.TBValidacionCat3.Size = new System.Drawing.Size(161, 14);
+            this.TBValidacionCat3.TabIndex = 64;
+            this.TBValidacionCat3.Text = "no debe superar los 20 caracteres";
+            this.TBValidacionCat3.Visible = false;
+            // 
+            // TBValidacionCat2
+            // 
+            this.TBValidacionCat2.AutoSize = true;
+            this.TBValidacionCat2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacionCat2.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacionCat2.Location = new System.Drawing.Point(307, 280);
+            this.TBValidacionCat2.Name = "TBValidacionCat2";
+            this.TBValidacionCat2.Size = new System.Drawing.Size(152, 14);
+            this.TBValidacionCat2.TabIndex = 63;
+            this.TBValidacionCat2.Text = "no ingrese caracteres especiales";
+            this.TBValidacionCat2.Visible = false;
+            // 
+            // TBValidacionCat
+            // 
+            this.TBValidacionCat.AutoSize = true;
+            this.TBValidacionCat.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacionCat.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacionCat.Location = new System.Drawing.Point(302, 280);
+            this.TBValidacionCat.Name = "TBValidacionCat";
+            this.TBValidacionCat.Size = new System.Drawing.Size(157, 14);
+            this.TBValidacionCat.TabIndex = 62;
+            this.TBValidacionCat.Text = "debe ingresar 3 caracteres o más";
+            this.TBValidacionCat.Visible = false;
+            // 
+            // rjTextBox1
+            // 
+            this.rjTextBox1.BackColor = System.Drawing.Color.Black;
+            this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Lime;
+            this.rjTextBox1.BorderSize = 2;
+            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.rjTextBox1.Location = new System.Drawing.Point(98, 251);
+            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.rjTextBox1.Multiline = false;
+            this.rjTextBox1.Name = "rjTextBox1";
+            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(7);
+            this.rjTextBox1.PasswordChar = false;
+            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rjTextBox1.PlaceholderText = "Ruta de la foto";
+            this.rjTextBox1.Size = new System.Drawing.Size(128, 31);
+            this.rjTextBox1.TabIndex = 65;
+            this.rjTextBox1.Texts = "";
+            this.rjTextBox1.UnderlinedStyle = false;
             // 
             // TBValidacion15
             // 
             this.TBValidacion15.AutoSize = true;
             this.TBValidacion15.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion15.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion15.Location = new System.Drawing.Point(228, 280);
+            this.TBValidacion15.Location = new System.Drawing.Point(228, 279);
             this.TBValidacion15.Name = "TBValidacion15";
             this.TBValidacion15.Size = new System.Drawing.Size(236, 14);
             this.TBValidacion15.TabIndex = 72;
@@ -267,111 +352,6 @@
             this.TBValidacion6.TabIndex = 63;
             this.TBValidacion6.Text = "Ingresar unicamente caracteres numérios";
             this.TBValidacion6.Visible = false;
-            // 
-            // PAddCategoria
-            // 
-            this.PAddCategoria.Controls.Add(this.TBValidacionCat3);
-            this.PAddCategoria.Controls.Add(this.BAddCategoria);
-            this.PAddCategoria.Controls.Add(this.TBValidacionCat2);
-            this.PAddCategoria.Controls.Add(this.TBAddCategoria);
-            this.PAddCategoria.Controls.Add(this.TBValidacionCat);
-            this.PAddCategoria.Controls.Add(this.label3);
-            this.PAddCategoria.Location = new System.Drawing.Point(259, 156);
-            this.PAddCategoria.Name = "PAddCategoria";
-            this.PAddCategoria.Size = new System.Drawing.Size(200, 120);
-            this.PAddCategoria.TabIndex = 7;
-            this.PAddCategoria.Visible = false;
-            this.PAddCategoria.Paint += new System.Windows.Forms.PaintEventHandler(this.PAddCategoria_Paint);
-            // 
-            // TBValidacionCat3
-            // 
-            this.TBValidacionCat3.AutoSize = true;
-            this.TBValidacionCat3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacionCat3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacionCat3.Location = new System.Drawing.Point(35, 60);
-            this.TBValidacionCat3.Name = "TBValidacionCat3";
-            this.TBValidacionCat3.Size = new System.Drawing.Size(161, 14);
-            this.TBValidacionCat3.TabIndex = 64;
-            this.TBValidacionCat3.Text = "no debe superar los 20 caracteres";
-            this.TBValidacionCat3.Visible = false;
-            // 
-            // BAddCategoria
-            // 
-            this.BAddCategoria.BackColor = System.Drawing.Color.Black;
-            this.BAddCategoria.BackgroundColor = System.Drawing.Color.Black;
-            this.BAddCategoria.BorderColor = System.Drawing.Color.Lime;
-            this.BAddCategoria.BorderRadius = 10;
-            this.BAddCategoria.BorderSize = 1;
-            this.BAddCategoria.FlatAppearance.BorderSize = 0;
-            this.BAddCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BAddCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BAddCategoria.ForeColor = System.Drawing.Color.White;
-            this.BAddCategoria.Location = new System.Drawing.Point(7, 77);
-            this.BAddCategoria.Name = "BAddCategoria";
-            this.BAddCategoria.Size = new System.Drawing.Size(115, 29);
-            this.BAddCategoria.TabIndex = 2;
-            this.BAddCategoria.Text = "Añadir Categoria";
-            this.BAddCategoria.TextColor = System.Drawing.Color.White;
-            this.BAddCategoria.UseVisualStyleBackColor = false;
-            // 
-            // TBValidacionCat2
-            // 
-            this.TBValidacionCat2.AutoSize = true;
-            this.TBValidacionCat2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacionCat2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacionCat2.Location = new System.Drawing.Point(44, 60);
-            this.TBValidacionCat2.Name = "TBValidacionCat2";
-            this.TBValidacionCat2.Size = new System.Drawing.Size(152, 14);
-            this.TBValidacionCat2.TabIndex = 63;
-            this.TBValidacionCat2.Text = "no ingrese caracteres especiales";
-            this.TBValidacionCat2.Visible = false;
-            // 
-            // TBAddCategoria
-            // 
-            this.TBAddCategoria.BackColor = System.Drawing.Color.Black;
-            this.TBAddCategoria.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBAddCategoria.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBAddCategoria.BorderSize = 2;
-            this.TBAddCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBAddCategoria.ForeColor = System.Drawing.Color.DimGray;
-            this.TBAddCategoria.Location = new System.Drawing.Point(7, 27);
-            this.TBAddCategoria.Margin = new System.Windows.Forms.Padding(4);
-            this.TBAddCategoria.Multiline = false;
-            this.TBAddCategoria.Name = "TBAddCategoria";
-            this.TBAddCategoria.Padding = new System.Windows.Forms.Padding(7);
-            this.TBAddCategoria.PasswordChar = false;
-            this.TBAddCategoria.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBAddCategoria.PlaceholderText = "NombreCategoria...";
-            this.TBAddCategoria.Size = new System.Drawing.Size(189, 31);
-            this.TBAddCategoria.TabIndex = 1;
-            this.TBAddCategoria.Texts = "";
-            this.TBAddCategoria.UnderlinedStyle = false;
-            this.TBAddCategoria._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBAddCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAddCategoria_KeyPress);
-            this.TBAddCategoria.Validating += new System.ComponentModel.CancelEventHandler(this.TBAddCategoria_Validating);
-            // 
-            // TBValidacionCat
-            // 
-            this.TBValidacionCat.AutoSize = true;
-            this.TBValidacionCat.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacionCat.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacionCat.Location = new System.Drawing.Point(35, 60);
-            this.TBValidacionCat.Name = "TBValidacionCat";
-            this.TBValidacionCat.Size = new System.Drawing.Size(157, 14);
-            this.TBValidacionCat.TabIndex = 62;
-            this.TBValidacionCat.Text = "debe ingresar 3 caracteres o más";
-            this.TBValidacionCat.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(9, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Añadir Categoria";
             // 
             // TBValidacion5
             // 
@@ -542,7 +522,7 @@
             this.TBDescripcionPr.PasswordChar = false;
             this.TBDescripcionPr.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TBDescripcionPr.PlaceholderText = "";
-            this.TBDescripcionPr.Size = new System.Drawing.Size(200, 241);
+            this.TBDescripcionPr.Size = new System.Drawing.Size(200, 179);
             this.TBDescripcionPr.TabIndex = 13;
             this.TBDescripcionPr.Texts = "";
             this.TBDescripcionPr.UnderlinedStyle = false;
@@ -657,6 +637,72 @@
             this.LNombrePr.TabIndex = 7;
             this.LNombrePr.Text = "Nombre";
             // 
+            // PAddCategoria
+            // 
+            this.PAddCategoria.Controls.Add(this.BAddCategoria);
+            this.PAddCategoria.Controls.Add(this.TBAddCategoria);
+            this.PAddCategoria.Controls.Add(this.label3);
+            this.PAddCategoria.Location = new System.Drawing.Point(259, 156);
+            this.PAddCategoria.Name = "PAddCategoria";
+            this.PAddCategoria.Size = new System.Drawing.Size(200, 120);
+            this.PAddCategoria.TabIndex = 7;
+            this.PAddCategoria.Visible = false;
+            this.PAddCategoria.Paint += new System.Windows.Forms.PaintEventHandler(this.PAddCategoria_Paint);
+            // 
+            // BAddCategoria
+            // 
+            this.BAddCategoria.BackColor = System.Drawing.Color.Black;
+            this.BAddCategoria.BackgroundColor = System.Drawing.Color.Black;
+            this.BAddCategoria.BorderColor = System.Drawing.Color.Lime;
+            this.BAddCategoria.BorderRadius = 10;
+            this.BAddCategoria.BorderSize = 1;
+            this.BAddCategoria.FlatAppearance.BorderSize = 0;
+            this.BAddCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BAddCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BAddCategoria.ForeColor = System.Drawing.Color.White;
+            this.BAddCategoria.Location = new System.Drawing.Point(7, 77);
+            this.BAddCategoria.Name = "BAddCategoria";
+            this.BAddCategoria.Size = new System.Drawing.Size(115, 29);
+            this.BAddCategoria.TabIndex = 2;
+            this.BAddCategoria.Text = "Añadir Categoria";
+            this.BAddCategoria.TextColor = System.Drawing.Color.White;
+            this.BAddCategoria.UseVisualStyleBackColor = false;
+            // 
+            // TBAddCategoria
+            // 
+            this.TBAddCategoria.BackColor = System.Drawing.Color.Black;
+            this.TBAddCategoria.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBAddCategoria.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBAddCategoria.BorderSize = 2;
+            this.TBAddCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBAddCategoria.ForeColor = System.Drawing.Color.DimGray;
+            this.TBAddCategoria.Location = new System.Drawing.Point(7, 27);
+            this.TBAddCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.TBAddCategoria.Multiline = false;
+            this.TBAddCategoria.Name = "TBAddCategoria";
+            this.TBAddCategoria.Padding = new System.Windows.Forms.Padding(7);
+            this.TBAddCategoria.PasswordChar = false;
+            this.TBAddCategoria.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBAddCategoria.PlaceholderText = "NombreCategoria...";
+            this.TBAddCategoria.Size = new System.Drawing.Size(189, 31);
+            this.TBAddCategoria.TabIndex = 1;
+            this.TBAddCategoria.Texts = "";
+            this.TBAddCategoria.UnderlinedStyle = false;
+            this.TBAddCategoria._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBAddCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAddCategoria_KeyPress);
+            this.TBAddCategoria.Validating += new System.ComponentModel.CancelEventHandler(this.TBAddCategoria_Validating);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(9, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(124, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Añadir Categoria";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -720,6 +766,10 @@
             this.BRegistrarPr.TextColor = System.Drawing.Color.White;
             this.BRegistrarPr.UseVisualStyleBackColor = false;
             this.BRegistrarPr.Click += new System.EventHandler(this.BRegistrarPr_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // AltaProducto
             // 
@@ -795,5 +845,8 @@
         private System.Windows.Forms.Label TBValidacion13;
         private System.Windows.Forms.Label TBValidacion12;
         private System.Windows.Forms.Label TBValidacion11;
+        private RJControls.RJTextBox rjTextBox1;
+        private RJButton BFotoProducto;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -98,7 +98,8 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             Mainform.BContracMenu_Click(sender, e);
 
             // Crear una nueva instancia de EditarPerfil
-            EditarPerfil editarPerfil = new EditarPerfil();
+            Usuario user = new Usuario();
+            EditarPerfil editarPerfil = new EditarPerfil(user);
             editarPerfil.TopLevel = false;
 
             // Limpiar el panel actual y añadir el nuevo formulario

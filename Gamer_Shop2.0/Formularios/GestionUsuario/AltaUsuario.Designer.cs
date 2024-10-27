@@ -32,7 +32,11 @@
             this.LShowLista = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PContAltaUs = new System.Windows.Forms.Panel();
+            this.TBValidacion19 = new System.Windows.Forms.Label();
+            this.TBValidacion17 = new System.Windows.Forms.Label();
+            this.TBValidacion18 = new System.Windows.Forms.Label();
             this.TBValidacion15 = new System.Windows.Forms.Label();
+            this.TBValidacion16 = new System.Windows.Forms.Label();
             this.TBValidacion14 = new System.Windows.Forms.Label();
             this.TBValidacion13 = new System.Windows.Forms.Label();
             this.TBValidacion12 = new System.Windows.Forms.Label();
@@ -63,10 +67,6 @@
             this.PBImgAltaUs = new System.Windows.Forms.PictureBox();
             this.BShowListaUs = new Gamer_Shop2._0.RJButton();
             this.BRegistrarUs = new Gamer_Shop2._0.RJButton();
-            this.TBValidacion16 = new System.Windows.Forms.Label();
-            this.TBValidacion17 = new System.Windows.Forms.Label();
-            this.TBValidacion18 = new System.Windows.Forms.Label();
-            this.TBValidacion19 = new System.Windows.Forms.Label();
             this.PContAltaUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaUs)).BeginInit();
             this.SuspendLayout();
@@ -134,6 +134,42 @@
             this.PContAltaUs.Size = new System.Drawing.Size(369, 299);
             this.PContAltaUs.TabIndex = 16;
             // 
+            // TBValidacion19
+            // 
+            this.TBValidacion19.AutoSize = true;
+            this.TBValidacion19.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion19.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion19.Location = new System.Drawing.Point(86, 90);
+            this.TBValidacion19.Name = "TBValidacion19";
+            this.TBValidacion19.Size = new System.Drawing.Size(230, 14);
+            this.TBValidacion19.TabIndex = 62;
+            this.TBValidacion19.Text = "El apellido no debe ser solo caracteres especiales";
+            this.TBValidacion19.Visible = false;
+            // 
+            // TBValidacion17
+            // 
+            this.TBValidacion17.AutoSize = true;
+            this.TBValidacion17.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion17.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion17.Location = new System.Drawing.Point(57, 137);
+            this.TBValidacion17.Name = "TBValidacion17";
+            this.TBValidacion17.Size = new System.Drawing.Size(260, 14);
+            this.TBValidacion17.TabIndex = 60;
+            this.TBValidacion17.Text = "El cuil debe tener una longitud exacta de 11 caracteres";
+            this.TBValidacion17.Visible = false;
+            // 
+            // TBValidacion18
+            // 
+            this.TBValidacion18.AutoSize = true;
+            this.TBValidacion18.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion18.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion18.Location = new System.Drawing.Point(88, 45);
+            this.TBValidacion18.Name = "TBValidacion18";
+            this.TBValidacion18.Size = new System.Drawing.Size(229, 14);
+            this.TBValidacion18.TabIndex = 61;
+            this.TBValidacion18.Text = "El nombre no debe ser solo caracteres especiales";
+            this.TBValidacion18.Visible = false;
+            // 
             // TBValidacion15
             // 
             this.TBValidacion15.AutoSize = true;
@@ -145,6 +181,18 @@
             this.TBValidacion15.TabIndex = 58;
             this.TBValidacion15.Text = "La contraseña no debe superar los 20 caracteres";
             this.TBValidacion15.Visible = false;
+            // 
+            // TBValidacion16
+            // 
+            this.TBValidacion16.AutoSize = true;
+            this.TBValidacion16.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion16.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion16.Location = new System.Drawing.Point(91, 137);
+            this.TBValidacion16.Name = "TBValidacion16";
+            this.TBValidacion16.Size = new System.Drawing.Size(226, 14);
+            this.TBValidacion16.TabIndex = 59;
+            this.TBValidacion16.Text = "El cuil solo debe contener caracteres numéricos";
+            this.TBValidacion16.Visible = false;
             // 
             // TBValidacion14
             // 
@@ -593,54 +641,6 @@
             this.BRegistrarUs.TextColor = System.Drawing.Color.White;
             this.BRegistrarUs.UseVisualStyleBackColor = false;
             this.BRegistrarUs.Click += new System.EventHandler(this.BRegistrarUs_Click);
-            // 
-            // TBValidacion16
-            // 
-            this.TBValidacion16.AutoSize = true;
-            this.TBValidacion16.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion16.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion16.Location = new System.Drawing.Point(91, 137);
-            this.TBValidacion16.Name = "TBValidacion16";
-            this.TBValidacion16.Size = new System.Drawing.Size(226, 14);
-            this.TBValidacion16.TabIndex = 59;
-            this.TBValidacion16.Text = "El cuil solo debe contener caracteres numéricos";
-            this.TBValidacion16.Visible = false;
-            // 
-            // TBValidacion17
-            // 
-            this.TBValidacion17.AutoSize = true;
-            this.TBValidacion17.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion17.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion17.Location = new System.Drawing.Point(57, 137);
-            this.TBValidacion17.Name = "TBValidacion17";
-            this.TBValidacion17.Size = new System.Drawing.Size(260, 14);
-            this.TBValidacion17.TabIndex = 60;
-            this.TBValidacion17.Text = "El cuil debe tener una longitud exacta de 11 caracteres";
-            this.TBValidacion17.Visible = false;
-            // 
-            // TBValidacion18
-            // 
-            this.TBValidacion18.AutoSize = true;
-            this.TBValidacion18.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion18.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion18.Location = new System.Drawing.Point(88, 45);
-            this.TBValidacion18.Name = "TBValidacion18";
-            this.TBValidacion18.Size = new System.Drawing.Size(229, 14);
-            this.TBValidacion18.TabIndex = 61;
-            this.TBValidacion18.Text = "El nombre no debe ser solo caracteres especiales";
-            this.TBValidacion18.Visible = false;
-            // 
-            // TBValidacion19
-            // 
-            this.TBValidacion19.AutoSize = true;
-            this.TBValidacion19.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion19.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion19.Location = new System.Drawing.Point(86, 90);
-            this.TBValidacion19.Name = "TBValidacion19";
-            this.TBValidacion19.Size = new System.Drawing.Size(230, 14);
-            this.TBValidacion19.TabIndex = 62;
-            this.TBValidacion19.Text = "El apellido no debe ser solo caracteres especiales";
-            this.TBValidacion19.Visible = false;
             // 
             // AltaUsuario
             // 

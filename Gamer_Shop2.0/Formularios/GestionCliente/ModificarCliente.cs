@@ -1,5 +1,7 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
@@ -19,11 +21,15 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        Cliente clienteActual = new Cliente();
+        bool wasClicked = false;
 
         public Panel PanelContainer { get; set; }
-        public ModificarCliente()
+        public ModificarCliente(Cliente cliente)
         {
             InitializeComponent();
+            NCliente ncliente = new NCliente();
+            clienteActual = ncliente.GetCliente(cliente.DNI);
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
             this.Load += new EventHandler(ModificarCliente_Load);
             PContModificarCl.Paint += new PaintEventHandler(PContModificarCl_Paint);
@@ -60,6 +66,10 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            TBNombre.Texts = clienteActual.Nombre;
+            TBApellido.Texts = clienteActual.Apellido;
+            TBTelefono.Texts = clienteActual.Teléfono;
+            TBCorreo.Texts = clienteActual.Correo;
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -99,25 +109,40 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
 
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea volver? Se perderán los cambios realizados", "Volver", "Interrogacion", null);
-            DialogResult result = mensaje.ShowDialog();
-            if (result == DialogResult.Yes)
+            if (wasClicked != true)
             {
-                // Crear una nueva instancia de ListaCLiente
-                ListaCliente listCl = new ListaCliente();
-                listCl.TopLevel = false;
+                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea volver? Se perderán los cambios realizados", "Volver", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    // Crear una nueva instancia de ListaCLiente
+                    ListaCliente listCl = new ListaCliente();
+                    listCl.TopLevel = false;
 
-                // Limpiar el panel actual y volver al anterior formulario.
-                PanelContainer.Controls.Clear();
-                PanelContainer.Controls.Add(listCl);
-                listCl.PanelContainer = PanelContainer;
-                listCl.Show();
-                this.Close();
-                mensaje.Close();
+                    // Limpiar el panel actual y volver al anterior formulario.
+                    PanelContainer.Controls.Clear();
+                    PanelContainer.Controls.Add(listCl);
+                    listCl.PanelContainer = PanelContainer;
+                    listCl.Show();
+                    this.Close();
+                    mensaje.Close();
+                }
+                else
+                {
+                    mensaje.Close();
+                }
             }
             else
             {
-                mensaje.Close();
+                ListaProductos listPr = new ListaProductos();
+                listPr.TopLevel = false;
+
+                // Limpiar el panel actual y volver al anterior formulario.
+                PanelContainer.Controls.Clear();
+                PanelContainer.Controls.Add(listPr);
+                listPr.PanelContainer = PanelContainer;
+                listPr.Show();
+                this.Close();
             }
         }
 
@@ -363,8 +388,31 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (TBNombre.Texts != string.Empty && TBApellido.Texts != string.Empty && TBTelefono.Texts != string.Empty && TBCorreo.Texts != string.Empty)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Cliente modificado con éxito", "Modificación", "Informacion", null);
-                mensaje.ShowDialog();
+                try
+                {
+                    NCliente cliente = new NCliente();
+                   cliente.NModificarCliente(
+
+                        TBNombre.Texts,
+                        TBApellido.Texts,
+                        TBCorreo.Texts,
+                        TBTelefono.Texts
+                        );
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
+                }
+                catch (ExisteRegistroException ex)
+                {
+                    // Manejo de la excepción cuando el número de serial no existe
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de cualquier otra excepción
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
             else
             {

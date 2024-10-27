@@ -8,27 +8,21 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 
 namespace Gamer_Shop2._0.Datos
 {
-    internal class DProductos
+    internal class DClientes
     {
-        public DataTable GetProductoAll()
+        public DataTable GetClienteAll()
         {
             try
             {
                 // Crea la instancia del TableAdapter (puedes usar una query SQL personalizada)
-                using (var adapter = new DataSet1TableAdapters.ProductoTableAdapter())
+                using (var adapter = new DataSet1TableAdapters.ClienteTableAdapter())
                 {
                     // Consulta SQL con JOIN para traer nombres de categoría y proveedor
                     string query = @"
-                SELECT p.ID_Producto, p.Serial, p.Nombre, p.Descripcion, p.Stock, p.Precio, p.Activo, p.photoFilePath,
-                       c.Nombre_Categoria AS Categoria, 
-                       pr.Razon_social AS Proveedor
-                FROM Producto p
-                JOIN Categoría_Producto c ON p.ID_Categoria = c.ID_Categoria
-                JOIN Proveedor pr ON p.ID_Proveedor = pr.ID_Proveedor";
+                SELECT ID_Cliente, DNI, Nombre, Apellido, Teléfono, Correo FROM Cliente";
 
                     // Ejecuta la consulta y guarda el resultado en un DataTable
                     var dataTable = new DataTable();
@@ -44,13 +38,13 @@ namespace Gamer_Shop2._0.Datos
                     return dataTable;
                 }
             }
+
             catch (SqlException ex)
             {
-                string errorMessage = $"Error SQL: {ex.Message}\nDetalle: {ex.InnerException?.Message}";
-                MsgPersonalizado mensaje = new MsgPersonalizado(errorMessage, "Error","Error",null);
-                mensaje.ShowDialog();
+                MessageBox.Show($"Error SQL: {ex.Message}\nDetalle: {ex.InnerException?.Message}");
                 return null;
             }
+
         }
     }
 }

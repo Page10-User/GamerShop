@@ -77,12 +77,28 @@
     <Compile Include="Categoría_producto.cs">
       <DependentUpon>ModeloBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cliente.cs">
+      <DependentUpon>ModeloBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Compra.cs">
+      <DependentUpon>ModeloBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Datos\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datos\DCliente.cs" />
+    <Compile Include="Datos\DClientes.cs" />
     <Compile Include="Datos\DProductos.cs" />
+    <Compile Include="Datos\DUsuario.cs" />
+    <Compile Include="Datos\DUsuarios.cs" />
+    <Compile Include="Detalle_compra.cs">
+      <DependentUpon>ModeloBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Detalle_venta.cs">
+      <DependentUpon>ModeloBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Excepciones\ExisteRegistroException.cs" />
     <Compile Include="Excepciones\NoModificationsException.cs" />
     <Compile Include="Formularios\Gestion Compra\Lista Producto Compra\BotonArticuloCompra.cs">
@@ -118,6 +134,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloBase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Método_pago.cs">
+      <DependentUpon>ModeloBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\NCliente.cs" />
     <Compile Include="Negocio\NProducto.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -312,6 +332,7 @@
       <DependentUpon>PersonalOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos\DProducto.cs" />
+    <Compile Include="Negocio\NUsuario.cs" />
     <Compile Include="Producto.cs">
       <DependentUpon>ModeloBase.tt</DependentUpon>
     </Compile>
@@ -343,10 +364,19 @@
     <Compile Include="RJControls\RJTextBox.Designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tipo_usuario.cs">
+      <DependentUpon>ModeloBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserOptionsBase.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>ModeloBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Validacion\ClaseValidacion.cs" />
+    <Compile Include="Venta.cs">
+      <DependentUpon>ModeloBase.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bienvenida.resx">
       <DependentUpon>Bienvenida.cs</DependentUpon>
     </EmbeddedResource>
@@ -525,6 +555,8 @@
       <LastGenOutput>ModeloBase.cs</LastGenOutput>
     </Content>
     <Content Include="Query_Creacion_Producto_Categoria.txt" />
+    <Content Include="Query_Creacion_Tablas_corregida.sql" />
+    <Content Include="Resources\imagen_default.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

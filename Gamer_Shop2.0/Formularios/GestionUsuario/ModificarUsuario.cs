@@ -1,5 +1,7 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
@@ -20,10 +22,15 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        Usuario usuarioActual = new Usuario();
+        bool wasClicked = false;
+        string filePath;
 
         public Panel PanelContainer { get; set; }
-        public ModificarUsuario()
+        public ModificarUsuario(Usuario user)
         {
+            NUsuario usuario = new NUsuario();
+            usuarioActual = usuario.GetUsuario(user.CUIL);
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
             this.Load += new EventHandler(ModificarUsuario_Load);
@@ -61,6 +68,12 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            TBNombreUs.Texts = usuarioActual.Nombre;
+            TBApellidoUs.Texts = usuarioActual.Apellido;
+            TBCuilUs.Texts = usuarioActual.CUIL;
+            TBNombreUsuario.Texts = usuarioActual.Nombre_usuario;
+            TBEmailUs.Texts = usuarioActual.Correo;
+            TBContrasenaUs.Texts = usuarioActual.Contraseña;
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -100,7 +113,9 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("Está seguro que desea volver? Se perderán los cambios realizados", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (wasClicked != true)
+            {
+                DialogResult = MessageBox.Show("Está seguro que desea volver? Se perderán los cambios realizados", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DialogResult == DialogResult.Yes)
             {
                 // Crear una nueva instancia de ListaProductos
@@ -112,6 +127,19 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 PanelContainer.Controls.Add(listUs);
                 listUs.PanelContainer = PanelContainer;
                 listUs.Show();
+                this.Close();
+            }
+            }
+            else
+            {
+                ListaProductos listPr = new ListaProductos();
+                listPr.TopLevel = false;
+
+                // Limpiar el panel actual y volver al anterior formulario.
+                PanelContainer.Controls.Clear();
+                PanelContainer.Controls.Add(listPr);
+                listPr.PanelContainer = PanelContainer;
+                listPr.Show();
                 this.Close();
             }
         }
@@ -479,8 +507,34 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (TBNombreUs.Texts != string.Empty && TBApellidoUs.Texts != string.Empty && TBCuilUs.Texts != string.Empty && TBNombreUsuario.Texts != string.Empty && TBContrasenaUs.Texts != string.Empty && TBEmailUs.Texts != string.Empty)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Usuario Modificado con éxito", "Modificación", "Informacion", null);
-                mensaje.ShowDialog();
+                try
+                {
+                    NUsuario usuario = new NUsuario();
+                    usuario.NModificarUsuario(
+
+                        TBNombreUs.Texts,
+                        TBApellidoUs.Texts,
+                        TBCuilUs.Texts,
+                        TBNombreUsuario.Texts,
+                        TBContrasenaUs.Texts,
+                        TBEmailUs.Texts,
+                        usuarioActual.ID_TipoUsuario
+                        );
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
+                }
+                catch (ExisteRegistroException ex)
+                {
+                    // Manejo de la excepción cuando el número de serial no existe
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de cualquier otra excepción
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
             else
             {

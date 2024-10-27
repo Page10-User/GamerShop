@@ -15,6 +15,8 @@ using System.Windows.Forms;
 using Gamer_Shop2._0.Formularios.GestionProducto;
 using System.DirectoryServices.ActiveDirectory;
 using Gamer_Shop2._0.Negocio;
+using Gamer_Shop2._0.Properties;
+using System.CodeDom;
 
 namespace Gamer_Shop2._0.Datos
 {
@@ -23,14 +25,18 @@ namespace Gamer_Shop2._0.Datos
         DataSet1TableAdapters.ProductoTableAdapter adapter = new DataSet1TableAdapters.ProductoTableAdapter();
 
         public bool ExisteRegistro (Producto producto)
-        { 
-           
+        {
+
             if (adapter == null)
             {
                 throw new NullReferenceException("El TableAdapter no fue inicializado.");
             }
-            if ((adapter.ExisteProductoPorSerial(producto.Serial)) > 0) return true;
-           else return false;
+            using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+            {
+                if (adapter.ExisteProductoPorSerial(producto.Serial) > 0) return true;
+                else return false;
+
+            }
         }
 
         public bool ExisteRegistro(int serial)
@@ -42,8 +48,12 @@ namespace Gamer_Shop2._0.Datos
             }
             else
             {
-                if (adapter.ExisteProductoPorSerial(serial) > 0) return true;
-                else return false;
+                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+                {
+                    if (adapter.ExisteProductoPorSerial(serial) > 0) return true;
+                    else return false;
+
+                }
             }
         }
 
@@ -57,12 +67,18 @@ namespace Gamer_Shop2._0.Datos
             {
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
-                    return context.Producto.FirstOrDefault(p => p.Serial == serial);
+                    if ((context.Producto.FirstOrDefault(p => p.Serial == serial)).Activo == "SI")
+                    {
+                        return context.Producto.FirstOrDefault(p => p.Serial == serial);
+                    } else
+                    {
+                        throw new Exception("El producto fue eliminado");
+                    }
                 }
             }
         }
 
-        public void getProductosActivos (DataGridView grid)
+        public void getProductosActivos(DataGridView grid)
         {
             if (grid == null)
             {
@@ -74,13 +90,35 @@ namespace Gamer_Shop2._0.Datos
                 DataView view = new DataView(productos.GetProductoAll());
                 view.RowFilter = "Activo = 'SI'";
                 grid.DataSource = view;
+
+                
+            
             }
         }
+
+        public void getProductosInactivos(DataGridView grid)
+        {
+            if (grid == null)
+            {
+                throw new NullReferenceException("Error al cargar la tabla");
+            }
+            else
+            {
+                DProductos productos = new DProductos();
+                DataView view = new DataView(productos.GetProductoAll());
+                view.RowFilter = "Activo = 'NO'";
+                grid.DataSource = view;
+
+
+
+            }
+        }
+
         public void DAgregarProducto(Producto producto)
         {
             if (ExisteRegistro(producto) == true)
             {
-             throw new ExisteRegistroException("El número de serial del producto ya existe.");
+             throw new ExisteRegistroException("El producto ya existe.");
             } else { 
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
@@ -117,6 +155,7 @@ namespace Gamer_Shop2._0.Datos
                         prod.Descripcion = producto.Descripcion;
                         prod.Categoría_producto = producto.Categoría_producto;
                         prod.Proveedor = producto.Proveedor;
+                        prod.photoFilePath = producto.photoFilePath;
 
                         context.SaveChanges();
                     }

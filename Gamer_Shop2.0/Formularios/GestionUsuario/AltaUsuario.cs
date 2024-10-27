@@ -1,5 +1,7 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
@@ -20,7 +22,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
-
         public Panel PanelContainer { get; set; }
         public AltaUsuario()
         {
@@ -474,8 +475,37 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (TBNombreUs.Texts != string.Empty && TBApellidoUs.Texts != string.Empty && TBCuilUs.Texts != string.Empty && TBNombreUsuario.Texts != string.Empty && TBContrasenaUs.Texts != string.Empty && TBEmailUs.Texts != string.Empty)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Usuario registrado con éxito", "Registro", "Informacion", null);
-                mensaje.ShowDialog();
+                try
+                {
+                    ClaseValidacion validador = new ClaseValidacion();
+                    string filePath = "\\Gamer_Shop2.0\\Resources\\imagen_default.png";
+                    NUsuario usuario = new NUsuario();
+                    usuario.NAgregarUsuario(
+                        
+                        TBNombreUs.Texts,
+                        TBApellidoUs.Texts,
+                        validador.RemoverFormatoCuil(TBCuilUs.Texts),
+                        TBNombreUsuario.Texts,
+                        TBContrasenaUs.Texts,
+                        TBEmailUs.Texts,
+                        1,
+                        filePath
+                        );
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Usuario registrado con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
+                }
+                catch (ExisteRegistroException ex)
+                {
+                    // Manejo de la excepción cuando el número de serial no existe
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de cualquier otra excepción
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
             else
             {
@@ -519,4 +549,5 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBValidacion19.Visible = false;
         }
     }
+
 }

@@ -13,7 +13,7 @@ namespace Gamer_Shop2._0.Negocio
     internal class NProducto
     {
         DProducto dproducto = new DProducto();
-        public void NAgregarProducto(int serial, string nombre, string descripcion, int stock, string activo, float precio, int categoria, int proveedor)
+        public void NAgregarProducto(int serial, string nombre, string descripcion, int stock, string activo, float precio, int categoria, int proveedor, string photoFilePath)
         {
            
                 Producto nuevoProducto = new Producto()
@@ -25,7 +25,8 @@ namespace Gamer_Shop2._0.Negocio
                     Activo = activo,
                     Precio = precio,
                     ID_Categoria = categoria,
-                    ID_Proveedor = proveedor
+                    ID_Proveedor = proveedor,
+                    photoFilePath = photoFilePath
                 };
 
             if (dproducto == null)
@@ -50,7 +51,19 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void NModificarProducto (int serial, string nombre, string descripcion, float precio, int categoria, int proveedor)
+        public void listaProductosInactivos(DataGridView grid)
+        {
+            if (dproducto == null)
+            {
+                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+            }
+            else
+            {
+                dproducto.getProductosInactivos(grid);
+            }
+        }
+
+        public void NModificarProducto (int serial, string nombre, string descripcion, float precio, int categoria, int proveedor, string photoFilePath)
         {
             Producto producto = new Producto()
             {
@@ -59,7 +72,8 @@ namespace Gamer_Shop2._0.Negocio
                 Descripcion = descripcion,
                 Precio = precio,
                 ID_Categoria = categoria,
-                ID_Proveedor = proveedor
+                ID_Proveedor = proveedor,
+                photoFilePath = photoFilePath
             };
             if (dproducto == null)
             {

@@ -1,4 +1,6 @@
-﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
@@ -19,10 +21,14 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        Usuario usuarioActual = new Usuario();
+        string filePath;
 
-        public EditarPerfil()
+        public EditarPerfil(Usuario user)
         {
             InitializeComponent();
+            NUsuario usuario = new NUsuario();
+            usuarioActual = usuario.GetUsuario(user.CUIL); //arreglar
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
             this.Load += new EventHandler(EditarPerfil_Load);
             PContModificarPerfil.Paint += new PaintEventHandler(PContModificarPerfil_Paint);
@@ -86,6 +92,12 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            TBNombreUs.Texts = usuarioActual.Nombre;
+            TBApellidoUs.Texts = usuarioActual.Apellido;
+            TBNombreUsuario.Texts = usuarioActual.Nombre_usuario;
+            TBEmailUs.Texts = usuarioActual.Correo;
+            TBContrasenaUs.Texts = usuarioActual.Contraseña;
+            PBImagenPerfil.Image = Image.FromFile(usuarioActual.photoFilePath);
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -426,15 +438,42 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (TBNombreUs.Texts != string.Empty && TBApellidoUs.Texts != string.Empty && TBNombreUsuario.Texts != string.Empty && TBContrasenaUs.Texts != string.Empty && TBEmailUs.Texts != string.Empty)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Perfil modificado con éxito", "Modificación", "Informacion", null);
-                mensaje.ShowDialog();
+                try
+                {
+                    NUsuario usuario = new NUsuario();
+                    usuario.NModificarPerfil(
+
+                        TBNombreUs.Texts,
+                        TBApellidoUs.Texts,
+                        TBNombreUsuario.Texts,
+                        TBContrasenaUs.Texts,
+                        TBEmailUs.Texts,
+                        filePath
+                        );
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
+                }
+                catch (ExisteRegistroException ex)
+                {
+                    // Manejo de la excepción cuando el número de serial no existe
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de cualquier otra excepción
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
+            
             else
             {
                 MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para editar tu perfil", "Error", "Error", generarListaCampos());
                 mensaje.ShowDialog();
             }
         }
+
 
         private List<string> generarListaCampos()
         {
@@ -467,6 +506,21 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBValidacion15.Visible = false;
             TBValidacion16.Visible = false;
             TBValidacion17.Visible = false;
+        }
+
+
+        private void BModificarFotoPerfil_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = @"C:\";
+            openFileDialog.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+            openFileDialog.Title = "Seleccione una imagen";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                filePath = openFileDialog.FileName;
+            }
         }
     }
 }

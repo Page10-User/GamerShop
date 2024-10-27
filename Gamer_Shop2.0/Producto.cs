@@ -14,6 +14,13 @@ namespace Gamer_Shop2._0
     
     public partial class Producto
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Producto()
+        {
+            this.Detalle_compra = new HashSet<Detalle_compra>();
+            this.Detalle_venta = new HashSet<Detalle_venta>();
+        }
+    
         public int Serial { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
@@ -23,8 +30,13 @@ namespace Gamer_Shop2._0
         public int ID_Producto { get; set; }
         public int ID_Proveedor { get; set; }
         public string Activo { get; set; }
+        public string photoFilePath { get; set; }
     
         public virtual Categoría_producto Categoría_producto { get; set; }
         public virtual Proveedor Proveedor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Detalle_compra> Detalle_compra { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Detalle_venta> Detalle_venta { get; set; }
     }
 }

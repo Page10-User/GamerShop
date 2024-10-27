@@ -18,6 +18,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        string filePath;
 
         bool isExpandedPAC = false;
         public Panel PanelContainer { get; set; }
@@ -427,7 +428,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                         "SI",
                         float.Parse(TBPrecioPr.Texts),
                         CBCategoriaPr.SelectedIndex+1,
-                        CBProveedorPr.SelectedIndex + 1
+                        CBProveedorPr.SelectedIndex + 1,
+                        filePath
                         );
                     MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
                     mensaje.ShowDialog();
@@ -564,5 +566,19 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
              };
             return campos;
         }
-    }
+
+        private void BFotoProducto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = @"C:\";
+            openFileDialog.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+            openFileDialog.Title = "Seleccione una imagen";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                filePath = openFileDialog.FileName;
+            }
+            }
+        }
 }

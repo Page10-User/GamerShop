@@ -1,4 +1,6 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        NCliente ncliente = new NCliente();
 
         public Panel PanelContainer { get; set; }
         public ListaCliente()
@@ -23,6 +26,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             InitializeComponent();
             this.Padding = new Padding(borderWidth);
             SubscrirseEventos();  // Añade un relleno para el borde redondeado
+            
         }
 
         private void PBuscadorListaCl_Paint(object sender, PaintEventArgs e)
@@ -56,6 +60,16 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            ncliente.listaClientesActivos(DGListaCliente);
+            try
+            {
+                ConfigurarDataGridView();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de cualquier otra excepción
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -119,20 +133,39 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 }
             }
         }
+
+        private void ConfigurarDataGridView()
+        {
+            DGListaCliente.Columns["ID_Cliente"].Visible = false;
+            DGListaCliente.Columns["CModificarCl"].DisplayIndex = 6;
+
+        }
+
         private void DGListaCliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == DGListaCliente.Columns["CModificarCl"].Index && e.RowIndex >= 0)
             {
-                // Crear una nueva instancia de Alta Cliente
-                ModificarCliente ModificarCl = new ModificarCliente();
-                ModificarCl.TopLevel = false;
+                try
+                {
+                    // Crear una nueva instancia de Alta Cliente
+                    string dni = DGListaCliente.CurrentRow.Cells["DNI"].Value.ToString();
+                    NCliente cliente = new NCliente();
 
-                // Limpiar el panel actual y añadir el nuevo formulario
-                PanelContainer.Controls.Clear();
-                PanelContainer.Controls.Add(ModificarCl);
-                ModificarCl.PanelContainer = PanelContainer;
-                ModificarCl.Show();
-                this.Close();
+                    ModificarCliente ModificarCl = new ModificarCliente(cliente.GetCliente(dni));
+                    ModificarCl.TopLevel = false;
+
+                    // Limpiar el panel actual y añadir el nuevo formulario
+                    PanelContainer.Controls.Clear();
+                    PanelContainer.Controls.Add(ModificarCl);
+                    ModificarCl.PanelContainer = PanelContainer;
+                    ModificarCl.Show();
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el producto", "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
         }
 

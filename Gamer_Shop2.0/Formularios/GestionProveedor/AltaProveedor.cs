@@ -22,6 +22,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        string filePath;
 
         public Panel PanelContainer { get; set; }
         public AltaProveedor()

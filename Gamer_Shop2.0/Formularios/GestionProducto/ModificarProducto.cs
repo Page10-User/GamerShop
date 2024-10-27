@@ -23,17 +23,18 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         private int borderWidth = 5; // Grosor del borde
 
         Producto productoActual = new Producto();
+        string filePath;
+        bool wasClicked = false;
 
         private List<string> camposActuales = new List<string>(new string[6]);
         public Panel PanelContainer { get; set; }
-
-        public ModificarProducto(int id)
+        public ModificarProducto(Producto prod)
         {
             InitializeComponent();
 
             NProducto producto = new NProducto();
-
-            productoActual = producto.GetProducto(id);
+            
+            productoActual = producto.GetProducto(prod.Serial);
             this.Padding = new Padding(borderWidth);
             this.Load += new EventHandler(ModificarProducto_Load);
             PContModificarPr.Paint += new PaintEventHandler(PContModificarPr_Paint);
@@ -76,6 +77,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             TBPrecioPr.Texts = productoActual.Precio.ToString();
             CBCategoriaPr.SelectedIndex = productoActual.ID_Categoria - 1;
             CBProveedorPr.SelectedIndex = productoActual.ID_Proveedor - 1;
+            rjTextBox1.Texts = productoActual.photoFilePath;
+
             guardarCampos();
         }
 
@@ -504,6 +507,20 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             TBValidacion15.Visible = false;
         }
 
+        private void BFotoProducto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = @"C:\";
+            openFileDialog.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+            openFileDialog.Title = "Seleccione una imagen";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                filePath = openFileDialog.FileName;
+            }
+        }
+
         private void guardarCampos()
         {
             camposActuales[0] = TBSerialPr.Texts;
@@ -532,3 +549,4 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
     }
 }
+

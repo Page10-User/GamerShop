@@ -12,25 +12,25 @@ namespace Gamer_Shop2._0
     using System;
     using System.Collections.Generic;
     
-    public partial class Proveedor
+    public partial class Compra
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Proveedor()
+        public Compra()
         {
-            this.Producto = new HashSet<Producto>();
-            this.Compra = new HashSet<Compra>();
+            this.Detalle_compra = new HashSet<Detalle_compra>();
         }
     
+        public int ID_Compra { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public double Total { get; set; }
         public int ID_Proveedor { get; set; }
-        public string Razon_social { get; set; }
-        public string Nombre_representante { get; set; }
-        public string Telefono { get; set; }
-        public string Correo { get; set; }
-        public string Dirección { get; set; }
+        public int ID_Usuario { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Producto> Producto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compra> Compra { get; set; }
+        public virtual ICollection<Detalle_compra> Detalle_compra { get; set; }
+        public virtual Proveedor Proveedor { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        public virtual Compra Compra1 { get; set; }
+        public virtual Compra Compra2 { get; set; }
     }
 }

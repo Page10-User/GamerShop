@@ -1,5 +1,6 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+﻿using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        NUsuario nUsuario = new NUsuario();
 
         public Panel PanelContainer { get; set; }
         public ListaUsuario()
@@ -85,6 +87,16 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            nUsuario.listaUsuariosActivos(DGListaUs);
+            try
+            {
+                ConfigurarDataGridView();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de cualquier otra excepción
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -122,6 +134,53 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             }
         }
 
+        private void ConfigurarDataGridView()
+        {
+            
+                // Crear una columna de tipo Imagen
+                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn
+                {
+                    HeaderText = "Imagen",
+                    Name = "ImagenPerfil",
+                    ImageLayout = DataGridViewImageCellLayout.Zoom
+                };
+
+                // Agregar la columna al DataGridView
+
+                DGListaUs.Columns.Add(imageColumn);
+                DGListaUs.Columns["ID_Usuario"].Visible = false;
+                DGListaUs.Columns["CModificarUs"].DisplayIndex = 10;
+                DGListaUs.Columns["CEliminarUs"].DisplayIndex = 11;
+
+                foreach (DataGridViewRow row in DGListaUs.Rows)
+                {
+
+
+                    Image imagenUsuario;
+
+                    try
+                    {
+                        // Asumiendo que el nombre del archivo está en Resources
+                        imagenUsuario = Image.FromFile("C:\\Users\\Usuario\\Pictures\\validaciones.png");
+                        if (imagenUsuario == null) throw new Exception();
+                    }
+                    catch (Exception)
+                    {
+                        // Cargar una imagen predeterminada si no se encuentra la imagen
+                        imagenUsuario = Image.FromFile("\\Gamer_Shop2.0\\Resources\\imagen_default.png");
+                    }
+
+                    row.Cells["ImagenPerfil"].Value = imagenUsuario;
+                }
+
+                //Ocultar la columna que contiene las rutas de las imágenes(photoFilePath)
+                if (DGListaUs.Columns["ImagenPerfil"] != null)
+                {
+                    DGListaUs.Columns["photoFilePath"].Visible = false;
+                }
+            
+        }
+
         private void BShowRegistrar_Click(object sender, EventArgs e)
         {
             // Crear una nueva instancia de RegistrarUsuario
@@ -140,16 +199,26 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (e.ColumnIndex == DGListaUs.Columns["CModificarUs"].Index && e.RowIndex >= 0)
             {
-                // Crear una nueva instancia de ListaProductos
-                ModificarUsuario ModificarUs = new ModificarUsuario();
-                ModificarUs.TopLevel = false;
+                try
+                {
+                    string cuil = DGListaUs.CurrentRow.Cells["CUIL"].Value.ToString();
+                    NUsuario user = new NUsuario();
+                    // Crear una nueva instancia de ListaProductos
+                    ModificarUsuario ModificarUs = new ModificarUsuario(user.GetUsuario(cuil));
+                    ModificarUs.TopLevel = false;
 
-                // Limpiar el panel actual y añadir el nuevo formulario
-                PanelContainer.Controls.Clear();
-                PanelContainer.Controls.Add(ModificarUs);
-                ModificarUs.PanelContainer = PanelContainer;
-                ModificarUs.Show();
-                this.Close();
+                    // Limpiar el panel actual y añadir el nuevo formulario
+                    PanelContainer.Controls.Clear();
+                    PanelContainer.Controls.Add(ModificarUs);
+                    ModificarUs.PanelContainer = PanelContainer;
+                    ModificarUs.Show();
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el producto", "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
             else if (e.ColumnIndex == DGListaUs.Columns["CEliminar"].Index && e.RowIndex >= 0)
             {
@@ -157,9 +226,20 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 DialogResult result = mensaje.ShowDialog();
                 if (result == DialogResult.Yes)
                 {
-                    //Cerramos el mensaje que está en Hide.
-                    mensaje.Close();
-                    DGListaUs.Rows.RemoveAt(e.RowIndex);
+                    try
+                    {
+                        //Cerramos el mensaje que está en Hide.
+                        string cuil = DGListaUs.CurrentRow.Cells["CUIL"].Value.ToString();
+                        NUsuario user = new NUsuario();
+                        user.NEliminarUsuario(cuil);
+                        mensaje.Close();
+                        DGListaUs.Rows.RemoveAt(e.RowIndex);
+                    }
+                    catch (Exception)
+                    {
+                        mensaje = new MsgPersonalizado("No se pudo eliminar el producto", "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
                 }
                 else
                 {

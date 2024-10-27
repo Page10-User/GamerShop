@@ -29,20 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaCliente));
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaCl = new System.Windows.Forms.Panel();
             this.DGListaCliente = new System.Windows.Forms.DataGridView();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CModificarCl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LTituloListaPr = new System.Windows.Forms.Label();
             this.PBImgListaPr = new System.Windows.Forms.PictureBox();
             this.BDescargarCliente = new Gamer_Shop2._0.RJButton();
@@ -50,6 +43,7 @@
             this.BAltaCliente = new Gamer_Shop2._0.RJButton();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.CModificarCl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PContListaCl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).BeginInit();
@@ -90,74 +84,33 @@
             this.DGListaCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CNombre,
-            this.CApellido,
-            this.CDni,
-            this.CTelefono,
-            this.CCorreoElectronico,
             this.CModificarCl});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGListaCliente.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DGListaCliente.GridColor = System.Drawing.Color.Black;
+            this.DGListaCliente.Location = new System.Drawing.Point(2, 2);
+            this.DGListaCliente.Name = "DGListaCliente";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGListaCliente.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DGListaCliente.GridColor = System.Drawing.Color.Black;
-            this.DGListaCliente.Location = new System.Drawing.Point(2, 2);
-            this.DGListaCliente.Name = "DGListaCliente";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGListaCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGListaCliente.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DGListaCliente.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaCliente.Size = new System.Drawing.Size(433, 286);
             this.DGListaCliente.TabIndex = 0;
-            // 
-            // CNombre
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.CNombre.DefaultCellStyle = dataGridViewCellStyle2;
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            // 
-            // CApellido
-            // 
-            this.CApellido.HeaderText = "Apellido";
-            this.CApellido.Name = "CApellido";
-            // 
-            // CDni
-            // 
-            this.CDni.HeaderText = "Dni";
-            this.CDni.Name = "CDni";
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Telefono";
-            this.CTelefono.Name = "CTelefono";
-            // 
-            // CCorreoElectronico
-            // 
-            this.CCorreoElectronico.HeaderText = "CorreoElectronico";
-            this.CCorreoElectronico.Name = "CCorreoElectronico";
-            // 
-            // CModificarCl
-            // 
-            this.CModificarCl.HeaderText = "Modificar";
-            this.CModificarCl.Name = "CModificarCl";
             // 
             // LTituloListaPr
             // 
@@ -276,6 +229,11 @@
             this.TBFiltro.Texts = "";
             this.TBFiltro.UnderlinedStyle = false;
             // 
+            // CModificarCl
+            // 
+            this.CModificarCl.HeaderText = "Modificar";
+            this.CModificarCl.Name = "CModificarCl";
+            // 
             // ListaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,15 +271,10 @@
         private System.Windows.Forms.DataGridView DGListaCliente;
         private System.Windows.Forms.Label LTituloListaPr;
         private System.Windows.Forms.PictureBox PBImgListaPr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCorreoElectronico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CModificarCl;
         private System.Windows.Forms.Label label2;
         private RJButton BAltaCliente;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBFiltro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CModificarCl;
     }
 }

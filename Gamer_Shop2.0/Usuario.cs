@@ -12,25 +12,30 @@ namespace Gamer_Shop2._0
     using System;
     using System.Collections.Generic;
     
-    public partial class Proveedor
+    public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Proveedor()
+        public Usuario()
         {
-            this.Producto = new HashSet<Producto>();
             this.Compra = new HashSet<Compra>();
+            this.Venta = new HashSet<Venta>();
         }
     
-        public int ID_Proveedor { get; set; }
-        public string Razon_social { get; set; }
-        public string Nombre_representante { get; set; }
-        public string Telefono { get; set; }
+        public int ID_Usuario { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string CUIL { get; set; }
+        public string Nombre_usuario { get; set; }
+        public string Contraseña { get; set; }
         public string Correo { get; set; }
-        public string Dirección { get; set; }
+        public string photoFilePath { get; set; }
+        public int ID_TipoUsuario { get; set; }
+        public string Activo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Producto> Producto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Compra> Compra { get; set; }
+        public virtual Tipo_usuario Tipo_usuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Venta> Venta { get; set; }
     }
 }

@@ -37,20 +37,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaUs = new System.Windows.Forms.Panel();
             this.DGListaUs = new System.Windows.Forms.DataGridView();
-            this.CNombreUs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellidoUs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCuil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CContraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CModificarUs = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CEliminarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.LTituloListaUs = new System.Windows.Forms.Label();
             this.PBImgListaUs = new System.Windows.Forms.PictureBox();
             this.BShowRegistrar = new Gamer_Shop2._0.RJButton();
             this.BDescargarListUs = new Gamer_Shop2._0.RJButton();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.CModificarUs = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CEliminarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PContListaUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaUs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).BeginInit();
@@ -103,12 +97,6 @@
             this.DGListaUs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaUs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaUs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CNombreUs,
-            this.CApellidoUs,
-            this.CCuil,
-            this.CNombreUsuario,
-            this.CEmail,
-            this.CContraseña,
             this.CModificarUs,
             this.CEliminarUs});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -137,50 +125,6 @@
             this.DGListaUs.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaUs.Size = new System.Drawing.Size(433, 286);
             this.DGListaUs.TabIndex = 28;
-            // 
-            // CNombreUs
-            // 
-            this.CNombreUs.HeaderText = "Nombre";
-            this.CNombreUs.Name = "CNombreUs";
-            // 
-            // CApellidoUs
-            // 
-            this.CApellidoUs.HeaderText = "Apellido";
-            this.CApellidoUs.Name = "CApellidoUs";
-            // 
-            // CCuil
-            // 
-            this.CCuil.HeaderText = "Cuil";
-            this.CCuil.Name = "CCuil";
-            // 
-            // CNombreUsuario
-            // 
-            this.CNombreUsuario.HeaderText = "Nombre Usuario";
-            this.CNombreUsuario.Name = "CNombreUsuario";
-            // 
-            // CEmail
-            // 
-            this.CEmail.HeaderText = "Email";
-            this.CEmail.Name = "CEmail";
-            // 
-            // CContraseña
-            // 
-            this.CContraseña.HeaderText = "Contraseña";
-            this.CContraseña.Name = "CContraseña";
-            // 
-            // CModificarUs
-            // 
-            this.CModificarUs.HeaderText = "Modificar";
-            this.CModificarUs.Name = "CModificarUs";
-            this.CModificarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CModificarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // CEliminarUs
-            // 
-            this.CEliminarUs.HeaderText = "Eliminar";
-            this.CEliminarUs.Name = "CEliminarUs";
-            this.CEliminarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CEliminarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // LTituloListaUs
             // 
@@ -287,6 +231,20 @@
             this.TBFiltro.Texts = "";
             this.TBFiltro.UnderlinedStyle = false;
             // 
+            // CModificarUs
+            // 
+            this.CModificarUs.HeaderText = "Modificar";
+            this.CModificarUs.Name = "CModificarUs";
+            this.CModificarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CModificarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // CEliminarUs
+            // 
+            this.CEliminarUs.HeaderText = "Eliminar";
+            this.CEliminarUs.Name = "CEliminarUs";
+            this.CEliminarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CEliminarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // ListaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,15 +284,9 @@
         private System.Windows.Forms.Label LTituloListaUs;
         private System.Windows.Forms.PictureBox PBImgListaUs;
         private System.Windows.Forms.DataGridView DGListaUs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombreUs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CApellidoUs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCuil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombreUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CContraseña;
-        private System.Windows.Forms.DataGridViewButtonColumn CModificarUs;
-        private System.Windows.Forms.DataGridViewButtonColumn CEliminarUs;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBFiltro;
+        private System.Windows.Forms.DataGridViewButtonColumn CModificarUs;
+        private System.Windows.Forms.DataGridViewButtonColumn CEliminarUs;
     }
 }

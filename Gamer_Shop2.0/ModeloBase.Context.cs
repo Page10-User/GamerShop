@@ -28,5 +28,13 @@ namespace Gamer_Shop2._0
         public virtual DbSet<Categoría_producto> Categoría_producto { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Proveedor> Proveedor { get; set; }
+        public virtual DbSet<Compra> Compra { get; set; }
+        public virtual DbSet<Detalle_compra> Detalle_compra { get; set; }
+        public virtual DbSet<Detalle_venta> Detalle_venta { get; set; }
+        public virtual DbSet<Método_pago> Método_pago { get; set; }
+        public virtual DbSet<Tipo_usuario> Tipo_usuario { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Venta> Venta { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
     }
 }

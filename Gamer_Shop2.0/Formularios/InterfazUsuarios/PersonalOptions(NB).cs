@@ -101,7 +101,8 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             CloseFondoCatalogo();
 
             // Crear una nueva instancia de ListaProductos
-            EditarPerfil editarPerfil = new EditarPerfil();
+            Usuario user = new Usuario();
+            EditarPerfil editarPerfil = new EditarPerfil(user);
             editarPerfil.TopLevel = false;
 
             // Limpiar el panel actual y añadir el nuevo formulario

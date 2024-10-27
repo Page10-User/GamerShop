@@ -34,13 +34,10 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            nproducto.listaProductosActivos(DGListaPr);
             try
             {
-                
-                nproducto.listaProductosActivos(DGListaPr);
-                DGListaPr.Columns["ID_Producto"].Visible = false;
-                DGListaPr.Columns["CModificar"].DisplayIndex = 9;
-                DGListaPr.Columns["CEliminar"].DisplayIndex = 10;
+                ConfigurarDataGridView();
             }
             catch (Exception ex)
             {
@@ -138,6 +135,51 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        private void ConfigurarDataGridView()
+        {
+            // Crear una columna de tipo Imagen
+            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn
+            {
+                HeaderText = "Imagen",
+                Name = "ImagenProducto",
+                ImageLayout = DataGridViewImageCellLayout.Zoom
+            };
+
+            // Agregar la columna al DataGridView
+            
+            DGListaPr.Columns.Add(imageColumn);
+            DGListaPr.Columns["ID_Producto"].Visible = false;
+            DGListaPr.Columns["CModificar"].DisplayIndex = 10;
+            DGListaPr.Columns["CEliminar"].DisplayIndex = 11;
+
+            foreach (DataGridViewRow row in DGListaPr.Rows)
+            {
+
+                
+                Image imagenProducto;
+
+                try
+                {
+                    // Asumiendo que el nombre del archivo está en Resources
+                    imagenProducto = Image.FromFile("C:\\Users\\Usuario\\Pictures\\validaciones.png");
+                    if (imagenProducto == null) throw new Exception();
+                }
+                catch (Exception)
+                {
+                    // Cargar una imagen predeterminada si no se encuentra la imagen
+                    imagenProducto = Image.FromFile("\\Gamer_Shop2.0\\Resources\\imagen_default.png");
+                }
+
+                row.Cells["ImagenProducto"].Value = imagenProducto;
+            }
+
+            //Ocultar la columna que contiene las rutas de las imágenes(photoFilePath)
+            if (DGListaPr.Columns["ImagenProducto"] != null)
+            {
+                DGListaPr.Columns["photoFilePath"].Visible = false;
+            }
+        }
+
         private void BShowRegistrarPr_Click(object sender, EventArgs e)
         {
             // Crear una nueva instancia de ListaProductos
@@ -159,8 +201,10 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 // Crear una nueva instancia de ModificarProducto
                 try
                 {
-                    int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
-                    ModificarProducto ModificarPr = new ModificarProducto(id);
+                    int serial = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
+                    NProducto prod = new NProducto();
+                    
+                    ModificarProducto ModificarPr = new ModificarProducto(prod.GetProducto(serial));
                     ModificarPr.TopLevel = false;
 
                     // Limpiar el panel actual y añadir el nuevo formulario

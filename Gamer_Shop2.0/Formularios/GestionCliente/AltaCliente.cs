@@ -1,4 +1,6 @@
-﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
@@ -6,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -405,8 +408,33 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (TBDni.Texts != string.Empty && TBCorreo.Texts != string.Empty && TBNombre.Texts != string.Empty && TBApellido.Texts != string.Empty && TBTelefono.Texts != string.Empty)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Cliente registrado con éxito", "Registro", "Informacion", null);
-                mensaje.ShowDialog();
+                try
+                {
+                    ClaseValidacion validador = new ClaseValidacion();
+                    NCliente cliente = new NCliente();
+                    cliente.NAgregarCliente(
+
+                        TBNombre.Texts,
+                        TBApellido.Texts,
+                        TBDni.Texts,
+                        validador.RemoverFormatoTelefonico(TBTelefono.Texts),
+                        TBCorreo.Texts
+                        );
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Cliente registrado con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
+                }
+                catch (ExisteRegistroException ex)
+                {
+                    // Manejo de la excepción cuando el número de serial no existe
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de cualquier otra excepción
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
             else
             {
