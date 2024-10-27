@@ -1,15 +1,9 @@
-﻿using Gamer_Shop2._0.Formularios.GestionUsuario;
+﻿using Gamer_Shop2._0.Formularios.Gestion_Compra;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionUsuario
@@ -25,9 +19,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ListaUsuario_Load);
-            PContListaUs.Paint += new PaintEventHandler(PContListaUs_Paint);
-            DGListaUs.CellClick += DGListaUs_CellClick;
         }
 
         private void PBuscadorListaUs_Paint(object sender, PaintEventArgs e)
@@ -155,7 +146,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 foreach (DataGridViewRow row in DGListaUs.Rows)
                 {
 
-
                     Image imagenUsuario;
 
                     try
@@ -184,15 +174,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         private void BShowRegistrar_Click(object sender, EventArgs e)
         {
             // Crear una nueva instancia de RegistrarUsuario
-            AltaUsuario AltaUs = new AltaUsuario();
-            AltaUs.TopLevel = false;
-
-            // Limpiar el panel actual y añadir el nuevo formulario
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(AltaUs);
-            AltaUs.PanelContainer = PanelContainer;
-            AltaUs.Show();
-            this.Close();
+            InstanciarYMostrarAltaUsuario();
         }
 
         private void DGListaUs_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -212,7 +194,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                     PanelContainer.Controls.Add(ModificarUs);
                     ModificarUs.PanelContainer = PanelContainer;
                     ModificarUs.Show();
-                    this.Close();
+                    this.Dispose();
                 }
                 catch (Exception)
                 {
@@ -220,7 +202,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                     mensaje.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == DGListaUs.Columns["CEliminar"].Index && e.RowIndex >= 0)
+            else if (e.ColumnIndex == DGListaUs.Columns["CEliminarUs"].Index && e.RowIndex >= 0)
             {
                 MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea eliminar este usuario?", "Eliminar Usuario", "Interrogacion", null);
                 DialogResult result = mensaje.ShowDialog();
@@ -232,7 +214,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                         string cuil = DGListaUs.CurrentRow.Cells["CUIL"].Value.ToString();
                         NUsuario user = new NUsuario();
                         user.NEliminarUsuario(cuil);
-                        mensaje.Close();
+                        mensaje.Dispose();
                         DGListaUs.Rows.RemoveAt(e.RowIndex);
                     }
                     catch (Exception)
@@ -243,9 +225,41 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 }
                 else
                 {
-                    mensaje.Close();
+                    mensaje.Dispose();
                 }
             }
+        }
+        //--------------------------------------------------------------InstanciarYMostrarAltaUsuario-----------------------------------------------------------\\
+        private void InstanciarYMostrarAltaUsuario()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+
+            // Mostrar form
+            AltaUsuario AltaUs = new AltaUsuario();
+            AltaUs.TopLevel = false;
+
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(AltaUs);
+            AltaUs.PanelContainer = PanelContainer;
+            AltaUs.Show();
+            this.Dispose();
+        }
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= ListaUsuario_Load;
+            PContListaUs.Paint -= PContListaUs_Paint;
+            TBFiltro.Paint -= PBuscadorListaUs_Paint;
+            DGListaUs.CellClick -= DGListaUs_CellClick;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

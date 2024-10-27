@@ -1,15 +1,11 @@
-﻿using Gamer_Shop2._0.Formularios.GestionBackups;
+﻿using Gamer_Shop2._0.Formularios.Comercio;
+using Gamer_Shop2._0.Formularios.GestionBackups;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
@@ -23,6 +19,8 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
         public Panel PanelContainer { get; set; }
         public Panel LabelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
+        public UserOptionsBase Menu { get; set; }
+
         public PersonalOptions()
         {
             InitializeComponent();
@@ -76,19 +74,23 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             if (result == DialogResult.Yes)
             {
                 //Cerramos el mensaje que está en Hide
-                mensaje.Close();
+                mensaje.Dispose();
 
-                Forminicio.Show();
-                Mainform.BContracMenu_Click(sender, e);
-                this.Close();
-                Mainform.Hide();
+                //Cerramos todo y Mostramos el form de inicio
+                CerrarSesion(sender, e);
 
+                //Mostramos el mensaje de éxito
                 mensaje = new MsgPersonalizado("Sesion cerrada con éxito", "Sesion Finalizada", "Informacion", null);
                 mensaje.ShowDialog();
             }
             else
             {
-                mensaje.Close();
+                mensaje.Dispose();
+
+                Mainform.TopMost = true;
+
+                //Cerrar el menú tras elegír una opción
+                Mainform.BContracMenu_Click(sender, e);
             }
         }
 
@@ -97,17 +99,8 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             //Cerrar el menú tras elegír una opción
             Mainform.BContracMenu_Click(sender, e);
 
-            // Crear una nueva instancia de EditarPerfil
-            Usuario user = new Usuario();
-            EditarPerfil editarPerfil = new EditarPerfil(user);
-            editarPerfil.TopLevel = false;
-
-            // Limpiar el panel actual y añadir el nuevo formulario
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(editarPerfil);
-            //editarPerfil.PanelContainer = PanelContainer;
-            editarPerfil.Show();
-            this.Close();
+            //Mostramos el form EditarPerfil
+            InstanciarYMostrarEditarPerfil();
         }
 
         private void BBackups_Click(object sender, EventArgs e)
@@ -116,15 +109,96 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             Mainform.BContracMenu_Click(sender, e);
 
             // Crear una nueva instancia de EditarPerfil
-            Backups backups = new Backups();
-            backups.TopLevel = false;
+            Usuario user = new Usuario();
+            EditarPerfil editarPerfil = new EditarPerfil(user);
+            editarPerfil.TopLevel = false;
+            InstanciarYMostrarEditarBackup();
+        }
+        //------------------------------------------------------------------------------------InstanciarEditarPerfil-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarEditarPerfil()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is EditarPerfil)
+            {
+                return;
+            }
+            else
+            {
+                if (control is Form)
+                {
+                    //Liberamos recursos
+                    control.Dispose();
+                }
 
-            // Limpiar el panel actual y añadir el nuevo formulario
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(backups);
-            //editarPerfil.PanelContainer = PanelContainer;
-            backups.Show();
-            this.Close();
+                // Crear una nueva instancia de EditarPerfil
+                Usuario user = new Usuario();
+                EditarPerfil editarPerfil = new EditarPerfil(user);
+                editarPerfil.TopLevel = false;
+
+                // Limpiar el panel actual y añadir el nuevo formulario
+                PanelContainer.Controls.Clear();
+                PanelContainer.Controls.Add(editarPerfil);
+                //editarPerfil.PanelContainer = PanelContainer;
+                Mainform.TopMost = true; // Volvemos a aplicar el TopMost del Mainform.
+                editarPerfil.Show();
+
+                //Liberamos memoria.
+                this.Dispose();
+            }
+        }
+        //------------------------------------------------------------------------------------InstanciarBackups-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarEditarBackup()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Backups)
+            {
+                return;
+            }
+            else
+            {
+                if (control is Form)
+                {
+                    //Liberamos recursos
+                    control.Dispose();
+                }
+
+                Backups backups = new Backups();
+                backups.TopLevel = false;
+
+                // Limpiar el panel actual y añadir el nuevo formulario
+                PanelContainer.Controls.Clear();
+                PanelContainer.Controls.Add(backups);
+                //editarPerfil.PanelContainer = PanelContainer;
+                Mainform.TopMost = true; // Volvemos a aplicar el TopMost del Mainform.
+                backups.Show();
+
+                //Liberamos memoria.
+                this.Dispose();
+            }
+        }
+        //------------------------------------------------------------------------------------Cerrar Sesión-------------------------------------------------------------------------------\\
+        private void CerrarSesion(Object sender,EventArgs e)
+        {
+            //Mostramos el form de inicio sesion
+            Forminicio.Show();
+
+            //Ejecutamos el MenuContract
+            Mainform.BContracMenu_Click(sender, e);
+
+            //Liberamos memoria
+            this.Dispose();
+            Menu.Dispose();
+            Mainform.Dispose();
+        }
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            BMiPerfil.Click -= BMiPerfil_Click;
+            BBackups.Click -= BBackups_Click;
+            BCerrarSesion.Click -= BCerrarSesion_Click;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

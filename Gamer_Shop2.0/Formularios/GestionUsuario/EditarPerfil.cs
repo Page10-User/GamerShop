@@ -1,18 +1,12 @@
 ﻿using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
-using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionUsuario
@@ -30,9 +24,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             NUsuario usuario = new NUsuario();
             usuarioActual = usuario.GetUsuario(user.CUIL); //arreglar
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(EditarPerfil_Load);
-            PContModificarPerfil.Paint += new PaintEventHandler(PContModificarPerfil_Paint);
-            PContImgPerfil.Paint += new PaintEventHandler(PContImgPerfil_Paint);
         }
 
         private void PContModificarPerfil_Paint(object sender, PaintEventArgs e)
@@ -450,7 +441,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                         TBEmailUs.Texts,
                         filePath
                         );
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Perfil editado con éxito", "Editado", "Informacion", null);
                     mensaje.ShowDialog();
                 }
                 catch (ExisteRegistroException ex)
@@ -506,6 +497,32 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBValidacion15.Visible = false;
             TBValidacion16.Visible = false;
             TBValidacion17.Visible = false;
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= EditarPerfil_Load;
+            PContModificarPerfil.Paint -= PContModificarPerfil_Paint;
+            PContImgPerfil.Paint -= PContImgPerfil_Paint;
+            TBNombreUs.KeyPress -= TBNombreUs_KeyPress;
+            TBNombreUs.Validating -= TBNombreUs_Validating;
+            TBApellidoUs.KeyPress -= TBApellidoUs_KeyPress;
+            TBApellidoUs.Validating -= TBApellidoUs_Validating;
+            TBNombreUsuario.KeyPress -= TBNombreUs_KeyPress;
+            TBNombreUsuario.Validating -= TBNombreUs_Validating;
+            TBEmailUs.KeyPress -= TBEmailUs_KeyPress;
+            TBEmailUs.Validating += TBEmailUs_Validating;
+            TBContrasenaUs.KeyPress -= TBContrasenaUs_KeyPress;
+            TBContrasenaUs.Validating -= TBContrasenaUs_Validating;
+            TBNombreUs._TextChanged -= TextBox_TextChanged;
+            TBApellidoUs._TextChanged -= TextBox_TextChanged;
+            TBNombreUsuario._TextChanged -= TextBox_TextChanged;
+            TBEmailUs._TextChanged -= TextBox_TextChanged;
+            TBContrasenaUs._TextChanged -= TextBox_TextChanged;
+
+            // Liberar los recursos
+            base.Dispose();
         }
 
 

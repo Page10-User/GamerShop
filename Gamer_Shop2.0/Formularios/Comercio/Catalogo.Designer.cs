@@ -216,6 +216,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Catalogo";
             this.Text = "Catalogo";
+            this.Load += new System.EventHandler(this.Catalogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBCatalogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

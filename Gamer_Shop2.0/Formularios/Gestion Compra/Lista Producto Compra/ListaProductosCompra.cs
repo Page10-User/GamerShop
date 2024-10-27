@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.Gestion_Compra
@@ -15,8 +9,6 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
     {
         private int borderRadius = 40; // Radio del borde redondeado
         private int borderWidth = 3; // Grosor del borde
-
-        public Panel PanelContainer { get; set; }
         public Form FondoOscurecido { get; set; }
         public Bienvenida MainForm { get; set; }
 
@@ -24,7 +16,6 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ListaProductosCompra_Load);
         }
 
         private void ListaProductosCompra_Load(object sender, EventArgs e)
@@ -71,8 +62,18 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         private void BCloseListaProducto_Click(object sender, EventArgs e)
         {
             MainForm.TopMost = true;
-            FondoOscurecido.Close();
-            this.Close();
+            FondoOscurecido.Dispose();
+            this.Dispose();
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= ListaProductosCompra_Load;
+            BCloseListaProducto.Click -= BCloseListaProducto_Click;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

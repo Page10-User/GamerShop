@@ -39,10 +39,10 @@
             this.DGListaUs = new System.Windows.Forms.DataGridView();
             this.LTituloListaUs = new System.Windows.Forms.Label();
             this.PBImgListaUs = new System.Windows.Forms.PictureBox();
-            this.BShowRegistrar = new Gamer_Shop2._0.RJButton();
-            this.BDescargarListUs = new Gamer_Shop2._0.RJButton();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.BShowRegistrar = new Gamer_Shop2._0.RJButton();
+            this.BDescargarListUs = new Gamer_Shop2._0.RJButton();
             this.CModificarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CEliminarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PContListaUs.SuspendLayout();
@@ -82,6 +82,7 @@
             this.PContListaUs.Name = "PContListaUs";
             this.PContListaUs.Size = new System.Drawing.Size(435, 288);
             this.PContListaUs.TabIndex = 23;
+            this.PContListaUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaUs_Paint);
             // 
             // DGListaUs
             // 
@@ -125,6 +126,7 @@
             this.DGListaUs.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaUs.Size = new System.Drawing.Size(433, 286);
             this.DGListaUs.TabIndex = 28;
+            this.DGListaUs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaUs_CellClick);
             // 
             // LTituloListaUs
             // 
@@ -148,45 +150,6 @@
             this.PBImgListaUs.Size = new System.Drawing.Size(47, 41);
             this.PBImgListaUs.TabIndex = 21;
             this.PBImgListaUs.TabStop = false;
-            // 
-            // BShowRegistrar
-            // 
-            this.BShowRegistrar.BackColor = System.Drawing.Color.Black;
-            this.BShowRegistrar.BackgroundColor = System.Drawing.Color.Black;
-            this.BShowRegistrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowRegistrar.BackgroundImage")));
-            this.BShowRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BShowRegistrar.BorderColor = System.Drawing.Color.Lime;
-            this.BShowRegistrar.BorderRadius = 20;
-            this.BShowRegistrar.BorderSize = 2;
-            this.BShowRegistrar.FlatAppearance.BorderSize = 0;
-            this.BShowRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BShowRegistrar.ForeColor = System.Drawing.Color.White;
-            this.BShowRegistrar.Location = new System.Drawing.Point(547, 259);
-            this.BShowRegistrar.Name = "BShowRegistrar";
-            this.BShowRegistrar.Size = new System.Drawing.Size(84, 76);
-            this.BShowRegistrar.TabIndex = 25;
-            this.BShowRegistrar.TextColor = System.Drawing.Color.White;
-            this.BShowRegistrar.UseVisualStyleBackColor = false;
-            this.BShowRegistrar.Click += new System.EventHandler(this.BShowRegistrar_Click);
-            // 
-            // BDescargarListUs
-            // 
-            this.BDescargarListUs.BackColor = System.Drawing.Color.Black;
-            this.BDescargarListUs.BackgroundColor = System.Drawing.Color.Black;
-            this.BDescargarListUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BDescargarListUs.BackgroundImage")));
-            this.BDescargarListUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BDescargarListUs.BorderColor = System.Drawing.Color.Lime;
-            this.BDescargarListUs.BorderRadius = 20;
-            this.BDescargarListUs.BorderSize = 2;
-            this.BDescargarListUs.FlatAppearance.BorderSize = 0;
-            this.BDescargarListUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BDescargarListUs.ForeColor = System.Drawing.Color.White;
-            this.BDescargarListUs.Location = new System.Drawing.Point(547, 135);
-            this.BDescargarListUs.Name = "BDescargarListUs";
-            this.BDescargarListUs.Size = new System.Drawing.Size(84, 76);
-            this.BDescargarListUs.TabIndex = 24;
-            this.BDescargarListUs.TextColor = System.Drawing.Color.White;
-            this.BDescargarListUs.UseVisualStyleBackColor = false;
             // 
             // BBuscador
             // 
@@ -230,6 +193,46 @@
             this.TBFiltro.TabIndex = 29;
             this.TBFiltro.Texts = "";
             this.TBFiltro.UnderlinedStyle = false;
+            this.TBFiltro.Paint += new System.Windows.Forms.PaintEventHandler(this.PBuscadorListaUs_Paint);
+            // 
+            // BShowRegistrar
+            // 
+            this.BShowRegistrar.BackColor = System.Drawing.Color.Black;
+            this.BShowRegistrar.BackgroundColor = System.Drawing.Color.Black;
+            this.BShowRegistrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowRegistrar.BackgroundImage")));
+            this.BShowRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BShowRegistrar.BorderColor = System.Drawing.Color.Lime;
+            this.BShowRegistrar.BorderRadius = 20;
+            this.BShowRegistrar.BorderSize = 2;
+            this.BShowRegistrar.FlatAppearance.BorderSize = 0;
+            this.BShowRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BShowRegistrar.ForeColor = System.Drawing.Color.White;
+            this.BShowRegistrar.Location = new System.Drawing.Point(547, 259);
+            this.BShowRegistrar.Name = "BShowRegistrar";
+            this.BShowRegistrar.Size = new System.Drawing.Size(84, 76);
+            this.BShowRegistrar.TabIndex = 25;
+            this.BShowRegistrar.TextColor = System.Drawing.Color.White;
+            this.BShowRegistrar.UseVisualStyleBackColor = false;
+            this.BShowRegistrar.Click += new System.EventHandler(this.BShowRegistrar_Click);
+            // 
+            // BDescargarListUs
+            // 
+            this.BDescargarListUs.BackColor = System.Drawing.Color.Black;
+            this.BDescargarListUs.BackgroundColor = System.Drawing.Color.Black;
+            this.BDescargarListUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BDescargarListUs.BackgroundImage")));
+            this.BDescargarListUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BDescargarListUs.BorderColor = System.Drawing.Color.Lime;
+            this.BDescargarListUs.BorderRadius = 20;
+            this.BDescargarListUs.BorderSize = 2;
+            this.BDescargarListUs.FlatAppearance.BorderSize = 0;
+            this.BDescargarListUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BDescargarListUs.ForeColor = System.Drawing.Color.White;
+            this.BDescargarListUs.Location = new System.Drawing.Point(547, 135);
+            this.BDescargarListUs.Name = "BDescargarListUs";
+            this.BDescargarListUs.Size = new System.Drawing.Size(84, 76);
+            this.BDescargarListUs.TabIndex = 24;
+            this.BDescargarListUs.TextColor = System.Drawing.Color.White;
+            this.BDescargarListUs.UseVisualStyleBackColor = false;
             // 
             // CModificarUs
             // 
@@ -266,6 +269,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListaUsuario";
             this.Text = "ListaUsuarios";
+            this.Load += new System.EventHandler(this.ListaUsuario_Load);
             this.PContListaUs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaUs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).EndInit();

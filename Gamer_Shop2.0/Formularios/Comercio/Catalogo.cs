@@ -1,19 +1,11 @@
 ﻿using Gamer_Shop2._0.Formularios.Comercio.Carrito;
-using Gamer_Shop2._0.Formularios.GestionCliente;
-using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.Inicio;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.Comercio
@@ -32,7 +24,6 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(Catalogo_Load);
         }
         private void Catalogo_Load(object sender, EventArgs e)
         {
@@ -98,11 +89,12 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             if (result == DialogResult.Yes)
             {
                 VolverAlInicio();
-                mensaje.Close();
+                mensaje.Dispose();
             }
             else
             {
-                mensaje.Close();
+                mensaje.Dispose();
+                MainForm.TopMost = true;
             }
         }
 
@@ -116,8 +108,9 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             PanelContainer.Controls.Clear();
             PanelContainer.Controls.Add(listVn);
             listVn.PanelContainer = PanelContainer;
+            listVn.Mainform = MainForm;
             listVn.Show();
-            this.Close();
+            this.Dispose();
         }
 
         private void BCarrito_Click(object sender, EventArgs e)
@@ -133,6 +126,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
                 Pcarrito_V.FondoOscuro = GenerarFondoOscuro(formBg);
                 Pcarrito_V.MainForm = MainForm;
                 PContCarrito.BringToFront();
+                MainForm.TopMost = false;
                 Pcarrito_V.Show();
             }
             else
@@ -148,6 +142,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
                 Pcarrito.EliminarPrCarritoClick += ArticuloCr_EliminarPrCarritoClick;
                 Pcarrito.idPrCr = idPrCarrito;
                 PContCarrito.BringToFront();
+                MainForm.TopMost = false;
                 Pcarrito.Show();
             }
         }
@@ -202,9 +197,22 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             PanelContainer.Controls.Clear();
             PanelContainer.Controls.Add(inicioD);
             inicioD.PanelContainer = PanelContainer;
+            MainForm.TopMost = true;
             inicioD.Show();
             inicioD.Location = new Point(50, 130);
-            this.Close();
+            this.Dispose();
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            BCarrito.Click -= BCarrito_Click;
+            BListaVenta.Click -= BListaVenta_Click;
+            BReturn.Click -= BReturn_Click;
+
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

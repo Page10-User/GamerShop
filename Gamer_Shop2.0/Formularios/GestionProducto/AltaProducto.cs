@@ -1,16 +1,15 @@
-﻿using Gamer_Shop2._0.Negocio;
-using Gamer_Shop2._0.Excepciones;
-using Gamer_Shop2._0.RJControls;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.BorderClasss;
+using Gamer_Shop2._0.Formularios.GestionUsuario;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
+using Gamer_Shop2._0.Validacion;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Gamer_Shop2._0.Validacion;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using System.Collections.Generic;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
 {
@@ -27,36 +26,18 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(AltaProducto_Load);
-            PContAltaPr.Paint += new PaintEventHandler(PContAltaPr_Paint);
         }
 
+        //--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--UI--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\
         private void PContAltaPr_Paint(object sender, PaintEventArgs e)
         {
-            Panel panel = sender as Panel;
-            if (panel != null)
+            if (sender == PContAltaPr)
             {
-
-                GraphicsPath path = new GraphicsPath();
-                int borderRadius = 60;
-                path.StartFigure();
-                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
-                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
-                path.CloseFigure();
-
-
-                panel.Region = new Region(path);
-
-
-                using (Pen pen = new Pen(Color.LightGreen, 3))
-                {
-                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    e.Graphics.DrawPath(pen, path);
-                }
+                BorderClass rounded = new BorderClass();
+                rounded.AplicarBordeRedondeado(PContAltaPr, 30, e.Graphics, Color.LightGreen, 2);
             }
         }
+        
 
         private void PAddCategoria_Paint(object sender, PaintEventArgs e)
         {
@@ -84,6 +65,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 }
             }
         }
+        //--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--UI--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\
         private void AltaProducto_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
@@ -132,15 +114,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         private void BShowListaPr_Click(object sender, EventArgs e)
         {
             // Crear una nueva instancia de ListaProductos
-            ListaProductos listPr = new ListaProductos();
-            listPr.TopLevel = false;
-
-            // Limpiar el panel actual y añadir el nuevo formulario
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(listPr);
-            listPr.PanelContainer = PanelContainer;
-            listPr.Show();
-            this.Close();
+            InstanciarYMostrarListaProducto();
         }
 
         // Validaciones
@@ -524,6 +498,26 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        //--------------------------------------------------------InstanciarYMostrarListaProducto----------------------------------------------------\\
+        private void InstanciarYMostrarListaProducto()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+            ListaProductos listPr = new ListaProductos();
+            listPr.TopLevel = false;
+
+            // Limpiar el panel actual y añadir el nuevo formulario
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(listPr);
+            listPr.PanelContainer = PanelContainer;
+            listPr.Show();
+            this.Dispose();
+        }
+
         private void OcultarValidaciones()
         {
             TBValidacion.Visible = false;
@@ -550,7 +544,22 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             if (!string.IsNullOrWhiteSpace(TBAddCategoria.Texts))
             {
-                this.Close();
+                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea ingresar la categoria '" + TBAddCategoria.Texts + "'", "Agregar Categoria", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    //Cerramos el anterior mensaje (que está en hide).
+                    mensaje.Dispose();
+
+                    //Mostramos el mensaje de éxito
+                    mensaje = new MsgPersonalizado("Categoria '" + TBAddCategoria.Texts + "' agregada exitosamente","Categoria Agregada", "Informacion", null);
+                    mensaje.ShowDialog();
+                }
+                else
+                {
+                    //Cerramos el mensaje oculto (hide).
+                    mensaje.Dispose();
+                }
             }
         }
 
@@ -579,6 +588,48 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 //Get the path of specified file
                 filePath = openFileDialog.FileName;
             }
-            }
         }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            //<-AltaProducto-Events->\\
+            this.Load -= AltaProducto_Load;
+
+            //<-Paint-Events->\\
+            PContAltaPr.Paint -= PContAltaPr_Paint;
+            PAddCategoria.Paint -= PAddCategoria_Paint;
+
+            //<-Click-Events->\\
+            BRegistrarPr.Click -= BRegistrarPr_Click;
+            BShowListaPr.Click -= BShowListaPr_Click;
+            BFotoProducto.Click -= BFotoProducto_Click;
+            BShowAddCategoria.Click -= BShowAddCategoria_Click;
+
+            //<-TextBox-Events->\\
+            //TBNombrePr
+            TBNombrePr.KeyPress -= TBNombrePr_KeyPress;
+            TBNombrePr.Validating -= TBNombrePr_Validating;
+            TBNombrePr._TextChanged -= TextBox_TextChanged;
+            //TBSerialPr
+            TBSerialPr.KeyPress -= TBSerialPr_KeyPress;
+            TBSerialPr.Validating -= TBSerialPr_Validating;
+            TBSerialPr._TextChanged -= TextBox_TextChanged;
+            //TBPrecioPr
+            TBPrecioPr.KeyPress -= TBPrecioPr_KeyPress;
+            TBPrecioPr.Validating -= TBPrecioPr_Validating;
+            TBPrecioPr._TextChanged -= TextBox_TextChanged;
+            //CBProveedorPr
+            CBProveedorPr.Validating -= CBProveedorPr_Validating;
+            //CBCategoriaPr
+            CBCategoriaPr.Validating -= CBCategoriaPr_Validating;
+            //TBDescripcionPr
+            TBDescripcionPr.KeyPress -= TBDescripcionPr_KeyPress;
+            TBDescripcionPr.Validating -= TBDescripcionPr_Validating;
+            TBDescripcionPr._TextChanged -= TextBox_TextChanged;
+
+            // Liberar los recursos
+            base.Dispose();
+        }
+    }
 }

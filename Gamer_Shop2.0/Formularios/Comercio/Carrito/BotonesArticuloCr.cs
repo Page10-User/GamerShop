@@ -1,15 +1,8 @@
 ﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 {
@@ -83,7 +76,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             }
             else
             {
-                mensaje.Close();
+                mensaje.Dispose();
             }
         }
 

@@ -88,6 +88,7 @@
             this.PContListaProveedor.Name = "PContListaProveedor";
             this.PContListaProveedor.Size = new System.Drawing.Size(437, 290);
             this.PContListaProveedor.TabIndex = 25;
+            this.PContListaProveedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaProveedor_Paint);
             // 
             // DGListaProveedor
             // 

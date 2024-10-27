@@ -1,16 +1,10 @@
 ﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProveedor
@@ -25,8 +19,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ModificarProveedor_Load);
-            PContInfoModificarProveedor.Paint += new PaintEventHandler(PContInfoModificarProveedor_Paint);
         }
 
         private void ModificarProveedor_Load(object sender, EventArgs e)
@@ -104,23 +96,37 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             if (result == DialogResult.Yes)
             {
                 //Cerramos el mensaje en Hide
-                mensaje.Close();
+                mensaje.Dispose();
 
                 // Mostrar form
-                ListaProveedor formListProveedor = new ListaProveedor();
-                formListProveedor.TopLevel = false;
-                formListProveedor.PanelContainer = PanelContainer;
-                PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
-                PanelContainer.Controls.Add(formListProveedor);
-                PanelContainer.BringToFront();
-                
-                formListProveedor.Show();
+                InstanciarYMostrarListaProveedor();
             }
             else
             {
-                mensaje.Close();
+                mensaje.Dispose();
             }
         }
+
+        //--------------------------------------------------------InstanciarYMostrarListaProveedor----------------------------------------------------\\
+        private void InstanciarYMostrarListaProveedor()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+
+            ListaProveedor formListProveedor = new ListaProveedor();
+            formListProveedor.TopLevel = false;
+            formListProveedor.PanelContainer = PanelContainer;
+            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+            PanelContainer.Controls.Add(formListProveedor);
+            PanelContainer.BringToFront();
+
+            formListProveedor.Show();
+        }
+
         // Validaciónes
 
         //INICIO Key Press  y Validating TBRazon
@@ -490,6 +496,51 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             TBValidacion15.Visible = false;
             TBValidacion16.Visible = false;
             TBValidacion17.Visible = false;
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            //<-AltaProducto-Events->\\
+            this.Load -= ModificarProveedor_Load;
+
+            //<-Paint-Events->\\
+            PContInfoModificarProveedor.Paint -= PContInfoModificarProveedor_Paint;
+
+            //<-Click-Events->\\
+            BReturnToBack.Click -= BReturnToBack_Click;
+            BModificarProveedor.Click -= BModificarProveedor_Click;
+
+            //<-TextBox-Events->\\
+            //TBRazon
+            TBRazon.KeyPress -= TBRazon_KeyPress;
+            TBRazon.Validating -= TBRazon_Validating;
+            TBRazon._TextChanged -= TextBox_TextChanged;
+            //TBRepresentante
+            TBRepresentante.KeyPress -= TBRepresentante_KeyPress;
+            TBRepresentante.Validating -= TBRepresentante_Validating;
+            TBRepresentante._TextChanged -= TextBox_TextChanged;
+            //TBTelefono
+            TBContacto.KeyPress -= TBContacto_KeyPress;
+            TBContacto.Validating -= TBContacto_Validating;
+            TBContacto.Enter -= TBContacto_Enter;
+            TBContacto._TextChanged -= TextBox_TextChanged;
+            //TBCorreo
+            TBCorreo.KeyPress -= TBCorreo_KeyPress;
+            TBCorreo.Validating -= TBCorreo_Validating;
+            TBCorreo._TextChanged -= TextBox_TextChanged;
+            //TBDirección
+            TBDireccion.KeyPress -= TBDireccion_KeyPress;
+            TBDireccion.Validating -= TBDireccion_Validating;
+            TBDireccion._TextChanged -= TextBox_TextChanged;
+            //CBCategoria
+            CBCategoriaPrProveedor.Validating -= CBCategoriaPrProveedor_Validating;
+
+            //<-CellClick-Events-\\
+            //...\\
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

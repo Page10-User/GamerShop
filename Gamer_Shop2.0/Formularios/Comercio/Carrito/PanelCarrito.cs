@@ -1,15 +1,9 @@
-﻿using Gamer_Shop2._0.Formularios.GestionCliente;
-using Gamer_Shop2._0.Formularios.GestionVenta;
+﻿using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
@@ -31,7 +25,6 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(PanelCarrito_Load);
         }
 
         private void PanelCarrito_Load(object sender, EventArgs e)
@@ -116,11 +109,11 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
                 if (result == DialogResult.Yes)
                 {
                     InstanciarYMostrarAltaVenta();
-                    mensaje.Close();
+                    mensaje.Dispose();
                 }
                 else
                 {
-                    mensaje.Close();
+                    mensaje.Dispose();
                 }
             }
         }
@@ -154,6 +147,17 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
                 }
             }
             return contador;
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            BExitCarrito.Click -= BExitCarrito_Click;
+            BComprar.Click -= BRegistrarVenta_Click;
+            this.Load -= PanelCarrito_Load;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

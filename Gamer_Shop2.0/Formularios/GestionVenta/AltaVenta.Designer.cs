@@ -40,8 +40,6 @@
             this.BNuevoCliente = new Gamer_Shop2._0.RJButton();
             this.BClienteExistente = new Gamer_Shop2._0.RJButton();
             this.PContAltaVn1 = new System.Windows.Forms.Panel();
-            this.TBValidacion3 = new System.Windows.Forms.Label();
-            this.TBValidacion2 = new System.Windows.Forms.Label();
             this.TBFecha = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LNombreUsuario = new System.Windows.Forms.Label();
             this.LContraseñaUs = new System.Windows.Forms.Label();
@@ -223,38 +221,12 @@
             // PContAltaVn1
             // 
             this.PContAltaVn1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContAltaVn1.Controls.Add(this.TBValidacion3);
-            this.PContAltaVn1.Controls.Add(this.TBValidacion2);
             this.PContAltaVn1.Controls.Add(this.TBFecha);
             this.PContAltaVn1.Controls.Add(this.LNombreUsuario);
             this.PContAltaVn1.Location = new System.Drawing.Point(28, 241);
             this.PContAltaVn1.Name = "PContAltaVn1";
             this.PContAltaVn1.Size = new System.Drawing.Size(257, 61);
             this.PContAltaVn1.TabIndex = 32;
-            // 
-            // TBValidacion3
-            // 
-            this.TBValidacion3.AutoSize = true;
-            this.TBValidacion3.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion3.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion3.Location = new System.Drawing.Point(32, 42);
-            this.TBValidacion3.Name = "TBValidacion3";
-            this.TBValidacion3.Size = new System.Drawing.Size(202, 14);
-            this.TBValidacion3.TabIndex = 35;
-            this.TBValidacion3.Text = "La fecha solo admite caracteres numéricos";
-            this.TBValidacion3.Visible = false;
-            // 
-            // TBValidacion2
-            // 
-            this.TBValidacion2.AutoSize = true;
-            this.TBValidacion2.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion2.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion2.Location = new System.Drawing.Point(84, 42);
-            this.TBValidacion2.Name = "TBValidacion2";
-            this.TBValidacion2.Size = new System.Drawing.Size(125, 14);
-            this.TBValidacion2.TabIndex = 34;
-            this.TBValidacion2.Text = "Ingrese una opción válida";
-            this.TBValidacion2.Visible = false;
             // 
             // TBFecha
             // 
@@ -278,9 +250,6 @@
             this.TBFecha.Texts = "";
             this.TBFecha.UnderlinedStyle = false;
             this.TBFecha._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBFecha.Enter += new System.EventHandler(this.TBFecha_Enter);
-            this.TBFecha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFecha_KeyPress);
-            this.TBFecha.Validating += new System.ComponentModel.CancelEventHandler(this.TBFecha_Validating);
             // 
             // LNombreUsuario
             // 
@@ -553,6 +522,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AltaVenta";
             this.Text = "AltaVenta";
+            this.Load += new System.EventHandler(this.AltaVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).EndInit();
             this.PContAltaVn2.ResumeLayout(false);
             this.PContBuscarDni.ResumeLayout(false);
@@ -595,8 +565,6 @@
         private BotonArticuloVn botonArticuloVn2;
         private BotonArticuloVn botonArticuloVn3;
         private System.Windows.Forms.Label TBValidacion;
-        private System.Windows.Forms.Label TBValidacion2;
-        private System.Windows.Forms.Label TBValidacion3;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBFiltro;
     }

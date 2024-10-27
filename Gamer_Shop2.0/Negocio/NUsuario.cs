@@ -26,7 +26,8 @@ namespace Gamer_Shop2._0.Negocio
                 Contraseña = password,
                 Correo = email,
                 photoFilePath = photoFilePath,
-                ID_TipoUsuario = tipoUsuario
+                ID_TipoUsuario = tipoUsuario,
+                Activo = "SI"
     };
 
             if (dUsuario == null)

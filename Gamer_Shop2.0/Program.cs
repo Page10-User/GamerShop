@@ -1,14 +1,4 @@
-﻿using Gamer_Shop2._0.Formularios;
-using Gamer_Shop2._0.Formularios.Comercio;
-using Gamer_Shop2._0.Formularios.Comercio.Carrito;
-using Gamer_Shop2._0.Formularios.GestionProducto;
-using Gamer_Shop2._0.Formularios.GestionVenta;
-using Gamer_Shop2._0.Formularios.Informe;
-using Gamer_Shop2._0.Formularios.Inicio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0

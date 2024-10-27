@@ -1,15 +1,8 @@
-﻿using Gamer_Shop2._0.Datos;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
@@ -25,9 +18,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ListaProductos_Load);
-            PContListaPr.Paint += new PaintEventHandler(PContListaPr_Paint);
-            DGListaPr.CellClick += DGListaPr_CellClick;
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)
@@ -44,7 +34,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 // Manejo de cualquier otra excepción
                 MessageBox.Show(ex.Message);
             }
-
         }
         private void PBuscadorListaPr_Paint(object sender, PaintEventArgs e)
         {
@@ -183,22 +172,41 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         private void BShowRegistrarPr_Click(object sender, EventArgs e)
         {
             // Crear una nueva instancia de ListaProductos
-            AltaProducto AltaPr = new AltaProducto();
-            AltaPr.TopLevel = false;
-
-            // Limpiar el panel actual y añadir el nuevo formulario
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(AltaPr);
-            AltaPr.PanelContainer = PanelContainer;
-            AltaPr.Show();
-            this.Close();
+            InstanciarYMostrarAltaProducto();
         }
+        //------------------------------------------------------InstanciarYMostrarAltaProducto--------------------------------------------------\\
+        private void InstanciarYMostrarAltaProducto()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                return;
+            }
+            else
+            {
+                if (control is Form)
+                {
+                    //Liberamos recursos
+                    control.Dispose();
+                }
 
+                //mostramos el form AltaProducto
+                AltaProducto AltaPr = new AltaProducto();
+                AltaPr.TopLevel = false;
+
+                // Limpiar el panel actual y añadir el nuevo formulario
+                PanelContainer.Controls.Clear();
+                PanelContainer.Controls.Add(AltaPr);
+                AltaPr.PanelContainer = PanelContainer;
+                AltaPr.Show();
+                this.Dispose();
+            }
+        }
         private void DGListaPr_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == DGListaPr.Columns["CModificar"].Index && e.RowIndex >= 0)
             {
-                // Crear una nueva instancia de ModificarProducto
+                //Crear una nueva instancia de ModificarProducto
                 try
                 {
                     int serial = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
@@ -212,7 +220,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     PanelContainer.Controls.Add(ModificarPr);
                     ModificarPr.PanelContainer = PanelContainer;
                     ModificarPr.Show();
-                    this.Close();
+                    this.Dispose();
                 }
                 catch (Exception)
                 {
@@ -230,7 +238,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 {
                     try
                     {
-                        mensaje.Close();
+                        mensaje.Dispose();
                         int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
                         nproducto.NEliminarProducto(id);
                         DGListaPr.Rows.RemoveAt(e.RowIndex); //debería pasarse a la lista de inactivos
@@ -245,9 +253,30 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 }
                 else
                 {
-                    mensaje.Close();
+                    mensaje.Dispose();
                 }
             }
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            //<-ListaProductos-Events->\\
+            this.Load -= ListaProductos_Load;
+            //<-Paint-Events->\\
+            PContListaPr.Paint -= PContListaPr_Paint;
+
+            //<-Click-Events->\\
+            BShowRegistrarPr.Click -= BShowRegistrarPr_Click;
+
+            //<-TextBox-Events->\\
+            //...\\
+
+            //<-CellClick-Events->\\
+            DGListaPr.CellClick -= DGListaPr_CellClick;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

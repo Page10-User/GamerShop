@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.Gestion_Compra
@@ -16,13 +10,12 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
 
+        public Bienvenida MainForm { get; set; }
         public Panel PanelContainer { get; set; }
         public ListaCompra()
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ListaCompra_Load);
-            PContListaCompra.Paint += new PaintEventHandler(PContListaCompra_Paint);
         }
 
         private void ListaCompra_Load(object sender, EventArgs e)
@@ -71,7 +64,6 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
             Panel panel = sender as Panel;
             if (panel != null)
             {
-
                 GraphicsPath path = new GraphicsPath();
                 int borderRadius = 1;
                 path.StartFigure();
@@ -83,9 +75,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 
 
                 panel.Region = new Region(path);
-
-
-                using (Pen pen = new Pen(Color.LightGreen, 3))
+                using (Pen pen = new Pen(Color.LightGreen, 4))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -96,15 +86,41 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         private void BShowRegistrarCompra_Click(object sender, EventArgs e)
         {
             // Mostrar form
+            InstanciarYMostrarAltaCompra();
+        }
+
+        //------------------------------------------------------------------------------------InstanciarAltaCompra-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarAltaCompra()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+
+            // Mostrar form
             AltaCompra formAltaCo = new AltaCompra();
             formAltaCo.TopLevel = false;
             formAltaCo.PanelContainer = PanelContainer;
+            formAltaCo.MainForm = MainForm;
 
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formAltaCo);
             PanelContainer.BringToFront();
 
             formAltaCo.Show();
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= ListaCompra_Load;
+            PContListaCompra.Paint -= PContListaCompra_Paint;
+            BShowRegistrarCompra.Click -= BShowRegistrarCompra_Click;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

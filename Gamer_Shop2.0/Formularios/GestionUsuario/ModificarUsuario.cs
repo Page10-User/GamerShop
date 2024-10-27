@@ -1,5 +1,4 @@
 ﻿using Gamer_Shop2._0.Excepciones;
-using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.RJControls;
@@ -7,13 +6,8 @@ using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionUsuario
@@ -22,8 +16,11 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+
         Usuario usuarioActual = new Usuario();
-        bool wasClicked = false;
+
+        private List<string> camposActuales = new List<string>(new string[6]);
+
         string filePath;
 
         public Panel PanelContainer { get; set; }
@@ -33,8 +30,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             usuarioActual = usuario.GetUsuario(user.CUIL);
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ModificarUsuario_Load);
-            PContModificarUs.Paint += new PaintEventHandler(PContModificarUs_Paint);
         }
 
         private void PContModificarUs_Paint(object sender, PaintEventArgs e)
@@ -74,6 +69,8 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBNombreUsuario.Texts = usuarioActual.Nombre_usuario;
             TBEmailUs.Texts = usuarioActual.Correo;
             TBContrasenaUs.Texts = usuarioActual.Contraseña;
+
+            guardarCampos();
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -113,35 +110,25 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            if (wasClicked != true)
+            if (comprobarModif(camposActuales) == true)
             {
-                DialogResult = MessageBox.Show("Está seguro que desea volver? Se perderán los cambios realizados", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (DialogResult == DialogResult.Yes)
-            {
-                // Crear una nueva instancia de ListaProductos
-                ListaUsuario listUs = new ListaUsuario();
-                listUs.TopLevel = false;
-
-                // Limpiar el panel actual y volver al anterior formulario.
-                PanelContainer.Controls.Clear();
-                PanelContainer.Controls.Add(listUs);
-                listUs.PanelContainer = PanelContainer;
-                listUs.Show();
-                this.Close();
-            }
+                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea volver? Se perderán los cambios realizados", "Cambios pendientes", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    mensaje.Dispose();
+                    InstanciarYMostrarListaUsuario();
+                }
+                else
+                {
+                    mensaje.Dispose();
+                }
             }
             else
             {
-                ListaProductos listPr = new ListaProductos();
-                listPr.TopLevel = false;
-
-                // Limpiar el panel actual y volver al anterior formulario.
-                PanelContainer.Controls.Clear();
-                PanelContainer.Controls.Add(listPr);
-                listPr.PanelContainer = PanelContainer;
-                listPr.Show();
-                this.Close();
+                InstanciarYMostrarListaUsuario();
             }
+            
         }
 
         //Validaciones
@@ -507,32 +494,42 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             if (TBNombreUs.Texts != string.Empty && TBApellidoUs.Texts != string.Empty && TBCuilUs.Texts != string.Empty && TBNombreUsuario.Texts != string.Empty && TBContrasenaUs.Texts != string.Empty && TBEmailUs.Texts != string.Empty)
             {
-                try
+                if (comprobarModif(camposActuales))
                 {
-                    NUsuario usuario = new NUsuario();
-                    usuario.NModificarUsuario(
+                    try
+                    {
+                        NUsuario usuario = new NUsuario();
+                        usuario.NModificarUsuario(
 
-                        TBNombreUs.Texts,
-                        TBApellidoUs.Texts,
-                        TBCuilUs.Texts,
-                        TBNombreUsuario.Texts,
-                        TBContrasenaUs.Texts,
-                        TBEmailUs.Texts,
-                        usuarioActual.ID_TipoUsuario
-                        );
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
-                    mensaje.ShowDialog();
+                            TBNombreUs.Texts,
+                            TBApellidoUs.Texts,
+                            TBCuilUs.Texts,
+                            TBNombreUsuario.Texts,
+                            TBContrasenaUs.Texts,
+                            TBEmailUs.Texts,
+                            usuarioActual.ID_TipoUsuario
+                            );
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
+                        mensaje.ShowDialog();
+
+                        guardarCampos();
+                    }
+                    catch (ExisteRegistroException ex)
+                    {
+                        // Manejo de la excepción cuando el número de serial no existe
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de cualquier otra excepción
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
                 }
-                catch (ExisteRegistroException ex)
+                else
                 {
-                    // Manejo de la excepción cuando el número de serial no existe
-                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
-                    mensaje.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    // Manejo de cualquier otra excepción
-                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Debe realizar almenos un cambio para modificar un usuario", "Error al Modificar", "Error", null);
                     mensaje.ShowDialog();
                 }
             }
@@ -541,6 +538,27 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para modificar un usuario", "Error", "Error", generarListaCampos());
                 mensaje.ShowDialog();
             }
+        }
+
+        //------------------------------------------------------------------------------------InstanciarListaUsuario-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarListaUsuario()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+            // Crear una nueva instancia de ListaProductos
+            ListaUsuario listUs = new ListaUsuario();
+            listUs.TopLevel = false;
+
+            // Limpiar el panel actual y volver al anterior formulario.
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(listUs);
+            listUs.PanelContainer = PanelContainer;
+            listUs.Show();
+            this.Dispose();
         }
 
         private List<string> generarListaCampos()
@@ -577,6 +595,62 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBValidacion17.Visible = false;
             TBValidacion18.Visible = false;
             TBValidacion19.Visible = false;
+        }
+
+        private void guardarCampos()
+        {
+            camposActuales[0] = TBNombreUs.Texts;
+            camposActuales[1] = TBApellidoUs.Texts;
+            camposActuales[2] = TBCuilUs.Texts;
+            camposActuales[3] = TBNombreUsuario.Texts;
+            camposActuales[4] = TBEmailUs.Texts;
+            camposActuales[5] = TBContrasenaUs.Texts;
+        }
+
+        private bool comprobarModif(List<string> campos)
+        {
+            if (campos[0] != TBNombreUs.Texts ||
+                campos[1] != TBApellidoUs.Texts ||
+                campos[2] != TBCuilUs.Texts ||
+                campos[3] != TBNombreUsuario.Texts ||
+                campos[4] != TBEmailUs.Texts ||
+                campos[5] != TBContrasenaUs.Texts)
+            {
+                return true; // Hay modificación
+            }
+            else
+            {
+                return false; // No hay modificación
+            }
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= ModificarUsuario_Load;
+            PContModificarUs.Paint -= PContModificarUs_Paint;
+            TBNombreUs.KeyPress -= TBNombreUs_KeyPress;
+            TBNombreUs.Validating -= TBNombreUs_Validating;
+            TBApellidoUs.KeyPress -= TBApellidoUs_KeyPress;
+            TBApellidoUs.Validating -= TBApellidoUs_Validating;
+            TBCuilUs.KeyPress -= TBCuilUs_KeyPress;
+            TBCuilUs.Validating -= TBCuilUs_Validating;
+            TBNombreUsuario.KeyPress -= TBNombreUs_KeyPress;
+            TBNombreUsuario.Validating -= TBNombreUs_Validating;
+            TBEmailUs.KeyPress -= TBEmailUs_KeyPress;
+            TBEmailUs.Validating -= TBEmailUs_Validating;
+            TBContrasenaUs.KeyPress -= TBContrasenaUs_KeyPress;
+            TBContrasenaUs.Validating -= TBContrasenaUs_Validating;
+            TBNombreUs._TextChanged -= TextBox_TextChanged;
+            TBApellidoUs._TextChanged -= TextBox_TextChanged;
+            TBNombreUsuario._TextChanged -= TextBox_TextChanged;
+            TBEmailUs._TextChanged -= TextBox_TextChanged;
+            TBContrasenaUs._TextChanged -= TextBox_TextChanged;
+            BModificarUs.Click -= BModificarUs_Click;
+            BReturnToBack.Click -= BReturnToBack_Click;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

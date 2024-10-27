@@ -1,22 +1,13 @@
 ﻿using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
-using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gamer_Shop2._0.Formularios.GestionCliente
 {
@@ -32,8 +23,6 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(AltaCliente_Load);
-            PContAltaCl.Paint += new PaintEventHandler(PContAltaCl_Paint);
             MostrarBotonListaSegunDondeVenga(desdeDonde);
         }
         private void PContAltaCl_Paint(object sender, PaintEventArgs e)
@@ -107,6 +96,18 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         private void BShowListaCl_Click(object sender, EventArgs e)
         {
             // Mostrar form
+            InstanciarYMostrarListaCliente();
+        }
+        //--------------------------------------------------------InstanciarYMostrarListaCliente----------------------------------------------------\\
+        private void InstanciarYMostrarListaCliente()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+
             ListaCliente formCliente = new ListaCliente();
             formCliente.TopLevel = false;
             formCliente.PanelContainer = PanelContainer;
@@ -464,8 +465,8 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         private void BCloseAltaCliente_Click(object sender, EventArgs e)
         {
             MainForm.TopMost = true;
-            FondoOscurecido.Close();
-            this.Close();
+            FondoOscurecido.Dispose();
+            this.Dispose();
         }
 
         //Agrupamos todas las validaciones y las ocultamos para evitar redundacia.
@@ -498,6 +499,49 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 TBCorreo.Texts,
              };
             return campos;
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            //<-AltaProducto-Events->\\
+            this.Load -= AltaCliente_Load;
+
+            //<-Paint-Events->\\
+            PContAltaCl.Paint -= PContAltaCl_Paint;
+
+            //<-Click-Events->\\
+            BCloseAltaCliente.Click -= BCloseAltaCliente_Click;
+            BRegistrarCl.Click -= BRegistrarCl_Click;
+            BShowListaCl.Click -= BShowListaCl_Click;
+
+            //<-TextBox-Events->\\
+            //TBNombreCl
+            TBNombre.KeyPress -= TBNombre_KeyPress;
+            TBNombre.Validating -= TBNombre_Validating;
+            TBNombre._TextChanged -= TextBox_TextChanged;
+            //TBApellidoCl
+            TBApellido.KeyPress -= TBApellido_KeyPress;
+            TBApellido.Validating -= TBApellido_Validating;
+            TBApellido._TextChanged -= TextBox_TextChanged;
+            //TBDNI
+            TBDni.KeyPress -= TBDni_KeyPress;
+            TBDni.Validating -= TBDni_Validating;
+            TBDni._TextChanged -= TextBox_TextChanged;
+            //TBTeléfono
+            TBTelefono.KeyPress -= TBTelefono_KeyPress;
+            TBTelefono.Validating -= TBTelefono_Validating;
+            TBTelefono._TextChanged -= TextBox_TextChanged;
+            //TBCorreo
+            TBCorreo.KeyPress -= TBCorreo_KeyPress;
+            TBCorreo.Validating -= TBCorreo_Validating;
+            TBCorreo._TextChanged -= TextBox_TextChanged;
+
+            //<-CellClick-Events-\\
+            //...\\
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

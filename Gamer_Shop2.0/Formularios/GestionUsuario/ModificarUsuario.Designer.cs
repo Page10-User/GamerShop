@@ -120,6 +120,7 @@
             this.PContModificarUs.Name = "PContModificarUs";
             this.PContModificarUs.Size = new System.Drawing.Size(350, 303);
             this.PContModificarUs.TabIndex = 23;
+            this.PContModificarUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PContModificarUs_Paint);
             // 
             // TBValidacion15
             // 
@@ -648,6 +649,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ModificarUsuario";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.ModificarUsuario_Load);
             this.PContModificarUs.ResumeLayout(false);
             this.PContModificarUs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarUs)).EndInit();

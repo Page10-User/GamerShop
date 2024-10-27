@@ -1,18 +1,12 @@
 ﻿using Gamer_Shop2._0.Excepciones;
-using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionCliente
@@ -22,7 +16,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
         Cliente clienteActual = new Cliente();
-        bool wasClicked = false;
+        private List<string> camposActuales = new List<string>(new string[4]);
 
         public Panel PanelContainer { get; set; }
         public ModificarCliente(Cliente cliente)
@@ -31,8 +25,6 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             NCliente ncliente = new NCliente();
             clienteActual = ncliente.GetCliente(cliente.DNI);
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ModificarCliente_Load);
-            PContModificarCl.Paint += new PaintEventHandler(PContModificarCl_Paint);
         }
 
         private void PContModificarCl_Paint(object sender, PaintEventArgs e)
@@ -70,6 +62,8 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             TBApellido.Texts = clienteActual.Apellido;
             TBTelefono.Texts = clienteActual.Teléfono;
             TBCorreo.Texts = clienteActual.Correo;
+
+            guardarCampos();
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -109,41 +103,47 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
 
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            if (wasClicked != true)
+            if (comprobarModif(camposActuales) == true)
             {
                 MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea volver? Se perderán los cambios realizados", "Volver", "Interrogacion", null);
                 DialogResult result = mensaje.ShowDialog();
                 if (result == DialogResult.Yes)
                 {
-                    // Crear una nueva instancia de ListaCLiente
-                    ListaCliente listCl = new ListaCliente();
-                    listCl.TopLevel = false;
+                    mensaje.Dispose();
 
-                    // Limpiar el panel actual y volver al anterior formulario.
-                    PanelContainer.Controls.Clear();
-                    PanelContainer.Controls.Add(listCl);
-                    listCl.PanelContainer = PanelContainer;
-                    listCl.Show();
-                    this.Close();
-                    mensaje.Close();
+                    // Crear una nueva instancia de ListaCLiente
+                    InstanciarYMostrarListaCliente();
                 }
                 else
                 {
-                    mensaje.Close();
+                    mensaje.Dispose();
                 }
             }
             else
             {
-                ListaProductos listPr = new ListaProductos();
-                listPr.TopLevel = false;
-
-                // Limpiar el panel actual y volver al anterior formulario.
-                PanelContainer.Controls.Clear();
-                PanelContainer.Controls.Add(listPr);
-                listPr.PanelContainer = PanelContainer;
-                listPr.Show();
-                this.Close();
+                // Mostramos la lista de clientes
+                InstanciarYMostrarListaCliente();
             }
+        }
+        //--------------------------------------------------------InstanciarYMostrarListaCliente----------------------------------------------------\\
+        private void InstanciarYMostrarListaCliente()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+
+            ListaCliente listCl = new ListaCliente();
+            listCl.TopLevel = false;
+
+            // Limpiar el panel actual y volver al anterior formulario.
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(listCl);
+            listCl.PanelContainer = PanelContainer;
+            listCl.Show();
+            this.Dispose();
         }
 
         //Validaciones
@@ -388,29 +388,38 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             if (TBNombre.Texts != string.Empty && TBApellido.Texts != string.Empty && TBTelefono.Texts != string.Empty && TBCorreo.Texts != string.Empty)
             {
-                try
+                if (comprobarModif(camposActuales))
                 {
-                    NCliente cliente = new NCliente();
-                   cliente.NModificarCliente(
-
-                        TBNombre.Texts,
-                        TBApellido.Texts,
-                        TBCorreo.Texts,
-                        TBTelefono.Texts
-                        );
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
-                    mensaje.ShowDialog();
+                    try
+                    {
+                        NCliente cliente = new NCliente();
+                        cliente.NModificarCliente(
+                             clienteActual.DNI,
+                             TBNombre.Texts,
+                             TBApellido.Texts,
+                             TBTelefono.Texts,
+                             TBCorreo.Texts
+                             );
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
+                        mensaje.ShowDialog();
+                        guardarCampos();
+                    }
+                    catch (ExisteRegistroException ex)
+                    {
+                        // Manejo de la excepción cuando el número de serial no existe
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de cualquier otra excepción
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
                 }
-                catch (ExisteRegistroException ex)
+                else
                 {
-                    // Manejo de la excepción cuando el número de serial no existe
-                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
-                    mensaje.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    // Manejo de cualquier otra excepción
-                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Debe realizar almenos un cambio para modificar el Cliente", "Error al Modificar", "Error", null);
                     mensaje.ShowDialog();
                 }
             }
@@ -446,6 +455,66 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 TBCorreo.Texts,
              };
             return campos;
+        }
+
+        private void guardarCampos()
+        {
+            camposActuales[0] = TBNombre.Texts;
+            camposActuales[1] = TBApellido.Texts;
+            camposActuales[2] = TBTelefono.Texts;
+            camposActuales[3] = TBCorreo.Texts;
+        }
+
+        private bool comprobarModif(List<string> campos)
+        {
+            if (campos[0] != TBNombre.Texts ||
+                campos[1] != TBApellido.Texts ||
+                campos[2] != TBTelefono.Texts ||
+                campos[3] != TBCorreo.Texts)
+            {
+                return true; // Hay modificación
+            }
+            else
+            {
+                return false; // No hay modificación
+            }
+        }
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            //<-AltaProducto-Events->\\
+            this.Load -= ModificarCliente_Load;
+
+            //<-Paint-Events->\\
+            PContModificarCl.Paint -= PContModificarCl_Paint;
+
+            //<-Click-Events->\\
+            BReturnToBack.Click -= BReturnToBack_Click;
+            BModificarCl.Click -= BModificarUs_Click;
+
+            //<-TextBox-Events->\\
+            //TBNombreCl
+            TBNombre.KeyPress -= TBNombre_KeyPress;
+            TBNombre.Validating -= TBNombre_Validating;
+            TBNombre._TextChanged -= TextBox_TextChanged;
+            //TBApellidoCl
+            TBApellido.KeyPress -= TBApellido_KeyPress;
+            TBApellido.Validating -= TBApellido_Validating;
+            TBApellido._TextChanged -= TextBox_TextChanged;
+            //TBTeléfono
+            TBTelefono.KeyPress -= TBTelefono_KeyPress;
+            TBTelefono.Validating -= TBTelefono_Validating;
+            TBTelefono._TextChanged -= TextBox_TextChanged;
+            //TBCorreo
+            TBCorreo.KeyPress -= TBCorreo_KeyPress;
+            TBCorreo.Validating -= TBCorreo_Validating;
+            TBCorreo._TextChanged -= TextBox_TextChanged;
+
+            //<-CellClick-Events-\\
+            //...\\
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

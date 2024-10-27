@@ -1,17 +1,12 @@
 ﻿using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
-using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
@@ -23,14 +18,15 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         private int borderWidth = 5; // Grosor del borde
 
         Producto productoActual = new Producto();
+
         string filePath;
 
-        private List<string> camposActuales = new List<string>(new string[6]);
+        private List<string> camposActuales = new List<string>(new string[7]);
         public Panel PanelContainer { get; set; }
         public ModificarProducto(Producto prod)
         {
             InitializeComponent();
-
+            
             NProducto producto = new NProducto();
             
             productoActual = producto.GetProducto(prod.Serial);
@@ -125,36 +121,42 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 if (result == DialogResult.Yes)
                 {
                     // Cerramos el mensaje oculto.
-                    mensaje.Close();
+                    mensaje.Dispose();
 
-                    // Crear una nueva instancia de ListaProductos
-                    ListaProductos listPr = new ListaProductos();
-                    listPr.TopLevel = false;
-
-                    // Limpiar el panel actual y volver al anterior formulario.
-                    PanelContainer.Controls.Clear();
-                    PanelContainer.Controls.Add(listPr);
-                    listPr.PanelContainer = PanelContainer;
-                    listPr.Show();
-                    this.Close();
+                    // Mostramos la lista de productos
+                    InstanciarYMostrarListaProducto();
                 }
                 else
                 {
-                    mensaje.Close();
+                    mensaje.Dispose();
                 }
             }
             else
             {
-                ListaProductos listPr = new ListaProductos();
-                listPr.TopLevel = false;
-
-                // Limpiar el panel actual y volver al anterior formulario.
-                PanelContainer.Controls.Clear();
-                PanelContainer.Controls.Add(listPr);
-                listPr.PanelContainer = PanelContainer;
-                listPr.Show();
-                this.Close();
+                // Mostramos la lista de productos
+                InstanciarYMostrarListaProducto();
             }
+        }
+
+        //--------------------------------------------------------InstanciarYMostrarListaProducto----------------------------------------------------\\
+        private void InstanciarYMostrarListaProducto()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+            // Crear una nueva instancia de ListaProductos
+            ListaProductos listPr = new ListaProductos();
+            listPr.TopLevel = false;
+
+            // Limpiar el panel actual y volver al anterior formulario.
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(listPr);
+            listPr.PanelContainer = PanelContainer;
+            listPr.Show();
+            this.Dispose();
         }
 
         // Validaciones
@@ -529,6 +531,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             camposActuales[3] = CBProveedorPr.SelectedItem.ToString();
             camposActuales[4] = CBCategoriaPr.SelectedItem.ToString();
             camposActuales[5] = TBDescripcionPr.Texts;
+            camposActuales[6] = rjTextBox1.Texts;
         }
         private bool comprobarModif(List<string> campos)
         {
@@ -537,7 +540,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 campos[2] != TBPrecioPr.Texts ||
                 campos[3] != CBProveedorPr.SelectedItem.ToString() ||
                 campos[4] != CBCategoriaPr.SelectedItem.ToString() ||
-                campos[5] != TBDescripcionPr.Texts)
+                campos[5] != TBDescripcionPr.Texts ||
+                campos[6] != rjTextBox1.Texts)
             {
                 return true; // Hay modificación
             }
@@ -547,6 +551,45 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            //<-AltaProducto-Events->\\
+            this.Load -= ModificarProducto_Load;
+
+            //<-Paint-Events->\\
+            PContModificarPr.Paint -= PContModificarPr_Paint;
+
+            //<-Click-Events->\\
+            BModificarPr.Click -= BModificarPr_Click;
+            BReturnToBack.Click -= BReturnToBack_Click;
+            BFotoProducto.Click -= BFotoProducto_Click;
+
+            //<-TextBox-Events->\\
+            //TBNombrePr
+            TBNombrePr.KeyPress -= TBNombrePr_KeyPress;
+            TBNombrePr.Validating -= TBNombrePr_Validating;
+            TBNombrePr._TextChanged -= TextBox_TextChanged;
+            //TBSerialPr
+            TBSerialPr.KeyPress -= TBSerialPr_KeyPress;
+            TBSerialPr.Validating -= TBSerialPr_Validating;
+            TBSerialPr._TextChanged -= TextBox_TextChanged;
+            //TBPrecioPr
+            TBPrecioPr.KeyPress -= TBPrecioPr_KeyPress;
+            TBPrecioPr.Validating -= TBPrecioPr_Validating;
+            TBPrecioPr._TextChanged -= TextBox_TextChanged;
+            //CBProveedorPr
+            CBProveedorPr.Validating -= CBProveedorPr_Validating;
+            //CBCategoriaPr
+            CBCategoriaPr.Validating -= CBCategoriaPr_Validating;
+            //TBDescripcionPr
+            TBDescripcionPr.KeyPress -= TBDescripcionPr_KeyPress;
+            TBDescripcionPr.Validating -= TBDescripcionPr_Validating;
+            TBDescripcionPr._TextChanged -= TextBox_TextChanged;
+
+            // Liberar los recursos
+            base.Dispose();
+        }
     }
 }
 

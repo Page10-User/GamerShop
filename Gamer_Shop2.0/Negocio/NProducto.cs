@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Gamer_Shop2._0.Datos;
+using System;
 using System.Windows.Forms;
-using Gamer_Shop2._0.Datos;
-using Gamer_Shop2._0.Excepciones;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 
 namespace Gamer_Shop2._0.Negocio
 {

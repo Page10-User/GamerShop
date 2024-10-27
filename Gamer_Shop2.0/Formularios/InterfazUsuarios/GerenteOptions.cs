@@ -1,15 +1,9 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+﻿using Gamer_Shop2._0.Formularios.Comercio;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
-using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.Informe;
+using Gamer_Shop2._0.Formularios.Inicio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
@@ -36,43 +30,18 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             //Ocultar Otros.
             LabelContainer.Visible = false;
 
-            // Mostrar form
-            AltaUsuario formAltaUs = new AltaUsuario();
-            formAltaUs.TopLevel = false;
-            formAltaUs.PanelContainer = PanelContainer;
-            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
-            PanelContainer.Controls.Add(formAltaUs);
-            PanelContainer.BringToFront();
-
-            formAltaUs.Show();
+            //Mostramos el Alta Usuario
+            InstanciarYMostrarUsuario();
         }
         private void BOptionsGerente_Click(object sender, EventArgs e)
         {
             if (!isExpandedOption || !isExpandedOps)
             {
-                // Mostrar form
-                Poptions = new PersonalOptions_NB_();
-                Poptions.TopLevel = false;
-                Poptions.PanelContainer = PanelContainer;
-                Poptions.Mainform = MainForm;
-                Poptions.Forminicio = Forminicio;
-                PPersonalOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
-                PPersonalOptions.Controls.Add(Poptions);
-                Poptions.Location = new Point(1, 1);
-
-                Poptions.Show();
-                isExpandedOption = true;
-
-                //Pasamos Poptions ah Bienvenida.cs
-                MainForm.PersonalOpsNB = Poptions;
-                MainForm.isExpandedOpts = true;
-                isExpandedOps = true;
+                InstanciarYMostrarPoptions();
             }
             else
             {
-                Poptions.Close();
-                isExpandedOption = false;
-                MainForm.isExpandedOpts = false;
+                CerrarPoptions();
             }
         }
 
@@ -87,17 +56,139 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             // Mostrar form
             InstanciarYMostrarReporte();
         }
+        //------------------------------------------------------------------------------------InstanciarUsuario-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarUsuario()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is AltaUsuario)
+            {
+                return;
+            }
+            else
+            {
+                if (control is Form)
+                {
+                    //Liberamos recursos
+                    control.Dispose();
+                }
 
+                // Mostrar form
+                AltaUsuario formAltaUs = new AltaUsuario();
+                formAltaUs.TopLevel = false;
+                formAltaUs.PanelContainer = PanelContainer;
+                PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+                PanelContainer.Controls.Add(formAltaUs);
+                PanelContainer.BringToFront();
+                MainForm.TopMost = true; // Volvemos a aplicar el TopMost del Mainform.
+                formAltaUs.Show();
+            }
+        }
+        //------------------------------------------------------------------------------------InstanciarReporte-------------------------------------------------------------------------------\\
         private void InstanciarYMostrarReporte()
         {
-            Reporte formReporte = new Reporte();
-            formReporte.TopLevel = false;
-            formReporte.PanelContainer = PanelContainer;
-            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
-            PanelContainer.Controls.Add(formReporte);
-            PanelContainer.BringToFront();
+            Control control = PanelContainer.Controls[0];
+            if (control is Reporte)
+            {
+                return;
+            }
+            else
+            {
+                if (control is Form)
+                {
+                    //Liberamos recursos
+                    control.Dispose();
+                }
 
-            formReporte.Show();
+                Reporte formReporte = new Reporte();
+                formReporte.TopLevel = false;
+                formReporte.PanelContainer = PanelContainer;
+                PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+                PanelContainer.Controls.Add(formReporte);
+                PanelContainer.BringToFront();
+                MainForm.TopMost = true; // Volvemos a aplicar el TopMost del Mainform.
+                formReporte.Show();
+            }
+        }
+
+        //------------------------------------------------------------------------------------InstanciarPoptions-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarPoptions()
+        {
+            // Mostrar form
+            Poptions = new PersonalOptions_NB_();
+            Poptions.TopLevel = false;
+            Poptions.PanelContainer = PanelContainer;
+            Poptions.Mainform = MainForm;
+            Poptions.Forminicio = Forminicio;
+            Poptions.Menu = this;
+            PPersonalOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+            PPersonalOptions.Controls.Add(Poptions);
+            Poptions.Location = new Point(1, 1);
+
+            Poptions.Show();
+            isExpandedOption = true;
+
+            //Pasamos Poptions ah Bienvenida.cs
+            MainForm.PersonalOpsNB = Poptions;
+            MainForm.isExpandedOpts = true;
+            isExpandedOps = true;
+        }
+        //------------------------------------------------------------------------------------Cerrar poptions-------------------------------------------------------------------------------\\
+        private void CerrarPoptions()
+        {
+            Poptions.Dispose();
+            isExpandedOption = false;
+            MainForm.isExpandedOpts = false;
+        }
+        //-----------------------------------------------------\\
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            BGestionUsuario.Click -= BGestionUsuario_Click;
+            BAccederInformes.Click -= BAccederInformes_Click;
+
+            // Liberar los recursos
+            base.Dispose();
+        }
+
+        private void BHouse_Click(object sender, EventArgs e)
+        {
+            //Cerrar el menú tras elegír una opción
+            MainForm.BContracMenu_Click(sender, e);
+
+            //Inicializamos y mostramos el inicio
+            VolverAlInicio();
+        }
+
+        private void VolverAlInicio()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is InicioDetalle)
+            {
+                return;
+            }
+            else
+            {
+                if (control is Form)
+                {
+                    //Liberamos recursos
+                    control.Dispose();
+                }
+                // Crear una nueva instancia de inicioDetalle
+                InicioDetalle inicioD = new InicioDetalle();
+                inicioD.TopLevel = false;
+
+                // Poner visible "version sistema".
+                LabelContainer.Visible = true;
+                LabelContainer.BringToFront();
+
+                // Limpiar el panel actual y añadir el nuevo formulario
+                PanelContainer.Controls.Clear();
+                PanelContainer.Controls.Add(inicioD);
+                inicioD.PanelContainer = PanelContainer;
+                MainForm.TopMost = true;
+                inicioD.Show();
+                inicioD.Location = new Point(50, 130);
+            }
         }
     }
 }

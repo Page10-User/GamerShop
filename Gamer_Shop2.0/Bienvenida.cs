@@ -1,11 +1,9 @@
-﻿using Gamer_Shop2._0.Formularios;
+﻿using Gamer_Shop2._0.Formularios.BorderClasss;
 using Gamer_Shop2._0.Formularios.Inicio;
 using Gamer_Shop2._0.Formularios.InterfazUsuarios;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0
@@ -13,63 +11,55 @@ namespace Gamer_Shop2._0
 
     public partial class Bienvenida : Form
     {
-        // Menú expandido bool
-        bool isExpanded = false;
+        // --------------------------------------------------------------------------------------------------------------------
+        // Variables de estado y referencia
+        // --------------------------------------------------------------------------------------------------------------------
+
+        // Indica si el menú está expandido o colapsado
+        private bool isExpanded = false;
+
+        // Instancia global del fondo oscuro
         private Form formBG;
 
+        // Almacena las opciones del usuario seleccionadas
         public UserOptionsBase userOptions { get; set; }
 
-        //Panel Poptions del Menu (A)
+        // --------------------------------------------------------------------------------------------------------------------
+        // Paneles de opciones de menú
+        // --------------------------------------------------------------------------------------------------------------------
+
+        // Panel de opciones personales (Menú A)
         public PersonalOptions PersonalOps { get; set; }
-        //Panel Poptions del Menu (E,G)
+
+        // Panel de opciones personales (Menú E, G) --No Backups
         public PersonalOptions_NB_ PersonalOpsNB { get; set; }
 
-        //Form de inicio para evitar instancias innecesarias.
+        // --------------------------------------------------------------------------------------------------------------------
+        // Referencias a formularios
+        // --------------------------------------------------------------------------------------------------------------------
+
+        // Referencia al formulario de inicio para evitar instancias innecesarias
         public Form1 Forminicio { get; set; }
 
-        //Fondo oscuro Catalogo
+        // --------------------------------------------------------------------------------------------------------------------
+        // Formatos visuales
+        // --------------------------------------------------------------------------------------------------------------------
+
+        // Formulario de fondo oscuro para el catálogo
         public Form FondoOscuroCatalogo { get; set; }
 
-        //Botones Proveedor y Compra del Menu (temas visuales).
+        // Botones del menú para corregir bugs visuales 
         public Button botonCompra { get; set; }
         public Button botonProveedor { get; set; }
         public Button botonInforme { get; set; }
 
+        // Indica si las opciones están expandibles
         public bool isExpandedOpts { get; set; }
+
 
         public Bienvenida()
         {
             InitializeComponent();
-            this.Load += new EventHandler(Bienvenida_Load);
-            this.Paint += new PaintEventHandler(Bievenida_Paint);
-            PMenuUS.Paint += new PaintEventHandler(PMenuUS_Paint);
-        }
-
-        private void PFondoBienvenida_Paint(object sender, PaintEventArgs e)
-        {
-            Panel panel = sender as Panel;
-            if (panel != null)
-            {
-
-                GraphicsPath path = new GraphicsPath();
-                int borderRadius = 90;
-                path.StartFigure();
-                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
-                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
-                path.CloseFigure();
-
-
-                panel.Region = new Region(path);
-
-
-                using (Pen pen = new Pen(Color.GreenYellow, 3))
-                {
-                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    e.Graphics.DrawPath(pen, path);
-                }
-            }
         }
 
         private void Bienvenida_Load(object sender, EventArgs e)
@@ -101,29 +91,26 @@ namespace Gamer_Shop2._0
 
             if (result == DialogResult.Yes)
             {
-                mensaje.Close();
+                mensaje.Dispose();
                 Application.Exit();
             }
             else
             {
-                mensaje.Close();
+                mensaje.Dispose();
+                this.TopMost = true;
             }
         }
 
         // Botón contraer Menú.
         public void BContracMenu_Click(object sender, EventArgs e)
         {
-            isExpanded = !isExpanded;
-            PMenuUS.Location = new Point(-180, 0);
-            BExpandMenu.Visible = true;
-            BContracMenu.Visible = false;
-            PEBorde.Visible = true;
-            formBG.Close();
+            // Otros aspectos
+            OtrosAspectos();
 
             // Ocultar contenido del menú.
             OcultarContenidoMenu();
 
-            //Mostrar FondoOscuroCatalogo
+            // Mostrar FondoOscuroCatalogo
             FondoOscuroShow();
         }
 
@@ -147,7 +134,7 @@ namespace Gamer_Shop2._0
             // Cargar contenido del menú.
             PMenuUS.Controls.Add(userOptions);
             userOptions.Forminicio = Forminicio;
-            userOptions.Location = new Point(0, 1);
+            userOptions.Location = new Point(0, 2);
             userOptions.Visible = true;
 
             //Quitamos el fondo negro del catalogo para evitar bug visuales.
@@ -157,50 +144,27 @@ namespace Gamer_Shop2._0
             PasarFondoOscuroEmpleadoOptions();
         }
 
-        // Diseño del bordeado del formulario
-        private void Bievenida_Paint(object sender, PaintEventArgs e)
-        {
-            Color borderColor = Color.LightGreen;
-            int borderWidth = 1;
-
-            using (Pen borderPen = new Pen(borderColor, borderWidth))
-            {
-                e.Graphics.DrawRectangle(borderPen, 0, 0, this.ClientSize.Width - borderWidth, this.ClientSize.Height - borderWidth);
-            }
-        }
-
-        // Modificar borde del menú.
+        //--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--UI--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\
         private void PMenuUS_Paint(object sender, PaintEventArgs e)
         {
-            // Definir el color y el grosor del borde
-            Color borderColor = Color.LightGreen;
-            int borderWidth = 1;
-
-            // Obtener el área del panel
-            Control panel = sender as Control;
-            Rectangle borderRectangle = panel.ClientRectangle;
-
-            // Reducir el tamaño del área para evitar que el borde se dibuje fuera del panel
-            borderRectangle.Width -= 1;
-            borderRectangle.Height -= 1;
-
-            // Dibujar el borde
-            using (Pen borderPen = new Pen(borderColor, borderWidth))
+            if (sender == PMenuUS)
             {
-                e.Graphics.DrawRectangle(borderPen, borderRectangle);
+                BorderClass rounded = new BorderClass();
+                rounded.AplicarBordeRedondeado(PMenuUS, 1, e.Graphics, Color.LightGreen, 1);
             }
         }
+        //--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--UI--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\
 
         private void GenerarFondoOscuro()
         {
             // Crear un nuevo formulario para el efecto de oscurecimiento
             Point thisLocation = this.Location;
-            Point formBGLocation = new Point(thisLocation.X + 200, thisLocation.Y + 1);
+            Point formBGLocation = new Point(thisLocation.X + 200, thisLocation.Y + 2);
             formBG = new Form
             {
                 StartPosition = FormStartPosition.Manual,
                 FormBorderStyle = FormBorderStyle.None,
-                Opacity = 0.70d, // 70% de opacidad
+                Opacity = 0.70d,
                 BackColor = Color.Black,
                 Width = 636,
                 Height = this.Height - 4,
@@ -213,7 +177,7 @@ namespace Gamer_Shop2._0
         }
         private void OcultarContenidoMenu()
         {
-            userOptions.Visible = false;
+            userOptions.Hide();
 
             if (isExpandedOpts)
             {
@@ -222,7 +186,7 @@ namespace Gamer_Shop2._0
                 {
                     //Cerramos la configuración personal (Admin).
                     PersonalOps.SendToBack();
-                    PersonalOps.Close();
+                    PersonalOps.Dispose();
 
                     //Posicionamos los botones de compra y proveedor.
                     TraerBotonesAlfrente();
@@ -232,7 +196,7 @@ namespace Gamer_Shop2._0
                 {
                     //Cerramos la configuración personal (Empleado y Gerente).
                     PersonalOpsNB.SendToBack();
-                    PersonalOpsNB.Close();
+                    PersonalOpsNB.Dispose();
                     userOptions.isExpandedOps = isExpnd;
                 }
             }
@@ -267,11 +231,34 @@ namespace Gamer_Shop2._0
 
         private void InstanciarUserOptions()
         {
-            userOptions.MainForm = this;
-            userOptions.PanelContainer = PShowOptions;
-            userOptions.LabelContainer = LVersion;
-            userOptions.Forminicio = Forminicio;
-            userOptions.TopLevel = false;
+            userOptions.MainForm = this;                // Pasamos el form Bienvenida al menú.
+            userOptions.PanelContainer = PShowOptions;  // Pasamos el panel de Bievenida al menú.
+            userOptions.LabelContainer = LVersion;      // Pasamos el label Version al menú.
+            userOptions.Forminicio = Forminicio;        // Pasamos el forminicio al menú.
+            userOptions.TopLevel = false;               // Ponemos el TopLevel del menú en false.
+        }
+
+        private void OtrosAspectos()
+        {
+            isExpanded = !isExpanded;                   // Manejar si el PersonalOptions está expandido.
+            PMenuUS.Location = new Point(-180, 0);      // Manejar la hubicación del menú al contraerse.
+            BExpandMenu.Visible = true;                 // Mostrar el boton para expandir el menú.
+            BContracMenu.Visible = false;               // Ocultar el boton para cerrar el menú.
+            PEBorde.Visible = true;                     // Arreglo de pqueños bugs visuales.
+            formBG.Dispose();                           // Cerrar el fondo oscuro.
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= Bienvenida_Load;
+            BContracMenu.Click -= BContracMenu_Click;
+            BExpandMenu.Click -= BExpandMenu_Click;
+            BSalir.Click -= BSalir_Click;
+            PMenuUS.Paint -= PMenuUS_Paint;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

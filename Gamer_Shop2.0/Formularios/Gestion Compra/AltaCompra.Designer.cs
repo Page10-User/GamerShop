@@ -39,16 +39,16 @@
             this.CPrecioPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTotalPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEliminarPr = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BElegirPrLista = new Gamer_Shop2._0.RJButton();
-            this.CBProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.TBValidacion4 = new System.Windows.Forms.Label();
             this.LSelectProveedor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BComprar = new Gamer_Shop2._0.RJButton();
-            this.BListaDeCompras = new Gamer_Shop2._0.RJButton();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.BElegirPrLista = new Gamer_Shop2._0.RJButton();
+            this.CBProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.BListaDeCompras = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaCom)).BeginInit();
             this.PContAltaCompra.SuspendLayout();
             this.PListaPrCompra.SuspendLayout();
@@ -93,6 +93,7 @@
             this.PContAltaCompra.Name = "PContAltaCompra";
             this.PContAltaCompra.Size = new System.Drawing.Size(464, 330);
             this.PContAltaCompra.TabIndex = 6;
+            this.PContAltaCompra.Paint += new System.Windows.Forms.PaintEventHandler(this.PContAltaCompra_Paint);
             // 
             // PListaPrCompra
             // 
@@ -101,6 +102,7 @@
             this.PListaPrCompra.Name = "PListaPrCompra";
             this.PListaPrCompra.Size = new System.Drawing.Size(438, 218);
             this.PListaPrCompra.TabIndex = 39;
+            this.PListaPrCompra.Paint += new System.Windows.Forms.PaintEventHandler(this.PListaPrCompra_Paint);
             // 
             // DGListaPrCompra
             // 
@@ -148,49 +150,6 @@
             this.CEliminarPr.Name = "CEliminarPr";
             this.CEliminarPr.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CEliminarPr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // BElegirPrLista
-            // 
-            this.BElegirPrLista.BackColor = System.Drawing.Color.Black;
-            this.BElegirPrLista.BackgroundColor = System.Drawing.Color.Black;
-            this.BElegirPrLista.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BElegirPrLista.BorderRadius = 15;
-            this.BElegirPrLista.BorderSize = 1;
-            this.BElegirPrLista.FlatAppearance.BorderSize = 0;
-            this.BElegirPrLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BElegirPrLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BElegirPrLista.ForeColor = System.Drawing.Color.White;
-            this.BElegirPrLista.Location = new System.Drawing.Point(12, 59);
-            this.BElegirPrLista.Name = "BElegirPrLista";
-            this.BElegirPrLista.Size = new System.Drawing.Size(121, 34);
-            this.BElegirPrLista.TabIndex = 40;
-            this.BElegirPrLista.Text = "Agregar producto";
-            this.BElegirPrLista.TextColor = System.Drawing.Color.White;
-            this.BElegirPrLista.UseVisualStyleBackColor = false;
-            this.BElegirPrLista.Click += new System.EventHandler(this.BElegirPrLista_Click);
-            // 
-            // CBProveedor
-            // 
-            this.CBProveedor.BackColor = System.Drawing.Color.Black;
-            this.CBProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBProveedor.BorderSize = 1;
-            this.CBProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.CBProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CBProveedor.ForeColor = System.Drawing.Color.DimGray;
-            this.CBProveedor.IconColor = System.Drawing.Color.Lime;
-            this.CBProveedor.Items.AddRange(new object[] {
-            "PROVEEDOR 1",
-            "PROVEEDOR 2"});
-            this.CBProveedor.ListBackColor = System.Drawing.Color.Black;
-            this.CBProveedor.ListTextColor = System.Drawing.Color.Lime;
-            this.CBProveedor.Location = new System.Drawing.Point(144, 8);
-            this.CBProveedor.MinimumSize = new System.Drawing.Size(30, 30);
-            this.CBProveedor.Name = "CBProveedor";
-            this.CBProveedor.Padding = new System.Windows.Forms.Padding(1);
-            this.CBProveedor.Size = new System.Drawing.Size(296, 30);
-            this.CBProveedor.TabIndex = 31;
-            this.CBProveedor.Texts = "";
-            this.CBProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
             // 
             // TBValidacion4
             // 
@@ -261,26 +220,6 @@
             this.BComprar.UseVisualStyleBackColor = false;
             this.BComprar.Click += new System.EventHandler(this.BComprar_Click);
             // 
-            // BListaDeCompras
-            // 
-            this.BListaDeCompras.BackColor = System.Drawing.Color.Black;
-            this.BListaDeCompras.BackgroundColor = System.Drawing.Color.Black;
-            this.BListaDeCompras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BListaDeCompras.BackgroundImage")));
-            this.BListaDeCompras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BListaDeCompras.BorderColor = System.Drawing.Color.Lime;
-            this.BListaDeCompras.BorderRadius = 20;
-            this.BListaDeCompras.BorderSize = 1;
-            this.BListaDeCompras.FlatAppearance.BorderSize = 0;
-            this.BListaDeCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BListaDeCompras.ForeColor = System.Drawing.Color.White;
-            this.BListaDeCompras.Location = new System.Drawing.Point(532, 268);
-            this.BListaDeCompras.Name = "BListaDeCompras";
-            this.BListaDeCompras.Size = new System.Drawing.Size(84, 76);
-            this.BListaDeCompras.TabIndex = 26;
-            this.BListaDeCompras.TextColor = System.Drawing.Color.White;
-            this.BListaDeCompras.UseVisualStyleBackColor = false;
-            this.BListaDeCompras.Click += new System.EventHandler(this.BListaDeCompras_Click);
-            // 
             // BBuscador
             // 
             this.BBuscador.BackColor = System.Drawing.Color.Transparent;
@@ -324,6 +263,69 @@
             this.TBFiltro.Texts = "";
             this.TBFiltro.UnderlinedStyle = false;
             // 
+            // BElegirPrLista
+            // 
+            this.BElegirPrLista.BackColor = System.Drawing.Color.Black;
+            this.BElegirPrLista.BackgroundColor = System.Drawing.Color.Black;
+            this.BElegirPrLista.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BElegirPrLista.BorderRadius = 15;
+            this.BElegirPrLista.BorderSize = 1;
+            this.BElegirPrLista.FlatAppearance.BorderSize = 0;
+            this.BElegirPrLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BElegirPrLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BElegirPrLista.ForeColor = System.Drawing.Color.White;
+            this.BElegirPrLista.Location = new System.Drawing.Point(12, 59);
+            this.BElegirPrLista.Name = "BElegirPrLista";
+            this.BElegirPrLista.Size = new System.Drawing.Size(121, 34);
+            this.BElegirPrLista.TabIndex = 40;
+            this.BElegirPrLista.Text = "Agregar producto";
+            this.BElegirPrLista.TextColor = System.Drawing.Color.White;
+            this.BElegirPrLista.UseVisualStyleBackColor = false;
+            this.BElegirPrLista.Click += new System.EventHandler(this.BElegirPrLista_Click);
+            // 
+            // CBProveedor
+            // 
+            this.CBProveedor.BackColor = System.Drawing.Color.Black;
+            this.CBProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedor.BorderSize = 1;
+            this.CBProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CBProveedor.ForeColor = System.Drawing.Color.DimGray;
+            this.CBProveedor.IconColor = System.Drawing.Color.Lime;
+            this.CBProveedor.Items.AddRange(new object[] {
+            "PROVEEDOR 1",
+            "PROVEEDOR 2"});
+            this.CBProveedor.ListBackColor = System.Drawing.Color.Black;
+            this.CBProveedor.ListTextColor = System.Drawing.Color.Lime;
+            this.CBProveedor.Location = new System.Drawing.Point(144, 8);
+            this.CBProveedor.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBProveedor.Name = "CBProveedor";
+            this.CBProveedor.Padding = new System.Windows.Forms.Padding(1);
+            this.CBProveedor.Size = new System.Drawing.Size(296, 30);
+            this.CBProveedor.TabIndex = 31;
+            this.CBProveedor.Texts = "";
+            this.CBProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
+            // 
+            // BListaDeCompras
+            // 
+            this.BListaDeCompras.BackColor = System.Drawing.Color.Black;
+            this.BListaDeCompras.BackgroundColor = System.Drawing.Color.Black;
+            this.BListaDeCompras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BListaDeCompras.BackgroundImage")));
+            this.BListaDeCompras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BListaDeCompras.BorderColor = System.Drawing.Color.Lime;
+            this.BListaDeCompras.BorderRadius = 20;
+            this.BListaDeCompras.BorderSize = 1;
+            this.BListaDeCompras.FlatAppearance.BorderSize = 0;
+            this.BListaDeCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BListaDeCompras.ForeColor = System.Drawing.Color.White;
+            this.BListaDeCompras.Location = new System.Drawing.Point(532, 268);
+            this.BListaDeCompras.Name = "BListaDeCompras";
+            this.BListaDeCompras.Size = new System.Drawing.Size(84, 76);
+            this.BListaDeCompras.TabIndex = 26;
+            this.BListaDeCompras.TextColor = System.Drawing.Color.White;
+            this.BListaDeCompras.UseVisualStyleBackColor = false;
+            this.BListaDeCompras.Click += new System.EventHandler(this.BListaDeCompras_Click);
+            // 
             // AltaCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,6 +345,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AltaCompra";
             this.Text = "AltaCompra";
+            this.Load += new System.EventHandler(this.EditarPerfil_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaCom)).EndInit();
             this.PContAltaCompra.ResumeLayout(false);
             this.PContAltaCompra.PerformLayout();

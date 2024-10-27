@@ -56,6 +56,7 @@
             this.PCarritoVacio.Name = "PCarritoVacio";
             this.PCarritoVacio.Size = new System.Drawing.Size(178, 33);
             this.PCarritoVacio.TabIndex = 5;
+            this.PCarritoVacio.Paint += new System.Windows.Forms.PaintEventHandler(this.PCarritoVacio_Paint);
             // 
             // LMsjContenidoCarritoVacio
             // 
@@ -104,6 +105,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PanelCarrito_V_";
             this.Text = "PanelCarrito_V_";
+            this.Load += new System.EventHandler(this.PanelCarrito_V__Load);
             this.PCarritoVacio.ResumeLayout(false);
             this.PCarritoVacio.PerformLayout();
             this.ResumeLayout(false);

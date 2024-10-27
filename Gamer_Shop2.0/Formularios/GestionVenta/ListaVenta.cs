@@ -1,13 +1,8 @@
 ﻿using Gamer_Shop2._0.Formularios.Comercio;
+using Gamer_Shop2._0.Formularios.GestionProducto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionVenta
@@ -23,7 +18,6 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ListaUsuario_Load);
             ManejarVisibilidadBotonCatalogo(desdeDonde);
         }
 
@@ -68,7 +62,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
         }
 
-        private void ListaUsuario_Load(object sender, EventArgs e)
+        private void ListaVenta_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
@@ -112,16 +106,41 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         private void BShowCatalogo_Click(object sender, EventArgs e)
         {
-            // Mostrar form
-            Catalogo formCatalogo = new Catalogo();
-            formCatalogo.TopLevel = false;
-            formCatalogo.PanelContainer = PanelContainer;
-            formCatalogo.MainForm = Mainform;
-            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
-            PanelContainer.Controls.Add(formCatalogo);
-            PanelContainer.BringToFront();
+            // Instanciar y Mostrar form
+            InstanciarYMostrarCatalogo();
+        }
 
-            formCatalogo.Show();
+        //------------------------------------------------------------------------------------InstanciarCatalogo-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarCatalogo()
+        {
+            Control control = PanelContainer.Controls[0];
+             if (control is Form)
+             {
+                 //Liberamos recursos
+                 control.Dispose();
+             }
+
+             // Instanciar y Mostrar form
+             Catalogo formCatalogo = new Catalogo();
+             formCatalogo.TopLevel = false;
+             formCatalogo.PanelContainer = PanelContainer;
+             formCatalogo.MainForm = Mainform;
+             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+             PanelContainer.Controls.Add(formCatalogo);
+             PanelContainer.BringToFront();
+
+             formCatalogo.Show();
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= ListaVenta_Load;
+            PContListaVn.Paint -= PContListaVn_Paint;
+            BShowCatalogo.Click -= BShowCatalogo_Click;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

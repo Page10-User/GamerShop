@@ -1,19 +1,11 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionCliente;
-using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionVenta
@@ -29,7 +21,6 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(AltaVenta_Load);
             BordeRedondeadoPanels();
         }
 
@@ -123,67 +114,14 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         //Validaciones
 
         //INICIO Validacion Fecha
-        private void TBFecha_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ClaseValidacion validador = new ClaseValidacion();
-            string texto = TBFecha.Texts;
+        
+        // Generado automaticamente por el sistema (además es inmodificable).
 
-            //Validar
-            if (!validador.ValidarKeyPressSoloNumeros(e.KeyChar))
-            {
-                e.Handled = true;
-                return;
-            }
-
-            // Validar longitud
-            if (!validador.ValidarLongitudExacta(texto, 8))
-            {
-                e.Handled = true;
-            }
-        }
-        private void TBFecha_Enter(object sender, EventArgs e)
-        {
-            ClaseValidacion validador = new ClaseValidacion();
-            string texto = TBFecha.Texts.Trim();
-
-            if (!string.IsNullOrWhiteSpace(texto))
-            {
-                TBFecha.Texts = validador.RemoverFormatoFecha(texto);
-            }
-        }
-
-        private void TBFecha_Validating(object sender, CancelEventArgs e)
-        {
-            ClaseValidacion validador = new ClaseValidacion();
-            string texto = TBFecha.Texts;
-
-            OcultarValidaciones();
-
-            if (!string.IsNullOrWhiteSpace(texto))
-            {
-                //Validar caracteres
-                if (!validador.ValidarCaracteresNumericos(texto))
-                {
-                    e.Cancel=true;
-                    TBValidacion3.Visible = true;
-                    return;
-                }
-
-                //Validar longitud
-                if (!validador.ValidarLongitudExacta(texto, 8))
-                {
-                    e.Cancel = true;
-                    TBValidacion2.Visible = true;
-                    return;
-                }
-                TBFecha.Texts = validador.AplicarFormatoFecha(texto);
-            }
-        }
         //FIN Validacion Fecha
 
         //INICIO Validacion Monto
 
-        // Monto generado automaticamente por el sistema y además es inmodificable.
+        // Monto generado automaticamente por el sistema (además es inmodificable).
             
         //FIN Validacion Monto
 
@@ -292,6 +230,25 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         private void OcultarValidaciones()
         {
             TBValidacion.Visible = false;
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= AltaVenta_Load;
+            PContAltaVn1.Paint -= PContAltaVn_Paint;
+            PContAltaVn2.Paint -= PContAltaVn_Paint;
+            PContAltaVn3.Paint -= PContAltaVn_Paint;
+            PContAltaVn4.Paint -= PContAltaVn_Paint;
+            BRegistrarVn.Click -= BRegistrarVn_Click;
+            BClienteExistente.Click -= BClienteExistente_Click;
+            BNuevoCliente.Click -= BNuevoCliente_Click;
+            CBCategoria.Validating -= CBCategoria_Validating;
+            TBFecha._TextChanged -= TextBox_TextChanged;
+            TBMonto._TextChanged -= TextBox_TextChanged;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

@@ -299,6 +299,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListaVenta";
             this.Text = "ListaVenta";
+            this.Load += new System.EventHandler(this.ListaVenta_Load);
             this.PContListaVn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaVn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).EndInit();

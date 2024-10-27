@@ -1,19 +1,12 @@
 ﻿using Gamer_Shop2._0.Excepciones;
-using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
-using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionUsuario
@@ -27,8 +20,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(AltaUsuario_Load);
-            PContAltaUs.Paint += new PaintEventHandler(PContAltaUs_Paint);
         }
 
         private void PContAltaUs_Paint(object sender, PaintEventArgs e)
@@ -101,16 +92,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         private void BShowListaUs_Click(object sender, EventArgs e)
         {
-            // Crear una nueva instancia de ListaProductos
-            ListaUsuario listUs = new ListaUsuario();
-            listUs.TopLevel = false;
-
-            // Limpiar el panel actual y añadir el nuevo formulario
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(listUs);
-            listUs.PanelContainer = PanelContainer;
-            listUs.Show();
-            this.Close();
+            InstanciarYMostrarListaUsuario();
         }
 
         //Validaciones
@@ -513,6 +495,27 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 mensaje.ShowDialog();
             }
         }
+
+        //------------------------------------------------------------------------------------InstanciarListaUsuario-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarListaUsuario()
+        {
+            Control control = PanelContainer.Controls[0];
+             if (control is Form)
+             {
+                 //Liberamos recursos
+                 control.Dispose();
+             }
+             // Crear una nueva instancia de ListaProductos
+             ListaUsuario listUs = new ListaUsuario();
+             listUs.TopLevel = false;
+
+             // Limpiar el panel actual y añadir el nuevo formulario
+             PanelContainer.Controls.Clear();
+             PanelContainer.Controls.Add(listUs);
+             listUs.PanelContainer = PanelContainer;
+             listUs.Show();
+             this.Dispose();
+        }
         private List<string> generarListaCampos()
         {
             List<string> campos = new List<string>{
@@ -548,6 +551,35 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBValidacion18.Visible = false;
             TBValidacion19.Visible = false;
         }
-    }
 
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= AltaUsuario_Load;
+            PContAltaUs.Paint -= PContAltaUs_Paint;
+            TBNombreUs.KeyPress -= TBNombreUs_KeyPress;
+            TBNombreUs.Validating -= TBNombreUs_Validating;
+            TBApellidoUs.KeyPress -= TBApellidoUs_KeyPress;
+            TBApellidoUs.Validating -= TBApellidoUs_Validating;
+            TBCuilUs.KeyPress -= TBCuilUs_KeyPress;
+            TBCuilUs.Enter -= TBCuilUs_Enter;
+            TBCuilUs.Validating -= TBCuilUs_Validating;
+            TBNombreUsuario.KeyPress -= TBNombreUs_KeyPress;
+            TBNombreUsuario.Validating -= TBNombreUs_Validating;
+            TBEmailUs.KeyPress -= TBEmailUs_KeyPress;
+            TBEmailUs.Validating -= TBEmailUs_Validating;
+            TBContrasenaUs.KeyPress -= TBContrasenaUs_KeyPress;
+            TBContrasenaUs.Validating -= TBContrasenaUs_Validating;
+            TBNombreUs._TextChanged -= TextBox_TextChanged;
+            TBApellidoUs._TextChanged -= TextBox_TextChanged;
+            TBNombreUsuario._TextChanged -= TextBox_TextChanged;
+            TBEmailUs._TextChanged -= TextBox_TextChanged;
+            TBContrasenaUs._TextChanged -= TextBox_TextChanged;
+            BRegistrarUs.Click -= BRegistrarUs_Click;
+            BShowListaUs.Click -= BShowListaUs_Click;
+
+            // Liberar los recursos
+            base.Dispose();
+        }
+    }
 }

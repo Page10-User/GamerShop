@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 
 namespace Gamer_Shop2._0.Datos
 {

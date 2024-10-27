@@ -172,6 +172,7 @@
             this.PContListaCompra.Name = "PContListaCompra";
             this.PContListaCompra.Size = new System.Drawing.Size(437, 290);
             this.PContListaCompra.TabIndex = 17;
+            this.PContListaCompra.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaCompra_Paint);
             // 
             // LTituloListaCompra
             // 
@@ -299,6 +300,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListaCompra";
             this.Text = "ListaCompra";
+            this.Load += new System.EventHandler(this.ListaCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCompra)).EndInit();
             this.PContListaCompra.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaCom)).EndInit();

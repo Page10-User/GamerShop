@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Gamer_Shop2._0.Formularios.GestionVenta;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
@@ -24,8 +19,6 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(PanelCarrito_V__Load);
-            PCarritoVacio.Paint += new PaintEventHandler(PCarritoVacio_Paint);
         }
 
         private void PCarritoVacio_Paint(object sender, PaintEventArgs e)
@@ -99,9 +92,20 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         {
             PanelContainerCr.Controls.Clear();
             PanelContainerCr.SendToBack();
-            FondoOscuro.Close();
+            FondoOscuro.Dispose();
             MainForm.FondoOscuroCatalogo = null;
-            this.Close();
+            this.Dispose();
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            BExitCarrito.Click -= BExitCarrito_Click;
+            this.Load -= PanelCarrito_V__Load;
+            PCarritoVacio.Paint -= PCarritoVacio_Paint;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

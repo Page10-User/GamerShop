@@ -49,6 +49,7 @@
             this.PMenuUS.Name = "PMenuUS";
             this.PMenuUS.Size = new System.Drawing.Size(200, 526);
             this.PMenuUS.TabIndex = 11;
+            this.PMenuUS.Paint += new System.Windows.Forms.PaintEventHandler(this.PMenuUS_Paint);
             // 
             // PEBorde
             // 
@@ -77,8 +78,8 @@
             // 
             // PAddB
             // 
-            this.PAddB.BackColor = System.Drawing.Color.LightGreen;
-            this.PAddB.Location = new System.Drawing.Point(0, 0);
+            this.PAddB.BackColor = System.Drawing.Color.LimeGreen;
+            this.PAddB.Location = new System.Drawing.Point(0, 1);
             this.PAddB.Name = "PAddB";
             this.PAddB.Size = new System.Drawing.Size(1, 525);
             this.PAddB.TabIndex = 16;

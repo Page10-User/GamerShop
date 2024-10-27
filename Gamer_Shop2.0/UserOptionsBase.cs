@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Gamer_Shop2._0
 {
@@ -15,5 +10,9 @@ namespace Gamer_Shop2._0
         public Bienvenida MainForm { get; set; }
         public Form FondoOscuroCatalogo { get; set; }
         public bool isExpandedOps { get; set; }
+
+        public virtual void DesuscribirseDeEventos()
+        {
+        }
     }
 }

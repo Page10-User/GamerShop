@@ -98,6 +98,10 @@
             this.PBLogo.TabIndex = 7;
             this.PBLogo.TabStop = false;
             // 
+            // THorario
+            // 
+            this.THorario.Tick += new System.EventHandler(this.THorario_Tick);
+            // 
             // InicioDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,10 +111,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(584, 237);
             this.Controls.Add(this.LFActual);
-            this.Controls.Add(this.LReloj);
             this.Controls.Add(this.LTítulo);
             this.Controls.Add(this.LBievenida);
             this.Controls.Add(this.PBLogo);
+            this.Controls.Add(this.LReloj);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InicioDetalle";

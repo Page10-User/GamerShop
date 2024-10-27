@@ -32,7 +32,9 @@
             this.LShowLista = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PContAltaCl = new System.Windows.Forms.Panel();
+            this.TBValidacion14 = new System.Windows.Forms.Label();
             this.TBValidacion12 = new System.Windows.Forms.Label();
+            this.TBValidacion13 = new System.Windows.Forms.Label();
             this.TBValidacion10 = new System.Windows.Forms.Label();
             this.TBValidacion11 = new System.Windows.Forms.Label();
             this.TBValidacion8 = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@
             this.BCloseAltaCliente = new Gamer_Shop2._0.RJButton();
             this.BShowListaCl = new Gamer_Shop2._0.RJButton();
             this.BRegistrarCl = new Gamer_Shop2._0.RJButton();
-            this.TBValidacion13 = new System.Windows.Forms.Label();
-            this.TBValidacion14 = new System.Windows.Forms.Label();
             this.PContAltaCl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaCl)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +120,19 @@
             this.PContAltaCl.Name = "PContAltaCl";
             this.PContAltaCl.Size = new System.Drawing.Size(315, 290);
             this.PContAltaCl.TabIndex = 9;
+            this.PContAltaCl.Paint += new System.Windows.Forms.PaintEventHandler(this.PContAltaCl_Paint);
+            // 
+            // TBValidacion14
+            // 
+            this.TBValidacion14.AutoSize = true;
+            this.TBValidacion14.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion14.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion14.Location = new System.Drawing.Point(29, 100);
+            this.TBValidacion14.Name = "TBValidacion14";
+            this.TBValidacion14.Size = new System.Drawing.Size(271, 14);
+            this.TBValidacion14.TabIndex = 42;
+            this.TBValidacion14.Text = "El apellido no puede ser unicamente caracteres especiales";
+            this.TBValidacion14.Visible = false;
             // 
             // TBValidacion12
             // 
@@ -132,6 +145,18 @@
             this.TBValidacion12.TabIndex = 40;
             this.TBValidacion12.Text = "Por favor, ingrese un correo válido";
             this.TBValidacion12.Visible = false;
+            // 
+            // TBValidacion13
+            // 
+            this.TBValidacion13.AutoSize = true;
+            this.TBValidacion13.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion13.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion13.Location = new System.Drawing.Point(30, 54);
+            this.TBValidacion13.Name = "TBValidacion13";
+            this.TBValidacion13.Size = new System.Drawing.Size(270, 14);
+            this.TBValidacion13.TabIndex = 41;
+            this.TBValidacion13.Text = "El nombre no puede ser unicamente caracteres especiales";
+            this.TBValidacion13.Visible = false;
             // 
             // TBValidacion10
             // 
@@ -532,30 +557,6 @@
             this.BRegistrarCl.UseVisualStyleBackColor = false;
             this.BRegistrarCl.Click += new System.EventHandler(this.BRegistrarCl_Click);
             // 
-            // TBValidacion13
-            // 
-            this.TBValidacion13.AutoSize = true;
-            this.TBValidacion13.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion13.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion13.Location = new System.Drawing.Point(30, 54);
-            this.TBValidacion13.Name = "TBValidacion13";
-            this.TBValidacion13.Size = new System.Drawing.Size(270, 14);
-            this.TBValidacion13.TabIndex = 41;
-            this.TBValidacion13.Text = "El nombre no puede ser unicamente caracteres especiales";
-            this.TBValidacion13.Visible = false;
-            // 
-            // TBValidacion14
-            // 
-            this.TBValidacion14.AutoSize = true;
-            this.TBValidacion14.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion14.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion14.Location = new System.Drawing.Point(29, 100);
-            this.TBValidacion14.Name = "TBValidacion14";
-            this.TBValidacion14.Size = new System.Drawing.Size(271, 14);
-            this.TBValidacion14.TabIndex = 42;
-            this.TBValidacion14.Text = "El apellido no puede ser unicamente caracteres especiales";
-            this.TBValidacion14.Visible = false;
-            // 
             // AltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -576,6 +577,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AltaCliente";
             this.Text = "AltaCliente";
+            this.Load += new System.EventHandler(this.AltaCliente_Load);
             this.PContAltaCl.ResumeLayout(false);
             this.PContAltaCl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaCl)).EndInit();

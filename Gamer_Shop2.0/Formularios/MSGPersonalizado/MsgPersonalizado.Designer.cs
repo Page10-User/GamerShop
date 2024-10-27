@@ -177,7 +177,7 @@
             this.BSalir.TabIndex = 11;
             this.BSalir.TextColor = System.Drawing.Color.White;
             this.BSalir.UseVisualStyleBackColor = false;
-            this.BSalir.Click += new System.EventHandler(this.BSalir_Click);
+            this.BSalir.Click += new System.EventHandler(this.BAceptarOSalir_Click);
             // 
             // BAceptar
             // 
@@ -199,7 +199,7 @@
             this.BAceptar.Text = "Aceptar";
             this.BAceptar.TextColor = System.Drawing.Color.White;
             this.BAceptar.UseVisualStyleBackColor = false;
-            this.BAceptar.Click += new System.EventHandler(this.BAceptar_Click);
+            this.BAceptar.Click += new System.EventHandler(this.BAceptarOSalir_Click);
             // 
             // MsgPersonalizado
             // 

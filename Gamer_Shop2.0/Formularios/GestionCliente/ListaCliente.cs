@@ -2,14 +2,8 @@
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionCliente
@@ -25,8 +19,6 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth);
-            SubscrirseEventos();  // Añade un relleno para el borde redondeado
-            
         }
 
         private void PBuscadorListaCl_Paint(object sender, PaintEventArgs e)
@@ -56,7 +48,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             }
         }
 
-        private void ListaProductos_Load(object sender, EventArgs e)
+        private void ListaCLiente_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
@@ -159,7 +151,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                     PanelContainer.Controls.Add(ModificarCl);
                     ModificarCl.PanelContainer = PanelContainer;
                     ModificarCl.Show();
-                    this.Close();
+                    this.Dispose();
                 }
                 catch (Exception)
                 {
@@ -172,6 +164,18 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         private void BAltaCliente_Click(object sender, EventArgs e)
         {
             // Crear una nueva instancia de Alta CLiente
+            InstanciarYMostrarAltaCliente();
+        }
+        //--------------------------------------------------------InstanciarYMostrarAltaCliente----------------------------------------------------\\
+        private void InstanciarYMostrarAltaCliente()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+            
             AltaCliente AltaCl = new AltaCliente(true);
             AltaCl.TopLevel = false;
 
@@ -180,13 +184,29 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             PanelContainer.Controls.Add(AltaCl);
             AltaCl.PanelContainer = PanelContainer;
             AltaCl.Show();
-            this.Close();
+            this.Dispose();
         }
-        private void SubscrirseEventos()
+
+        public new void Dispose()
         {
-            this.Load += new EventHandler(ListaProductos_Load);
-            PContListaCl.Paint += new PaintEventHandler(PContListaCl_Paint);
-            DGListaCliente.CellClick += DGListaCliente_CellClick;
+            // Desuscribirse de eventos
+            //<-AltaProducto-Events->\\
+            this.Load -= ListaCLiente_Load;
+
+            //<-Paint-Events->\\
+            PContListaCl.Paint -= PContListaCl_Paint;
+
+            //<-Click-Events->\\
+            BAltaCliente.Click -= BAltaCliente_Click;
+
+            //<-TextBox-Events->\\
+            //...\\
+
+            //<-CellClick-Events-\\
+            DGListaCliente.CellClick -= DGListaCliente_CellClick;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

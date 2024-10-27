@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Backups));
             this.PContInfBackups = new System.Windows.Forms.Panel();
+            this.BBackupPersonalizado = new Gamer_Shop2._0.RJButton();
             this.CBGestionCompra = new System.Windows.Forms.CheckBox();
             this.CBGestionProveedor = new System.Windows.Forms.CheckBox();
             this.CBGestionUsuario = new System.Windows.Forms.CheckBox();
             this.CBGestionProducto = new System.Windows.Forms.CheckBox();
             this.CBGestionVenta = new System.Windows.Forms.CheckBox();
+            this.BBackupCompleto = new Gamer_Shop2._0.RJButton();
             this.PRallaDivisora = new System.Windows.Forms.Panel();
             this.LRBP = new System.Windows.Forms.Label();
             this.LRBC = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LTituloBackups = new System.Windows.Forms.Label();
-            this.BBackupPersonalizado = new Gamer_Shop2._0.RJButton();
-            this.BBackupCompleto = new Gamer_Shop2._0.RJButton();
             this.PContInfBackups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +62,27 @@
             this.PContInfBackups.Name = "PContInfBackups";
             this.PContInfBackups.Size = new System.Drawing.Size(611, 318);
             this.PContInfBackups.TabIndex = 5;
+            this.PContInfBackups.Paint += new System.Windows.Forms.PaintEventHandler(this.PContInfBackups_Paint);
+            // 
+            // BBackupPersonalizado
+            // 
+            this.BBackupPersonalizado.BackColor = System.Drawing.Color.Black;
+            this.BBackupPersonalizado.BackgroundColor = System.Drawing.Color.Black;
+            this.BBackupPersonalizado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BBackupPersonalizado.BorderRadius = 15;
+            this.BBackupPersonalizado.BorderSize = 2;
+            this.BBackupPersonalizado.FlatAppearance.BorderSize = 0;
+            this.BBackupPersonalizado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBackupPersonalizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBackupPersonalizado.ForeColor = System.Drawing.Color.White;
+            this.BBackupPersonalizado.Location = new System.Drawing.Point(368, 237);
+            this.BBackupPersonalizado.Name = "BBackupPersonalizado";
+            this.BBackupPersonalizado.Size = new System.Drawing.Size(159, 37);
+            this.BBackupPersonalizado.TabIndex = 9;
+            this.BBackupPersonalizado.Text = "Personalizado";
+            this.BBackupPersonalizado.TextColor = System.Drawing.Color.White;
+            this.BBackupPersonalizado.UseVisualStyleBackColor = false;
+            this.BBackupPersonalizado.Click += new System.EventHandler(this.BBackupPersonalizado_Click);
             // 
             // CBGestionCompra
             // 
@@ -125,6 +146,26 @@
             this.CBGestionVenta.Text = "Gestion Venta";
             this.CBGestionVenta.UseVisualStyleBackColor = true;
             // 
+            // BBackupCompleto
+            // 
+            this.BBackupCompleto.BackColor = System.Drawing.Color.Black;
+            this.BBackupCompleto.BackgroundColor = System.Drawing.Color.Black;
+            this.BBackupCompleto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BBackupCompleto.BorderRadius = 15;
+            this.BBackupCompleto.BorderSize = 2;
+            this.BBackupCompleto.FlatAppearance.BorderSize = 0;
+            this.BBackupCompleto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBackupCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBackupCompleto.ForeColor = System.Drawing.Color.White;
+            this.BBackupCompleto.Location = new System.Drawing.Point(412, 19);
+            this.BBackupCompleto.Name = "BBackupCompleto";
+            this.BBackupCompleto.Size = new System.Drawing.Size(115, 40);
+            this.BBackupCompleto.TabIndex = 3;
+            this.BBackupCompleto.Text = "Completo";
+            this.BBackupCompleto.TextColor = System.Drawing.Color.White;
+            this.BBackupCompleto.UseVisualStyleBackColor = false;
+            this.BBackupCompleto.Click += new System.EventHandler(this.BBackupCompleto_Click);
+            // 
             // PRallaDivisora
             // 
             this.PRallaDivisora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -181,46 +222,6 @@
             this.LTituloBackups.Text = "Backups";
             this.LTituloBackups.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // BBackupPersonalizado
-            // 
-            this.BBackupPersonalizado.BackColor = System.Drawing.Color.Black;
-            this.BBackupPersonalizado.BackgroundColor = System.Drawing.Color.Black;
-            this.BBackupPersonalizado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BBackupPersonalizado.BorderRadius = 15;
-            this.BBackupPersonalizado.BorderSize = 2;
-            this.BBackupPersonalizado.FlatAppearance.BorderSize = 0;
-            this.BBackupPersonalizado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBackupPersonalizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BBackupPersonalizado.ForeColor = System.Drawing.Color.White;
-            this.BBackupPersonalizado.Location = new System.Drawing.Point(368, 237);
-            this.BBackupPersonalizado.Name = "BBackupPersonalizado";
-            this.BBackupPersonalizado.Size = new System.Drawing.Size(159, 37);
-            this.BBackupPersonalizado.TabIndex = 9;
-            this.BBackupPersonalizado.Text = "Personalizado";
-            this.BBackupPersonalizado.TextColor = System.Drawing.Color.White;
-            this.BBackupPersonalizado.UseVisualStyleBackColor = false;
-            this.BBackupPersonalizado.Click += new System.EventHandler(this.BBackupPersonalizado_Click);
-            // 
-            // BBackupCompleto
-            // 
-            this.BBackupCompleto.BackColor = System.Drawing.Color.Black;
-            this.BBackupCompleto.BackgroundColor = System.Drawing.Color.Black;
-            this.BBackupCompleto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BBackupCompleto.BorderRadius = 15;
-            this.BBackupCompleto.BorderSize = 2;
-            this.BBackupCompleto.FlatAppearance.BorderSize = 0;
-            this.BBackupCompleto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBackupCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BBackupCompleto.ForeColor = System.Drawing.Color.White;
-            this.BBackupCompleto.Location = new System.Drawing.Point(412, 19);
-            this.BBackupCompleto.Name = "BBackupCompleto";
-            this.BBackupCompleto.Size = new System.Drawing.Size(115, 40);
-            this.BBackupCompleto.TabIndex = 3;
-            this.BBackupCompleto.Text = "Completo";
-            this.BBackupCompleto.TextColor = System.Drawing.Color.White;
-            this.BBackupCompleto.UseVisualStyleBackColor = false;
-            this.BBackupCompleto.Click += new System.EventHandler(this.BBackupCompleto_Click);
-            // 
             // Backups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +237,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Backups";
             this.Text = "Backups";
+            this.Load += new System.EventHandler(this.Backups_Load);
             this.PContInfBackups.ResumeLayout(false);
             this.PContInfBackups.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

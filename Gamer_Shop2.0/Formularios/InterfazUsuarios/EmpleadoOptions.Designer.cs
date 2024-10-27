@@ -37,6 +37,7 @@
             this.BOptionsEmpleado = new Gamer_Shop2._0.RJButton();
             this.BCatalogo = new System.Windows.Forms.Button();
             this.PPersonalOptions = new System.Windows.Forms.Panel();
+            this.BHouse = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgUs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,12 +172,36 @@
             this.PPersonalOptions.Size = new System.Drawing.Size(146, 113);
             this.PPersonalOptions.TabIndex = 8;
             // 
+            // BHouse
+            // 
+            this.BHouse.BackColor = System.Drawing.Color.Transparent;
+            this.BHouse.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BHouse.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BHouse.BackgroundImage")));
+            this.BHouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BHouse.BorderColor = System.Drawing.Color.Transparent;
+            this.BHouse.BorderRadius = 0;
+            this.BHouse.BorderSize = 0;
+            this.BHouse.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BHouse.FlatAppearance.BorderSize = 0;
+            this.BHouse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BHouse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BHouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BHouse.ForeColor = System.Drawing.Color.White;
+            this.BHouse.Location = new System.Drawing.Point(171, 496);
+            this.BHouse.Name = "BHouse";
+            this.BHouse.Size = new System.Drawing.Size(25, 25);
+            this.BHouse.TabIndex = 9;
+            this.BHouse.TextColor = System.Drawing.Color.White;
+            this.BHouse.UseVisualStyleBackColor = false;
+            this.BHouse.Click += new System.EventHandler(this.BHouse_Click);
+            // 
             // EmpleadoOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(198, 524);
+            this.ClientSize = new System.Drawing.Size(198, 523);
+            this.Controls.Add(this.BHouse);
             this.Controls.Add(this.PPersonalOptions);
             this.Controls.Add(this.BCatalogo);
             this.Controls.Add(this.BOptionsEmpleado);
@@ -204,5 +229,6 @@
         private RJButton BOptionsEmpleado;
         private System.Windows.Forms.Button BCatalogo;
         private System.Windows.Forms.Panel PPersonalOptions;
+        private RJButton BHouse;
     }
 }

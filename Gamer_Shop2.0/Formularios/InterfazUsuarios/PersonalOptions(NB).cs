@@ -1,15 +1,9 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+﻿using Gamer_Shop2._0.Formularios.GestionBackups;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
@@ -23,6 +17,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
         public Panel PanelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
         public Form FondoOscuroCat {  get; set; }
+        public UserOptionsBase Menu { get; set; }
         public PersonalOptions_NB_()
         {
             InitializeComponent();
@@ -75,20 +70,24 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             DialogResult result = mensaje.ShowDialog();
             if (result == DialogResult.Yes)
             {
-                //Cerramos el mensaje que está en Hide
-                mensaje.Close();
+                //Cerramos el mensaje que está en Hide.
+                mensaje.Dispose();
 
-                CloseFondoCatalogo();
-                Forminicio.Show();
-                Mainform.BContracMenu_Click(sender, e);
-                this.Close();
-                Mainform.Hide();
+                //Cerrar sesion
+                CerrarSesion(sender, e);
+
+                //Mostramos el mensaje de éxito
                 mensaje = new MsgPersonalizado("Sesion cerrada con éxito", "Sesion Finalizada", "Informacion", null);
                 mensaje.ShowDialog();
             }
             else
             {
-                mensaje.Close();
+                mensaje.Dispose();
+
+                Mainform.TopMost = true;
+
+                //Cerrar el menú tras elegír una opción
+                Mainform.BContracMenu_Click(sender, e);
             }
         }
 
@@ -100,26 +99,73 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             //Cerramos el fondoOscuroCatalogo en caso de existir.
             CloseFondoCatalogo();
 
-            // Crear una nueva instancia de ListaProductos
-            Usuario user = new Usuario();
-            EditarPerfil editarPerfil = new EditarPerfil(user);
-            editarPerfil.TopLevel = false;
-
-            // Limpiar el panel actual y añadir el nuevo formulario
-            PanelContainer.Controls.Clear();
-            PanelContainer.Controls.Add(editarPerfil);
-            //editarPerfil.PanelContainer = PanelContainer;
-            editarPerfil.Show();
-            this.Close();
+            // Crear una nueva instancia de EditarPerfil
+            InstanciarYMostrarEditarPerfil();
         }
+        //------------------------------------------------------------------------------------InstanciarEditarPerfil-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarEditarPerfil()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is EditarPerfil)
+            {
+                return;
+            }
+            else
+            {
+                if (control is Form)
+                {
+                    //Liberamos recursos
+                    control.Dispose();
+                }
 
+                // Crear una nueva instancia de EditarPerfil
+                Usuario user = new Usuario();
+                EditarPerfil editarPerfil = new EditarPerfil(user);
+                editarPerfil.TopLevel = false;
+
+                // Limpiar el panel actual y añadir el nuevo formulario
+                PanelContainer.Controls.Clear();
+                PanelContainer.Controls.Add(editarPerfil);
+                //editarPerfil.PanelContainer = PanelContainer;
+                Mainform.TopMost = true; // Volvemos a aplicar el TopMost del Mainform.
+                editarPerfil.Show();
+                this.Dispose();
+            }
+        }
+        //------------------------------------------------------------------------------------Cerrar Sesión-------------------------------------------------------------------------------\\
+        private void CerrarSesion(Object sender, EventArgs e)
+        {
+            //Cerramos el fondo del catálogo en caso de existir.
+            CloseFondoCatalogo();
+
+            //Mostramos el form de inicio
+            Forminicio.Show();
+
+            //Ejecutamos el MenuContract
+            Mainform.BContracMenu_Click(sender, e);
+
+            //Liberamos memoria
+            this.Dispose();
+            Menu.Dispose();
+            Mainform.Dispose();
+        }
         private void CloseFondoCatalogo()
         {
             if(FondoOscuroCat is Form)
             {
-                FondoOscuroCat.Close();
+                FondoOscuroCat.Dispose();
                 Mainform.FondoOscuroCatalogo = null;
             }
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            BMiPerfil.Click -= BMiPerfil_Click;
+            BCerrarSesion.Click -= BCerrarSesion_Click;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

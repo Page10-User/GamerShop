@@ -1,14 +1,8 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+﻿using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProveedor
@@ -23,8 +17,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(ListaProveedor_Load);
-            PContListaProveedor.Paint += new PaintEventHandler(PContListaProveedor_Paint);
         }
 
         private void PBuscadorListaProveedor_Paint(object sender, PaintEventArgs e)
@@ -143,12 +135,12 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 DialogResult result = mensaje.ShowDialog();
                 if (result == DialogResult.Yes)
                 {
-                    mensaje.Close();
+                    mensaje.Dispose();
                     DGListaProveedor.Rows.RemoveAt(e.RowIndex);
                 }
                 else
                 {
-                    mensaje.Close();
+                    mensaje.Dispose();
                 }
             }
         }
@@ -156,6 +148,18 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         private void BShowRegistrarProveedor_Click(object sender, EventArgs e)
         {
             // Mostrar form
+            InstanciarYMostrarAltaProveedor();
+        }
+        //--------------------------------------------------------InstanciarYMostrarAltaProveedor----------------------------------------------------\\
+        private void InstanciarYMostrarAltaProveedor()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+
             AltaProveedor formAltaProovedor = new AltaProveedor();
             formAltaProovedor.TopLevel = false;
             formAltaProovedor.PanelContainer = PanelContainer;
@@ -165,6 +169,28 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             PanelContainer.BringToFront();
 
             formAltaProovedor.Show();
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            //<-AltaProducto-Events->\\
+            this.Load -= ListaProveedor_Load;
+
+            //<-Paint-Events->\\
+            PContListaProveedor.Paint -= PContListaProveedor_Paint;
+
+            //<-Click-Events->\\
+            BShowRegistrarProveedor.Click -= BShowRegistrarProveedor_Click;
+
+            //<-TextBox-Events->\\
+            //...\\
+
+            //<-CellClick-Events-\\
+            DGListaProveedor.CellClick -= DGListaProveedor_CellClick;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

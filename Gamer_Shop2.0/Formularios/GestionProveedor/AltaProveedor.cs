@@ -1,20 +1,11 @@
-﻿using Gamer_Shop2._0.Formularios.Gestion_Compra;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using Gamer_Shop2._0.RJControls;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gamer_Shop2._0.Formularios.GestionProveedor
 {
@@ -29,8 +20,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(AltaProveedor_Load);
-            PContInfoAltaProveedor.Paint += new PaintEventHandler(PContInfoAltaProveedor_Paint);
         }
 
         private void PContInfoAltaProveedor_Paint(object sender, PaintEventArgs e)
@@ -104,6 +93,18 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         private void BListaProveedor_Click(object sender, EventArgs e)
         {
             // Mostrar form
+            InstanciarYMostrarListaProveedor();
+        }
+        //--------------------------------------------------------InstanciarYMostrarListaProveedor----------------------------------------------------\\
+        private void InstanciarYMostrarListaProveedor()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+
             ListaProveedor formListProveedor = new ListaProveedor();
             formListProveedor.TopLevel = false;
             formListProveedor.PanelContainer = PanelContainer;
@@ -485,6 +486,51 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             TBValidacion15.Visible = false;
             TBValidacion16.Visible = false;
             TBValidacion17.Visible = false;
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            //<-AltaProducto-Events->\\
+            this.Load -= AltaProveedor_Load;
+
+            //<-Paint-Events->\\
+            PContInfoAltaProveedor.Paint -= PContInfoAltaProveedor_Paint;
+
+            //<-Click-Events->\\
+            BRegistrarProveedor.Click -= BRegistrarProveedor_Click;
+            BListaProveedor.Click -= BListaProveedor_Click;
+
+            //<-TextBox-Events->\\
+            //TBRazon
+            TBRazon.KeyPress -= TBRazon_KeyPress;
+            TBRazon.Validating -= TBRazon_Validating;
+            TBRazon._TextChanged -= TextBox_TextChanged;
+            //TBRepresentante
+            TBRepresentante.KeyPress -= TBRepresentante_KeyPress;
+            TBRepresentante.Validating -= TBRepresentante_Validating;
+            TBRepresentante._TextChanged -= TextBox_TextChanged;
+            //TBTelefono
+            TBContacto.KeyPress -= TBContacto_KeyPress;
+            TBContacto.Validating -= TBContacto_Validating;
+            TBContacto.Enter -= TBContacto_Enter;
+            TBContacto._TextChanged -= TextBox_TextChanged;
+            //TBCorreo
+            TBCorreo.KeyPress -= TBCorreo_KeyPress;
+            TBCorreo.Validating -= TBCorreo_Validating;
+            TBCorreo._TextChanged -= TextBox_TextChanged;
+            //TBDirección
+            TBDireccion.KeyPress -= TBDireccion_KeyPress;
+            TBDireccion.Validating -= TBDireccion_Validating;
+            TBDireccion._TextChanged -= TextBox_TextChanged;
+            //CBCategoria
+            CBCategoriaPrProveedor.Validating -= CBCategoriaPrProveedor_Validating;
+
+            //<-CellClick-Events-\\
+            //...\\
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

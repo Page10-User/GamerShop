@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Gamer_Shop2._0.Formularios.BorderClasss;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.Inicio
@@ -22,21 +17,22 @@ namespace Gamer_Shop2._0.Formularios.Inicio
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(InicioDetalle_Load);
         }
 
         private void InicioDetalle_Load(object sender, EventArgs e)
         {
-            //Form redondeado
-            this.Region = CreateRoundedRegion();
-
-            //Mostrando fecha actual.
+            // Mostrar la fecha actual inmediatamente
             LFActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
-            //Mostrando el horario en tiempo real.
+            // Mostrar la hora actual inmediatamente
+            LReloj.Text = DateTime.Now.ToString("HH:mm:ss");
+
+            // Iniciar el temporizador para actualizar la hora cada segundo
             THorario.Interval = 1000;
-            THorario.Tick += THorario_Tick;
             THorario.Start();
+
+            // Form redondeado
+            this.Region = CreateRoundedRegion();
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -79,6 +75,16 @@ namespace Gamer_Shop2._0.Formularios.Inicio
         {
             // Actualizar el texto del Label con la hora actual
             LReloj.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= InicioDetalle_Load;
+            THorario.Tick -= THorario_Tick;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

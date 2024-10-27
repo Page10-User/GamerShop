@@ -36,14 +36,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaCl = new System.Windows.Forms.Panel();
             this.DGListaCliente = new System.Windows.Forms.DataGridView();
+            this.CModificarCl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LTituloListaPr = new System.Windows.Forms.Label();
             this.PBImgListaPr = new System.Windows.Forms.PictureBox();
-            this.BDescargarCliente = new Gamer_Shop2._0.RJButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.BAltaCliente = new Gamer_Shop2._0.RJButton();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.CModificarCl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BAltaCliente = new Gamer_Shop2._0.RJButton();
+            this.BDescargarCliente = new Gamer_Shop2._0.RJButton();
             this.PContListaCl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).BeginInit();
@@ -69,6 +69,7 @@
             this.PContListaCl.Name = "PContListaCl";
             this.PContListaCl.Size = new System.Drawing.Size(437, 290);
             this.PContListaCl.TabIndex = 17;
+            this.PContListaCl.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaCl_Paint);
             // 
             // DGListaCliente
             // 
@@ -111,6 +112,12 @@
             this.DGListaCliente.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaCliente.Size = new System.Drawing.Size(433, 286);
             this.DGListaCliente.TabIndex = 0;
+            this.DGListaCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaCliente_CellClick);
+            // 
+            // CModificarCl
+            // 
+            this.CModificarCl.HeaderText = "Modificar";
+            this.CModificarCl.Name = "CModificarCl";
             // 
             // LTituloListaPr
             // 
@@ -135,25 +142,6 @@
             this.PBImgListaPr.TabIndex = 15;
             this.PBImgListaPr.TabStop = false;
             // 
-            // BDescargarCliente
-            // 
-            this.BDescargarCliente.BackColor = System.Drawing.Color.Black;
-            this.BDescargarCliente.BackgroundColor = System.Drawing.Color.Black;
-            this.BDescargarCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BDescargarCliente.BackgroundImage")));
-            this.BDescargarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BDescargarCliente.BorderColor = System.Drawing.Color.Lime;
-            this.BDescargarCliente.BorderRadius = 20;
-            this.BDescargarCliente.BorderSize = 1;
-            this.BDescargarCliente.FlatAppearance.BorderSize = 0;
-            this.BDescargarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BDescargarCliente.ForeColor = System.Drawing.Color.White;
-            this.BDescargarCliente.Location = new System.Drawing.Point(548, 110);
-            this.BDescargarCliente.Name = "BDescargarCliente";
-            this.BDescargarCliente.Size = new System.Drawing.Size(84, 76);
-            this.BDescargarCliente.TabIndex = 18;
-            this.BDescargarCliente.TextColor = System.Drawing.Color.White;
-            this.BDescargarCliente.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -165,26 +153,6 @@
             this.label2.Size = new System.Drawing.Size(77, 18);
             this.label2.TabIndex = 24;
             this.label2.Text = "Registrar";
-            // 
-            // BAltaCliente
-            // 
-            this.BAltaCliente.BackColor = System.Drawing.Color.Black;
-            this.BAltaCliente.BackgroundColor = System.Drawing.Color.Black;
-            this.BAltaCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BAltaCliente.BackgroundImage")));
-            this.BAltaCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BAltaCliente.BorderColor = System.Drawing.Color.Lime;
-            this.BAltaCliente.BorderRadius = 20;
-            this.BAltaCliente.BorderSize = 1;
-            this.BAltaCliente.FlatAppearance.BorderSize = 0;
-            this.BAltaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BAltaCliente.ForeColor = System.Drawing.Color.White;
-            this.BAltaCliente.Location = new System.Drawing.Point(548, 250);
-            this.BAltaCliente.Name = "BAltaCliente";
-            this.BAltaCliente.Size = new System.Drawing.Size(84, 76);
-            this.BAltaCliente.TabIndex = 23;
-            this.BAltaCliente.TextColor = System.Drawing.Color.White;
-            this.BAltaCliente.UseVisualStyleBackColor = false;
-            this.BAltaCliente.Click += new System.EventHandler(this.BAltaCliente_Click);
             // 
             // BBuscador
             // 
@@ -229,10 +197,44 @@
             this.TBFiltro.Texts = "";
             this.TBFiltro.UnderlinedStyle = false;
             // 
-            // CModificarCl
+            // BAltaCliente
             // 
-            this.CModificarCl.HeaderText = "Modificar";
-            this.CModificarCl.Name = "CModificarCl";
+            this.BAltaCliente.BackColor = System.Drawing.Color.Black;
+            this.BAltaCliente.BackgroundColor = System.Drawing.Color.Black;
+            this.BAltaCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BAltaCliente.BackgroundImage")));
+            this.BAltaCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BAltaCliente.BorderColor = System.Drawing.Color.Lime;
+            this.BAltaCliente.BorderRadius = 20;
+            this.BAltaCliente.BorderSize = 1;
+            this.BAltaCliente.FlatAppearance.BorderSize = 0;
+            this.BAltaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BAltaCliente.ForeColor = System.Drawing.Color.White;
+            this.BAltaCliente.Location = new System.Drawing.Point(548, 250);
+            this.BAltaCliente.Name = "BAltaCliente";
+            this.BAltaCliente.Size = new System.Drawing.Size(84, 76);
+            this.BAltaCliente.TabIndex = 23;
+            this.BAltaCliente.TextColor = System.Drawing.Color.White;
+            this.BAltaCliente.UseVisualStyleBackColor = false;
+            this.BAltaCliente.Click += new System.EventHandler(this.BAltaCliente_Click);
+            // 
+            // BDescargarCliente
+            // 
+            this.BDescargarCliente.BackColor = System.Drawing.Color.Black;
+            this.BDescargarCliente.BackgroundColor = System.Drawing.Color.Black;
+            this.BDescargarCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BDescargarCliente.BackgroundImage")));
+            this.BDescargarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BDescargarCliente.BorderColor = System.Drawing.Color.Lime;
+            this.BDescargarCliente.BorderRadius = 20;
+            this.BDescargarCliente.BorderSize = 1;
+            this.BDescargarCliente.FlatAppearance.BorderSize = 0;
+            this.BDescargarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BDescargarCliente.ForeColor = System.Drawing.Color.White;
+            this.BDescargarCliente.Location = new System.Drawing.Point(548, 110);
+            this.BDescargarCliente.Name = "BDescargarCliente";
+            this.BDescargarCliente.Size = new System.Drawing.Size(84, 76);
+            this.BDescargarCliente.TabIndex = 18;
+            this.BDescargarCliente.TextColor = System.Drawing.Color.White;
+            this.BDescargarCliente.UseVisualStyleBackColor = false;
             // 
             // ListaCliente
             // 
@@ -255,6 +257,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListaCliente";
             this.Text = "ListaCliente";
+            this.Load += new System.EventHandler(this.ListaCLiente_Load);
             this.PContListaCl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).EndInit();

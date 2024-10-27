@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Gamer_Shop2._0.Formularios.BorderClasss;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -21,14 +16,10 @@ namespace Gamer_Shop2._0.Formularios.Informe
         public Reporte()
         {
             InitializeComponent();
-            this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(Informe_Load);
-            PTituloReport.Paint += new PaintEventHandler(PTituloReport_Paint);
             CrearGrafico();
             ConfigurarGraficoPie();
             ConfigurarGraficoPieCC();
         }
-
         private void PTituloReport_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
@@ -55,22 +46,37 @@ namespace Gamer_Shop2._0.Formularios.Informe
                 }
             }
         }
+
+        private void Panel_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 1;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
         private void BordePanel(Panel panel, Color borderColor, int borderWidth)
         {
-            // Asocia el evento Paint solo si no está ya asociado
-            panel.Paint += (sender, e) =>
-            {
-                // Dibujar el borde en el panel
-                Graphics g = e.Graphics;
-                Rectangle rect = new Rectangle(0, 0, panel.Width - 1, panel.Height - 1);
-                using (Pen pen = new Pen(borderColor, borderWidth))
-                {
-                    g.DrawRectangle(pen, rect);
-                }
-            };
-
-            // Forzar que el panel se repinte para que se vea el borde
-            panel.Invalidate();
+            panel.Paint += Panel_Paint;
+            panel.Invalidate(); // Forzar repintado
         }
 
         private void Informe_Load(object sender, EventArgs e)
@@ -124,13 +130,14 @@ namespace Gamer_Shop2._0.Formularios.Informe
                 e.Graphics.DrawPath(pen, path);
             }
         }
+
         private void CrearGrafico()
         {
             CGraficoVent.Series.Clear();
             Series series = CGraficoVent.Series.Add("Ventas");
             series.ChartType = SeriesChartType.Column;
 
-            // Agregar los datos (puedes ajustarlos manualmente)
+            // Agregar los datos
             string[] dias = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", "Domingo" };
             double[] valores = { 300, 225, 0.1, 20, 120, 100, 200 };
 
@@ -208,8 +215,28 @@ namespace Gamer_Shop2._0.Formularios.Informe
             }
 
             // Cambiar el estilo de las etiquetas
-            series["PieLabelStyle"] = "Disabled"; // No mostrar etiquetas
+            series["PieLabelStyle"] = "Disabled";
             series["CollectedLabel"] = "Otros";
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+
+            // Liberar los recursos
+            base.Dispose();
+        }
+
+        private void BRefresh_Click(object sender, EventArgs e)
+        {
+            Reporte formReporte = new Reporte();
+            formReporte.TopLevel = false;
+            formReporte.PanelContainer = PanelContainer;
+            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+            PanelContainer.Controls.Add(formReporte);
+            PanelContainer.BringToFront();
+            formReporte.Show();
+            this.Dispose();
         }
     }
 }

@@ -1,13 +1,7 @@
 ﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionBackups
@@ -21,8 +15,6 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(Backups_Load);
-            PContInfBackups.Paint += new PaintEventHandler(PContInfBackups_Paint);
         }
 
         private void PContInfBackups_Paint(object sender, PaintEventArgs e)
@@ -98,13 +90,13 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
             DialogResult result = mensaje.ShowDialog();
             if (result == DialogResult.Yes)
             {
-                mensaje.Close(); // Cerramos el anterior mensaje que está en "Hide".
+                mensaje.Dispose(); // Cerramos el anterior mensaje que está en "Hide".
                 mensaje = new MsgPersonalizado("'Backup Completo' realizado con éxito!", "Backup Exitoso", "Informacion", null);
                 mensaje.ShowDialog();
             }   
             else
             {
-                mensaje.Close();
+                mensaje.Dispose();
             }
         }
 
@@ -122,13 +114,13 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
                     DialogResult result = mensaje.ShowDialog();
                     if (result == DialogResult.Yes)
                     {
-                        mensaje.Close();
+                        mensaje.Dispose();
                         mensaje = new MsgPersonalizado("'Backup Personalizado' realizado con éxito!", "Backup Personalizado", "Informacion", null);
                         mensaje.ShowDialog();
                     }
                     else
                     {
-                        mensaje.Close();
+                        mensaje.Dispose();
                     }
                 }
             }
@@ -137,6 +129,18 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
                 MsgPersonalizado mensaje = new MsgPersonalizado("Seleccione una opción para Backup Personalizado por favor", "Error", "Error",null);
                 mensaje.ShowDialog();
             }
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= Backups_Load;
+            PContInfBackups.Paint -= PContInfBackups_Paint;
+            BBackupCompleto.Click -= BBackupCompleto_Click;
+            BBackupPersonalizado.Click -= BBackupPersonalizado_Click;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

@@ -133,6 +133,43 @@
             this.PContAltaUs.Name = "PContAltaUs";
             this.PContAltaUs.Size = new System.Drawing.Size(369, 299);
             this.PContAltaUs.TabIndex = 16;
+            this.PContAltaUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PContAltaUs_Paint);
+            // 
+            // TBValidacion19
+            // 
+            this.TBValidacion19.AutoSize = true;
+            this.TBValidacion19.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion19.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion19.Location = new System.Drawing.Point(86, 90);
+            this.TBValidacion19.Name = "TBValidacion19";
+            this.TBValidacion19.Size = new System.Drawing.Size(230, 14);
+            this.TBValidacion19.TabIndex = 62;
+            this.TBValidacion19.Text = "El apellido no debe ser solo caracteres especiales";
+            this.TBValidacion19.Visible = false;
+            // 
+            // TBValidacion17
+            // 
+            this.TBValidacion17.AutoSize = true;
+            this.TBValidacion17.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion17.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion17.Location = new System.Drawing.Point(57, 137);
+            this.TBValidacion17.Name = "TBValidacion17";
+            this.TBValidacion17.Size = new System.Drawing.Size(260, 14);
+            this.TBValidacion17.TabIndex = 60;
+            this.TBValidacion17.Text = "El cuil debe tener una longitud exacta de 11 caracteres";
+            this.TBValidacion17.Visible = false;
+            // 
+            // TBValidacion18
+            // 
+            this.TBValidacion18.AutoSize = true;
+            this.TBValidacion18.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion18.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion18.Location = new System.Drawing.Point(88, 45);
+            this.TBValidacion18.Name = "TBValidacion18";
+            this.TBValidacion18.Size = new System.Drawing.Size(229, 14);
+            this.TBValidacion18.TabIndex = 61;
+            this.TBValidacion18.Text = "El nombre no debe ser solo caracteres especiales";
+            this.TBValidacion18.Visible = false;
             // 
             // TBValidacion19
             // 
@@ -661,6 +698,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AltaUsuario";
             this.Text = "AltaUsuario";
+            this.Load += new System.EventHandler(this.AltaUsuario_Load);
             this.PContAltaUs.ResumeLayout(false);
             this.PContAltaUs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaUs)).EndInit();

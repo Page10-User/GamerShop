@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gamer_Shop2._0.Datos;
-using Gamer_Shop2._0.Excepciones;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Gamer_Shop2._0.Negocio
 {
@@ -20,9 +13,9 @@ namespace Gamer_Shop2._0.Negocio
 
             Cliente nuevoCliente = new Cliente()
             {
+                DNI = dni,
                 Nombre = nombre,
                 Apellido = apellido,
-                DNI = dni,
                 Teléfono = telefono,
                 Correo = email
             };
@@ -49,10 +42,11 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void NModificarCliente(string nombre, string apellido, string telefono, string email)
+        public void NModificarCliente(string dni, string nombre, string apellido, string telefono, string email)
         {
             Cliente Cliente = new Cliente()
             {
+                DNI = dni,
                 Nombre = nombre,
                 Apellido = apellido,
                 Teléfono = telefono,

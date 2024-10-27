@@ -1,18 +1,11 @@
-﻿using Gamer_Shop2._0.Formularios.GestionCliente;
+﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using Gamer_Shop2._0.RJControls;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 {
@@ -28,9 +21,6 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-            this.Load += new EventHandler(EditarPerfil_Load);
-            PContAltaCompra.Paint += new PaintEventHandler(PContAltaCompra_Paint);
-            PListaPrCompra.Paint += new PaintEventHandler(PListaPrCompra_Paint);
         }
 
         private void PContAltaCompra_Paint(object sender, PaintEventArgs e)
@@ -127,14 +117,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         private void BListaDeCompras_Click(object sender, EventArgs e)
         {
             // Mostrar form
-            ListaCompra formListCo = new ListaCompra();
-            formListCo.TopLevel = false;
-            formListCo.PanelContainer = PanelContainer;
-            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
-            PanelContainer.Controls.Add(formListCo);
-            PanelContainer.BringToFront();
-
-            formListCo.Show();
+            InstanciarYMostrarListaCompra();
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
@@ -200,11 +183,11 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                     if (result == DialogResult.Yes)
                     {
                         DGListaPrCompra.Rows.RemoveAt(e.RowIndex);
-                        mensaje.Close();
+                        mensaje.Dispose();
                     }
                     else
                     {
-                        mensaje.Close();
+                        mensaje.Dispose();
                     }
                 }
             }
@@ -281,6 +264,41 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                 }
             }
         }
+        //------------------------------------------------------------------------------------InstanciarListaCompra-------------------------------------------------------------------------------\\
+        private void InstanciarYMostrarListaCompra()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
 
+            // Mostrar form
+            ListaCompra formListCo = new ListaCompra();
+            formListCo.TopLevel = false;
+            formListCo.PanelContainer = PanelContainer;
+            formListCo.MainForm = MainForm;
+            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+            PanelContainer.Controls.Add(formListCo);
+            PanelContainer.BringToFront();
+
+            formListCo.Show();
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            this.Load -= EditarPerfil_Load;
+            CBProveedor.Validating -= CBCategoriaPr_Validating;
+            BElegirPrLista.Click -= BElegirPrLista_Click;
+            DGListaPrCompra.CellClick -= DGListaPr_CellClick;
+            PListaPrCompra.Paint -= PListaPrCompra_Paint;
+            BComprar.Click -= BComprar_Click;
+            BListaDeCompras.Click -= BListaDeCompras_Click;
+
+            // Liberar los recursos
+            base.Dispose();
+        }
     }
 }

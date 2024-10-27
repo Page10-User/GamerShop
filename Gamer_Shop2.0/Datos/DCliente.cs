@@ -1,22 +1,8 @@
-﻿using Gamer_Shop2._0.Datos;
-using Gamer_Shop2._0.Datos.DataSet1TableAdapters;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.SqlClient;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Gamer_Shop2._0.Excepciones;
 using System.Windows.Forms;
-using Gamer_Shop2._0.Formularios.GestionCliente;
-using System.DirectoryServices.ActiveDirectory;
-using Gamer_Shop2._0.Negocio;
-using Gamer_Shop2._0.Properties;
-using System.Net;
+
 
 namespace Gamer_Shop2._0.Datos
 {

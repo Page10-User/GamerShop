@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.MSGPersonalizado
@@ -27,16 +22,10 @@ namespace Gamer_Shop2._0.Formularios.MSGPersonalizado
             mostrarCantidadCamposIncompletos(camposVacios);
         }
 
-        private void BSalir_Click(object sender, EventArgs e)
+        private void BAceptarOSalir_Click(object sender, EventArgs e)
         {
             fondoBG.Close();
-            this.Close();
-        }
-
-        private void BAceptar_Click(object sender, EventArgs e)
-        {
-            fondoBG.Close();
-            this.Close();
+            this.Dispose();
         }
 
         private void mostrarIMGTipo(string tipoIMG)
@@ -130,6 +119,18 @@ namespace Gamer_Shop2._0.Formularios.MSGPersonalizado
             this.DialogResult = DialogResult.Yes;
             fondoBG.Close();
             this.Hide();
+        }
+
+        public new void Dispose()
+        {
+            // Desuscribirse de eventos
+            BRespuestaNO.Click -= BRespuestaNO_Click;
+            BRespuestaSI.Click -= BRespuestaSI_Click;
+            BAceptar.Click -= BAceptarOSalir_Click;
+            BSalir.Click -= BAceptarOSalir_Click;
+
+            // Liberar los recursos
+            base.Dispose();
         }
     }
 }

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reporte));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PTituloReport = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,6 +59,15 @@
             this.CGraficoPie5P = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BRefresh = new Gamer_Shop2._0.RJButton();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.CGraficoVent = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -71,14 +80,6 @@
             this.CGraficoPieCC = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.PTituloReport.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -90,14 +91,14 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoPie5P)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoVent)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoPieCC)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // PTituloReport
@@ -112,6 +113,7 @@
             this.PTituloReport.Name = "PTituloReport";
             this.PTituloReport.Size = new System.Drawing.Size(215, 215);
             this.PTituloReport.TabIndex = 0;
+            this.PTituloReport.Paint += new System.Windows.Forms.PaintEventHandler(this.PTituloReport_Paint);
             // 
             // panel8
             // 
@@ -122,6 +124,7 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(187, 45);
             this.panel8.TabIndex = 4;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // label7
             // 
@@ -164,6 +167,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(187, 45);
             this.panel7.TabIndex = 3;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // label5
             // 
@@ -206,6 +210,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(187, 44);
             this.panel6.TabIndex = 2;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // label3
             // 
@@ -272,6 +277,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(225, 169);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // radioButton7
             // 
@@ -317,21 +323,21 @@
             // CGraficoPie5P
             // 
             this.CGraficoPie5P.BackColor = System.Drawing.Color.Black;
-            chartArea4.BackColor = System.Drawing.Color.Black;
-            chartArea4.Name = "ChartArea1";
-            this.CGraficoPie5P.ChartAreas.Add(chartArea4);
-            legend3.BackColor = System.Drawing.Color.Black;
-            legend3.ForeColor = System.Drawing.Color.White;
-            legend3.Name = "Legend1";
-            this.CGraficoPie5P.Legends.Add(legend3);
+            chartArea1.BackColor = System.Drawing.Color.Black;
+            chartArea1.Name = "ChartArea1";
+            this.CGraficoPie5P.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Black;
+            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.Name = "Legend1";
+            this.CGraficoPie5P.Legends.Add(legend1);
             this.CGraficoPie5P.Location = new System.Drawing.Point(13, 31);
             this.CGraficoPie5P.Name = "CGraficoPie5P";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.LabelForeColor = System.Drawing.Color.Transparent;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.CGraficoPie5P.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.LabelForeColor = System.Drawing.Color.Transparent;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.CGraficoPie5P.Series.Add(series1);
             this.CGraficoPie5P.Size = new System.Drawing.Size(197, 120);
             this.CGraficoPie5P.TabIndex = 2;
             this.CGraficoPie5P.Text = "chart1";
@@ -350,12 +356,123 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel3.Controls.Add(this.BRefresh);
             this.panel3.Controls.Add(this.panel9);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Location = new System.Drawing.Point(233, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(208, 215);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
+            // 
+            // BRefresh
+            // 
+            this.BRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.BRefresh.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BRefresh.BackgroundImage")));
+            this.BRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BRefresh.BorderColor = System.Drawing.Color.Transparent;
+            this.BRefresh.BorderRadius = 1;
+            this.BRefresh.BorderSize = 0;
+            this.BRefresh.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BRefresh.FlatAppearance.BorderSize = 0;
+            this.BRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BRefresh.ForeColor = System.Drawing.Color.White;
+            this.BRefresh.Location = new System.Drawing.Point(172, 177);
+            this.BRefresh.Name = "BRefresh";
+            this.BRefresh.Size = new System.Drawing.Size(25, 25);
+            this.BRefresh.TabIndex = 9;
+            this.BRefresh.TextColor = System.Drawing.Color.White;
+            this.BRefresh.UseVisualStyleBackColor = false;
+            this.BRefresh.Click += new System.EventHandler(this.BRefresh_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label13);
+            this.panel9.Controls.Add(this.label14);
+            this.panel9.Controls.Add(this.pictureBox6);
+            this.panel9.Location = new System.Drawing.Point(10, 63);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(187, 44);
+            this.panel9.TabIndex = 8;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(46, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(14, 16);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "0";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(46, 7);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(128, 16);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Promedio de ventas";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox6.Location = new System.Drawing.Point(5, 4);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox6.TabIndex = 5;
+            this.pictureBox6.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.pictureBox5);
+            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(187, 44);
+            this.panel1.TabIndex = 7;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(46, 23);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(14, 16);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(46, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(127, 16);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Productos vendidos";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.Location = new System.Drawing.Point(5, 4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
             // 
             // panel4
             // 
@@ -369,28 +486,29 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(429, 191);
             this.panel4.TabIndex = 1;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // CGraficoVent
             // 
             this.CGraficoVent.BackColor = System.Drawing.Color.Black;
-            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea5.AxisX.LineColor = System.Drawing.Color.Lime;
-            chartArea5.AxisY.LabelStyle.Enabled = false;
-            chartArea5.BackColor = System.Drawing.Color.Black;
-            chartArea5.Name = "ChartArea1";
-            chartArea5.ShadowColor = System.Drawing.Color.Black;
-            this.CGraficoVent.ChartAreas.Add(chartArea5);
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisY.LabelStyle.Enabled = false;
+            chartArea2.BackColor = System.Drawing.Color.Black;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.ShadowColor = System.Drawing.Color.Black;
+            this.CGraficoVent.ChartAreas.Add(chartArea2);
             this.CGraficoVent.Location = new System.Drawing.Point(14, 42);
             this.CGraficoVent.Name = "CGraficoVent";
-            series5.BorderColor = System.Drawing.Color.Lime;
-            series5.ChartArea = "ChartArea1";
-            series5.Color = System.Drawing.Color.Black;
-            series5.LabelBackColor = System.Drawing.Color.White;
-            series5.LabelBorderColor = System.Drawing.Color.White;
-            series5.Name = "Series1";
-            series5.ShadowColor = System.Drawing.Color.Lime;
-            series5.YValuesPerPoint = 2;
-            this.CGraficoVent.Series.Add(series5);
+            series2.BorderColor = System.Drawing.Color.Lime;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Black;
+            series2.LabelBackColor = System.Drawing.Color.White;
+            series2.LabelBorderColor = System.Drawing.Color.White;
+            series2.Name = "Series1";
+            series2.ShadowColor = System.Drawing.Color.Lime;
+            series2.YValuesPerPoint = 2;
+            this.CGraficoVent.Series.Add(series2);
             this.CGraficoVent.Size = new System.Drawing.Size(398, 141);
             this.CGraficoVent.TabIndex = 0;
             this.CGraficoVent.Text = "chart1";
@@ -460,6 +578,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(225, 237);
             this.panel5.TabIndex = 2;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // radioButton4
             // 
@@ -490,21 +609,21 @@
             // CGraficoPieCC
             // 
             this.CGraficoPieCC.BackColor = System.Drawing.Color.Black;
-            chartArea6.BackColor = System.Drawing.Color.Black;
-            chartArea6.Name = "ChartArea1";
-            this.CGraficoPieCC.ChartAreas.Add(chartArea6);
-            legend4.BackColor = System.Drawing.Color.Black;
-            legend4.ForeColor = System.Drawing.Color.White;
-            legend4.Name = "Legend1";
-            this.CGraficoPieCC.Legends.Add(legend4);
+            chartArea3.BackColor = System.Drawing.Color.Black;
+            chartArea3.Name = "ChartArea1";
+            this.CGraficoPieCC.ChartAreas.Add(chartArea3);
+            legend2.BackColor = System.Drawing.Color.Black;
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.Name = "Legend1";
+            this.CGraficoPieCC.Legends.Add(legend2);
             this.CGraficoPieCC.Location = new System.Drawing.Point(13, 36);
             this.CGraficoPieCC.Name = "CGraficoPieCC";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series6.LabelForeColor = System.Drawing.Color.Transparent;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.CGraficoPieCC.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.LabelForeColor = System.Drawing.Color.Transparent;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.CGraficoPieCC.Series.Add(series3);
             this.CGraficoPieCC.Size = new System.Drawing.Size(197, 120);
             this.CGraficoPieCC.TabIndex = 3;
             this.CGraficoPieCC.Text = "chart1";
@@ -535,91 +654,7 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "Cantidad por Categoría";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Location = new System.Drawing.Point(10, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(187, 44);
-            this.panel1.TabIndex = 7;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(46, 23);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(14, 16);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "0";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(46, 7);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(127, 16);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Productos vendidos";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Location = new System.Drawing.Point(5, 4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox5.TabIndex = 5;
-            this.pictureBox5.TabStop = false;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label13);
-            this.panel9.Controls.Add(this.label14);
-            this.panel9.Controls.Add(this.pictureBox6);
-            this.panel9.Location = new System.Drawing.Point(10, 63);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(187, 44);
-            this.panel9.TabIndex = 8;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(46, 23);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(14, 16);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "0";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(46, 7);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(128, 16);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Promedio de ventas";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Location = new System.Drawing.Point(5, 4);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox6.TabIndex = 5;
-            this.pictureBox6.TabStop = false;
-            // 
-            // Informe
+            // Reporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -633,7 +668,7 @@
             this.Controls.Add(this.PTituloReport);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Informe";
+            this.Name = "Reporte";
             this.Text = "Informe";
             this.PTituloReport.ResumeLayout(false);
             this.PTituloReport.PerformLayout();
@@ -651,18 +686,18 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoPie5P)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoVent)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoPieCC)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -711,5 +746,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private RJButton BRefresh;
     }
 }

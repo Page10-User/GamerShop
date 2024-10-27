@@ -33,6 +33,7 @@
             this.LTituloModificarProveedor = new System.Windows.Forms.Label();
             this.PBImgModificarProveedor = new System.Windows.Forms.PictureBox();
             this.PContInfoModificarProveedor = new System.Windows.Forms.Panel();
+            this.TBValidacion17 = new System.Windows.Forms.Label();
             this.TBValidacion16 = new System.Windows.Forms.Label();
             this.TBValidacion15 = new System.Windows.Forms.Label();
             this.TBValidacion14 = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarProveedor = new Gamer_Shop2._0.RJButton();
-            this.TBValidacion17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarProveedor)).BeginInit();
             this.PContInfoModificarProveedor.SuspendLayout();
             this.SuspendLayout();
@@ -138,6 +138,19 @@
             this.PContInfoModificarProveedor.Name = "PContInfoModificarProveedor";
             this.PContInfoModificarProveedor.Size = new System.Drawing.Size(456, 327);
             this.PContInfoModificarProveedor.TabIndex = 35;
+            this.PContInfoModificarProveedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PContInfoModificarProveedor_Paint);
+            // 
+            // TBValidacion17
+            // 
+            this.TBValidacion17.AutoSize = true;
+            this.TBValidacion17.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion17.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion17.Location = new System.Drawing.Point(165, 99);
+            this.TBValidacion17.Name = "TBValidacion17";
+            this.TBValidacion17.Size = new System.Drawing.Size(270, 14);
+            this.TBValidacion17.TabIndex = 66;
+            this.TBValidacion17.Text = "El nombre no puede ser unicamente caracteres especiales";
+            this.TBValidacion17.Visible = false;
             // 
             // TBValidacion16
             // 
@@ -597,18 +610,6 @@
             this.BModificarProveedor.TextColor = System.Drawing.Color.White;
             this.BModificarProveedor.UseVisualStyleBackColor = false;
             this.BModificarProveedor.Click += new System.EventHandler(this.BModificarProveedor_Click);
-            // 
-            // TBValidacion17
-            // 
-            this.TBValidacion17.AutoSize = true;
-            this.TBValidacion17.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion17.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion17.Location = new System.Drawing.Point(165, 99);
-            this.TBValidacion17.Name = "TBValidacion17";
-            this.TBValidacion17.Size = new System.Drawing.Size(270, 14);
-            this.TBValidacion17.TabIndex = 66;
-            this.TBValidacion17.Text = "El nombre no puede ser unicamente caracteres especiales";
-            this.TBValidacion17.Visible = false;
             // 
             // ModificarProveedor
             // 

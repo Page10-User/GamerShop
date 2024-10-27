@@ -1,16 +1,10 @@
-﻿using Gamer_Shop2._0.Formularios.InterfazUsuarios;
+﻿using Gamer_Shop2._0.Formularios.BorderClasss;
+using Gamer_Shop2._0.Formularios.InterfazUsuarios;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -18,56 +12,37 @@ namespace Gamer_Shop2._0
 {
     public partial class Form1 : Form
     {
-        Bienvenida existeBienvenida {  get; set; }
-
-        Bienvenida bienvenida;
+        private int paintCounter = 0;
         public Form1()
         {
             InitializeComponent();
-            this.Paint += new PaintEventHandler(Form1_Paint);
-            this.PInicio.Paint += new PaintEventHandler(panel1_Paint);
         }
 
+        //--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--UI--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            Panel panel = sender as Panel;
-            if (panel != null)
+            if (sender == PInicio)
             {
-
-                GraphicsPath path = new GraphicsPath();
-                int borderRadius = 60;
-                path.StartFigure();
-                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
-                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
-                path.CloseFigure();
-
-                
-                panel.Region = new Region(path);
-
-                
-                using (Pen pen = new Pen(Color.Green, 5))
-                {
-                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    e.Graphics.DrawPath(pen, path);
-                }
+                BorderClass rounded = new BorderClass();
+                rounded.AplicarBordeRedondeado(PInicio, 30, e.Graphics, Color.Lime, 2);
             }
         }
-        private void Form1_Paint(object sender, PaintEventArgs e)
-        {
-            Color borderColor = Color.Green;
-            int borderWidth = 1;
-
-            using (Pen borderPen = new Pen(borderColor, borderWidth))
-            {
-                e.Graphics.DrawRectangle(borderPen, 0, 0, this.ClientSize.Width - borderWidth, this.ClientSize.Height - borderWidth);
-            }
-        }
+        //--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--UI--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\
 
         private void BSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro de que desea cerrar la aplicación?", "Cerrar Aplicación", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                mensaje.Dispose();
+                Application.Exit();
+            }
+            else
+            {
+                mensaje.Dispose();
+            }
         }
 
         // Validating
@@ -202,58 +177,50 @@ namespace Gamer_Shop2._0
         {
             if (TBUsuario.Texts != string.Empty && TBContrasena.Texts != string.Empty)
             {
-                MostrarOInstanciarBienvenidaCS();
-
                 if (TBUsuario.Texts == "EmpleadoUser" && TBContrasena.Texts == "12345678")
                 {
-                    EmpleadoOptions userOptions = new EmpleadoOptions();
-                    bienvenida.userOptions = userOptions;
-                    bienvenida.Show();
-                    bienvenida.Forminicio = this;
-                    this.Hide();
+                    CrearYMostrarBienvenida<EmpleadoOptions>();
                 }
-                else if (TBUsuario.Texts == "AdministradorUser" && TBContrasena.Texts == "12345678")
+                else if (TBUsuario.Texts == "sfsdfdsfsdsfds" && TBContrasena.Texts == "32423432")
                 {
-                    AdministradorOptions userOptions = new AdministradorOptions();
-                    bienvenida.userOptions = userOptions;
-                    bienvenida.Show();
-                    bienvenida.Forminicio = this;
-                    this.Hide();
+                    CrearYMostrarBienvenida<AdministradorOptions>();
                 }
                 else if (TBUsuario.Texts == "GerenteUser" && TBContrasena.Texts == "12345678")
                 {
-                    GerenteOptions userOptions = new GerenteOptions();
-                    bienvenida.userOptions = userOptions;
-                    bienvenida.Show();
-                    bienvenida.Forminicio = this;
-                    this.Hide();
+                    CrearYMostrarBienvenida<GerenteOptions>();
                 }
                 else
                 {
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Por favor, ingrese un usuario y contraseña válidos", "Error al Iniciar Sesion", "Informacion", null);
-                    mensaje.ShowDialog();
+                    MostrarMensajeError("Por favor, ingrese un usuario y contraseña válidos");
                 }
             }
             else
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Por favor, ingrese su usuario y contraseña", "Error al Iniciar Sesion", "Error", null);
-                mensaje.ShowDialog();
+                MostrarMensajeError("Por favor, ingrese su usuario y contraseña");
             }
         }
-        private void MostrarOInstanciarBienvenidaCS()
+
+        private void CrearYMostrarBienvenida<T>() where T : UserOptionsBase, new()
         {
-            if (existeBienvenida == null)
-            {
-                Bienvenida bienvenidaForm = new Bienvenida();
-                bienvenida = bienvenidaForm;
-            }
+            Bienvenida bienvenidaForm = new Bienvenida();
+            bienvenidaForm.userOptions = new T();
+            bienvenidaForm.Show();
+            bienvenidaForm.Forminicio = this;
+            this.Hide();
         }
+
+        private void MostrarMensajeError(string mensaje)
+        {
+            MsgPersonalizado mensajeDialogo = new MsgPersonalizado(mensaje, "Error al Iniciar Sesion", "Error", null);
+            mensajeDialogo.ShowDialog();
+        }
+
 
         //Eliminar más adelante...
         private void Form1_Load(object sender, EventArgs e)
         {
-            TBUsuario.Texts = "AdministradorUser";
-            TBContrasena.Texts = "12345678";
+            TBUsuario.Texts = "sfsdfdsfsdsfds";
+            TBContrasena.Texts = "32423432";
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
