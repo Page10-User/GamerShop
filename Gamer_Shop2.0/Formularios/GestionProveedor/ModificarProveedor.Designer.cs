@@ -457,9 +457,8 @@
             this.CBCategoriaPrProveedor.ForeColor = System.Drawing.Color.DimGray;
             this.CBCategoriaPrProveedor.IconColor = System.Drawing.Color.Lime;
             this.CBCategoriaPrProveedor.Items.AddRange(new object[] {
-            "Componentes",
             "Telefonia movil",
-            "Accesorios"});
+            "Componentes"});
             this.CBCategoriaPrProveedor.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPrProveedor.ListTextColor = System.Drawing.Color.Lime;
             this.CBCategoriaPrProveedor.Location = new System.Drawing.Point(210, 266);

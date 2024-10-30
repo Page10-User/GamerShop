@@ -38,7 +38,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             TBContacto.Texts = proveedorActual.Telefono;
             TBCorreo.Texts = proveedorActual.Correo;
             TBDireccion.Texts = proveedorActual.Dirección;
-            CBCategoriaPrProveedor.SelectedIndex = proveedorActual.ID_CategoriaProducto;
+            CBCategoriaPrProveedor.SelectedIndex = proveedorActual.ID_CategoriaProducto-1;
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -498,12 +498,13 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 {
                     try
                     {
+                        ClaseValidacion validador = new ClaseValidacion();
                         NProveedor nProveedor = new NProveedor();
                         nProveedor.NModificarProveedor(
                             proveedorActual.Razon_social,
                             TBRazon.Texts,
                             TBRepresentante.Texts,
-                            TBContacto.Texts,
+                            validador.RemoverFormatoTelefonico(TBContacto.Texts),
                             TBCorreo.Texts,
                             TBDireccion.Texts,
                             CBCategoriaPrProveedor.SelectedIndex + 1

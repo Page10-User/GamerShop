@@ -30,7 +30,5 @@ namespace Gamer_Shop2._0
         public virtual ICollection<Detalle_compra> Detalle_compra { get; set; }
         public virtual Proveedor Proveedor { get; set; }
         public virtual Usuario Usuario { get; set; }
-        public virtual Compra Compra1 { get; set; }
-        public virtual Compra Compra2 { get; set; }
     }
 }
