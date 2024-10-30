@@ -56,11 +56,12 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
 
         private void ModificarCliente_Load(object sender, EventArgs e)
         {
+            ClaseValidacion validador = new ClaseValidacion();
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
             TBNombre.Texts = clienteActual.Nombre;
             TBApellido.Texts = clienteActual.Apellido;
-            TBTelefono.Texts = clienteActual.Teléfono;
+            TBTelefono.Texts = validador.AplicarFormatoTelefonico(clienteActual.Teléfono);
             TBCorreo.Texts = clienteActual.Correo;
 
             guardarCampos();
@@ -392,12 +393,13 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 {
                     try
                     {
+                        ClaseValidacion validador = new ClaseValidacion();
                         NCliente cliente = new NCliente();
                         cliente.NModificarCliente(
                              clienteActual.DNI,
                              TBNombre.Texts,
                              TBApellido.Texts,
-                             TBTelefono.Texts,
+                             validador.RemoverFormatoTelefonico(TBTelefono.Texts),
                              TBCorreo.Texts
                              );
                         MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);

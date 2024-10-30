@@ -35,6 +35,8 @@
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarPr = new Gamer_Shop2._0.RJButton();
             this.PContModificarPr = new System.Windows.Forms.Panel();
+            this.BFotoProducto = new Gamer_Shop2._0.RJButton();
+            this.rjTextBox1 = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion15 = new System.Windows.Forms.Label();
             this.TBValidacion14 = new System.Windows.Forms.Label();
             this.TBValidacion13 = new System.Windows.Forms.Label();
@@ -62,8 +64,6 @@
             this.LDescripcionPr = new System.Windows.Forms.Label();
             this.LPrecioPr = new System.Windows.Forms.Label();
             this.LNombrePr = new System.Windows.Forms.Label();
-            this.BFotoProducto = new Gamer_Shop2._0.RJButton();
-            this.rjTextBox1 = new Gamer_Shop2._0.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).BeginInit();
             this.PContModificarPr.SuspendLayout();
             this.SuspendLayout();
@@ -182,6 +182,47 @@
             this.PContModificarPr.Name = "PContModificarPr";
             this.PContModificarPr.Size = new System.Drawing.Size(469, 307);
             this.PContModificarPr.TabIndex = 14;
+            this.PContModificarPr.Paint += new System.Windows.Forms.PaintEventHandler(this.PContModificarPr_Paint);
+            // 
+            // BFotoProducto
+            // 
+            this.BFotoProducto.BackColor = System.Drawing.Color.Black;
+            this.BFotoProducto.BackgroundColor = System.Drawing.Color.Black;
+            this.BFotoProducto.BorderColor = System.Drawing.Color.Lime;
+            this.BFotoProducto.BorderRadius = 10;
+            this.BFotoProducto.BorderSize = 1;
+            this.BFotoProducto.FlatAppearance.BorderSize = 0;
+            this.BFotoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BFotoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BFotoProducto.ForeColor = System.Drawing.Color.White;
+            this.BFotoProducto.Location = new System.Drawing.Point(18, 251);
+            this.BFotoProducto.Name = "BFotoProducto";
+            this.BFotoProducto.Size = new System.Drawing.Size(72, 31);
+            this.BFotoProducto.TabIndex = 73;
+            this.BFotoProducto.Text = "Elegir foto";
+            this.BFotoProducto.TextColor = System.Drawing.Color.White;
+            this.BFotoProducto.UseVisualStyleBackColor = false;
+            // 
+            // rjTextBox1
+            // 
+            this.rjTextBox1.BackColor = System.Drawing.Color.Black;
+            this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Lime;
+            this.rjTextBox1.BorderSize = 2;
+            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.rjTextBox1.Location = new System.Drawing.Point(101, 251);
+            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.rjTextBox1.Multiline = false;
+            this.rjTextBox1.Name = "rjTextBox1";
+            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(7);
+            this.rjTextBox1.PasswordChar = false;
+            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rjTextBox1.PlaceholderText = "Ruta de la foto";
+            this.rjTextBox1.Size = new System.Drawing.Size(128, 31);
+            this.rjTextBox1.TabIndex = 74;
+            this.rjTextBox1.Texts = "";
+            this.rjTextBox1.UnderlinedStyle = false;
             // 
             // TBValidacion15
             // 
@@ -576,46 +617,6 @@
             this.LNombrePr.Size = new System.Drawing.Size(62, 18);
             this.LNombrePr.TabIndex = 7;
             this.LNombrePr.Text = "Nombre";
-            // 
-            // BFotoProducto
-            // 
-            this.BFotoProducto.BackColor = System.Drawing.Color.Black;
-            this.BFotoProducto.BackgroundColor = System.Drawing.Color.Black;
-            this.BFotoProducto.BorderColor = System.Drawing.Color.Lime;
-            this.BFotoProducto.BorderRadius = 10;
-            this.BFotoProducto.BorderSize = 1;
-            this.BFotoProducto.FlatAppearance.BorderSize = 0;
-            this.BFotoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BFotoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BFotoProducto.ForeColor = System.Drawing.Color.White;
-            this.BFotoProducto.Location = new System.Drawing.Point(18, 251);
-            this.BFotoProducto.Name = "BFotoProducto";
-            this.BFotoProducto.Size = new System.Drawing.Size(72, 31);
-            this.BFotoProducto.TabIndex = 73;
-            this.BFotoProducto.Text = "Elegir foto";
-            this.BFotoProducto.TextColor = System.Drawing.Color.White;
-            this.BFotoProducto.UseVisualStyleBackColor = false;
-            // 
-            // rjTextBox1
-            // 
-            this.rjTextBox1.BackColor = System.Drawing.Color.Black;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Lime;
-            this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox1.Location = new System.Drawing.Point(101, 251);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "Ruta de la foto";
-            this.rjTextBox1.Size = new System.Drawing.Size(128, 31);
-            this.rjTextBox1.TabIndex = 74;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
             // 
             // ModificarProducto
             // 

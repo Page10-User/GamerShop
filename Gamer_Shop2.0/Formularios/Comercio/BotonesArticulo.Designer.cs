@@ -119,6 +119,7 @@
             this.PFotoPr.Name = "PFotoPr";
             this.PFotoPr.Size = new System.Drawing.Size(129, 87);
             this.PFotoPr.TabIndex = 4;
+            this.PFotoPr.Paint += new System.Windows.Forms.PaintEventHandler(this.PFotoPr_Paint);
             // 
             // PBfotoPr
             // 

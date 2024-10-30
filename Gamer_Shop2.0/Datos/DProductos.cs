@@ -39,8 +39,8 @@ namespace Gamer_Shop2._0.Datos
             catch (SqlException ex)
             {
                 string errorMessage = $"Error SQL: {ex.Message}\nDetalle: {ex.InnerException?.Message}";
-                MsgPersonalizado mensaje = new MsgPersonalizado(errorMessage, "Error","Error",null);
-                mensaje.ShowDialog();
+                //MsgPersonalizado mensaje = new MsgPersonalizado(errorMessage, "Error","Error",null);
+                //mensaje.ShowDialog();
                 return null;
             }
         }

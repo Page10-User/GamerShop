@@ -31,8 +31,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             
             productoActual = producto.GetProducto(prod.Serial);
             this.Padding = new Padding(borderWidth);
-            this.Load += new EventHandler(ModificarProducto_Load);
-            PContModificarPr.Paint += new PaintEventHandler(PContModificarPr_Paint);
         }
 
         private void PContModificarPr_Paint(object sender, PaintEventArgs e)

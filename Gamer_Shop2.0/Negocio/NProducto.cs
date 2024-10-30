@@ -1,6 +1,8 @@
 ﻿using Gamer_Shop2._0.Datos;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using static Gamer_Shop2._0.Datos.DProducto;
 
 namespace Gamer_Shop2._0.Negocio
 {
@@ -99,6 +101,34 @@ namespace Gamer_Shop2._0.Negocio
             else
             {
                 dproducto.DEliminarProducto(serial);
+            }
+        }
+        //   //----------------------------------------------------------------------------------\\
+        //  //------------------------------------------------------------------------------------\\
+        //  ||                  Método para obtener todos los productos activos                   ||
+        //  \\------------------------------------------------------------------------------------//
+        //   \\----------------------------------------------------------------------------------//
+        public List<ProductoViewModel> ObtenerProductosActivos()
+        {
+            DProducto dproducto = new DProducto();
+            if (dproducto == null)
+            {
+                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+            }
+            else
+            {
+                return dproducto.ObtenerTodosLosProductos();
+            }
+        }
+        public ProductoViewModel GetProductoCr(int serial)
+        {
+            if (dproducto == null)
+            {
+                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+            }
+            else
+            {
+                return dproducto.getProductoCr(serial);
             }
         }
     }

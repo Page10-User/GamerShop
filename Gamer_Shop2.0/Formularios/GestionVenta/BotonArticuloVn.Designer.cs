@@ -74,7 +74,7 @@
             // 
             this.TBCantidadPr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
             this.TBCantidadPr.ForeColor = System.Drawing.Color.White;
-            this.TBCantidadPr.Location = new System.Drawing.Point(379, 12);
+            this.TBCantidadPr.Location = new System.Drawing.Point(379, 8);
             this.TBCantidadPr.Name = "TBCantidadPr";
             this.TBCantidadPr.Size = new System.Drawing.Size(33, 20);
             this.TBCantidadPr.TabIndex = 19;
@@ -142,7 +142,7 @@
         private System.Windows.Forms.Label LNombreProducto;
         private System.Windows.Forms.Label LCategoria;
         private System.Windows.Forms.Label LPrecio;
-        private System.Windows.Forms.TextBox TBCantidadPr;
         private System.Windows.Forms.Label LCantidadPr;
+        public System.Windows.Forms.TextBox TBCantidadPr;
     }
 }

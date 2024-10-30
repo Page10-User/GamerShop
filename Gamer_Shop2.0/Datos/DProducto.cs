@@ -1,22 +1,10 @@
-﻿using Gamer_Shop2._0.Datos;
-using Gamer_Shop2._0.Datos.DataSet1TableAdapters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Data.SqlClient;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Gamer_Shop2._0.Excepciones;
 using System.Windows.Forms;
-using Gamer_Shop2._0.Formularios.GestionProducto;
-using System.DirectoryServices.ActiveDirectory;
-using Gamer_Shop2._0.Negocio;
-using Gamer_Shop2._0.Properties;
-using System.CodeDom;
 
 namespace Gamer_Shop2._0.Datos
 {
@@ -191,5 +179,77 @@ namespace Gamer_Shop2._0.Datos
                 }
             }
         }
+        //   //----------------------------------------------------------------------------------\\
+        //  //------------------------------------------------------------------------------------\\
+        //  ||                  Método para obtener todos los productos de la tabla               ||
+        //  \\------------------------------------------------------------------------------------//
+        //   \\----------------------------------------------------------------------------------//
+        public class ProductoViewModel
+        {
+            public int Serial { get; set; }
+            public string Nombre { get; set; }
+            public double Precio { get; set; }
+            public string Categoria { get; set; }
+        }
+
+        public List<ProductoViewModel> ObtenerTodosLosProductos()
+        {
+            using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+            {
+                try
+                {
+                    // Consulta con LINQ para obtener todos los productos
+                    List<ProductoViewModel> productos = context.Producto
+                        .Where(p => p.Activo == "SI")
+                        .Select(p => new ProductoViewModel
+                        {
+                            Serial = p.Serial,
+                            Nombre = p.Nombre,
+                            Precio = p.Precio,
+                            Categoria = p.Categoría_producto.Nombre_Categoria
+                        })
+                        .ToList();
+
+                    return productos;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error al obtener productos: {ex.Message}");
+                }
+            }
+        }
+        public ProductoViewModel getProductoCr(int serial)
+        {
+            // Verifica si el producto existe y está activo
+            if (ExisteRegistro(serial) == false)
+            {
+                throw new ExisteRegistroException("El producto no existe");
+            }
+            else
+            {
+                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+                {
+                    // Consulta para obtener solo las propiedades necesarias
+                    var producto = context.Producto
+                        .Where(p => p.Serial == serial && p.Activo == "SI")
+                        .Select(p => new ProductoViewModel
+                        {
+                            Serial = p.Serial,
+                            Nombre = p.Nombre,
+                            Precio = p.Precio,
+                            Categoria = p.Categoría_producto.Nombre_Categoria
+                        })
+                        .FirstOrDefault();
+
+                    if (producto == null)
+                    {
+                        throw new Exception("El producto fue eliminado o no está activo");
+                    }
+
+                    return producto;
+                }
+            }
+        }
+
     }
 }

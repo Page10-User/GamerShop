@@ -181,7 +181,7 @@ namespace Gamer_Shop2._0
                 {
                     CrearYMostrarBienvenida<EmpleadoOptions>();
                 }
-                else if (TBUsuario.Texts == "sfsdfdsfsdsfds" && TBContrasena.Texts == "32423432")
+                else if (TBUsuario.Texts == "AdministradorUser" && TBContrasena.Texts == "12345678")
                 {
                     CrearYMostrarBienvenida<AdministradorOptions>();
                 }
@@ -219,8 +219,8 @@ namespace Gamer_Shop2._0
         //Eliminar más adelante...
         private void Form1_Load(object sender, EventArgs e)
         {
-            TBUsuario.Texts = "sfsdfdsfsdsfds";
-            TBContrasena.Texts = "32423432";
+            TBUsuario.Texts = "EmpleadoUser";
+            TBContrasena.Texts = "12345678";
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

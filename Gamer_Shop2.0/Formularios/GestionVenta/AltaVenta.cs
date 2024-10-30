@@ -1,5 +1,7 @@
-﻿using Gamer_Shop2._0.Formularios.GestionCliente;
+﻿using Gamer_Shop2._0.Formularios.Comercio.Carrito;
+using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static Gamer_Shop2._0.Datos.DProducto;
 
 namespace Gamer_Shop2._0.Formularios.GestionVenta
 {
@@ -17,6 +20,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         public Panel PanelContainer { get; set; }
         public Bienvenida MainForm { get; set; }
+        public Dictionary<int, int> IdPrCr { set; get; }
         public AltaVenta()
         {
             InitializeComponent();
@@ -24,11 +28,42 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             BordeRedondeadoPanels();
         }
 
+        private void MostrarProductosEnFLPCarrito()
+        {
+            FLPListaProductosVenta.Controls.Clear();
+
+            // Itera sobre cada producto en el diccionario
+            foreach (var item in IdPrCr)
+            {
+                int serial = item.Key; // Serial del producto
+                int cantidad = item.Value; // Cantidad del producto
+
+                BotonArticuloVn ArticuloCr = new BotonArticuloVn();
+                NProducto prod = new NProducto();
+                ProductoViewModel producto = prod.GetProductoCr(serial); // Obtén el producto por serial
+
+                ArticuloCr.Serial = producto.Serial;
+                ArticuloCr.NombreProducto = producto.Nombre;
+                ArticuloCr.Precio = producto.Precio.ToString();
+                ArticuloCr.Categoria = producto.Categoria;
+
+                //Asociamos al evento Eliminar.
+                ArticuloCr.EliminarDelCarritoClick += ArticuloCr_EliminarPrCarritoClick;
+
+                ArticuloCr.TBCantidadPr.Text = cantidad.ToString();
+
+                FLPListaProductosVenta.Controls.Add(ArticuloCr);
+                ArticuloCr.Show();
+            }
+        }
+
         private void AltaVenta_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
             TBFecha.Texts = DateTime.Now.ToString("dd-MM-yyyy");
+            MostrarProductosEnFLPCarrito();
+            AplicarMonto();
         }
 
         private void PContAltaVn_Paint(object sender, PaintEventArgs e)
@@ -151,16 +186,42 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         private void BRegistrarVn_Click(object sender, EventArgs e)
         {
-            if (TBFecha.Texts != string.Empty && TBMonto.Texts != string.Empty && CBCategoria.SelectedItem != null)
+            if (VerificarSiHayProductosCargados() == 0)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Venta registrada con éxito", "Registro", "Informacion", null);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe ingresar un producto para realizar una venta", "Error", "Error", null);
                 mensaje.ShowDialog();
+                MainForm.TopMost = true;
             }
             else
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar una venta", "Error", "Error", generarListaCampos());
-                mensaje.ShowDialog();
+                if (TBFecha.Texts != string.Empty && TBMonto.Texts != string.Empty && CBCategoria.SelectedItem != null)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Venta registrada con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
+                    MainForm.TopMost = true;
+                }
+                else
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar una venta", "Error", "Error", generarListaCampos());
+                    mensaje.ShowDialog();
+                    MainForm.TopMost = true;
+                }
             }
+        }
+
+        private int VerificarSiHayProductosCargados()
+        {
+            int contador = 0;
+
+            // Recorremos todos los controles del FlowLayoutPanel
+            foreach (Control control in FLPListaProductosVenta.Controls)
+            {
+                if (control is BotonesArticuloCr)
+                {
+                    contador++;
+                }
+            }
+            return contador;
         }
 
         private void BNuevoCliente_Click(object sender, EventArgs e)
@@ -193,6 +254,31 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             {
                 PContBuscarDni.Visible = true;
             }
+        }
+        private void AplicarMonto()
+        {
+            decimal total = 0;
+
+            // Recorre cada control en el FlowLayoutPanel
+            foreach (Control control in FLPListaProductosVenta.Controls)
+            {
+                if (control is BotonArticuloVn botonArticulo)
+                {
+                    // Intenta obtener el precio y la cantidad
+                    if (decimal.TryParse(botonArticulo.Precio, out decimal precio) &&
+                        int.TryParse(botonArticulo.TBCantidadPr.Text, out int cantidad))
+                    {
+                        total += precio * cantidad;
+                    }
+                }
+            }
+            TBMonto.Texts = total.ToString("F2");
+        }
+
+        private void ArticuloCr_EliminarPrCarritoClick(object sender, decimal total)
+        {
+            decimal precioActual = Convert.ToDecimal(TBMonto.Texts);
+            TBMonto.Texts = Convert.ToString(precioActual - total);
         }
 
         private void BordeRedondeadoPanels()

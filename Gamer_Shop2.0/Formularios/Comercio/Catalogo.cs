@@ -2,11 +2,13 @@
 using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.Inicio;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static Gamer_Shop2._0.Datos.DProducto;
 
 namespace Gamer_Shop2._0.Formularios.Comercio
 {
@@ -15,7 +17,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         private int borderRadius = 5; // Radio del borde redondeado
         private int borderWidth = 3; // Grosor del borde
 
-        List<int> idPrCarrito = new List<int>();
+        private Dictionary<int, int> idPrCarrito = new Dictionary<int, int>();
 
         public Panel PanelContainer { get; set; }
         public Label LabelContainer { get; set; }
@@ -29,19 +31,38 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+
+            CargarProductosActivos();
+        }
+
+        private void CargarProductosActivos()
+        {
+            NProducto nProducto = new NProducto();
+            List<ProductoViewModel> productosActivos = nProducto.ObtenerProductosActivos();
+
+            MostrarProductosEnFLP(productosActivos);
+        }
+
+        private void MostrarProductosEnFLP(List<ProductoViewModel> productos)
+        {
             FLPContCatalogo.Controls.Clear();
 
-            // Cargar productos.
-            for (int i = 0; i < 5; i++)
+            foreach (var producto in productos)
             {
-                // Instanciamos un/os Producto/s.
                 BotonesArticulo articuloCt = new BotonesArticulo();
-                articuloCt.Id = i;
+
+                articuloCt.Serial = producto.Serial;
+                articuloCt.NombreProducto = producto.Nombre;        
+                articuloCt.Precio = producto.Precio.ToString();   
+                articuloCt.Categoria = producto.Categoria; 
                 articuloCt.AgregarAlCarritoClick += ArticuloCt_AgregarAlCarritoClick;
+
                 articuloCt.PanelContainer = PanelContainer;
                 articuloCt.MainForm = MainForm;
                 articuloCt.MainCatalogo = this;
+
                 FLPContCatalogo.Controls.Add(articuloCt);
+
                 articuloCt.Show();
             }
         }
@@ -119,45 +140,75 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             
             if (idPrCarrito.Count == 0)
             {
-                PanelCarrito_V_ Pcarrito_V = new PanelCarrito_V_();
-                Pcarrito_V.TopLevel = false;
-                PContCarrito.Controls.Add(Pcarrito_V);
-                Pcarrito_V.PanelContainerCr = PContCarrito;
-                Pcarrito_V.FondoOscuro = GenerarFondoOscuro(formBg);
-                Pcarrito_V.MainForm = MainForm;
-                PContCarrito.BringToFront();
-                MainForm.TopMost = false;
-                Pcarrito_V.Show();
+                //Mostrar Carrito Vacio
+                InstanciarYMostrarCarrito_V_(formBg);
             }
             else
             {
-                PanelCarrito Pcarrito = new PanelCarrito();
-                Pcarrito.TopLevel = false;
-                PContCarrito.Controls.Add(Pcarrito);
-                Pcarrito.PanelContainerCr = PContCarrito;
-                Pcarrito.PanelContainer = PanelContainer;
-                Pcarrito.MainForm = MainForm;
-                Pcarrito.FondoOscuro = GenerarFondoOscuro(formBg);
-                Pcarrito.MainCatalogo = this;
-                Pcarrito.EliminarPrCarritoClick += ArticuloCr_EliminarPrCarritoClick;
-                Pcarrito.idPrCr = idPrCarrito;
-                PContCarrito.BringToFront();
-                MainForm.TopMost = false;
-                Pcarrito.Show();
+                //Mostrar Carrito Vacio
+                InstanciarYMostrarCarritoConPr(formBg);
             }
         }
-       private void ArticuloCt_AgregarAlCarritoClick(object sender, int productoId)
+        private void ArticuloCt_AgregarAlCarritoClick(object sender, int serial)
         {
-            // Agregar la ID del producto al carrito
-            idPrCarrito.Add(productoId);
-       }
-
-        private void ArticuloCr_EliminarPrCarritoClick(object sender, int productoId)
-        {
-            // Agregar la ID del producto al carrito
-            idPrCarrito.RemoveAt(idPrCarrito.Count - 1);
+            // Verifica si el producto ya está en el carrito
+            if (idPrCarrito.ContainsKey(serial))
+            {
+                // Aumenta la cantidad del producto existente
+                idPrCarrito[serial]++;
+            }
+            else
+            {
+                // Agrega el producto al carrito con cantidad 1
+                idPrCarrito[serial] = 1;
+            }
         }
 
+        private void ArticuloCr_EliminarPrCarritoClick(object sender, int serial)
+        {
+            if (idPrCarrito.ContainsKey(serial))
+            {
+                // Disminuye la cantidad del producto
+                idPrCarrito[serial]--;
+
+                // Si la cantidad llega a 0, elimina el producto del carrito
+                if (idPrCarrito[serial] == 0)
+                {
+                    idPrCarrito.Remove(serial);
+                }
+            }
+        }
+
+        //------------------------------------------------------InstanciarYMostrarCarrito_V_----------------------------------------------------\\
+        private void InstanciarYMostrarCarrito_V_(Form formBg)
+        {
+            PanelCarrito_V_ Pcarrito_V = new PanelCarrito_V_();
+            Pcarrito_V.TopLevel = false;
+            PContCarrito.Controls.Add(Pcarrito_V);
+            Pcarrito_V.PanelContainerCr = PContCarrito;
+            Pcarrito_V.FondoOscuro = GenerarFondoOscuro(formBg);
+            Pcarrito_V.MainForm = MainForm;
+            PContCarrito.BringToFront();
+            MainForm.TopMost = false;
+            Pcarrito_V.Show();
+        }
+        //------------------------------------------------------InstanciarYMostrarCarritoConPr----------------------------------------------------\\
+        private void InstanciarYMostrarCarritoConPr(Form formBg)
+        {
+            PanelCarrito Pcarrito = new PanelCarrito();
+            Pcarrito.TopLevel = false;
+            PContCarrito.Controls.Add(Pcarrito);
+            Pcarrito.PanelContainerCr = PContCarrito;
+            Pcarrito.PanelContainer = PanelContainer;
+            Pcarrito.MainForm = MainForm;
+            Pcarrito.FondoOscuro = GenerarFondoOscuro(formBg);
+            Pcarrito.MainCatalogo = this;
+            Pcarrito.EliminarPrCarritoClick += ArticuloCr_EliminarPrCarritoClick;
+            Pcarrito.idPrCr = idPrCarrito;
+            PContCarrito.BringToFront();
+            MainForm.TopMost = false;
+            Pcarrito.Show();
+        }
         private Form GenerarFondoOscuro(Form formBG)
         {
             // Modificar formBG

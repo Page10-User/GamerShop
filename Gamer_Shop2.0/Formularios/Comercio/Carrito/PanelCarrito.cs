@@ -1,10 +1,12 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static Gamer_Shop2._0.Datos.DProducto;
 
 namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 {
@@ -12,9 +14,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
     {
         private int borderRadius = 5; // Radio del borde redondeado
         private int borderWidth = 3; // Grosor del borde
-
-        public List<int> idPrCr { get; set; }
-
+        public Dictionary<int,int> idPrCr {  set; get; }
         public Panel PanelContainerCr { get; set; }
         public Panel PanelContainer {  get; set; }
         public Catalogo MainCatalogo { get; set; }
@@ -31,17 +31,38 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-            FLPContenidoPrCarrito.Controls.Clear();
 
             //Cargar productos al carrito.
-            for (int i = 0;  i < idPrCr.Count; i++)
+            MostrarProductosEnFLPCarrito();
+        }
+
+        private void MostrarProductosEnFLPCarrito()
+        {
+            FLPContenidoPrCarrito.Controls.Clear();
+
+            // Itera sobre cada producto en el diccionario
+            foreach (var item in idPrCr)
             {
+                int serial = item.Key; // Serial del producto
+                int cantidad = item.Value; // Cantidad del producto
+
                 BotonesArticuloCr ArticuloCr = new BotonesArticuloCr();
+                NProducto prod = new NProducto();
+                ProductoViewModel producto = prod.GetProductoCr(serial); // Obtén el producto por serial
+
+                ArticuloCr.Serial = producto.Serial;
+                ArticuloCr.NombreProducto = producto.Nombre;
+                ArticuloCr.Precio = producto.Precio.ToString();
+                ArticuloCr.Categoria = producto.Categoria;
                 ArticuloCr.EliminarDelCarritoClick += BEliminarPrCarrito_Click;
+
+                ArticuloCr.TBCantidadPr.Text = cantidad.ToString();
+
                 FLPContenidoPrCarrito.Controls.Add(ArticuloCr);
-                ArticuloCr.TBCantidadPr.Text = "1";
+                ArticuloCr.Show();
             }
         }
+
 
         private GraphicsPath CreateRoundedPath()
         {
@@ -88,10 +109,10 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         }
 
         public event EventHandler<int> EliminarPrCarritoClick;
-        private void BEliminarPrCarrito_Click(object sender, int num)
+        private void BEliminarPrCarrito_Click(object sender, int serial)
         {
             //Pasamos el id del producto al catálogo.
-            EliminarPrCarritoClick?.Invoke(this, num);
+            EliminarPrCarritoClick?.Invoke(this,serial);
         }
 
         private void BRegistrarVenta_Click(object sender, EventArgs e)
@@ -128,10 +149,11 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             PanelContainer.Controls.Add(AltaVn);
             AltaVn.PanelContainer = PanelContainer;
             AltaVn.MainForm = MainForm;
+            AltaVn.IdPrCr = idPrCr;
             AltaVn.Show();
-            FondoOscuro.Close();
+            FondoOscuro.Dispose();
             MainForm.FondoOscuroCatalogo = null;
-            MainCatalogo.Close();
+            MainCatalogo.Dispose();
         }
 
         private int VerificarSiHayProductosCargados()

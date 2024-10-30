@@ -1,7 +1,6 @@
 ﻿using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
-using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
@@ -19,7 +18,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         Usuario usuarioActual = new Usuario();
 
-        private List<string> camposActuales = new List<string>(new string[6]);
+        private List<string> camposActuales = new List<string>(new string[5]);
 
         string filePath;
 
@@ -62,10 +61,10 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
+            ClaseValidacion validador = new ClaseValidacion();
             this.Region = CreateRoundedRegion();
             TBNombreUs.Texts = usuarioActual.Nombre;
             TBApellidoUs.Texts = usuarioActual.Apellido;
-            TBCuilUs.Texts = usuarioActual.CUIL;
             TBNombreUsuario.Texts = usuarioActual.Nombre_usuario;
             TBEmailUs.Texts = usuarioActual.Correo;
             TBContrasenaUs.Texts = usuarioActual.Contraseña;
@@ -264,63 +263,9 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         //FIN Key Press  y Validating TBApellidoUs
 
         //INICIO Key Press y Validating TBCuilUs
-        private void TBCuilUs_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ClaseValidacion validador = new ClaseValidacion();
-            string texto = TBCuilUs.Texts;
+        
+        //El cuil no se modifica.
 
-            //Validar caracteres numéricos
-            if (!validador.ValidarKeyPressSoloNumeros(e.KeyChar))
-            {
-                e.Handled = true;
-                return;
-            }
-
-            //Validar longitud
-            if (!validador.ValidarLongitudConLimite(texto, 11, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void TBCuilUs_Enter(object sender, EventArgs e)
-        {
-            ClaseValidacion validador = new ClaseValidacion();
-            string texto = TBCuilUs.Texts.Trim();
-
-            if (!string.IsNullOrWhiteSpace(texto))
-            {
-                TBCuilUs.Texts = validador.RemoverFormatoCuil(texto);
-            }
-        }
-
-        private void TBCuilUs_Validating(object sender, CancelEventArgs e)
-        {
-            ClaseValidacion validador = new ClaseValidacion();
-            string texto = TBCuilUs.Texts.Trim();
-
-            OcultarValidaciones();
-
-            if (!string.IsNullOrWhiteSpace(texto))
-            {
-                //Validar caracteres
-                if (!validador.ValidarCaracteresNumericos(texto))
-                {
-                    e.Cancel = true;
-                    TBValidacion16.Visible = true;
-                    return;
-                }
-
-                //Validar longitud
-                if (!validador.ValidarLongitudExacta(texto, 11))
-                {
-                    e.Cancel = true;
-                    TBValidacion17.Visible = true;
-                }
-
-                TBCuilUs.Texts = validador.AplicarFormatoCuil(texto);
-            }
-        }
         //FIN Key Press y Validating TBCuilUS
 
         //INICIO Key Press  y Validating TBUsuarioUs
@@ -492,18 +437,19 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         private void BModificarUs_Click(object sender, EventArgs e)
         {
-            if (TBNombreUs.Texts != string.Empty && TBApellidoUs.Texts != string.Empty && TBCuilUs.Texts != string.Empty && TBNombreUsuario.Texts != string.Empty && TBContrasenaUs.Texts != string.Empty && TBEmailUs.Texts != string.Empty)
+            if (TBNombreUs.Texts != string.Empty && TBApellidoUs.Texts != string.Empty && TBNombreUsuario.Texts != string.Empty && TBContrasenaUs.Texts != string.Empty && TBEmailUs.Texts != string.Empty)
             {
                 if (comprobarModif(camposActuales))
                 {
                     try
                     {
+                        ClaseValidacion validador = new ClaseValidacion();
                         NUsuario usuario = new NUsuario();
                         usuario.NModificarUsuario(
 
                             TBNombreUs.Texts,
                             TBApellidoUs.Texts,
-                            TBCuilUs.Texts,
+                            usuarioActual.CUIL,
                             TBNombreUsuario.Texts,
                             TBContrasenaUs.Texts,
                             TBEmailUs.Texts,
@@ -566,7 +512,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             List<string> campos = new List<string>{
                 TBNombreUs.Texts,
                 TBApellidoUs.Texts,
-                TBCuilUs.Texts,
                 TBNombreUsuario.Texts,
                 TBEmailUs.Texts,
                 TBContrasenaUs.Texts,
@@ -591,8 +536,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBValidacion13.Visible = false;
             TBValidacion14.Visible = false;
             TBValidacion15.Visible = false;
-            TBValidacion16.Visible = false;
-            TBValidacion17.Visible = false;
             TBValidacion18.Visible = false;
             TBValidacion19.Visible = false;
         }
@@ -601,20 +544,18 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             camposActuales[0] = TBNombreUs.Texts;
             camposActuales[1] = TBApellidoUs.Texts;
-            camposActuales[2] = TBCuilUs.Texts;
-            camposActuales[3] = TBNombreUsuario.Texts;
-            camposActuales[4] = TBEmailUs.Texts;
-            camposActuales[5] = TBContrasenaUs.Texts;
+            camposActuales[2] = TBNombreUsuario.Texts;
+            camposActuales[3] = TBEmailUs.Texts;
+            camposActuales[4] = TBContrasenaUs.Texts;
         }
 
         private bool comprobarModif(List<string> campos)
         {
             if (campos[0] != TBNombreUs.Texts ||
                 campos[1] != TBApellidoUs.Texts ||
-                campos[2] != TBCuilUs.Texts ||
-                campos[3] != TBNombreUsuario.Texts ||
-                campos[4] != TBEmailUs.Texts ||
-                campos[5] != TBContrasenaUs.Texts)
+                campos[2] != TBNombreUsuario.Texts ||
+                campos[3] != TBEmailUs.Texts ||
+                campos[4] != TBContrasenaUs.Texts)
             {
                 return true; // Hay modificación
             }
@@ -633,8 +574,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBNombreUs.Validating -= TBNombreUs_Validating;
             TBApellidoUs.KeyPress -= TBApellidoUs_KeyPress;
             TBApellidoUs.Validating -= TBApellidoUs_Validating;
-            TBCuilUs.KeyPress -= TBCuilUs_KeyPress;
-            TBCuilUs.Validating -= TBCuilUs_Validating;
             TBNombreUsuario.KeyPress -= TBNombreUs_KeyPress;
             TBNombreUsuario.Validating -= TBNombreUs_Validating;
             TBEmailUs.KeyPress -= TBEmailUs_KeyPress;

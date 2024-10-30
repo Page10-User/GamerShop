@@ -50,9 +50,6 @@
             this.CBCategoria = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.FLPListaProductosVenta = new System.Windows.Forms.FlowLayoutPanel();
-            this.botonArticuloVn1 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
-            this.botonArticuloVn2 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
-            this.botonArticuloVn3 = new Gamer_Shop2._0.Formularios.GestionVenta.BotonArticuloVn();
             this.BShowListaVn = new Gamer_Shop2._0.RJButton();
             this.BRegistrarVn = new Gamer_Shop2._0.RJButton();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
@@ -63,7 +60,6 @@
             this.PContAltaVn1.SuspendLayout();
             this.PContAltaVn3.SuspendLayout();
             this.PContAltaVn4.SuspendLayout();
-            this.FLPListaProductosVenta.SuspendLayout();
             this.SuspendLayout();
             // 
             // LTituloAltaVn
@@ -372,47 +368,11 @@
             this.FLPListaProductosVenta.AutoScroll = true;
             this.FLPListaProductosVenta.BackColor = System.Drawing.Color.Black;
             this.FLPListaProductosVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FLPListaProductosVenta.Controls.Add(this.botonArticuloVn1);
-            this.FLPListaProductosVenta.Controls.Add(this.botonArticuloVn2);
-            this.FLPListaProductosVenta.Controls.Add(this.botonArticuloVn3);
             this.FLPListaProductosVenta.Location = new System.Drawing.Point(28, 83);
             this.FLPListaProductosVenta.Name = "FLPListaProductosVenta";
             this.FLPListaProductosVenta.Padding = new System.Windows.Forms.Padding(10);
             this.FLPListaProductosVenta.Size = new System.Drawing.Size(496, 152);
             this.FLPListaProductosVenta.TabIndex = 35;
-            // 
-            // botonArticuloVn1
-            // 
-            this.botonArticuloVn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
-            this.botonArticuloVn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloVn1.BackgroundImage")));
-            this.botonArticuloVn1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.botonArticuloVn1.Location = new System.Drawing.Point(13, 13);
-            this.botonArticuloVn1.Name = "botonArticuloVn1";
-            this.botonArticuloVn1.Padding = new System.Windows.Forms.Padding(5);
-            this.botonArticuloVn1.Size = new System.Drawing.Size(451, 56);
-            this.botonArticuloVn1.TabIndex = 0;
-            // 
-            // botonArticuloVn2
-            // 
-            this.botonArticuloVn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
-            this.botonArticuloVn2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloVn2.BackgroundImage")));
-            this.botonArticuloVn2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.botonArticuloVn2.Location = new System.Drawing.Point(13, 75);
-            this.botonArticuloVn2.Name = "botonArticuloVn2";
-            this.botonArticuloVn2.Padding = new System.Windows.Forms.Padding(5);
-            this.botonArticuloVn2.Size = new System.Drawing.Size(451, 56);
-            this.botonArticuloVn2.TabIndex = 1;
-            // 
-            // botonArticuloVn3
-            // 
-            this.botonArticuloVn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
-            this.botonArticuloVn3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloVn3.BackgroundImage")));
-            this.botonArticuloVn3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.botonArticuloVn3.Location = new System.Drawing.Point(13, 137);
-            this.botonArticuloVn3.Name = "botonArticuloVn3";
-            this.botonArticuloVn3.Padding = new System.Windows.Forms.Padding(5);
-            this.botonArticuloVn3.Size = new System.Drawing.Size(451, 56);
-            this.botonArticuloVn3.TabIndex = 2;
             // 
             // BShowListaVn
             // 
@@ -532,7 +492,6 @@
             this.PContAltaVn3.PerformLayout();
             this.PContAltaVn4.ResumeLayout(false);
             this.PContAltaVn4.PerformLayout();
-            this.FLPListaProductosVenta.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -561,9 +520,6 @@
         private System.Windows.Forms.Panel PContAltaVn3;
         private System.Windows.Forms.Panel PContAltaVn4;
         private System.Windows.Forms.FlowLayoutPanel FLPListaProductosVenta;
-        private BotonArticuloVn botonArticuloVn1;
-        private BotonArticuloVn botonArticuloVn2;
-        private BotonArticuloVn botonArticuloVn3;
         private System.Windows.Forms.Label TBValidacion;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBFiltro;

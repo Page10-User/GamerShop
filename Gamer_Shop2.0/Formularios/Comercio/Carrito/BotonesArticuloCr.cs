@@ -11,6 +11,8 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 
         private int borderRadius = 10; // Radio del borde redondeado
         private int borderWidth = 2; // Grosor del borde
+        private int serial = 0;
+        private string descripcion = "Descripción del Producto";
         public BotonesArticuloCr()
         {
             InitializeComponent();
@@ -59,6 +61,38 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             }
         }
 
+        //Methots
+        public int Serial
+        {
+            get { return serial; }
+            set { serial = value; }
+        }
+
+        public string NombreProducto
+        {
+            get { return LNombreProducto.Text; }
+            set { LNombreProducto.Text = value; }
+        }
+
+        public string Categoria
+        {
+            get { return LCategoria.Text; }
+            set { LCategoria.Text = value; }
+        }
+
+        public Image ImgProducto
+        {
+            get { return PBfotoPr.Image; }
+            set { PBfotoPr.Image = value; }
+        }
+
+        public string Precio
+        {
+            get { return LPrecio.Text; }
+            set { LPrecio.Text = value; }
+        }
+        //End Methot
+
         public event EventHandler<int> EliminarDelCarritoClick;
         private void BEliminarDeCarrito_Click(object sender, EventArgs e)
         {
@@ -68,8 +102,11 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 
             if (result == DialogResult.Yes)
             {
-                //Pasamos el id del producto al catálogo (caso futuro).
-                EliminarDelCarritoClick?.Invoke(this, 1);
+                //Eliminamos el mensaje oculto
+                mensaje.Dispose();
+
+                //Pasamos el id del producto al catálogo (caso actual sjdsjd).
+                EliminarDelCarritoClick?.Invoke(this, Serial);
                 this.Parent.Controls.Remove(this);
                 mensaje = new MsgPersonalizado("Producto eliminado correctamente", "Eliminación", "Informacion", null);
                 mensaje.ShowDialog();
