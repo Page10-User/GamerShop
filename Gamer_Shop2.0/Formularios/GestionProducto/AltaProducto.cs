@@ -10,6 +10,11 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Gamer_Shop2._0.Validacion;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using System.Collections.Generic;
+using Gamer_Shop2._0.Datos;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
 {
@@ -133,9 +138,9 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
 
             //Validar longitud con límite
-            if (!validador.ValidarLongitudConLimite(texto, 100 ,e.KeyChar))
+            if (!validador.ValidarLongitudConLimite(texto, 100, e.KeyChar))
             {
-                e.Handled= true;
+                e.Handled = true;
             }
         }
         private void TBNombrePr_Validating(object sender, CancelEventArgs e)
@@ -156,7 +161,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 }
 
                 // Validar que no sea solo caracteres especiales ni números
-                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto)){
+                if (!validador.ValidarNoSoloNumerosNiEspeciales(texto)) {
                     e.Cancel = true;
                     TBValidacion2.Visible = true;
                     return;
@@ -166,7 +171,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 if (!validador.ValidarNombreProducto(texto))
                 {
                     e.Cancel = true;
-                    TBValidacion3.Visible= true;
+                    TBValidacion3.Visible = true;
                     return;
                 }
 
@@ -197,7 +202,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             //Validar longitud
             if (!validador.ValidarLongitudConLimite(texto, 15, e.KeyChar))
             {
-                e.Handled= true;
+                e.Handled = true;
             }
         }
         private void TBSerialPr_Validating(object sender, CancelEventArgs e)
@@ -210,7 +215,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             if (!string.IsNullOrWhiteSpace(texto))
             {
                 //Validar longitud minima.
-                if (!validador.ValidarLongitudMinima(texto,8))
+                if (!validador.ValidarLongitudMinima(texto, 8))
                 {
                     e.Cancel = true;
                     TBValidacion5.Visible = true;
@@ -401,7 +406,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                         0,
                         "SI",
                         float.Parse(TBPrecioPr.Texts),
-                        CBCategoriaPr.SelectedIndex+1,
+                        CBCategoriaPr.SelectedIndex + 1,
                         CBProveedorPr.SelectedIndex + 1,
                         filePath
                         );
@@ -544,13 +549,26 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             if (!string.IsNullOrWhiteSpace(TBAddCategoria.Texts))
             {
+                this.Close();
                 MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea ingresar la categoria '" + TBAddCategoria.Texts + "'", "Agregar Categoria", "Interrogacion", null);
                 DialogResult result = mensaje.ShowDialog();
                 if (result == DialogResult.Yes)
                 {
                     //Cerramos el anterior mensaje (que está en hide).
                     mensaje.Dispose();
-
+                    try
+                    {
+                        NCategoriaProducto nCategoria = new NCategoriaProducto();
+                        nCategoria.NAgregarCategoria(TBAddCategoria.Texts);
+                        mensaje = new MsgPersonalizado("Categoria '" + TBAddCategoria.Texts + "' agregada exitosamente", "Categoria Agregada", "Informacion", null);
+                        mensaje.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de cualquier otra excepción
+                        mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
                     //Mostramos el mensaje de éxito
                     mensaje = new MsgPersonalizado("Categoria '" + TBAddCategoria.Texts + "' agregada exitosamente","Categoria Agregada", "Informacion", null);
                     mensaje.ShowDialog();

@@ -37,20 +37,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaProveedor = new System.Windows.Forms.Panel();
             this.DGListaProveedor = new System.Windows.Forms.DataGridView();
-            this.CRazon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CRepresentante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCategoriaPrProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CModificar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.LTituloListaProveedor = new System.Windows.Forms.Label();
             this.PBImgListaProveedor = new System.Windows.Forms.PictureBox();
             this.BShowRegistrarProveedor = new Gamer_Shop2._0.RJButton();
             this.BDescargar = new Gamer_Shop2._0.RJButton();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.CModificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PContListaProveedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaProveedor)).BeginInit();
@@ -104,12 +98,6 @@
             this.DGListaProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaProveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CRazon,
-            this.CRepresentante,
-            this.CTelefono,
-            this.CCorreoElectronico,
-            this.CDireccion,
-            this.CCategoriaPrProveedor,
             this.CModificar,
             this.CEliminar});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -139,46 +127,6 @@
             this.DGListaProveedor.Size = new System.Drawing.Size(435, 288);
             this.DGListaProveedor.TabIndex = 1;
             this.DGListaProveedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaProveedor_CellClick);
-            // 
-            // CRazon
-            // 
-            this.CRazon.HeaderText = "Razon Social";
-            this.CRazon.Name = "CRazon";
-            // 
-            // CRepresentante
-            // 
-            this.CRepresentante.HeaderText = "Representante";
-            this.CRepresentante.Name = "CRepresentante";
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Teléfono";
-            this.CTelefono.Name = "CTelefono";
-            // 
-            // CCorreoElectronico
-            // 
-            this.CCorreoElectronico.HeaderText = "Correo Electrónico";
-            this.CCorreoElectronico.Name = "CCorreoElectronico";
-            // 
-            // CDireccion
-            // 
-            this.CDireccion.HeaderText = "Dirección";
-            this.CDireccion.Name = "CDireccion";
-            // 
-            // CCategoriaPrProveedor
-            // 
-            this.CCategoriaPrProveedor.HeaderText = "Categoria Productos";
-            this.CCategoriaPrProveedor.Name = "CCategoriaPrProveedor";
-            // 
-            // CModificar
-            // 
-            this.CModificar.HeaderText = "Modificar";
-            this.CModificar.Name = "CModificar";
-            // 
-            // CEliminar
-            // 
-            this.CEliminar.HeaderText = "Eliminar";
-            this.CEliminar.Name = "CEliminar";
             // 
             // LTituloListaProveedor
             // 
@@ -285,6 +233,16 @@
             this.TBFiltro.Texts = "";
             this.TBFiltro.UnderlinedStyle = false;
             // 
+            // CModificar
+            // 
+            this.CModificar.HeaderText = "Modificar";
+            this.CModificar.Name = "CModificar";
+            // 
+            // CEliminar
+            // 
+            this.CEliminar.HeaderText = "Eliminar";
+            this.CEliminar.Name = "CEliminar";
+            // 
             // ListaProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,15 +283,9 @@
         private System.Windows.Forms.DataGridView DGListaProveedor;
         private System.Windows.Forms.Label LTituloListaProveedor;
         private System.Windows.Forms.PictureBox PBImgListaProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CRazon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CRepresentante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCorreoElectronico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCategoriaPrProveedor;
-        private System.Windows.Forms.DataGridViewButtonColumn CModificar;
-        private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBFiltro;
+        private System.Windows.Forms.DataGridViewButtonColumn CModificar;
+        private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
     }
 }

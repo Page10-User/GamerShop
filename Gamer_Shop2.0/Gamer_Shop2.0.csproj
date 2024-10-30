@@ -88,9 +88,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datos\DCategoriaProducto.cs" />
     <Compile Include="Datos\DCliente.cs" />
     <Compile Include="Datos\DClientes.cs" />
     <Compile Include="Datos\DProductos.cs" />
+    <Compile Include="Datos\DProveedor.cs" />
+    <Compile Include="Datos\DProveedores.cs" />
     <Compile Include="Datos\DUsuario.cs" />
     <Compile Include="Datos\DUsuarios.cs" />
     <Compile Include="Detalle_compra.cs">
@@ -137,6 +140,7 @@
     <Compile Include="Método_pago.cs">
       <DependentUpon>ModeloBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\NCategoriaProducto.cs" />
     <Compile Include="Negocio\NCliente.cs" />
     <Compile Include="Negocio\NProducto.cs" />
     <Compile Include="Form1.cs">
@@ -332,6 +336,7 @@
       <DependentUpon>PersonalOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos\DProducto.cs" />
+    <Compile Include="Negocio\NProveedor.cs" />
     <Compile Include="Negocio\NUsuario.cs" />
     <Compile Include="Producto.cs">
       <DependentUpon>ModeloBase.tt</DependentUpon>

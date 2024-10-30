@@ -1,4 +1,8 @@
-﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.Gestion_Compra;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
+using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
@@ -355,7 +359,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             string texto = TBDireccion.Texts;
 
             // Validar longitud con límite
-            if (!validador.ValidarLongitudConLimite(texto, 13, e.KeyChar))
+            if (!validador.ValidarLongitudConLimite(texto, 100, e.KeyChar))
             {
                 e.Handled = true;
                 return;
@@ -442,12 +446,37 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         {
             if (TBRepresentante.Texts != string.Empty && TBCorreo.Texts != string.Empty && TBRazon.Texts != string.Empty && TBDireccion.Texts != string.Empty && TBContacto.Texts != string.Empty)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Proveedor registrado con éxito", "Registro", "Informacion", null);
-                mensaje.ShowDialog();
+                try
+                {
+                    ClaseValidacion validador = new ClaseValidacion();
+                    NProveedor nProveedor = new NProveedor();
+                    nProveedor.NAgregarProveedor(
+                        TBRazon.Texts,
+                        TBRepresentante.Texts,
+                        validador.RemoverFormatoTelefonico(TBContacto.Texts),
+                        TBCorreo.Texts,
+                        TBDireccion.Texts,
+                        CBCategoriaPrProveedor.SelectedIndex+1
+                        );
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
+                    mensaje.ShowDialog();
+                }
+                catch (ExisteRegistroException ex)
+                {
+                    // Manejo de la excepción cuando el número de serial no existe
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de cualquier otra excepción
+                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
             else
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar un proveedor", "Error", "Error", generarListaCampos());
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar", "Error", "Error", generarListaCampos());
                 mensaje.ShowDialog();
             }
         }

@@ -166,6 +166,18 @@
             this.TBValidacion17.Text = "El nombre no puede ser unicamente caracteres especiales";
             this.TBValidacion17.Visible = false;
             // 
+            // TBValidacion17
+            // 
+            this.TBValidacion17.AutoSize = true;
+            this.TBValidacion17.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion17.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion17.Location = new System.Drawing.Point(167, 99);
+            this.TBValidacion17.Name = "TBValidacion17";
+            this.TBValidacion17.Size = new System.Drawing.Size(270, 14);
+            this.TBValidacion17.TabIndex = 50;
+            this.TBValidacion17.Text = "El nombre no puede ser unicamente caracteres especiales";
+            this.TBValidacion17.Visible = false;
+            // 
             // TBValidacion16
             // 
             this.TBValidacion16.AutoSize = true;
@@ -459,9 +471,8 @@
             this.CBCategoriaPrProveedor.ForeColor = System.Drawing.Color.DimGray;
             this.CBCategoriaPrProveedor.IconColor = System.Drawing.Color.Lime;
             this.CBCategoriaPrProveedor.Items.AddRange(new object[] {
-            "Componentes",
             "Telefonia movil",
-            "Accesorios"});
+            "Componentes"});
             this.CBCategoriaPrProveedor.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPrProveedor.ListTextColor = System.Drawing.Color.Lime;
             this.CBCategoriaPrProveedor.Location = new System.Drawing.Point(212, 261);

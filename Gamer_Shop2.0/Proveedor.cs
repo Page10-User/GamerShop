@@ -27,10 +27,13 @@ namespace Gamer_Shop2._0
         public string Telefono { get; set; }
         public string Correo { get; set; }
         public string Dirección { get; set; }
+        public string Activo { get; set; }
+        public int ID_CategoriaProducto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Producto> Producto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Compra> Compra { get; set; }
+        public virtual Categoría_producto Categoría_producto { get; set; }
     }
 }

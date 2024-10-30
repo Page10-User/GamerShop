@@ -28,6 +28,8 @@
         <AssociationConnector Association="ProyectoTallerIIModel.FK_UsuarioVenta" />
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Cliente" Width="1.5" PointX="5.375" PointY="1" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_ClienteVenta" />
+        <AssociationConnector Association="ProyectoTallerIIModel.FK_CompraDC1" />
+        <AssociationConnector Association="ProyectoTallerIIModel.FK_Proveedor_CategoriaProducto" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

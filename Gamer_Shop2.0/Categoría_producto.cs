@@ -18,6 +18,7 @@ namespace Gamer_Shop2._0
         public Categoría_producto()
         {
             this.Producto = new HashSet<Producto>();
+            this.Proveedor = new HashSet<Proveedor>();
         }
     
         public int ID_Categoria { get; set; }
@@ -25,5 +26,7 @@ namespace Gamer_Shop2._0
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Producto> Producto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Proveedor> Proveedor { get; set; }
     }
 }

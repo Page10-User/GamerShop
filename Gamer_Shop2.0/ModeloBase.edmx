@@ -72,10 +72,12 @@
           <Property Name="Descripcion" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Stock" Type="int" Nullable="false" />
           <Property Name="Precio" Type="float" Nullable="false" />
-          <Property Name="ID_Categoria" Type="int" Nullable="false" />
+          <Property Name="ID_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Proveedor" Type="int" Nullable="false" />
           <Property Name="Activo" Type="varchar" MaxLength="2" Nullable="false" />
           <Property Name="ID_Proveedor" Type="int" Nullable="false" />
           <Property Name="photoFilePath" Type="varchar" MaxLength="200" />
+          <Property Name="ID_Categoria" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Proveedor">
           <Key>
@@ -87,6 +89,9 @@
           <Property Name="Telefono" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Dirección" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ID_Proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Activo" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="ID_CategoriaProducto" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tipo_usuario">
           <Key>
@@ -193,6 +198,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Proveedor">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="ID_Proveedor" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="ID_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proveedor_CategoriaProducto">
+          <End Role="Categoría_producto" Type="Self.Categoría_producto" Multiplicity="1" />
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoría_producto">
+              <PropertyRef Name="ID_Categoria" />
+            </Principal>
+            <Dependent Role="Proveedor">
+              <PropertyRef Name="ID_CategoriaProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProveedorCompra">
           <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
           <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
@@ -289,6 +318,14 @@
             <End Role="Producto" EntitySet="Producto" />
             <End Role="Detalle_venta" EntitySet="Detalle_venta" />
           </AssociationSet>
+          <AssociationSet Name="FK_Proveedor" Association="Self.FK_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proveedor_CategoriaProducto" Association="Self.FK_Proveedor_CategoriaProducto">
+            <End Role="Categoría_producto" EntitySet="Categoría_producto" />
+            <End Role="Proveedor" EntitySet="Proveedor" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProveedorCompra" Association="Self.FK_ProveedorCompra">
             <End Role="Proveedor" EntitySet="Proveedor" />
             <End Role="Compra" EntitySet="Compra" />
@@ -321,7 +358,8 @@
           <Property Name="ID_Categoria" Type="Int32" Nullable="false" />
           <Property Name="Nombre_Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Producto" Relationship="Self.FK_CategoriaProducto" FromRole="Categoría_producto" ToRole="Producto" />
-          </EntityType>
+          <NavigationProperty Name="Proveedor" Relationship="ProyectoTallerIIModel.FK_Proveedor_CategoriaProducto" FromRole="Categoría_producto" ToRole="Proveedor" />
+        </EntityType>
         <EntityType Name="Producto">
           <Key>
             <PropertyRef Name="ID_Producto" />
@@ -413,6 +451,14 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Venta" EntitySet="Venta" />
           </AssociationSet>
+          <AssociationSet Name="FK_CompraDC1" Association="ProyectoTallerIIModel.FK_CompraDC1">
+            <End Role="Compra" EntitySet="Compra" />
+            <End Role="Compra1" EntitySet="Compra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proveedor_CategoriaProducto" Association="ProyectoTallerIIModel.FK_Proveedor_CategoriaProducto">
+            <End Role="Categoría_producto" EntitySet="Categoría_producto" />
+            <End Role="Proveedor" EntitySet="Proveedor" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Proveedor">
           <Key>
@@ -426,6 +472,9 @@
           <Property Name="Dirección" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Producto" Relationship="ProyectoTallerIIModel.FK_Proveedor" FromRole="Proveedor" ToRole="Producto" />
           <NavigationProperty Name="Compra" Relationship="ProyectoTallerIIModel.FK_ProveedorCompra" FromRole="Proveedor" ToRole="Compra" />
+          <Property Name="Activo" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ID_CategoriaProducto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categoría_producto" Relationship="ProyectoTallerIIModel.FK_Proveedor_CategoriaProducto" FromRole="Proveedor" ToRole="Categoría_producto" />
         </EntityType>
         <Association Name="FK_Proveedor">
           <End Type="ProyectoTallerIIModel.Proveedor" Role="Proveedor" Multiplicity="1" />
@@ -659,6 +708,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CompraDC1">
+          <End Type="ProyectoTallerIIModel.Compra" Role="Compra" Multiplicity="1" />
+          <End Type="ProyectoTallerIIModel.Compra" Role="Compra1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Compra">
+              <PropertyRef Name="ID_Compra" />
+            </Principal>
+            <Dependent Role="Compra1">
+              <PropertyRef Name="ID_Compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proveedor_CategoriaProducto">
+          <End Type="ProyectoTallerIIModel.Categoría_producto" Role="Categoría_producto" Multiplicity="1" />
+          <End Type="ProyectoTallerIIModel.Proveedor" Role="Proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoría_producto">
+              <PropertyRef Name="ID_Categoria" />
+            </Principal>
+            <Dependent Role="Proveedor">
+              <PropertyRef Name="ID_CategoriaProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -692,6 +765,8 @@
           <EntitySetMapping Name="Proveedor">
             <EntityTypeMapping TypeName="ProyectoTallerIIModel.Proveedor">
               <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="ID_CategoriaProducto" ColumnName="ID_CategoriaProducto" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="Dirección" ColumnName="Dirección" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Telefono" ColumnName="Telefono" />

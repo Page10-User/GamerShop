@@ -1,5 +1,7 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionCliente;
+using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -11,6 +13,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        NProveedor nProveedor = new NProveedor();
 
         public Panel PanelContainer { get; set; }
         public ListaProveedor()
@@ -50,6 +53,16 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            nProveedor.listaProveedoresActivos(DGListaProveedor);
+            try
+            {
+                ConfigurarDataGridView();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de cualquier otra excepción
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -114,20 +127,37 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             }
         }
 
+        private void ConfigurarDataGridView()
+        {
+            DGListaProveedor.Columns["ID_Proveedor"].Visible = false;
+            DGListaProveedor.Columns["CModificar"].DisplayIndex = 8;
+            DGListaProveedor.Columns["CEliminar"].DisplayIndex = 9;
+        }
+
         private void DGListaProveedor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == DGListaProveedor.Columns["CModificar"].Index && e.RowIndex >= 0)
             {
-                // Crear una nueva instancia de ListaProductos
-                ModificarProveedor ModificarProveedor = new ModificarProveedor();
-                ModificarProveedor.TopLevel = false;
+                try
+                {
+                    // Crear una nueva instancia de ListaProductos
+                    int id = int.Parse(DGListaProveedor.CurrentRow.Cells["ID_Proveedor"].Value.ToString());
+                    NProveedor nproveedor = new NProveedor();
+                    ModificarProveedor ModificarProveedor = new ModificarProveedor(nproveedor.GetProveedor(id));
+                    ModificarProveedor.TopLevel = false;
 
-                // Limpiar el panel actual y añadir el nuevo formulario
-                PanelContainer.Controls.Clear();
-                PanelContainer.Controls.Add(ModificarProveedor);
-                ModificarProveedor.PanelContainer = PanelContainer;
-                ModificarProveedor.Show();
-                this.Close();
+                    // Limpiar el panel actual y añadir el nuevo formulario
+                    PanelContainer.Controls.Clear();
+                    PanelContainer.Controls.Add(ModificarProveedor);
+                    ModificarProveedor.PanelContainer = PanelContainer;
+                    ModificarProveedor.Show();
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el producto", "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
             else if (e.ColumnIndex == DGListaProveedor.Columns["CEliminar"].Index && e.RowIndex >= 0)
             {
@@ -135,8 +165,19 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 DialogResult result = mensaje.ShowDialog();
                 if (result == DialogResult.Yes)
                 {
-                    mensaje.Dispose();
-                    DGListaProveedor.Rows.RemoveAt(e.RowIndex);
+                    try
+                    {
+                        int id = int.Parse(DGListaProveedor.CurrentRow.Cells["ID_Proveedor"].Value.ToString());
+                        NProveedor nproveedor = new NProveedor();
+                        nproveedor.NEliminarProveedor(id);
+                        mensaje.Close();
+                        DGListaProveedor.Rows.RemoveAt(e.RowIndex);
+                    }
+                    catch (Exception)
+                    {
+                        mensaje = new MsgPersonalizado("No se pudo eliminar el producto", "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
                 }
                 else
                 {

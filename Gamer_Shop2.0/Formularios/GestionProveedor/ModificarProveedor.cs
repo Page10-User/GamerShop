@@ -1,4 +1,7 @@
-﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
+using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
@@ -13,10 +16,14 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        Proveedor proveedorActual = new Proveedor();
+        private List<string> camposActuales = new List<string>(new string[6]);
 
         public Panel PanelContainer { get; set; }
-        public ModificarProveedor()
+        public ModificarProveedor(Proveedor prov)
         {
+            NProveedor nProveedor = new NProveedor();
+            proveedorActual = nProveedor.GetProveedor(prov.ID_Proveedor);
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
         }
@@ -25,6 +32,13 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+
+            TBRazon.Texts = proveedorActual.Razon_social;
+            TBRepresentante.Texts = proveedorActual.Nombre_representante;
+            TBContacto.Texts = proveedorActual.Telefono;
+            TBCorreo.Texts = proveedorActual.Correo;
+            TBDireccion.Texts = proveedorActual.Dirección;
+            CBCategoriaPrProveedor.SelectedIndex = proveedorActual.ID_CategoriaProducto;
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -448,20 +462,82 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         }
         //Fin TextChanged
 
-        //Boton modificar + validación de los campos.
-        private void BModificarProveedor_Click(object sender, EventArgs e)
+        private void guardarCampos()
         {
-            if (TBRepresentante.Texts != string.Empty && TBCorreo.Texts != string.Empty && TBRazon.Texts != string.Empty && TBDireccion.Texts != string.Empty && TBContacto.Texts != string.Empty)
+            camposActuales[0] = TBRazon.Texts;
+            camposActuales[1] = TBRepresentante.Texts;
+            camposActuales[2] = TBContacto.Texts;
+            camposActuales[3] = TBCorreo.Texts;
+            camposActuales[4] = TBDireccion.Texts;
+            camposActuales[5] = CBCategoriaPrProveedor.SelectedItem.ToString();
+        }
+
+        private bool comprobarModif(List<string> campos)
+        {
+            if (campos[0] != TBRazon.Texts ||
+                campos[1] != TBRepresentante.Texts ||
+                campos[2] != TBContacto.Texts ||
+                campos[3] != TBCorreo.Texts ||
+                campos[4] != TBDireccion.Texts ||
+                campos[5] != CBCategoriaPrProveedor.SelectedItem.ToString())
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Proveedor modificado con éxito", "Modificación", "Informacion", null);
-                mensaje.ShowDialog();
+                return true; // Hay modificación
             }
             else
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para modificar un proveedor", "Error", "Error", generarListaCampos());
+                return false; // No hay modificación
+            }
+        }
+
+        //Boton modificar + validación de los campos.
+        private void BModificarProveedor_Click(object sender, EventArgs e)
+        {
+            if (TBRazon.Texts != string.Empty && TBRepresentante.Texts != string.Empty && TBCorreo.Texts != string.Empty && TBRazon.Texts != string.Empty && TBDireccion.Texts != string.Empty && TBContacto.Texts != string.Empty)
+            {
+                if (comprobarModif(camposActuales))
+                {
+                    try
+                    {
+                        NProveedor nProveedor = new NProveedor();
+                        nProveedor.NModificarProveedor(
+                            proveedorActual.Razon_social,
+                            TBRazon.Texts,
+                            TBRepresentante.Texts,
+                            TBContacto.Texts,
+                            TBCorreo.Texts,
+                            TBDireccion.Texts,
+                            CBCategoriaPrProveedor.SelectedIndex + 1
+                            );
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Modificación", "Informacion", null);
+                        mensaje.ShowDialog();
+                        guardarCampos();
+                    }
+                    catch (ExisteRegistroException ex)
+                    {
+                        // Manejo de la excepción cuando el número de serial ya existe
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de cualquier otra excepción
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Debe realizar almenos un cambio para modificar el producto", "Error al Modificar", "Error", null);
+                    mensaje.ShowDialog();
+                }
+            }
+            else
+            {
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para modificar", "Modificar", "Error", generarListaCampos());
                 mensaje.ShowDialog();
             }
         }
+
         //Generamos el listado con los contenidos de cada campo.
         private List<string> generarListaCampos()
         {
@@ -544,3 +620,4 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         }
     }
 }
+
