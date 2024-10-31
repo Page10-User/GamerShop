@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -91,6 +92,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
             if (result == DialogResult.Yes)
             {
                 mensaje.Dispose(); // Cerramos el anterior mensaje que está en "Hide".
+                BackupCompleto();
                 mensaje = new MsgPersonalizado("'Backup Completo' realizado con éxito!", "Backup Exitoso", "Informacion", null);
                 mensaje.ShowDialog();
             }   
@@ -102,9 +104,9 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
 
         private void BBackupPersonalizado_Click(object sender, EventArgs e)
         {
-            if (CBGestionCompra.Checked || CBGestionProducto.Checked || CBGestionProveedor.Checked || CBGestionUsuario.Checked || CBGestionVenta.Checked)
+            if (CBGestionCompra.Checked || CBGestionProducto.Checked || CBGestionProveedor.Checked || CBGestionUsuario.Checked || CBGestionVenta.Checked || CBGestionCliente.Checked)
             {
-                if (CBGestionCompra.Checked && CBGestionProducto.Checked && CBGestionProveedor.Checked && CBGestionUsuario.Checked && CBGestionVenta.Checked)
+                if (CBGestionCompra.Checked && CBGestionProducto.Checked && CBGestionProveedor.Checked && CBGestionUsuario.Checked && CBGestionVenta.Checked && CBGestionCliente.Checked)
                 {
                     this.BBackupCompleto_Click(sender, e);
                 }
@@ -115,6 +117,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
                     if (result == DialogResult.Yes)
                     {
                         mensaje.Dispose();
+                        BackupPersonalizado(CBGestionCompra.Checked, CBGestionProducto.Checked, CBGestionProveedor.Checked, CBGestionUsuario.Checked, CBGestionVenta.Checked, CBGestionCliente.Checked);
                         mensaje = new MsgPersonalizado("'Backup Personalizado' realizado con éxito!", "Backup Personalizado", "Informacion", null);
                         mensaje.ShowDialog();
                     }
@@ -141,6 +144,43 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
 
             // Liberar los recursos
             base.Dispose();
+        }
+        private void BackupCompleto()
+        {
+            ClaseBackups.BackupCompleto.ExporteCompletoACSV();
+        }
+        private void BackupPersonalizado(bool BCompra, bool BProducto, bool BProveedor, bool BUsuario, bool BVenta, bool BCliente)
+        {
+            //Backup Personalizado Gestion Compra
+            if (BCompra == true)
+            {
+                BackupCompras.ExportarComprasACSV();
+            }
+            //Backup Personalizado Gestion Producto
+            if (BProducto == true)
+            {
+                BackupProductos.ExportarProductosACSV();
+            }
+            //Backup Personalizado Gestion Proveedor
+            if (BProveedor == true)
+            {
+                BackupProveedores.ExportarProveedoresACSV();
+            }
+            //Backup Personalizado Gestion Usuario
+            if (BUsuario == true)
+            {
+                BackupUsuarios.ExportarUsuariosACSV();
+            }
+            //Backup Personalizado Gestion Venta
+            if (BVenta == true)
+            {
+                BackupVentas.ExportarVentasACSV();
+            }
+            //Backup Personalizado Gestion Cliente
+            if (BCliente == true)
+            {
+                BackupClientes.ExportarClientesACSV();
+            }
         }
     }
 }

@@ -146,6 +146,9 @@
         2P/eJ92tnRtb7gAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="categoríaproductoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>116, 17</value>
+  </metadata>
   <data name="BRegistrarProveedor.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA4CAYAAAChbZtkAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -245,6 +248,12 @@
         5zV57vZrRDXe86M8ufwfSRC1FCRFT5EhefHixYsXL17/T3Jw+B9b9KeAaF+mzwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="dataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="categoría_productoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>345, 17</value>
+  </metadata>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAArwAAAGuCAYAAAByTNVOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

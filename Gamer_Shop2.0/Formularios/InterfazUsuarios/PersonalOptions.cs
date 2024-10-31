@@ -108,11 +108,8 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             //Cerrar el menú tras elegír una opción
             Mainform.BContracMenu_Click(sender, e);
 
-            // Crear una nueva instancia de EditarPerfil
-            Usuario user = new Usuario();
-            EditarPerfil editarPerfil = new EditarPerfil(user);
-            editarPerfil.TopLevel = false;
-            InstanciarYMostrarEditarBackup();
+            // Crear una nueva instancia de Backups
+            InstanciarYMostrarBackup();
         }
         //------------------------------------------------------------------------------------InstanciarEditarPerfil-------------------------------------------------------------------------------\\
         private void InstanciarYMostrarEditarPerfil()
@@ -147,7 +144,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             }
         }
         //------------------------------------------------------------------------------------InstanciarBackups-------------------------------------------------------------------------------\\
-        private void InstanciarYMostrarEditarBackup()
+        private void InstanciarYMostrarBackup()
         {
             Control control = PanelContainer.Controls[0];
             if (control is Backups)

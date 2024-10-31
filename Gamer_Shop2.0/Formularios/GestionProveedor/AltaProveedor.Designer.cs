@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AltaProveedor));
             this.LTituloAltaProveedor = new System.Windows.Forms.Label();
             this.PBImgAltaProveedor = new System.Windows.Forms.PictureBox();
@@ -65,8 +66,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BRegistrarProveedor = new Gamer_Shop2._0.RJButton();
             this.BListaProveedor = new Gamer_Shop2._0.RJButton();
+            this.dataSet1 = new Gamer_Shop2._0.Datos.DataSet1();
+            this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoría_productoTableAdapter = new Gamer_Shop2._0.Datos.DataSet1TableAdapters.Categoría_productoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaProveedor)).BeginInit();
             this.PContInfoAltaProveedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // LTituloAltaProveedor
@@ -153,18 +159,6 @@
             this.PContInfoAltaProveedor.Size = new System.Drawing.Size(456, 327);
             this.PContInfoAltaProveedor.TabIndex = 34;
             this.PContInfoAltaProveedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PContInfoAltaProveedor_Paint);
-            // 
-            // TBValidacion17
-            // 
-            this.TBValidacion17.AutoSize = true;
-            this.TBValidacion17.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion17.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion17.Location = new System.Drawing.Point(167, 99);
-            this.TBValidacion17.Name = "TBValidacion17";
-            this.TBValidacion17.Size = new System.Drawing.Size(270, 14);
-            this.TBValidacion17.TabIndex = 50;
-            this.TBValidacion17.Text = "El nombre no puede ser unicamente caracteres especiales";
-            this.TBValidacion17.Visible = false;
             // 
             // TBValidacion17
             // 
@@ -466,13 +460,12 @@
             this.CBCategoriaPrProveedor.BackColor = System.Drawing.Color.Black;
             this.CBCategoriaPrProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPrProveedor.BorderSize = 1;
+            this.CBCategoriaPrProveedor.DataSource = this.categoríaproductoBindingSource;
+            this.CBCategoriaPrProveedor.DisplayMember = "Nombre_Categoria";
             this.CBCategoriaPrProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CBCategoriaPrProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CBCategoriaPrProveedor.ForeColor = System.Drawing.Color.DimGray;
             this.CBCategoriaPrProveedor.IconColor = System.Drawing.Color.Lime;
-            this.CBCategoriaPrProveedor.Items.AddRange(new object[] {
-            "Telefonia movil",
-            "Componentes"});
             this.CBCategoriaPrProveedor.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPrProveedor.ListTextColor = System.Drawing.Color.Lime;
             this.CBCategoriaPrProveedor.Location = new System.Drawing.Point(212, 261);
@@ -634,6 +627,20 @@
             this.BListaProveedor.UseVisualStyleBackColor = false;
             this.BListaProveedor.Click += new System.EventHandler(this.BListaProveedor_Click);
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoríaproductoBindingSource
+            // 
+            this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
+            this.categoríaproductoBindingSource.DataSource = this.dataSet1;
+            // 
+            // categoría_productoTableAdapter
+            // 
+            this.categoría_productoTableAdapter.ClearBeforeFill = true;
+            // 
             // AltaProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -657,6 +664,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaProveedor)).EndInit();
             this.PContInfoAltaProveedor.ResumeLayout(false);
             this.PContInfoAltaProveedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -700,5 +709,8 @@
         private System.Windows.Forms.Label TBValidacion15;
         private System.Windows.Forms.Label TBValidacion16;
         private System.Windows.Forms.Label TBValidacion17;
+        private Datos.DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource categoríaproductoBindingSource;
+        private Datos.DataSet1TableAdapters.Categoría_productoTableAdapter categoría_productoTableAdapter;
     }
 }

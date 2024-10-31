@@ -1,6 +1,5 @@
 ﻿using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.Formularios.BorderClasss;
-using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.Validacion;
@@ -10,11 +9,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Gamer_Shop2._0.Validacion;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using System.Collections.Generic;
-using Gamer_Shop2._0.Datos;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
 {
@@ -73,6 +67,10 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         //--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--UI--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\--\\
         private void AltaProducto_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
+            this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Categoría_producto' Puede moverla o quitarla según sea necesario.
+            this.categoría_productoTableAdapter.Fill(this.dataSet1.Categoría_producto);
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
 
@@ -549,7 +547,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             if (!string.IsNullOrWhiteSpace(TBAddCategoria.Texts))
             {
-                this.Close();
                 MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea ingresar la categoria '" + TBAddCategoria.Texts + "'", "Agregar Categoria", "Interrogacion", null);
                 DialogResult result = mensaje.ShowDialog();
                 if (result == DialogResult.Yes)
@@ -560,6 +557,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     {
                         NCategoriaProducto nCategoria = new NCategoriaProducto();
                         nCategoria.NAgregarCategoria(TBAddCategoria.Texts);
+                        //Mostramos el mensaje de éxito
                         mensaje = new MsgPersonalizado("Categoria '" + TBAddCategoria.Texts + "' agregada exitosamente", "Categoria Agregada", "Informacion", null);
                         mensaje.ShowDialog();
                     }
@@ -569,9 +567,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                         mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
                         mensaje.ShowDialog();
                     }
-                    //Mostramos el mensaje de éxito
-                    mensaje = new MsgPersonalizado("Categoria '" + TBAddCategoria.Texts + "' agregada exitosamente","Categoria Agregada", "Informacion", null);
-                    mensaje.ShowDialog();
                 }
                 else
                 {

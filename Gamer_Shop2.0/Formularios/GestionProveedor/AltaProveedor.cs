@@ -55,6 +55,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
 
         private void AltaProveedor_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Categoría_producto' Puede moverla o quitarla según sea necesario.
+            this.categoría_productoTableAdapter.Fill(this.dataSet1.Categoría_producto);
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
         }
@@ -458,7 +460,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                         TBDireccion.Texts,
                         CBCategoriaPrProveedor.SelectedIndex+1
                         );
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Proveedor registrado con éxito", "Registro", "Informacion", null);
                     mensaje.ShowDialog();
                 }
                 catch (ExisteRegistroException ex)

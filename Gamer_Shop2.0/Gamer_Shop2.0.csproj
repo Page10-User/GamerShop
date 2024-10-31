@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web.DataVisualization" />
@@ -116,6 +117,13 @@
     <Compile Include="Formularios\Gestion Compra\Lista Producto Compra\ListaProductosCompra.Designer.cs">
       <DependentUpon>ListaProductosCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupClientes.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupCompleto.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupCompras.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupProductos.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupProveedores.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupUsuarios.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupVentas.cs" />
     <Compile Include="Formularios\MSGPersonalizado\MsgPersonalizado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -569,7 +577,15 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Formularios\GestionBackups\BackupsGuardados\SaveAll\" />
+    <Folder Include="Formularios\GestionBackups\BackupsGuardados\SaveClientes\" />
+    <Folder Include="Formularios\GestionBackups\BackupsGuardados\SaveCompras\" />
+    <Folder Include="Formularios\GestionBackups\BackupsGuardados\SaveProductos\" />
+    <Folder Include="Formularios\GestionBackups\BackupsGuardados\SaveProveedores\" />
+    <Folder Include="Formularios\GestionBackups\BackupsGuardados\SaveUsuarios\" />
+    <Folder Include="Formularios\GestionBackups\BackupsGuardados\SaveVentas\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

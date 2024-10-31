@@ -42,12 +42,14 @@
             this.LRBC = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LTituloBackups = new System.Windows.Forms.Label();
+            this.CBGestionCliente = new System.Windows.Forms.CheckBox();
             this.PContInfBackups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PContInfBackups
             // 
+            this.PContInfBackups.Controls.Add(this.CBGestionCliente);
             this.PContInfBackups.Controls.Add(this.BBackupPersonalizado);
             this.PContInfBackups.Controls.Add(this.CBGestionCompra);
             this.PContInfBackups.Controls.Add(this.CBGestionProveedor);
@@ -222,6 +224,18 @@
             this.LTituloBackups.Text = "Backups";
             this.LTituloBackups.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // CBGestionCliente
+            // 
+            this.CBGestionCliente.AutoSize = true;
+            this.CBGestionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBGestionCliente.ForeColor = System.Drawing.Color.White;
+            this.CBGestionCliente.Location = new System.Drawing.Point(368, 175);
+            this.CBGestionCliente.Name = "CBGestionCliente";
+            this.CBGestionCliente.Size = new System.Drawing.Size(178, 29);
+            this.CBGestionCliente.TabIndex = 10;
+            this.CBGestionCliente.Text = "Gestion Cliente";
+            this.CBGestionCliente.UseVisualStyleBackColor = true;
+            // 
             // Backups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,5 +274,6 @@
         private System.Windows.Forms.CheckBox CBGestionProveedor;
         private System.Windows.Forms.CheckBox CBGestionUsuario;
         private System.Windows.Forms.CheckBox CBGestionProducto;
+        private System.Windows.Forms.CheckBox CBGestionCliente;
     }
 }

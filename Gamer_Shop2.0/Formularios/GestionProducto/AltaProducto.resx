@@ -156,6 +156,15 @@
         DwFCOc75IFuxVYOkYJAZwrmOqIYPYcDAAAAs5Yx/RRuVjQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="proveedorBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>958, 32</value>
+  </metadata>
+  <metadata name="dataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>404, 32</value>
+  </metadata>
+  <metadata name="categoríaproductoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>503, 32</value>
+  </metadata>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>265, 32</value>
   </metadata>
@@ -250,6 +259,12 @@
         4ca08chHCP2CU7yIyYE3ir4i+xrSpe8CmZmZmf0XLT0gIhU8q7EAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="categoría_productoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>732, 32</value>
+  </metadata>
+  <metadata name="proveedorTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 69</value>
+  </metadata>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAArwAAAGuCAYAAAByTNVOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

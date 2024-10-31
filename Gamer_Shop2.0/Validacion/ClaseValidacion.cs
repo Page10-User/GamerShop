@@ -40,7 +40,7 @@ namespace Gamer_Shop2._0.Validacion
         // Validar que el campo solo contenga caracteres alfabeticos
         public bool ValidarCaracteresAlfabeticos(string texto)
         {
-            return texto.All(char.IsLetter);
+            return texto.All(c => char.IsLetter(c) || char.IsWhiteSpace(c));
         }
 
         // Validar el KeyPress para permitir solo caracteres alfabeticos
