@@ -15,6 +15,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+
         Usuario usuarioActual = new Usuario();
         string filePath;
 
@@ -88,7 +89,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBNombreUsuario.Texts = usuarioActual.Nombre_usuario;
             TBEmailUs.Texts = usuarioActual.Correo;
             TBContrasenaUs.Texts = usuarioActual.Contraseña;
-            PBImagenPerfil.Image = Image.FromFile(usuarioActual.photoFilePath);
+            //PBImagenPerfil.Image = Image.FromFile(usuarioActual.photoFilePath); Trabajar más tarde
         }
 
         private GraphicsPath CreateRoundedPath()

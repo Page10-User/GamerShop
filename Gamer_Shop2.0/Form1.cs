@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Formularios.BorderClasss;
 using Gamer_Shop2._0.Formularios.InterfazUsuarios;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.ComponentModel;
@@ -177,21 +178,29 @@ namespace Gamer_Shop2._0
         {
             if (TBUsuario.Texts != string.Empty && TBContrasena.Texts != string.Empty)
             {
-                if (TBUsuario.Texts == "EmpleadoUser" && TBContrasena.Texts == "12345678")
-                {
-                    CrearYMostrarBienvenida<EmpleadoOptions>();
+                try {
+                    NUsuario nusuario = new NUsuario();
+                    Usuario usuario = nusuario.GetCuentaUsuario(TBUsuario.Texts, TBContrasena.Texts);
+
+                    if (usuario.ID_TipoUsuario == 1)
+                    {
+                        CrearYMostrarBienvenida<EmpleadoOptions>(usuario);
+                    }
+                    else if (usuario.ID_TipoUsuario == 2)
+                    {
+                        CrearYMostrarBienvenida<AdministradorOptions>(usuario);
+                    }
+                    else if (usuario.ID_TipoUsuario == 3)
+                    {
+                        CrearYMostrarBienvenida<GerenteOptions>(usuario);
+                    }
+                    else
+                    {
+                        MostrarMensajeError("Por favor, ingrese un usuario y contraseña válidos");
+                    }
                 }
-                else if (TBUsuario.Texts == "AdministradorUser" && TBContrasena.Texts == "12345678")
-                {
-                    CrearYMostrarBienvenida<AdministradorOptions>();
-                }
-                else if (TBUsuario.Texts == "GerenteUser" && TBContrasena.Texts == "12345678")
-                {
-                    CrearYMostrarBienvenida<GerenteOptions>();
-                }
-                else
-                {
-                    MostrarMensajeError("Por favor, ingrese un usuario y contraseña válidos");
+                catch { 
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Error inesperado al intentar iniciar sesión","Error", "Error", null);
                 }
             }
             else
@@ -200,12 +209,13 @@ namespace Gamer_Shop2._0
             }
         }
 
-        private void CrearYMostrarBienvenida<T>() where T : UserOptionsBase, new()
+        private void CrearYMostrarBienvenida<T>(Usuario usuario) where T : UserOptionsBase, new()
         {
             Bienvenida bienvenidaForm = new Bienvenida();
             bienvenidaForm.userOptions = new T();
             bienvenidaForm.Show();
             bienvenidaForm.Forminicio = this;
+            bienvenidaForm.BUsuario = usuario;
             this.Hide();
         }
 
@@ -220,7 +230,7 @@ namespace Gamer_Shop2._0
         private void Form1_Load(object sender, EventArgs e)
         {
             TBUsuario.Texts = "AdministradorUser";
-            TBContrasena.Texts = "12345678";
+            TBContrasena.Texts = "12345672";
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

@@ -18,6 +18,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
         public Bienvenida Mainform { get; set; }
         public Form FondoOscuroCat {  get; set; }
         public UserOptionsBase Menu { get; set; }
+        public Usuario PUsuario { get; set; }
         public PersonalOptions_NB_()
         {
             InitializeComponent();
@@ -119,8 +120,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 }
 
                 // Crear una nueva instancia de EditarPerfil
-                Usuario user = new Usuario();
-                EditarPerfil editarPerfil = new EditarPerfil(user);
+                EditarPerfil editarPerfil = new EditarPerfil(PUsuario);
                 editarPerfil.TopLevel = false;
 
                 // Limpiar el panel actual y añadir el nuevo formulario

@@ -111,5 +111,23 @@ namespace Gamer_Shop2._0.Negocio
                 dUsuario.DEliminarUsuario(cuil);
             }
         }
+
+        //   //----------------------------------------------------------------------------------\\
+        //  //------------------------------------------------------------------------------------\\
+        //  ||                     Método para obtener la cuenta del usuario                      ||
+        //  \\------------------------------------------------------------------------------------//
+        //   \\----------------------------------------------------------------------------------//
+
+        public Usuario GetCuentaUsuario(string NombreUsuario, string Contraseña)
+        {
+            if (dUsuario == null)
+            {
+                throw new NullReferenceException("El objeto 'dUsuario' no se pudo inicializar.");
+            }
+            else
+            {
+                return dUsuario.getCuentaUsuario(NombreUsuario, Contraseña);
+            }
+        }
     }
 }

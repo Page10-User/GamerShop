@@ -24,6 +24,9 @@ namespace Gamer_Shop2._0
         // Almacena las opciones del usuario seleccionadas
         public UserOptionsBase userOptions { get; set; }
 
+        // Almacena al usuario que inició sesion
+        public Usuario BUsuario { get; set; }
+
         // --------------------------------------------------------------------------------------------------------------------
         // Paneles de opciones de menú
         // --------------------------------------------------------------------------------------------------------------------
@@ -134,6 +137,7 @@ namespace Gamer_Shop2._0
             // Cargar contenido del menú.
             PMenuUS.Controls.Add(userOptions);
             userOptions.Forminicio = Forminicio;
+            userOptions.UUsuario = BUsuario;
             userOptions.Location = new Point(0, 2);
             userOptions.Visible = true;
 

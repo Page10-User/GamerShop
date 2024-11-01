@@ -119,6 +119,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             Poptions.PanelContainer = PanelContainer;
             Poptions.Mainform = MainForm;
             Poptions.Forminicio = Forminicio;
+            Poptions.PUsuario = UUsuario;
             Poptions.Menu = this;
             PPersonalOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PPersonalOptions.Controls.Add(Poptions);

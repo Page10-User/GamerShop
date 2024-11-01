@@ -11,6 +11,8 @@ namespace Gamer_Shop2._0
         public Form FondoOscuroCatalogo { get; set; }
         public bool isExpandedOps { get; set; }
 
+        public Usuario UUsuario { get; set; }
+
         public virtual void DesuscribirseDeEventos()
         {
         }

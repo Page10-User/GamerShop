@@ -46,23 +46,23 @@ namespace Gamer_Shop2._0.Datos {
         
         private Detalle_compraDataTable tableDetalle_compra;
         
-        private global::System.Data.DataRelation relationFK_Proveedor_Producto;
-        
         private global::System.Data.DataRelation relationFK_Categoría_producto_Producto;
+        
+        private global::System.Data.DataRelation relationFK_Proveedor_Producto;
         
         private global::System.Data.DataRelation relationFK_Compra_Usuario;
         
         private global::System.Data.DataRelation relationFK_Compra_Proveedor;
         
-        private global::System.Data.DataRelation relationFK_Cliente_Venta;
-        
         private global::System.Data.DataRelation relationFK_Usuario_Venta;
+        
+        private global::System.Data.DataRelation relationFK_Cliente_Venta;
         
         private global::System.Data.DataRelation relationFK_Producto_Detalle_venta;
         
-        private global::System.Data.DataRelation relationFK_Producto_Detalle_compra;
-        
         private global::System.Data.DataRelation relationFK_Compra_Detalle_compra;
+        
+        private global::System.Data.DataRelation relationFK_Producto_Detalle_compra;
         
         private global::System.Data.DataRelation relationFK_TipoUsuario;
         
@@ -458,15 +458,15 @@ namespace Gamer_Shop2._0.Datos {
                     this.tableDetalle_compra.InitVars();
                 }
             }
-            this.relationFK_Proveedor_Producto = this.Relations["FK_Proveedor_Producto"];
             this.relationFK_Categoría_producto_Producto = this.Relations["FK_Categoría_producto_Producto"];
+            this.relationFK_Proveedor_Producto = this.Relations["FK_Proveedor_Producto"];
             this.relationFK_Compra_Usuario = this.Relations["FK_Compra_Usuario"];
             this.relationFK_Compra_Proveedor = this.Relations["FK_Compra_Proveedor"];
-            this.relationFK_Cliente_Venta = this.Relations["FK_Cliente_Venta"];
             this.relationFK_Usuario_Venta = this.Relations["FK_Usuario_Venta"];
+            this.relationFK_Cliente_Venta = this.Relations["FK_Cliente_Venta"];
             this.relationFK_Producto_Detalle_venta = this.Relations["FK_Producto_Detalle_venta"];
-            this.relationFK_Producto_Detalle_compra = this.Relations["FK_Producto_Detalle_compra"];
             this.relationFK_Compra_Detalle_compra = this.Relations["FK_Compra_Detalle_compra"];
+            this.relationFK_Producto_Detalle_compra = this.Relations["FK_Producto_Detalle_compra"];
             this.relationFK_TipoUsuario = this.Relations["FK_TipoUsuario"];
             this.relationFK_MetodoPagoVenta = this.Relations["FK_MetodoPagoVenta"];
             this.relationFK_VentaDV = this.Relations["FK_VentaDV"];
@@ -503,16 +503,16 @@ namespace Gamer_Shop2._0.Datos {
             this.tableDetalle_compra = new Detalle_compraDataTable();
             base.Tables.Add(this.tableDetalle_compra);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Proveedor_Producto", new global::System.Data.DataColumn[] {
-                        this.tableProveedor.ID_ProveedorColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProducto.ID_ProveedorColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Categoría_producto_Producto", new global::System.Data.DataColumn[] {
+                        this.tableCategoría_producto.ID_CategoriaColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProducto.ID_CategoriaColumn});
             this.tableProducto.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Categoría_producto_Producto", new global::System.Data.DataColumn[] {
-                        this.tableCategoría_producto.ID_CategoriaColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProducto.ID_CategoriaColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Proveedor_Producto", new global::System.Data.DataColumn[] {
+                        this.tableProveedor.ID_ProveedorColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProducto.ID_ProveedorColumn});
             this.tableProducto.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -531,16 +531,16 @@ namespace Gamer_Shop2._0.Datos {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Cliente_Venta", new global::System.Data.DataColumn[] {
-                        this.tableCliente.ID_ClienteColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVenta.ID_ClienteColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Usuario_Venta", new global::System.Data.DataColumn[] {
+                        this.tableUsuario.ID_UsuarioColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVenta.ID_UsuarioColumn});
             this.tableVenta.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Usuario_Venta", new global::System.Data.DataColumn[] {
-                        this.tableUsuario.ID_UsuarioColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVenta.ID_UsuarioColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Cliente_Venta", new global::System.Data.DataColumn[] {
+                        this.tableCliente.ID_ClienteColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVenta.ID_ClienteColumn});
             this.tableVenta.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -552,13 +552,6 @@ namespace Gamer_Shop2._0.Datos {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Producto_Detalle_compra", new global::System.Data.DataColumn[] {
-                        this.tableProducto.ID_ProductoColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDetalle_compra.ID_ProductoColumn});
-            this.tableDetalle_compra.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_Compra_Detalle_compra", new global::System.Data.DataColumn[] {
                         this.tableCompra.ID_CompraColumn}, new global::System.Data.DataColumn[] {
                         this.tableDetalle_compra.ID_CompraColumn});
@@ -566,14 +559,21 @@ namespace Gamer_Shop2._0.Datos {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_Proveedor_Producto = new global::System.Data.DataRelation("FK_Proveedor_Producto", new global::System.Data.DataColumn[] {
-                        this.tableProveedor.ID_ProveedorColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProducto.ID_ProveedorColumn}, false);
-            this.Relations.Add(this.relationFK_Proveedor_Producto);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Producto_Detalle_compra", new global::System.Data.DataColumn[] {
+                        this.tableProducto.ID_ProductoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDetalle_compra.ID_ProductoColumn});
+            this.tableDetalle_compra.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_Categoría_producto_Producto = new global::System.Data.DataRelation("FK_Categoría_producto_Producto", new global::System.Data.DataColumn[] {
                         this.tableCategoría_producto.ID_CategoriaColumn}, new global::System.Data.DataColumn[] {
                         this.tableProducto.ID_CategoriaColumn}, false);
             this.Relations.Add(this.relationFK_Categoría_producto_Producto);
+            this.relationFK_Proveedor_Producto = new global::System.Data.DataRelation("FK_Proveedor_Producto", new global::System.Data.DataColumn[] {
+                        this.tableProveedor.ID_ProveedorColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProducto.ID_ProveedorColumn}, false);
+            this.Relations.Add(this.relationFK_Proveedor_Producto);
             this.relationFK_Compra_Usuario = new global::System.Data.DataRelation("FK_Compra_Usuario", new global::System.Data.DataColumn[] {
                         this.tableCompra.ID_UsuarioColumn}, new global::System.Data.DataColumn[] {
                         this.tableUsuario.ID_UsuarioColumn}, false);
@@ -582,26 +582,26 @@ namespace Gamer_Shop2._0.Datos {
                         this.tableCompra.ID_ProveedorColumn}, new global::System.Data.DataColumn[] {
                         this.tableProveedor.ID_ProveedorColumn}, false);
             this.Relations.Add(this.relationFK_Compra_Proveedor);
-            this.relationFK_Cliente_Venta = new global::System.Data.DataRelation("FK_Cliente_Venta", new global::System.Data.DataColumn[] {
-                        this.tableCliente.ID_ClienteColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVenta.ID_ClienteColumn}, false);
-            this.Relations.Add(this.relationFK_Cliente_Venta);
             this.relationFK_Usuario_Venta = new global::System.Data.DataRelation("FK_Usuario_Venta", new global::System.Data.DataColumn[] {
                         this.tableUsuario.ID_UsuarioColumn}, new global::System.Data.DataColumn[] {
                         this.tableVenta.ID_UsuarioColumn}, false);
             this.Relations.Add(this.relationFK_Usuario_Venta);
+            this.relationFK_Cliente_Venta = new global::System.Data.DataRelation("FK_Cliente_Venta", new global::System.Data.DataColumn[] {
+                        this.tableCliente.ID_ClienteColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVenta.ID_ClienteColumn}, false);
+            this.Relations.Add(this.relationFK_Cliente_Venta);
             this.relationFK_Producto_Detalle_venta = new global::System.Data.DataRelation("FK_Producto_Detalle_venta", new global::System.Data.DataColumn[] {
                         this.tableProducto.ID_ProductoColumn}, new global::System.Data.DataColumn[] {
                         this.tableDetalle_venta.ID_ProductoColumn}, false);
             this.Relations.Add(this.relationFK_Producto_Detalle_venta);
-            this.relationFK_Producto_Detalle_compra = new global::System.Data.DataRelation("FK_Producto_Detalle_compra", new global::System.Data.DataColumn[] {
-                        this.tableProducto.ID_ProductoColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDetalle_compra.ID_ProductoColumn}, false);
-            this.Relations.Add(this.relationFK_Producto_Detalle_compra);
             this.relationFK_Compra_Detalle_compra = new global::System.Data.DataRelation("FK_Compra_Detalle_compra", new global::System.Data.DataColumn[] {
                         this.tableCompra.ID_CompraColumn}, new global::System.Data.DataColumn[] {
                         this.tableDetalle_compra.ID_CompraColumn}, false);
             this.Relations.Add(this.relationFK_Compra_Detalle_compra);
+            this.relationFK_Producto_Detalle_compra = new global::System.Data.DataRelation("FK_Producto_Detalle_compra", new global::System.Data.DataColumn[] {
+                        this.tableProducto.ID_ProductoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDetalle_compra.ID_ProductoColumn}, false);
+            this.Relations.Add(this.relationFK_Producto_Detalle_compra);
             this.relationFK_TipoUsuario = new global::System.Data.DataRelation("FK_TipoUsuario", new global::System.Data.DataColumn[] {
                         this.tableTipo_usuario.ID_TipoUsuarioColumn}, new global::System.Data.DataColumn[] {
                         this.tableUsuario.ID_TipoUsuarioColumn}, false);
@@ -4635,23 +4635,23 @@ namespace Gamer_Shop2._0.Datos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProveedorRow ProveedorRow {
-                get {
-                    return ((ProveedorRow)(this.GetParentRow(this.Table.ParentRelations["FK_Proveedor_Producto"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Proveedor_Producto"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Categoría_productoRow Categoría_productoRow {
                 get {
                     return ((Categoría_productoRow)(this.GetParentRow(this.Table.ParentRelations["FK_Categoría_producto_Producto"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Categoría_producto_Producto"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ProveedorRow ProveedorRow {
+                get {
+                    return ((ProveedorRow)(this.GetParentRow(this.Table.ParentRelations["FK_Proveedor_Producto"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Proveedor_Producto"]);
                 }
             }
             
@@ -5212,23 +5212,23 @@ namespace Gamer_Shop2._0.Datos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClienteRow ClienteRow {
-                get {
-                    return ((ClienteRow)(this.GetParentRow(this.Table.ParentRelations["FK_Cliente_Venta"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Cliente_Venta"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public UsuarioRow UsuarioRow {
                 get {
                     return ((UsuarioRow)(this.GetParentRow(this.Table.ParentRelations["FK_Usuario_Venta"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Usuario_Venta"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ClienteRow ClienteRow {
+                get {
+                    return ((ClienteRow)(this.GetParentRow(this.Table.ParentRelations["FK_Cliente_Venta"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Cliente_Venta"]);
                 }
             }
             
@@ -5569,23 +5569,23 @@ namespace Gamer_Shop2._0.Datos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProductoRow ProductoRow {
-                get {
-                    return ((ProductoRow)(this.GetParentRow(this.Table.ParentRelations["FK_Producto_Detalle_compra"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Producto_Detalle_compra"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CompraRow CompraRow {
                 get {
                     return ((CompraRow)(this.GetParentRow(this.Table.ParentRelations["FK_Compra_Detalle_compra"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Compra_Detalle_compra"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ProductoRow ProductoRow {
+                get {
+                    return ((ProductoRow)(this.GetParentRow(this.Table.ParentRelations["FK_Producto_Detalle_compra"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Producto_Detalle_compra"]);
                 }
             }
         }
@@ -7523,7 +7523,7 @@ SELECT Nombre, Apellido, CUIL, Nombre_usuario, Contraseña, Correo, photoFilePat
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Nombre, Apellido, CUIL, Nombre_usuario, Contraseña, Correo, photoFilePath," +
@@ -7531,9 +7531,17 @@ SELECT Nombre, Apellido, CUIL, Nombre_usuario, Contraseña, Correo, photoFilePat
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT COUNT(*) FROM Usuario WHERE CUIL = @UsuarioCUIL";
+            this._commandCollection[1].CommandText = "SELECT        COUNT(*) AS ExCUs\r\nFROM            Usuario\r\nWHERE        (Nombre_us" +
+                "uario = @NombreUsuario) AND (Contraseña = @ContraseñaUsuario)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UsuarioCUIL", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "CUIL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NombreUsuario", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContraseñaUsuario", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Contraseña", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        COUNT(*) AS Expr1\r\nFROM            Usuario\r\nWHERE        (CUIL = @U" +
+                "suarioCUIL)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UsuarioCUIL", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "CUIL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7905,8 +7913,48 @@ SELECT Nombre, Apellido, CUIL, Nombre_usuario, Contraseña, Correo, photoFilePat
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> ExisteUsuarioPorCUIL(string UsuarioCUIL) {
+        public virtual global::System.Nullable<int> ExisteUsuarioPorCuenta(string NombreUsuario, string ContraseñaUsuario) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((NombreUsuario == null)) {
+                throw new global::System.ArgumentNullException("NombreUsuario");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(NombreUsuario));
+            }
+            if ((ContraseñaUsuario == null)) {
+                throw new global::System.ArgumentNullException("ContraseñaUsuario");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(ContraseñaUsuario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ExisteUsuarioPorCUIL(string UsuarioCUIL) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((UsuarioCUIL == null)) {
                 throw new global::System.ArgumentNullException("UsuarioCUIL");
             }

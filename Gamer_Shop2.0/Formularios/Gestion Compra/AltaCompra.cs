@@ -232,30 +232,6 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
             formListaCompra.TopMost = true;
             formListaCompra.ShowDialog();
         }
-        //private void AltaCompra_CargarProductoDG(object sender, int Serial)
-        //{
-        //    try
-        //    {
-        //        // Obtenemos el producto usando el número de serie
-        //        NProducto nproducto = new NProducto();
-        //        Producto producto = nproducto.GetProducto(Serial);
-
-        //        // Agregar una nueva fila en el DataGridView con los datos del producto
-        //        DGListaPrCompra.Rows.Add(
-        //            producto.Serial,          // Columna CSerialPr
-        //            producto.Nombre,          // Columna CNombrePr
-        //            1,                        // Columna CCantidadPr
-        //            producto.Precio,          // Columna CPrecioPr
-        //            producto.Precio
-        //        );
-        //    }
-        //    catch
-        //    {
-        //        // Mostrar un mensaje personalizado en caso de error
-        //        MsgPersonalizado mensaje = new MsgPersonalizado("Error al intentar cargar el producto al DataGridView", "Error", "Error", null);
-        //        mensaje.ShowDialog();
-        //    }
-        //}
         private void AltaCompra_CargarProductoDG(object sender, int Serial)
         {
             try

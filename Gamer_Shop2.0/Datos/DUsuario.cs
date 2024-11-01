@@ -157,5 +157,42 @@ namespace Gamer_Shop2._0.Datos
                 }
             }
         }
+        //   //----------------------------------------------------------------------------------\\
+        //  //------------------------------------------------------------------------------------\\
+        //  ||                     Método para obtener la cuenta del usuario                      ||
+        //  \\------------------------------------------------------------------------------------//
+        //   \\----------------------------------------------------------------------------------//
+        
+        public Usuario getCuentaUsuario(string NombreUsuario, string Contraseña)
+        {
+            if (ExisteCuenta(NombreUsuario, Contraseña) == false)
+            {
+                throw new ExisteRegistroException("El Usuario no existe");
+            }
+            else
+            {
+                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+                {
+                    return context.Usuario.FirstOrDefault(p => p.Nombre_usuario == NombreUsuario);
+                }
+            }
+        }
+
+        public bool ExisteCuenta(string NombreUsuario, string Contraseña)
+        {
+
+            if (adapter == null)
+            {
+                throw new NullReferenceException("El TableAdapter no fue inicializado.");
+            }
+            else
+            {
+                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+                {
+                    if (adapter.ExisteUsuarioPorCuenta(NombreUsuario, Contraseña) > 0) return true;
+                    else return false;
+                }
+            }
+        }
     }
 }

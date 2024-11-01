@@ -20,6 +20,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
         public Panel LabelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
         public UserOptionsBase Menu { get; set; }
+        public Usuario PUsuario { get; set; }
 
         public PersonalOptions()
         {
@@ -128,14 +129,12 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 }
 
                 // Crear una nueva instancia de EditarPerfil
-                Usuario user = new Usuario();
-                EditarPerfil editarPerfil = new EditarPerfil(user);
+                EditarPerfil editarPerfil = new EditarPerfil(PUsuario);
                 editarPerfil.TopLevel = false;
 
                 // Limpiar el panel actual y añadir el nuevo formulario
                 PanelContainer.Controls.Clear();
                 PanelContainer.Controls.Add(editarPerfil);
-                //editarPerfil.PanelContainer = PanelContainer;
                 Mainform.TopMost = true; // Volvemos a aplicar el TopMost del Mainform.
                 editarPerfil.Show();
 

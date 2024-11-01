@@ -163,6 +163,14 @@ namespace Gamer_Shop2._0.RJControls
         }
 
         [Category("RJ Code - Appearance")]
+        public int DropDownWidth
+        {
+            get { return cmbList.DropDownWidth; }
+            set { cmbList.DropDownWidth = value; }
+        }
+
+
+        [Category("RJ Code - Appearance")]
         public Color IconColor
         {
             get { return iconColor; }
