@@ -143,6 +143,9 @@
     <Compile Include="Formularios\MSGPersonalizado\MsgPersonalizado.Designer.cs">
       <DependentUpon>MsgPersonalizado.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetDataBySerial_Result.cs">
+      <DependentUpon>ModeloBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModeloBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

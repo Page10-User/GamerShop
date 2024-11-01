@@ -42,11 +42,13 @@ namespace Gamer_Shop2._0.Datos
                     return dataTable;
                 }
             }
+
             catch (SqlException ex)
             {
                 MessageBox.Show($"Error SQL: {ex.Message}\nDetalle: {ex.InnerException?.Message}");
                 return null;
             }
+
         }
     }
 }

@@ -26,10 +26,9 @@
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Cliente" Width="1.5" PointX="5.375" PointY="1" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_ClienteVenta" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_Proveedor_CategoriaProducto" />
-        <EntityTypeShape EntityType="ProyectoTallerIIModel.Detalle_compra" Width="1.5" PointX="5.25" PointY="7.75" />
+        <EntityTypeShape EntityType="ProyectoTallerIIModel.Detalle_compra" Width="1.5" PointX="5.5" PointY="6.75" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_ProductoDC" />
         <AssociationConnector Association="ProyectoTallerIIModel.Detalle_compraCompra" />
-        <AssociationConnector Association="ProyectoTallerIIModel.FK_CompraDC" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

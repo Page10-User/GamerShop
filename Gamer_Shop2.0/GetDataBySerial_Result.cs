@@ -10,17 +10,18 @@
 namespace Gamer_Shop2._0
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Detalle_compra
+    public partial class GetDataBySerial_Result
     {
-        public double Subtotal { get; set; }
-        public int Cantidad { get; set; }
-        public double Precio_actual { get; set; }
+        public int Serial { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public int Stock { get; set; }
+        public double Precio { get; set; }
         public int ID_Producto { get; set; }
-        public int ID_Compra { get; set; }
-    
-        public virtual Producto Producto { get; set; }
-        public virtual Compra Compra { get; set; }
+        public int ID_Proveedor { get; set; }
+        public string Activo { get; set; }
+        public string photoFilePath { get; set; }
+        public int ID_Categoria { get; set; }
     }
 }
