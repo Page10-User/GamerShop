@@ -19,6 +19,8 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         public Panel PanelContainer { get; set; }
         public Form FondoOscurecido { get; set; }
         public Bienvenida MainForm { get; set; }
+
+        bool isWasClick;
         public AltaCliente(bool desdeDonde)
         {
             InitializeComponent();
@@ -423,6 +425,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                         );
                     MsgPersonalizado mensaje = new MsgPersonalizado("Cliente registrado con éxito", "Registro", "Informacion", null);
                     mensaje.ShowDialog();
+                    CerrarAltaClienteSegunDonde(sender, e, BCloseAltaCliente.Visible);
                 }
                 catch (ExisteRegistroException ex)
                 {
@@ -444,6 +447,19 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             }
         }
 
+        private void CerrarAltaClienteSegunDonde(object sender, EventArgs e, bool RdesdeDonde)
+        {
+            if (RdesdeDonde)
+            {
+                isWasClick = true;
+                this.BCloseAltaCliente_Click(sender, e);
+            }
+            else
+            {
+                return;
+            }
+        }
+
         //Mostrar u Ocultar boton de ListaCliente dependiendo del ingreso al mismo.
         private void MostrarBotonListaSegunDondeVenga(bool desdeDonde)
         {
@@ -461,12 +477,32 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
             }
         }
 
+        public event EventHandler<int> ObtenerDNICliente;
         //Botón para cerrar el formulario AltaCliente.
         private void BCloseAltaCliente_Click(object sender, EventArgs e)
         {
-            MainForm.TopMost = true;
-            FondoOscurecido.Dispose();
-            this.Dispose();
+            if (isWasClick == true)
+            {
+                //Aplicamos el topMost
+                MainForm.TopMost = true;
+
+                //Retornamos el id del cliente registrado
+                string DNICliente = TBDni.Texts;
+                ObtenerDNICliente?.Invoke(this,Convert.ToInt32(DNICliente));
+
+                //Liberamos recursos
+                FondoOscurecido.Dispose();
+                this.Dispose();
+            }
+            else
+            {
+                //Aplicamos el topMost
+                MainForm.TopMost = true;
+
+                //Liberamos recursos
+                FondoOscurecido.Dispose();
+                this.Dispose();
+            }
         }
 
         //Agrupamos todas las validaciones y las ocultamos para evitar redundacia.

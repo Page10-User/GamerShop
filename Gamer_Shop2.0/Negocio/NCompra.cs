@@ -45,7 +45,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public Venta GetCompra(int id)
+        public Compra GetCompra(int id)
         {
             if (dcompra == null)
             {

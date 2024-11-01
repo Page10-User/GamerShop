@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,13 +42,11 @@ namespace Gamer_Shop2._0.Datos
                     return dataTable;
                 }
             }
-
             catch (SqlException ex)
             {
                 MessageBox.Show($"Error SQL: {ex.Message}\nDetalle: {ex.InnerException?.Message}");
                 return null;
             }
-
         }
     }
 }

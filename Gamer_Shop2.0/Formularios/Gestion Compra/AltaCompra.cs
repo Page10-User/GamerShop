@@ -1,8 +1,10 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.ComponentModel;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -75,6 +77,8 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         }
         private void EditarPerfil_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
+            this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
         }
@@ -218,14 +222,83 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
             formBG.Show();
 
             //Mostrar form "Alta Cliente"
-            ListaProductosCompra formAltaCl = new ListaProductosCompra();
-            formAltaCl.StartPosition = FormStartPosition.CenterScreen;
-            formAltaCl.BringToFront();
-            formAltaCl.MainForm = MainForm;
-            formAltaCl.FondoOscurecido = formBG;
-            formAltaCl.ShowInTaskbar = false;
-            formAltaCl.TopMost = true;
-            formAltaCl.ShowDialog();
+            ListaProductosCompra formListaCompra = new ListaProductosCompra();
+            formListaCompra.StartPosition = FormStartPosition.CenterScreen;
+            formListaCompra.BringToFront();
+            formListaCompra.MainForm = MainForm;
+            formListaCompra.FondoOscurecido = formBG;
+            formListaCompra.AgregarAlDataGrid += AltaCompra_CargarProductoDG;
+            formListaCompra.ShowInTaskbar = false;
+            formListaCompra.TopMost = true;
+            formListaCompra.ShowDialog();
+        }
+        //private void AltaCompra_CargarProductoDG(object sender, int Serial)
+        //{
+        //    try
+        //    {
+        //        // Obtenemos el producto usando el número de serie
+        //        NProducto nproducto = new NProducto();
+        //        Producto producto = nproducto.GetProducto(Serial);
+
+        //        // Agregar una nueva fila en el DataGridView con los datos del producto
+        //        DGListaPrCompra.Rows.Add(
+        //            producto.Serial,          // Columna CSerialPr
+        //            producto.Nombre,          // Columna CNombrePr
+        //            1,                        // Columna CCantidadPr
+        //            producto.Precio,          // Columna CPrecioPr
+        //            producto.Precio
+        //        );
+        //    }
+        //    catch
+        //    {
+        //        // Mostrar un mensaje personalizado en caso de error
+        //        MsgPersonalizado mensaje = new MsgPersonalizado("Error al intentar cargar el producto al DataGridView", "Error", "Error", null);
+        //        mensaje.ShowDialog();
+        //    }
+        //}
+        private void AltaCompra_CargarProductoDG(object sender, int Serial)
+        {
+            try
+            {
+                // Obtenemos el producto usando la serial
+                NProducto nproducto = new NProducto();
+                Producto producto = nproducto.GetProducto(Serial);
+
+                // Verificar si el producto ya existe en el DataGridView
+                if (DGListaPrCompra.Rows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in DGListaPrCompra.Rows)
+                    {
+                        if (Convert.ToInt32(row.Cells["CSerial"].Value) == producto.Serial)
+                        {
+                            // Si existe aumentamos su cantidad.
+                            int cantidadActual = Convert.ToInt32(row.Cells["CCantidadPr"].Value);
+                            row.Cells["CCantidadPr"].Value = cantidadActual + 1;
+
+                            // Actualizamos el total
+                            decimal precio = Convert.ToDecimal(row.Cells["CPrecioPr"].Value);
+                            row.Cells["CTotalPr"].Value = (cantidadActual + 1) * precio;
+
+                            return;
+                        }
+                    }
+                }   
+
+                // Si el producto no existe, agregar una nueva fila en el DataGridView
+                DGListaPrCompra.Rows.Add(
+                    producto.Serial,
+                    producto.Nombre,
+                    1,
+                    producto.Precio,
+                    producto.Precio
+                );
+            }
+            catch
+            {
+                // Mostrar un mensaje personalizado en caso de error
+                MsgPersonalizado mensaje = new MsgPersonalizado("Error al intentar cargar el producto al DataGridView", "Error", "Error", null);
+                mensaje.ShowDialog();
+            }
         }
 
         private void personalizarFondoNegro(Form fondoBg)
@@ -249,6 +322,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                 var fila = DGListaPrCompra.Rows[e.RowIndex];
                 var columnaClave = fila.Cells["CNombrePr"].Value;
 
+                // Verifica si el producto (NombrePr) está vacío; si es así, no valida nada
                 if (columnaClave == null || string.IsNullOrWhiteSpace(columnaClave.ToString()))
                 {
                     return;
@@ -256,14 +330,29 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 
                 string valorIngresado = e.FormattedValue.ToString();
 
+                // Verifica si el valor ingresado es un número entero válido y positivo
                 if (!int.TryParse(valorIngresado, out int cantidad) || cantidad < 0)
                 {
                     e.Cancel = true;
                     MsgPersonalizado mensaje = new MsgPersonalizado("Por favor, ingrese un número entero válido.", "Error", "Error", null);
                     mensaje.ShowDialog();
+                    return;
+                }
+
+                // Obtén el precio desde la columna "CPrecioPr"
+                if (fila.Cells["CPrecioPr"].Value != null && decimal.TryParse(fila.Cells["CPrecioPr"].Value.ToString(), out decimal precio))
+                {
+                    // Calcula el total y lo actualiza en "CTotalPr"
+                    fila.Cells["CTotalPr"].Value = cantidad * precio;
+                }
+                else
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Error al obtener el precio del producto.", "Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
             }
         }
+
         //------------------------------------------------------------------------------------InstanciarListaCompra-------------------------------------------------------------------------------\\
         private void InstanciarYMostrarListaCompra()
         {

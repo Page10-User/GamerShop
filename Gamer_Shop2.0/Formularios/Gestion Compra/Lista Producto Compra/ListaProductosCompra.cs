@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios.Comercio;
+using Gamer_Shop2._0.Negocio;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static Gamer_Shop2._0.Datos.DProducto;
 
 namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 {
@@ -22,6 +26,47 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+
+            CargarProductosActivos();
+        }
+
+        private void CargarProductosActivos()
+        {
+            NProducto nProducto = new NProducto();
+            List<ProductoViewModel> productosActivos = nProducto.ObtenerProductosActivos();
+
+            MostrarProductosEnFLP(productosActivos);
+        }
+
+        private void MostrarProductosEnFLP(List<ProductoViewModel> productos)
+        {
+            flowLayoutPanel1.Controls.Clear();
+
+            foreach (var producto in productos)
+            {
+                BotonArticuloCompra articuloCompra = new BotonArticuloCompra();
+
+                articuloCompra.Serial = producto.Serial;
+                articuloCompra.NombreProducto = producto.Nombre;
+                articuloCompra.Precio = producto.Precio.ToString();
+                articuloCompra.Categoria = producto.Categoria;
+                articuloCompra.AgregarAlDataGrid += AgregarAlDataGrid_Click;
+
+                //articuloCompra.PanelContainer = PanelContainer;
+                articuloCompra.MainForm = MainForm;
+                //articuloCompra.MainCatalogo = this;
+
+                flowLayoutPanel1.Controls.Add(articuloCompra);
+
+                articuloCompra.Show();
+            }
+        }
+
+        public event EventHandler<int> AgregarAlDataGrid;
+        private void AgregarAlDataGrid_Click(object sender, int serial)
+        {
+            //Pasamos el id del producto al catálogo.
+            AgregarAlDataGrid?.Invoke(this, serial);
         }
 
         private GraphicsPath CreateRoundedPath()

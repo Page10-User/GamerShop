@@ -138,20 +138,20 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
                     MsgPersonalizado mensaje = new MsgPersonalizado("El valor no puede ser negativo", "Error", "Error", null);
                     mensaje.ShowDialog();
 
-                    TBCantidadPr.Text = "";
+                    TBCantidadPr.Text = "1";
                 }
                 else if (result == 0)
                 {
                     MsgPersonalizado mensaje = new MsgPersonalizado("El valor no puede ser 0", "Error", "Error", null);
                     mensaje.ShowDialog();
-                    TBCantidadPr.Text = "";
+                    TBCantidadPr.Text = "1";
                 }
             }
             else
             {
                 MsgPersonalizado mensaje = new MsgPersonalizado("Por favor, ingrese un número entero positivo.", "Error", "Error", null);
                 mensaje.ShowDialog();
-                TBCantidadPr.Text = "";
+                TBCantidadPr.Text = "1";
             }
         }
     }

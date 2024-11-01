@@ -108,6 +108,7 @@
             this.rjButton1.Text = "Comprar";
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.BCompra_Click);
             // 
             // panel2
             // 

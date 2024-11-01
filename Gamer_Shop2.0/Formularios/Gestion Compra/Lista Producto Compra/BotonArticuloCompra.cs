@@ -10,7 +10,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
 
         private int borderRadius = 1; // Radio del borde redondeado
         private int borderWidth = 2; // Grosor del borde
-        private int id = 0;
+        private int serial = 0;
         private string descripcion = "Descripción del Producto";
 
         public Panel PanelContainer { get; set; }
@@ -66,10 +66,10 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         }
 
         //Methots
-        public int Id
+        public int Serial
         {
-            get { return id; }
-            set { id = value; }
+            get { return serial; }
+            set { serial = value; }
         }
 
         public string Descripcion
@@ -130,6 +130,11 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             }
         }
 
-        public event EventHandler<int> AgregarAlCarritoClick;
+        public event EventHandler<int> AgregarAlDataGrid;
+
+        private void BCompra_Click(object sender, EventArgs e)
+        {
+            AgregarAlDataGrid?.Invoke(this, Serial);
+        }
     }
 }

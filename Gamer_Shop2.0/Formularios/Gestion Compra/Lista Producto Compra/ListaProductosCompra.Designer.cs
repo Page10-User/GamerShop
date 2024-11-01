@@ -31,15 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaProductosCompra));
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.botonArticuloCompra1 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
-            this.botonArticuloCompra2 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
-            this.botonArticuloCompra3 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
-            this.botonArticuloCompra4 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
-            this.botonArticuloCompra5 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
-            this.botonArticuloCompra6 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
-            this.botonArticuloCompra7 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
-            this.botonArticuloCompra8 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
-            this.botonArticuloCompra9 = new Gamer_Shop2._0.Formularios.Comercio.BotonArticuloCompra();
             this.label2 = new System.Windows.Forms.Label();
             this.BBuscarNombre = new Gamer_Shop2._0.RJButton();
             this.TBFiltroNombre = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
@@ -47,7 +38,6 @@
             this.TBFiltroCategoria = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BCloseListaProducto = new Gamer_Shop2._0.RJButton();
             this.CBFiltrado = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -67,181 +57,10 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Black;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.botonArticuloCompra1);
-            this.flowLayoutPanel1.Controls.Add(this.botonArticuloCompra2);
-            this.flowLayoutPanel1.Controls.Add(this.botonArticuloCompra3);
-            this.flowLayoutPanel1.Controls.Add(this.botonArticuloCompra4);
-            this.flowLayoutPanel1.Controls.Add(this.botonArticuloCompra5);
-            this.flowLayoutPanel1.Controls.Add(this.botonArticuloCompra6);
-            this.flowLayoutPanel1.Controls.Add(this.botonArticuloCompra7);
-            this.flowLayoutPanel1.Controls.Add(this.botonArticuloCompra8);
-            this.flowLayoutPanel1.Controls.Add(this.botonArticuloCompra9);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 82);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(660, 342);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // botonArticuloCompra1
-            // 
-            this.botonArticuloCompra1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloCompra1.BackgroundImage")));
-            this.botonArticuloCompra1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonArticuloCompra1.Categoria = "Categoria";
-            this.botonArticuloCompra1.Descripcion = "Descripción del Producto";
-            this.botonArticuloCompra1.Id = 0;
-            this.botonArticuloCompra1.ImgProducto = null;
-            this.botonArticuloCompra1.Location = new System.Drawing.Point(3, 3);
-            this.botonArticuloCompra1.MainCatalogo = null;
-            this.botonArticuloCompra1.MainForm = null;
-            this.botonArticuloCompra1.Name = "botonArticuloCompra1";
-            this.botonArticuloCompra1.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonArticuloCompra1.PanelContainer = null;
-            this.botonArticuloCompra1.Precio = "$ 250.000";
-            this.botonArticuloCompra1.Size = new System.Drawing.Size(155, 231);
-            this.botonArticuloCompra1.TabIndex = 0;
-            // 
-            // botonArticuloCompra2
-            // 
-            this.botonArticuloCompra2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloCompra2.BackgroundImage")));
-            this.botonArticuloCompra2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonArticuloCompra2.Categoria = "Categoria";
-            this.botonArticuloCompra2.Descripcion = "Descripción del Producto";
-            this.botonArticuloCompra2.Id = 0;
-            this.botonArticuloCompra2.ImgProducto = null;
-            this.botonArticuloCompra2.Location = new System.Drawing.Point(164, 3);
-            this.botonArticuloCompra2.MainCatalogo = null;
-            this.botonArticuloCompra2.MainForm = null;
-            this.botonArticuloCompra2.Name = "botonArticuloCompra2";
-            this.botonArticuloCompra2.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonArticuloCompra2.PanelContainer = null;
-            this.botonArticuloCompra2.Precio = "$ 250.000";
-            this.botonArticuloCompra2.Size = new System.Drawing.Size(155, 231);
-            this.botonArticuloCompra2.TabIndex = 1;
-            // 
-            // botonArticuloCompra3
-            // 
-            this.botonArticuloCompra3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloCompra3.BackgroundImage")));
-            this.botonArticuloCompra3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonArticuloCompra3.Categoria = "Categoria";
-            this.botonArticuloCompra3.Descripcion = "Descripción del Producto";
-            this.botonArticuloCompra3.Id = 0;
-            this.botonArticuloCompra3.ImgProducto = null;
-            this.botonArticuloCompra3.Location = new System.Drawing.Point(325, 3);
-            this.botonArticuloCompra3.MainCatalogo = null;
-            this.botonArticuloCompra3.MainForm = null;
-            this.botonArticuloCompra3.Name = "botonArticuloCompra3";
-            this.botonArticuloCompra3.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonArticuloCompra3.PanelContainer = null;
-            this.botonArticuloCompra3.Precio = "$ 250.000";
-            this.botonArticuloCompra3.Size = new System.Drawing.Size(155, 231);
-            this.botonArticuloCompra3.TabIndex = 2;
-            // 
-            // botonArticuloCompra4
-            // 
-            this.botonArticuloCompra4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloCompra4.BackgroundImage")));
-            this.botonArticuloCompra4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonArticuloCompra4.Categoria = "Categoria";
-            this.botonArticuloCompra4.Descripcion = "Descripción del Producto";
-            this.botonArticuloCompra4.Id = 0;
-            this.botonArticuloCompra4.ImgProducto = null;
-            this.botonArticuloCompra4.Location = new System.Drawing.Point(486, 3);
-            this.botonArticuloCompra4.MainCatalogo = null;
-            this.botonArticuloCompra4.MainForm = null;
-            this.botonArticuloCompra4.Name = "botonArticuloCompra4";
-            this.botonArticuloCompra4.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonArticuloCompra4.PanelContainer = null;
-            this.botonArticuloCompra4.Precio = "$ 250.000";
-            this.botonArticuloCompra4.Size = new System.Drawing.Size(155, 231);
-            this.botonArticuloCompra4.TabIndex = 3;
-            // 
-            // botonArticuloCompra5
-            // 
-            this.botonArticuloCompra5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloCompra5.BackgroundImage")));
-            this.botonArticuloCompra5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonArticuloCompra5.Categoria = "Categoria";
-            this.botonArticuloCompra5.Descripcion = "Descripción del Producto";
-            this.botonArticuloCompra5.Id = 0;
-            this.botonArticuloCompra5.ImgProducto = null;
-            this.botonArticuloCompra5.Location = new System.Drawing.Point(3, 240);
-            this.botonArticuloCompra5.MainCatalogo = null;
-            this.botonArticuloCompra5.MainForm = null;
-            this.botonArticuloCompra5.Name = "botonArticuloCompra5";
-            this.botonArticuloCompra5.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonArticuloCompra5.PanelContainer = null;
-            this.botonArticuloCompra5.Precio = "$ 250.000";
-            this.botonArticuloCompra5.Size = new System.Drawing.Size(155, 231);
-            this.botonArticuloCompra5.TabIndex = 4;
-            // 
-            // botonArticuloCompra6
-            // 
-            this.botonArticuloCompra6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloCompra6.BackgroundImage")));
-            this.botonArticuloCompra6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonArticuloCompra6.Categoria = "Categoria";
-            this.botonArticuloCompra6.Descripcion = "Descripción del Producto";
-            this.botonArticuloCompra6.Id = 0;
-            this.botonArticuloCompra6.ImgProducto = null;
-            this.botonArticuloCompra6.Location = new System.Drawing.Point(164, 240);
-            this.botonArticuloCompra6.MainCatalogo = null;
-            this.botonArticuloCompra6.MainForm = null;
-            this.botonArticuloCompra6.Name = "botonArticuloCompra6";
-            this.botonArticuloCompra6.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonArticuloCompra6.PanelContainer = null;
-            this.botonArticuloCompra6.Precio = "$ 250.000";
-            this.botonArticuloCompra6.Size = new System.Drawing.Size(155, 231);
-            this.botonArticuloCompra6.TabIndex = 5;
-            // 
-            // botonArticuloCompra7
-            // 
-            this.botonArticuloCompra7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloCompra7.BackgroundImage")));
-            this.botonArticuloCompra7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonArticuloCompra7.Categoria = "Categoria";
-            this.botonArticuloCompra7.Descripcion = "Descripción del Producto";
-            this.botonArticuloCompra7.Id = 0;
-            this.botonArticuloCompra7.ImgProducto = null;
-            this.botonArticuloCompra7.Location = new System.Drawing.Point(325, 240);
-            this.botonArticuloCompra7.MainCatalogo = null;
-            this.botonArticuloCompra7.MainForm = null;
-            this.botonArticuloCompra7.Name = "botonArticuloCompra7";
-            this.botonArticuloCompra7.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonArticuloCompra7.PanelContainer = null;
-            this.botonArticuloCompra7.Precio = "$ 250.000";
-            this.botonArticuloCompra7.Size = new System.Drawing.Size(155, 231);
-            this.botonArticuloCompra7.TabIndex = 6;
-            // 
-            // botonArticuloCompra8
-            // 
-            this.botonArticuloCompra8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloCompra8.BackgroundImage")));
-            this.botonArticuloCompra8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonArticuloCompra8.Categoria = "Categoria";
-            this.botonArticuloCompra8.Descripcion = "Descripción del Producto";
-            this.botonArticuloCompra8.Id = 0;
-            this.botonArticuloCompra8.ImgProducto = null;
-            this.botonArticuloCompra8.Location = new System.Drawing.Point(486, 240);
-            this.botonArticuloCompra8.MainCatalogo = null;
-            this.botonArticuloCompra8.MainForm = null;
-            this.botonArticuloCompra8.Name = "botonArticuloCompra8";
-            this.botonArticuloCompra8.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonArticuloCompra8.PanelContainer = null;
-            this.botonArticuloCompra8.Precio = "$ 250.000";
-            this.botonArticuloCompra8.Size = new System.Drawing.Size(155, 231);
-            this.botonArticuloCompra8.TabIndex = 7;
-            // 
-            // botonArticuloCompra9
-            // 
-            this.botonArticuloCompra9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonArticuloCompra9.BackgroundImage")));
-            this.botonArticuloCompra9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonArticuloCompra9.Categoria = "Categoria";
-            this.botonArticuloCompra9.Descripcion = "Descripción del Producto";
-            this.botonArticuloCompra9.Id = 0;
-            this.botonArticuloCompra9.ImgProducto = null;
-            this.botonArticuloCompra9.Location = new System.Drawing.Point(3, 477);
-            this.botonArticuloCompra9.MainCatalogo = null;
-            this.botonArticuloCompra9.MainForm = null;
-            this.botonArticuloCompra9.Name = "botonArticuloCompra9";
-            this.botonArticuloCompra9.NombreProducto = "Nombre Producto\r\n\r\n";
-            this.botonArticuloCompra9.PanelContainer = null;
-            this.botonArticuloCompra9.Precio = "$ 250.000";
-            this.botonArticuloCompra9.Size = new System.Drawing.Size(155, 231);
-            this.botonArticuloCompra9.TabIndex = 8;
             // 
             // label2
             // 
@@ -411,7 +230,6 @@
             this.Name = "ListaProductosCompra";
             this.Text = "ListaProductosCompra";
             this.Load += new System.EventHandler(this.ListaProductosCompra_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,15 +241,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private RJControls.RJComboBox CBFiltrado;
         private System.Windows.Forms.Label label2;
-        private Comercio.BotonArticuloCompra botonArticuloCompra1;
-        private Comercio.BotonArticuloCompra botonArticuloCompra2;
-        private Comercio.BotonArticuloCompra botonArticuloCompra3;
-        private Comercio.BotonArticuloCompra botonArticuloCompra4;
-        private Comercio.BotonArticuloCompra botonArticuloCompra5;
-        private Comercio.BotonArticuloCompra botonArticuloCompra6;
-        private Comercio.BotonArticuloCompra botonArticuloCompra7;
-        private Comercio.BotonArticuloCompra botonArticuloCompra8;
-        private Comercio.BotonArticuloCompra botonArticuloCompra9;
         private RJButton BCloseListaProducto;
         private RJControls.RJTextBox_radio_ TBFiltroCategoria;
         private RJButton BBuscarCategoria;

@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.Formularios.Comercio.Carrito;
+﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.Comercio.Carrito;
 using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Net;
 using System.Windows.Forms;
 using static Gamer_Shop2._0.Datos.DProducto;
 
@@ -177,6 +179,26 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         }
         //FIN Validacion MetodoPago
 
+        //Inicio Validación TBDNIClienteExistente Keypress
+        private void TBDNIClienteExistente_Keypress(object sender, KeyPressEventArgs e)
+        {
+            ClaseValidacion validador = new ClaseValidacion();
+            string texto = TBDniClienteExistente.Texts;
+
+            //Validamos la longitud
+            if (!validador.ValidarLongitudConLimite(texto, 8, e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            //Validar solo número
+            if (!validador.ValidarKeyPressSoloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        //Fin Validación TBDNIClienteExistente KeyPress
+
         //Inicio TextChanged
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
@@ -239,9 +261,16 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             formAltaCl.BringToFront();
             formAltaCl.MainForm = MainForm;
             formAltaCl.FondoOscurecido = formBG;
+            formAltaCl.ObtenerDNICliente += FormAltaCl_ObtenerDNICliente;
             formAltaCl.ShowInTaskbar = false;
             formAltaCl.TopMost = true;
             formAltaCl.ShowDialog();
+        }
+
+        private void FormAltaCl_ObtenerDNICliente(object sender, int DNI)
+        {
+            PContBuscarDni.Visible = true;
+            TBDniClienteExistente.Texts = DNI.ToString();
         }
 
         private void BClienteExistente_Click(object sender, EventArgs e)
@@ -335,6 +364,20 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
             // Liberar los recursos
             base.Dispose();
+        }
+
+        private void BBuscarCliente_Dni__Click(object sender, EventArgs e)
+        {
+            try {
+                NCliente nCliente = new NCliente();
+                Cliente cliente = nCliente.GetCliente(TBDniClienteExistente.Texts);
+                MsgPersonalizado mensaje = new MsgPersonalizado("El DNI: " + cliente.DNI + " se encuentra registrado", "Cliente existente", "Informacion", null);
+                mensaje.ShowDialog();
+            }
+            catch {
+                MsgPersonalizado mensaje = new MsgPersonalizado("El cliente no existe", "Error", "Error", null);
+                mensaje.ShowDialog();
+            }
         }
     }
 }
