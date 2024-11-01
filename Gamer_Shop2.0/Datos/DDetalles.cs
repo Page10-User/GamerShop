@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Gamer_Shop2._0.Datos
+{
+    internal class DDetalles
+    {
+        public DataTable GetDetallesAll()
+        {
+            try
+            {
+                // Crea la instancia del TableAdapter (puedes usar una query SQL personalizada)
+                using (var adapter = new DataSet1TableAdapters.Detalle_ventaTableAdapter())
+                {
+                    // Consulta SQL con JOIN para traer nombres de categoría y proveedor
+                    string query = @"
+                SELECT d.ID_Venta, p.Nombre AS 'Producto', d.Subtotal, d.Cantidad, d.Precio_actual
+                FROM Detalle_venta d
+                JOIN Producto p ON d.ID_Producto = p.ID_Producto
+                        ";
+
+                    // Ejecuta la consulta y guarda el resultado en un DataTable
+                    var dataTable = new DataTable();
+                    using (var connection = adapter.Connection)
+                    {
+                        connection.Open();
+                        using (var command = new System.Data.SqlClient.SqlCommand(query, connection))
+                        {
+                            var reader = command.ExecuteReader();
+                            dataTable.Load(reader);
+                        }
+                    }
+                    return dataTable;
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error SQL: {ex.Message}\nDetalle: {ex.InnerException?.Message}");
+                return null;
+            }
+
+        }
+    }
+}
