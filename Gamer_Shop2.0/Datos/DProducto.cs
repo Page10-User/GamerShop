@@ -251,5 +251,11 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
+        public void getProductosLista(DataGridView grid, string text, string atributo)
+        {
+            DProductos dproductos = new DProductos();
+            grid.DataSource = dproductos.buscarProductos(text, atributo);
+        }
+
     }
 }

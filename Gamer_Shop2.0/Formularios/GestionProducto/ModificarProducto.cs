@@ -62,6 +62,10 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void ModificarProducto_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Categoría_producto' Puede moverla o quitarla según sea necesario.
+            this.categoría_productoTableAdapter.Fill(this.dataSet1.Categoría_producto);
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
+            this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
             TBNombrePr.Texts = productoActual.Nombre;

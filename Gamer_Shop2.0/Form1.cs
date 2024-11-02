@@ -182,15 +182,15 @@ namespace Gamer_Shop2._0
                     NUsuario nusuario = new NUsuario();
                     Usuario usuario = nusuario.GetCuentaUsuario(TBUsuario.Texts, TBContrasena.Texts);
 
-                    if (usuario.ID_TipoUsuario == 1)
+                    if (usuario.ID_TipoUsuario == 3)
                     {
                         CrearYMostrarBienvenida<EmpleadoOptions>(usuario);
                     }
-                    else if (usuario.ID_TipoUsuario == 2)
+                    else if (usuario.ID_TipoUsuario == 1)
                     {
                         CrearYMostrarBienvenida<AdministradorOptions>(usuario);
                     }
-                    else if (usuario.ID_TipoUsuario == 3)
+                    else if (usuario.ID_TipoUsuario == 2)
                     {
                         CrearYMostrarBienvenida<GerenteOptions>(usuario);
                     }
@@ -200,7 +200,8 @@ namespace Gamer_Shop2._0
                     }
                 }
                 catch { 
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Error inesperado al intentar iniciar sesión","Error", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Por favor ingrese un usuario y contraseña válidos","Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
             }
             else

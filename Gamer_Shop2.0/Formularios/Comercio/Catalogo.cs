@@ -22,6 +22,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         public Panel PanelContainer { get; set; }
         public Label LabelContainer { get; set; }
         public Bienvenida MainForm { get; set; }
+        public Usuario CUsuario { get; set; }
         public Catalogo()
         {
             InitializeComponent();
@@ -59,6 +60,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
 
                 articuloCt.PanelContainer = PanelContainer;
                 articuloCt.MainForm = MainForm;
+                articuloCt.ACTUsuario = CUsuario;
                 articuloCt.MainCatalogo = this;
 
                 FLPContCatalogo.Controls.Add(articuloCt);

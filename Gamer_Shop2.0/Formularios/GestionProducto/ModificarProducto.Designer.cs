@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarProducto));
             this.label1 = new System.Windows.Forms.Label();
             this.LTituloModificarPr = new System.Windows.Forms.Label();
             this.PBImgModificarPr = new System.Windows.Forms.PictureBox();
-            this.BReturnToBack = new Gamer_Shop2._0.RJButton();
-            this.BModificarPr = new Gamer_Shop2._0.RJButton();
             this.PContModificarPr = new System.Windows.Forms.Panel();
-            this.BFotoProducto = new Gamer_Shop2._0.RJButton();
-            this.rjTextBox1 = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion15 = new System.Windows.Forms.Label();
             this.TBValidacion14 = new System.Windows.Forms.Label();
             this.TBValidacion13 = new System.Windows.Forms.Label();
@@ -51,21 +48,35 @@
             this.TBValidacion5 = new System.Windows.Forms.Label();
             this.TBValidacion3 = new System.Windows.Forms.Label();
             this.TBValidacion2 = new System.Windows.Forms.Label();
-            this.CBProveedorPr = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.TBSerialPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TBPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.LCategoriaPr = new System.Windows.Forms.Label();
             this.LDescripcionPr = new System.Windows.Forms.Label();
             this.LPrecioPr = new System.Windows.Forms.Label();
             this.LNombrePr = new System.Windows.Forms.Label();
+            this.BFotoProducto = new Gamer_Shop2._0.RJButton();
+            this.rjTextBox1 = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.CBProveedorPr = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.TBSerialPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBPrecioPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.BReturnToBack = new Gamer_Shop2._0.RJButton();
+            this.BModificarPr = new Gamer_Shop2._0.RJButton();
+            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
+            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proveedorTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.ProveedorTableAdapter();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoría_productoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Categoría_productoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).BeginInit();
             this.PContModificarPr.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -102,49 +113,6 @@
             this.PBImgModificarPr.Size = new System.Drawing.Size(47, 41);
             this.PBImgModificarPr.TabIndex = 7;
             this.PBImgModificarPr.TabStop = false;
-            // 
-            // BReturnToBack
-            // 
-            this.BReturnToBack.BackColor = System.Drawing.Color.Transparent;
-            this.BReturnToBack.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BReturnToBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReturnToBack.BackgroundImage")));
-            this.BReturnToBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BReturnToBack.BorderColor = System.Drawing.Color.Lime;
-            this.BReturnToBack.BorderRadius = 17;
-            this.BReturnToBack.BorderSize = 1;
-            this.BReturnToBack.CausesValidation = false;
-            this.BReturnToBack.FlatAppearance.BorderSize = 0;
-            this.BReturnToBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BReturnToBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BReturnToBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BReturnToBack.ForeColor = System.Drawing.Color.Transparent;
-            this.BReturnToBack.Location = new System.Drawing.Point(628, 12);
-            this.BReturnToBack.Name = "BReturnToBack";
-            this.BReturnToBack.Size = new System.Drawing.Size(34, 34);
-            this.BReturnToBack.TabIndex = 13;
-            this.BReturnToBack.TextColor = System.Drawing.Color.Transparent;
-            this.BReturnToBack.UseVisualStyleBackColor = false;
-            this.BReturnToBack.Click += new System.EventHandler(this.BReturnToBack_Click);
-            // 
-            // BModificarPr
-            // 
-            this.BModificarPr.BackColor = System.Drawing.Color.Black;
-            this.BModificarPr.BackgroundColor = System.Drawing.Color.Black;
-            this.BModificarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BModificarPr.BackgroundImage")));
-            this.BModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BModificarPr.BorderColor = System.Drawing.Color.Lime;
-            this.BModificarPr.BorderRadius = 20;
-            this.BModificarPr.BorderSize = 1;
-            this.BModificarPr.FlatAppearance.BorderSize = 0;
-            this.BModificarPr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BModificarPr.ForeColor = System.Drawing.Color.White;
-            this.BModificarPr.Location = new System.Drawing.Point(551, 106);
-            this.BModificarPr.Name = "BModificarPr";
-            this.BModificarPr.Size = new System.Drawing.Size(84, 76);
-            this.BModificarPr.TabIndex = 10;
-            this.BModificarPr.TextColor = System.Drawing.Color.White;
-            this.BModificarPr.UseVisualStyleBackColor = false;
-            this.BModificarPr.Click += new System.EventHandler(this.BModificarPr_Click);
             // 
             // PContModificarPr
             // 
@@ -183,46 +151,6 @@
             this.PContModificarPr.Size = new System.Drawing.Size(469, 307);
             this.PContModificarPr.TabIndex = 14;
             this.PContModificarPr.Paint += new System.Windows.Forms.PaintEventHandler(this.PContModificarPr_Paint);
-            // 
-            // BFotoProducto
-            // 
-            this.BFotoProducto.BackColor = System.Drawing.Color.Black;
-            this.BFotoProducto.BackgroundColor = System.Drawing.Color.Black;
-            this.BFotoProducto.BorderColor = System.Drawing.Color.Lime;
-            this.BFotoProducto.BorderRadius = 10;
-            this.BFotoProducto.BorderSize = 1;
-            this.BFotoProducto.FlatAppearance.BorderSize = 0;
-            this.BFotoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BFotoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BFotoProducto.ForeColor = System.Drawing.Color.White;
-            this.BFotoProducto.Location = new System.Drawing.Point(18, 251);
-            this.BFotoProducto.Name = "BFotoProducto";
-            this.BFotoProducto.Size = new System.Drawing.Size(72, 31);
-            this.BFotoProducto.TabIndex = 73;
-            this.BFotoProducto.Text = "Elegir foto";
-            this.BFotoProducto.TextColor = System.Drawing.Color.White;
-            this.BFotoProducto.UseVisualStyleBackColor = false;
-            // 
-            // rjTextBox1
-            // 
-            this.rjTextBox1.BackColor = System.Drawing.Color.Black;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Lime;
-            this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox1.Location = new System.Drawing.Point(101, 251);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "Ruta de la foto";
-            this.rjTextBox1.Size = new System.Drawing.Size(128, 31);
-            this.rjTextBox1.TabIndex = 74;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
             // 
             // TBValidacion15
             // 
@@ -392,29 +320,6 @@
             this.TBValidacion2.Text = "Por favor ingrese un nombre de producto válido";
             this.TBValidacion2.Visible = false;
             // 
-            // CBProveedorPr
-            // 
-            this.CBProveedorPr.BackColor = System.Drawing.Color.Black;
-            this.CBProveedorPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBProveedorPr.BorderSize = 1;
-            this.CBProveedorPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.CBProveedorPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBProveedorPr.ForeColor = System.Drawing.Color.DimGray;
-            this.CBProveedorPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBProveedorPr.Items.AddRange(new object[] {
-            "proveedor 1",
-            "proveedor 2"});
-            this.CBProveedorPr.ListBackColor = System.Drawing.Color.Black;
-            this.CBProveedorPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBProveedorPr.Location = new System.Drawing.Point(98, 151);
-            this.CBProveedorPr.MinimumSize = new System.Drawing.Size(30, 30);
-            this.CBProveedorPr.Name = "CBProveedorPr";
-            this.CBProveedorPr.Padding = new System.Windows.Forms.Padding(1);
-            this.CBProveedorPr.Size = new System.Drawing.Size(128, 30);
-            this.CBProveedorPr.TabIndex = 59;
-            this.CBProveedorPr.Texts = "Seleccionar...";
-            this.CBProveedorPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBProveedorPr_Validating);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -426,6 +331,141 @@
             this.label4.Size = new System.Drawing.Size(77, 18);
             this.label4.TabIndex = 58;
             this.label4.Text = "Proveedor";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(15, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 18);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Serial";
+            // 
+            // TBValidacion
+            // 
+            this.TBValidacion.AutoSize = true;
+            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion.Location = new System.Drawing.Point(36, 35);
+            this.TBValidacion.Name = "TBValidacion";
+            this.TBValidacion.Size = new System.Drawing.Size(190, 14);
+            this.TBValidacion.TabIndex = 16;
+            this.TBValidacion.Text = "El nombre debe superar los 2 caracteres";
+            this.TBValidacion.Visible = false;
+            // 
+            // LCategoriaPr
+            // 
+            this.LCategoriaPr.AutoSize = true;
+            this.LCategoriaPr.BackColor = System.Drawing.Color.Transparent;
+            this.LCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCategoriaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LCategoriaPr.Location = new System.Drawing.Point(15, 213);
+            this.LCategoriaPr.Name = "LCategoriaPr";
+            this.LCategoriaPr.Size = new System.Drawing.Size(72, 18);
+            this.LCategoriaPr.TabIndex = 11;
+            this.LCategoriaPr.Text = "Categoría";
+            // 
+            // LDescripcionPr
+            // 
+            this.LDescripcionPr.AutoSize = true;
+            this.LDescripcionPr.BackColor = System.Drawing.Color.Transparent;
+            this.LDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LDescripcionPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LDescripcionPr.Location = new System.Drawing.Point(317, 13);
+            this.LDescripcionPr.Name = "LDescripcionPr";
+            this.LDescripcionPr.Size = new System.Drawing.Size(87, 18);
+            this.LDescripcionPr.TabIndex = 9;
+            this.LDescripcionPr.Text = "Descripción";
+            // 
+            // LPrecioPr
+            // 
+            this.LPrecioPr.AutoSize = true;
+            this.LPrecioPr.BackColor = System.Drawing.Color.Transparent;
+            this.LPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LPrecioPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LPrecioPr.Location = new System.Drawing.Point(15, 112);
+            this.LPrecioPr.Name = "LPrecioPr";
+            this.LPrecioPr.Size = new System.Drawing.Size(51, 18);
+            this.LPrecioPr.TabIndex = 8;
+            this.LPrecioPr.Text = "Precio";
+            // 
+            // LNombrePr
+            // 
+            this.LNombrePr.AutoSize = true;
+            this.LNombrePr.BackColor = System.Drawing.Color.Transparent;
+            this.LNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LNombrePr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LNombrePr.Location = new System.Drawing.Point(15, 17);
+            this.LNombrePr.Name = "LNombrePr";
+            this.LNombrePr.Size = new System.Drawing.Size(62, 18);
+            this.LNombrePr.TabIndex = 7;
+            this.LNombrePr.Text = "Nombre";
+            // 
+            // BFotoProducto
+            // 
+            this.BFotoProducto.BackColor = System.Drawing.Color.Black;
+            this.BFotoProducto.BackgroundColor = System.Drawing.Color.Black;
+            this.BFotoProducto.BorderColor = System.Drawing.Color.Lime;
+            this.BFotoProducto.BorderRadius = 10;
+            this.BFotoProducto.BorderSize = 1;
+            this.BFotoProducto.FlatAppearance.BorderSize = 0;
+            this.BFotoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BFotoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BFotoProducto.ForeColor = System.Drawing.Color.White;
+            this.BFotoProducto.Location = new System.Drawing.Point(18, 251);
+            this.BFotoProducto.Name = "BFotoProducto";
+            this.BFotoProducto.Size = new System.Drawing.Size(72, 31);
+            this.BFotoProducto.TabIndex = 73;
+            this.BFotoProducto.Text = "Elegir foto";
+            this.BFotoProducto.TextColor = System.Drawing.Color.White;
+            this.BFotoProducto.UseVisualStyleBackColor = false;
+            // 
+            // rjTextBox1
+            // 
+            this.rjTextBox1.BackColor = System.Drawing.Color.Black;
+            this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Lime;
+            this.rjTextBox1.BorderSize = 2;
+            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.rjTextBox1.Location = new System.Drawing.Point(101, 251);
+            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.rjTextBox1.Multiline = false;
+            this.rjTextBox1.Name = "rjTextBox1";
+            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(7);
+            this.rjTextBox1.PasswordChar = false;
+            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rjTextBox1.PlaceholderText = "Ruta de la foto";
+            this.rjTextBox1.Size = new System.Drawing.Size(128, 31);
+            this.rjTextBox1.TabIndex = 74;
+            this.rjTextBox1.Texts = "";
+            this.rjTextBox1.UnderlinedStyle = false;
+            // 
+            // CBProveedorPr
+            // 
+            this.CBProveedorPr.BackColor = System.Drawing.Color.Black;
+            this.CBProveedorPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedorPr.BorderSize = 1;
+            this.CBProveedorPr.DataSource = this.proveedorBindingSource;
+            this.CBProveedorPr.DisplayMember = "Razon_social";
+            this.CBProveedorPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBProveedorPr.DropDownWidth = 128;
+            this.CBProveedorPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBProveedorPr.ForeColor = System.Drawing.Color.DimGray;
+            this.CBProveedorPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedorPr.ListBackColor = System.Drawing.Color.Black;
+            this.CBProveedorPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedorPr.Location = new System.Drawing.Point(98, 151);
+            this.CBProveedorPr.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBProveedorPr.Name = "CBProveedorPr";
+            this.CBProveedorPr.Padding = new System.Windows.Forms.Padding(1);
+            this.CBProveedorPr.Size = new System.Drawing.Size(128, 30);
+            this.CBProveedorPr.TabIndex = 59;
+            this.CBProveedorPr.Texts = "Seleccionar...";
+            this.CBProveedorPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBProveedorPr_Validating);
             // 
             // TBSerialPr
             // 
@@ -450,18 +490,6 @@
             this.TBSerialPr._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             this.TBSerialPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSerialPr_KeyPress);
             this.TBSerialPr.Validating += new System.ComponentModel.CancelEventHandler(this.TBSerialPr_Validating);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(15, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 18);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Serial";
             // 
             // TBPrecioPr
             // 
@@ -540,13 +568,13 @@
             this.CBCategoriaPr.BackColor = System.Drawing.Color.Black;
             this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.BorderSize = 1;
+            this.CBCategoriaPr.DataSource = this.categoríaproductoBindingSource;
+            this.CBCategoriaPr.DisplayMember = "Nombre_Categoria";
             this.CBCategoriaPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBCategoriaPr.DropDownWidth = 128;
             this.CBCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBCategoriaPr.ForeColor = System.Drawing.Color.DimGray;
             this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBCategoriaPr.Items.AddRange(new object[] {
-            "componentes",
-            "telefonia movil"});
             this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
             this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.Location = new System.Drawing.Point(98, 201);
@@ -555,68 +583,79 @@
             this.CBCategoriaPr.Padding = new System.Windows.Forms.Padding(1);
             this.CBCategoriaPr.Size = new System.Drawing.Size(128, 30);
             this.CBCategoriaPr.TabIndex = 20;
-            this.CBCategoriaPr.Texts = "Seleccionar...";
+            this.CBCategoriaPr.Texts = "System.Data.DataViewManagerListItemTypeDescriptor";
             this.CBCategoriaPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
             // 
-            // TBValidacion
+            // BReturnToBack
             // 
-            this.TBValidacion.AutoSize = true;
-            this.TBValidacion.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion.Location = new System.Drawing.Point(36, 35);
-            this.TBValidacion.Name = "TBValidacion";
-            this.TBValidacion.Size = new System.Drawing.Size(190, 14);
-            this.TBValidacion.TabIndex = 16;
-            this.TBValidacion.Text = "El nombre debe superar los 2 caracteres";
-            this.TBValidacion.Visible = false;
+            this.BReturnToBack.BackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReturnToBack.BackgroundImage")));
+            this.BReturnToBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BReturnToBack.BorderColor = System.Drawing.Color.Lime;
+            this.BReturnToBack.BorderRadius = 17;
+            this.BReturnToBack.BorderSize = 1;
+            this.BReturnToBack.CausesValidation = false;
+            this.BReturnToBack.FlatAppearance.BorderSize = 0;
+            this.BReturnToBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BReturnToBack.ForeColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.Location = new System.Drawing.Point(628, 12);
+            this.BReturnToBack.Name = "BReturnToBack";
+            this.BReturnToBack.Size = new System.Drawing.Size(34, 34);
+            this.BReturnToBack.TabIndex = 13;
+            this.BReturnToBack.TextColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.UseVisualStyleBackColor = false;
+            this.BReturnToBack.Click += new System.EventHandler(this.BReturnToBack_Click);
             // 
-            // LCategoriaPr
+            // BModificarPr
             // 
-            this.LCategoriaPr.AutoSize = true;
-            this.LCategoriaPr.BackColor = System.Drawing.Color.Transparent;
-            this.LCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LCategoriaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LCategoriaPr.Location = new System.Drawing.Point(15, 213);
-            this.LCategoriaPr.Name = "LCategoriaPr";
-            this.LCategoriaPr.Size = new System.Drawing.Size(72, 18);
-            this.LCategoriaPr.TabIndex = 11;
-            this.LCategoriaPr.Text = "Categoría";
+            this.BModificarPr.BackColor = System.Drawing.Color.Black;
+            this.BModificarPr.BackgroundColor = System.Drawing.Color.Black;
+            this.BModificarPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BModificarPr.BackgroundImage")));
+            this.BModificarPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BModificarPr.BorderColor = System.Drawing.Color.Lime;
+            this.BModificarPr.BorderRadius = 20;
+            this.BModificarPr.BorderSize = 1;
+            this.BModificarPr.FlatAppearance.BorderSize = 0;
+            this.BModificarPr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BModificarPr.ForeColor = System.Drawing.Color.White;
+            this.BModificarPr.Location = new System.Drawing.Point(551, 106);
+            this.BModificarPr.Name = "BModificarPr";
+            this.BModificarPr.Size = new System.Drawing.Size(84, 76);
+            this.BModificarPr.TabIndex = 10;
+            this.BModificarPr.TextColor = System.Drawing.Color.White;
+            this.BModificarPr.UseVisualStyleBackColor = false;
+            this.BModificarPr.Click += new System.EventHandler(this.BModificarPr_Click);
             // 
-            // LDescripcionPr
+            // dataSet1
             // 
-            this.LDescripcionPr.AutoSize = true;
-            this.LDescripcionPr.BackColor = System.Drawing.Color.Transparent;
-            this.LDescripcionPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LDescripcionPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LDescripcionPr.Location = new System.Drawing.Point(317, 13);
-            this.LDescripcionPr.Name = "LDescripcionPr";
-            this.LDescripcionPr.Size = new System.Drawing.Size(87, 18);
-            this.LDescripcionPr.TabIndex = 9;
-            this.LDescripcionPr.Text = "Descripción";
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // LPrecioPr
+            // proveedorBindingSource
             // 
-            this.LPrecioPr.AutoSize = true;
-            this.LPrecioPr.BackColor = System.Drawing.Color.Transparent;
-            this.LPrecioPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LPrecioPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LPrecioPr.Location = new System.Drawing.Point(15, 112);
-            this.LPrecioPr.Name = "LPrecioPr";
-            this.LPrecioPr.Size = new System.Drawing.Size(51, 18);
-            this.LPrecioPr.TabIndex = 8;
-            this.LPrecioPr.Text = "Precio";
+            this.proveedorBindingSource.DataMember = "Proveedor";
+            this.proveedorBindingSource.DataSource = this.dataSet1;
             // 
-            // LNombrePr
+            // proveedorTableAdapter
             // 
-            this.LNombrePr.AutoSize = true;
-            this.LNombrePr.BackColor = System.Drawing.Color.Transparent;
-            this.LNombrePr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNombrePr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LNombrePr.Location = new System.Drawing.Point(15, 17);
-            this.LNombrePr.Name = "LNombrePr";
-            this.LNombrePr.Size = new System.Drawing.Size(62, 18);
-            this.LNombrePr.TabIndex = 7;
-            this.LNombrePr.Text = "Nombre";
+            this.proveedorTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // categoríaproductoBindingSource
+            // 
+            this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
+            this.categoríaproductoBindingSource.DataSource = this.dataSet1;
+            // 
+            // categoría_productoTableAdapter
+            // 
+            this.categoría_productoTableAdapter.ClearBeforeFill = true;
             // 
             // ModificarProducto
             // 
@@ -641,6 +680,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).EndInit();
             this.PContModificarPr.ResumeLayout(false);
             this.PContModificarPr.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,5 +726,11 @@
         private System.Windows.Forms.Label LNombrePr;
         private RJButton BFotoProducto;
         private RJControls.RJTextBox rjTextBox1;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource proveedorBindingSource;
+        private DataSet1TableAdapters.ProveedorTableAdapter proveedorTableAdapter;
+        private System.Windows.Forms.BindingSource dataSet1BindingSource;
+        private System.Windows.Forms.BindingSource categoríaproductoBindingSource;
+        private DataSet1TableAdapters.Categoría_productoTableAdapter categoría_productoTableAdapter;
     }
 }

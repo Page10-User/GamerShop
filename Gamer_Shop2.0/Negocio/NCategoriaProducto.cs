@@ -30,7 +30,7 @@ namespace Gamer_Shop2._0.Negocio
                 }
             }
 
-        public List<DataSet1.Categoría_productoRow> getCategorías()
+        public List<Datos.DataSet1.Categoría_productoRow> getCategorías()
         {
             if (dCategoriaProducto == null)
             {

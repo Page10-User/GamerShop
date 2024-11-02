@@ -146,6 +146,18 @@
         2P/eJ92tnRtb7gAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="BFiltro.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFJSURBVEhL7ZPL
+        TsJAGEYnPgWVtiNUhxYISNIQYoiXjQuN7+JTuXXtU/gCykXaQkuQQKIb0fqP+ZvUyUBH68pwkrNh2vM1
+        JEOW7Tabu+4LGKs4ZkzNSiWeNZvnBF46FSOblMbWOG00rv/BwLTV2g1tewTGKo4oVbNUWnm12iHh+JZl
+        wOKD+AUye4VCpgNNexuaZvcrnoAjj2JQVBZMy+NPhnGM2e8E5bIJkZ4YTSuLJvY1bTXW9RPMycGRvhhO
+        lIW5PO4Vi2eY2UzgOBRi0hFZHP4W9XhCZFn7E8a8rAH48neP0kt87WdEjnMAUX/dAI/7pnmFj/+OgDEb
+        hhZhtRpzh7qe+DGg9AIfywfc4HvxJsOle8Xj/GwHMtkOZCIbiGx7gcf5EQcmjjML6/UjPM5PamAJ8ZuY
+        kB08+hsgfPvsunfzTmcPf1KEkE8ni3+swOz7HAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="BBuscador.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -167,21 +179,6 @@
         FlAOAMxvmwsykbDLQRwAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="CSerial.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CNombrePr.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CCantidadPr.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CPrecioPr.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CTotalPr.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="CEliminarPr.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

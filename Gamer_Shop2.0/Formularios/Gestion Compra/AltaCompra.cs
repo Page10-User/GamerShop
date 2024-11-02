@@ -15,6 +15,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        bool FiltroWasChanged = false;
 
         public Panel PanelContainer { get; set; }
         public Bienvenida MainForm { get; set; }
@@ -75,12 +76,20 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                 }
             }
         }
-        private void EditarPerfil_Load(object sender, EventArgs e)
+        private void AltaCompra_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
-            this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
+           
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+
+            // testeo--------------------------------------------------------------------------------
+            //DGListaPrCompra.Columns.Add("CSerial", "Serial");
+            //DGListaPrCompra.Columns.Add("CNombrePr", "Nombre");
+            //DGListaPrCompra.Columns.Add("CCantidadPr", "Cantidad");
+            //DGListaPrCompra.Columns.Add("CPrecioPr", "Precio");
+            //DGListaPrCompra.Columns.Add("CTotalPr", "Total");
+            //DGListaPrCompra.Columns.Add("CEliminarPr", "Eliminar");
+            //Fin testeo-----------------------------------------------------------------------------
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -258,9 +267,10 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                             return;
                         }
                     }
-                }   
+                }
 
                 // Si el producto no existe, agregar una nueva fila en el DataGridView
+                
                 DGListaPrCompra.Rows.Add(
                     producto.Serial,
                     producto.Nombre,
@@ -354,7 +364,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         public new void Dispose()
         {
             // Desuscribirse de eventos
-            this.Load -= EditarPerfil_Load;
+            this.Load -= AltaCompra_Load;
             CBProveedor.Validating -= CBCategoriaPr_Validating;
             BElegirPrLista.Click -= BElegirPrLista_Click;
             DGListaPrCompra.CellClick -= DGListaPr_CellClick;
@@ -364,6 +374,35 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 
             // Liberar los recursos
             base.Dispose();
+        }
+
+        private void BBuscador_Click(object sender, EventArgs e)
+        {
+            NProducto producto = new NProducto();
+            if (FiltroWasChanged == true)
+            {
+                if (!string.IsNullOrEmpty(TBBuscar.Texts))
+                {
+                    producto.buscarProductoLista(DGListaPrCompra, TBBuscar.Texts, BFiltro.SelectedItem.ToString());
+                }
+                else
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Por favor, asegurece de rellenar el campo de busqueda", "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
+            }
+            else
+            {
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe elegir un filtro para buscar", "Error", "Error", null);
+                mensaje.ShowDialog();
+            }
+        }
+
+        private void BFiltro_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            FiltroWasChanged = true;
+            string filtro = BFiltro.SelectedItem.ToString();
+            TBBuscar.PlaceholderText = "Buscar por "+ filtro;
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         public Panel PanelContainer { get; set; }
         public Catalogo MainCatalogo { get; set; }
         public Bienvenida MainForm { get; set; }
+        public Usuario ACTUsuario { get; set; }
 
         public BotonesArticulo()
         {
@@ -131,6 +132,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             PanelContainer.Controls.Add(AltaVn);
             AltaVn.PanelContainer = PanelContainer;
             AltaVn.MainForm = MainForm;
+            AltaVn.AVUsuario = ACTUsuario;
             AltaVn.IdPrCr = idPrCarrito;
             AltaVn.Show();
             MainCatalogo.Dispose();

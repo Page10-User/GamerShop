@@ -23,6 +23,10 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         public Panel PanelContainer { get; set; }
         public Bienvenida MainForm { get; set; }
         public Dictionary<int, int> IdPrCr { set; get; }
+
+        public Usuario AVUsuario { get; set; }
+
+        Cliente cliente;
         public AltaVenta()
         {
             InitializeComponent();
@@ -61,6 +65,8 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         private void AltaVenta_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Método_pago' Puede moverla o quitarla según sea necesario.
+            this.método_pagoTableAdapter.Fill(this.dataSet1.Método_pago);
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
             TBFecha.Texts = DateTime.Now.ToString("dd-MM-yyyy");
@@ -218,10 +224,21 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             {
                 if (TBFecha.Texts != string.Empty && TBMonto.Texts != string.Empty && CBCategoria.SelectedItem != null)
                 {
+                    try {
+                        NVenta nventa = new NVenta();
+                        nventa.NGuardarVenta(
+                            float.Parse(TBMonto.Texts),
+                            AVUsuario.ID_Usuario,
+                            cliente.ID_Cliente,
+                            CBCategoria.SelectedIndex = +1
+                        );
+                    } 
+                    catch { 
+                    }
                     MsgPersonalizado mensaje = new MsgPersonalizado("Venta registrada con éxito", "Registro", "Informacion", null);
                     mensaje.ShowDialog();
                     MainForm.TopMost = true;
-                }
+                    }
                 else
                 {
                     MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar una venta", "Error", "Error", generarListaCampos());
@@ -370,9 +387,10 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         {
             try {
                 NCliente nCliente = new NCliente();
-                Cliente cliente = nCliente.GetCliente(TBDniClienteExistente.Texts);
-                MsgPersonalizado mensaje = new MsgPersonalizado("El DNI: " + cliente.DNI + " se encuentra registrado", "Cliente existente", "Informacion", null);
+                Cliente cliente1 = nCliente.GetCliente(TBDniClienteExistente.Texts);
+                MsgPersonalizado mensaje = new MsgPersonalizado("El DNI: " + cliente1.DNI + " se encuentra registrado", "Cliente existente", "Informacion", null);
                 mensaje.ShowDialog();
+                cliente = cliente1;
             }
             catch {
                 MsgPersonalizado mensaje = new MsgPersonalizado("El cliente no existe", "Error", "Error", null);

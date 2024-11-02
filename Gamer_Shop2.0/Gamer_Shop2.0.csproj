@@ -86,6 +86,11 @@
     <Compile Include="Compra.cs">
       <DependentUpon>ModeloBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datos\DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
@@ -374,6 +379,11 @@
     <Compile Include="Proveedor.cs">
       <DependentUpon>ModeloBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoTallerIIDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoTallerIIDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RJControls\CustomControls.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -536,6 +546,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Datos\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -570,6 +591,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ProyectoTallerIIDataSet.xsc">
+      <DependentUpon>ProyectoTallerIIDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoTallerIIDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoTallerIIDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoTallerIIDataSet.xss">
+      <DependentUpon>ProyectoTallerIIDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\logo3.png" />
   </ItemGroup>
   <ItemGroup>

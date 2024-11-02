@@ -131,5 +131,17 @@ namespace Gamer_Shop2._0.Negocio
                 return dproducto.getProductoCr(serial);
             }
         }
+
+        public void buscarProductoLista(DataGridView grid, string texts, string atributo)
+        {
+            if (dproducto == null)
+            {
+                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+            }
+            else
+            {
+                dproducto.getProductosLista(grid, texts, atributo);
+            }
+        }
     }
 }
