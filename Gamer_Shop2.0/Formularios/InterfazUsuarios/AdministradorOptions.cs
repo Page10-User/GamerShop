@@ -10,6 +10,7 @@ using Gamer_Shop2._0.Formularios.Inicio;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
@@ -46,6 +47,33 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 
 
                 using (Pen pen = new Pen(Color.Transparent, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
+
+        private void PContImgUs_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 1;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(pen, path);
@@ -243,6 +271,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 AltaUsuario formAltaUs = new AltaUsuario();
                 formAltaUs.TopLevel = false;
                 formAltaUs.PanelContainer = PanelContainer;
+                formAltaUs.AUUsuario = UUsuario;
                 PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
                 PanelContainer.Controls.Add(formAltaUs);
                 PanelContainer.BringToFront();
@@ -343,6 +372,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
              Poptions.Mainform = MainForm;
              Poptions.Forminicio = Forminicio;
              Poptions.PUsuario = UUsuario;
+             Poptions.CambiarImagenPerfil += BBCambiarImagenPerfil_Click;
              Poptions.Menu = this;
              Poptions.BringToFront();
              MandarAtrasBotones();
@@ -359,6 +389,12 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
              //Pasamos los Botones (proveedor y compra).
              PasarBotonesBienvenida();
              isExpandedOps = true;
+        }
+
+        private void BBCambiarImagenPerfil_Click(object sender, string imagen)
+        {
+            PBImgUs.Image = Image.FromFile(imagen);
+            PBImgUs.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         //------------------------------------------------------------------------------------Cerrar poptions-------------------------------------------------------------------------------\\
         private void CerrarPoptions()
@@ -444,6 +480,21 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 inicioD.Show();
                 inicioD.Location = new Point(50, 130);
             }
+        }
+
+        private void AdministradorOptions_Load(object sender, EventArgs e)
+        {
+            if (UUsuario.photoFilePath is null)
+            {
+                PBImgUs.Image = Image.FromFile(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\ImgPerfilUs.png")));
+                PBImgUs.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            else
+            {
+                PBImgUs.Image = Image.FromFile(UUsuario.photoFilePath);
+                PBImgUs.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            LNombreUs.Text = UUsuario.Nombre;
         }
     }
 }

@@ -37,14 +37,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaUs = new System.Windows.Forms.Panel();
             this.DGListaUs = new System.Windows.Forms.DataGridView();
+            this.CModificarUs = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CEliminarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.LTituloListaUs = new System.Windows.Forms.Label();
             this.PBImgListaUs = new System.Windows.Forms.PictureBox();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BShowRegistrar = new Gamer_Shop2._0.RJButton();
             this.BDescargarListUs = new Gamer_Shop2._0.RJButton();
-            this.CModificarUs = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CEliminarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PContListaUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaUs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).BeginInit();
@@ -86,6 +86,7 @@
             // 
             // DGListaUs
             // 
+            this.DGListaUs.AllowUserToAddRows = false;
             this.DGListaUs.BackgroundColor = System.Drawing.Color.Black;
             this.DGListaUs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -127,6 +128,20 @@
             this.DGListaUs.Size = new System.Drawing.Size(433, 286);
             this.DGListaUs.TabIndex = 28;
             this.DGListaUs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaUs_CellClick);
+            // 
+            // CModificarUs
+            // 
+            this.CModificarUs.HeaderText = "Modificar";
+            this.CModificarUs.Name = "CModificarUs";
+            this.CModificarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CModificarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // CEliminarUs
+            // 
+            this.CEliminarUs.HeaderText = "Eliminar";
+            this.CEliminarUs.Name = "CEliminarUs";
+            this.CEliminarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CEliminarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // LTituloListaUs
             // 
@@ -233,20 +248,6 @@
             this.BDescargarListUs.TabIndex = 24;
             this.BDescargarListUs.TextColor = System.Drawing.Color.White;
             this.BDescargarListUs.UseVisualStyleBackColor = false;
-            // 
-            // CModificarUs
-            // 
-            this.CModificarUs.HeaderText = "Modificar";
-            this.CModificarUs.Name = "CModificarUs";
-            this.CModificarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CModificarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // CEliminarUs
-            // 
-            this.CEliminarUs.HeaderText = "Eliminar";
-            this.CEliminarUs.Name = "CEliminarUs";
-            this.CEliminarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CEliminarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ListaUsuario
             // 

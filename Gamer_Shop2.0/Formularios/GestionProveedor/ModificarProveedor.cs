@@ -30,6 +30,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
 
         private void ModificarProveedor_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Categoría_producto' Puede moverla o quitarla según sea necesario.
+            this.categoría_productoTableAdapter.Fill(this.dataSet1.Categoría_producto);
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
 
@@ -38,7 +40,9 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             TBContacto.Texts = proveedorActual.Telefono;
             TBCorreo.Texts = proveedorActual.Correo;
             TBDireccion.Texts = proveedorActual.Dirección;
-            CBCategoriaPrProveedor.SelectedIndex = proveedorActual.ID_CategoriaProducto-1;
+            CBCategoriaPrProveedor.SelectedValue = proveedorActual.ID_CategoriaProducto;
+
+            guardarCampos();
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -105,19 +109,26 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
 
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
-            MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea volver? Se perderán los cambios realizados", "Volver", "Interrogacion", null);
-            DialogResult result = mensaje.ShowDialog();
-            if (result == DialogResult.Yes)
+            if (comprobarModif(camposActuales) == true)
             {
-                //Cerramos el mensaje en Hide
-                mensaje.Dispose();
+                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea volver? Se perderán los cambios realizados", "Volver", "Interrogacion", null);
+                DialogResult result = mensaje.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    //Cerramos el mensaje en Hide
+                    mensaje.Dispose();
 
-                // Mostrar form
-                InstanciarYMostrarListaProveedor();
+                    // Mostrar form
+                    InstanciarYMostrarListaProveedor();
+                }
+                else
+                {
+                    mensaje.Dispose();
+                }
             }
             else
             {
-                mensaje.Dispose();
+                InstanciarYMostrarListaProveedor();
             }
         }
 
@@ -462,33 +473,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         }
         //Fin TextChanged
 
-        private void guardarCampos()
-        {
-            camposActuales[0] = TBRazon.Texts;
-            camposActuales[1] = TBRepresentante.Texts;
-            camposActuales[2] = TBContacto.Texts;
-            camposActuales[3] = TBCorreo.Texts;
-            camposActuales[4] = TBDireccion.Texts;
-            camposActuales[5] = CBCategoriaPrProveedor.SelectedItem.ToString();
-        }
-
-        private bool comprobarModif(List<string> campos)
-        {
-            if (campos[0] != TBRazon.Texts ||
-                campos[1] != TBRepresentante.Texts ||
-                campos[2] != TBContacto.Texts ||
-                campos[3] != TBCorreo.Texts ||
-                campos[4] != TBDireccion.Texts ||
-                campos[5] != CBCategoriaPrProveedor.SelectedItem.ToString())
-            {
-                return true; // Hay modificación
-            }
-            else
-            {
-                return false; // No hay modificación
-            }
-        }
-
         //Boton modificar + validación de los campos.
         private void BModificarProveedor_Click(object sender, EventArgs e)
         {
@@ -509,7 +493,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                             TBDireccion.Texts,
                             CBCategoriaPrProveedor.SelectedIndex + 1
                             );
-                        MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Modificación", "Informacion", null);
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Proveedor modificado con éxito", "Modificación", "Informacion", null);
                         mensaje.ShowDialog();
                         guardarCampos();
                     }
@@ -528,7 +512,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 }
                 else
                 {
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Debe realizar almenos un cambio para modificar el producto", "Error al Modificar", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Debe realizar almenos un cambio para modificar el proveedor", "Error al Modificar", "Error", null);
                     mensaje.ShowDialog();
                 }
             }
@@ -618,6 +602,33 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
 
             // Liberar los recursos
             base.Dispose();
+        }
+
+        private void guardarCampos()
+        {
+            camposActuales[0] = TBRazon.Texts;
+            camposActuales[1] = TBRepresentante.Texts;
+            camposActuales[2] = TBContacto.Texts;
+            camposActuales[3] = TBCorreo.Texts;
+            camposActuales[4] = TBDireccion.Texts;
+            camposActuales[5] = CBCategoriaPrProveedor.SelectedIndex.ToString();
+        }
+
+        private bool comprobarModif(List<string> campos)
+        {
+            if (campos[0] != TBRazon.Texts ||
+                campos[1] != TBRepresentante.Texts ||
+                campos[2] != TBContacto.Texts ||
+                campos[3] != TBCorreo.Texts ||
+                campos[4] != TBDireccion.Texts ||
+                campos[5] != CBCategoriaPrProveedor.SelectedIndex.ToString())
+            {
+                return true; // Hay modificación
+            }
+            else
+            {
+                return false; // No hay modificación
+            }
         }
     }
 }

@@ -625,6 +625,7 @@
     <Content Include="Query_Creacion_Producto_Categoria.txt" />
     <Content Include="Query_Creacion_Tablas_corregida.sql" />
     <Content Include="Resources\imagen_default.png" />
+    <Content Include="Resources\ImgPerfilUs.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -143,7 +143,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
             foreach (DataGridViewRow row in DGListaPr.Rows)
             {
-
                 
                 Image imagenProducto;
 
@@ -178,12 +177,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         private void InstanciarYMostrarAltaProducto()
         {
             Control control = PanelContainer.Controls[0];
-            if (control is Form)
-            {
-                return;
-            }
-            else
-            {
                 if (control is Form)
                 {
                     //Liberamos recursos
@@ -200,7 +193,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 AltaPr.PanelContainer = PanelContainer;
                 AltaPr.Show();
                 this.Dispose();
-            }
         }
         private void DGListaPr_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -242,7 +234,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                         int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
                         nproducto.NEliminarProducto(id);
                         DGListaPr.Rows.RemoveAt(e.RowIndex); //debería pasarse a la lista de inactivos
-                        mensaje = new MsgPersonalizado("Producto eliminado con éxito", "Eliminación", "Error", null);
+                        mensaje = new MsgPersonalizado("Producto eliminado con éxito", "Eliminación", "Informacion", null);
                         mensaje.ShowDialog();
                     }
                     catch (Exception)

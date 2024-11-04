@@ -5,6 +5,7 @@ using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -72,8 +73,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             TBSerialPr.Texts = productoActual.Serial.ToString();
             TBDescripcionPr.Texts = productoActual.Descripcion;
             TBPrecioPr.Texts = productoActual.Precio.ToString();
-            CBCategoriaPr.SelectedIndex = productoActual.ID_Categoria - 1;
-            CBProveedorPr.SelectedIndex = productoActual.ID_Proveedor - 1;
+            CBProveedorPr.SelectedValue = productoActual.ID_Proveedor;
+            CBCategoriaPr.SelectedValue = productoActual.ID_Categoria;
             rjTextBox1.Texts = productoActual.photoFilePath;
 
             guardarCampos();
@@ -336,7 +337,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
             if (!validador.ValidarSeleccion(seleccion))
             {
-                e.Cancel = true;
+                //e.Cancel = true;
                 CBProveedorPr.Texts = "Seleccionar...";
                 TBValidacion10.Visible = true;
             }
@@ -353,7 +354,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
             if (!validador.ValidarSeleccion(seleccion))
             {
-                e.Cancel = true;
+                //e.Cancel = true;
                 CBCategoriaPr.Texts = "Seleccionar...";
                 TBValidacion11.Visible = true;
             }
@@ -433,7 +434,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BModificarPr_Click(object sender, EventArgs e)
         {
-            if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBProveedorPr.SelectedItem != null)
+            if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBProveedorPr.SelectedItem != null && CBCategoriaPr.SelectedItem != null)
             {
                 if (comprobarModif(camposActuales))
                 {
@@ -445,8 +446,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                             TBNombrePr.Texts,
                             TBDescripcionPr.Texts,
                             float.Parse(TBPrecioPr.Texts),
-                            CBCategoriaPr.SelectedIndex + 1,
-                            CBProveedorPr.SelectedIndex + 1,
+                            (int)CBCategoriaPr.SelectedValue,
+                            (int)CBProveedorPr.SelectedValue,
                             rjTextBox1.Texts
                             );
                         MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Modificación", "Informacion", null);
@@ -530,8 +531,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             camposActuales[0] = TBSerialPr.Texts;
             camposActuales[1] = TBNombrePr.Texts;
             camposActuales[2] = TBPrecioPr.Texts;
-            camposActuales[3] = CBProveedorPr.SelectedItem.ToString();
-            camposActuales[4] = CBCategoriaPr.SelectedItem.ToString();
+            camposActuales[3] = CBProveedorPr.SelectedIndex.ToString();
+            camposActuales[4] = CBCategoriaPr.SelectedIndex.ToString();
             camposActuales[5] = TBDescripcionPr.Texts;
             camposActuales[6] = rjTextBox1.Texts;
         }
@@ -540,8 +541,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             if (campos[0] != TBSerialPr.Texts ||
                 campos[1] != TBNombrePr.Texts ||
                 campos[2] != TBPrecioPr.Texts ||
-                campos[3] != CBProveedorPr.SelectedItem.ToString() ||
-                campos[4] != CBCategoriaPr.SelectedItem.ToString() ||
+                campos[3] != CBProveedorPr.SelectedIndex.ToString() ||
+                campos[4] != CBCategoriaPr.SelectedIndex.ToString() ||
                 campos[5] != TBDescripcionPr.Texts ||
                 campos[6] != rjTextBox1.Texts)
             {

@@ -141,8 +141,8 @@ namespace Gamer_Shop2._0.Datos
                         prod.Nombre = producto.Nombre;
                         prod.Precio = producto.Precio;
                         prod.Descripcion = producto.Descripcion;
-                        prod.Categoría_producto = producto.Categoría_producto;
-                        prod.Proveedor = producto.Proveedor;
+                        prod.ID_Categoria = producto.ID_Categoria;
+                        prod.ID_Proveedor = producto.ID_Proveedor;
                         prod.photoFilePath = producto.photoFilePath;
 
                         context.SaveChanges();

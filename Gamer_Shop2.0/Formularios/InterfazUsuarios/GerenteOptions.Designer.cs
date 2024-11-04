@@ -31,11 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerenteOptions));
             this.BGestionUsuario = new System.Windows.Forms.Button();
             this.LNombreUs = new System.Windows.Forms.Label();
-            this.PBImgUs = new System.Windows.Forms.PictureBox();
             this.BAccederInformes = new System.Windows.Forms.Button();
             this.BOptionsGerente = new Gamer_Shop2._0.RJButton();
             this.PPersonalOptions = new System.Windows.Forms.Panel();
             this.BHouse = new Gamer_Shop2._0.RJButton();
+            this.PContImgUs = new System.Windows.Forms.Panel();
+            this.PBImgUs = new System.Windows.Forms.PictureBox();
+            this.PContImgUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgUs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,24 +63,14 @@
             // 
             // LNombreUs
             // 
-            this.LNombreUs.AutoSize = true;
+            this.LNombreUs.AutoEllipsis = true;
             this.LNombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombreUs.ForeColor = System.Drawing.Color.White;
             this.LNombreUs.Location = new System.Drawing.Point(13, 92);
             this.LNombreUs.Name = "LNombreUs";
-            this.LNombreUs.Size = new System.Drawing.Size(85, 16);
+            this.LNombreUs.Size = new System.Drawing.Size(173, 16);
             this.LNombreUs.TabIndex = 15;
             this.LNombreUs.Text = "Nombre Us";
-            // 
-            // PBImgUs
-            // 
-            this.PBImgUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgUs.BackgroundImage")));
-            this.PBImgUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgUs.Location = new System.Drawing.Point(13, 12);
-            this.PBImgUs.Name = "PBImgUs";
-            this.PBImgUs.Size = new System.Drawing.Size(80, 77);
-            this.PBImgUs.TabIndex = 14;
-            this.PBImgUs.TabStop = false;
             // 
             // BAccederInformes
             // 
@@ -153,25 +145,44 @@
             this.BHouse.UseVisualStyleBackColor = false;
             this.BHouse.Click += new System.EventHandler(this.BHouse_Click);
             // 
+            // PContImgUs
+            // 
+            this.PContImgUs.Controls.Add(this.PBImgUs);
+            this.PContImgUs.Location = new System.Drawing.Point(16, 10);
+            this.PContImgUs.Name = "PContImgUs";
+            this.PContImgUs.Size = new System.Drawing.Size(82, 79);
+            this.PContImgUs.TabIndex = 34;
+            this.PContImgUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PContImgUs_Paint);
+            // 
+            // PBImgUs
+            // 
+            this.PBImgUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PBImgUs.Location = new System.Drawing.Point(1, 1);
+            this.PBImgUs.Name = "PBImgUs";
+            this.PBImgUs.Size = new System.Drawing.Size(80, 77);
+            this.PBImgUs.TabIndex = 7;
+            this.PBImgUs.TabStop = false;
+            // 
             // GerenteOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(198, 523);
+            this.Controls.Add(this.PContImgUs);
             this.Controls.Add(this.BHouse);
             this.Controls.Add(this.PPersonalOptions);
             this.Controls.Add(this.BOptionsGerente);
             this.Controls.Add(this.BAccederInformes);
             this.Controls.Add(this.BGestionUsuario);
             this.Controls.Add(this.LNombreUs);
-            this.Controls.Add(this.PBImgUs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GerenteOptions";
             this.Text = "GerenteOptions";
+            this.Load += new System.EventHandler(this.GerenteOptions_Load);
+            this.PContImgUs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBImgUs)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -179,10 +190,11 @@
 
         private System.Windows.Forms.Button BGestionUsuario;
         private System.Windows.Forms.Label LNombreUs;
-        private System.Windows.Forms.PictureBox PBImgUs;
         private System.Windows.Forms.Button BAccederInformes;
         private RJButton BOptionsGerente;
         private System.Windows.Forms.Panel PPersonalOptions;
         private RJButton BHouse;
+        private System.Windows.Forms.Panel PContImgUs;
+        private System.Windows.Forms.PictureBox PBImgUs;
     }
 }

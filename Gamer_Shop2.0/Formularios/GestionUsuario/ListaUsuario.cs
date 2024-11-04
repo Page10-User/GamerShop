@@ -1,5 +1,4 @@
-﻿using Gamer_Shop2._0.Formularios.Gestion_Compra;
-using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
 using System.Drawing;
@@ -13,8 +12,8 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
         NUsuario nUsuario = new NUsuario();
-
         public Panel PanelContainer { get; set; }
+        public Usuario LUsuario { get; set; }
         public ListaUsuario()
         {
             InitializeComponent();
@@ -78,7 +77,16 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-            nUsuario.listaUsuariosActivos(DGListaUs);
+            if (LUsuario.ID_TipoUsuario == 2)
+            {
+                nUsuario.listaUsuariosActivosEyA(DGListaUs);
+                quitamosUsuarioActualLista();
+            }
+            else
+            {
+                nUsuario.listaUsuariosActivos(DGListaUs);
+                quitamosUsuarioActualLista();
+            }
             try
             {
                 ConfigurarDataGridView();
@@ -87,6 +95,20 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             {
                 // Manejo de cualquier otra excepción
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void quitamosUsuarioActualLista()
+        {
+            string cuilActual = LUsuario.CUIL;
+
+            foreach (DataGridViewRow row in DGListaUs.Rows)
+            {
+                if (row.Cells["CUIL"].Value?.ToString() == cuilActual)
+                {
+                    DGListaUs.Rows.Remove(row);
+                    break;
+                }
             }
         }
 
@@ -140,35 +162,42 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
                 DGListaUs.Columns.Add(imageColumn);
                 DGListaUs.Columns["ID_Usuario"].Visible = false;
-                DGListaUs.Columns["CModificarUs"].DisplayIndex = 10;
-                DGListaUs.Columns["CEliminarUs"].DisplayIndex = 11;
+                DGListaUs.Columns["Nombre"].DisplayIndex = 1;
+                DGListaUs.Columns["Apellido"].DisplayIndex = 2;
+                DGListaUs.Columns["CUIL"].DisplayIndex = 3;
+                DGListaUs.Columns["Nombre_usuario"].DisplayIndex = 4;
+                DGListaUs.Columns["Contraseña"].DisplayIndex = 5;
+                DGListaUs.Columns["Correo"].DisplayIndex = 6;
+                DGListaUs.Columns["photoFilePath"].DisplayIndex = 7;
+                DGListaUs.Columns["Activo"].DisplayIndex = 8;
+                DGListaUs.Columns["Tipo usuario"].DisplayIndex = 9;
+                DGListaUs.Columns["CModificarUs"].DisplayIndex = 11;
+                DGListaUs.Columns["CEliminarUs"].DisplayIndex = 12;
+                DGListaUs.Columns["ImagenPerfil"].DisplayIndex = 10;
 
-                foreach (DataGridViewRow row in DGListaUs.Rows)
+            foreach (DataGridViewRow row in DGListaUs.Rows)
+            {
+
+                Image imagenUsuario;
+                try
                 {
-
-                    Image imagenUsuario;
-
-                    try
-                    {
-                        // Asumiendo que el nombre del archivo está en Resources
-                        imagenUsuario = Image.FromFile("C:\\Users\\Usuario\\Pictures\\validaciones.png");
-                        if (imagenUsuario == null) throw new Exception();
-                    }
-                    catch (Exception)
-                    {
-                        // Cargar una imagen predeterminada si no se encuentra la imagen
-                        imagenUsuario = Image.FromFile("\\Gamer_Shop2.0\\Resources\\imagen_default.png");
-                    }
-
-                    row.Cells["ImagenPerfil"].Value = imagenUsuario;
+                    imagenUsuario = Image.FromFile(row.Cells["photoFilePath"].Value.ToString());
+                    if (imagenUsuario == null) throw new Exception();
                 }
+                catch (Exception)
+                {
+                    // Cargar una imagen predeterminada si no se encuentra la imagen
+                    imagenUsuario = Image.FromFile("\\Gamer_Shop2.0\\Resources\\imagen_default.png");
+                }
+
+                row.Cells["ImagenPerfil"].Value = imagenUsuario;
+            }
 
                 //Ocultar la columna que contiene las rutas de las imágenes(photoFilePath)
                 if (DGListaUs.Columns["ImagenPerfil"] != null)
                 {
                     DGListaUs.Columns["photoFilePath"].Visible = false;
                 }
-            
         }
 
         private void BShowRegistrar_Click(object sender, EventArgs e)
@@ -191,6 +220,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
                     // Limpiar el panel actual y añadir el nuevo formulario
                     PanelContainer.Controls.Clear();
+                    ModificarUs.MUsuario = LUsuario;
                     PanelContainer.Controls.Add(ModificarUs);
                     ModificarUs.PanelContainer = PanelContainer;
                     ModificarUs.Show();
@@ -198,7 +228,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 }
                 catch (Exception)
                 {
-                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el producto", "Error", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el usuario", "Error", "Error", null);
                     mensaje.ShowDialog();
                 }
             }

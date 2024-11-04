@@ -122,6 +122,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 // Crear una nueva instancia de EditarPerfil
                 EditarPerfil editarPerfil = new EditarPerfil(PUsuario);
                 editarPerfil.TopLevel = false;
+                editarPerfil.CambiarImagenPerfil += BCambiarImagenPerfil_Click;
 
                 // Limpiar el panel actual y añadir el nuevo formulario
                 PanelContainer.Controls.Clear();
@@ -131,6 +132,13 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 editarPerfil.Show();
                 this.Dispose();
             }
+        }
+
+        public event EventHandler<string> CambiarImagenPerfil;
+        private void BCambiarImagenPerfil_Click(object sender, string img)
+        {
+            //Pasamos el id del producto al catálogo.
+            CambiarImagenPerfil?.Invoke(this, img);
         }
         //------------------------------------------------------------------------------------Cerrar Sesión-------------------------------------------------------------------------------\\
         private void CerrarSesion(Object sender, EventArgs e)

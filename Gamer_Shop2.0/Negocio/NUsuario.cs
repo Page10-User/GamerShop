@@ -45,17 +45,29 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void NModificarUsuario(string nombre, string apellido, string cuil, string user, string password, string email, int tipoUsuario)
+        public void listaUsuariosActivosEyA(DataGridView grid)
+        {
+            if (dUsuario == null)
+            {
+                throw new NullReferenceException("El objeto 'dUsuario' no se pudo inicializar.");
+            }
+            else
+            {
+                dUsuario.getUsuariosActivosEyA(grid);
+            }
+        }
+
+        public void NModificarUsuario(string nombre, string apellido, string cuilActual, string user, string password, string email, int tipoUsuario, string activo)
         {
             Usuario Usuario = new Usuario()
             {
                 Nombre = nombre,
                 Apellido = apellido,
-                CUIL = cuil,
                 Nombre_usuario = user,
                 Contraseña = password,
                 Correo = email,
-                ID_TipoUsuario = tipoUsuario
+                ID_TipoUsuario = tipoUsuario,
+                Activo = activo
             };
             if (dUsuario == null)
             {
@@ -63,11 +75,11 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                dUsuario.DModificarUsuario(Usuario);
+                dUsuario.DModificarUsuario(cuilActual,Usuario);
             }
         }
 
-        public void NModificarPerfil(string nombre, string apellido,  string user, string password, string email, string photoPath)
+        public void NModificarPerfil(string nombre, string apellido,  string user, string password, string email, string photoPath, string cuilActual)
         {
             Usuario Usuario = new Usuario()
             {
@@ -84,7 +96,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                dUsuario.DModificarUsuario(Usuario);
+                dUsuario.DModificarPerfil(cuilActual, Usuario);
             }
         }
 

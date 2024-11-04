@@ -96,7 +96,6 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         public event EventHandler<int> EliminarDelCarritoClick;
         private void BEliminarDeCarrito_Click(object sender, EventArgs e)
         {
-
             MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea eliminar el producto del carrito?", "Eliminar Producto", "Interrogacion", null);
             DialogResult result = mensaje.ShowDialog();
 

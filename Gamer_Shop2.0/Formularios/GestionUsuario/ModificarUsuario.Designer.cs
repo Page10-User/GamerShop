@@ -28,9 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarUsuario));
             this.label1 = new System.Windows.Forms.Label();
             this.PContModificarUs = new System.Windows.Forms.Panel();
+            this.CBActivoUs = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CBTipoUsuario = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.tipousuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Gamer_Shop2._0.Datos.DataSet1();
             this.TBValidacion15 = new System.Windows.Forms.Label();
             this.TBValidacion14 = new System.Windows.Forms.Label();
             this.TBValidacion13 = new System.Windows.Forms.Label();
@@ -48,6 +54,11 @@
             this.TBValidacion3 = new System.Windows.Forms.Label();
             this.TBValidacion2 = new System.Windows.Forms.Label();
             this.TBValidacion = new System.Windows.Forms.Label();
+            this.TBApellidoUs = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBNombreUs = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBEmailUs = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBNombreUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.TBContrasenaUs = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.LContraseñaUs = new System.Windows.Forms.Label();
             this.LEmailUs = new System.Windows.Forms.Label();
             this.LNombreUsuario = new System.Windows.Forms.Label();
@@ -57,13 +68,14 @@
             this.PBImgModificarUs = new System.Windows.Forms.PictureBox();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarUs = new Gamer_Shop2._0.RJButton();
-            this.TBApellidoUs = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBNombreUs = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBEmailUs = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBNombreUsuario = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.TBContrasenaUs = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.tipo_usuarioTableAdapter = new Gamer_Shop2._0.Datos.DataSet1TableAdapters.Tipo_usuarioTableAdapter();
+            this.PEstadoUs = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.PContModificarUs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipousuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarUs)).BeginInit();
+            this.PEstadoUs.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -81,6 +93,8 @@
             // PContModificarUs
             // 
             this.PContModificarUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContModificarUs.Controls.Add(this.label2);
+            this.PContModificarUs.Controls.Add(this.CBTipoUsuario);
             this.PContModificarUs.Controls.Add(this.TBValidacion15);
             this.PContModificarUs.Controls.Add(this.TBValidacion14);
             this.PContModificarUs.Controls.Add(this.TBValidacion13);
@@ -108,11 +122,84 @@
             this.PContModificarUs.Controls.Add(this.LNombreUsuario);
             this.PContModificarUs.Controls.Add(this.LApellidoUs);
             this.PContModificarUs.Controls.Add(this.LNombreUs);
-            this.PContModificarUs.Location = new System.Drawing.Point(65, 107);
+            this.PContModificarUs.Location = new System.Drawing.Point(68, 100);
             this.PContModificarUs.Name = "PContModificarUs";
-            this.PContModificarUs.Size = new System.Drawing.Size(350, 276);
+            this.PContModificarUs.Size = new System.Drawing.Size(350, 304);
             this.PContModificarUs.TabIndex = 23;
             this.PContModificarUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PContModificarUs_Paint);
+            // 
+            // CBActivoUs
+            // 
+            this.CBActivoUs.BackColor = System.Drawing.Color.Black;
+            this.CBActivoUs.BorderColor = System.Drawing.Color.Lime;
+            this.CBActivoUs.BorderSize = 1;
+            this.CBActivoUs.CustomIndexStart = 1;
+            this.CBActivoUs.CustomSelectedIndex = 0;
+            this.CBActivoUs.DisplayMember = "SI";
+            this.CBActivoUs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBActivoUs.DropDownWidth = 145;
+            this.CBActivoUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBActivoUs.ForeColor = System.Drawing.Color.White;
+            this.CBActivoUs.IconColor = System.Drawing.Color.Lime;
+            this.CBActivoUs.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.CBActivoUs.ListBackColor = System.Drawing.Color.Black;
+            this.CBActivoUs.ListTextColor = System.Drawing.Color.White;
+            this.CBActivoUs.Location = new System.Drawing.Point(63, 7);
+            this.CBActivoUs.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBActivoUs.Name = "CBActivoUs";
+            this.CBActivoUs.Padding = new System.Windows.Forms.Padding(1);
+            this.CBActivoUs.Size = new System.Drawing.Size(68, 30);
+            this.CBActivoUs.TabIndex = 80;
+            this.CBActivoUs.Texts = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(25, 270);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 18);
+            this.label2.TabIndex = 79;
+            this.label2.Text = "Tipo Usuario";
+            // 
+            // CBTipoUsuario
+            // 
+            this.CBTipoUsuario.BackColor = System.Drawing.Color.Black;
+            this.CBTipoUsuario.BorderColor = System.Drawing.Color.Lime;
+            this.CBTipoUsuario.BorderSize = 1;
+            this.CBTipoUsuario.CustomIndexStart = 1;
+            this.CBTipoUsuario.CustomSelectedIndex = 0;
+            this.CBTipoUsuario.DataSource = this.tipousuarioBindingSource;
+            this.CBTipoUsuario.DisplayMember = "Descripción";
+            this.CBTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBTipoUsuario.DropDownWidth = 145;
+            this.CBTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CBTipoUsuario.ForeColor = System.Drawing.Color.White;
+            this.CBTipoUsuario.IconColor = System.Drawing.Color.Lime;
+            this.CBTipoUsuario.ListBackColor = System.Drawing.Color.Black;
+            this.CBTipoUsuario.ListTextColor = System.Drawing.Color.White;
+            this.CBTipoUsuario.Location = new System.Drawing.Point(141, 265);
+            this.CBTipoUsuario.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBTipoUsuario.Name = "CBTipoUsuario";
+            this.CBTipoUsuario.Padding = new System.Windows.Forms.Padding(1);
+            this.CBTipoUsuario.Size = new System.Drawing.Size(145, 30);
+            this.CBTipoUsuario.TabIndex = 28;
+            this.CBTipoUsuario.Texts = "";
+            this.CBTipoUsuario.ValueMember = "ID_TipoUsuario";
+            // 
+            // tipousuarioBindingSource
+            // 
+            this.tipousuarioBindingSource.DataMember = "Tipo_usuario";
+            this.tipousuarioBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TBValidacion15
             // 
@@ -318,6 +405,126 @@
             this.TBValidacion.Text = "El nombre debe superar los 3 caracteres";
             this.TBValidacion.Visible = false;
             // 
+            // TBApellidoUs
+            // 
+            this.TBApellidoUs.BackColor = System.Drawing.Color.Black;
+            this.TBApellidoUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBApellidoUs.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBApellidoUs.BorderSize = 2;
+            this.TBApellidoUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBApellidoUs.ForeColor = System.Drawing.Color.White;
+            this.TBApellidoUs.Location = new System.Drawing.Point(142, 57);
+            this.TBApellidoUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TBApellidoUs.Multiline = true;
+            this.TBApellidoUs.Name = "TBApellidoUs";
+            this.TBApellidoUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TBApellidoUs.PasswordChar = false;
+            this.TBApellidoUs.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBApellidoUs.PlaceholderText = "";
+            this.TBApellidoUs.Size = new System.Drawing.Size(172, 31);
+            this.TBApellidoUs.TabIndex = 13;
+            this.TBApellidoUs.Texts = "";
+            this.TBApellidoUs.UnderlinedStyle = true;
+            this.TBApellidoUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBApellidoUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBApellidoUs_KeyPress);
+            this.TBApellidoUs.Validating += new System.ComponentModel.CancelEventHandler(this.TBApellidoUs_Validating);
+            // 
+            // TBNombreUs
+            // 
+            this.TBNombreUs.BackColor = System.Drawing.Color.Black;
+            this.TBNombreUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBNombreUs.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBNombreUs.BorderSize = 2;
+            this.TBNombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBNombreUs.ForeColor = System.Drawing.Color.White;
+            this.TBNombreUs.Location = new System.Drawing.Point(142, 9);
+            this.TBNombreUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TBNombreUs.Multiline = false;
+            this.TBNombreUs.Name = "TBNombreUs";
+            this.TBNombreUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TBNombreUs.PasswordChar = false;
+            this.TBNombreUs.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBNombreUs.PlaceholderText = "";
+            this.TBNombreUs.Size = new System.Drawing.Size(172, 31);
+            this.TBNombreUs.TabIndex = 12;
+            this.TBNombreUs.Texts = "";
+            this.TBNombreUs.UnderlinedStyle = true;
+            this.TBNombreUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBNombreUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBNombreUs_KeyPress);
+            this.TBNombreUs.Validating += new System.ComponentModel.CancelEventHandler(this.TBNombreUs_Validating);
+            // 
+            // TBEmailUs
+            // 
+            this.TBEmailUs.BackColor = System.Drawing.Color.Black;
+            this.TBEmailUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBEmailUs.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBEmailUs.BorderSize = 2;
+            this.TBEmailUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBEmailUs.ForeColor = System.Drawing.Color.White;
+            this.TBEmailUs.Location = new System.Drawing.Point(141, 164);
+            this.TBEmailUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TBEmailUs.Multiline = false;
+            this.TBEmailUs.Name = "TBEmailUs";
+            this.TBEmailUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TBEmailUs.PasswordChar = false;
+            this.TBEmailUs.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBEmailUs.PlaceholderText = "ejemplo@gmail.com";
+            this.TBEmailUs.Size = new System.Drawing.Size(172, 31);
+            this.TBEmailUs.TabIndex = 17;
+            this.TBEmailUs.Texts = "";
+            this.TBEmailUs.UnderlinedStyle = true;
+            this.TBEmailUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBEmailUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBEmailUs_KeyPress);
+            this.TBEmailUs.Validating += new System.ComponentModel.CancelEventHandler(this.TBEmailUs_Validating);
+            // 
+            // TBNombreUsuario
+            // 
+            this.TBNombreUsuario.BackColor = System.Drawing.Color.Black;
+            this.TBNombreUsuario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBNombreUsuario.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBNombreUsuario.BorderSize = 2;
+            this.TBNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBNombreUsuario.ForeColor = System.Drawing.Color.White;
+            this.TBNombreUsuario.Location = new System.Drawing.Point(141, 116);
+            this.TBNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.TBNombreUsuario.Multiline = false;
+            this.TBNombreUsuario.Name = "TBNombreUsuario";
+            this.TBNombreUsuario.Padding = new System.Windows.Forms.Padding(7);
+            this.TBNombreUsuario.PasswordChar = false;
+            this.TBNombreUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBNombreUsuario.PlaceholderText = "";
+            this.TBNombreUsuario.Size = new System.Drawing.Size(172, 31);
+            this.TBNombreUsuario.TabIndex = 15;
+            this.TBNombreUsuario.Texts = "";
+            this.TBNombreUsuario.UnderlinedStyle = true;
+            this.TBNombreUsuario._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuarioUs_KeyPress);
+            this.TBNombreUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.TBUsuarioUs_Validating);
+            // 
+            // TBContrasenaUs
+            // 
+            this.TBContrasenaUs.BackColor = System.Drawing.Color.Black;
+            this.TBContrasenaUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBContrasenaUs.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBContrasenaUs.BorderSize = 2;
+            this.TBContrasenaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBContrasenaUs.ForeColor = System.Drawing.Color.White;
+            this.TBContrasenaUs.Location = new System.Drawing.Point(141, 208);
+            this.TBContrasenaUs.Margin = new System.Windows.Forms.Padding(4);
+            this.TBContrasenaUs.Multiline = false;
+            this.TBContrasenaUs.Name = "TBContrasenaUs";
+            this.TBContrasenaUs.Padding = new System.Windows.Forms.Padding(7);
+            this.TBContrasenaUs.PasswordChar = true;
+            this.TBContrasenaUs.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBContrasenaUs.PlaceholderText = "";
+            this.TBContrasenaUs.Size = new System.Drawing.Size(172, 31);
+            this.TBContrasenaUs.TabIndex = 18;
+            this.TBContrasenaUs.Texts = "";
+            this.TBContrasenaUs.UnderlinedStyle = true;
+            this.TBContrasenaUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.TBContrasenaUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBContrasenaUs_KeyPress);
+            this.TBContrasenaUs.Validating += new System.ComponentModel.CancelEventHandler(this.TBContrasenaUs_Validating);
+            // 
             // LContraseñaUs
             // 
             this.LContraseñaUs.AutoSize = true;
@@ -443,125 +650,32 @@
             this.BModificarUs.UseVisualStyleBackColor = false;
             this.BModificarUs.Click += new System.EventHandler(this.BModificarUs_Click);
             // 
-            // TBApellidoUs
+            // tipo_usuarioTableAdapter
             // 
-            this.TBApellidoUs.BackColor = System.Drawing.Color.Black;
-            this.TBApellidoUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBApellidoUs.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBApellidoUs.BorderSize = 2;
-            this.TBApellidoUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBApellidoUs.ForeColor = System.Drawing.Color.White;
-            this.TBApellidoUs.Location = new System.Drawing.Point(142, 57);
-            this.TBApellidoUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TBApellidoUs.Multiline = true;
-            this.TBApellidoUs.Name = "TBApellidoUs";
-            this.TBApellidoUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TBApellidoUs.PasswordChar = false;
-            this.TBApellidoUs.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBApellidoUs.PlaceholderText = "";
-            this.TBApellidoUs.Size = new System.Drawing.Size(172, 31);
-            this.TBApellidoUs.TabIndex = 13;
-            this.TBApellidoUs.Texts = "";
-            this.TBApellidoUs.UnderlinedStyle = true;
-            this.TBApellidoUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBApellidoUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBApellidoUs_KeyPress);
-            this.TBApellidoUs.Validating += new System.ComponentModel.CancelEventHandler(this.TBApellidoUs_Validating);
+            this.tipo_usuarioTableAdapter.ClearBeforeFill = true;
             // 
-            // TBNombreUs
+            // PEstadoUs
             // 
-            this.TBNombreUs.BackColor = System.Drawing.Color.Black;
-            this.TBNombreUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBNombreUs.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBNombreUs.BorderSize = 2;
-            this.TBNombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNombreUs.ForeColor = System.Drawing.Color.White;
-            this.TBNombreUs.Location = new System.Drawing.Point(142, 9);
-            this.TBNombreUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TBNombreUs.Multiline = false;
-            this.TBNombreUs.Name = "TBNombreUs";
-            this.TBNombreUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TBNombreUs.PasswordChar = false;
-            this.TBNombreUs.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBNombreUs.PlaceholderText = "";
-            this.TBNombreUs.Size = new System.Drawing.Size(172, 31);
-            this.TBNombreUs.TabIndex = 12;
-            this.TBNombreUs.Texts = "";
-            this.TBNombreUs.UnderlinedStyle = true;
-            this.TBNombreUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBNombreUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBNombreUs_KeyPress);
-            this.TBNombreUs.Validating += new System.ComponentModel.CancelEventHandler(this.TBNombreUs_Validating);
+            this.PEstadoUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PEstadoUs.Controls.Add(this.label3);
+            this.PEstadoUs.Controls.Add(this.CBActivoUs);
+            this.PEstadoUs.Location = new System.Drawing.Point(433, 359);
+            this.PEstadoUs.Name = "PEstadoUs";
+            this.PEstadoUs.Size = new System.Drawing.Size(145, 45);
+            this.PEstadoUs.TabIndex = 80;
+            this.PEstadoUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PEstadoUs_Paint);
             // 
-            // TBEmailUs
+            // label3
             // 
-            this.TBEmailUs.BackColor = System.Drawing.Color.Black;
-            this.TBEmailUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBEmailUs.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBEmailUs.BorderSize = 2;
-            this.TBEmailUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBEmailUs.ForeColor = System.Drawing.Color.White;
-            this.TBEmailUs.Location = new System.Drawing.Point(141, 164);
-            this.TBEmailUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TBEmailUs.Multiline = false;
-            this.TBEmailUs.Name = "TBEmailUs";
-            this.TBEmailUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TBEmailUs.PasswordChar = false;
-            this.TBEmailUs.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBEmailUs.PlaceholderText = "ejemplo@gmail.com";
-            this.TBEmailUs.Size = new System.Drawing.Size(172, 31);
-            this.TBEmailUs.TabIndex = 17;
-            this.TBEmailUs.Texts = "";
-            this.TBEmailUs.UnderlinedStyle = true;
-            this.TBEmailUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBEmailUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBEmailUs_KeyPress);
-            this.TBEmailUs.Validating += new System.ComponentModel.CancelEventHandler(this.TBEmailUs_Validating);
-            // 
-            // TBNombreUsuario
-            // 
-            this.TBNombreUsuario.BackColor = System.Drawing.Color.Black;
-            this.TBNombreUsuario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBNombreUsuario.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBNombreUsuario.BorderSize = 2;
-            this.TBNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.TBNombreUsuario.Location = new System.Drawing.Point(141, 116);
-            this.TBNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
-            this.TBNombreUsuario.Multiline = false;
-            this.TBNombreUsuario.Name = "TBNombreUsuario";
-            this.TBNombreUsuario.Padding = new System.Windows.Forms.Padding(7);
-            this.TBNombreUsuario.PasswordChar = false;
-            this.TBNombreUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBNombreUsuario.PlaceholderText = "";
-            this.TBNombreUsuario.Size = new System.Drawing.Size(172, 31);
-            this.TBNombreUsuario.TabIndex = 15;
-            this.TBNombreUsuario.Texts = "";
-            this.TBNombreUsuario.UnderlinedStyle = true;
-            this.TBNombreUsuario._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuarioUs_KeyPress);
-            this.TBNombreUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.TBUsuarioUs_Validating);
-            // 
-            // TBContrasenaUs
-            // 
-            this.TBContrasenaUs.BackColor = System.Drawing.Color.Black;
-            this.TBContrasenaUs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBContrasenaUs.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBContrasenaUs.BorderSize = 2;
-            this.TBContrasenaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBContrasenaUs.ForeColor = System.Drawing.Color.White;
-            this.TBContrasenaUs.Location = new System.Drawing.Point(141, 208);
-            this.TBContrasenaUs.Margin = new System.Windows.Forms.Padding(4);
-            this.TBContrasenaUs.Multiline = false;
-            this.TBContrasenaUs.Name = "TBContrasenaUs";
-            this.TBContrasenaUs.Padding = new System.Windows.Forms.Padding(7);
-            this.TBContrasenaUs.PasswordChar = true;
-            this.TBContrasenaUs.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBContrasenaUs.PlaceholderText = "";
-            this.TBContrasenaUs.Size = new System.Drawing.Size(172, 31);
-            this.TBContrasenaUs.TabIndex = 18;
-            this.TBContrasenaUs.Texts = "";
-            this.TBContrasenaUs.UnderlinedStyle = true;
-            this.TBContrasenaUs._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBContrasenaUs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBContrasenaUs_KeyPress);
-            this.TBContrasenaUs.Validating += new System.ComponentModel.CancelEventHandler(this.TBContrasenaUs_Validating);
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(10, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 18);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Activo";
             // 
             // ModificarUsuario
             // 
@@ -571,6 +685,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.PEstadoUs);
             this.Controls.Add(this.BReturnToBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BModificarUs);
@@ -584,7 +699,11 @@
             this.Load += new System.EventHandler(this.ModificarUsuario_Load);
             this.PContModificarUs.ResumeLayout(false);
             this.PContModificarUs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipousuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarUs)).EndInit();
+            this.PEstadoUs.ResumeLayout(false);
+            this.PEstadoUs.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -625,5 +744,13 @@
         private System.Windows.Forms.Label TBValidacion15;
         private System.Windows.Forms.Label TBValidacion14;
         private System.Windows.Forms.Label TBValidacion13;
+        private RJControls.RJComboBox CBTipoUsuario;
+        private Datos.DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource tipousuarioBindingSource;
+        private Datos.DataSet1TableAdapters.Tipo_usuarioTableAdapter tipo_usuarioTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private RJControls.RJComboBox CBActivoUs;
+        private System.Windows.Forms.Panel PEstadoUs;
+        private System.Windows.Forms.Label label3;
     }
 }

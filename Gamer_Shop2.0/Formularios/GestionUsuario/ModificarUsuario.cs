@@ -18,7 +18,9 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         Usuario usuarioActual = new Usuario();
 
-        private List<string> camposActuales = new List<string>(new string[5]);
+        public Usuario MUsuario { get; set; }
+
+        private List<string> camposActuales = new List<string>(new string[7]);
 
         string filePath;
 
@@ -58,8 +60,38 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             }
         }
 
+        private void PEstadoUs_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 15;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
+
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Tipo_usuario' Puede moverla o quitarla según sea necesario.
+            this.tipo_usuarioTableAdapter.Fill(this.dataSet1.Tipo_usuario);
+
             // Aplicar la forma redondeada al cargar el formulario
             ClaseValidacion validador = new ClaseValidacion();
             this.Region = CreateRoundedRegion();
@@ -68,8 +100,24 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBNombreUsuario.Texts = usuarioActual.Nombre_usuario;
             TBEmailUs.Texts = usuarioActual.Correo;
             TBContrasenaUs.Texts = usuarioActual.Contraseña;
+            CBTipoUsuario.SelectedValue = usuarioActual.ID_TipoUsuario;
 
-            guardarCampos();
+
+            mostrarEstadoUsuarioCB();
+            OcultarTipoSegunUsuario(); //Mostrar CBTipoUsuario para gerentes
+            guardarCampos(); //Guardas los campos al cargar el form.
+        }
+
+        private void mostrarEstadoUsuarioCB()
+        {
+            if (usuarioActual.Activo == "SI")
+            {
+                CBActivoUs.SelectedIndex = 0;
+            }
+            else
+            {
+                CBActivoUs.SelectedIndex = 1;
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -127,7 +175,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             {
                 InstanciarYMostrarListaUsuario();
             }
-            
         }
 
         //Validaciones
@@ -453,9 +500,10 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                             TBNombreUsuario.Texts,
                             TBContrasenaUs.Texts,
                             TBEmailUs.Texts,
-                            usuarioActual.ID_TipoUsuario
+                            (int)CBTipoUsuario.SelectedValue,
+                            CBActivoUs.SelectedItem.ToString()
                             );
-                        MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Usuario modificado con éxito", "Registro", "Informacion", null);
                         mensaje.ShowDialog();
 
                         guardarCampos();
@@ -501,6 +549,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
             // Limpiar el panel actual y volver al anterior formulario.
             PanelContainer.Controls.Clear();
+            listUs.LUsuario = MUsuario;
             PanelContainer.Controls.Add(listUs);
             listUs.PanelContainer = PanelContainer;
             listUs.Show();
@@ -547,6 +596,8 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             camposActuales[2] = TBNombreUsuario.Texts;
             camposActuales[3] = TBEmailUs.Texts;
             camposActuales[4] = TBContrasenaUs.Texts;
+            camposActuales[5] = CBTipoUsuario.SelectedIndex.ToString();
+            camposActuales[6] = CBActivoUs.SelectedIndex.ToString();
         }
 
         private bool comprobarModif(List<string> campos)
@@ -555,7 +606,9 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 campos[1] != TBApellidoUs.Texts ||
                 campos[2] != TBNombreUsuario.Texts ||
                 campos[3] != TBEmailUs.Texts ||
-                campos[4] != TBContrasenaUs.Texts)
+                campos[4] != TBContrasenaUs.Texts ||
+                campos[5] != CBTipoUsuario.SelectedIndex.ToString() ||
+                campos[6] != CBActivoUs.SelectedIndex.ToString())
             {
                 return true; // Hay modificación
             }
@@ -590,6 +643,16 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
             // Liberar los recursos
             base.Dispose();
+        }
+
+        private void OcultarTipoSegunUsuario()
+        {
+            if (MUsuario.ID_TipoUsuario == 2)
+            {
+                label2.Visible = false;
+                CBTipoUsuario.Visible = false;
+                PEstadoUs.Visible = false;
+            }
         }
     }
 }

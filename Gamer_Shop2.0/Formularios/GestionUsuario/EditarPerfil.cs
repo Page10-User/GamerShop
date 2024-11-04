@@ -18,6 +18,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         Usuario usuarioActual = new Usuario();
         string filePath;
+        private List<string> camposActuales = new List<string>(new string[6]);
 
         public EditarPerfil(Usuario user)
         {
@@ -89,7 +90,13 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBNombreUsuario.Texts = usuarioActual.Nombre_usuario;
             TBEmailUs.Texts = usuarioActual.Correo;
             TBContrasenaUs.Texts = usuarioActual.Contraseña;
-            //PBImagenPerfil.Image = Image.FromFile(usuarioActual.photoFilePath); Trabajar más tarde
+            if (usuarioActual.photoFilePath != null)
+            {
+                PBImagenPerfil.Image = Image.FromFile(usuarioActual.photoFilePath);
+                PBImagenPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
+                filePath = usuarioActual.photoFilePath;
+            }
+            guardarCampos();
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -425,43 +432,53 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             this.AutoValidate = AutoValidate.EnablePreventFocusChange;
         }
         //Fin TextChanged
-
+        public event EventHandler<string> CambiarImagenPerfil;
         private void BModificarPerfil_Click(object sender, EventArgs e)
         {
-            if (TBNombreUs.Texts != string.Empty && TBApellidoUs.Texts != string.Empty && TBNombreUsuario.Texts != string.Empty && TBContrasenaUs.Texts != string.Empty && TBEmailUs.Texts != string.Empty)
+            if (comprobarModif(camposActuales))
             {
-                try
+                if (TBNombreUs.Texts != string.Empty && TBApellidoUs.Texts != string.Empty && TBNombreUsuario.Texts != string.Empty && TBContrasenaUs.Texts != string.Empty && TBEmailUs.Texts != string.Empty)
                 {
-                    NUsuario usuario = new NUsuario();
-                    usuario.NModificarPerfil(
+                    try
+                    {
+                        NUsuario usuario = new NUsuario();
+                        usuario.NModificarPerfil(
+                            TBNombreUs.Texts,
+                            TBApellidoUs.Texts,
+                            TBNombreUsuario.Texts,
+                            TBContrasenaUs.Texts,
+                            TBEmailUs.Texts,
+                            filePath,
+                            usuarioActual.CUIL
+                            );
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Perfil editado con éxito", "Editado", "Informacion", null);
+                        mensaje.ShowDialog();
+                        guardarCampos();
+                        CambiarImagenPerfil?.Invoke(this, filePath);
+                    }
+                    catch (ExisteRegistroException ex)
+                    {
+                        // Manejo de la excepción cuando el número de serial no existe
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de cualquier otra excepción
+                        MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
+                }
 
-                        TBNombreUs.Texts,
-                        TBApellidoUs.Texts,
-                        TBNombreUsuario.Texts,
-                        TBContrasenaUs.Texts,
-                        TBEmailUs.Texts,
-                        filePath
-                        );
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Perfil editado con éxito", "Editado", "Informacion", null);
-                    mensaje.ShowDialog();
-                }
-                catch (ExisteRegistroException ex)
+                else
                 {
-                    // Manejo de la excepción cuando el número de serial no existe
-                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
-                    mensaje.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    // Manejo de cualquier otra excepción
-                    MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para editar tu perfil", "Error", "Error", generarListaCampos());
                     mensaje.ShowDialog();
                 }
             }
-            
             else
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para editar tu perfil", "Error", "Error", generarListaCampos());
+                MsgPersonalizado mensaje = new MsgPersonalizado("No hubo modificaciones", "No Modificado", "Informacion", null);
                 mensaje.ShowDialog();
             }
         }
@@ -526,7 +543,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             base.Dispose();
         }
 
-
         private void BModificarFotoPerfil_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -538,6 +554,38 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             {
                 //Get the path of specified file
                 filePath = openFileDialog.FileName;
+                if (filePath != null)
+                {
+                    PBImagenPerfil.Image = Image.FromFile(filePath);
+                    PBImagenPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+        }
+
+        private void guardarCampos()
+        {
+            camposActuales[0] = TBNombreUs.Texts;
+            camposActuales[1] = TBApellidoUs.Texts;
+            camposActuales[2] = TBNombreUsuario.Texts;
+            camposActuales[3] = TBEmailUs.Texts;
+            camposActuales[4] = TBContrasenaUs.Texts;
+            camposActuales[5] = filePath;
+        }
+
+        private bool comprobarModif(List<string> campos)
+        {
+            if (campos[0] != TBNombreUs.Texts ||
+                campos[1] != TBApellidoUs.Texts ||
+                campos[2] != TBNombreUsuario.Texts ||
+                campos[3] != TBEmailUs.Texts ||
+                campos[4] != TBContrasenaUs.Texts ||
+                campos[5] != filePath)
+            {
+                return true; // Hay modificación
+            }
+            else
+            {
+                return false; // No hay modificación
             }
         }
     }

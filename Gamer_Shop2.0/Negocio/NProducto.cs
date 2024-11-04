@@ -65,7 +65,7 @@ namespace Gamer_Shop2._0.Negocio
             {
                 Serial = serial,
                 Nombre = nombre,
-                Descripcion = descripcion,
+                Descripcion = descripcion, 
                 Precio = precio,
                 ID_Categoria = categoria,
                 ID_Proveedor = proveedor,

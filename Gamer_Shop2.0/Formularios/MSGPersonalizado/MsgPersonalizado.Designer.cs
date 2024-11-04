@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MsgPersonalizado));
             this.LTitulo = new System.Windows.Forms.Label();
-            this.LDescripcion = new System.Windows.Forms.Label();
             this.PBTipoMsg = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LcantidadCampos = new System.Windows.Forms.Label();
-            this.PContMsg = new System.Windows.Forms.Panel();
             this.BRespuestaNO = new Gamer_Shop2._0.RJButton();
             this.BRespuestaSI = new Gamer_Shop2._0.RJButton();
             this.BSalir = new Gamer_Shop2._0.RJButton();
             this.BAceptar = new Gamer_Shop2._0.RJButton();
+            this.LDescripcion = new System.Windows.Forms.Label();
+            this.PContMsg = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PBTipoMsg)).BeginInit();
             this.PContMsg.SuspendLayout();
             this.SuspendLayout();
@@ -54,19 +54,6 @@
             this.LTitulo.Size = new System.Drawing.Size(58, 22);
             this.LTitulo.TabIndex = 0;
             this.LTitulo.Text = "Titulo";
-            // 
-            // LDescripcion
-            // 
-            this.LDescripcion.BackColor = System.Drawing.Color.Transparent;
-            this.LDescripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LDescripcion.ForeColor = System.Drawing.Color.White;
-            this.LDescripcion.Location = new System.Drawing.Point(1, 1);
-            this.LDescripcion.Name = "LDescripcion";
-            this.LDescripcion.Size = new System.Drawing.Size(374, 65);
-            this.LDescripcion.TabIndex = 1;
-            this.LDescripcion.Text = "MSG";
-            this.LDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PBTipoMsg
             // 
@@ -101,16 +88,6 @@
             this.LcantidadCampos.Size = new System.Drawing.Size(14, 15);
             this.LcantidadCampos.TabIndex = 14;
             this.LcantidadCampos.Text = "1";
-            // 
-            // PContMsg
-            // 
-            this.PContMsg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PContMsg.BackgroundImage")));
-            this.PContMsg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PContMsg.Controls.Add(this.LDescripcion);
-            this.PContMsg.Location = new System.Drawing.Point(11, 48);
-            this.PContMsg.Name = "PContMsg";
-            this.PContMsg.Size = new System.Drawing.Size(376, 67);
-            this.PContMsg.TabIndex = 17;
             // 
             // BRespuestaNO
             // 
@@ -201,6 +178,31 @@
             this.BAceptar.UseVisualStyleBackColor = false;
             this.BAceptar.Click += new System.EventHandler(this.BAceptarOSalir_Click);
             // 
+            // LDescripcion
+            // 
+            this.LDescripcion.AutoEllipsis = true;
+            this.LDescripcion.BackColor = System.Drawing.Color.Transparent;
+            this.LDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LDescripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LDescripcion.ForeColor = System.Drawing.Color.White;
+            this.LDescripcion.Location = new System.Drawing.Point(0, 0);
+            this.LDescripcion.Name = "LDescripcion";
+            this.LDescripcion.Size = new System.Drawing.Size(387, 80);
+            this.LDescripcion.TabIndex = 1;
+            this.LDescripcion.Text = "MSG";
+            this.LDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PContMsg
+            // 
+            this.PContMsg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PContMsg.BackgroundImage")));
+            this.PContMsg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PContMsg.Controls.Add(this.LDescripcion);
+            this.PContMsg.Location = new System.Drawing.Point(6, 41);
+            this.PContMsg.Name = "PContMsg";
+            this.PContMsg.Size = new System.Drawing.Size(387, 80);
+            this.PContMsg.TabIndex = 17;
+            // 
             // MsgPersonalizado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,7 +236,6 @@
         #endregion
 
         private System.Windows.Forms.Label LTitulo;
-        private System.Windows.Forms.Label LDescripcion;
         private RJButton BAceptar;
         private RJButton BSalir;
         private System.Windows.Forms.PictureBox PBTipoMsg;
@@ -242,6 +243,7 @@
         private System.Windows.Forms.Label LcantidadCampos;
         private RJButton BRespuestaSI;
         private RJButton BRespuestaNO;
+        private System.Windows.Forms.Label LDescripcion;
         private System.Windows.Forms.Panel PContMsg;
     }
 }

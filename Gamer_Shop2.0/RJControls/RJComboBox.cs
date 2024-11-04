@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -267,6 +262,29 @@ namespace Gamer_Shop2._0.RJControls
             }
         }
 
+        // Nueva propiedad para simular un índice inicial personalizado--------------------------------------------------------------
+        private int customIndexStart = 1;
+
+        [Category("RJ Code - Data")]
+        [Description("Set the starting index for the displayed list.")]
+        public int CustomIndexStart
+        {
+            get { return customIndexStart; }
+            set { customIndexStart = value; }
+        }
+
+        public int CustomSelectedIndex
+        {
+            get { return cmbList.SelectedIndex + customIndexStart; }
+            set
+            {
+                if (value >= customIndexStart && value < cmbList.Items.Count + customIndexStart)
+                {
+                    cmbList.SelectedIndex = value - customIndexStart;
+                }
+            }
+        }
+
         //Properties
         //-> Data
         [Category("RJ Code - Data")]
@@ -329,6 +347,16 @@ namespace Gamer_Shop2._0.RJControls
             get { return cmbList.SelectedItem; }
             set { cmbList.SelectedItem = value; }
         }
+
+        [Category("RJ Code - Data")]
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public object SelectedValue
+        {
+            get { return cmbList.SelectedValue; }
+            set { cmbList.SelectedValue = value; }
+        }
+
 
         [Category("RJ Code - Data")]
         [Browsable(false)]

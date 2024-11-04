@@ -71,6 +71,21 @@ namespace Gamer_Shop2._0.Datos
             {
                 DUsuarios Usuarios = new DUsuarios();
                 DataView view = new DataView(Usuarios.GetUsuarioAll());
+                //view.RowFilter = "Activo = 'SI'";
+                grid.DataSource = view;
+            }
+        }
+
+        public void getUsuariosActivosEyA(DataGridView grid)
+        {
+            if (grid == null)
+            {
+                throw new NullReferenceException("Error al cargar la tabla");
+            }
+            else
+            {
+                DUsuarios Usuarios = new DUsuarios();
+                DataView view = new DataView(Usuarios.GetUsuariosTipoEmpleadoYAdmin());
                 view.RowFilter = "Activo = 'SI'";
                 grid.DataSource = view;
             }
@@ -99,11 +114,11 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void DModificarUsuario(Usuario Usuario)
+        public void DModificarUsuario(string cuilActual, Usuario Usuario)
         {
             using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
             {
-                if (ExisteRegistro(Usuario) == false)
+                if (ExisteRegistro(cuilActual) == false)
                 {
                     throw new ExisteRegistroException("El Usuario no existe");
                 }
@@ -111,17 +126,50 @@ namespace Gamer_Shop2._0.Datos
                 {
                     try
                     {
-                        Usuario user = context.Usuario.First(p => p.CUIL == Usuario.CUIL);
+                        Usuario user = context.Usuario.First(p => p.CUIL == cuilActual);
 
                         user.Nombre = Usuario.Nombre;
                         user.Apellido = Usuario.Apellido;
-                        user.CUIL = Usuario.CUIL;
                         user.Nombre_usuario = Usuario.Nombre_usuario;
                         user.Contraseña = Usuario.Contraseña;
                         user.Correo = Usuario.Correo;
-                        user.Tipo_usuario = Usuario.Tipo_usuario;
                         user.photoFilePath = Usuario.photoFilePath;
+                        user.ID_TipoUsuario = Usuario.ID_TipoUsuario;
+                        user.Activo = Usuario.Activo;
 
+                        context.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Error al modificar el Usuario: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        //Propia para perfiles
+        public void DModificarPerfil(string cuilActual, Usuario Usuario)
+        {
+            using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+            {
+                if (ExisteRegistro(cuilActual) == false)
+                {
+                    throw new ExisteRegistroException("El Usuario no existe");
+                }
+                else
+                {
+                    try
+                    {
+                        Usuario user = context.Usuario.First(p => p.CUIL == cuilActual);
+
+                        user.Nombre = Usuario.Nombre;
+                        user.Apellido = Usuario.Apellido;
+                        user.Nombre_usuario = Usuario.Nombre_usuario;
+                        user.Contraseña = Usuario.Contraseña;
+                        user.Correo = Usuario.Correo;
+                        user.photoFilePath = Usuario.photoFilePath;
+                        user.ID_TipoUsuario = user.ID_TipoUsuario;
+                        user.Activo = user.Activo;
 
                         context.SaveChanges();
                     }

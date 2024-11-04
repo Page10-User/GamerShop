@@ -16,6 +16,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
         public Panel PanelContainer { get; set; }
+        public Usuario AUUsuario { get; set; }
         public AltaUsuario()
         {
             InitializeComponent();
@@ -511,6 +512,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
              // Limpiar el panel actual y añadir el nuevo formulario
              PanelContainer.Controls.Clear();
+             listUs.LUsuario = AUUsuario;
              PanelContainer.Controls.Add(listUs);
              listUs.PanelContainer = PanelContainer;
              listUs.Show();

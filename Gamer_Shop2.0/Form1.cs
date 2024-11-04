@@ -181,16 +181,22 @@ namespace Gamer_Shop2._0
                 try {
                     NUsuario nusuario = new NUsuario();
                     Usuario usuario = nusuario.GetCuentaUsuario(TBUsuario.Texts, TBContrasena.Texts);
+                    if (usuario.Activo != "SI")
+                    {
+                        MsgPersonalizado mensaje = new MsgPersonalizado("La cuenta se encuentra actualmente inactiva.", "Error", "Error", null);
+                        mensaje.ShowDialog();
+                        return;
+                    }
 
-                    if (usuario.ID_TipoUsuario == 3)
+                    if (usuario.ID_TipoUsuario == 1)
                     {
                         CrearYMostrarBienvenida<EmpleadoOptions>(usuario);
                     }
-                    else if (usuario.ID_TipoUsuario == 1)
+                    else if (usuario.ID_TipoUsuario == 2)
                     {
                         CrearYMostrarBienvenida<AdministradorOptions>(usuario);
                     }
-                    else if (usuario.ID_TipoUsuario == 2)
+                    else if (usuario.ID_TipoUsuario == 3)
                     {
                         CrearYMostrarBienvenida<GerenteOptions>(usuario);
                     }
@@ -230,8 +236,8 @@ namespace Gamer_Shop2._0
         //Eliminar más adelante...
         private void Form1_Load(object sender, EventArgs e)
         {
-            TBUsuario.Texts = "AdministradorUser";
-            TBContrasena.Texts = "12345672";
+            TBUsuario.Texts = "GerenteUser";
+            TBContrasena.Texts = "12345673";
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

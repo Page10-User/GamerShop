@@ -1,5 +1,4 @@
-﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace Gamer_Shop2._0.Datos
