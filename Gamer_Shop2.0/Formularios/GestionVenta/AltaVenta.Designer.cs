@@ -49,14 +49,14 @@
             this.TBMonto = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.PContAltaVn4 = new System.Windows.Forms.Panel();
             this.CBCategoria = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.métodopagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.FLPListaProductosVenta = new System.Windows.Forms.FlowLayoutPanel();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BShowListaVn = new Gamer_Shop2._0.RJButton();
             this.BRegistrarVn = new Gamer_Shop2._0.RJButton();
-            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
-            this.métodopagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.método_pagoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Método_pagoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).BeginInit();
             this.PContAltaVn2.SuspendLayout();
@@ -64,8 +64,8 @@
             this.PContAltaVn1.SuspendLayout();
             this.PContAltaVn3.SuspendLayout();
             this.PContAltaVn4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.métodopagoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // LTituloAltaVn
@@ -343,6 +343,8 @@
             this.CBCategoria.BackColor = System.Drawing.Color.Black;
             this.CBCategoria.BorderColor = System.Drawing.Color.Lime;
             this.CBCategoria.BorderSize = 1;
+            this.CBCategoria.CustomIndexStart = 1;
+            this.CBCategoria.CustomSelectedIndex = 0;
             this.CBCategoria.DataSource = this.métodopagoBindingSource;
             this.CBCategoria.DisplayMember = "Descripción";
             this.CBCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -360,6 +362,16 @@
             this.CBCategoria.TabIndex = 32;
             this.CBCategoria.Texts = "Seleccionar...";
             this.CBCategoria.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoria_Validating);
+            // 
+            // métodopagoBindingSource
+            // 
+            this.métodopagoBindingSource.DataMember = "Método_pago";
+            this.métodopagoBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TBValidacion
             // 
@@ -404,6 +416,7 @@
             this.BBuscador.TabIndex = 21;
             this.BBuscador.TextColor = System.Drawing.Color.White;
             this.BBuscador.UseVisualStyleBackColor = false;
+            this.BBuscador.Click += new System.EventHandler(this.BBuscador_Click);
             // 
             // TBFiltro
             // 
@@ -467,16 +480,6 @@
             this.BRegistrarVn.UseVisualStyleBackColor = false;
             this.BRegistrarVn.Click += new System.EventHandler(this.BRegistrarVn_Click);
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // métodopagoBindingSource
-            // 
-            this.métodopagoBindingSource.DataMember = "Método_pago";
-            this.métodopagoBindingSource.DataSource = this.dataSet1;
-            // 
             // método_pagoTableAdapter
             // 
             this.método_pagoTableAdapter.ClearBeforeFill = true;
@@ -516,8 +519,8 @@
             this.PContAltaVn3.PerformLayout();
             this.PContAltaVn4.ResumeLayout(false);
             this.PContAltaVn4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.métodopagoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

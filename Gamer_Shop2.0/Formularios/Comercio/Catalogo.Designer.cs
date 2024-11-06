@@ -28,17 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Catalogo));
             this.FLPContCatalogo = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.PBCatalogo = new System.Windows.Forms.PictureBox();
             this.PContCarrito = new System.Windows.Forms.Panel();
+            this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
+            this.categoría_productoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Categoría_productoTableAdapter();
+            this.BFiltro = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.BBuscadorProductoCt = new Gamer_Shop2._0.RJButton();
+            this.TBFiltroCt = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BReturn = new Gamer_Shop2._0.RJButton();
             this.BListaVenta = new Gamer_Shop2._0.RJButton();
             this.BCarrito = new Gamer_Shop2._0.RJButton();
-            this.BBuscadorProductoCt = new Gamer_Shop2._0.RJButton();
-            this.TBFiltroCt = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             ((System.ComponentModel.ISupportInitialize)(this.PBCatalogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // FLPContCatalogo
@@ -83,6 +90,92 @@
             this.PContCarrito.Name = "PContCarrito";
             this.PContCarrito.Size = new System.Drawing.Size(194, 432);
             this.PContCarrito.TabIndex = 7;
+            // 
+            // categoríaproductoBindingSource
+            // 
+            this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
+            this.categoríaproductoBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoría_productoTableAdapter
+            // 
+            this.categoría_productoTableAdapter.ClearBeforeFill = true;
+            // 
+            // BFiltro
+            // 
+            this.BFiltro.BackColor = System.Drawing.Color.Transparent;
+            this.BFiltro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BFiltro.BackgroundImage")));
+            this.BFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BFiltro.BorderColor = System.Drawing.Color.Transparent;
+            this.BFiltro.BorderSize = 1;
+            this.BFiltro.CustomIndexStart = 1;
+            this.BFiltro.CustomSelectedIndex = 0;
+            this.BFiltro.DataSource = this.categoríaproductoBindingSource;
+            this.BFiltro.DisplayMember = "Nombre_Categoria";
+            this.BFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.BFiltro.DropDownWidth = 150;
+            this.BFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.BFiltro.ForeColor = System.Drawing.Color.DimGray;
+            this.BFiltro.IconColor = System.Drawing.Color.Transparent;
+            this.BFiltro.ListBackColor = System.Drawing.Color.White;
+            this.BFiltro.ListTextColor = System.Drawing.Color.Black;
+            this.BFiltro.Location = new System.Drawing.Point(359, 17);
+            this.BFiltro.MinimumSize = new System.Drawing.Size(30, 30);
+            this.BFiltro.Name = "BFiltro";
+            this.BFiltro.Padding = new System.Windows.Forms.Padding(1);
+            this.BFiltro.Size = new System.Drawing.Size(30, 30);
+            this.BFiltro.TabIndex = 59;
+            this.BFiltro.Texts = "";
+            this.BFiltro.ValueMember = "Nombre_Categoria";
+            // 
+            // BBuscadorProductoCt
+            // 
+            this.BBuscadorProductoCt.BackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorProductoCt.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BBuscadorProductoCt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorProductoCt.BackgroundImage")));
+            this.BBuscadorProductoCt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BBuscadorProductoCt.BorderColor = System.Drawing.Color.Transparent;
+            this.BBuscadorProductoCt.BorderRadius = 0;
+            this.BBuscadorProductoCt.BorderSize = 0;
+            this.BBuscadorProductoCt.FlatAppearance.BorderSize = 0;
+            this.BBuscadorProductoCt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BBuscadorProductoCt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuscadorProductoCt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuscadorProductoCt.ForeColor = System.Drawing.Color.White;
+            this.BBuscadorProductoCt.Location = new System.Drawing.Point(175, 19);
+            this.BBuscadorProductoCt.Name = "BBuscadorProductoCt";
+            this.BBuscadorProductoCt.Size = new System.Drawing.Size(26, 26);
+            this.BBuscadorProductoCt.TabIndex = 17;
+            this.BBuscadorProductoCt.TextColor = System.Drawing.Color.White;
+            this.BBuscadorProductoCt.UseVisualStyleBackColor = false;
+            this.BBuscadorProductoCt.Click += new System.EventHandler(this.BBuscadorProductoCt_Click);
+            this.BBuscadorProductoCt.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BFiltro_MouseUp);
+            // 
+            // TBFiltroCt
+            // 
+            this.TBFiltroCt.BackColor = System.Drawing.Color.Black;
+            this.TBFiltroCt.BorderColor = System.Drawing.Color.Lime;
+            this.TBFiltroCt.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBFiltroCt.BorderRadius = 2;
+            this.TBFiltroCt.BorderSize = 1;
+            this.TBFiltroCt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBFiltroCt.ForeColor = System.Drawing.Color.White;
+            this.TBFiltroCt.Location = new System.Drawing.Point(208, 17);
+            this.TBFiltroCt.Margin = new System.Windows.Forms.Padding(4);
+            this.TBFiltroCt.Multiline = false;
+            this.TBFiltroCt.Name = "TBFiltroCt";
+            this.TBFiltroCt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TBFiltroCt.PasswordChar = false;
+            this.TBFiltroCt.PlaceholderColor = System.Drawing.Color.Gray;
+            this.TBFiltroCt.PlaceholderText = "Buscar...";
+            this.TBFiltroCt.Size = new System.Drawing.Size(148, 31);
+            this.TBFiltroCt.TabIndex = 18;
+            this.TBFiltroCt.Texts = "";
+            this.TBFiltroCt.UnderlinedStyle = false;
             // 
             // BReturn
             // 
@@ -152,49 +245,6 @@
             this.BCarrito.UseVisualStyleBackColor = false;
             this.BCarrito.Click += new System.EventHandler(this.BCarrito_Click);
             // 
-            // BBuscadorProductoCt
-            // 
-            this.BBuscadorProductoCt.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorProductoCt.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscadorProductoCt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscadorProductoCt.BackgroundImage")));
-            this.BBuscadorProductoCt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BBuscadorProductoCt.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscadorProductoCt.BorderRadius = 0;
-            this.BBuscadorProductoCt.BorderSize = 0;
-            this.BBuscadorProductoCt.FlatAppearance.BorderSize = 0;
-            this.BBuscadorProductoCt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BBuscadorProductoCt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BBuscadorProductoCt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscadorProductoCt.ForeColor = System.Drawing.Color.White;
-            this.BBuscadorProductoCt.Location = new System.Drawing.Point(175, 19);
-            this.BBuscadorProductoCt.Name = "BBuscadorProductoCt";
-            this.BBuscadorProductoCt.Size = new System.Drawing.Size(26, 26);
-            this.BBuscadorProductoCt.TabIndex = 17;
-            this.BBuscadorProductoCt.TextColor = System.Drawing.Color.White;
-            this.BBuscadorProductoCt.UseVisualStyleBackColor = false;
-            // 
-            // TBFiltroCt
-            // 
-            this.TBFiltroCt.BackColor = System.Drawing.Color.Black;
-            this.TBFiltroCt.BorderColor = System.Drawing.Color.Lime;
-            this.TBFiltroCt.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBFiltroCt.BorderRadius = 2;
-            this.TBFiltroCt.BorderSize = 1;
-            this.TBFiltroCt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBFiltroCt.ForeColor = System.Drawing.Color.White;
-            this.TBFiltroCt.Location = new System.Drawing.Point(208, 17);
-            this.TBFiltroCt.Margin = new System.Windows.Forms.Padding(4);
-            this.TBFiltroCt.Multiline = false;
-            this.TBFiltroCt.Name = "TBFiltroCt";
-            this.TBFiltroCt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TBFiltroCt.PasswordChar = false;
-            this.TBFiltroCt.PlaceholderColor = System.Drawing.Color.Gray;
-            this.TBFiltroCt.PlaceholderText = "Buscar...";
-            this.TBFiltroCt.Size = new System.Drawing.Size(148, 31);
-            this.TBFiltroCt.TabIndex = 18;
-            this.TBFiltroCt.Texts = "";
-            this.TBFiltroCt.UnderlinedStyle = false;
-            // 
             // Catalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +253,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.BFiltro);
             this.Controls.Add(this.BBuscadorProductoCt);
             this.Controls.Add(this.TBFiltroCt);
             this.Controls.Add(this.BReturn);
@@ -218,6 +269,8 @@
             this.Text = "Catalogo";
             this.Load += new System.EventHandler(this.Catalogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBCatalogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +287,9 @@
         private System.Windows.Forms.Panel PContCarrito;
         private RJButton BBuscadorProductoCt;
         private RJControls.RJTextBox_radio_ TBFiltroCt;
+        private RJControls.RJComboBox BFiltro;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource categoríaproductoBindingSource;
+        private DataSet1TableAdapters.Categoría_productoTableAdapter categoría_productoTableAdapter;
     }
 }

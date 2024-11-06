@@ -133,8 +133,6 @@
             this.CBActivoUs.BackColor = System.Drawing.Color.Black;
             this.CBActivoUs.BorderColor = System.Drawing.Color.Lime;
             this.CBActivoUs.BorderSize = 1;
-            this.CBActivoUs.CustomIndexStart = 1;
-            this.CBActivoUs.CustomSelectedIndex = 0;
             this.CBActivoUs.DisplayMember = "SI";
             this.CBActivoUs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CBActivoUs.DropDownWidth = 145;

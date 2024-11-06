@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.Comercio;
 using Gamer_Shop2._0.Formularios.Comercio.Carrito;
 using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
@@ -395,6 +396,31 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             catch {
                 MsgPersonalizado mensaje = new MsgPersonalizado("El cliente no existe", "Error", "Error", null);
                 mensaje.ShowDialog();
+            }
+        }
+
+        private void BBuscador_Click(object sender, EventArgs e)
+        {
+            // Verifica si no se escribió nada en el buscador
+            if (string.IsNullOrWhiteSpace(TBFiltro.Texts))
+            {
+                foreach (BotonArticuloVn producto in FLPListaProductosVenta.Controls)
+                {
+                    producto.Visible = true;
+                }
+            }
+
+            // Verifica si no se escribió nada en el buscador
+            if (!string.IsNullOrWhiteSpace(TBFiltro.Texts))
+            {
+                string buscar = TBFiltro.Texts.Trim().ToLower();
+
+                foreach (BotonArticuloVn producto in FLPListaProductosVenta.Controls)
+                {
+                    bool matches = producto.NombreProducto.ToLower().Contains(buscar) || producto.Precio.ToString().Contains(buscar);
+
+                    producto.Visible = matches;
+                }
             }
         }
     }

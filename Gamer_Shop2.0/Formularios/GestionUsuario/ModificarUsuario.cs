@@ -87,7 +87,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             }
         }
 
-        private void ModificarUsuario_Load(object sender, EventArgs e)
+            private void ModificarUsuario_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.Tipo_usuario' Puede moverla o quitarla según sea necesario.
             this.tipo_usuarioTableAdapter.Fill(this.dataSet1.Tipo_usuario);
@@ -103,7 +103,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             CBTipoUsuario.SelectedValue = usuarioActual.ID_TipoUsuario;
 
 
-            mostrarEstadoUsuarioCB();
+            mostrarEstadoUsuarioCB(); //Mostrar o no el estado del usuario según cuenta.
             OcultarTipoSegunUsuario(); //Mostrar CBTipoUsuario para gerentes
             guardarCampos(); //Guardas los campos al cargar el form.
         }
