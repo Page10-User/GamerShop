@@ -66,7 +66,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void getProductosActivos(DataGridView grid)
+        public DataTable getProductosActivos(DataGridView grid)
         {
             if (grid == null)
             {
@@ -75,12 +75,10 @@ namespace Gamer_Shop2._0.Datos
             else
             {
                 DProductos productos = new DProductos();
-                DataView view = new DataView(productos.GetProductoAll());
-                view.RowFilter = "Activo = 'SI'";
-                grid.DataSource = view;
+               
 
-                
-            
+                return productos.GetProductoAll();
+
             }
         }
 

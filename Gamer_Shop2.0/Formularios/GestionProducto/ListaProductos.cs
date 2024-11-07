@@ -1,8 +1,11 @@
-﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Datos;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
@@ -24,7 +27,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-            nproducto.listaProductosActivos(DGListaPr);
+            
             try
             {
                 ConfigurarDataGridView();
@@ -126,46 +129,43 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void ConfigurarDataGridView()
         {
-            // Crear una columna de tipo Imagen
-            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn
+            DataTable productos = nproducto.listaProductosActivos(DGListaPr); // Este método debe devolver un DataTable con los productos
+
+            // Agrega una columna de imagen al DataGridView si no existe
+            if (!DGListaPr.Columns.Contains("ImagenProducto"))
             {
-                HeaderText = "Imagen",
-                Name = "ImagenProducto",
-                ImageLayout = DataGridViewImageCellLayout.Zoom
-            };
-
-            // Agregar la columna al DataGridView
-            
-            DGListaPr.Columns.Add(imageColumn);
-            DGListaPr.Columns["ID_Producto"].Visible = false;
-            DGListaPr.Columns["CModificar"].DisplayIndex = 10;
-            DGListaPr.Columns["CEliminar"].DisplayIndex = 11;
-
-            foreach (DataGridViewRow row in DGListaPr.Rows)
-            {
-                
-                Image imagenProducto;
-
-                try
-                {
-                    // Asumiendo que el nombre del archivo está en Resources
-                    imagenProducto = Image.FromFile("C:\\Users\\Usuario\\Pictures\\validaciones.png");
-                    if (imagenProducto == null) throw new Exception();
-                }
-                catch (Exception)
-                {
-                    // Cargar una imagen predeterminada si no se encuentra la imagen
-                    imagenProducto = Image.FromFile("\\Gamer_Shop2.0\\Resources\\imagen_default.png");
-                }
-
-                row.Cells["ImagenProducto"].Value = imagenProducto;
+                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+                imageColumn.Name = "ImagenProducto";
+                imageColumn.HeaderText = "Imagen";
+                imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Ajusta la imagen a la celda
+                DGListaPr.Columns.Insert(0, imageColumn); // Inserta la columna de imagen en la primera posición
             }
 
-            //Ocultar la columna que contiene las rutas de las imágenes(photoFilePath)
-            if (DGListaPr.Columns["ImagenProducto"] != null)
+            // Limpia el DataGridView y agrega los productos
+            DGListaPr.Rows.Clear();
+            foreach (DataRow row in productos.Rows)
             {
-                DGListaPr.Columns["photoFilePath"].Visible = false;
-            }
+                if (row["Activo"].ToString() == "SI")
+                {
+                    string nombreImagen = row["photoFilePath"].ToString(); // Columna de la base de datos con el nombre del archivo de imagen
+                    string imagePath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+
+                    // Carga la imagen si existe, o utiliza una imagen de "no disponible"
+                    Image image;
+                    if (File.Exists(imagePath))
+                    {
+                        image = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        // Usa una imagen de "no disponible" en caso de que la imagen no se encuentre
+                        image = Properties.Resources.default_producto; // Asegúrate de tener una imagen de recurso llamada ImagenNoDisponible
+                    }
+
+                    // Agrega una fila con los datos del producto y la imagen
+                    DGListaPr.Rows.Add(image, row["ID_Producto"], row["Serial"], row["Nombre"], row["Descripcion"], row["Stock"], row["Precio"], row["Categoria"], row["Proveedor"]);
+                }
+                }
         }
 
         private void BShowRegistrarPr_Click(object sender, EventArgs e)

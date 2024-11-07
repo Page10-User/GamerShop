@@ -1,8 +1,10 @@
 ﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionUsuario
@@ -77,16 +79,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-            if (LUsuario.ID_TipoUsuario == 2)
-            {
-                nUsuario.listaUsuariosActivosEyA(DGListaUs);
-                quitamosUsuarioActualLista();
-            }
-            else
-            {
-                nUsuario.listaUsuariosActivos(DGListaUs);
-                quitamosUsuarioActualLista();
-            }
+            
             try
             {
                 ConfigurarDataGridView();
@@ -149,55 +142,46 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         private void ConfigurarDataGridView()
         {
-            
-                // Crear una columna de tipo Imagen
-                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn
-                {
-                    HeaderText = "Imagen",
-                    Name = "ImagenPerfil",
-                    ImageLayout = DataGridViewImageCellLayout.Zoom
-                };
 
-                // Agregar la columna al DataGridView
+            DataTable usuarios = nUsuario.listaUsuariosActivos(DGListaUs); // Este método debe devolver un DataTable con los productos
 
-                DGListaUs.Columns.Add(imageColumn);
-                DGListaUs.Columns["ID_Usuario"].Visible = false;
-                DGListaUs.Columns["Nombre"].DisplayIndex = 1;
-                DGListaUs.Columns["Apellido"].DisplayIndex = 2;
-                DGListaUs.Columns["CUIL"].DisplayIndex = 3;
-                DGListaUs.Columns["Nombre_usuario"].DisplayIndex = 4;
-                DGListaUs.Columns["Contraseña"].DisplayIndex = 5;
-                DGListaUs.Columns["Correo"].DisplayIndex = 6;
-                DGListaUs.Columns["photoFilePath"].DisplayIndex = 7;
-                DGListaUs.Columns["Activo"].DisplayIndex = 8;
-                DGListaUs.Columns["Tipo usuario"].DisplayIndex = 9;
-                DGListaUs.Columns["CModificarUs"].DisplayIndex = 11;
-                DGListaUs.Columns["CEliminarUs"].DisplayIndex = 12;
-                DGListaUs.Columns["ImagenPerfil"].DisplayIndex = 10;
-
-            foreach (DataGridViewRow row in DGListaUs.Rows)
+            // Agrega una columna de imagen al DataGridView si no existe
+            if (!DGListaUs.Columns.Contains("ImagenUsuario"))
             {
-
-                Image imagenUsuario;
-                try
-                {
-                    imagenUsuario = Image.FromFile(row.Cells["photoFilePath"].Value.ToString());
-                    if (imagenUsuario == null) throw new Exception();
-                }
-                catch (Exception)
-                {
-                    // Cargar una imagen predeterminada si no se encuentra la imagen
-                    imagenUsuario = Image.FromFile("\\Gamer_Shop2.0\\Resources\\imagen_default.png");
-                }
-
-                row.Cells["ImagenPerfil"].Value = imagenUsuario;
+                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+                imageColumn.Name = "ImagenUsuario";
+                imageColumn.HeaderText = "Imagen";
+                imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Ajusta la imagen a la celda
+                DGListaUs.Columns.Insert(0, imageColumn); // Inserta la columna de imagen en la primera posición
             }
 
-                //Ocultar la columna que contiene las rutas de las imágenes(photoFilePath)
-                if (DGListaUs.Columns["ImagenPerfil"] != null)
+            // Limpia el DataGridView y agrega los productos
+            DGListaUs.Rows.Clear();
+            foreach (DataRow row in usuarios.Rows)
+            {
+                if (row["Activo"].ToString() == "SI")
                 {
-                    DGListaUs.Columns["photoFilePath"].Visible = false;
+                    string nombreImagen = row["photoFilePath"].ToString(); // Columna de la base de datos con el nombre del archivo de imagen
+                    string imagePath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+
+                    // Carga la imagen si existe, o utiliza una imagen de "no disponible"
+                    Image image;
+                    if (File.Exists(imagePath))
+                    {
+                        image = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        // Usa una imagen de "no disponible" en caso de que la imagen no se encuentre
+                        image = Properties.Resources.default_producto; // Asegúrate de tener una imagen de recurso llamada ImagenNoDisponible
+                    }
+
+                    // Agrega una fila con los datos del producto y la imagen
+                    DGListaUs.Rows.Add(image, row["ID_Usuario"], row["Nombre"], row["Apellido"], row["CUIL"], row["Nombre_usuario"], row["Contraseña"], row["Correo"], row["Tipo usuario"], row["Activo"]);
                 }
+            }
+
+            
         }
 
         private void BShowRegistrar_Click(object sender, EventArgs e)

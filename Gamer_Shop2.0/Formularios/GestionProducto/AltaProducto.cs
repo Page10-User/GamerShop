@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
@@ -16,7 +17,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
-        string filePath;
+        string nombreImagen;
 
         bool isExpandedPAC = false;
         public Panel PanelContainer { get; set; }
@@ -414,7 +415,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                         float.Parse(TBPrecioPr.Texts),
                         CBCategoriaPr.SelectedIndex + 1,
                         CBProveedorPr.SelectedIndex + 1,
-                        filePath
+                        nombreImagen
                         );
                     MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
                     mensaje.ShowDialog();
@@ -606,9 +607,21 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //Get the path of specified file
-                filePath = openFileDialog.FileName;
+                    string sourceFilePath = openFileDialog.FileName;
+                rjTextBox1.Texts = sourceFilePath;
+                    // Genera un nombre único para la imagen
+                    nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(sourceFilePath);
+
+                    // Ruta de destino en tu proyecto (por ejemplo, en una carpeta 'uploads' en la misma ruta de ejecución)
+                    string destinationPath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+
+                    // Asegúrate de que la carpeta de destino existe
+                    Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
+
+                    // Copia la imagen a la carpeta de destino
+                   File.Copy(sourceFilePath, destinationPath, true);
             }
+
         }
 
         public new void Dispose()

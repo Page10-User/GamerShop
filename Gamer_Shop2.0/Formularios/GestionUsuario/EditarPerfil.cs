@@ -1,12 +1,14 @@
 ﻿using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
+using Gamer_Shop2._0.RJControls;
 using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionUsuario
@@ -17,7 +19,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
         private int borderWidth = 5; // Grosor del borde
 
         Usuario usuarioActual = new Usuario();
-        string filePath;
+        string nombreImagen;
         private List<string> camposActuales = new List<string>(new string[6]);
 
         public EditarPerfil(Usuario user)
@@ -92,9 +94,10 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBContrasenaUs.Texts = usuarioActual.Contraseña;
             if (usuarioActual.photoFilePath != null)
             {
-                PBImagenPerfil.Image = Image.FromFile(usuarioActual.photoFilePath);
+                string imagePath = Path.Combine(Application.StartupPath, "uploads", usuarioActual.photoFilePath);
+                PBImagenPerfil.Image = Image.FromFile(imagePath);
                 PBImagenPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
-                filePath = usuarioActual.photoFilePath;
+                nombreImagen = usuarioActual.photoFilePath;
             }
             guardarCampos();
         }
@@ -448,13 +451,13 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                             TBNombreUsuario.Texts,
                             TBContrasenaUs.Texts,
                             TBEmailUs.Texts,
-                            filePath,
+                            nombreImagen,
                             usuarioActual.CUIL
                             );
                         MsgPersonalizado mensaje = new MsgPersonalizado("Perfil editado con éxito", "Editado", "Informacion", null);
                         mensaje.ShowDialog();
                         guardarCampos();
-                        CambiarImagenPerfil?.Invoke(this, filePath);
+                        CambiarImagenPerfil?.Invoke(this, nombreImagen);
                     }
                     catch (ExisteRegistroException ex)
                     {
@@ -552,11 +555,23 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //Get the path of specified file
-                filePath = openFileDialog.FileName;
-                if (filePath != null)
+                string sourceFilePath = openFileDialog.FileName;
+                
+                // Genera un nombre único para la imagen
+                nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(sourceFilePath);
+
+                // Ruta de destino en tu proyecto (por ejemplo, en una carpeta 'uploads' en la misma ruta de ejecución)
+                string destinationPath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+
+                // Asegúrate de que la carpeta de destino existe
+                Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
+
+                // Copia la imagen a la carpeta de destino
+                File.Copy(sourceFilePath, destinationPath, true);
+                if (nombreImagen != null)
                 {
-                    PBImagenPerfil.Image = Image.FromFile(filePath);
+                    string imagePath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+                    PBImagenPerfil.Image = Image.FromFile(imagePath);
                     PBImagenPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
             }
@@ -569,7 +584,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             camposActuales[2] = TBNombreUsuario.Texts;
             camposActuales[3] = TBEmailUs.Texts;
             camposActuales[4] = TBContrasenaUs.Texts;
-            camposActuales[5] = filePath;
+            camposActuales[5] = nombreImagen;
         }
 
         private bool comprobarModif(List<string> campos)
@@ -579,7 +594,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 campos[2] != TBNombreUsuario.Texts ||
                 campos[3] != TBEmailUs.Texts ||
                 campos[4] != TBContrasenaUs.Texts ||
-                campos[5] != filePath)
+                campos[5] != nombreImagen)
             {
                 return true; // Hay modificación
             }

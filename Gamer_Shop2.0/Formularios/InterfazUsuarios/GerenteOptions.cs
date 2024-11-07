@@ -167,7 +167,8 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 
         private void BBCambiarImagenPerfil_Click(object sender, string imagen)
         {
-            PBImgUs.Image = Image.FromFile(imagen);
+            string image = Path.Combine(Application.StartupPath, "uploads", imagen);
+            PBImgUs.Image = Image.FromFile(image);
             PBImgUs.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         //------------------------------------------------------------------------------------Cerrar poptions-------------------------------------------------------------------------------\\
@@ -238,7 +239,9 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             }
             else
             {
-                PBImgUs.Image = Image.FromFile(UUsuario.photoFilePath);
+
+                string imagePath = Path.Combine(Application.StartupPath, "uploads", UUsuario.photoFilePath);
+                PBImgUs.Image = Image.FromFile(imagePath);
                 PBImgUs.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             LNombreUs.Text = UUsuario.Nombre;
