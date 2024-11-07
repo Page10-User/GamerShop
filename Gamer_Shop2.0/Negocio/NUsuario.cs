@@ -141,5 +141,7 @@ namespace Gamer_Shop2._0.Negocio
                 return dUsuario.getCuentaUsuario(NombreUsuario, Contraseña);
             }
         }
+
+        //Otros
     }
 }

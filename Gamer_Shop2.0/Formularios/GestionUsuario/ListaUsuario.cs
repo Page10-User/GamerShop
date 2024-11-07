@@ -276,6 +276,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             // Limpiar el panel actual y añadir el nuevo formulario
             PanelContainer.Controls.Clear();
             PanelContainer.Controls.Add(AltaUs);
+            AltaUs.AUUsuario = LUsuario;
             AltaUs.PanelContainer = PanelContainer;
             AltaUs.Show();
             this.Dispose();
@@ -290,6 +291,11 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
             // Liberar los recursos
             base.Dispose();
+        }
+
+        private void BBuscador_Click(object sender, EventArgs e)
+        {
+           //:c
         }
     }
 }
