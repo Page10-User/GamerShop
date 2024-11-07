@@ -169,8 +169,6 @@
             this.CBTipoUsuario.BackColor = System.Drawing.Color.Black;
             this.CBTipoUsuario.BorderColor = System.Drawing.Color.Lime;
             this.CBTipoUsuario.BorderSize = 1;
-            this.CBTipoUsuario.CustomIndexStart = 1;
-            this.CBTipoUsuario.CustomSelectedIndex = 0;
             this.CBTipoUsuario.DataSource = this.tipousuarioBindingSource;
             this.CBTipoUsuario.DisplayMember = "Descripción";
             this.CBTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;

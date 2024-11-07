@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using Gamer_Shop2._0.Datos;
 
@@ -33,7 +34,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void listaUsuariosActivos(DataGridView grid)
+        public DataTable listaUsuariosActivos(DataGridView grid)
         {
             if (dUsuario == null)
             {
@@ -41,7 +42,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                dUsuario.getUsuariosActivos(grid);
+              return  dUsuario.getUsuariosActivos(grid);
             }
         }
 

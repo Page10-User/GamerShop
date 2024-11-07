@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
@@ -20,7 +21,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         Producto productoActual = new Producto();
 
-        string filePath;
+        string nombreImagen;
 
         private List<string> camposActuales = new List<string>(new string[7]);
         public Panel PanelContainer { get; set; }
@@ -521,8 +522,19 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //Get the path of specified file
-                filePath = openFileDialog.FileName;
+                string sourceFilePath = openFileDialog.FileName;
+                rjTextBox1.Texts = sourceFilePath;
+                // Genera un nombre único para la imagen
+                nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(sourceFilePath);
+
+                // Ruta de destino en tu proyecto (por ejemplo, en una carpeta 'uploads' en la misma ruta de ejecución)
+                string destinationPath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+
+                // Asegúrate de que la carpeta de destino existe
+                Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
+
+                // Copia la imagen a la carpeta de destino
+                File.Copy(sourceFilePath, destinationPath, true);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Datos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 using static Gamer_Shop2._0.Datos.DProducto;
 
@@ -35,7 +36,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void listaProductosActivos (DataGridView grid)
+        public DataTable listaProductosActivos (DataGridView grid)
         {
             if (dproducto == null)
             {
@@ -43,7 +44,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                dproducto.getProductosActivos(grid);
+                return dproducto.getProductosActivos(grid);
             }
         }
 

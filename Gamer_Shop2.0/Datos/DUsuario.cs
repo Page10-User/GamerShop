@@ -61,7 +61,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void getUsuariosActivos(DataGridView grid)
+        public DataTable getUsuariosActivos(DataGridView grid)
         {
             if (grid == null)
             {
@@ -70,9 +70,7 @@ namespace Gamer_Shop2._0.Datos
             else
             {
                 DUsuarios Usuarios = new DUsuarios();
-                DataView view = new DataView(Usuarios.GetUsuarioAll());
-                //view.RowFilter = "Activo = 'SI'";
-                grid.DataSource = view;
+                return Usuarios.GetUsuarioAll();
             }
         }
 
