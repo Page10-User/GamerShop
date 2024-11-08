@@ -56,6 +56,8 @@
             this.TBCorreo = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.TBContacto = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.CBCategoriaPrProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
             this.TBRazon = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,13 +67,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarProveedor = new Gamer_Shop2._0.RJButton();
-            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
-            this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoría_productoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Categoría_productoTableAdapter();
+            this.PEstadoUs = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.CBActivoProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarProveedor)).BeginInit();
             this.PContInfoModificarProveedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            this.PEstadoUs.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +84,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(556, 201);
+            this.label1.Location = new System.Drawing.Point(553, 213);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 18);
             this.label1.TabIndex = 18;
@@ -479,6 +483,16 @@
             this.CBCategoriaPrProveedor.ValueMember = "ID_Categoria";
             this.CBCategoriaPrProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPrProveedor_Validating);
             // 
+            // categoríaproductoBindingSource
+            // 
+            this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
+            this.categoríaproductoBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // TBRazon
             // 
             this.TBRazon.BackColor = System.Drawing.Color.Black;
@@ -611,7 +625,7 @@
             this.BModificarProveedor.FlatAppearance.BorderSize = 0;
             this.BModificarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BModificarProveedor.ForeColor = System.Drawing.Color.White;
-            this.BModificarProveedor.Location = new System.Drawing.Point(552, 122);
+            this.BModificarProveedor.Location = new System.Drawing.Point(549, 134);
             this.BModificarProveedor.Name = "BModificarProveedor";
             this.BModificarProveedor.Size = new System.Drawing.Size(84, 76);
             this.BModificarProveedor.TabIndex = 17;
@@ -619,19 +633,58 @@
             this.BModificarProveedor.UseVisualStyleBackColor = false;
             this.BModificarProveedor.Click += new System.EventHandler(this.BModificarProveedor_Click);
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoríaproductoBindingSource
-            // 
-            this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
-            this.categoríaproductoBindingSource.DataSource = this.dataSet1;
-            // 
             // categoría_productoTableAdapter
             // 
             this.categoría_productoTableAdapter.ClearBeforeFill = true;
+            // 
+            // PEstadoUs
+            // 
+            this.PEstadoUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PEstadoUs.Controls.Add(this.label8);
+            this.PEstadoUs.Controls.Add(this.CBActivoProveedor);
+            this.PEstadoUs.Location = new System.Drawing.Point(521, 242);
+            this.PEstadoUs.Name = "PEstadoUs";
+            this.PEstadoUs.Size = new System.Drawing.Size(145, 45);
+            this.PEstadoUs.TabIndex = 81;
+            this.PEstadoUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PEstadoUs_Paint);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(10, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 18);
+            this.label8.TabIndex = 80;
+            this.label8.Text = "Activo";
+            // 
+            // CBActivoProveedor
+            // 
+            this.CBActivoProveedor.BackColor = System.Drawing.Color.Black;
+            this.CBActivoProveedor.BorderColor = System.Drawing.Color.Lime;
+            this.CBActivoProveedor.BorderSize = 1;
+            this.CBActivoProveedor.CustomIndexStart = 1;
+            this.CBActivoProveedor.CustomSelectedIndex = 0;
+            this.CBActivoProveedor.DisplayMember = "SI";
+            this.CBActivoProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBActivoProveedor.DropDownWidth = 145;
+            this.CBActivoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBActivoProveedor.ForeColor = System.Drawing.Color.White;
+            this.CBActivoProveedor.IconColor = System.Drawing.Color.Lime;
+            this.CBActivoProveedor.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.CBActivoProveedor.ListBackColor = System.Drawing.Color.Black;
+            this.CBActivoProveedor.ListTextColor = System.Drawing.Color.White;
+            this.CBActivoProveedor.Location = new System.Drawing.Point(63, 7);
+            this.CBActivoProveedor.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBActivoProveedor.Name = "CBActivoProveedor";
+            this.CBActivoProveedor.Padding = new System.Windows.Forms.Padding(1);
+            this.CBActivoProveedor.Size = new System.Drawing.Size(68, 30);
+            this.CBActivoProveedor.TabIndex = 80;
+            this.CBActivoProveedor.Texts = "";
             // 
             // ModificarProveedor
             // 
@@ -641,6 +694,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.PEstadoUs);
             this.Controls.Add(this.PContInfoModificarProveedor);
             this.Controls.Add(this.BReturnToBack);
             this.Controls.Add(this.label1);
@@ -655,8 +709,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarProveedor)).EndInit();
             this.PContInfoModificarProveedor.ResumeLayout(false);
             this.PContInfoModificarProveedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            this.PEstadoUs.ResumeLayout(false);
+            this.PEstadoUs.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -702,5 +758,8 @@
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource categoríaproductoBindingSource;
         private DataSet1TableAdapters.Categoría_productoTableAdapter categoría_productoTableAdapter;
+        private System.Windows.Forms.Panel PEstadoUs;
+        private System.Windows.Forms.Label label8;
+        private RJControls.RJComboBox CBActivoProveedor;
     }
 }

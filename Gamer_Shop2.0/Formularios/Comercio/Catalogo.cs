@@ -137,6 +137,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             PanelContainer.Controls.Clear();
             PanelContainer.Controls.Add(listVn);
             listVn.PanelContainer = PanelContainer;
+            listVn.LabelVersion = LabelContainer;
             listVn.Mainform = MainForm;
             listVn.Show();
             this.Dispose();

@@ -55,13 +55,7 @@ namespace Gamer_Shop2._0.Datos
             {
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
-                    if ((context.Producto.FirstOrDefault(p => p.Serial == serial)).Activo == "SI")
-                    {
-                        return context.Producto.FirstOrDefault(p => p.Serial == serial);
-                    } else
-                    {
-                        throw new Exception("El producto fue eliminado");
-                    }
+                    return context.Producto.FirstOrDefault(p => p.Serial == serial);
                 }
             }
         }
@@ -142,6 +136,7 @@ namespace Gamer_Shop2._0.Datos
                         prod.ID_Categoria = producto.ID_Categoria;
                         prod.ID_Proveedor = producto.ID_Proveedor;
                         prod.photoFilePath = producto.photoFilePath;
+                        prod.Activo = producto.Activo;
 
                         context.SaveChanges();
                     }
@@ -184,6 +179,7 @@ namespace Gamer_Shop2._0.Datos
         //   \\----------------------------------------------------------------------------------//
         public class ProductoViewModel
         {
+            public int ID { get; set; }
             public int Serial { get; set; }
             public string Nombre { get; set; }
             public double Precio { get; set; }
@@ -201,6 +197,7 @@ namespace Gamer_Shop2._0.Datos
                         .Where(p => p.Activo == "SI")
                         .Select(p => new ProductoViewModel
                         {
+                            ID = p.ID_Producto,
                             Serial = p.Serial,
                             Nombre = p.Nombre,
                             Precio = p.Precio,
@@ -232,6 +229,7 @@ namespace Gamer_Shop2._0.Datos
                         .Where(p => p.Serial == serial && p.Activo == "SI")
                         .Select(p => new ProductoViewModel
                         {
+                            ID = p.ID_Producto,
                             Serial = p.Serial,
                             Nombre = p.Nombre,
                             Precio = p.Precio,
@@ -254,6 +252,5 @@ namespace Gamer_Shop2._0.Datos
             DProductos dproductos = new DProductos();
             grid.DataSource = dproductos.buscarProductos(text, atributo);
         }
-
     }
 }

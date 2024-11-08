@@ -23,8 +23,10 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         string nombreImagen;
 
-        private List<string> camposActuales = new List<string>(new string[7]);
+        private List<string> camposActuales = new List<string>(new string[8]);
         public Panel PanelContainer { get; set; }
+
+        public Usuario MUsuario { get; set; }
         public ModificarProducto(Producto prod)
         {
             InitializeComponent();
@@ -62,6 +64,33 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        private void PEstadoUs_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 15;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
+
         private void ModificarProducto_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.Categoría_producto' Puede moverla o quitarla según sea necesario.
@@ -78,7 +107,22 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             CBCategoriaPr.SelectedValue = productoActual.ID_Categoria;
             rjTextBox1.Texts = productoActual.photoFilePath;
 
+            CBActivoPr.DropDownWidth = CBActivoPr.Width;
+
+            mostrarEstadoProveedorCB();
             guardarCampos();
+        }
+
+        private void mostrarEstadoProveedorCB()
+        {
+            if (productoActual.Activo == "SI")
+            {
+                CBActivoPr.SelectedIndex = 0;
+            }
+            else
+            {
+                CBActivoPr.SelectedIndex = 1;
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -159,6 +203,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             PanelContainer.Controls.Clear();
             PanelContainer.Controls.Add(listPr);
             listPr.PanelContainer = PanelContainer;
+            listPr.LUsuario = MUsuario;
             listPr.Show();
             this.Dispose();
         }
@@ -449,7 +494,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                             float.Parse(TBPrecioPr.Texts),
                             (int)CBCategoriaPr.SelectedValue,
                             (int)CBProveedorPr.SelectedValue,
-                            rjTextBox1.Texts
+                            rjTextBox1.Texts,
+                            CBActivoPr.SelectedItem.ToString()
                             );
                         MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Modificación", "Informacion", null);
                         mensaje.ShowDialog();
@@ -490,6 +536,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 TBPrecioPr.Texts,
                 CBProveedorPr.SelectedItem?.ToString(),
                 CBCategoriaPr.SelectedItem?.ToString(),
+                CBActivoPr.SelectedItem?.ToString(),
              };
             return campos;
         }
@@ -547,6 +594,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             camposActuales[4] = CBCategoriaPr.SelectedIndex.ToString();
             camposActuales[5] = TBDescripcionPr.Texts;
             camposActuales[6] = rjTextBox1.Texts;
+            camposActuales[7] = CBActivoPr.SelectedIndex.ToString();
         }
         private bool comprobarModif(List<string> campos)
         {
@@ -556,7 +604,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 campos[3] != CBProveedorPr.SelectedIndex.ToString() ||
                 campos[4] != CBCategoriaPr.SelectedIndex.ToString() ||
                 campos[5] != TBDescripcionPr.Texts ||
-                campos[6] != rjTextBox1.Texts)
+                campos[6] != rjTextBox1.Texts ||
+                campos[7] != CBActivoPr.SelectedIndex.ToString())
             {
                 return true; // Hay modificación
             }

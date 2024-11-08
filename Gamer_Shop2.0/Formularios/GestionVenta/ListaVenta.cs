@@ -14,6 +14,8 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         public Panel PanelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
+
+        public Label LabelVersion { get; set; }
         public ListaVenta(bool desdeDonde)
         {
             InitializeComponent();
@@ -125,6 +127,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
              formCatalogo.TopLevel = false;
              formCatalogo.PanelContainer = PanelContainer;
              formCatalogo.MainForm = Mainform;
+             formCatalogo.LabelContainer = LabelVersion;
              PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
              PanelContainer.Controls.Add(formCatalogo);
              PanelContainer.BringToFront();

@@ -60,7 +60,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void NModificarProducto (int serial, string nombre, string descripcion, float precio, int categoria, int proveedor, string photoFilePath)
+        public void NModificarProducto (int serial, string nombre, string descripcion, float precio, int categoria, int proveedor, string photoFilePath, string activo)
         {
             Producto producto = new Producto()
             {
@@ -70,7 +70,8 @@ namespace Gamer_Shop2._0.Negocio
                 Precio = precio,
                 ID_Categoria = categoria,
                 ID_Proveedor = proveedor,
-                photoFilePath = photoFilePath
+                photoFilePath = photoFilePath,
+                Activo = activo
             };
             if (dproducto == null)
             {

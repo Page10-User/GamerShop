@@ -33,29 +33,33 @@
             this.LTituloAltaCompra = new System.Windows.Forms.Label();
             this.PBImgAltaCom = new System.Windows.Forms.PictureBox();
             this.PContAltaCompra = new System.Windows.Forms.Panel();
-            this.BFiltro = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.PListaPrCompra = new System.Windows.Forms.Panel();
             this.DGListaPrCompra = new System.Windows.Forms.DataGridView();
+            this.CSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombrePr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCantidadPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecioPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotalPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEliminarPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TBBuscar = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BElegirPrLista = new Gamer_Shop2._0.RJButton();
             this.CBProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new Gamer_Shop2._0.Datos.DataSet1();
             this.TBValidacion4 = new System.Windows.Forms.Label();
             this.LSelectProveedor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BComprar = new Gamer_Shop2._0.RJButton();
             this.BListaDeCompras = new Gamer_Shop2._0.RJButton();
-            this.proveedorTableAdapter = new Gamer_Shop2._0.Datos.DataSet1TableAdapters.ProveedorTableAdapter();
-            this.CEliminarPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSet11 = new Gamer_Shop2._0.DataSet1();
+            this.proveedorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.proveedorTableAdapter1 = new Gamer_Shop2._0.DataSet1TableAdapters.ProveedorTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaCom)).BeginInit();
             this.PContAltaCompra.SuspendLayout();
             this.PListaPrCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaPrCompra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // LTituloAltaCompra
@@ -85,7 +89,6 @@
             // PContAltaCompra
             // 
             this.PContAltaCompra.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContAltaCompra.Controls.Add(this.BFiltro);
             this.PContAltaCompra.Controls.Add(this.BBuscador);
             this.PContAltaCompra.Controls.Add(this.PListaPrCompra);
             this.PContAltaCompra.Controls.Add(this.TBBuscar);
@@ -98,32 +101,6 @@
             this.PContAltaCompra.Size = new System.Drawing.Size(464, 330);
             this.PContAltaCompra.TabIndex = 6;
             this.PContAltaCompra.Paint += new System.Windows.Forms.PaintEventHandler(this.PContAltaCompra_Paint);
-            // 
-            // BFiltro
-            // 
-            this.BFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.BFiltro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BFiltro.BackgroundImage")));
-            this.BFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BFiltro.BorderColor = System.Drawing.Color.Transparent;
-            this.BFiltro.BorderSize = 1;
-            this.BFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.BFiltro.DropDownWidth = 150;
-            this.BFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BFiltro.ForeColor = System.Drawing.Color.DimGray;
-            this.BFiltro.IconColor = System.Drawing.Color.Transparent;
-            this.BFiltro.Items.AddRange(new object[] {
-            "Nombre",
-            "Serial"});
-            this.BFiltro.ListBackColor = System.Drawing.Color.Black;
-            this.BFiltro.ListTextColor = System.Drawing.Color.Lime;
-            this.BFiltro.Location = new System.Drawing.Point(425, 67);
-            this.BFiltro.MinimumSize = new System.Drawing.Size(30, 30);
-            this.BFiltro.Name = "BFiltro";
-            this.BFiltro.Padding = new System.Windows.Forms.Padding(1);
-            this.BFiltro.Size = new System.Drawing.Size(30, 30);
-            this.BFiltro.TabIndex = 58;
-            this.BFiltro.Texts = "";
-            this.BFiltro.OnSelectedIndexChanged += new System.EventHandler(this.BFiltro_OnSelectedIndexChanged);
             // 
             // BBuscador
             // 
@@ -139,7 +116,7 @@
             this.BBuscador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BBuscador.ForeColor = System.Drawing.Color.White;
-            this.BBuscador.Location = new System.Drawing.Point(393, 67);
+            this.BBuscador.Location = new System.Drawing.Point(424, 67);
             this.BBuscador.Name = "BBuscador";
             this.BBuscador.Size = new System.Drawing.Size(26, 26);
             this.BBuscador.TabIndex = 19;
@@ -161,6 +138,11 @@
             this.DGListaPrCompra.AllowUserToAddRows = false;
             this.DGListaPrCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaPrCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CSerial,
+            this.CNombrePr,
+            this.CCantidadPr,
+            this.CPrecioPr,
+            this.CTotalPr,
             this.CEliminarPr});
             this.DGListaPrCompra.Location = new System.Drawing.Point(1, 1);
             this.DGListaPrCompra.Name = "DGListaPrCompra";
@@ -168,6 +150,36 @@
             this.DGListaPrCompra.TabIndex = 0;
             this.DGListaPrCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaPr_CellClick);
             this.DGListaPrCompra.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DGListaPrCompra_CellValidating);
+            // 
+            // CSerial
+            // 
+            this.CSerial.HeaderText = "Serial";
+            this.CSerial.Name = "CSerial";
+            // 
+            // CNombrePr
+            // 
+            this.CNombrePr.HeaderText = "Nombre";
+            this.CNombrePr.Name = "CNombrePr";
+            // 
+            // CCantidadPr
+            // 
+            this.CCantidadPr.HeaderText = "Cantidad";
+            this.CCantidadPr.Name = "CCantidadPr";
+            // 
+            // CPrecioPr
+            // 
+            this.CPrecioPr.HeaderText = "Precio";
+            this.CPrecioPr.Name = "CPrecioPr";
+            // 
+            // CTotalPr
+            // 
+            this.CTotalPr.HeaderText = "Total";
+            this.CTotalPr.Name = "CTotalPr";
+            // 
+            // CEliminarPr
+            // 
+            this.CEliminarPr.HeaderText = "Eliminar";
+            this.CEliminarPr.Name = "CEliminarPr";
             // 
             // TBBuscar
             // 
@@ -178,7 +190,7 @@
             this.TBBuscar.BorderSize = 1;
             this.TBBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBBuscar.ForeColor = System.Drawing.Color.White;
-            this.TBBuscar.Location = new System.Drawing.Point(238, 62);
+            this.TBBuscar.Location = new System.Drawing.Point(272, 62);
             this.TBBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.TBBuscar.Multiline = false;
             this.TBBuscar.Name = "TBBuscar";
@@ -216,7 +228,9 @@
             this.CBProveedor.BackColor = System.Drawing.Color.Black;
             this.CBProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBProveedor.BorderSize = 1;
-            this.CBProveedor.DataSource = this.proveedorBindingSource;
+            this.CBProveedor.CustomIndexStart = 1;
+            this.CBProveedor.CustomSelectedIndex = 0;
+            this.CBProveedor.DataSource = this.proveedorBindingSource1;
             this.CBProveedor.DisplayMember = "Razon_social";
             this.CBProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CBProveedor.DropDownWidth = 296;
@@ -232,17 +246,8 @@
             this.CBProveedor.Size = new System.Drawing.Size(296, 30);
             this.CBProveedor.TabIndex = 31;
             this.CBProveedor.Texts = "";
+            this.CBProveedor.ValueMember = "ID_Proveedor";
             this.CBProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
-            // 
-            // proveedorBindingSource
-            // 
-            this.proveedorBindingSource.DataMember = "Proveedor";
-            this.proveedorBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TBValidacion4
             // 
@@ -333,14 +338,19 @@
             this.BListaDeCompras.UseVisualStyleBackColor = false;
             this.BListaDeCompras.Click += new System.EventHandler(this.BListaDeCompras_Click);
             // 
-            // proveedorTableAdapter
+            // dataSet11
             // 
-            this.proveedorTableAdapter.ClearBeforeFill = true;
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // CEliminarPr
+            // proveedorBindingSource1
             // 
-            this.CEliminarPr.HeaderText = "Eliminar";
-            this.CEliminarPr.Name = "CEliminarPr";
+            this.proveedorBindingSource1.DataMember = "Proveedor";
+            this.proveedorBindingSource1.DataSource = this.dataSet11;
+            // 
+            // proveedorTableAdapter1
+            // 
+            this.proveedorTableAdapter1.ClearBeforeFill = true;
             // 
             // AltaCompra
             // 
@@ -367,8 +377,8 @@
             this.PContAltaCompra.PerformLayout();
             this.PListaPrCompra.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGListaPrCompra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,10 +401,14 @@
         private RJButton BElegirPrLista;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBBuscar;
-        private Datos.DataSet1 dataSet1;
-        private System.Windows.Forms.BindingSource proveedorBindingSource;
-        private Datos.DataSet1TableAdapters.ProveedorTableAdapter proveedorTableAdapter;
-        private RJControls.RJComboBox BFiltro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CSerial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombrePr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCantidadPr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioPr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTotalPr;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEliminarPr;
+        private DataSet1 dataSet11;
+        private System.Windows.Forms.BindingSource proveedorBindingSource1;
+        private DataSet1TableAdapters.ProveedorTableAdapter proveedorTableAdapter1;
     }
 }

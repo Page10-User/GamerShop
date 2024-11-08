@@ -71,19 +71,12 @@ namespace Gamer_Shop2._0.Datos
             {
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
-                    if ((context.Proveedor.FirstOrDefault(p => p.ID_Proveedor == id)).Activo == "SI")
-                    {
-                        return context.Proveedor.FirstOrDefault(p => p.ID_Proveedor == id);
-                    }
-                    else
-                    {
-                        throw new Exception("El producto fue eliminado");
-                    }
+                    return context.Proveedor.FirstOrDefault(p => p.ID_Proveedor == id);
                 }
             }
         }
 
-        public void getProveedoresActivos(DataGridView grid)
+        public DataTable getProveedores(DataGridView grid)
         {
             if (grid == null)
             {
@@ -92,12 +85,7 @@ namespace Gamer_Shop2._0.Datos
             else
             {
                 DProveedores proveedores = new DProveedores();
-                DataView view = new DataView(proveedores.GetProveedoresAll());
-                view.RowFilter = "Activo = 'SI'";
-                grid.DataSource = view;
-
-
-
+                return proveedores.GetProveedoresAll();
             }
         }
 
@@ -162,6 +150,7 @@ namespace Gamer_Shop2._0.Datos
                         proveedor.Dirección = prov.Dirección;
                         proveedor.Correo = prov.Correo;
                         proveedor.ID_CategoriaProducto = prov.ID_CategoriaProducto;
+                        proveedor.Activo = prov.Activo;
 
                         context.SaveChanges();
                     }

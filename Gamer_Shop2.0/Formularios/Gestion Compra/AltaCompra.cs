@@ -1,12 +1,12 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
-using Gamer_Shop2._0.Formularios.GestionUsuario;
+﻿using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.Gestion_Compra
@@ -78,18 +78,11 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         }
         private void AltaCompra_Load(object sender, EventArgs e)
         {
-           
+            // TODO: esta línea de código carga datos en la tabla 'dataSet11.Proveedor' Puede moverla o quitarla según sea necesario.
+            this.proveedorTableAdapter1.Fill(this.dataSet11.Proveedor);
+
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-
-            // testeo--------------------------------------------------------------------------------
-            //DGListaPrCompra.Columns.Add("CSerial", "Serial");
-            //DGListaPrCompra.Columns.Add("CNombrePr", "Nombre");
-            //DGListaPrCompra.Columns.Add("CCantidadPr", "Cantidad");
-            //DGListaPrCompra.Columns.Add("CPrecioPr", "Precio");
-            //DGListaPrCompra.Columns.Add("CTotalPr", "Total");
-            //DGListaPrCompra.Columns.Add("CEliminarPr", "Eliminar");
-            //Fin testeo-----------------------------------------------------------------------------
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -378,31 +371,35 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 
         private void BBuscador_Click(object sender, EventArgs e)
         {
-            NProducto producto = new NProducto();
-            if (FiltroWasChanged == true)
+            // Llenar la lista original con todas las filas del DataGridView
+            foreach (DataGridViewRow fila in DGListaPrCompra.Rows)
             {
-                if (!string.IsNullOrEmpty(TBBuscar.Texts))
+                if (!fila.IsNewRow)
                 {
-                    producto.buscarProductoLista(DGListaPrCompra, TBBuscar.Texts, BFiltro.SelectedItem.ToString());
-                }
-                else
-                {
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Por favor, asegurece de rellenar el campo de busqueda", "Error", "Error", null);
-                    mensaje.ShowDialog();
+                    Dictionary<string, object> filaDict = new Dictionary<string, object>();
+                    foreach (DataGridViewCell celda in fila.Cells)
+                    {
+                        filaDict[DGListaPrCompra.Columns[celda.ColumnIndex].Name] = celda.Value;
+                    }
                 }
             }
-            else
-            {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Debe elegir un filtro para buscar", "Error", "Error", null);
-                mensaje.ShowDialog();
-            }
-        }
 
-        private void BFiltro_OnSelectedIndexChanged(object sender, EventArgs e)
+            FiltrarDataGrid(DGListaPrCompra);
+        }
+        private void FiltrarDataGrid(DataGridView data)
         {
-            FiltroWasChanged = true;
-            string filtro = BFiltro.SelectedItem.ToString();
-            TBBuscar.PlaceholderText = "Buscar por "+ filtro;
+            string filtro = TBBuscar.Texts.ToLower();
+
+            foreach (DataGridViewRow fila in data.Rows)
+            {
+                // Verifica si alguna celda en la fila contiene el texto del filtro
+                bool cumpleFiltro = fila.Cells
+                    .Cast<DataGridViewCell>()
+                    .Any(celda => celda.Value != null && celda.Value.ToString().ToLower().Contains(filtro));
+
+                // Ajusta la visibilidad de la fila según el resultado del filtro
+                fila.Visible = cumpleFiltro;
+            }
         }
     }
 }

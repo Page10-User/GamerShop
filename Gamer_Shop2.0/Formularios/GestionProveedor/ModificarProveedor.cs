@@ -17,8 +17,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
         Proveedor proveedorActual = new Proveedor();
-        private List<string> camposActuales = new List<string>(new string[6]);
-
+        private List<string> camposActuales = new List<string>(new string[7]);
+        public Bienvenida MainForm { get; set; }
         public Panel PanelContainer { get; set; }
         public ModificarProveedor(Proveedor prov)
         {
@@ -42,7 +42,23 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             TBDireccion.Texts = proveedorActual.Dirección;
             CBCategoriaPrProveedor.SelectedValue = proveedorActual.ID_CategoriaProducto;
 
+            CBActivoProveedor.DropDownWidth = CBActivoProveedor.Width;
+
+            mostrarEstadoProveedorCB();
+
             guardarCampos();
+        }
+        
+        private void mostrarEstadoProveedorCB()
+        {
+            if (proveedorActual.Activo == "SI")
+            {
+                CBActivoProveedor.SelectedIndex = 0;
+            }
+            else
+            {
+                CBActivoProveedor.SelectedIndex = 1;
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -107,6 +123,33 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             }
         }
 
+        private void PEstadoUs_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 15;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
+
         private void BReturnToBack_Click(object sender, EventArgs e)
         {
             if (comprobarModif(camposActuales) == true)
@@ -117,6 +160,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 {
                     //Cerramos el mensaje en Hide
                     mensaje.Dispose();
+                    MainForm.TopMost = true;
 
                     // Mostrar form
                     InstanciarYMostrarListaProveedor();
@@ -124,6 +168,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 else
                 {
                     mensaje.Dispose();
+                    MainForm.TopMost = true;
                 }
             }
             else
@@ -145,6 +190,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             ListaProveedor formListProveedor = new ListaProveedor();
             formListProveedor.TopLevel = false;
             formListProveedor.PanelContainer = PanelContainer;
+            formListProveedor.MainForm = MainForm;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formListProveedor);
             PanelContainer.BringToFront();
@@ -476,7 +522,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         //Boton modificar + validación de los campos.
         private void BModificarProveedor_Click(object sender, EventArgs e)
         {
-            if (TBRazon.Texts != string.Empty && TBRepresentante.Texts != string.Empty && TBCorreo.Texts != string.Empty && TBRazon.Texts != string.Empty && TBDireccion.Texts != string.Empty && TBContacto.Texts != string.Empty)
+            if (TBRazon.Texts != string.Empty && TBRepresentante.Texts != string.Empty && TBCorreo.Texts != string.Empty && TBRazon.Texts != string.Empty && TBDireccion.Texts != string.Empty && TBContacto.Texts != string.Empty && CBActivoProveedor.SelectedIndex > -1)
             {
                 if (comprobarModif(camposActuales))
                 {
@@ -491,7 +537,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                             validador.RemoverFormatoTelefonico(TBContacto.Texts),
                             TBCorreo.Texts,
                             TBDireccion.Texts,
-                            CBCategoriaPrProveedor.SelectedIndex + 1
+                            CBCategoriaPrProveedor.SelectedIndex + 1,
+                            CBActivoProveedor.SelectedItem.ToString()
                             );
                         MsgPersonalizado mensaje = new MsgPersonalizado("Proveedor modificado con éxito", "Modificación", "Informacion", null);
                         mensaje.ShowDialog();
@@ -532,7 +579,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 TBContacto.Texts,
                 TBCorreo.Texts,
                 TBDireccion.Texts,
-                CBCategoriaPrProveedor.SelectedItem?.ToString()
+                CBCategoriaPrProveedor.SelectedItem?.ToString(),
+                CBActivoProveedor.SelectedItem?.ToString()
              };
             return campos;
         }
@@ -612,6 +660,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             camposActuales[3] = TBCorreo.Texts;
             camposActuales[4] = TBDireccion.Texts;
             camposActuales[5] = CBCategoriaPrProveedor.SelectedIndex.ToString();
+            camposActuales[6] = CBActivoProveedor.SelectedIndex.ToString();
         }
 
         private bool comprobarModif(List<string> campos)
@@ -621,7 +670,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 campos[2] != TBContacto.Texts ||
                 campos[3] != TBCorreo.Texts ||
                 campos[4] != TBDireccion.Texts ||
-                campos[5] != CBCategoriaPrProveedor.SelectedIndex.ToString())
+                campos[5] != CBCategoriaPrProveedor.SelectedIndex.ToString() ||
+                campos[6] != CBActivoProveedor.SelectedIndex.ToString())
             {
                 return true; // Hay modificación
             }

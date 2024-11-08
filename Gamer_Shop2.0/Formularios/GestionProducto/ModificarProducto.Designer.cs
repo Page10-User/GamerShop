@@ -34,7 +34,12 @@
             this.LTituloModificarPr = new System.Windows.Forms.Label();
             this.PBImgModificarPr = new System.Windows.Forms.PictureBox();
             this.PContModificarPr = new System.Windows.Forms.Panel();
+            this.CBProveedorPr = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
             this.BFotoProducto = new Gamer_Shop2._0.RJButton();
+            this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rjTextBox1 = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion15 = new System.Windows.Forms.Label();
             this.TBValidacion14 = new System.Windows.Forms.Label();
@@ -63,18 +68,17 @@
             this.LNombrePr = new System.Windows.Forms.Label();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.BModificarPr = new Gamer_Shop2._0.RJButton();
-            this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.CBProveedorPr = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
-            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proveedorTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.ProveedorTableAdapter();
-            this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoría_productoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Categoría_productoTableAdapter();
+            this.PEstadoUs = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CBActivoPr = new Gamer_Shop2._0.RJControls.RJComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).BeginInit();
             this.PContModificarPr.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).BeginInit();
+            this.PEstadoUs.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -150,6 +154,42 @@
             this.PContModificarPr.TabIndex = 14;
             this.PContModificarPr.Paint += new System.Windows.Forms.PaintEventHandler(this.PContModificarPr_Paint);
             // 
+            // CBProveedorPr
+            // 
+            this.CBProveedorPr.BackColor = System.Drawing.Color.Black;
+            this.CBProveedorPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedorPr.BorderSize = 1;
+            this.CBProveedorPr.CustomIndexStart = 1;
+            this.CBProveedorPr.CustomSelectedIndex = 0;
+            this.CBProveedorPr.DataSource = this.proveedorBindingSource;
+            this.CBProveedorPr.DisplayMember = "Razon_social";
+            this.CBProveedorPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBProveedorPr.DropDownWidth = 118;
+            this.CBProveedorPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.CBProveedorPr.ForeColor = System.Drawing.Color.White;
+            this.CBProveedorPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedorPr.ListBackColor = System.Drawing.Color.Black;
+            this.CBProveedorPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBProveedorPr.Location = new System.Drawing.Point(98, 149);
+            this.CBProveedorPr.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBProveedorPr.Name = "CBProveedorPr";
+            this.CBProveedorPr.Padding = new System.Windows.Forms.Padding(1);
+            this.CBProveedorPr.Size = new System.Drawing.Size(128, 30);
+            this.CBProveedorPr.TabIndex = 61;
+            this.CBProveedorPr.Texts = "Seleccionar...";
+            this.CBProveedorPr.ValueMember = "ID_Proveedor";
+            this.CBProveedorPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
+            // 
+            // proveedorBindingSource
+            // 
+            this.proveedorBindingSource.DataMember = "Proveedor";
+            this.proveedorBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // BFotoProducto
             // 
             this.BFotoProducto.BackColor = System.Drawing.Color.Black;
@@ -168,6 +208,37 @@
             this.BFotoProducto.Text = "Elegir foto";
             this.BFotoProducto.TextColor = System.Drawing.Color.White;
             this.BFotoProducto.UseVisualStyleBackColor = false;
+            // 
+            // CBCategoriaPr
+            // 
+            this.CBCategoriaPr.BackColor = System.Drawing.Color.Black;
+            this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.BorderSize = 1;
+            this.CBCategoriaPr.CustomIndexStart = 1;
+            this.CBCategoriaPr.CustomSelectedIndex = 0;
+            this.CBCategoriaPr.DataSource = this.categoríaproductoBindingSource;
+            this.CBCategoriaPr.DisplayMember = "Nombre_Categoria";
+            this.CBCategoriaPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBCategoriaPr.DropDownWidth = 128;
+            this.CBCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.CBCategoriaPr.ForeColor = System.Drawing.Color.White;
+            this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
+            this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CBCategoriaPr.Location = new System.Drawing.Point(98, 202);
+            this.CBCategoriaPr.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBCategoriaPr.Name = "CBCategoriaPr";
+            this.CBCategoriaPr.Padding = new System.Windows.Forms.Padding(1);
+            this.CBCategoriaPr.Size = new System.Drawing.Size(128, 30);
+            this.CBCategoriaPr.TabIndex = 60;
+            this.CBCategoriaPr.Texts = "Seleccionar...";
+            this.CBCategoriaPr.ValueMember = "ID_Categoria";
+            this.CBCategoriaPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBProveedorPr_Validating);
+            // 
+            // categoríaproductoBindingSource
+            // 
+            this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
+            this.categoríaproductoBindingSource.DataSource = this.dataSet1;
             // 
             // rjTextBox1
             // 
@@ -581,76 +652,62 @@
             this.BModificarPr.UseVisualStyleBackColor = false;
             this.BModificarPr.Click += new System.EventHandler(this.BModificarPr_Click);
             // 
-            // CBCategoriaPr
-            // 
-            this.CBCategoriaPr.BackColor = System.Drawing.Color.Black;
-            this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBCategoriaPr.BorderSize = 1;
-            this.CBCategoriaPr.DataSource = this.categoríaproductoBindingSource;
-            this.CBCategoriaPr.DisplayMember = "Nombre_Categoria";
-            this.CBCategoriaPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.CBCategoriaPr.DropDownWidth = 128;
-            this.CBCategoriaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.CBCategoriaPr.ForeColor = System.Drawing.Color.White;
-            this.CBCategoriaPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBCategoriaPr.ListBackColor = System.Drawing.Color.Black;
-            this.CBCategoriaPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBCategoriaPr.Location = new System.Drawing.Point(98, 202);
-            this.CBCategoriaPr.MinimumSize = new System.Drawing.Size(30, 30);
-            this.CBCategoriaPr.Name = "CBCategoriaPr";
-            this.CBCategoriaPr.Padding = new System.Windows.Forms.Padding(1);
-            this.CBCategoriaPr.Size = new System.Drawing.Size(128, 30);
-            this.CBCategoriaPr.TabIndex = 60;
-            this.CBCategoriaPr.Texts = "Seleccionar...";
-            this.CBCategoriaPr.ValueMember = "ID_Categoria";
-            this.CBCategoriaPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBProveedorPr_Validating);
-            // 
-            // CBProveedorPr
-            // 
-            this.CBProveedorPr.BackColor = System.Drawing.Color.Black;
-            this.CBProveedorPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBProveedorPr.BorderSize = 1;
-            this.CBProveedorPr.DataSource = this.proveedorBindingSource;
-            this.CBProveedorPr.DisplayMember = "Razon_social";
-            this.CBProveedorPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.CBProveedorPr.DropDownWidth = 118;
-            this.CBProveedorPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.CBProveedorPr.ForeColor = System.Drawing.Color.White;
-            this.CBProveedorPr.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBProveedorPr.ListBackColor = System.Drawing.Color.Black;
-            this.CBProveedorPr.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.CBProveedorPr.Location = new System.Drawing.Point(98, 149);
-            this.CBProveedorPr.MinimumSize = new System.Drawing.Size(30, 30);
-            this.CBProveedorPr.Name = "CBProveedorPr";
-            this.CBProveedorPr.Padding = new System.Windows.Forms.Padding(1);
-            this.CBProveedorPr.Size = new System.Drawing.Size(128, 30);
-            this.CBProveedorPr.TabIndex = 61;
-            this.CBProveedorPr.Texts = "Seleccionar...";
-            this.CBProveedorPr.ValueMember = "ID_Proveedor";
-            this.CBProveedorPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // proveedorBindingSource
-            // 
-            this.proveedorBindingSource.DataMember = "Proveedor";
-            this.proveedorBindingSource.DataSource = this.dataSet1;
-            // 
             // proveedorTableAdapter
             // 
             this.proveedorTableAdapter.ClearBeforeFill = true;
             // 
-            // categoríaproductoBindingSource
-            // 
-            this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
-            this.categoríaproductoBindingSource.DataSource = this.dataSet1;
-            // 
             // categoría_productoTableAdapter
             // 
             this.categoría_productoTableAdapter.ClearBeforeFill = true;
+            // 
+            // PEstadoUs
+            // 
+            this.PEstadoUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PEstadoUs.Controls.Add(this.label3);
+            this.PEstadoUs.Controls.Add(this.CBActivoPr);
+            this.PEstadoUs.Location = new System.Drawing.Point(526, 223);
+            this.PEstadoUs.Name = "PEstadoUs";
+            this.PEstadoUs.Size = new System.Drawing.Size(145, 45);
+            this.PEstadoUs.TabIndex = 81;
+            this.PEstadoUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PEstadoUs_Paint);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(10, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 18);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Activo";
+            // 
+            // CBActivoPr
+            // 
+            this.CBActivoPr.BackColor = System.Drawing.Color.Black;
+            this.CBActivoPr.BorderColor = System.Drawing.Color.Lime;
+            this.CBActivoPr.BorderSize = 1;
+            this.CBActivoPr.CustomIndexStart = 1;
+            this.CBActivoPr.CustomSelectedIndex = 0;
+            this.CBActivoPr.DisplayMember = "SI";
+            this.CBActivoPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBActivoPr.DropDownWidth = 145;
+            this.CBActivoPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBActivoPr.ForeColor = System.Drawing.Color.White;
+            this.CBActivoPr.IconColor = System.Drawing.Color.Lime;
+            this.CBActivoPr.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.CBActivoPr.ListBackColor = System.Drawing.Color.Black;
+            this.CBActivoPr.ListTextColor = System.Drawing.Color.White;
+            this.CBActivoPr.Location = new System.Drawing.Point(63, 7);
+            this.CBActivoPr.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBActivoPr.Name = "CBActivoPr";
+            this.CBActivoPr.Padding = new System.Windows.Forms.Padding(1);
+            this.CBActivoPr.Size = new System.Drawing.Size(68, 30);
+            this.CBActivoPr.TabIndex = 80;
+            this.CBActivoPr.Texts = "";
             // 
             // ModificarProducto
             // 
@@ -660,6 +717,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.PEstadoUs);
             this.Controls.Add(this.PContModificarPr);
             this.Controls.Add(this.BReturnToBack);
             this.Controls.Add(this.label1);
@@ -675,9 +733,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBImgModificarPr)).EndInit();
             this.PContModificarPr.ResumeLayout(false);
             this.PContModificarPr.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).EndInit();
+            this.PEstadoUs.ResumeLayout(false);
+            this.PEstadoUs.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -725,5 +785,8 @@
         private DataSet1TableAdapters.ProveedorTableAdapter proveedorTableAdapter;
         private System.Windows.Forms.BindingSource categoríaproductoBindingSource;
         private DataSet1TableAdapters.Categoría_productoTableAdapter categoría_productoTableAdapter;
+        private System.Windows.Forms.Panel PEstadoUs;
+        private System.Windows.Forms.Label label3;
+        private RJControls.RJComboBox CBActivoPr;
     }
 }

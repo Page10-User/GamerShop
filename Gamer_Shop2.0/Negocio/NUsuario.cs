@@ -34,7 +34,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public DataTable listaUsuariosActivos(DataGridView grid)
+        public DataTable listaUsuarios(DataGridView grid)
         {
             if (dUsuario == null)
             {
@@ -42,19 +42,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-              return  dUsuario.getUsuariosActivos(grid);
-            }
-        }
-
-        public void listaUsuariosActivosEyA(DataGridView grid)
-        {
-            if (dUsuario == null)
-            {
-                throw new NullReferenceException("El objeto 'dUsuario' no se pudo inicializar.");
-            }
-            else
-            {
-                dUsuario.getUsuariosActivosEyA(grid);
+              return  dUsuario.getUsuarios(grid);
             }
         }
 

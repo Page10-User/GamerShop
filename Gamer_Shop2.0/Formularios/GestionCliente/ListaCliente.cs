@@ -1,9 +1,15 @@
-﻿using Gamer_Shop2._0.Formularios.GestionProducto;
+﻿using Gamer_Shop2._0.Datos;
+using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.GestionProveedor;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionCliente
@@ -52,7 +58,6 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-            ncliente.listaClientesActivos(DGListaCliente);
             try
             {
                 ConfigurarDataGridView();
@@ -128,9 +133,15 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
 
         private void ConfigurarDataGridView()
         {
-            DGListaCliente.Columns["ID_Cliente"].Visible = false;
-            DGListaCliente.Columns["CModificarCl"].DisplayIndex = 6;
+            DataTable clientes = ncliente.listaClientes(DGListaCliente); // Este método debe devolver un DataTable con los proveedores
 
+            // Limpia el DataGridView y agrega los proveedores
+            DGListaCliente.Rows.Clear();
+            foreach (DataRow row in clientes.Rows)
+            {
+                // Agrega una fila con los datos del proveedor
+                DGListaCliente.Rows.Add(row["ID_Cliente"], row["DNI"], row["Nombre"], row["Apellido"], row["Teléfono"], row["Correo"]);
+            }
         }
 
         private void DGListaCliente_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -207,6 +218,39 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
 
             // Liberar los recursos
             base.Dispose();
+        }
+
+        private void BBuscador_Click(object sender, EventArgs e)
+        {
+            // Llenar la lista original con todas las filas del DataGridView
+            foreach (DataGridViewRow fila in DGListaCliente.Rows)
+            {
+                if (!fila.IsNewRow)
+                {
+                    Dictionary<string, object> filaDict = new Dictionary<string, object>();
+                    foreach (DataGridViewCell celda in fila.Cells)
+                    {
+                        filaDict[DGListaCliente.Columns[celda.ColumnIndex].Name] = celda.Value;
+                    }
+                }
+            }
+
+            FiltrarDataGrid(DGListaCliente);
+        }
+        private void FiltrarDataGrid(DataGridView data)
+        {
+            string filtro = TBFiltro.Texts.ToLower();
+
+            foreach (DataGridViewRow fila in data.Rows)
+            {
+                // Verifica si alguna celda en la fila contiene el texto del filtro
+                bool cumpleFiltro = fila.Cells
+                    .Cast<DataGridViewCell>()
+                    .Any(celda => celda.Value != null && celda.Value.ToString().ToLower().Contains(filtro));
+
+                // Ajusta la visibilidad de la fila según el resultado del filtro
+                fila.Visible = cumpleFiltro;
+            }
         }
     }
 }

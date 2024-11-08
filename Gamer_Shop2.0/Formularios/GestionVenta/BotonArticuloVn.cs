@@ -9,6 +9,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         private string descripcion = "Descripción del Producto";
         private int serial = 0;
         private int borderWidth = 1; // Grosor del borde
+        private int id = 0;
 
         public BotonArticuloVn()
         {
@@ -18,6 +19,12 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         }
 
         //Methots
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         public int Serial
         {
             get { return serial; }
@@ -115,6 +122,5 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 TBCantidadPr.Text = "1";
             }
         }
-
     }
 }

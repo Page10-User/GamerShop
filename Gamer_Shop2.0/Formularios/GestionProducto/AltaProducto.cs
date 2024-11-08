@@ -21,7 +21,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         bool isExpandedPAC = false;
         public Panel PanelContainer { get; set; }
-
+        public Usuario AUsuario { get; set; }
         public AltaProducto()
         {
             InitializeComponent();
@@ -526,6 +526,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             PanelContainer.Controls.Clear();
             PanelContainer.Controls.Add(listPr);
             listPr.PanelContainer = PanelContainer;
+            listPr.LUsuario = AUsuario;
             listPr.Show();
             this.Dispose();
         }

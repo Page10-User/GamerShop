@@ -49,6 +49,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 NProducto prod = new NProducto();
                 ProductoViewModel producto = prod.GetProductoCr(serial); // Obtén el producto por serial
 
+                ArticuloCr.ID = producto.ID;
                 ArticuloCr.Serial = producto.Serial;
                 ArticuloCr.NombreProducto = producto.Nombre;
                 ArticuloCr.Precio = producto.Precio.ToString();
@@ -320,6 +321,15 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 }
             }
             TBMonto.Texts = total.ToString("F2");
+        }
+
+        private void mostrarIDEjemplo()
+        {
+            foreach (BotonArticuloVn control in FLPListaProductosVenta.Controls)
+            {
+                MsgPersonalizado mensaje = new MsgPersonalizado("ID DEL PRODUCTO: " + control.ID.ToString(), "ID_Producto","Error",null);
+                mensaje.ShowDialog();
+            }
         }
 
         private void ArticuloCr_EliminarPrCarritoClick(object sender, decimal total)

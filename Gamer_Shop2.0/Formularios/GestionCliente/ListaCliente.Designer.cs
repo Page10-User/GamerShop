@@ -36,7 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaCl = new System.Windows.Forms.Panel();
             this.DGListaCliente = new System.Windows.Forms.DataGridView();
-            this.CModificarCl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LTituloListaPr = new System.Windows.Forms.Label();
             this.PBImgListaPr = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +43,13 @@
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BAltaCliente = new Gamer_Shop2._0.RJButton();
             this.BDescargarCliente = new Gamer_Shop2._0.RJButton();
+            this.ID_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Teléfono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CModificarCl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PContListaCl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaPr)).BeginInit();
@@ -73,6 +79,7 @@
             // 
             // DGListaCliente
             // 
+            this.DGListaCliente.AllowUserToAddRows = false;
             this.DGListaCliente.BackgroundColor = System.Drawing.Color.Black;
             this.DGListaCliente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -85,6 +92,12 @@
             this.DGListaCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGListaCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_Cliente,
+            this.DNI,
+            this.Nombre,
+            this.Apellido,
+            this.Teléfono,
+            this.Correo,
             this.CModificarCl});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
@@ -113,11 +126,6 @@
             this.DGListaCliente.Size = new System.Drawing.Size(433, 286);
             this.DGListaCliente.TabIndex = 0;
             this.DGListaCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaCliente_CellClick);
-            // 
-            // CModificarCl
-            // 
-            this.CModificarCl.HeaderText = "Modificar";
-            this.CModificarCl.Name = "CModificarCl";
             // 
             // LTituloListaPr
             // 
@@ -174,6 +182,7 @@
             this.BBuscador.TabIndex = 25;
             this.BBuscador.TextColor = System.Drawing.Color.White;
             this.BBuscador.UseVisualStyleBackColor = false;
+            this.BBuscador.Click += new System.EventHandler(this.BBuscador_Click);
             // 
             // TBFiltro
             // 
@@ -236,6 +245,42 @@
             this.BDescargarCliente.TextColor = System.Drawing.Color.White;
             this.BDescargarCliente.UseVisualStyleBackColor = false;
             // 
+            // ID_Cliente
+            // 
+            this.ID_Cliente.HeaderText = "ID_Cliente";
+            this.ID_Cliente.Name = "ID_Cliente";
+            this.ID_Cliente.Visible = false;
+            // 
+            // DNI
+            // 
+            this.DNI.HeaderText = "DNI";
+            this.DNI.Name = "DNI";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            // 
+            // Teléfono
+            // 
+            this.Teléfono.HeaderText = "Telefono";
+            this.Teléfono.Name = "Teléfono";
+            // 
+            // Correo
+            // 
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            // 
+            // CModificarCl
+            // 
+            this.CModificarCl.HeaderText = "Modificar";
+            this.CModificarCl.Name = "CModificarCl";
+            // 
             // ListaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +323,12 @@
         private RJButton BAltaCliente;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBFiltro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Teléfono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CModificarCl;
     }
 }

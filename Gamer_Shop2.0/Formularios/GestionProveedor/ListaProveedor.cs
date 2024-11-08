@@ -3,8 +3,12 @@ using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProveedor
@@ -14,12 +18,17 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
         NProveedor nProveedor = new NProveedor();
-
+        bool wasChanged;
+        private int destinoX;
+        private bool moviendoADerecha;
         public Panel PanelContainer { get; set; }
+        public Bienvenida MainForm { get; set; }
         public ListaProveedor()
         {
             InitializeComponent();
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
+
+            wasChanged = true;
         }
 
         private void PBuscadorListaProveedor_Paint(object sender, PaintEventArgs e)
@@ -53,15 +62,50 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-            nProveedor.listaProveedoresActivos(DGListaProveedor);
             try
             {
-                ConfigurarDataGridView();
+                ConfigurarDataGridViewActivos();
+                ConfigurarDataGridViewInactivos();
             }
             catch (Exception ex)
             {
                 // Manejo de cualquier otra excepción
                 MessageBox.Show(ex.Message);
+            }
+
+            DGListaProveedorInactivos.Visible = false;
+            DGListaProveedorInactivos.SendToBack();
+        }
+
+        private void ConfigurarDataGridViewActivos()
+        {
+            DataTable proveedores = nProveedor.listaProveedores(DGListaProveedor); // Este método debe devolver un DataTable con los proveedores
+
+            // Limpia el DataGridView y agrega los proveedores
+            DGListaProveedor.Rows.Clear();
+            foreach (DataRow row in proveedores.Rows)
+            {
+                if (row["Activo"].ToString() == "SI")
+                {
+                    // Agrega una fila con los datos del proveedor
+                    DGListaProveedor.Rows.Add(row["ID_Proveedor"], row["Razon_social"], row["Nombre_representante"], row["Telefono"], row["Correo"], row["Dirección"], row["Activo"], row["Categoria"]);
+                }
+            }
+        }
+
+        private void ConfigurarDataGridViewInactivos()
+        {
+            DataTable proveedores = nProveedor.listaProveedores(DGListaProveedorInactivos); // Este método debe devolver un DataTable con los proveedores
+
+            // Limpia el DataGridView y agrega los proveedores
+            DGListaProveedorInactivos.Rows.Clear();
+            foreach (DataRow row in proveedores.Rows)
+            {
+                if (row["Activo"].ToString() == "NO")
+                {
+                    // Agrega una fila con los datos del proveedor
+                    DGListaProveedorInactivos.Rows.Add(row["ID_Proveedor"], row["Razon_social"], row["Nombre_representante"], row["Telefono"], row["Correo"], row["Dirección"], row["Activo"], row["Categoria"]);
+                }
             }
         }
 
@@ -100,6 +144,33 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             }
         }
 
+        private void PBackSwitch_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (panel != null)
+            {
+
+                GraphicsPath path = new GraphicsPath();
+                int borderRadius = 30;
+                path.StartFigure();
+                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
+                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
+                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
+                path.CloseFigure();
+
+
+                panel.Region = new Region(path);
+
+
+                using (Pen pen = new Pen(Color.LightGreen, 3))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(pen, path);
+                }
+            }
+        }
+
         private void PContListaProveedor_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
@@ -127,13 +198,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             }
         }
 
-        private void ConfigurarDataGridView()
-        {
-            DGListaProveedor.Columns["ID_Proveedor"].Visible = false;
-            DGListaProveedor.Columns["CModificar"].DisplayIndex = 8;
-            DGListaProveedor.Columns["CEliminar"].DisplayIndex = 9;
-        }
-
         private void DGListaProveedor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == DGListaProveedor.Columns["CModificar"].Index && e.RowIndex >= 0)
@@ -150,12 +214,13 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                     PanelContainer.Controls.Clear();
                     PanelContainer.Controls.Add(ModificarProveedor);
                     ModificarProveedor.PanelContainer = PanelContainer;
+                    ModificarProveedor.MainForm = MainForm;
                     ModificarProveedor.Show();
                     this.Close();
                 }
                 catch (Exception)
                 {
-                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el producto", "Error", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el proveedor", "Error", "Error", null);
                     mensaje.ShowDialog();
                 }
             }
@@ -182,6 +247,34 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                 else
                 {
                     mensaje.Dispose();
+                }
+            }
+        }
+
+        private void DGListaProveedorInactivos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DGListaProveedorInactivos.Columns["CModificarIn"].Index && e.RowIndex >= 0)
+            {
+                try
+                {
+                    // Crear una nueva instancia de ListaProductos
+                    int id = int.Parse(DGListaProveedorInactivos.CurrentRow.Cells["ID_ProveedorIn"].Value.ToString());
+                    NProveedor nproveedor = new NProveedor();
+                    ModificarProveedor ModificarProveedor = new ModificarProveedor(nproveedor.GetProveedor(id));
+                    ModificarProveedor.TopLevel = false;
+
+                    // Limpiar el panel actual y añadir el nuevo formulario
+                    PanelContainer.Controls.Clear();
+                    PanelContainer.Controls.Add(ModificarProveedor);
+                    ModificarProveedor.PanelContainer = PanelContainer;
+                    ModificarProveedor.MainForm = MainForm;
+                    ModificarProveedor.Show();
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se pudo Modificar el proveedor", "Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
             }
         }
@@ -228,10 +321,157 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             //...\\
 
             //<-CellClick-Events-\\
-            DGListaProveedor.CellClick -= DGListaProveedor_CellClick;
+            //DGListaProveedor.CellClick -= DGListaProveedor_CellClick;
 
             // Liberar los recursos
             base.Dispose();
+        }
+
+        private void BSwitch_Click(object sender, EventArgs e)
+        {
+            if (!MovSwitch.Enabled)
+            {
+                if (wasChanged == true)
+                {
+                    BSwitch.Text = "N";
+                    PBackSwitch.BackColor = Color.Red;
+                    wasChanged = false;
+
+                    mostrarListaInactivosYOcultarListaActivos();
+
+                    movimientoBotonDerecha();
+
+                }
+                else
+                {
+                    BSwitch.Text = "S";
+                    PBackSwitch.BackColor = Color.Black;
+                    wasChanged = true;
+
+                    mostrarListaActivosYOcultarListaInactivos();
+
+                    movimientoBotonIzquierda();
+                }
+            }
+        }
+
+        private void mostrarListaActivosYOcultarListaInactivos()
+        {
+            DGListaProveedor.BringToFront();
+            DGListaProveedor.Visible = true;
+            DGListaProveedorInactivos.SendToBack();
+            DGListaProveedorInactivos.Visible = false;
+        }
+
+        private void mostrarListaInactivosYOcultarListaActivos()
+        {
+            DGListaProveedorInactivos.BringToFront();
+            DGListaProveedorInactivos.Visible = true;
+            DGListaProveedor.SendToBack();
+            DGListaProveedor.Visible = false;
+        }
+
+        private void movimientoBotonDerecha()
+        {
+            destinoX = BSwitch.Location.X + 25; // Ajusta la distancia a mover
+            moviendoADerecha = true;
+            MovSwitch.Start();
+        }
+
+        private void movimientoBotonIzquierda()
+        {
+            destinoX = BSwitch.Location.X - 25; // Ajusta la distancia a mover
+            moviendoADerecha = false;
+            MovSwitch.Start();
+        }
+
+        private void MovSwitch_Tick(object sender, EventArgs e)
+        {
+            if (moviendoADerecha)
+            {
+                if (BSwitch.Location.X < destinoX)
+                {
+                    BSwitch.Location = new Point(BSwitch.Location.X + 2, BSwitch.Location.Y);
+                }
+                else
+                {
+                    MovSwitch.Stop();
+                }
+            }
+            else
+            {
+                if (BSwitch.Location.X > destinoX)
+                {
+                    BSwitch.Location = new Point(BSwitch.Location.X - 2, BSwitch.Location.Y);
+                }
+                else
+                {
+                    MovSwitch.Stop();
+                }
+            }
+        }
+
+        private void BBuscador_Click(object sender, EventArgs e)
+        {
+            if (DGListaProveedor.Visible)
+            {
+                buscarListaActiva();
+            }
+            else
+            {
+                buscarListaInactiva();
+            }
+        }
+
+        private void buscarListaActiva()
+        {
+            // Llenar la lista original con todas las filas del DataGridView
+            foreach (DataGridViewRow fila in DGListaProveedor.Rows)
+            {
+                if (!fila.IsNewRow)
+                {
+                    Dictionary<string, object> filaDict = new Dictionary<string, object>();
+                    foreach (DataGridViewCell celda in fila.Cells)
+                    {
+                        filaDict[DGListaProveedor.Columns[celda.ColumnIndex].Name] = celda.Value;
+                    }
+                }
+            }
+
+            FiltrarDataGrid(DGListaProveedor);
+        }
+        private void buscarListaInactiva()
+        {
+            // Llenar la lista original con todas las filas del DataGridView
+            foreach (DataGridViewRow fila in DGListaProveedorInactivos.Rows)
+            {
+                if (!fila.IsNewRow)
+                {
+                    Dictionary<string, object> filaDict = new Dictionary<string, object>();
+                    foreach (DataGridViewCell celda in fila.Cells)
+                    {
+                        filaDict[DGListaProveedorInactivos.Columns[celda.ColumnIndex].Name] = celda.Value;
+                    }
+                }
+            }
+
+            FiltrarDataGrid(DGListaProveedorInactivos);
+        }
+
+        private void FiltrarDataGrid(DataGridView data)
+        {
+            string filtro = TBFiltro.Texts.ToLower();
+
+            foreach (DataGridViewRow fila in data.Rows)
+            {
+                // Verifica si alguna celda en la fila contiene el texto del filtro
+                bool cumpleFiltro = fila.Cells
+                    .Cast<DataGridViewCell>()
+                    .Any(celda => celda.Value != null && celda.Value.ToString().ToLower().Contains(filtro));
+
+                // Ajusta la visibilidad de la fila según el resultado del filtro
+                fila.Visible = cumpleFiltro;
+            }
         }
     }
 }

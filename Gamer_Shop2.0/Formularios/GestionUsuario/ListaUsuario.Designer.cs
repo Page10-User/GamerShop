@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -36,13 +41,8 @@
             this.LShowRegistrarUs = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaUs = new System.Windows.Forms.Panel();
+            this.DGListaUsInactivos = new System.Windows.Forms.DataGridView();
             this.DGListaUs = new System.Windows.Forms.DataGridView();
-            this.LTituloListaUs = new System.Windows.Forms.Label();
-            this.PBImgListaUs = new System.Windows.Forms.PictureBox();
-            this.BBuscador = new Gamer_Shop2._0.RJButton();
-            this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.BShowRegistrar = new Gamer_Shop2._0.RJButton();
-            this.BDescargarListUs = new Gamer_Shop2._0.RJButton();
             this.ID_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +54,31 @@
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CModificarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CEliminarUs = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LTituloListaUs = new System.Windows.Forms.Label();
+            this.PBImgListaUs = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.PBackSwitch = new System.Windows.Forms.Panel();
+            this.BSwitch = new Gamer_Shop2._0.RJButton();
+            this.BBuscador = new Gamer_Shop2._0.RJButton();
+            this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.BShowRegistrar = new Gamer_Shop2._0.RJButton();
+            this.BDescargarListUs = new Gamer_Shop2._0.RJButton();
+            this.MovSwich = new System.Windows.Forms.Timer(this.components);
+            this.ID_UsuarioIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUILIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo_UsuarioIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CModificarUsIn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PContListaUs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGListaUsInactivos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaUs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).BeginInit();
+            this.PBackSwitch.SuspendLayout();
             this.SuspendLayout();
             // 
             // LShowRegistrarUs
@@ -86,12 +108,66 @@
             // PContListaUs
             // 
             this.PContListaUs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContListaUs.Controls.Add(this.DGListaUsInactivos);
             this.PContListaUs.Controls.Add(this.DGListaUs);
             this.PContListaUs.Location = new System.Drawing.Point(64, 108);
             this.PContListaUs.Name = "PContListaUs";
             this.PContListaUs.Size = new System.Drawing.Size(435, 288);
             this.PContListaUs.TabIndex = 23;
             this.PContListaUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaUs_Paint);
+            // 
+            // DGListaUsInactivos
+            // 
+            this.DGListaUsInactivos.AllowUserToAddRows = false;
+            this.DGListaUsInactivos.BackgroundColor = System.Drawing.Color.Black;
+            this.DGListaUsInactivos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaUsInactivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGListaUsInactivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGListaUsInactivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_UsuarioIn,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.CUILIn,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.Tipo_UsuarioIn,
+            this.dataGridViewTextBoxColumn9,
+            this.CModificarUsIn});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGListaUsInactivos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DGListaUsInactivos.GridColor = System.Drawing.Color.Black;
+            this.DGListaUsInactivos.Location = new System.Drawing.Point(1, 1);
+            this.DGListaUsInactivos.Name = "DGListaUsInactivos";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGListaUsInactivos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGListaUsInactivos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DGListaUsInactivos.Size = new System.Drawing.Size(433, 286);
+            this.DGListaUsInactivos.TabIndex = 29;
+            this.DGListaUsInactivos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaUsInactivos_CellClick);
             // 
             // DGListaUs
             // 
@@ -147,6 +223,66 @@
             this.DGListaUs.TabIndex = 28;
             this.DGListaUs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaUs_CellClick);
             // 
+            // ID_Usuario
+            // 
+            this.ID_Usuario.HeaderText = "ID Usuario";
+            this.ID_Usuario.Name = "ID_Usuario";
+            this.ID_Usuario.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            // 
+            // CUIL
+            // 
+            this.CUIL.HeaderText = "CUIL";
+            this.CUIL.Name = "CUIL";
+            // 
+            // Nombre_usuario
+            // 
+            this.Nombre_usuario.HeaderText = "Nombre de usuario";
+            this.Nombre_usuario.Name = "Nombre_usuario";
+            // 
+            // Contraseña
+            // 
+            this.Contraseña.HeaderText = "Contraseña";
+            this.Contraseña.Name = "Contraseña";
+            // 
+            // Correo
+            // 
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            // 
+            // Tipo_usuario
+            // 
+            this.Tipo_usuario.HeaderText = "Tipo de usuario";
+            this.Tipo_usuario.Name = "Tipo_usuario";
+            // 
+            // Activo
+            // 
+            this.Activo.HeaderText = "Activo";
+            this.Activo.Name = "Activo";
+            // 
+            // CModificarUs
+            // 
+            this.CModificarUs.HeaderText = "Modificar";
+            this.CModificarUs.Name = "CModificarUs";
+            this.CModificarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CModificarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // CEliminarUs
+            // 
+            this.CEliminarUs.HeaderText = "Eliminar";
+            this.CEliminarUs.Name = "CEliminarUs";
+            this.CEliminarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CEliminarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // LTituloListaUs
             // 
             this.LTituloListaUs.AutoSize = true;
@@ -169,6 +305,49 @@
             this.PBImgListaUs.Size = new System.Drawing.Size(47, 41);
             this.PBImgListaUs.TabIndex = 21;
             this.PBImgListaUs.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(64, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 18);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Activo";
+            // 
+            // PBackSwitch
+            // 
+            this.PBackSwitch.BackColor = System.Drawing.Color.Black;
+            this.PBackSwitch.Controls.Add(this.BSwitch);
+            this.PBackSwitch.Location = new System.Drawing.Point(65, 75);
+            this.PBackSwitch.Name = "PBackSwitch";
+            this.PBackSwitch.Size = new System.Drawing.Size(57, 29);
+            this.PBackSwitch.TabIndex = 33;
+            this.PBackSwitch.Click += new System.EventHandler(this.BSwitch_Click);
+            this.PBackSwitch.Paint += new System.Windows.Forms.PaintEventHandler(this.PBackSwitch_Paint);
+            // 
+            // BSwitch
+            // 
+            this.BSwitch.BackColor = System.Drawing.Color.White;
+            this.BSwitch.BackgroundColor = System.Drawing.Color.White;
+            this.BSwitch.BorderColor = System.Drawing.Color.Lime;
+            this.BSwitch.BorderRadius = 12;
+            this.BSwitch.BorderSize = 1;
+            this.BSwitch.FlatAppearance.BorderSize = 0;
+            this.BSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BSwitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BSwitch.ForeColor = System.Drawing.Color.Black;
+            this.BSwitch.Location = new System.Drawing.Point(3, 2);
+            this.BSwitch.Name = "BSwitch";
+            this.BSwitch.Size = new System.Drawing.Size(25, 25);
+            this.BSwitch.TabIndex = 30;
+            this.BSwitch.Text = "S";
+            this.BSwitch.TextColor = System.Drawing.Color.Black;
+            this.BSwitch.UseVisualStyleBackColor = false;
+            this.BSwitch.Click += new System.EventHandler(this.BSwitch_Click);
             // 
             // BBuscador
             // 
@@ -254,65 +433,63 @@
             this.BDescargarListUs.TextColor = System.Drawing.Color.White;
             this.BDescargarListUs.UseVisualStyleBackColor = false;
             // 
-            // ID_Usuario
+            // MovSwich
             // 
-            this.ID_Usuario.HeaderText = "ID Usuario";
-            this.ID_Usuario.Name = "ID_Usuario";
-            this.ID_Usuario.Visible = false;
+            this.MovSwich.Interval = 1;
+            this.MovSwich.Tick += new System.EventHandler(this.MovSwitch_Tick);
             // 
-            // Nombre
+            // ID_UsuarioIn
             // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
+            this.ID_UsuarioIn.HeaderText = "ID Usuario";
+            this.ID_UsuarioIn.Name = "ID_UsuarioIn";
+            this.ID_UsuarioIn.Visible = false;
             // 
-            // Apellido
+            // dataGridViewTextBoxColumn2
             // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // CUIL
+            // dataGridViewTextBoxColumn3
             // 
-            this.CUIL.HeaderText = "CUIL";
-            this.CUIL.Name = "CUIL";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Apellido";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // Nombre_usuario
+            // CUILIn
             // 
-            this.Nombre_usuario.HeaderText = "Nombre de usuario";
-            this.Nombre_usuario.Name = "Nombre_usuario";
+            this.CUILIn.HeaderText = "CUIL";
+            this.CUILIn.Name = "CUILIn";
             // 
-            // Contraseña
+            // dataGridViewTextBoxColumn5
             // 
-            this.Contraseña.HeaderText = "Contraseña";
-            this.Contraseña.Name = "Contraseña";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre de usuario";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // Correo
+            // dataGridViewTextBoxColumn6
             // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Contraseña";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // Tipo_usuario
+            // dataGridViewTextBoxColumn7
             // 
-            this.Tipo_usuario.HeaderText = "Tipo de usuario";
-            this.Tipo_usuario.Name = "Tipo_usuario";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // Activo
+            // Tipo_UsuarioIn
             // 
-            this.Activo.HeaderText = "Activo";
-            this.Activo.Name = "Activo";
+            this.Tipo_UsuarioIn.HeaderText = "Tipo de usuario";
+            this.Tipo_UsuarioIn.Name = "Tipo_UsuarioIn";
             // 
-            // CModificarUs
+            // dataGridViewTextBoxColumn9
             // 
-            this.CModificarUs.HeaderText = "Modificar";
-            this.CModificarUs.Name = "CModificarUs";
-            this.CModificarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CModificarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Activo";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
-            // CEliminarUs
+            // CModificarUsIn
             // 
-            this.CEliminarUs.HeaderText = "Eliminar";
-            this.CEliminarUs.Name = "CEliminarUs";
-            this.CEliminarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CEliminarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CModificarUsIn.HeaderText = "Modificar";
+            this.CModificarUsIn.Name = "CModificarUsIn";
+            this.CModificarUsIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CModificarUsIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ListaUsuario
             // 
@@ -322,6 +499,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.PBackSwitch);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BBuscador);
             this.Controls.Add(this.TBFiltro);
             this.Controls.Add(this.LShowRegistrarUs);
@@ -337,8 +516,10 @@
             this.Text = "ListaUsuarios";
             this.Load += new System.EventHandler(this.ListaUsuario_Load);
             this.PContListaUs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGListaUsInactivos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaUs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).EndInit();
+            this.PBackSwitch.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,5 +548,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
         private System.Windows.Forms.DataGridViewButtonColumn CModificarUs;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminarUs;
+        private System.Windows.Forms.DataGridView DGListaUsInactivos;
+        private RJButton BSwitch;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel PBackSwitch;
+        private System.Windows.Forms.Timer MovSwich;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_UsuarioIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CUILIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_UsuarioIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewButtonColumn CModificarUsIn;
     }
 }

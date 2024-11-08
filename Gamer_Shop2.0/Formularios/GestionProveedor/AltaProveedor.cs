@@ -19,6 +19,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         private int borderWidth = 5; // Grosor del borde
         string filePath;
 
+        public Bienvenida MainForm {  get; set; }
         public Panel PanelContainer { get; set; }
         public AltaProveedor()
         {
@@ -114,6 +115,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             ListaProveedor formListProveedor = new ListaProveedor();
             formListProveedor.TopLevel = false;
             formListProveedor.PanelContainer = PanelContainer;
+            formListProveedor.MainForm = MainForm;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formListProveedor);
             PanelContainer.BringToFront();

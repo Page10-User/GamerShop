@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 using Gamer_Shop2._0.Datos;
 
@@ -30,7 +31,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void listaClientesActivos(DataGridView grid)
+        public DataTable listaClientes(DataGridView grid)
         {
             if (dCliente == null)
             {
@@ -38,7 +39,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                dCliente.getClientesActivos(grid);
+                return dCliente.getClientes(grid);
             }
         }
 

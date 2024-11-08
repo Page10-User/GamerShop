@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Datos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void listaProveedoresActivos(DataGridView grid)
+        public DataTable listaProveedores(DataGridView grid)
         {
             if (dProveedor == null)
             {
@@ -44,23 +45,11 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                dProveedor.getProveedoresActivos(grid);
+                return dProveedor.getProveedores(grid);
             }
         }
 
-        public void listaProveedoresInactivos(DataGridView grid)
-        {
-            if (dProveedor == null)
-            {
-                throw new NullReferenceException("El objeto 'dproveedor' no se pudo inicializar.");
-            }
-            else
-            {
-                dProveedor.getProveedoresInactivos(grid);
-            }
-        }
-
-        public void NModificarProveedor(string razonactual, string razonsocial, string nomrep, string telefono, string correo, string direccion, int catprod)
+        public void NModificarProveedor(string razonactual, string razonsocial, string nomrep, string telefono, string correo, string direccion, int catprod, string activo)
         {
             Proveedor proveedor = new Proveedor()
             {
@@ -69,7 +58,8 @@ namespace Gamer_Shop2._0.Negocio
                 Telefono = telefono,
                 Correo = correo,
                 Dirección = direccion,
-                ID_CategoriaProducto = catprod
+                ID_CategoriaProducto = catprod,
+                Activo = activo
             };
             if (dProveedor == null)
             {

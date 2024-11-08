@@ -2,6 +2,7 @@
 using System.Linq;
 using Gamer_Shop2._0.Excepciones;
 using System.Windows.Forms;
+using System.Data;
 
 
 namespace Gamer_Shop2._0.Datos
@@ -58,7 +59,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void getClientesActivos(DataGridView grid)
+        public DataTable getClientes(DataGridView grid)
         {
             if (grid == null)
             {
@@ -68,10 +69,7 @@ namespace Gamer_Shop2._0.Datos
             {
                 DClientes Clientes = new DClientes();
                
-                grid.DataSource = Clientes.GetClienteAll();
-
-
-
+                return Clientes.GetClienteAll();
             }
         }
 

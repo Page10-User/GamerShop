@@ -61,7 +61,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public DataTable getUsuariosActivos(DataGridView grid)
+        public DataTable getUsuarios(DataGridView grid)
         {
             if (grid == null)
             {
@@ -71,21 +71,6 @@ namespace Gamer_Shop2._0.Datos
             {
                 DUsuarios Usuarios = new DUsuarios();
                 return Usuarios.GetUsuarioAll();
-            }
-        }
-
-        public void getUsuariosActivosEyA(DataGridView grid)
-        {
-            if (grid == null)
-            {
-                throw new NullReferenceException("Error al cargar la tabla");
-            }
-            else
-            {
-                DUsuarios Usuarios = new DUsuarios();
-                DataView view = new DataView(Usuarios.GetUsuariosTipoEmpleadoYAdmin());
-                view.RowFilter = "Activo = 'SI'";
-                grid.DataSource = view;
             }
         }
 
