@@ -189,6 +189,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 formListaVn.TopLevel = false;
                 formListaVn.PanelContainer = PanelContainer;
                 formListaVn.Mainform = MainForm;
+                formListaVn.LUsuario = UUsuario;
                 PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
                 PanelContainer.Controls.Add(formListaVn);
                 PanelContainer.BringToFront();

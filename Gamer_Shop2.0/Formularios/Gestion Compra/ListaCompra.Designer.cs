@@ -87,6 +87,7 @@
             this.DGListaCompra.GridColor = System.Drawing.Color.Black;
             this.DGListaCompra.Location = new System.Drawing.Point(1, 1);
             this.DGListaCompra.Name = "DGListaCompra";
+            this.DGListaCompra.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,36 +108,43 @@
             // 
             this.CProveedor.HeaderText = "Nombre Proveedor";
             this.CProveedor.Name = "CProveedor";
+            this.CProveedor.ReadOnly = true;
             // 
             // CFechaCompra
             // 
             this.CFechaCompra.HeaderText = "Fecha Compra";
             this.CFechaCompra.Name = "CFechaCompra";
+            this.CFechaCompra.ReadOnly = true;
             // 
             // CProducto
             // 
             this.CProducto.HeaderText = "Producto/s";
             this.CProducto.Name = "CProducto";
+            this.CProducto.ReadOnly = true;
             // 
             // CPrecioUnitario
             // 
             this.CPrecioUnitario.HeaderText = "Precio Unitario/s";
             this.CPrecioUnitario.Name = "CPrecioUnitario";
+            this.CPrecioUnitario.ReadOnly = true;
             // 
             // CPrecioTotal
             // 
             this.CPrecioTotal.HeaderText = "Total";
             this.CPrecioTotal.Name = "CPrecioTotal";
+            this.CPrecioTotal.ReadOnly = true;
             // 
             // CEstadoCompra
             // 
             this.CEstadoCompra.HeaderText = "Estado Compra";
             this.CEstadoCompra.Name = "CEstadoCompra";
+            this.CEstadoCompra.ReadOnly = true;
             // 
             // CCancelarCompra
             // 
             this.CCancelarCompra.HeaderText = "Cancelar";
             this.CCancelarCompra.Name = "CCancelarCompra";
+            this.CCancelarCompra.ReadOnly = true;
             this.CCancelarCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CCancelarCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 

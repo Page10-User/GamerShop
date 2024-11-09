@@ -378,7 +378,7 @@
           <Property Name="ID_Proveedor" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Proveedor" Relationship="ProyectoTallerIIModel.FK_Proveedor" FromRole="Producto" ToRole="Proveedor" />
           <Property Name="Activo" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="photoFilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="photoFilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Detalle_venta" Relationship="ProyectoTallerIIModel.FK_ProductoDV" FromRole="Producto" ToRole="Detalle_venta" />
           <NavigationProperty Name="Detalle_compra" Relationship="ProyectoTallerIIModel.FK_ProductoDC" FromRole="Producto" ToRole="Detalle_compra" />
         </EntityType>

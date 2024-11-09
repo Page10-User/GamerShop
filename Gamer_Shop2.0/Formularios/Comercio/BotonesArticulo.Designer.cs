@@ -114,21 +114,21 @@
             // PFotoPr
             // 
             this.PFotoPr.BackColor = System.Drawing.Color.Transparent;
+            this.PFotoPr.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PFotoPr.Controls.Add(this.PBfotoPr);
             this.PFotoPr.Location = new System.Drawing.Point(14, 3);
             this.PFotoPr.Name = "PFotoPr";
             this.PFotoPr.Size = new System.Drawing.Size(129, 87);
             this.PFotoPr.TabIndex = 4;
-            this.PFotoPr.Paint += new System.Windows.Forms.PaintEventHandler(this.PFotoPr_Paint);
             // 
             // PBfotoPr
             // 
             this.PBfotoPr.BackColor = System.Drawing.Color.Transparent;
             this.PBfotoPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBfotoPr.BackgroundImage")));
             this.PBfotoPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBfotoPr.Location = new System.Drawing.Point(10, 3);
+            this.PBfotoPr.Location = new System.Drawing.Point(1, 1);
             this.PBfotoPr.Name = "PBfotoPr";
-            this.PBfotoPr.Size = new System.Drawing.Size(109, 81);
+            this.PBfotoPr.Size = new System.Drawing.Size(123, 81);
             this.PBfotoPr.TabIndex = 1;
             this.PBfotoPr.TabStop = false;
             // 

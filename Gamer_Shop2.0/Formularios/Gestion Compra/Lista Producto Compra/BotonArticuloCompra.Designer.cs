@@ -113,6 +113,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.PBfotoPr);
             this.panel2.Location = new System.Drawing.Point(14, 3);
             this.panel2.Name = "panel2";
@@ -124,9 +125,9 @@
             this.PBfotoPr.BackColor = System.Drawing.Color.Transparent;
             this.PBfotoPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBfotoPr.BackgroundImage")));
             this.PBfotoPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBfotoPr.Location = new System.Drawing.Point(10, 3);
+            this.PBfotoPr.Location = new System.Drawing.Point(1, 1);
             this.PBfotoPr.Name = "PBfotoPr";
-            this.PBfotoPr.Size = new System.Drawing.Size(104, 81);
+            this.PBfotoPr.Size = new System.Drawing.Size(118, 81);
             this.PBfotoPr.TabIndex = 1;
             this.PBfotoPr.TabStop = false;
             // 

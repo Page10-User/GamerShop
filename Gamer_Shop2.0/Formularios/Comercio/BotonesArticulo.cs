@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.Comercio
@@ -14,6 +15,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         private int borderWidth = 2; // Grosor del borde
         private string descripcion = "Descripción del Producto";
         private int serial = 0;
+        private string photoFilePath = null;
 
         public Panel PanelContainer { get; set; }
         public Catalogo MainCatalogo { get; set; }
@@ -30,6 +32,19 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+
+            //Aplicamos la imagen (si tiene)
+            if (PhotoFilePath is null)
+            {
+                PBfotoPr.Image = Image.FromFile(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\imagen_default.png")));
+                PBfotoPr.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            else
+            {
+                string imagePath = Path.Combine(Application.StartupPath, "uploads", photoFilePath);
+                PBfotoPr.Image = Image.FromFile(imagePath);
+                PBfotoPr.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -92,16 +107,22 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             set { LCategoria.Text = value; }
         }
 
-        public Image ImgProducto
-        {
-            get { return PBfotoPr.Image; }
-            set { PBfotoPr.Image = value; }
-        }
+        //public Image ImgProducto
+        //{
+        //    get { return PBfotoPr.Image; }
+        //    set { PBfotoPr.Image = value; }
+        //}
 
         public string Precio
         {
             get { return LPrecio.Text; }
             set { LPrecio.Text = value; }
+        }
+
+        public string PhotoFilePath
+        {
+            get { return photoFilePath; }
+            set { photoFilePath = value; }
         }
         //End Methot
 

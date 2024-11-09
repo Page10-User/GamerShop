@@ -61,7 +61,8 @@ namespace Gamer_Shop2._0.Formularios.Comercio
                 articuloCt.Serial = producto.Serial;
                 articuloCt.NombreProducto = producto.Nombre;        
                 articuloCt.Precio = producto.Precio.ToString();   
-                articuloCt.Categoria = producto.Categoria; 
+                articuloCt.Categoria = producto.Categoria;
+                articuloCt.PhotoFilePath = producto.photoFilePath;
                 articuloCt.AgregarAlCarritoClick += ArticuloCt_AgregarAlCarritoClick;
 
                 articuloCt.PanelContainer = PanelContainer;
@@ -139,6 +140,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             listVn.PanelContainer = PanelContainer;
             listVn.LabelVersion = LabelContainer;
             listVn.Mainform = MainForm;
+            listVn.LUsuario = CUsuario;
             listVn.Show();
             this.Dispose();
         }
@@ -210,6 +212,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             Pcarrito.PanelContainerCr = PContCarrito;
             Pcarrito.PanelContainer = PanelContainer;
             Pcarrito.MainForm = MainForm;
+            Pcarrito.PCUsuario = CUsuario;
             Pcarrito.FondoOscuro = GenerarFondoOscuro(formBg);
             Pcarrito.MainCatalogo = this;
             Pcarrito.EliminarPrCarritoClick += ArticuloCr_EliminarPrCarritoClick;

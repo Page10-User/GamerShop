@@ -161,6 +161,7 @@
             this.DGListaVn.GridColor = System.Drawing.Color.Black;
             this.DGListaVn.Location = new System.Drawing.Point(1, 1);
             this.DGListaVn.Name = "DGListaVn";
+            this.DGListaVn.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,36 +182,43 @@
             // 
             this.CCliente.HeaderText = "Cliente";
             this.CCliente.Name = "CCliente";
+            this.CCliente.ReadOnly = true;
             // 
             // CFechaVenta
             // 
             this.CFechaVenta.HeaderText = "FechaVenta";
             this.CFechaVenta.Name = "CFechaVenta";
+            this.CFechaVenta.ReadOnly = true;
             // 
             // CProductos
             // 
             this.CProductos.HeaderText = "Producto/s";
             this.CProductos.Name = "CProductos";
+            this.CProductos.ReadOnly = true;
             // 
             // CCantidad
             // 
             this.CCantidad.HeaderText = "Cantidad";
             this.CCantidad.Name = "CCantidad";
+            this.CCantidad.ReadOnly = true;
             // 
             // CCPrecio
             // 
             this.CCPrecio.HeaderText = "Precio";
             this.CCPrecio.Name = "CCPrecio";
+            this.CCPrecio.ReadOnly = true;
             // 
             // CTotal
             // 
             this.CTotal.HeaderText = "Total";
             this.CTotal.Name = "CTotal";
+            this.CTotal.ReadOnly = true;
             // 
             // CEstadoVenta
             // 
             this.CEstadoVenta.HeaderText = "EstadoVenta";
             this.CEstadoVenta.Name = "CEstadoVenta";
+            this.CEstadoVenta.ReadOnly = true;
             // 
             // LTituloListaUs
             // 

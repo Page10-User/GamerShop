@@ -58,6 +58,8 @@
             this.BShowListaVn = new Gamer_Shop2._0.RJButton();
             this.BRegistrarVn = new Gamer_Shop2._0.RJButton();
             this.método_pagoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Método_pagoTableAdapter();
+            this.TBDniClExist = new Gamer_Shop2._0.RJControls.RJTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).BeginInit();
             this.PContAltaVn2.SuspendLayout();
             this.PContBuscarDni.SuspendLayout();
@@ -328,6 +330,8 @@
             // PContAltaVn4
             // 
             this.PContAltaVn4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PContAltaVn4.Controls.Add(this.label2);
+            this.PContAltaVn4.Controls.Add(this.TBDniClExist);
             this.PContAltaVn4.Controls.Add(this.CBCategoria);
             this.PContAltaVn4.Controls.Add(this.TBValidacion);
             this.PContAltaVn4.Controls.Add(this.LContraseñaUs);
@@ -484,6 +488,40 @@
             // 
             this.método_pagoTableAdapter.ClearBeforeFill = true;
             // 
+            // TBDniClExist
+            // 
+            this.TBDniClExist.BackColor = System.Drawing.Color.Black;
+            this.TBDniClExist.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBDniClExist.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBDniClExist.BorderSize = 1;
+            this.TBDniClExist.Enabled = false;
+            this.TBDniClExist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBDniClExist.ForeColor = System.Drawing.Color.White;
+            this.TBDniClExist.Location = new System.Drawing.Point(51, 84);
+            this.TBDniClExist.Margin = new System.Windows.Forms.Padding(4);
+            this.TBDniClExist.Multiline = false;
+            this.TBDniClExist.Name = "TBDniClExist";
+            this.TBDniClExist.Padding = new System.Windows.Forms.Padding(7);
+            this.TBDniClExist.PasswordChar = false;
+            this.TBDniClExist.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBDniClExist.PlaceholderText = "";
+            this.TBDniClExist.Size = new System.Drawing.Size(141, 31);
+            this.TBDniClExist.TabIndex = 32;
+            this.TBDniClExist.Texts = "";
+            this.TBDniClExist.UnderlinedStyle = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(12, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 18);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "DNI";
+            // 
             // AltaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,5 +593,7 @@
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource métodopagoBindingSource;
         private DataSet1TableAdapters.Método_pagoTableAdapter método_pagoTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private RJControls.RJTextBox TBDniClExist;
     }
 }

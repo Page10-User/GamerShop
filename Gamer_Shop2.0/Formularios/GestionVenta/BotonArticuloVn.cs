@@ -1,5 +1,6 @@
 ﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionVenta
@@ -10,6 +11,10 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         private int serial = 0;
         private int borderWidth = 1; // Grosor del borde
         private int id = 0;
+
+        string cantidadActual;
+
+        public Bienvenida MainForm { get; set; }
 
         public BotonArticuloVn()
         {
@@ -79,10 +84,12 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 this.Parent.Controls.Remove(this);
                 mensaje = new MsgPersonalizado("Producto eliminado correctamente de la lista", "Eliminación", "Informacion", null);
                 mensaje.ShowDialog();
+                MainForm.TopMost = true;
             }
             else
             {
                 mensaje.Dispose();
+                MainForm.TopMost = true;
             }
         }
 
@@ -121,6 +128,35 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 mensaje.ShowDialog();
                 TBCantidadPr.Text = "1";
             }
+        }
+
+        public event EventHandler<decimal> RecalcularPrecio;
+        private void TBCantidadPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (Convert.ToInt64(cantidadActual) != Convert.ToInt64(TBCantidadPr.Text))
+            {
+                decimal precioAnt = Convert.ToDecimal(Precio);
+                int cantidadAnt = Convert.ToInt32(cantidadActual);
+                decimal totalAnterior = precioAnt * cantidadAnt; //Mayor
+
+                decimal precio = Convert.ToDecimal(Precio);
+                int cantidad = Convert.ToInt32(TBCantidadPr.Text);
+                decimal precioActualizado = precio * cantidad; //Menor
+
+                decimal totalActualizado = precioActualizado - totalAnterior;
+
+                RecalcularPrecio?.Invoke(this, totalActualizado);
+                cantidadActual = TBCantidadPr.Text;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void BotonArticuloVn_Load(object sender, EventArgs e)
+        {
+            cantidadActual = TBCantidadPr.Text;
         }
     }
 }

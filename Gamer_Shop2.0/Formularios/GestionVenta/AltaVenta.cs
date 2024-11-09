@@ -55,8 +55,11 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 ArticuloCr.Precio = producto.Precio.ToString();
                 ArticuloCr.Categoria = producto.Categoria;
 
+                ArticuloCr.MainForm = MainForm;
+
                 //Asociamos al evento Eliminar.
                 ArticuloCr.EliminarDelCarritoClick += ArticuloCr_EliminarPrCarritoClick;
+                ArticuloCr.RecalcularPrecio += ArticuloCr_ActualizarPrecioClick;
 
                 ArticuloCr.TBCantidadPr.Text = cantidad.ToString();
 
@@ -224,7 +227,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
             else
             {
-                if (TBFecha.Texts != string.Empty && TBMonto.Texts != string.Empty && CBCategoria.SelectedItem != null)
+                if (TBFecha.Texts != string.Empty && TBMonto.Texts != string.Empty && CBCategoria.SelectedItem != null && TBDniClExist.Texts != string.Empty)
                 {
                     try {
                         NVenta nventa = new NVenta();
@@ -288,8 +291,9 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         private void FormAltaCl_ObtenerDNICliente(object sender, int DNI)
         {
-            PContBuscarDni.Visible = true;
-            TBDniClienteExistente.Texts = DNI.ToString();
+            //PContBuscarDni.Visible = true;
+            //TBDniClienteExistente.Texts = DNI.ToString();
+            TBDniClExist.Texts = DNI.ToString();
         }
 
         private void BClienteExistente_Click(object sender, EventArgs e)
@@ -336,6 +340,11 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         {
             decimal precioActual = Convert.ToDecimal(TBMonto.Texts);
             TBMonto.Texts = Convert.ToString(precioActual - total);
+        }
+        private void ArticuloCr_ActualizarPrecioClick(object sender, decimal total)
+        {
+            decimal precioActual = Convert.ToDecimal(TBMonto.Texts);
+            TBMonto.Texts = Convert.ToString(precioActual + total);
         }
 
         private void BordeRedondeadoPanels()
@@ -401,11 +410,16 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 Cliente cliente1 = nCliente.GetCliente(TBDniClienteExistente.Texts);
                 MsgPersonalizado mensaje = new MsgPersonalizado("El DNI: " + cliente1.DNI + " se encuentra registrado", "Cliente existente", "Informacion", null);
                 mensaje.ShowDialog();
+                MainForm.TopMost = true;
                 cliente = cliente1;
+
+                //Lo guardamos en el TextBox correspondiente
+                TBDniClExist.Texts = cliente1.DNI.ToString();
             }
             catch {
                 MsgPersonalizado mensaje = new MsgPersonalizado("El cliente no existe", "Error", "Error", null);
                 mensaje.ShowDialog();
+                MainForm.TopMost = true;
             }
         }
 

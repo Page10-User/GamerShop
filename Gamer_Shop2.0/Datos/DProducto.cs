@@ -184,6 +184,7 @@ namespace Gamer_Shop2._0.Datos
             public string Nombre { get; set; }
             public double Precio { get; set; }
             public string Categoria { get; set; }
+            public string photoFilePath { get; set; }
         }
 
         public List<ProductoViewModel> ObtenerTodosLosProductos()
@@ -201,7 +202,8 @@ namespace Gamer_Shop2._0.Datos
                             Serial = p.Serial,
                             Nombre = p.Nombre,
                             Precio = p.Precio,
-                            Categoria = p.Categoría_producto.Nombre_Categoria
+                            Categoria = p.Categoría_producto.Nombre_Categoria,
+                            photoFilePath = p.photoFilePath
                         })
                         .ToList();
 
@@ -233,7 +235,8 @@ namespace Gamer_Shop2._0.Datos
                             Serial = p.Serial,
                             Nombre = p.Nombre,
                             Precio = p.Precio,
-                            Categoria = p.Categoría_producto.Nombre_Categoria
+                            Categoria = p.Categoría_producto.Nombre_Categoria,
+                            photoFilePath = p.photoFilePath
                         })
                         .FirstOrDefault();
 

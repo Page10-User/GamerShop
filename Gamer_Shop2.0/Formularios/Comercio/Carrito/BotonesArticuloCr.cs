@@ -1,7 +1,9 @@
 ﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
@@ -13,6 +15,11 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         private int borderWidth = 2; // Grosor del borde
         private int serial = 0;
         private string descripcion = "Descripción del Producto";
+        private string photoFilePath;
+        private string cantidadActual;
+
+        public Bienvenida MainForm { get; set; }
+
         public BotonesArticuloCr()
         {
             InitializeComponent();
@@ -24,6 +31,20 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+
+            //Aplicamos la imagen (si tiene)
+            if (PhotoFilePath is null)
+            {
+                PBfotoPr.Image = Image.FromFile(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\imagen_default.png")));
+                PBfotoPr.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            else
+            {
+                string imagePath = Path.Combine(Application.StartupPath, "uploads", photoFilePath);
+                PBfotoPr.Image = Image.FromFile(imagePath);
+                PBfotoPr.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            cantidadActual = TBCantidadPr.Text;
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -91,9 +112,16 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             get { return LPrecio.Text; }
             set { LPrecio.Text = value; }
         }
+
+        public string PhotoFilePath
+        {
+            get { return photoFilePath; }
+            set { photoFilePath = value; }
+        }
         //End Methot
 
         public event EventHandler<int> EliminarDelCarritoClick;
+        public event EventHandler<decimal> ActualizarPrecioCarritoClick;
         private void BEliminarDeCarrito_Click(object sender, EventArgs e)
         {
             MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea eliminar el producto del carrito?", "Eliminar Producto", "Interrogacion", null);
@@ -106,13 +134,17 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 
                 //Pasamos el id del producto al catálogo (caso actual sjdsjd).
                 EliminarDelCarritoClick?.Invoke(this, Serial);
+
+                ActualizarPrecioCarritoClick?.Invoke(this, Convert.ToDecimal(Precio) * Convert.ToInt64(TBCantidadPr.Text)); //Actualizar precio en carrito con evento
                 this.Parent.Controls.Remove(this);
                 mensaje = new MsgPersonalizado("Producto eliminado correctamente", "Eliminación", "Informacion", null);
                 mensaje.ShowDialog();
+                MainForm.TopMost = true;
             }
             else
             {
                 mensaje.Dispose();
+                MainForm.TopMost = true;
             }
         }
 
@@ -138,12 +170,14 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
                     mensaje.ShowDialog();
 
                     TBCantidadPr.Text = "1";
+                    MainForm.TopMost = true;
                 }
                 else if (result == 0)
                 {
                     MsgPersonalizado mensaje = new MsgPersonalizado("El valor no puede ser 0", "Error", "Error", null);
                     mensaje.ShowDialog();
                     TBCantidadPr.Text = "1";
+                    MainForm.TopMost = true;
                 }
             }
             else
@@ -151,6 +185,31 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
                 MsgPersonalizado mensaje = new MsgPersonalizado("Por favor, ingrese un número entero positivo.", "Error", "Error", null);
                 mensaje.ShowDialog();
                 TBCantidadPr.Text = "1";
+                MainForm.TopMost = true;
+            }
+        }
+
+        public event EventHandler<decimal> ActualizarPrecioPorCantidad;
+        private void TBCantidadPr_Validating(object sender, CancelEventArgs e)
+        {
+            if (Convert.ToInt64(cantidadActual) != Convert.ToInt64(TBCantidadPr.Text))
+            {
+                decimal precioAnt = Convert.ToDecimal(Precio);
+                int cantidadAnt = Convert.ToInt32(cantidadActual);
+                decimal totalAnterior = precioAnt * cantidadAnt; //Mayor
+
+                decimal precio = Convert.ToDecimal(Precio);
+                int cantidad = Convert.ToInt32(TBCantidadPr.Text);
+                decimal precioActualizado = precio * cantidad; //Menor
+
+                decimal totalActualizado = precioActualizado - totalAnterior;
+
+                ActualizarPrecioPorCantidad?.Invoke(this, totalActualizado);
+                cantidadActual = TBCantidadPr.Text;
+            }
+            else
+            {
+                return;
             }
         }
     }

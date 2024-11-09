@@ -152,6 +152,7 @@
             this.DGListaPrInactivos.GridColor = System.Drawing.Color.Black;
             this.DGListaPrInactivos.Location = new System.Drawing.Point(1, 1);
             this.DGListaPrInactivos.Name = "DGListaPrInactivos";
+            this.DGListaPrInactivos.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,42 +174,50 @@
             // 
             this.ID_ProductoIn.HeaderText = "ID_Producto";
             this.ID_ProductoIn.Name = "ID_ProductoIn";
+            this.ID_ProductoIn.ReadOnly = true;
             this.ID_ProductoIn.Visible = false;
             // 
             // SerialIn
             // 
             this.SerialIn.HeaderText = "Serial";
             this.SerialIn.Name = "SerialIn";
+            this.SerialIn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "Descripción";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.HeaderText = "Stock";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.HeaderText = "Precio";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.HeaderText = "Categoría";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.HeaderText = "Proveedor";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // CModificarIn
             // 
@@ -220,6 +229,7 @@
             this.CModificarIn.DefaultCellStyle = dataGridViewCellStyle2;
             this.CModificarIn.HeaderText = "Modificar";
             this.CModificarIn.Name = "CModificarIn";
+            this.CModificarIn.ReadOnly = true;
             this.CModificarIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CModificarIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -259,6 +269,7 @@
             this.DGListaPr.GridColor = System.Drawing.Color.Black;
             this.DGListaPr.Location = new System.Drawing.Point(2, 2);
             this.DGListaPr.Name = "DGListaPr";
+            this.DGListaPr.ReadOnly = true;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -280,42 +291,50 @@
             // 
             this.ID_Producto.HeaderText = "ID_Producto";
             this.ID_Producto.Name = "ID_Producto";
+            this.ID_Producto.ReadOnly = true;
             this.ID_Producto.Visible = false;
             // 
             // Serial
             // 
             this.Serial.HeaderText = "Serial";
             this.Serial.Name = "Serial";
+            this.Serial.ReadOnly = true;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
             // Descripción
             // 
             this.Descripción.HeaderText = "Descripción";
             this.Descripción.Name = "Descripción";
+            this.Descripción.ReadOnly = true;
             // 
             // Stock
             // 
             this.Stock.HeaderText = "Stock";
             this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
             // 
             // Categoría
             // 
             this.Categoría.HeaderText = "Categoría";
             this.Categoría.Name = "Categoría";
+            this.Categoría.ReadOnly = true;
             // 
             // Proveedor
             // 
             this.Proveedor.HeaderText = "Proveedor";
             this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
             // 
             // CModificar
             // 
@@ -327,6 +346,7 @@
             this.CModificar.DefaultCellStyle = dataGridViewCellStyle7;
             this.CModificar.HeaderText = "Modificar";
             this.CModificar.Name = "CModificar";
+            this.CModificar.ReadOnly = true;
             this.CModificar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CModificar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -340,6 +360,7 @@
             this.CEliminar.DefaultCellStyle = dataGridViewCellStyle8;
             this.CEliminar.HeaderText = "Eliminar";
             this.CEliminar.Name = "CEliminar";
+            this.CEliminar.ReadOnly = true;
             this.CEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 

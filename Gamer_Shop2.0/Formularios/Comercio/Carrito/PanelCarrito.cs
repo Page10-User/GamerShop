@@ -20,6 +20,8 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
         public Catalogo MainCatalogo { get; set; }
         public Form FondoOscuro { get; set; }
 
+        public Usuario PCUsuario { get; set; }
+
         public Bienvenida MainForm {  get; set; }
         public PanelCarrito()
         {
@@ -34,6 +36,19 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 
             //Cargar productos al carrito.
             MostrarProductosEnFLPCarrito();
+
+            //Calculamos el precio total
+            CalcularYMostrarPrecioTotal();
+        }
+
+        private void CalcularYMostrarPrecioTotal()
+        {
+            decimal total = 0;
+            foreach (BotonesArticuloCr articuloCr in FLPContenidoPrCarrito.Controls)
+            {
+                total = Convert.ToInt64(articuloCr.Precio) * Convert.ToInt64(articuloCr.TBCantidadPr.Text) + total;
+            }
+            LPrecioTotal.Text = total.ToString();
         }
 
         private void MostrarProductosEnFLPCarrito()
@@ -54,7 +69,12 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
                 ArticuloCr.NombreProducto = producto.Nombre;
                 ArticuloCr.Precio = producto.Precio.ToString();
                 ArticuloCr.Categoria = producto.Categoria;
+                ArticuloCr.PhotoFilePath = producto.photoFilePath;
                 ArticuloCr.EliminarDelCarritoClick += BEliminarPrCarrito_Click;
+                ArticuloCr.ActualizarPrecioCarritoClick += BActualizarPrecioCr_Click;
+                ArticuloCr.ActualizarPrecioPorCantidad += ArticuloCr_ActualizarPrecioClick;
+
+                ArticuloCr.MainForm = MainForm;
 
                 ArticuloCr.TBCantidadPr.Text = cantidad.ToString();
 
@@ -115,6 +135,18 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             EliminarPrCarritoClick?.Invoke(this,serial);
         }
 
+        private void ArticuloCr_ActualizarPrecioClick(object sender, decimal total)
+        {
+            decimal precioActual = Convert.ToDecimal(LPrecioTotal.Text);
+            LPrecioTotal.Text = Convert.ToString(precioActual + total);
+        }
+
+        private void BActualizarPrecioCr_Click(object sender, decimal total)
+        {
+            decimal totalActual = Convert.ToDecimal(LPrecioTotal.Text);
+            LPrecioTotal.Text = (totalActual - total).ToString();
+        }
+
         private void BRegistrarVenta_Click(object sender, EventArgs e)
         {
             if (VerificarSiHayProductosCargados() == 0)
@@ -150,6 +182,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             AltaVn.PanelContainer = PanelContainer;
             AltaVn.MainForm = MainForm;
             AltaVn.IdPrCr = idPrCr;
+            AltaVn.AVUsuario = PCUsuario;
             AltaVn.Show();
             FondoOscuro.Dispose();
             MainForm.FondoOscuroCatalogo = null;

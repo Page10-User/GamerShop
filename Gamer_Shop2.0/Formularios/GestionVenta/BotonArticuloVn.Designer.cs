@@ -80,6 +80,7 @@
             this.TBCantidadPr.TabIndex = 19;
             this.TBCantidadPr.TextChanged += new System.EventHandler(this.cantidadPr_TextChanged);
             this.TBCantidadPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cantidadPr_KeyPress);
+            this.TBCantidadPr.Validating += new System.ComponentModel.CancelEventHandler(this.TBCantidadPr_Validating);
             this.TBCantidadPr.Validated += new System.EventHandler(this.cantidadPr_TextChanged);
             // 
             // LCantidadPr
@@ -131,6 +132,7 @@
             this.Name = "BotonArticuloVn";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.Size = new System.Drawing.Size(447, 52);
+            this.Load += new System.EventHandler(this.BotonArticuloVn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

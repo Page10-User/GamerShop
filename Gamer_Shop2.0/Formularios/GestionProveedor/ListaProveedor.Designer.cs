@@ -149,6 +149,7 @@
             this.DGListaProveedorInactivos.GridColor = System.Drawing.Color.Black;
             this.DGListaProveedorInactivos.Location = new System.Drawing.Point(1, 1);
             this.DGListaProveedorInactivos.Name = "DGListaProveedorInactivos";
+            this.DGListaProveedorInactivos.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -170,47 +171,56 @@
             // 
             this.ID_ProveedorIn.HeaderText = "ID_Proveedor";
             this.ID_ProveedorIn.Name = "ID_ProveedorIn";
+            this.ID_ProveedorIn.ReadOnly = true;
             this.ID_ProveedorIn.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Razon social";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Nombre representante";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "Telefono";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.HeaderText = "Correo";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.HeaderText = "Dirección";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.HeaderText = "Activo";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.HeaderText = "Categoria";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // CModificarIn
             // 
             this.CModificarIn.HeaderText = "Modificar";
             this.CModificarIn.Name = "CModificarIn";
+            this.CModificarIn.ReadOnly = true;
             this.CModificarIn.Text = "";
             // 
             // DGListaProveedor
@@ -249,6 +259,7 @@
             this.DGListaProveedor.GridColor = System.Drawing.Color.Black;
             this.DGListaProveedor.Location = new System.Drawing.Point(1, 1);
             this.DGListaProveedor.Name = "DGListaProveedor";
+            this.DGListaProveedor.ReadOnly = true;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -270,52 +281,62 @@
             // 
             this.ID_Proveedor.HeaderText = "ID_Proveedor";
             this.ID_Proveedor.Name = "ID_Proveedor";
+            this.ID_Proveedor.ReadOnly = true;
             this.ID_Proveedor.Visible = false;
             // 
             // Razon_social
             // 
             this.Razon_social.HeaderText = "Razon social";
             this.Razon_social.Name = "Razon_social";
+            this.Razon_social.ReadOnly = true;
             // 
             // Nombre_representante
             // 
             this.Nombre_representante.HeaderText = "Nombre representante";
             this.Nombre_representante.Name = "Nombre_representante";
+            this.Nombre_representante.ReadOnly = true;
             // 
             // Telefono
             // 
             this.Telefono.HeaderText = "Telefono";
             this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
             // 
             // Correo
             // 
             this.Correo.HeaderText = "Correo";
             this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
             // 
             // Dirección
             // 
             this.Dirección.HeaderText = "Dirección";
             this.Dirección.Name = "Dirección";
+            this.Dirección.ReadOnly = true;
             // 
             // Activo
             // 
             this.Activo.HeaderText = "Activo";
             this.Activo.Name = "Activo";
+            this.Activo.ReadOnly = true;
             // 
             // Categoria
             // 
             this.Categoria.HeaderText = "Categoria";
             this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
             // 
             // CModificar
             // 
             this.CModificar.HeaderText = "Modificar";
             this.CModificar.Name = "CModificar";
+            this.CModificar.ReadOnly = true;
             // 
             // CEliminar
             // 
             this.CEliminar.HeaderText = "Eliminar";
             this.CEliminar.Name = "CEliminar";
+            this.CEliminar.ReadOnly = true;
             // 
             // LTituloListaProveedor
             // 

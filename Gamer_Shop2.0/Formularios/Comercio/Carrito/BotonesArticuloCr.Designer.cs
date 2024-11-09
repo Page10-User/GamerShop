@@ -36,7 +36,9 @@
             this.LCantidadPr = new System.Windows.Forms.Label();
             this.TBCantidadPr = new System.Windows.Forms.TextBox();
             this.BEliminarPrCr = new Gamer_Shop2._0.RJButton();
+            this.PFotoPr = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PBfotoPr)).BeginInit();
+            this.PFotoPr.SuspendLayout();
             this.SuspendLayout();
             // 
             // LNombreProducto
@@ -77,7 +79,7 @@
             this.PBfotoPr.BackColor = System.Drawing.Color.Transparent;
             this.PBfotoPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBfotoPr.BackgroundImage")));
             this.PBfotoPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBfotoPr.Location = new System.Drawing.Point(14, 41);
+            this.PBfotoPr.Location = new System.Drawing.Point(1, 1);
             this.PBfotoPr.Name = "PBfotoPr";
             this.PBfotoPr.Size = new System.Drawing.Size(61, 55);
             this.PBfotoPr.TabIndex = 11;
@@ -104,6 +106,7 @@
             this.TBCantidadPr.TabIndex = 12;
             this.TBCantidadPr.TextChanged += new System.EventHandler(this.cantidadPr_TextChanged);
             this.TBCantidadPr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cantidadPr_KeyPress);
+            this.TBCantidadPr.Validating += new System.ComponentModel.CancelEventHandler(this.TBCantidadPr_Validating);
             // 
             // BEliminarPrCr
             // 
@@ -127,21 +130,33 @@
             this.BEliminarPrCr.UseVisualStyleBackColor = false;
             this.BEliminarPrCr.Click += new System.EventHandler(this.BEliminarDeCarrito_Click);
             // 
+            // PFotoPr
+            // 
+            this.PFotoPr.BackColor = System.Drawing.Color.Transparent;
+            this.PFotoPr.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PFotoPr.Controls.Add(this.PBfotoPr);
+            this.PFotoPr.Location = new System.Drawing.Point(8, 38);
+            this.PFotoPr.Name = "PFotoPr";
+            this.PFotoPr.Size = new System.Drawing.Size(67, 61);
+            this.PFotoPr.TabIndex = 14;
+            // 
             // BotonesArticuloCr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(12)))), ((int)(((byte)(0)))));
+            this.Controls.Add(this.PFotoPr);
             this.Controls.Add(this.BEliminarPrCr);
             this.Controls.Add(this.TBCantidadPr);
-            this.Controls.Add(this.PBfotoPr);
             this.Controls.Add(this.LCantidadPr);
             this.Controls.Add(this.LPrecio);
             this.Controls.Add(this.LCategoria);
             this.Controls.Add(this.LNombreProducto);
             this.Name = "BotonesArticuloCr";
             this.Size = new System.Drawing.Size(186, 111);
+            this.Load += new System.EventHandler(this.BotonesArticuloCr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBfotoPr)).EndInit();
+            this.PFotoPr.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +171,6 @@
         private System.Windows.Forms.Label LCantidadPr;
         private RJButton BEliminarPrCr;
         public System.Windows.Forms.TextBox TBCantidadPr;
+        private System.Windows.Forms.Panel PFotoPr;
     }
 }

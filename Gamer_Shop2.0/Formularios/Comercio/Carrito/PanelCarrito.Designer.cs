@@ -33,6 +33,7 @@
             this.LCarrito = new System.Windows.Forms.Label();
             this.LTotalCr = new System.Windows.Forms.Label();
             this.LPrTotalCr = new System.Windows.Forms.Label();
+            this.LPrecioTotal = new System.Windows.Forms.Label();
             this.BComprar = new Gamer_Shop2._0.RJButton();
             this.BExitCarrito = new Gamer_Shop2._0.RJButton();
             this.SuspendLayout();
@@ -77,11 +78,23 @@
             this.LPrTotalCr.BackColor = System.Drawing.Color.White;
             this.LPrTotalCr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPrTotalCr.ForeColor = System.Drawing.Color.Black;
-            this.LPrTotalCr.Location = new System.Drawing.Point(82, 286);
+            this.LPrTotalCr.Location = new System.Drawing.Point(64, 285);
             this.LPrTotalCr.Name = "LPrTotalCr";
-            this.LPrTotalCr.Size = new System.Drawing.Size(39, 20);
+            this.LPrTotalCr.Size = new System.Drawing.Size(19, 20);
             this.LPrTotalCr.TabIndex = 4;
-            this.LPrTotalCr.Text = "$$$";
+            this.LPrTotalCr.Text = "$";
+            // 
+            // LPrecioTotal
+            // 
+            this.LPrecioTotal.AutoSize = true;
+            this.LPrecioTotal.BackColor = System.Drawing.Color.White;
+            this.LPrecioTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LPrecioTotal.ForeColor = System.Drawing.Color.Black;
+            this.LPrecioTotal.Location = new System.Drawing.Point(78, 287);
+            this.LPrecioTotal.Name = "LPrecioTotal";
+            this.LPrecioTotal.Size = new System.Drawing.Size(52, 16);
+            this.LPrecioTotal.TabIndex = 6;
+            this.LPrecioTotal.Text = "Precio";
             // 
             // BComprar
             // 
@@ -133,6 +146,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(194, 432);
+            this.Controls.Add(this.LPrecioTotal);
             this.Controls.Add(this.BComprar);
             this.Controls.Add(this.LPrTotalCr);
             this.Controls.Add(this.LTotalCr);
@@ -156,5 +170,6 @@
         private System.Windows.Forms.Label LTotalCr;
         private System.Windows.Forms.Label LPrTotalCr;
         private RJButton BComprar;
+        private System.Windows.Forms.Label LPrecioTotal;
     }
 }

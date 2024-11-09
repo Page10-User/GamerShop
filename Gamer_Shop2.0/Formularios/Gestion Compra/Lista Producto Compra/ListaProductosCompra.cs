@@ -55,6 +55,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                 articuloCompra.NombreProducto = producto.Nombre;
                 articuloCompra.Precio = producto.Precio.ToString();
                 articuloCompra.Categoria = producto.Categoria;
+                articuloCompra.PhotoFilePath = producto.photoFilePath;
                 articuloCompra.AgregarAlDataGrid += AgregarAlDataGrid_Click;
 
                 //articuloCompra.PanelContainer = PanelContainer;
