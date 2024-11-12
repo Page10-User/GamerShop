@@ -108,6 +108,7 @@
     <Compile Include="Datos\DDetalles.cs" />
     <Compile Include="Datos\DDetallesCompra.cs" />
     <Compile Include="Datos\DDetalleVenta.cs" />
+    <Compile Include="Datos\DMetodoPago.cs" />
     <Compile Include="Datos\DProductos.cs" />
     <Compile Include="Datos\DProveedor.cs" />
     <Compile Include="Datos\DProveedores.cs" />
@@ -135,6 +136,12 @@
     <Compile Include="Formularios\Gestion Compra\Lista Producto Compra\ListaProductosCompra.Designer.cs">
       <DependentUpon>ListaProductosCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Gestion Compra\ListaDetalleCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Gestion Compra\ListaDetalleCompra.Designer.cs">
+      <DependentUpon>ListaDetalleCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupClientes.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupCompleto.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupCompras.cs" />
@@ -142,6 +149,12 @@
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupProveedores.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupUsuarios.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupVentas.cs" />
+    <Compile Include="Formularios\GestionVenta\ListaDetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionVenta\ListaDetalleVenta.Designer.cs">
+      <DependentUpon>ListaDetalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\MSGPersonalizado\MsgPersonalizado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +187,7 @@
     <Compile Include="Negocio\NCompra.cs" />
     <Compile Include="Negocio\NDetalleCompra.cs" />
     <Compile Include="Negocio\NDetalleVenta.cs" />
+    <Compile Include="Negocio\NMetodoPago.cs" />
     <Compile Include="Negocio\NProducto.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -451,6 +465,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Gestion Compra\AltaCompra.resx">
       <DependentUpon>AltaCompra.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Gestion Compra\Lista Producto Compra\BotonArticuloCompra.resx">
       <DependentUpon>BotonArticuloCompra.cs</DependentUpon>
@@ -460,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Gestion Compra\Lista Producto Compra\ListaProductosCompra.resx">
       <DependentUpon>ListaProductosCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Gestion Compra\ListaDetalleCompra.resx">
+      <DependentUpon>ListaDetalleCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionBackups\Backups.resx">
       <DependentUpon>Backups.cs</DependentUpon>
@@ -499,6 +517,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionVenta\BotonArticuloVn.resx">
       <DependentUpon>BotonArticuloVn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionVenta\ListaDetalleVenta.resx">
+      <DependentUpon>ListaDetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionVenta\ListaVenta.resx">
       <DependentUpon>ListaVenta.cs</DependentUpon>
@@ -626,6 +647,8 @@
     <Content Include="Query_Creacion_Tablas_corregida.sql" />
     <Content Include="Resources\imagen_default.png" />
     <Content Include="Resources\ImgPerfilUs.png" />
+    <Content Include="transaccion detalle compra.sql" />
+    <Content Include="transaccion detalle venta.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

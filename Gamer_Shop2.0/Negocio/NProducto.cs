@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Windows.Forms;
 using static Gamer_Shop2._0.Datos.DProducto;
 
@@ -83,6 +84,26 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
+        public void actualizarStock (int id, int stock)
+        {
+            Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            Producto producto = new Producto()
+            {
+                
+                ID_Producto = id,
+                Stock = stock
+            };
+            if (dproducto == null)
+            {
+                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+            }
+            else
+            {
+                Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                dproducto.DActualizarStock(producto);
+            }
+        }
+
         public Producto GetProducto(int serial) {
             if (dproducto == null)
             {
@@ -91,6 +112,18 @@ namespace Gamer_Shop2._0.Negocio
             else
             {
                 return dproducto.getProducto(serial);
+            }
+        }
+
+        public Producto GetProductoID(int id)
+        {
+            if (dproducto == null)
+            {
+                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+            }
+            else
+            {
+                return dproducto.getProductoID(id);
             }
         }
 

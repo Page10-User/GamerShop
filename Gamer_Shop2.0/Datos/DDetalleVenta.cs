@@ -1,6 +1,10 @@
 ﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +50,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public Venta getDetalle(int idven, int idprod)
+        public Detalle_venta getDetalle(int idven, int idprod)
         {
             if (ExisteRegistro(idven, idprod) == false)
             {
@@ -57,13 +61,13 @@ namespace Gamer_Shop2._0.Datos
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
 
-                    return context.Venta.FirstOrDefault(p => p.ID_Venta == idven);
+                    return context.Detalle_venta.FirstOrDefault(p => p.ID_Venta == idven);
                 }
             }
         }
 
 
-        public void getDetalles(DataGridView grid)
+        public void getDetalles(DataGridView grid, int idven)
         {
             if (adapter.GetData() == null)
             {
@@ -71,34 +75,48 @@ namespace Gamer_Shop2._0.Datos
             }
             else
             {
-                DDetalles detalles = new DDetalles();
-                grid.DataSource = detalles.GetDetallesAll();
-
-
-            }
-        }
-
-        public void DGuardarDetalle(Detalle_venta detalle)
-        {
-            if (ExisteRegistro(detalle) == true)
-            {
-                throw new ExisteRegistroException("El producto ya existe.");
-            }
-            else
-            {
-                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+                try
                 {
-                    try
-                    {
-                        context.Detalle_venta.Add(detalle);
-                        context.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"Error al guardar la categoria: {ex.Message}");
-                    }
+                    DDetalles detalles = new DDetalles();
+                    
+                    DataView view = new DataView(detalles.GetDetallesAll());
+                    Debug.WriteLine("Cuenta" + view.Count);
+                    view.RowFilter = $"ID_Venta = {idven}";
+                    grid.DataSource = view;
+                }
+                catch (Exception ex) {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se puede mostrar el detalle" + ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
                 }
             }
         }
+
+        public Detalle_venta DGenerarDetalle(Detalle_venta detalle)
+        {
+            if (ExisteRegistro(detalle) == true)
+            {
+                throw new ExisteRegistroException("Este detalle ya existe");
+            }
+            else return detalle;
+        }
+
+        public DataTable DGuardarDetalles(List<Detalle_venta> detallesVenta) {
+
+            DataTable detalleVentaTable = new DataTable();
+            detalleVentaTable.Columns.Add("ID_Producto", typeof(int));
+            detalleVentaTable.Columns.Add("ID_Venta", typeof(int));
+            detalleVentaTable.Columns.Add("Subtotal", typeof(float));
+            detalleVentaTable.Columns.Add("Cantidad", typeof(int));
+            detalleVentaTable.Columns.Add("Precio_actual", typeof(float));
+
+            // Llenar el DataTable con los datos de la lista de detalles de venta
+            foreach (var detalle in detallesVenta)
+            {
+                detalleVentaTable.Rows.Add(detalle.ID_Producto, detalle.ID_Venta, detalle.Subtotal, detalle.Cantidad, detalle.Precio_actual);
+            }
+
+            return detalleVentaTable;
+        }
+
     }
 }

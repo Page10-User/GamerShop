@@ -34,22 +34,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaCompra));
             this.DGListaCompra = new System.Windows.Forms.DataGridView();
-            this.CProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CFechaCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEstadoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCancelarCompra = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BShowLista = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaCompra = new System.Windows.Forms.Panel();
             this.LTituloListaCompra = new System.Windows.Forms.Label();
             this.PBImgListaCom = new System.Windows.Forms.PictureBox();
-            this.BShowRegistrarCompra = new Gamer_Shop2._0.RJButton();
-            this.BDescargar = new Gamer_Shop2._0.RJButton();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
+            this.BShowRegistrarCompra = new Gamer_Shop2._0.RJButton();
+            this.BDescargar = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaCompra)).BeginInit();
             this.PContListaCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaCom)).BeginInit();
@@ -68,14 +61,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGListaCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGListaCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CProveedor,
-            this.CFechaCompra,
-            this.CProducto,
-            this.CPrecioUnitario,
-            this.CPrecioTotal,
-            this.CEstadoCompra,
-            this.CCancelarCompra});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -103,50 +88,7 @@
             this.DGListaCompra.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaCompra.Size = new System.Drawing.Size(435, 288);
             this.DGListaCompra.TabIndex = 1;
-            // 
-            // CProveedor
-            // 
-            this.CProveedor.HeaderText = "Nombre Proveedor";
-            this.CProveedor.Name = "CProveedor";
-            this.CProveedor.ReadOnly = true;
-            // 
-            // CFechaCompra
-            // 
-            this.CFechaCompra.HeaderText = "Fecha Compra";
-            this.CFechaCompra.Name = "CFechaCompra";
-            this.CFechaCompra.ReadOnly = true;
-            // 
-            // CProducto
-            // 
-            this.CProducto.HeaderText = "Producto/s";
-            this.CProducto.Name = "CProducto";
-            this.CProducto.ReadOnly = true;
-            // 
-            // CPrecioUnitario
-            // 
-            this.CPrecioUnitario.HeaderText = "Precio Unitario/s";
-            this.CPrecioUnitario.Name = "CPrecioUnitario";
-            this.CPrecioUnitario.ReadOnly = true;
-            // 
-            // CPrecioTotal
-            // 
-            this.CPrecioTotal.HeaderText = "Total";
-            this.CPrecioTotal.Name = "CPrecioTotal";
-            this.CPrecioTotal.ReadOnly = true;
-            // 
-            // CEstadoCompra
-            // 
-            this.CEstadoCompra.HeaderText = "Estado Compra";
-            this.CEstadoCompra.Name = "CEstadoCompra";
-            this.CEstadoCompra.ReadOnly = true;
-            // 
-            // CCancelarCompra
-            // 
-            this.CCancelarCompra.HeaderText = "Cancelar";
-            this.CCancelarCompra.Name = "CCancelarCompra";
-            this.CCancelarCompra.ReadOnly = true;
-            this.CCancelarCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CCancelarCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DGListaCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaCompra_CellClick);
             // 
             // BShowLista
             // 
@@ -205,45 +147,6 @@
             this.PBImgListaCom.TabIndex = 15;
             this.PBImgListaCom.TabStop = false;
             // 
-            // BShowRegistrarCompra
-            // 
-            this.BShowRegistrarCompra.BackColor = System.Drawing.Color.Black;
-            this.BShowRegistrarCompra.BackgroundColor = System.Drawing.Color.Black;
-            this.BShowRegistrarCompra.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowRegistrarCompra.BackgroundImage")));
-            this.BShowRegistrarCompra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BShowRegistrarCompra.BorderColor = System.Drawing.Color.Lime;
-            this.BShowRegistrarCompra.BorderRadius = 20;
-            this.BShowRegistrarCompra.BorderSize = 1;
-            this.BShowRegistrarCompra.FlatAppearance.BorderSize = 0;
-            this.BShowRegistrarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BShowRegistrarCompra.ForeColor = System.Drawing.Color.White;
-            this.BShowRegistrarCompra.Location = new System.Drawing.Point(534, 264);
-            this.BShowRegistrarCompra.Name = "BShowRegistrarCompra";
-            this.BShowRegistrarCompra.Size = new System.Drawing.Size(84, 76);
-            this.BShowRegistrarCompra.TabIndex = 19;
-            this.BShowRegistrarCompra.TextColor = System.Drawing.Color.White;
-            this.BShowRegistrarCompra.UseVisualStyleBackColor = false;
-            this.BShowRegistrarCompra.Click += new System.EventHandler(this.BShowRegistrarCompra_Click);
-            // 
-            // BDescargar
-            // 
-            this.BDescargar.BackColor = System.Drawing.Color.Black;
-            this.BDescargar.BackgroundColor = System.Drawing.Color.Black;
-            this.BDescargar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BDescargar.BackgroundImage")));
-            this.BDescargar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BDescargar.BorderColor = System.Drawing.Color.Lime;
-            this.BDescargar.BorderRadius = 20;
-            this.BDescargar.BorderSize = 1;
-            this.BDescargar.FlatAppearance.BorderSize = 0;
-            this.BDescargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BDescargar.ForeColor = System.Drawing.Color.White;
-            this.BDescargar.Location = new System.Drawing.Point(534, 140);
-            this.BDescargar.Name = "BDescargar";
-            this.BDescargar.Size = new System.Drawing.Size(84, 76);
-            this.BDescargar.TabIndex = 18;
-            this.BDescargar.TextColor = System.Drawing.Color.White;
-            this.BDescargar.UseVisualStyleBackColor = false;
-            // 
             // BBuscador
             // 
             this.BBuscador.BackColor = System.Drawing.Color.Transparent;
@@ -287,6 +190,45 @@
             this.TBFiltro.Texts = "";
             this.TBFiltro.UnderlinedStyle = false;
             // 
+            // BShowRegistrarCompra
+            // 
+            this.BShowRegistrarCompra.BackColor = System.Drawing.Color.Black;
+            this.BShowRegistrarCompra.BackgroundColor = System.Drawing.Color.Black;
+            this.BShowRegistrarCompra.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowRegistrarCompra.BackgroundImage")));
+            this.BShowRegistrarCompra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BShowRegistrarCompra.BorderColor = System.Drawing.Color.Lime;
+            this.BShowRegistrarCompra.BorderRadius = 20;
+            this.BShowRegistrarCompra.BorderSize = 1;
+            this.BShowRegistrarCompra.FlatAppearance.BorderSize = 0;
+            this.BShowRegistrarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BShowRegistrarCompra.ForeColor = System.Drawing.Color.White;
+            this.BShowRegistrarCompra.Location = new System.Drawing.Point(534, 264);
+            this.BShowRegistrarCompra.Name = "BShowRegistrarCompra";
+            this.BShowRegistrarCompra.Size = new System.Drawing.Size(84, 76);
+            this.BShowRegistrarCompra.TabIndex = 19;
+            this.BShowRegistrarCompra.TextColor = System.Drawing.Color.White;
+            this.BShowRegistrarCompra.UseVisualStyleBackColor = false;
+            this.BShowRegistrarCompra.Click += new System.EventHandler(this.BShowRegistrarCompra_Click);
+            // 
+            // BDescargar
+            // 
+            this.BDescargar.BackColor = System.Drawing.Color.Black;
+            this.BDescargar.BackgroundColor = System.Drawing.Color.Black;
+            this.BDescargar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BDescargar.BackgroundImage")));
+            this.BDescargar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BDescargar.BorderColor = System.Drawing.Color.Lime;
+            this.BDescargar.BorderRadius = 20;
+            this.BDescargar.BorderSize = 1;
+            this.BDescargar.FlatAppearance.BorderSize = 0;
+            this.BDescargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BDescargar.ForeColor = System.Drawing.Color.White;
+            this.BDescargar.Location = new System.Drawing.Point(534, 140);
+            this.BDescargar.Name = "BDescargar";
+            this.BDescargar.Size = new System.Drawing.Size(84, 76);
+            this.BDescargar.TabIndex = 18;
+            this.BDescargar.TextColor = System.Drawing.Color.White;
+            this.BDescargar.UseVisualStyleBackColor = false;
+            // 
             // ListaCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,13 +269,6 @@
         private System.Windows.Forms.Panel PContListaCompra;
         private System.Windows.Forms.Label LTituloListaCompra;
         private System.Windows.Forms.PictureBox PBImgListaCom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CFechaCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoCompra;
-        private System.Windows.Forms.DataGridViewButtonColumn CCancelarCompra;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBFiltro;
     }

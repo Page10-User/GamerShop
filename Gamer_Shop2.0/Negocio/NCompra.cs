@@ -1,6 +1,8 @@
 ﻿using Gamer_Shop2._0.Datos;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,15 +13,17 @@ namespace Gamer_Shop2._0.Negocio
     internal class NCompra
     {
         DCompra dcompra = new DCompra();
-        public void NGuardarCompra(float total, int idusuario, int idcompra, int idproveedor)
+        public void NGuardarCompra(float total, int idusuario, string prov, DataTable detallesCompra)
         {
+            NProveedor proveedor = new NProveedor();
 
+            int idproveedor = proveedor.GetProveedor(prov).ID_Proveedor;
+            Debug.WriteLine(idproveedor);
             Compra compra = new Compra()
             {
                 Fecha = DateTime.Today,
                 Total = total,
                 ID_Usuario = idusuario,
-                ID_Compra = idcompra,
                 ID_Proveedor = idproveedor
             };
 
@@ -29,7 +33,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                dcompra.DGuardarCompra(compra);
+                dcompra.DGuardarCompra(compra, detallesCompra);
             }
         }
 

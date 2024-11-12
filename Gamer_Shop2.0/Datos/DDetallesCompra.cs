@@ -42,7 +42,7 @@ namespace Gamer_Shop2._0.Datos
 
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error SQL: {ex.Message}\nDetalle: {ex.InnerException?.Message}");
+                MessageBox.Show($"Error SQL: {ex.Message}\nDetalle: {ex.Message}");
                 return null;
             }
 

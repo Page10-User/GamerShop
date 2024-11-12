@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.Excepciones;
+﻿using Gamer_Shop2._0.Datos;
+using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.Formularios.Comercio;
 using Gamer_Shop2._0.Formularios.Comercio.Carrito;
 using Gamer_Shop2._0.Formularios.GestionCliente;
@@ -8,6 +9,7 @@ using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Net;
@@ -46,8 +48,19 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 int cantidad = item.Value; // Cantidad del producto
 
                 BotonArticuloVn ArticuloCr = new BotonArticuloVn();
+                Debug.WriteLine($"Intentando obtener el producto con serial: {serial}");
                 NProducto prod = new NProducto();
                 ProductoViewModel producto = prod.GetProductoCr(serial); // Obtén el producto por serial
+
+                if (producto != null)
+                {
+                    Debug.WriteLine($"Producto encontrado: ID={producto.ID}, Nombre={producto.Nombre}, Precio={producto.Precio}");
+                }
+                else
+                {
+                    Debug.WriteLine($"No se encontró el producto con serial: {serial}");
+                    continue; // Salta la iteración si el producto no existe
+                }
 
                 ArticuloCr.ID = producto.ID;
                 ArticuloCr.Serial = producto.Serial;
@@ -221,6 +234,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         {
             if (VerificarSiHayProductosCargados() == 0)
             {
+                Debug.WriteLine("No hay productos cargados en el carrito.");
                 MsgPersonalizado mensaje = new MsgPersonalizado("Debe ingresar un producto para realizar una venta", "Error", "Error", null);
                 mensaje.ShowDialog();
                 MainForm.TopMost = true;
@@ -230,19 +244,65 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 if (TBFecha.Texts != string.Empty && TBMonto.Texts != string.Empty && CBCategoria.SelectedItem != null && TBDniClExist.Texts != string.Empty)
                 {
                     try {
-                        NVenta nventa = new NVenta();
-                        nventa.NGuardarVenta(
-                            float.Parse(TBMonto.Texts),
-                            AVUsuario.ID_Usuario,
-                            cliente.ID_Cliente,
-                            CBCategoria.SelectedIndex = +1
-                        );
-                    } 
-                    catch { 
+                        List<Detalle_venta> detallesVenta = new List<Detalle_venta>();
+                        float total = 0;
+                        NDetalleVenta ndetalle = new NDetalleVenta();
+
+                        foreach (BotonArticuloVn botonArticulo in FLPListaProductosVenta.Controls)
+                        {
+                            float subtotal = int.Parse(botonArticulo.Precio) * int.Parse(botonArticulo.TBCantidadPr.Text);
+
+                                Detalle_venta detalle = ndetalle.NGenerarDetalle
+                                (
+                                botonArticulo.ID,
+                                subtotal,
+                                int.Parse(botonArticulo.TBCantidadPr.Text),
+                                 float.Parse(botonArticulo.Precio)
+                                );
+
+                                detallesVenta.Add(detalle);
+
+                            total += subtotal;
+                            }
+                        
+
+                        // Llama al método para registrar la venta en la capa de datos
+                        NVenta nventa  = new NVenta();
+                        NCliente cliente = new NCliente();
+
+
+                        int idcliente = cliente.GetCliente(TBDniClienteExistente.Texts).ID_Cliente;
+
+                        nventa.NGuardarVenta(total, AVUsuario.ID_Usuario, idcliente, CBCategoria.SelectedIndex + 1, ndetalle.NGuardarDetalles(detallesVenta));
+
+                        NProducto nproducto = new NProducto();
+                        foreach (Detalle_venta detalle in detallesVenta)
+                        {
+                            Producto prod = nproducto.GetProductoID(detalle.ID_Producto);
+                            int stockNuevo = prod.Stock - detalle.Cantidad;
+                            nproducto.actualizarStock(
+                                //prod.Serial,
+                                prod.ID_Producto,
+                                stockNuevo
+                            );
+                        }
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Venta registrada con éxito", "Registro", "Informacion", null);
+                        mensaje.ShowDialog();
+                        MainForm.TopMost = true;
                     }
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Venta registrada con éxito", "Registro", "Informacion", null);
-                    mensaje.ShowDialog();
-                    MainForm.TopMost = true;
+                    catch (ExisteRegistroException ex)
+                    {
+                        // Manejo de la excepción cuando el número de serial no existe
+                        MsgPersonalizado msg = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        msg.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de cualquier otra excepción
+                        MsgPersonalizado msg = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        msg.ShowDialog();
+                    }
+                    
                     }
                 else
                 {
@@ -260,7 +320,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             // Recorremos todos los controles del FlowLayoutPanel
             foreach (Control control in FLPListaProductosVenta.Controls)
             {
-                if (control is BotonesArticuloCr)
+                if (control is BotonArticuloVn)
                 {
                     contador++;
                 }

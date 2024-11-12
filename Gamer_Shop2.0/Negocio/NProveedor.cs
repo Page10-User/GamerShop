@@ -71,6 +71,18 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
+        public Proveedor GetProveedor(string prov)
+        {
+            if (dProveedor == null)
+            {
+                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+            }
+            else
+            {
+                return dProveedor.getProveedor(prov);
+            }
+        }
+
         public Proveedor GetProveedor(int id)
         {
             if (dProveedor == null)

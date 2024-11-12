@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using Gamer_Shop2._0.Excepciones;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Gamer_Shop2._0.Datos
 {
@@ -12,18 +13,35 @@ namespace Gamer_Shop2._0.Datos
     {
         DataSet1TableAdapters.ProductoTableAdapter adapter = new DataSet1TableAdapters.ProductoTableAdapter();
 
-        public bool ExisteRegistro (Producto producto)
+        public bool ExisteRegistro(Producto producto)
         {
-
+            Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaENTRO");
             if (adapter == null)
             {
                 throw new NullReferenceException("El TableAdapter no fue inicializado.");
             }
             using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
             {
+                Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRETORNO");
                 if (adapter.ExisteProductoPorSerial(producto.Serial) > 0) return true;
+                
                 else return false;
+            }
+        }
 
+        public bool ExisteRegistroID(int id)
+        {
+            Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaENTRO");
+            if (adapter == null)
+            {
+                throw new NullReferenceException("El TableAdapter no fue inicializado.");
+            }
+            using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+            {
+                Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRETORNO");
+                if (adapter.ExisteProductoPorID(id) > 0) return true;
+
+                else return false;
             }
         }
 
@@ -40,10 +58,10 @@ namespace Gamer_Shop2._0.Datos
                 {
                     if (adapter.ExisteProductoPorSerial(serial) > 0) return true;
                     else return false;
-
                 }
             }
         }
+
 
         public Producto getProducto(int serial)
         {
@@ -56,6 +74,30 @@ namespace Gamer_Shop2._0.Datos
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
                     return context.Producto.FirstOrDefault(p => p.Serial == serial);
+                }
+            }
+        }
+
+        public Producto getProductoID(int id)
+        {
+            if (ExisteRegistroID(id) == false)
+            {
+                Debug.WriteLine($" ID={id}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRETORNO 2");
+                throw new ExisteRegistroException("El producto no existe");
+            }
+            else
+            {
+                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+                {
+                    if ((context.Producto.FirstOrDefault(p => p.ID_Producto == id)).Activo == "SI")
+                    {
+                        return context.Producto.FirstOrDefault(p => p.ID_Producto == id);
+                        Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRETORN 2O");
+                    }
+                    else
+                    {
+                        throw new Exception("El producto fue eliminado");
+                    }
                 }
             }
         }
@@ -148,6 +190,34 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
+        public void DActualizarStock(Producto producto)
+        {
+            using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+            {
+                if (ExisteRegistroID(producto.ID_Producto) == false)
+                {
+                    Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAA");
+                    throw new ExisteRegistroException("El producto no existe");
+                }
+                else
+                {
+                    try
+                    {
+                        Debug.WriteLine($"{producto.ID_Producto}");
+                        Producto prod = context.Producto.First(p => p.ID_Producto == producto.ID_Producto);
+
+                        prod.Stock  = producto.Stock;
+                        Debug.WriteLine($"stock{prod.Stock} id{prod.ID_Producto}");
+                        context.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Error al actualizar el stock: {ex.Message}");
+                    }
+                }
+            }
+        }
+
         public void DEliminarProducto(int serial)
         {
             if (ExisteRegistro(serial) == false)
@@ -179,7 +249,7 @@ namespace Gamer_Shop2._0.Datos
         //   \\----------------------------------------------------------------------------------//
         public class ProductoViewModel
         {
-            public int ID { get; set; }
+            public int ID { get; set; } 
             public int Serial { get; set; }
             public string Nombre { get; set; }
             public double Precio { get; set; }

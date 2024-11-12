@@ -2,6 +2,9 @@
 using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,27 +82,52 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void DGuardarVenta(Venta venta)
+        public void DGuardarVenta(Venta venta, DataTable detallesVenta)
         {
             if (ExisteRegistro(venta) == true)
             {
-                throw new ExisteRegistroException("El producto ya existe.");
+                throw new ExisteRegistroException("El ID de venta ya existe.");
             }
             else
             {
+
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
-                    try
+                    using (var connection = context.Database.Connection)
                     {
-                        context.Venta.Add(venta);
-                        context.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"Error al guardar la categoria: {ex.Message}");
+                        try
+                        {
+                            connection.Open();
+                            using (var command = new SqlCommand("REGISTRARVENTA", (SqlConnection)connection))
+                            {
+                                command.CommandType = CommandType.StoredProcedure;
+
+                                // Agregar parámetros simples
+                                command.Parameters.AddWithValue("@ID_Usuario", venta.ID_Usuario);
+                                command.Parameters.AddWithValue("@ID_Cliente", venta.ID_Cliente);
+                                command.Parameters.AddWithValue("@ID_Método", venta.ID_Método);
+                                command.Parameters.AddWithValue("@Fecha", venta.Fecha);
+                                command.Parameters.AddWithValue("@Total", venta.Total);
+
+                                // Agregar parámetro de tipo tabla
+                                SqlParameter detalleParam = command.Parameters.AddWithValue("@Detalle_venta", detallesVenta);
+                                detalleParam.SqlDbType = SqlDbType.Structured;
+                                detalleParam.TypeName = "dbo.EDetalle_venta";
+
+                                // Ejecutar el procedimiento almacenado
+                                command.ExecuteNonQuery();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // Manejo de errores y rollback
+                            throw new Exception($"Error al registrar la venta: {ex.Message}");
+                            // Opcional: relanzar la excepción para manejarla en otro lugar
+                        }
                     }
                 }
             }
         }
+        
     }
 }

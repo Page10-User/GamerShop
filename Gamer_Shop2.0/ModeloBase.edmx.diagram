@@ -6,10 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="e9d29059e4a942a5af3e695ee40bb320" Name="Diagram1" ZoomLevel="104">
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Categoría_producto" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProyectoTallerIIModel.Producto" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="ProyectoTallerIIModel.FK_CategoriaProducto" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Proveedor" Width="1.5" PointX="0.75" PointY="3.75" />
-        <AssociationConnector Association="ProyectoTallerIIModel.FK_Proveedor" />
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Compra" Width="1.5" PointX="12.875" PointY="5" />
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Detalle_venta" Width="1.5" PointX="12.125" PointY="1" />
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Método_pago" Width="1.5" PointX="7.625" PointY="8.875" />
@@ -18,7 +15,6 @@
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Venta" Width="1.5" PointX="9.875" PointY="4.625" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_ProveedorCompra" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_UsuarioCompra" />
-        <AssociationConnector Association="ProyectoTallerIIModel.FK_ProductoDV" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_VentaDV" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_MetodoPagoVenta" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_TipoUsuario" />
@@ -26,9 +22,13 @@
         <EntityTypeShape EntityType="ProyectoTallerIIModel.Cliente" Width="1.5" PointX="5.375" PointY="1" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_ClienteVenta" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_Proveedor_CategoriaProducto" />
-        <EntityTypeShape EntityType="ProyectoTallerIIModel.Detalle_compra" Width="1.5" PointX="5.5" PointY="6.75" />
+        <EntityTypeShape EntityType="ProyectoTallerIIModel.Producto" Width="1.5" PointX="3" PointY="2.25" />
+        <AssociationConnector Association="ProyectoTallerIIModel.FK_CategoriaProducto" />
+        <AssociationConnector Association="ProyectoTallerIIModel.FK_ProductoDV" />
+        <AssociationConnector Association="ProyectoTallerIIModel.FK_Proveedor" />
+        <EntityTypeShape EntityType="ProyectoTallerIIModel.Detalle_compra" Width="1.5" PointX="15.125" PointY="3.875" />
+        <AssociationConnector Association="ProyectoTallerIIModel.FKCompraDC" />
         <AssociationConnector Association="ProyectoTallerIIModel.FK_ProductoDC" />
-        <AssociationConnector Association="ProyectoTallerIIModel.Detalle_compraCompra" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

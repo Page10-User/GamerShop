@@ -21,9 +21,9 @@ namespace Gamer_Shop2._0.Datos
                     // Consulta SQL con JOIN para traer nombres de categoría y proveedor
                     string query = @"
                 SELECT c.ID_Compra, c.Fecha, c.Total,
-                        p.Razon_social AS Proveedor,
-                        u.Nombre_usuario AS Usuario,
-                FROM Compra
+                       p.Razon_social AS Proveedor,
+                       u.Nombre_usuario AS Usuario
+                FROM Compra c
                 JOIN Proveedor p ON c.ID_Proveedor = p.ID_Proveedor
                 JOIN Usuario u ON c.ID_Usuario = u.ID_Usuario
                         ";

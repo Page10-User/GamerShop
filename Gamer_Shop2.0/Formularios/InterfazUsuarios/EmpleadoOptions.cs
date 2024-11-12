@@ -5,6 +5,7 @@ using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.Inicio;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -223,6 +224,8 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 formCatalogo.LabelContainer = LabelContainer;
                 formCatalogo.MainForm = MainForm;
                 formCatalogo.CUsuario = UUsuario;
+                Debug.WriteLine($"Procesando producto con ID={UUsuario.ID_Usuario}");
+
                 PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
                 PanelContainer.Controls.Add(formCatalogo);
                 PanelContainer.BringToFront();

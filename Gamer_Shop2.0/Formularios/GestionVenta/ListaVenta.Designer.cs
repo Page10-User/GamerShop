@@ -39,13 +39,6 @@
             this.BDescargarListVn = new Gamer_Shop2._0.RJButton();
             this.PContListaVn = new System.Windows.Forms.Panel();
             this.DGListaVn = new System.Windows.Forms.DataGridView();
-            this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CFechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEstadoVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LTituloListaUs = new System.Windows.Forms.Label();
             this.PBImgListaUs = new System.Windows.Forms.PictureBox();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
@@ -142,14 +135,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGListaVn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGListaVn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGListaVn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CCliente,
-            this.CFechaVenta,
-            this.CProductos,
-            this.CCantidad,
-            this.CCPrecio,
-            this.CTotal,
-            this.CEstadoVenta});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,48 +162,7 @@
             this.DGListaVn.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGListaVn.Size = new System.Drawing.Size(433, 286);
             this.DGListaVn.TabIndex = 28;
-            // 
-            // CCliente
-            // 
-            this.CCliente.HeaderText = "Cliente";
-            this.CCliente.Name = "CCliente";
-            this.CCliente.ReadOnly = true;
-            // 
-            // CFechaVenta
-            // 
-            this.CFechaVenta.HeaderText = "FechaVenta";
-            this.CFechaVenta.Name = "CFechaVenta";
-            this.CFechaVenta.ReadOnly = true;
-            // 
-            // CProductos
-            // 
-            this.CProductos.HeaderText = "Producto/s";
-            this.CProductos.Name = "CProductos";
-            this.CProductos.ReadOnly = true;
-            // 
-            // CCantidad
-            // 
-            this.CCantidad.HeaderText = "Cantidad";
-            this.CCantidad.Name = "CCantidad";
-            this.CCantidad.ReadOnly = true;
-            // 
-            // CCPrecio
-            // 
-            this.CCPrecio.HeaderText = "Precio";
-            this.CCPrecio.Name = "CCPrecio";
-            this.CCPrecio.ReadOnly = true;
-            // 
-            // CTotal
-            // 
-            this.CTotal.HeaderText = "Total";
-            this.CTotal.Name = "CTotal";
-            this.CTotal.ReadOnly = true;
-            // 
-            // CEstadoVenta
-            // 
-            this.CEstadoVenta.HeaderText = "EstadoVenta";
-            this.CEstadoVenta.Name = "CEstadoVenta";
-            this.CEstadoVenta.ReadOnly = true;
+            this.DGListaVn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaVn_CellClick);
             // 
             // LTituloListaUs
             // 
@@ -325,13 +269,6 @@
         private System.Windows.Forms.DataGridView DGListaVn;
         private System.Windows.Forms.Label LTituloListaUs;
         private System.Windows.Forms.PictureBox PBImgListaUs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CFechaVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoVenta;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBFiltro;
     }

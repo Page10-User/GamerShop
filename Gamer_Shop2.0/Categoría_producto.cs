@@ -45,4 +45,5 @@ public partial class Categoría_producto
 
 }
 
+    
 }

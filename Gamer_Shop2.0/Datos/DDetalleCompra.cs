@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Excepciones;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,9 +47,42 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public Venta getDetalle(int idven, int idprod)
+        public Detalle_compra DGenerarDetalle(Detalle_compra detalle)
         {
-            if (ExisteRegistro(idven, idprod) == false)
+            if (ExisteRegistro(detalle) == true)
+            {
+                throw new ExisteRegistroException("Este detalle ya existe");
+            }
+            else return detalle;
+        }
+        public DataTable DGuardarDetalles(List<Detalle_compra> detallesCompra)
+        {
+            try
+            {
+                DataTable detalleCompraTable = new DataTable();
+                detalleCompraTable.Columns.Add("ID_Producto", typeof(int));
+                detalleCompraTable.Columns.Add("ID_Compra", typeof(int));
+                detalleCompraTable.Columns.Add("Subtotal", typeof(float));
+                detalleCompraTable.Columns.Add("Cantidad", typeof(int));
+                detalleCompraTable.Columns.Add("Precio_actual", typeof(float));
+
+                // Llenar el DataTable con los datos de la lista de detalles de venta
+                foreach (var detalle in detallesCompra)
+                {
+                    detalleCompraTable.Rows.Add(detalle.ID_Producto, detalle.ID_Compra, detalle.Subtotal, detalle.Cantidad, detalle.Precio_actual);
+                }
+
+                return detalleCompraTable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public Detalle_compra getDetalle(int idcom, int idprod)
+        {
+            if (ExisteRegistro(idcom, idprod) == false)
             {
                 throw new ExisteRegistroException("La categoria no existe");
             }
@@ -57,7 +91,7 @@ namespace Gamer_Shop2._0.Datos
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
 
-                    return context.Venta.FirstOrDefault(p => p.ID_Venta == idven);
+                    return context.Detalle_compra.FirstOrDefault(p => p.ID_Compra == idcom);
                 }
             }
         }
@@ -82,7 +116,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(detalle) == true)
             {
-                throw new ExisteRegistroException("El producto ya existe.");
+                throw new ExisteRegistroException("El detalle ya existe.");
             }
             else
             {

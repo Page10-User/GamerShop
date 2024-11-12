@@ -60,6 +60,27 @@ namespace Gamer_Shop2._0.Datos
                 }
             }
         }
+        public Proveedor getProveedor(string razon)
+        {
+            if (ExisteRegistro(razon) == false)
+            {
+                throw new ExisteRegistroException("El producto no existe");
+            }
+            else
+            {
+                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+                {
+                    if ((context.Proveedor.FirstOrDefault(p => p.Razon_social == razon)).Activo == "SI")
+                    {
+                        return context.Proveedor.FirstOrDefault(p => p.Razon_social == razon);
+                    }
+                    else
+                    {
+                        throw new Exception("El producto fue eliminado");
+                    }
+                }
+            }
+        }
 
         public Proveedor getProveedor(int id)
         {

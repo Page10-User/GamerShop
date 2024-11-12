@@ -1,7 +1,12 @@
 ﻿using Gamer_Shop2._0.Formularios.Comercio;
+using Gamer_Shop2._0.Formularios.Gestion_Compra;
 using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using System;
+using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -12,6 +17,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
+        NVenta nventa = new NVenta();
 
         public Panel PanelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
@@ -71,7 +77,17 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            nventa.getVentas(DGListaVn);
 
+            try
+            {
+                configurarDataGridView();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de cualquier otra excepción
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -115,8 +131,53 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             InstanciarYMostrarCatalogo();
         }
 
-        //------------------------------------------------------------------------------------InstanciarCatalogo-------------------------------------------------------------------------------\\
-        private void InstanciarYMostrarCatalogo()
+        public void configurarDataGridView ()
+        {
+            if (DGListaVn.Rows.Count > 0)
+            {
+                DataGridViewButtonColumn botondetalle = new DataGridViewButtonColumn();
+
+                // Configurar propiedades de la columna
+                botondetalle.Name = "Detalle_venta"; // Nombre de la columna
+                botondetalle.HeaderText = "Detalle de venta"; // Texto del encabezado
+
+                // Agregar la columna al DataGridView
+                DGListaVn.Columns.Add(botondetalle);
+                DGListaVn.Columns["Detalle_venta"].DisplayIndex = 6;
+            }
+        }
+
+        private void DGListaVn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DGListaVn.Columns["Detalle_venta"].Index && e.RowIndex >= 0)
+            {
+                try
+                {
+                    NVenta nventa = new NVenta();
+                    Venta ventaactual = new Venta();
+                    //ventaactual = nventa.GetVenta(int.Parse(DGListaVn.CurrentRow.Cells["ID_Venta"].Value.ToString()));
+                  
+                    // Crear una nueva instancia de ListaProductos
+                    ListaDetalleVenta listadetalles = new ListaDetalleVenta(int.Parse(DGListaVn.CurrentRow.Cells["ID_Venta"].Value.ToString()));
+                    listadetalles.TopLevel = false;
+
+                    // Limpiar el panel actual y añadir el nuevo formulario
+                    PanelContainer.Controls.Clear();
+                    PanelContainer.Controls.Add(listadetalles);
+                    listadetalles.PanelContainer = PanelContainer;
+                    listadetalles.Show();
+                    //this.Dispose();
+                }
+                catch (Exception x)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se puede mostrar el detalle" + x.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
+            }
+        }
+
+            //------------------------------------------------------------------------------------InstanciarCatalogo-------------------------------------------------------------------------------\\
+            private void InstanciarYMostrarCatalogo()
         {
             Control control = PanelContainer.Controls[0];
              if (control is Form)
@@ -147,7 +208,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             BShowCatalogo.Click -= BShowCatalogo_Click;
 
             // Liberar los recursos
-            base.Dispose();
+            //base.Dispose();
         }
     }
 }

@@ -302,6 +302,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 formAltaCo.TopLevel = false;
                 formAltaCo.PanelContainer = PanelContainer;
                 formAltaCo.MainForm = MainForm;
+                formAltaCo.ACUsuario = UUsuario;
 
                 PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
                 PanelContainer.Controls.Add(formAltaCo);

@@ -15,54 +15,33 @@ namespace Gamer_Shop2._0
 using System;
     using System.Collections.Generic;
     
-public partial class Producto
-{
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public Producto()
+    public partial class Producto
     {
-
-        this.Detalle_venta = new HashSet<Detalle_venta>();
-
-        this.Detalle_compra = new HashSet<Detalle_compra>();
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Producto()
+        {
+            this.Detalle_venta = new HashSet<Detalle_venta>();
+            this.Detalle_compra = new HashSet<Detalle_compra>();
+        }
+    
+        public int Serial { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public int Stock { get; set; }
+        public double Precio { get; set; }
+        public int ID_Producto { get; set; }
+        public int ID_Proveedor { get; set; }
+        public string Activo { get; set; }
+        public string photoFilePath { get; set; }
+        public int ID_Categoria { get; set; }
+    
+        public virtual Categoría_producto Categoría_producto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Detalle_venta> Detalle_venta { get; set; }
+        public virtual Proveedor Proveedor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Detalle_compra> Detalle_compra { get; set; }
     }
 
-
-    public int Serial { get; set; }
-
-    public string Nombre { get; set; }
-
-    public string Descripcion { get; set; }
-
-    public int Stock { get; set; }
-
-    public double Precio { get; set; }
-
-    public int ID_Categoria { get; set; }
-
-    public int ID_Producto { get; set; }
-
-    public int ID_Proveedor { get; set; }
-
-    public string Activo { get; set; }
-
-    public string photoFilePath { get; set; }
-
-
-
-    public virtual Categoría_producto Categoría_producto { get; set; }
-
-    public virtual Proveedor Proveedor { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Detalle_venta> Detalle_venta { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Detalle_compra> Detalle_compra { get; set; }
-
-}
 
 }

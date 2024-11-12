@@ -1,6 +1,9 @@
 ﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,38 +66,65 @@ namespace Gamer_Shop2._0.Datos
 
         public void getCompras(DataGridView grid)
         {
-            if (adapter.GetData() == null)
+            try
             {
-                throw new NullReferenceException("No hay ventas");
+               
+                
+                    DCompras compras = new DCompras();
+
+                   DataTable listacompras = compras.GetComprasAll();
+                    listacompras.BeginLoadData(); // Desactiva temporalmente las restricciones
+                    grid.DataSource = listacompras;
+                    listacompras.EndLoadData();
+
             }
-            else
+            catch (Exception ex)
             {
-                DCompras compras = new DCompras();
-
-                grid.DataSource = compras.GetComprasAll();
-
+                throw new Exception(ex.Message);
 
             }
         }
 
-        public void DGuardarCompra(Compra compra)
+        public void DGuardarCompra(Compra compra, DataTable detallesCompra)
         {
             if (ExisteRegistro(compra) == true)
             {
-                throw new ExisteRegistroException("El producto ya existe.");
+                throw new ExisteRegistroException("La compra ya existe.");
             }
             else
             {
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
-                    try
+                    using (var connection = context.Database.Connection)
                     {
-                        context.Compra.Add(compra);
-                        context.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"Error al guardar la categoria: {ex.Message}");
+                        try
+                        {
+                            connection.Open();
+                            using (var command = new SqlCommand("REGISTRARCOMPRA", (SqlConnection)connection))
+                            {
+                                command.CommandType = CommandType.StoredProcedure;
+
+                                // Agregar parámetros simples
+                                command.Parameters.AddWithValue("@ID_Usuario", compra.ID_Usuario);
+                                command.Parameters.AddWithValue("@ID_Proveedor", compra.ID_Proveedor);
+                                command.Parameters.AddWithValue("@Fecha", compra.Fecha);
+                                command.Parameters.AddWithValue("@Total", compra.Total);
+
+                                // Agregar parámetro de tipo tabla
+                                SqlParameter detalleParam = command.Parameters.AddWithValue("@Detalle_compra", detallesCompra);
+                                detalleParam.SqlDbType = SqlDbType.Structured;
+                                detalleParam.TypeName = "dbo.EDetalle_compra";
+
+                                // Ejecutar el procedimiento almacenado
+                                command.ExecuteNonQuery();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // Manejo de errores y rollback
+                            throw new Exception($"Error al registrar la compra: {ex.Message}");
+                            // Opcional: relanzar la excepción para manejarla en otro lugar
+                        }
                     }
                 }
             }

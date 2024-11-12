@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Formularios.GestionVenta;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -154,6 +155,8 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             AltaVn.PanelContainer = PanelContainer;
             AltaVn.MainForm = MainForm;
             AltaVn.AVUsuario = ACTUsuario;
+            Debug.WriteLine($"Procesando producto con ID={ACTUsuario.CUIL}");
+
             AltaVn.IdPrCr = idPrCarrito;
             AltaVn.Show();
             MainCatalogo.Dispose();

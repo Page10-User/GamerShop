@@ -1,13 +1,20 @@
-﻿using Gamer_Shop2._0.Formularios.GestionCliente;
+﻿using Gamer_Shop2._0.Datos;
+using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.GestionUsuario;
+using Gamer_Shop2._0.Formularios.Gestion_Compra;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 {
@@ -19,6 +26,8 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 
         public Panel PanelContainer { get; set; }
         public Bienvenida MainForm { get; set; }
+
+        public Usuario ACUsuario { get; set; }
 
         public AltaCompra()
         {
@@ -78,8 +87,8 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         }
         private void AltaCompra_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dataSet11.Proveedor' Puede moverla o quitarla según sea necesario.
-            this.proveedorTableAdapter1.Fill(this.dataSet11.Proveedor);
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
+            this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
 
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
@@ -154,16 +163,80 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         {
             if (DGListaPrCompra.Rows.Count == 0 || DGListaPrCompra.Rows.Count == 1 && DGListaPrCompra.Rows[0].IsNewRow)
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Debe cargar po lo menos 1 producto", "Error", "Error", null);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Debe cargar por lo menos 1 producto", "Error", "Error", null);
                 mensaje.ShowDialog();
             }
             else
             {
-                if (CBProveedor.SelectedIndex != -1)
+                if (CBProveedor.SelectedIndex >= 0)
                 {
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Venta registrada con éxito", "Registro", "Informacion", null);
-                    mensaje.ShowDialog();
-                    DGListaPrCompra.Rows.Clear();
+                    try
+                    {
+                        NCompra ncompra = new NCompra();
+               
+                        List<Detalle_compra> detallescompra = new List<Detalle_compra>();
+                        float total = 0;
+                        NDetalleCompra ndetalle = new NDetalleCompra();
+
+                        foreach (DataGridViewRow row in DGListaPrCompra.Rows)
+                        {
+                            float subtotal = float.Parse(row.Cells["CPrecioPr"].Value.ToString()) * int.Parse(row.Cells["CCantidadPr"].Value.ToString());
+
+                            Detalle_compra detalle = ndetalle.NGenerarDetalle
+                            (
+                            int.Parse(row.Cells["ID_Producto"].Value.ToString()),
+                        
+                            subtotal,
+                            int.Parse(row.Cells["CCantidadPr"].Value.ToString()),
+                            float.Parse(row.Cells["CPrecioPr"].Value.ToString())
+                            );
+
+                            Debug.WriteLine(row.Cells["ID_Producto"].Value.ToString());
+                            Debug.WriteLine(detalle.ID_Producto);
+                            detallescompra.Add(detalle);
+                            Debug.WriteLine(detalle.ID_Compra);
+                            total += subtotal;
+                        }
+
+
+                        // Llama al método para registrar la compra en la capa de datos
+                       
+                        
+                        Debug.WriteLine(detallescompra.Count);
+                        ncompra.NGuardarCompra(total, ACUsuario.ID_Usuario, "E&G Electronif", ndetalle.NGuardarDetalles(detallescompra));
+
+                        NProducto nproducto = new NProducto();
+                        foreach (Detalle_compra detalle in detallescompra)
+                        {
+                            Debug.WriteLine(detalle.ID_Producto);
+                            Producto prod = nproducto.GetProductoID(detalle.ID_Producto);
+                            Debug.WriteLine(prod.ID_Producto);
+                            int stockNuevo = prod.Stock + detalle.Cantidad;
+                            nproducto.actualizarStock(
+                                //prod.Serial,
+                                prod.ID_Producto,
+                                stockNuevo
+                            );
+                        }
+
+
+                        MsgPersonalizado mensaje = new MsgPersonalizado("compra registrada con éxito", "Registro", "Informacion", null);
+                        mensaje.ShowDialog();
+                        DGListaPrCompra.Rows.Clear();
+                        MainForm.TopMost = true;
+                    }
+                    catch (ExisteRegistroException ex)
+                    {
+                        // Manejo de la excepción cuando el número de serial no existe
+                        MsgPersonalizado msg = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        msg.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de cualquier otra excepción
+                        MsgPersonalizado msg = new MsgPersonalizado(ex.Message, "Error", "Error", null);
+                        msg.ShowDialog();
+                    }
                 }
                 else
                 {
@@ -261,21 +334,22 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                         }
                     }
                 }
-
                 // Si el producto no existe, agregar una nueva fila en el DataGridView
-                
                 DGListaPrCompra.Rows.Add(
-                    producto.Serial,
+                    producto.ID_Producto,
                     producto.Nombre,
+                    producto.Serial,
+                    producto.ID_Categoria,
                     1,
                     producto.Precio,
                     producto.Precio
                 );
+
             }
-            catch
+            catch (Exception ex)
             {
                 // Mostrar un mensaje personalizado en caso de error
-                MsgPersonalizado mensaje = new MsgPersonalizado("Error al intentar cargar el producto al DataGridView", "Error", "Error", null);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Error al intentar cargar el producto al DataGridView" + ex.Message, "Error", "Error", null);
                 mensaje.ShowDialog();
             }
         }

@@ -12,17 +12,17 @@ namespace Gamer_Shop2._0.Negocio
     internal class NVenta
     {
         DVenta dventa = new DVenta();
-            public void NGuardarVenta(float total, int idusuario, int idcliente, int idmetodo)
+            public void NGuardarVenta(float total, int idusuario, int idcliente, int idmetodo, DataTable detallesVenta)
             {
 
-            Venta venta = new Venta()
-            {
+                 Venta venta = new Venta()
+                 {
                 Fecha = DateTime.Today,
                 Total = total,
                 ID_Usuario = idusuario,
                 ID_Cliente = idcliente,
                 ID_Método = idmetodo
-            };
+                 };
 
                 if (dventa == null)
                 {
@@ -30,8 +30,11 @@ namespace Gamer_Shop2._0.Negocio
                 }
                 else
                 {
-                    dventa.DGuardarVenta(venta);
+                        // Aquí se podrían realizar validaciones adicionales si es necesario
+                       
+                       dventa.DGuardarVenta(venta, detallesVenta);
                 }
+                   
             }
 
             public void getVentas(DataGridView grid)
