@@ -36,12 +36,14 @@
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.PListaPrCompra = new System.Windows.Forms.Panel();
             this.DGListaPrCompra = new System.Windows.Forms.DataGridView();
-            this.CSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNombrePr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCategoríaPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCantidadPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecioPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTotalPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminarPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEliminarPr = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TBBuscar = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BElegirPrLista = new Gamer_Shop2._0.RJButton();
             this.CBProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
@@ -138,7 +140,6 @@
             this.BFiltro.Size = new System.Drawing.Size(30, 30);
             this.BFiltro.TabIndex = 58;
             this.BFiltro.Texts = "";
-            this.BFiltro.OnSelectedIndexChanged += new System.EventHandler(this.BFiltro_OnSelectedIndexChanged);
             // 
             // BBuscador
             // 
@@ -191,15 +192,25 @@
             this.DGListaPrCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaPr_CellClick);
             this.DGListaPrCompra.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DGListaPrCompra_CellValidating);
             // 
-            // CSerial
+            // ID_Producto
             // 
-            this.CSerial.HeaderText = "Serial";
-            this.CSerial.Name = "CSerial";
+            this.ID_Producto.HeaderText = "ID_Producto";
+            this.ID_Producto.Name = "ID_Producto";
             // 
             // CNombrePr
             // 
             this.CNombrePr.HeaderText = "Nombre";
             this.CNombrePr.Name = "CNombrePr";
+            // 
+            // CSerial
+            // 
+            this.CSerial.HeaderText = "Serial";
+            this.CSerial.Name = "CSerial";
+            // 
+            // CCategoríaPr
+            // 
+            this.CCategoríaPr.HeaderText = "Categoría";
+            this.CCategoríaPr.Name = "CCategoríaPr";
             // 
             // CCantidadPr
             // 
@@ -213,13 +224,15 @@
             // 
             // CTotalPr
             // 
-            this.CTotalPr.HeaderText = "Total";
+            this.CTotalPr.HeaderText = "Subtotal";
             this.CTotalPr.Name = "CTotalPr";
             // 
             // CEliminarPr
             // 
             this.CEliminarPr.HeaderText = "Eliminar";
             this.CEliminarPr.Name = "CEliminarPr";
+            this.CEliminarPr.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CEliminarPr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // TBBuscar
             // 
@@ -395,10 +408,10 @@
             this.BListaDeCompras.UseVisualStyleBackColor = false;
             this.BListaDeCompras.Click += new System.EventHandler(this.BListaDeCompras_Click);
             // 
-            // dataSet11
+            // proveedorTableAdapter
             // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ID_Producto
             // 
@@ -444,7 +457,7 @@
             // 
             // proveedorTableAdapter1
             // 
-            this.proveedorTableAdapter1.ClearBeforeFill = true;
+            this.proveedorTableAdapter.ClearBeforeFill = true;
             // 
             // AltaCompra
             // 
