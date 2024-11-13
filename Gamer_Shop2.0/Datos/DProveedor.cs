@@ -64,7 +64,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(razon) == false)
             {
-                throw new ExisteRegistroException("El producto no existe");
+                throw new ExisteRegistroException("Elproveedor no existe");
             }
             else
             {
@@ -86,7 +86,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(id) == false)
             {
-                throw new ExisteRegistroException("El producto no existe");
+                throw new ExisteRegistroException("El proveedor no existe");
             }
             else
             {
@@ -132,7 +132,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(prov) == true)
             {
-                throw new ExisteRegistroException("El producto ya existe.");
+                throw new ExisteRegistroException("El proveeodr ya existe.");
             }
             else
             {

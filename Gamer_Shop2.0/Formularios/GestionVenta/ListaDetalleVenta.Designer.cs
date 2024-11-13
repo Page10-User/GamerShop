@@ -32,15 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaDetalleCompra));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaDetalleVenta));
             this.label1 = new System.Windows.Forms.Label();
             this.PContListaVn = new System.Windows.Forms.Panel();
             this.DGListaDVn = new System.Windows.Forms.DataGridView();
             this.LTituloListaUs = new System.Windows.Forms.Label();
             this.PBImgListaUs = new System.Windows.Forms.PictureBox();
-            this.BDescargarListVn = new Gamer_Shop2._0.RJButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.BDescargarListVn = new Gamer_Shop2._0.RJButton();
+            this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.PContListaVn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaDVn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).BeginInit();
@@ -134,6 +135,30 @@
             this.PBImgListaUs.TabIndex = 29;
             this.PBImgListaUs.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(128, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 16);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "ID Venta Fecha";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(128, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Cliente";
+            // 
             // BDescargarListVn
             // 
             this.BDescargarListVn.BackColor = System.Drawing.Color.Black;
@@ -153,29 +178,27 @@
             this.BDescargarListVn.TextColor = System.Drawing.Color.White;
             this.BDescargarListVn.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // BReturnToBack
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(225, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 16);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "ID Venta Fecha";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(134, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Cliente";
+            this.BReturnToBack.BackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReturnToBack.BackgroundImage")));
+            this.BReturnToBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BReturnToBack.BorderColor = System.Drawing.Color.Lime;
+            this.BReturnToBack.BorderRadius = 17;
+            this.BReturnToBack.BorderSize = 1;
+            this.BReturnToBack.CausesValidation = false;
+            this.BReturnToBack.FlatAppearance.BorderSize = 0;
+            this.BReturnToBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BReturnToBack.ForeColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.Location = new System.Drawing.Point(621, 19);
+            this.BReturnToBack.Name = "BReturnToBack";
+            this.BReturnToBack.Size = new System.Drawing.Size(34, 34);
+            this.BReturnToBack.TabIndex = 37;
+            this.BReturnToBack.TextColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.UseVisualStyleBackColor = false;
             // 
             // ListaDetalleVenta
             // 
@@ -185,6 +208,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.BReturnToBack);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -214,5 +238,6 @@
         private System.Windows.Forms.PictureBox PBImgListaUs;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private RJButton BReturnToBack;
     }
 }

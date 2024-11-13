@@ -67,7 +67,9 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             this.Region = CreateRoundedRegion();
             ;
 
-            
+            NCliente ncliente = new NCliente();
+            label2.Text = "Compra N° " + venta.ID_Venta + "  Fecha:" + venta.Fecha;
+            label3.Text = "Proveedor: " + ncliente.GetCliente(venta.ID_Cliente).Nombre;
         }
 
         private GraphicsPath CreateRoundedPath()

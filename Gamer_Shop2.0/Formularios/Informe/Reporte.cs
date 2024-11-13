@@ -1,5 +1,8 @@
 ﻿using Gamer_Shop2._0.Formularios.BorderClasss;
+using Gamer_Shop2._0.Negocio;
 using System;
+using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -17,8 +20,11 @@ namespace Gamer_Shop2._0.Formularios.Informe
         {
             InitializeComponent();
             CrearGrafico();
-            ConfigurarGraficoPie();
-            ConfigurarGraficoPieCC();
+            radioButton9.Checked = true;
+            radioButton6.Checked = true;
+
+            ConfigurarGraficoPie("WEEK");
+            ConfigurarGraficoPieCC("WEEK");
         }
         private void PTituloReport_Paint(object sender, PaintEventArgs e)
         {
@@ -138,18 +144,22 @@ namespace Gamer_Shop2._0.Formularios.Informe
             series.ChartType = SeriesChartType.Column;
 
             NVenta nventa = new NVenta();
-            DataTable dataTable = nventa.getTotalVentasPorPeriodo(periodo);
+            DataTable dataTable = nventa.getVentasUltimaSemana();
 
             // Colores personalizados para cada barra
             Color[] colores = { Color.Salmon, Color.Khaki, Color.LightGreen, Color.Lime, Color.Cyan, Color.DeepSkyBlue, Color.MediumPurple };
 
-            for (int i = 0; i < dias.Length; i++)
+            
+            
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                series.Points.AddXY(dias[i], valores[i]);
-                series.Points[i].Color = colores[i];
+                
+                series.Points.AddXY(dataTable.Rows[i]["Fecha"], dataTable.Rows[i]["TotalVentas"]);
+                series.Points[i].Color = colores[i % colores.Length]; // Rotar colores si hay más días que colores
 
                 // Mostrar los valores sobre cada barra
-                series.Points[i].Label = valores[i].ToString();
+                series.Points[i].Label = dataTable.Rows[i]["TotalVentas"].ToString();
                 series.Points[i].LabelForeColor = Color.White;
             }
 
@@ -157,65 +167,101 @@ namespace Gamer_Shop2._0.Formularios.Informe
             CGraficoVent.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
             CGraficoVent.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
             CGraficoVent.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
-
-            // Evitar que las etiquetas del eje X se alternen
             CGraficoVent.ChartAreas[0].AxisX.LabelStyle.IsStaggered = false;
-
-            // Separar las barras para mejorar la visibilidad
             series["PointWidth"] = "0.8";
-
-            // Cambiar el fondo del gráfico
-            CGraficoVent.BackColor = Color.Black; // Fondo del gráfico
+            CGraficoVent.BackColor = Color.Black;
             CGraficoVent.ChartAreas[0].BackColor = Color.Black;
-
-            // Eliminar la leyenda (quitar el cuadro "Series")
             CGraficoVent.Legends.Clear();
         }
-        private void ConfigurarGraficoPie()
-        {
-            // Limpiar series anteriores
-            CGraficoPie5P.Series.Clear();
 
-            // Crear una nueva serie de tipo "Pie"
+        private void ConfigurarGraficoPie(string periodo)
+        {
+            CGraficoPie5P.Series.Clear();
             Series series = CGraficoPie5P.Series.Add("Productos");
             series.ChartType = SeriesChartType.Pie;
+           NDetalleVenta nDetalleVenta = new NDetalleVenta();
 
-            // Datos de ejemplo
-            string[] categorias = { "Producto (1)", "Producto (2)", "Producto (3)", "Producto (4)", "Producto (5)" };
-            double[] valores = { 30, 20, 15, 25, 10 };
-
-            // Agregar datos a la serie
-            for (int i = 0; i < categorias.Length; i++)
+            DataTable dataTable = nDetalleVenta.getProductosMasVendidos(periodo);
+           
+            // Agregar datos al gráfico
+            foreach (DataRow row in dataTable.Rows)
             {
-                series.Points.AddXY(categorias[i], valores[i]);
+                string producto = row["Producto"].ToString();
+                double totalVendidos = Convert.ToDouble(row["TotalVendidos"]);
+                series.Points.AddXY(producto, totalVendidos);
             }
 
-            // Cambiar el estilo de las etiquetas
-            series["PieLabelStyle"] = "Disabled"; // No mostrar etiquetas
-            series["CollectedLabel"] = "Otros";
-        }
-        private void ConfigurarGraficoPieCC()
-        {
-            // Limpiar series anteriores
-            CGraficoPieCC.Series.Clear();
-
-            // Crear una nueva serie de tipo "Pie"
-            Series series = CGraficoPieCC.Series.Add("Productos");
-            series.ChartType = SeriesChartType.Pie;
-
-            // Datos de ejemplo
-            string[] categorias = { "Procesador", "Placa Madre", "Tarjeta Grafica", "Monitor", "Accesorio", "Fuente", "Ram"};
-            double[] valores = { 30, 20, 15, 25, 10, 43, 19};
-
-            // Agregar datos a la serie
-            for (int i = 0; i < categorias.Length; i++)
-            {
-                series.Points.AddXY(categorias[i], valores[i]);
-            }
-
-            // Cambiar el estilo de las etiquetas
             series["PieLabelStyle"] = "Disabled";
             series["CollectedLabel"] = "Otros";
+        }
+    
+        private void ConfigurarGraficoPieCC(string periodo)
+        {
+            CGraficoPieCC.Series.Clear();
+            Series series = CGraficoPieCC.Series.Add("Categorías");
+            series.ChartType = SeriesChartType.Pie;
+            NDetalleVenta nDetalle = new NDetalleVenta();
+
+            // Consulta SQL para obtener cantidad de productos por categoría en función del periodo
+          
+
+            DataTable dataTable = nDetalle.getTotalVendidosPorCategoria(periodo);
+
+            // Agregar datos al gráfico
+            foreach (DataRow row in dataTable.Rows)
+            {
+                string categoria = row["Categoria"].ToString();
+                double totalCantidad = Convert.ToDouble(row["TotalCantidad"]);
+                series.Points.AddXY(categoria, totalCantidad);
+            }
+
+            series["PieLabelStyle"] = "Disabled";
+            series["CollectedLabel"] = "Otros";
+        }
+
+        private void radioButton5P_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            string filtrofecha = "";
+
+            if (radioButton6.Checked)
+            {
+                filtrofecha = "DATEADD(week, -1, GETDATE())";
+            }
+            else if (radioButton5.Checked)
+            {
+                filtrofecha = "DATEADD(month, -1, GETDATE())";
+            }
+            else if (radioButton4.Checked)
+            {
+                filtrofecha = "DATEADD(year, -1, GETDATE())";
+            }
+
+            
+            ConfigurarGraficoPie(filtrofecha);
+            
+        }
+
+        private void radioButtonCC_CheckedChanged(object sender, EventArgs e)
+        {
+            string filtrofecha = "";
+
+            if (radioButton9.Checked)
+            {
+                filtrofecha = "DATEADD(week, -1, GETDATE())";
+            }
+            else if (radioButton8.Checked)
+            {
+                filtrofecha = "DATEADD(month, -1, GETDATE())";
+            }
+            else if (radioButton7.Checked)
+            {
+                filtrofecha = "DATEADD(year, -1, GETDATE())";
+            }
+
+
+            ConfigurarGraficoPieCC(filtrofecha);
+
         }
 
         public new void Dispose()

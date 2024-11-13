@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reporte));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PTituloReport = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -70,9 +70,6 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.CGraficoVent = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -284,7 +281,7 @@
             this.radioButton7.AutoSize = true;
             this.radioButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton7.ForeColor = System.Drawing.Color.White;
-            this.radioButton7.Location = new System.Drawing.Point(122, 135);
+            this.radioButton7.Location = new System.Drawing.Point(122, 144);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(85, 19);
             this.radioButton7.TabIndex = 9;
@@ -297,7 +294,7 @@
             this.radioButton8.AutoSize = true;
             this.radioButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton8.ForeColor = System.Drawing.Color.White;
-            this.radioButton8.Location = new System.Drawing.Point(122, 110);
+            this.radioButton8.Location = new System.Drawing.Point(122, 125);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(88, 19);
             this.radioButton8.TabIndex = 8;
@@ -312,7 +309,7 @@
             this.radioButton9.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.radioButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton9.ForeColor = System.Drawing.Color.White;
-            this.radioButton9.Location = new System.Drawing.Point(13, 135);
+            this.radioButton9.Location = new System.Drawing.Point(13, 145);
             this.radioButton9.Name = "radioButton9";
             this.radioButton9.Size = new System.Drawing.Size(109, 19);
             this.radioButton9.TabIndex = 7;
@@ -323,21 +320,21 @@
             // CGraficoPie5P
             // 
             this.CGraficoPie5P.BackColor = System.Drawing.Color.Black;
-            chartArea1.BackColor = System.Drawing.Color.Black;
-            chartArea1.Name = "ChartArea1";
-            this.CGraficoPie5P.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.Black;
-            legend1.ForeColor = System.Drawing.Color.White;
-            legend1.Name = "Legend1";
-            this.CGraficoPie5P.Legends.Add(legend1);
+            chartArea7.BackColor = System.Drawing.Color.Black;
+            chartArea7.Name = "ChartArea1";
+            this.CGraficoPie5P.ChartAreas.Add(chartArea7);
+            legend5.BackColor = System.Drawing.Color.Black;
+            legend5.ForeColor = System.Drawing.Color.White;
+            legend5.Name = "Legend1";
+            this.CGraficoPie5P.Legends.Add(legend5);
             this.CGraficoPie5P.Location = new System.Drawing.Point(13, 31);
             this.CGraficoPie5P.Name = "CGraficoPie5P";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.LabelForeColor = System.Drawing.Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.CGraficoPie5P.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series7.LabelForeColor = System.Drawing.Color.Transparent;
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.CGraficoPie5P.Series.Add(series7);
             this.CGraficoPie5P.Size = new System.Drawing.Size(197, 120);
             this.CGraficoPie5P.TabIndex = 2;
             this.CGraficoPie5P.Text = "chart1";
@@ -478,9 +475,6 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel4.Controls.Add(this.CGraficoVent);
-            this.panel4.Controls.Add(this.radioButton3);
-            this.panel4.Controls.Add(this.radioButton2);
-            this.panel4.Controls.Add(this.radioButton1);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Location = new System.Drawing.Point(12, 233);
             this.panel4.Name = "panel4";
@@ -491,68 +485,27 @@
             // CGraficoVent
             // 
             this.CGraficoVent.BackColor = System.Drawing.Color.Black;
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.Lime;
-            chartArea2.AxisY.LabelStyle.Enabled = false;
-            chartArea2.BackColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.ShadowColor = System.Drawing.Color.Black;
-            this.CGraficoVent.ChartAreas.Add(chartArea2);
+            chartArea8.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea8.AxisX.LineColor = System.Drawing.Color.Lime;
+            chartArea8.AxisY.LabelStyle.Enabled = false;
+            chartArea8.BackColor = System.Drawing.Color.Black;
+            chartArea8.Name = "ChartArea1";
+            chartArea8.ShadowColor = System.Drawing.Color.Black;
+            this.CGraficoVent.ChartAreas.Add(chartArea8);
             this.CGraficoVent.Location = new System.Drawing.Point(14, 42);
             this.CGraficoVent.Name = "CGraficoVent";
-            series2.BorderColor = System.Drawing.Color.Lime;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Black;
-            series2.LabelBackColor = System.Drawing.Color.White;
-            series2.LabelBorderColor = System.Drawing.Color.White;
-            series2.Name = "Series1";
-            series2.ShadowColor = System.Drawing.Color.Lime;
-            series2.YValuesPerPoint = 2;
-            this.CGraficoVent.Series.Add(series2);
+            series8.BorderColor = System.Drawing.Color.Lime;
+            series8.ChartArea = "ChartArea1";
+            series8.Color = System.Drawing.Color.Black;
+            series8.LabelBackColor = System.Drawing.Color.White;
+            series8.LabelBorderColor = System.Drawing.Color.White;
+            series8.Name = "Series1";
+            series8.ShadowColor = System.Drawing.Color.Lime;
+            series8.YValuesPerPoint = 2;
+            this.CGraficoVent.Series.Add(series8);
             this.CGraficoVent.Size = new System.Drawing.Size(398, 141);
             this.CGraficoVent.TabIndex = 0;
             this.CGraficoVent.Text = "chart1";
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.ForeColor = System.Drawing.Color.White;
-            this.radioButton3.Location = new System.Drawing.Point(317, 17);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 19);
-            this.radioButton3.TabIndex = 3;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Último año";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(223, 17);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(88, 19);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Último mes";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.radioButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(108, 17);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(109, 19);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Última semana";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -562,9 +515,9 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(10, 16);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 20);
+            this.label8.Size = new System.Drawing.Size(208, 20);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Ventas por";
+            this.label8.Text = "Últimas ventas por fecha";
             // 
             // panel5
             // 
@@ -609,21 +562,21 @@
             // CGraficoPieCC
             // 
             this.CGraficoPieCC.BackColor = System.Drawing.Color.Black;
-            chartArea3.BackColor = System.Drawing.Color.Black;
-            chartArea3.Name = "ChartArea1";
-            this.CGraficoPieCC.ChartAreas.Add(chartArea3);
-            legend2.BackColor = System.Drawing.Color.Black;
-            legend2.ForeColor = System.Drawing.Color.White;
-            legend2.Name = "Legend1";
-            this.CGraficoPieCC.Legends.Add(legend2);
+            chartArea9.BackColor = System.Drawing.Color.Black;
+            chartArea9.Name = "ChartArea1";
+            this.CGraficoPieCC.ChartAreas.Add(chartArea9);
+            legend6.BackColor = System.Drawing.Color.Black;
+            legend6.ForeColor = System.Drawing.Color.White;
+            legend6.Name = "Legend1";
+            this.CGraficoPieCC.Legends.Add(legend6);
             this.CGraficoPieCC.Location = new System.Drawing.Point(13, 36);
             this.CGraficoPieCC.Name = "CGraficoPieCC";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.LabelForeColor = System.Drawing.Color.Transparent;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.CGraficoPieCC.Series.Add(series3);
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series9.LabelForeColor = System.Drawing.Color.Transparent;
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.CGraficoPieCC.Series.Add(series9);
             this.CGraficoPieCC.Size = new System.Drawing.Size(197, 120);
             this.CGraficoPieCC.TabIndex = 3;
             this.CGraficoPieCC.Text = "chart1";
@@ -723,9 +676,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataVisualization.Charting.Chart CGraficoVent;
         private System.Windows.Forms.Label label9;

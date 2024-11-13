@@ -74,5 +74,17 @@ namespace Gamer_Shop2._0.Negocio
                 return dCliente.getCliente(dni);
             }
         }
+
+        public Cliente GetCliente(int id)
+        {
+            if (dCliente == null)
+            {
+                throw new NullReferenceException("El objeto 'dCliente' no se pudo inicializar.");
+            }
+            else
+            {
+                return dCliente.getCliente(id);
+            }
+        }
     }
 }

@@ -36,14 +36,6 @@
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.PListaPrCompra = new System.Windows.Forms.Panel();
             this.DGListaPrCompra = new System.Windows.Forms.DataGridView();
-            this.ID_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombrePr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCategoríaPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCantidadPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecioPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotalPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminarPr = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TBBuscar = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BElegirPrLista = new Gamer_Shop2._0.RJButton();
             this.CBProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
@@ -113,33 +105,7 @@
             this.PContAltaCompra.Size = new System.Drawing.Size(464, 330);
             this.PContAltaCompra.TabIndex = 6;
             this.PContAltaCompra.Paint += new System.Windows.Forms.PaintEventHandler(this.PContAltaCompra_Paint);
-            // 
-            // BFiltro
-            // 
-            this.BFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.BFiltro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BFiltro.BackgroundImage")));
-            this.BFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BFiltro.BorderColor = System.Drawing.Color.Transparent;
-            this.BFiltro.BorderSize = 1;
-            this.BFiltro.CustomIndexStart = 1;
-            this.BFiltro.CustomSelectedIndex = 0;
-            this.BFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.BFiltro.DropDownWidth = 150;
-            this.BFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BFiltro.ForeColor = System.Drawing.Color.DimGray;
-            this.BFiltro.IconColor = System.Drawing.Color.Transparent;
-            this.BFiltro.Items.AddRange(new object[] {
-            "Nombre",
-            "Serial"});
-            this.BFiltro.ListBackColor = System.Drawing.Color.Black;
-            this.BFiltro.ListTextColor = System.Drawing.Color.Lime;
-            this.BFiltro.Location = new System.Drawing.Point(425, 67);
-            this.BFiltro.MinimumSize = new System.Drawing.Size(30, 30);
-            this.BFiltro.Name = "BFiltro";
-            this.BFiltro.Padding = new System.Windows.Forms.Padding(1);
-            this.BFiltro.Size = new System.Drawing.Size(30, 30);
-            this.BFiltro.TabIndex = 58;
-            this.BFiltro.Texts = "";
+           
             // 
             // BBuscador
             // 
@@ -412,49 +378,7 @@
             // 
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ID_Producto
-            // 
-            this.ID_Producto.HeaderText = "ID_Producto";
-            this.ID_Producto.Name = "ID_Producto";
-            // 
-            // CNombrePr
-            // 
-            this.CNombrePr.HeaderText = "Nombre";
-            this.CNombrePr.Name = "CNombrePr";
-            // 
-            // CSerial
-            // 
-            this.CSerial.HeaderText = "Serial";
-            this.CSerial.Name = "CSerial";
-            // 
-            // CCategoríaPr
-            // 
-            this.CCategoríaPr.HeaderText = "Categoría";
-            this.CCategoríaPr.Name = "CCategoríaPr";
-            // 
-            // CCantidadPr
-            // 
-            this.CCantidadPr.HeaderText = "Cantidad";
-            this.CCantidadPr.Name = "CCantidadPr";
-            // 
-            // CPrecioPr
-            // 
-            this.CPrecioPr.HeaderText = "Precio";
-            this.CPrecioPr.Name = "CPrecioPr";
-            // 
-            // CTotalPr
-            // 
-            this.CTotalPr.HeaderText = "Subtotal";
-            this.CTotalPr.Name = "CTotalPr";
-            // 
-            // CEliminarPr
-            // 
-            this.CEliminarPr.HeaderText = "Eliminar";
-            this.CEliminarPr.Name = "CEliminarPr";
-            this.CEliminarPr.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CEliminarPr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
+           
             // proveedorTableAdapter1
             // 
             this.proveedorTableAdapter.ClearBeforeFill = true;

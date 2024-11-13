@@ -16,6 +16,9 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 
         public Bienvenida MainForm { get; set; }
         public Panel PanelContainer { get; set; }
+
+        public Usuario LCUsuario { get; set; }
+
         public ListaCompra()
         {
             InitializeComponent();
@@ -165,7 +168,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
             formAltaCo.TopLevel = false;
             formAltaCo.PanelContainer = PanelContainer;
             formAltaCo.MainForm = MainForm;
-
+            formAltaCo.ACUsuario = LCUsuario;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PanelContainer.Controls.Add(formAltaCo);
             PanelContainer.BringToFront();

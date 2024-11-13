@@ -100,6 +100,55 @@ namespace Gamer_Shop2._0.Datos
             else return detalle;
         }
 
+        public DataTable getProductosMasVendidos (string periodo)
+        {
+            if (adapter.GetData() == null)
+            {
+                throw new NullReferenceException("No hay ventas");
+                
+            }
+            else
+            {
+                try
+                {
+                    DDetalles detalles = new DDetalles();
+
+                    return detalles.getProductosMasVendidos(periodo);
+                }
+                catch (Exception ex)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se puede mostrar el detalle" + ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                    return null;
+                }
+            }
+        }
+
+        public DataTable getTotalVendidosPorCategoria(string periodo)
+        {
+            if (adapter.GetData() == null)
+            {
+                throw new NullReferenceException("No hay ventas");
+
+            }
+            else
+            {
+                try
+                {
+                    DDetalles detalles = new DDetalles();
+
+                    return detalles.getTotalVendidosPorCategoria(periodo);
+                }
+                catch (Exception ex)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se puede mostrar el detalle" + ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                    return null;
+                }
+            }
+        }
+
+
         public DataTable DGuardarDetalles(List<Detalle_venta> detallesVenta) {
 
             DataTable detalleVentaTable = new DataTable();

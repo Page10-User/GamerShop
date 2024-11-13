@@ -82,6 +82,20 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
+        public DataTable getVentasUltimaSemana()
+        {
+            if (adapter.GetData() == null)
+            {
+                throw new NullReferenceException("No hay ventas");
+            }
+            else
+            {
+                DVentas ventas = new DVentas();
+
+                return ventas.getTotalSemana();
+            }
+        }
+
         public void DGuardarVenta(Venta venta, DataTable detallesVenta)
         {
             if (ExisteRegistro(venta) == true)

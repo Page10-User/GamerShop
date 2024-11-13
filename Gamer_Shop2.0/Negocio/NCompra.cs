@@ -16,8 +16,9 @@ namespace Gamer_Shop2._0.Negocio
         public void NGuardarCompra(float total, int idusuario, string prov, DataTable detallesCompra)
         {
             NProveedor proveedor = new NProveedor();
-
+            Console.WriteLine("a"+prov);
             int idproveedor = proveedor.GetProveedor(prov).ID_Proveedor;
+            Debug.WriteLine("id prov"+idproveedor);
             Debug.WriteLine(idproveedor);
             Compra compra = new Compra()
             {

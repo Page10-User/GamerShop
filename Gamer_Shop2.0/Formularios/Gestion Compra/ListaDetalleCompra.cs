@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Formularios.Comercio;
 using Gamer_Shop2._0.Formularios.Gestion_Compra;
 using Gamer_Shop2._0.Formularios.GestionProducto;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
 using System.Data;
@@ -19,6 +20,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         public Panel PanelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
+
         public ListaDetalleCompra(int id)
         {
             InitializeComponent();
@@ -66,8 +68,17 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
             ;
+            NProveedor nprov = new NProveedor();
+            label2.Text = "Compra N° " + compra.ID_Compra + "  Fecha:" + compra.Fecha;
+            label3.Text = "Proveedor: " + nprov.GetProveedor(compra.ID_Proveedor).Razon_social;
+        }
 
+        private void BReturnToBack_Click(object sender, EventArgs e)
+        {
             
+                    // Mostramos la lista de productos
+                    InstanciarYMostrarListaCompra();
+           
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -105,13 +116,32 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
         }
 
-        
 
-        
+
+
 
         //------------------------------------------------------------------------------------InstanciarCatalogo-------------------------------------------------------------------------------\\
-        
 
+        private void InstanciarYMostrarListaCompra()
+        {
+            Control control = PanelContainer.Controls[0];
+            if (control is Form)
+            {
+                //Liberamos recursos
+                control.Dispose();
+            }
+
+            // Mostrar form
+            ListaCompra formListCo = new ListaCompra();
+            formListCo.TopLevel = false;
+            formListCo.PanelContainer = PanelContainer;
+            formListCo.MainForm = Mainform;
+            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+            PanelContainer.Controls.Add(formListCo);
+            PanelContainer.BringToFront();
+
+            formListCo.Show();
+        }
         public new void Dispose()
         {
             // Desuscribirse de eventos

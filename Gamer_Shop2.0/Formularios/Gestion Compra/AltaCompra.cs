@@ -202,15 +202,16 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                         // Llama al método para registrar la compra en la capa de datos
                        
                         
-                        Debug.WriteLine(detallescompra.Count);
-                        ncompra.NGuardarCompra(total, ACUsuario.ID_Usuario, "E&G Electronif", ndetalle.NGuardarDetalles(detallescompra));
+                        Debug.WriteLine(CBProveedor.Texts);
+
+                        ncompra.NGuardarCompra(total, ACUsuario.ID_Usuario, CBProveedor.Texts , ndetalle.NGuardarDetalles(detallescompra));
 
                         NProducto nproducto = new NProducto();
                         foreach (Detalle_compra detalle in detallescompra)
                         {
-                            Debug.WriteLine(detalle.ID_Producto);
+                            Debug.WriteLine("a"+detalle.ID_Producto);
                             Producto prod = nproducto.GetProductoID(detalle.ID_Producto);
-                            Debug.WriteLine(prod.ID_Producto);
+                            Debug.WriteLine("b"+prod.ID_Producto);
                             int stockNuevo = prod.Stock + detalle.Cantidad;
                             nproducto.actualizarStock(
                                 //prod.Serial,

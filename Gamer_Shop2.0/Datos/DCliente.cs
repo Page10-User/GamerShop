@@ -26,6 +26,20 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
+        public bool ExisteRegistro(int id)
+        {
+
+            if (adapter == null)
+            {
+                throw new NullReferenceException("El TableAdapter no fue inicializado.");
+            }
+            using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+            {
+                if ((context.Cliente.FirstOrDefault(p => p.ID_Cliente == id) != null)) return true;
+                else return false;
+            }
+        }
+
         public bool ExisteRegistro(string dni)
         {
 
@@ -55,6 +69,21 @@ namespace Gamer_Shop2._0.Datos
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
                     return context.Cliente.First(p => p.DNI == dni);
+                }
+            }
+        }
+
+        public Cliente getCliente(int id)
+        {
+            if (ExisteRegistro(id) == false)
+            {
+                throw new ExisteRegistroException("El Cliente no existe");
+            }
+            else
+            {
+                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
+                {
+                    return context.Cliente.First(p => p.ID_Cliente == id);
                 }
             }
         }
