@@ -33,7 +33,7 @@
             this.LTituloAltaVn = new System.Windows.Forms.Label();
             this.PBImgAltaVn = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.LShowLista = new System.Windows.Forms.Label();
+            this.LRecibo = new System.Windows.Forms.Label();
             this.PContAltaVn2 = new System.Windows.Forms.Panel();
             this.PContBuscarDni = new System.Windows.Forms.Panel();
             this.BBuscarCliente_Dni_ = new Gamer_Shop2._0.RJButton();
@@ -105,18 +105,18 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Registrar";
             // 
-            // LShowLista
+            // LRecibo
             // 
-            this.LShowLista.AutoSize = true;
-            this.LShowLista.BackColor = System.Drawing.Color.Transparent;
-            this.LShowLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LShowLista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LShowLista.Location = new System.Drawing.Point(536, 377);
-            this.LShowLista.Name = "LShowLista";
-            this.LShowLista.Size = new System.Drawing.Size(127, 18);
-            this.LShowLista.TabIndex = 27;
-            this.LShowLista.Text = "Generar Recibo";
-            this.LShowLista.Visible = false;
+            this.LRecibo.AutoSize = true;
+            this.LRecibo.BackColor = System.Drawing.Color.Transparent;
+            this.LRecibo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LRecibo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LRecibo.Location = new System.Drawing.Point(536, 377);
+            this.LRecibo.Name = "LRecibo";
+            this.LRecibo.Size = new System.Drawing.Size(127, 18);
+            this.LRecibo.TabIndex = 27;
+            this.LRecibo.Text = "Generar Recibo";
+            this.LRecibo.Visible = false;
             // 
             // PContAltaVn2
             // 
@@ -496,6 +496,7 @@
             this.BReciboVn.TabIndex = 25;
             this.BReciboVn.TextColor = System.Drawing.Color.White;
             this.BReciboVn.UseVisualStyleBackColor = false;
+            this.BReciboVn.Visible = false;
             this.BReciboVn.Click += new System.EventHandler(this.BReciboVn_Click);
             // 
             // BRegistrarVn
@@ -537,7 +538,7 @@
             this.Controls.Add(this.PContAltaVn1);
             this.Controls.Add(this.TBFiltro);
             this.Controls.Add(this.PContAltaVn2);
-            this.Controls.Add(this.LShowLista);
+            this.Controls.Add(this.LRecibo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BReciboVn);
             this.Controls.Add(this.BRegistrarVn);
@@ -570,7 +571,7 @@
         private RJButton BRegistrarVn;
         private RJButton BReciboVn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LShowLista;
+        private System.Windows.Forms.Label LRecibo;
         private System.Windows.Forms.Panel PContAltaVn2;
         private RJButton BNuevoCliente;
         private RJButton BClienteExistente;

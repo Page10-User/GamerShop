@@ -56,23 +56,31 @@ namespace Gamer_Shop2._0.Formularios.Comercio
 
             foreach (var producto in productos)
             {
-                BotonesArticulo articuloCt = new BotonesArticulo();
+                // Obtener el producto completo usando el serial para validar stock
+                NProducto nproducto = new NProducto();
+                Producto productoCompleto = nproducto.GetProducto(producto.Serial);
 
-                articuloCt.Serial = producto.Serial;
-                articuloCt.NombreProducto = producto.Nombre;        
-                articuloCt.Precio = producto.Precio.ToString();   
-                articuloCt.Categoria = producto.Categoria;
-                articuloCt.PhotoFilePath = producto.photoFilePath;
-                articuloCt.AgregarAlCarritoClick += ArticuloCt_AgregarAlCarritoClick;
+                // Verificar que el stock sea mayor a 0 antes de mostrar el producto
+                if (productoCompleto.Stock > 0)
+                {
+                    BotonesArticulo articuloCt = new BotonesArticulo();
 
-                articuloCt.PanelContainer = PanelContainer;
-                articuloCt.MainForm = MainForm;
-                articuloCt.ACTUsuario = CUsuario;
-                articuloCt.MainCatalogo = this;
+                    articuloCt.Serial = producto.Serial;
+                    articuloCt.NombreProducto = producto.Nombre;
+                    articuloCt.Precio = producto.Precio.ToString();
+                    articuloCt.Categoria = producto.Categoria;
+                    articuloCt.PhotoFilePath = producto.photoFilePath;
+                    articuloCt.AgregarAlCarritoClick += ArticuloCt_AgregarAlCarritoClick;
 
-                FLPContCatalogo.Controls.Add(articuloCt);
+                    articuloCt.PanelContainer = PanelContainer;
+                    articuloCt.MainForm = MainForm;
+                    articuloCt.ACTUsuario = CUsuario;
+                    articuloCt.MainCatalogo = this;
 
-                articuloCt.Show();
+                    FLPContCatalogo.Controls.Add(articuloCt);
+
+                    articuloCt.Show();
+                }
             }
         }
 
@@ -165,8 +173,18 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             // Verifica si el producto ya está en el carrito
             if (idPrCarrito.ContainsKey(serial))
             {
-                // Aumenta la cantidad del producto existente
-                idPrCarrito[serial]++;
+                NProducto nproducto = new NProducto();
+                Producto producto = nproducto.GetProducto(serial);
+                int stock = producto.Stock;
+                if (idPrCarrito[serial] < stock)
+                {
+                    idPrCarrito[serial]++;
+                }
+                else
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No hay suficiente stock disponible para agregar más de este producto.", "Stock Insuficiente", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
             else
             {

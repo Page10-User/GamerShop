@@ -284,16 +284,25 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                         {
                             Producto prod = nproducto.GetProductoID(detalle.ID_Producto);
                             int stockNuevo = prod.Stock - detalle.Cantidad;
-                            nproducto.actualizarStock(
-                                //prod.Serial,
-                                prod.ID_Producto,
-                                stockNuevo
-                            );
+
+                            if (stockNuevo < 0)
+                            {
+                                MsgPersonalizado mensajeError = new MsgPersonalizado(
+                                    $"Error: La cantidad solicitada para '{prod.Nombre}' excede el stock disponible.",
+                                    "Error de stock", "Error", null);
+                                mensajeError.ShowDialog();
+                                MainForm.TopMost = true;
+                                return;
+                            }
+
+                            nproducto.actualizarStock(prod.ID_Producto, stockNuevo);
                         }
                         MsgPersonalizado mensaje = new MsgPersonalizado("Venta registrada con éxito", "Registro", "Informacion", null);
                         mensaje.ShowDialog();
                         MainForm.TopMost = true;
                         BReciboVn.Visible = true;
+                        LRecibo.Visible = true;
+
                     }
                     catch (ExisteRegistroException ex)
                     {

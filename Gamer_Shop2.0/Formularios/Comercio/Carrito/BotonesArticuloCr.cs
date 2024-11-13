@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+using Gamer_Shop2._0.Negocio;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -204,8 +205,22 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 
                 decimal totalActualizado = precioActualizado - totalAnterior;
 
-                ActualizarPrecioPorCantidad?.Invoke(this, totalActualizado);
-                cantidadActual = TBCantidadPr.Text;
+                NProducto nproducto = new NProducto();
+                Producto producto = nproducto.GetProducto(Serial);
+                int stockActual = producto.Stock;
+
+                if (Convert.ToInt32(TBCantidadPr.Text) <= stockActual)
+                {
+                    ActualizarPrecioPorCantidad?.Invoke(this, totalActualizado);
+                    cantidadActual = TBCantidadPr.Text;
+                }
+                else
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se puede especificar una cantidad mayor a la del stock disponible del producto, stock: " + producto.Stock.ToString(), "Error", "Error", null);
+                    mensaje.ShowDialog();
+                    TBCantidadPr.Text = cantidadActual;
+                    return;
+                }
             }
             else
             {

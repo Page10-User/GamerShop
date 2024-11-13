@@ -176,6 +176,8 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             AltaVenta AltaVn = new AltaVenta();
             AltaVn.TopLevel = false;
 
+            actualizarCantidadListaProductos();
+
             // Limpiar el panel actual y añadir el nuevo formulario
             PanelContainer.Controls.Clear();
             PanelContainer.Controls.Add(AltaVn);
@@ -214,5 +216,32 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             // Liberar los recursos
             base.Dispose();
         }
+
+        private void actualizarCantidadListaProductos()
+        {
+            foreach (Control control in FLPContenidoPrCarrito.Controls)
+            {
+                // Verifica si el control es del tipo BotonesArticuloCr
+                if (control is BotonesArticuloCr articuloControl)
+                {
+                    int serial = articuloControl.Serial; // Obtén el serial del control
+                    int nuevaCantidad;
+
+                    if (int.TryParse(articuloControl.TBCantidadPr.Text, out nuevaCantidad))
+                    {
+                        if (idPrCr.ContainsKey(serial))
+                        {
+                            idPrCr[serial] = nuevaCantidad;
+                        }
+                    }
+                    else
+                    {
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Cantidad inválidad para el producto con serial: " + serial.ToString(),"Error","Error", null);
+                        mensaje.ShowDialog();
+                    }
+                }
+            }
+        }
+
     }
 }

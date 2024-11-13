@@ -196,18 +196,15 @@ namespace Gamer_Shop2._0.Datos
             {
                 if (ExisteRegistroID(producto.ID_Producto) == false)
                 {
-                    Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAA");
                     throw new ExisteRegistroException("El producto no existe");
                 }
                 else
                 {
                     try
                     {
-                        Debug.WriteLine($"{producto.ID_Producto}");
                         Producto prod = context.Producto.First(p => p.ID_Producto == producto.ID_Producto);
 
                         prod.Stock  = producto.Stock;
-                        Debug.WriteLine($"stock{prod.Stock} id{prod.ID_Producto}");
                         context.SaveChanges();
                     }
                     catch (Exception ex)

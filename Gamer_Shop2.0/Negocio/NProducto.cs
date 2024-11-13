@@ -86,7 +86,6 @@ namespace Gamer_Shop2._0.Negocio
 
         public void actualizarStock (int id, int stock)
         {
-            Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             Producto producto = new Producto()
             {
                 
@@ -99,7 +98,6 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
                 dproducto.DActualizarStock(producto);
             }
         }

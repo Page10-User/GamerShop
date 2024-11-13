@@ -190,31 +190,20 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                             int.Parse(row.Cells["CCantidadPr"].Value.ToString()),
                             float.Parse(row.Cells["CPrecioPr"].Value.ToString())
                             );
-
-                            Debug.WriteLine(row.Cells["ID_Producto"].Value.ToString());
-                            Debug.WriteLine(detalle.ID_Producto);
                             detallescompra.Add(detalle);
-                            Debug.WriteLine(detalle.ID_Compra);
                             total += subtotal;
                         }
 
 
                         // Llama al método para registrar la compra en la capa de datos
-                       
-                        
-                        Debug.WriteLine(CBProveedor.Texts);
-
                         ncompra.NGuardarCompra(total, ACUsuario.ID_Usuario, CBProveedor.Texts , ndetalle.NGuardarDetalles(detallescompra));
 
                         NProducto nproducto = new NProducto();
                         foreach (Detalle_compra detalle in detallescompra)
                         {
-                            Debug.WriteLine("a"+detalle.ID_Producto);
                             Producto prod = nproducto.GetProductoID(detalle.ID_Producto);
-                            Debug.WriteLine("b"+prod.ID_Producto);
                             int stockNuevo = prod.Stock + detalle.Cantidad;
                             nproducto.actualizarStock(
-                                //prod.Serial,
                                 prod.ID_Producto,
                                 stockNuevo
                             );
