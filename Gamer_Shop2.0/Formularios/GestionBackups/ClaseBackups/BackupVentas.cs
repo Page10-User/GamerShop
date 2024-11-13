@@ -9,10 +9,19 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
 {
     internal class BackupVentas
     {
-        public static void ExportarVentasACSV()
+        public static void ExportarVentasACSV(string rutaIndicada)
         {
+            string rutaCarpetaBackupsVentas;
+
+            if (rutaIndicada != null)
+            {
+                rutaCarpetaBackupsVentas = rutaIndicada;
+            }
+            else
+            {
+                rutaCarpetaBackupsVentas = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveVentas"));
+            }
             // Construir la ruta completa a la carpeta de backups
-            string rutaCarpetaBackupsVentas = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveVentas"));
 
             // Crear la carpeta si no existe
             if (!Directory.Exists(rutaCarpetaBackupsVentas))
@@ -21,7 +30,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
             }
 
             // Nombre del archivo con la fecha actual
-            string nombreArchivo = $"Ventas_{DateTime.Now:dd-MM-yyyy}.csv";
+            string nombreArchivo = $"Ventas_{DateTime.Now:dd-MM-yyyy_HH-mm-ss}.csv";
             string rutaArchivo = Path.Combine(rutaCarpetaBackupsVentas, nombreArchivo);
 
             try
@@ -32,6 +41,13 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                     var ventas = context.Venta.ToList();
                     ClaseValidacion validador = new ClaseValidacion(); // Crear una instancia de ClaseValidacion
 
+                    if (ventas.Count == 0)
+                    {
+                        MsgPersonalizado mensajeError = new MsgPersonalizado("La tabla ventas actualmente se encuentra vacia.", "Error", "Error", null);
+                        mensajeError.ShowDialog();
+                        return;
+                    }
+
                     using (StreamWriter writer = new StreamWriter(rutaArchivo, false, System.Text.Encoding.UTF8))
                     {
                         // Escribir la cabecera del CSV
@@ -40,12 +56,12 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                         // Escribir cada registro de la tabla
                         foreach (var venta in ventas)
                         {
-                            string linea = $"\"{venta.ID_Venta}\";\"{venta.Fecha}\";\"{venta.Total}\";\"{venta.Total}\";\"{venta.ID_Usuario}\";\"{venta.ID_Usuario}\";\"{venta.ID_Cliente}\";\"{venta.ID_Método}\"";
+                            string linea = $"\"{venta.ID_Venta}\";\"{venta.Fecha}\";\"{venta.Total}\";\"{venta.ID_Usuario}\";\"{venta.ID_Cliente}\";\"{venta.ID_Método}\"";
                             writer.WriteLine(linea);
                         }
                     }
                 }
-                MsgPersonalizado mensaje = new MsgPersonalizado("Backup de ventas completado exitosamente en SaveVentas.", "Backup Personalizado", "Informacion", null);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Backup de ventas completado exitosamente", "Backup Personalizado", "Informacion", null);
                 mensaje.ShowDialog();
             }
             catch (Exception ex)

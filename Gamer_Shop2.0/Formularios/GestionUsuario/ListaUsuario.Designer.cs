@@ -508,6 +508,7 @@
             this.BDescargarListUs.TabIndex = 24;
             this.BDescargarListUs.TextColor = System.Drawing.Color.White;
             this.BDescargarListUs.UseVisualStyleBackColor = false;
+            this.BDescargarListUs.Click += new System.EventHandler(this.BDescargarListUs_Click);
             // 
             // MovSwich
             // 

@@ -64,7 +64,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(razon) == false)
             {
-                throw new ExisteRegistroException("Elproveedor no existe");
+                throw new ExisteRegistroException("El proveedor no existe");
             }
             else
             {
@@ -76,7 +76,7 @@ namespace Gamer_Shop2._0.Datos
                     }
                     else
                     {
-                        throw new Exception("El producto fue eliminado");
+                        throw new Exception("El proveedor fue eliminado");
                     }
                 }
             }

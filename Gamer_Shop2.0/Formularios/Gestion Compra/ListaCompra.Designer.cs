@@ -228,6 +228,7 @@
             this.BDescargar.TabIndex = 18;
             this.BDescargar.TextColor = System.Drawing.Color.White;
             this.BDescargar.UseVisualStyleBackColor = false;
+            this.BDescargar.Click += new System.EventHandler(this.BDescargar_Click);
             // 
             // ListaCompra
             // 

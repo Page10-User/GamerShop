@@ -9,11 +9,19 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
 {
     internal class BackupProveedores
     {
-        public static void ExportarProveedoresACSV()
+        public static void ExportarProveedoresACSV(string rutaIndicada)
         {
+            string rutaCarpetaBackupsProveedores;
             // Construir la ruta completa a la carpeta de backups
-            string rutaCarpetaBackupsProveedores = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveProveedores"));
-
+            if (rutaIndicada != null)
+            {
+                rutaCarpetaBackupsProveedores = rutaIndicada;
+            }
+            else
+            {
+                rutaCarpetaBackupsProveedores = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveProveedores"));
+            }
+            
             // Crear la carpeta si no existe
             if (!Directory.Exists(rutaCarpetaBackupsProveedores))
             {
@@ -21,7 +29,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
             }
 
             // Nombre del archivo con la fecha actual
-            string nombreArchivo = $"Proveedores_{DateTime.Now:dd-MM-yyyy}.csv";
+            string nombreArchivo = $"Proveedores_{DateTime.Now:dd-MM-yyyy_HH-mm-ss}.csv";
             string rutaArchivo = Path.Combine(rutaCarpetaBackupsProveedores, nombreArchivo);
 
             try
@@ -31,6 +39,13 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                 {
                     var proveedores = context.Proveedor.ToList();
                     ClaseValidacion validador = new ClaseValidacion(); // Crear una instancia de ClaseValidacion
+
+                    if (proveedores.Count == 0)
+                    {
+                        MsgPersonalizado mensajeError = new MsgPersonalizado("La tabla proveedor actualmente se encuentra vacia.", "Error", "Error", null);
+                        mensajeError.ShowDialog();
+                        return;
+                    }
 
                     using (StreamWriter writer = new StreamWriter(rutaArchivo, false, System.Text.Encoding.UTF8))
                     {
@@ -46,7 +61,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                         }
                     }
                 }
-                MsgPersonalizado mensaje = new MsgPersonalizado("Backup de proveedores completado exitosamente en SaveProveedores.", "Backup Personalizado", "Informacion", null);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Backup de proveedores completado exitosamente", "Backup Personalizado", "Informacion", null);
                 mensaje.ShowDialog();
             }
             catch (Exception ex)

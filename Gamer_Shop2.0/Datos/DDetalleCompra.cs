@@ -1,4 +1,5 @@
 ﻿using Gamer_Shop2._0.Excepciones;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -101,7 +102,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (adapter.GetData() == null)
             {
-                throw new NullReferenceException("No hay ventas");
+                throw new NullReferenceException("No hay compras");
             }
             else
             {
@@ -109,6 +110,30 @@ namespace Gamer_Shop2._0.Datos
                 grid.DataSource = detalles.GetDetallesAll();
 
 
+            }
+        }
+
+        public void getDetallesCompra(DataGridView grid, int idven)
+        {
+            if (adapter.GetData() == null)
+            {
+                throw new NullReferenceException("No hay compras");
+            }
+            else
+            {
+                try
+                {
+                    Gamer_Shop2._0.Datos.DDetallesCompra detalles = new Gamer_Shop2._0.Datos.DDetallesCompra();
+
+                    DataView view = new DataView(detalles.GetDetallesAll());
+                    view.RowFilter = $"ID_Compra = {idven}";
+                    grid.DataSource = view;
+                }
+                catch (Exception ex)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se puede mostrar el detalle" + ex.Message, "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
         }
 

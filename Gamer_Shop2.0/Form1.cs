@@ -236,8 +236,8 @@ namespace Gamer_Shop2._0
         //Eliminar más adelante...
         private void Form1_Load(object sender, EventArgs e)
         {
-            TBUsuario.Texts = "AdministradorUser";
-            TBContrasena.Texts = "12345672";
+            TBUsuario.Texts = "EmpleadoUser";
+            TBContrasena.Texts = "12345671";
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

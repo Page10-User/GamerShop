@@ -38,9 +38,8 @@
             this.DGListaDVn = new System.Windows.Forms.DataGridView();
             this.LTituloListaUs = new System.Windows.Forms.Label();
             this.PBImgListaUs = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.BDescargarListVn = new Gamer_Shop2._0.RJButton();
+            this.BReturnToBack = new Gamer_Shop2._0.RJButton();
             this.PContListaVn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaDVn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgListaUs)).BeginInit();
@@ -117,46 +116,22 @@
             this.LTituloListaUs.BackColor = System.Drawing.Color.Transparent;
             this.LTituloListaUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTituloListaUs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloListaUs.Location = new System.Drawing.Point(209, 19);
+            this.LTituloListaUs.Location = new System.Drawing.Point(186, 19);
             this.LTituloListaUs.Name = "LTituloListaUs";
-            this.LTituloListaUs.Size = new System.Drawing.Size(304, 42);
+            this.LTituloListaUs.Size = new System.Drawing.Size(345, 42);
             this.LTituloListaUs.TabIndex = 30;
-            this.LTituloListaUs.Text = "Detalle de venta";
+            this.LTituloListaUs.Text = "Detalle de Compra";
             // 
             // PBImgListaUs
             // 
             this.PBImgListaUs.BackColor = System.Drawing.Color.Transparent;
             this.PBImgListaUs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaUs.BackgroundImage")));
             this.PBImgListaUs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgListaUs.Location = new System.Drawing.Point(163, 20);
+            this.PBImgListaUs.Location = new System.Drawing.Point(138, 20);
             this.PBImgListaUs.Name = "PBImgListaUs";
             this.PBImgListaUs.Size = new System.Drawing.Size(47, 41);
             this.PBImgListaUs.TabIndex = 29;
             this.PBImgListaUs.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(128, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 16);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "ID Venta Fecha";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(128, 106);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Cliente";
             // 
             // BDescargarListVn
             // 
@@ -176,6 +151,29 @@
             this.BDescargarListVn.TabIndex = 32;
             this.BDescargarListVn.TextColor = System.Drawing.Color.White;
             this.BDescargarListVn.UseVisualStyleBackColor = false;
+            this.BDescargarListVn.Click += new System.EventHandler(this.BDescargarListVn_Click);
+            // 
+            // BReturnToBack
+            // 
+            this.BReturnToBack.BackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReturnToBack.BackgroundImage")));
+            this.BReturnToBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BReturnToBack.BorderColor = System.Drawing.Color.Lime;
+            this.BReturnToBack.BorderRadius = 17;
+            this.BReturnToBack.BorderSize = 1;
+            this.BReturnToBack.FlatAppearance.BorderSize = 0;
+            this.BReturnToBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BReturnToBack.ForeColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.Location = new System.Drawing.Point(638, 12);
+            this.BReturnToBack.Name = "BReturnToBack";
+            this.BReturnToBack.Size = new System.Drawing.Size(34, 34);
+            this.BReturnToBack.TabIndex = 36;
+            this.BReturnToBack.TextColor = System.Drawing.Color.Transparent;
+            this.BReturnToBack.UseVisualStyleBackColor = false;
+            this.BReturnToBack.Click += new System.EventHandler(this.BReturnToBack_Click);
             // 
             // ListaDetalleCompra
             // 
@@ -185,8 +183,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BReturnToBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BDescargarListVn);
             this.Controls.Add(this.PContListaVn);
@@ -212,7 +209,6 @@
         private System.Windows.Forms.DataGridView DGListaDVn;
         private System.Windows.Forms.Label LTituloListaUs;
         private System.Windows.Forms.PictureBox PBImgListaUs;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private RJButton BReturnToBack;
     }
 }

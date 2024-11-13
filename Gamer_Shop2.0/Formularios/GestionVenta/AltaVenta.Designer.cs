@@ -48,6 +48,8 @@
             this.PContAltaVn3 = new System.Windows.Forms.Panel();
             this.TBMonto = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.PContAltaVn4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TBDniClExist = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.CBCategoria = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.métodopagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new Gamer_Shop2._0.DataSet1();
@@ -55,11 +57,9 @@
             this.FLPListaProductosVenta = new System.Windows.Forms.FlowLayoutPanel();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
-            this.BShowListaVn = new Gamer_Shop2._0.RJButton();
+            this.BReciboVn = new Gamer_Shop2._0.RJButton();
             this.BRegistrarVn = new Gamer_Shop2._0.RJButton();
             this.método_pagoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Método_pagoTableAdapter();
-            this.TBDniClExist = new Gamer_Shop2._0.RJControls.RJTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).BeginInit();
             this.PContAltaVn2.SuspendLayout();
             this.PContBuscarDni.SuspendLayout();
@@ -340,6 +340,40 @@
             this.PContAltaVn4.Size = new System.Drawing.Size(233, 130);
             this.PContAltaVn4.TabIndex = 34;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(12, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 18);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "DNI";
+            // 
+            // TBDniClExist
+            // 
+            this.TBDniClExist.BackColor = System.Drawing.Color.Black;
+            this.TBDniClExist.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBDniClExist.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBDniClExist.BorderSize = 1;
+            this.TBDniClExist.Enabled = false;
+            this.TBDniClExist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBDniClExist.ForeColor = System.Drawing.Color.White;
+            this.TBDniClExist.Location = new System.Drawing.Point(51, 84);
+            this.TBDniClExist.Margin = new System.Windows.Forms.Padding(4);
+            this.TBDniClExist.Multiline = false;
+            this.TBDniClExist.Name = "TBDniClExist";
+            this.TBDniClExist.Padding = new System.Windows.Forms.Padding(7);
+            this.TBDniClExist.PasswordChar = false;
+            this.TBDniClExist.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBDniClExist.PlaceholderText = "";
+            this.TBDniClExist.Size = new System.Drawing.Size(141, 31);
+            this.TBDniClExist.TabIndex = 32;
+            this.TBDniClExist.Texts = "";
+            this.TBDniClExist.UnderlinedStyle = false;
+            // 
             // CBCategoria
             // 
             this.CBCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -444,25 +478,25 @@
             this.TBFiltro.Texts = "";
             this.TBFiltro.UnderlinedStyle = false;
             // 
-            // BShowListaVn
+            // BReciboVn
             // 
-            this.BShowListaVn.BackColor = System.Drawing.Color.Black;
-            this.BShowListaVn.BackgroundColor = System.Drawing.Color.Black;
-            this.BShowListaVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BShowListaVn.BackgroundImage")));
-            this.BShowListaVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BShowListaVn.BorderColor = System.Drawing.Color.Lime;
-            this.BShowListaVn.BorderRadius = 20;
-            this.BShowListaVn.BorderSize = 2;
-            this.BShowListaVn.FlatAppearance.BorderSize = 0;
-            this.BShowListaVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BShowListaVn.ForeColor = System.Drawing.Color.White;
-            this.BShowListaVn.Location = new System.Drawing.Point(558, 298);
-            this.BShowListaVn.Name = "BShowListaVn";
-            this.BShowListaVn.Size = new System.Drawing.Size(84, 76);
-            this.BShowListaVn.TabIndex = 25;
-            this.BShowListaVn.TextColor = System.Drawing.Color.White;
-            this.BShowListaVn.UseVisualStyleBackColor = false;
-            this.BShowListaVn.Visible = false;
+            this.BReciboVn.BackColor = System.Drawing.Color.Black;
+            this.BReciboVn.BackgroundColor = System.Drawing.Color.Black;
+            this.BReciboVn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BReciboVn.BackgroundImage")));
+            this.BReciboVn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BReciboVn.BorderColor = System.Drawing.Color.Lime;
+            this.BReciboVn.BorderRadius = 20;
+            this.BReciboVn.BorderSize = 2;
+            this.BReciboVn.FlatAppearance.BorderSize = 0;
+            this.BReciboVn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BReciboVn.ForeColor = System.Drawing.Color.White;
+            this.BReciboVn.Location = new System.Drawing.Point(558, 298);
+            this.BReciboVn.Name = "BReciboVn";
+            this.BReciboVn.Size = new System.Drawing.Size(84, 76);
+            this.BReciboVn.TabIndex = 25;
+            this.BReciboVn.TextColor = System.Drawing.Color.White;
+            this.BReciboVn.UseVisualStyleBackColor = false;
+            this.BReciboVn.Click += new System.EventHandler(this.BReciboVn_Click);
             // 
             // BRegistrarVn
             // 
@@ -488,40 +522,6 @@
             // 
             this.método_pagoTableAdapter.ClearBeforeFill = true;
             // 
-            // TBDniClExist
-            // 
-            this.TBDniClExist.BackColor = System.Drawing.Color.Black;
-            this.TBDniClExist.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBDniClExist.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBDniClExist.BorderSize = 1;
-            this.TBDniClExist.Enabled = false;
-            this.TBDniClExist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBDniClExist.ForeColor = System.Drawing.Color.White;
-            this.TBDniClExist.Location = new System.Drawing.Point(51, 84);
-            this.TBDniClExist.Margin = new System.Windows.Forms.Padding(4);
-            this.TBDniClExist.Multiline = false;
-            this.TBDniClExist.Name = "TBDniClExist";
-            this.TBDniClExist.Padding = new System.Windows.Forms.Padding(7);
-            this.TBDniClExist.PasswordChar = false;
-            this.TBDniClExist.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBDniClExist.PlaceholderText = "";
-            this.TBDniClExist.Size = new System.Drawing.Size(141, 31);
-            this.TBDniClExist.TabIndex = 32;
-            this.TBDniClExist.Texts = "";
-            this.TBDniClExist.UnderlinedStyle = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(12, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 18);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "DNI";
-            // 
             // AltaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,7 +539,7 @@
             this.Controls.Add(this.PContAltaVn2);
             this.Controls.Add(this.LShowLista);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BShowListaVn);
+            this.Controls.Add(this.BReciboVn);
             this.Controls.Add(this.BRegistrarVn);
             this.Controls.Add(this.LTituloAltaVn);
             this.Controls.Add(this.PBImgAltaVn);
@@ -568,7 +568,7 @@
         private System.Windows.Forms.Label LTituloAltaVn;
         private System.Windows.Forms.PictureBox PBImgAltaVn;
         private RJButton BRegistrarVn;
-        private RJButton BShowListaVn;
+        private RJButton BReciboVn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LShowLista;
         private System.Windows.Forms.Panel PContAltaVn2;

@@ -9,10 +9,18 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
 {
     internal class BackupUsuarios
     {
-        public static void ExportarUsuariosACSV()
+        public static void ExportarUsuariosACSV(string rutaIndicada)
         {
+            string rutaCarpetaBackupsUsuarios;
             // Construir la ruta completa a la carpeta de backups
-            string rutaCarpetaBackupsUsuarios = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveUsuarios"));
+            if (rutaIndicada != null)
+            {
+                rutaCarpetaBackupsUsuarios = rutaIndicada;
+            }
+            else
+            {
+                rutaCarpetaBackupsUsuarios = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveUsuarios"));
+            }
 
             // Crear la carpeta si no existe
             if (!Directory.Exists(rutaCarpetaBackupsUsuarios))
@@ -21,7 +29,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
             }
 
             // Nombre del archivo con la fecha actual
-            string nombreArchivo = $"Usuarios_{DateTime.Now:dd-MM-yyyy}.csv";
+            string nombreArchivo = $"Usuarios_{DateTime.Now:dd-MM-yyyy_HH-mm-ss}.csv";
             string rutaArchivo = Path.Combine(rutaCarpetaBackupsUsuarios, nombreArchivo);
 
             try
@@ -31,6 +39,13 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                 {
                     var usuarios = context.Usuario.ToList();
                     ClaseValidacion validador = new ClaseValidacion(); // Crear una instancia de ClaseValidacion
+
+                    if (usuarios.Count == 0)
+                    {
+                        MsgPersonalizado mensajeError = new MsgPersonalizado("La tabla usuarios actualmente se encuentra vacia.", "Error", "Error", null);
+                        mensajeError.ShowDialog();
+                        return;
+                    }
 
                     using (StreamWriter writer = new StreamWriter(rutaArchivo, false, System.Text.Encoding.UTF8))
                     {
@@ -46,7 +61,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                         }
                     }
                 }
-                MsgPersonalizado mensaje = new MsgPersonalizado("Backup de usuarios completado exitosamente en SaveUsuarios.", "Backup Personalizado", "Informacion", null);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Backup de usuarios completado exitosamente", "Backup Personalizado", "Informacion", null);
                 mensaje.ShowDialog();
             }
             catch (Exception ex)

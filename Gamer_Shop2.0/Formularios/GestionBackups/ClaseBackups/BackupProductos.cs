@@ -11,10 +11,18 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
 {
     internal class BackupProductos
     {
-        public static void ExportarProductosACSV()
+        public static void ExportarProductosACSV(string rutaIndicada)
         {
+            string rutaCarpetaBackupsProductos;
             // Construir la ruta completa a la carpeta de backups
-            string rutaCarpetaBackupsProductos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveProductos"));
+            if (rutaIndicada != null)
+            {
+                rutaCarpetaBackupsProductos = rutaIndicada;
+            }
+            else
+            {
+                rutaCarpetaBackupsProductos = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveProductos"));
+            }
 
             // Crear la carpeta si no existe
             if (!Directory.Exists(rutaCarpetaBackupsProductos))
@@ -23,7 +31,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
             }
 
             // Nombre del archivo con la fecha actual
-            string nombreArchivo = $"Productos_{DateTime.Now:dd-MM-yyyy}.csv";
+            string nombreArchivo = $"Productos_{DateTime.Now:dd-MM-yyyy_HH-mm-ss}.csv";
             string rutaArchivo = Path.Combine(rutaCarpetaBackupsProductos, nombreArchivo);
 
             try
@@ -33,6 +41,13 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                 {
                     var productos = context.Producto.ToList();
                     ClaseValidacion validador = new ClaseValidacion(); // Crear una instancia de ClaseValidacion
+
+                    if (productos.Count == 0)
+                    {
+                        MsgPersonalizado mensajeError = new MsgPersonalizado("La tabla productos actualmente se encuentra vacia.", "Error", "Error", null);
+                        mensajeError.ShowDialog();
+                        return;
+                    }
 
                     using (StreamWriter writer = new StreamWriter(rutaArchivo, false, System.Text.Encoding.UTF8))
                     {
@@ -47,7 +62,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                         }
                     }
                 }
-                MsgPersonalizado mensaje = new MsgPersonalizado("Backup de productos completado exitosamente en SaveProductos.", "Backup Personalizado", "Informacion", null);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Backup de productos completado exitosamente", "Backup Personalizado", "Informacion", null);
                 mensaje.ShowDialog();
             }
             catch (Exception ex)

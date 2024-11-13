@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamer_Shop2._0.Formularios.GestionVenta;
+using System;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0

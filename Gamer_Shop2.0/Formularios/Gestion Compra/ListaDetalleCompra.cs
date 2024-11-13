@@ -1,5 +1,6 @@
 ﻿using Gamer_Shop2._0.Formularios.Comercio;
 using Gamer_Shop2._0.Formularios.Gestion_Compra;
+using Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups;
 using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
@@ -20,18 +21,18 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         public Panel PanelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
-
         public ListaDetalleCompra(int id)
         {
             InitializeComponent();
-           NCompra ncompra = new NCompra(); 
+
+            NCompra ncompra = new NCompra(); 
             compra = ncompra.GetCompra(id);
+            NDetalleCompra ndcompra = new NDetalleCompra();
             NDetalleVenta ndventa = new NDetalleVenta();
 
-            ndventa.getDetalles(DGListaDVn, compra.ID_Compra);
-           
+            ndcompra.getDetalles(DGListaDVn, compra.ID_Compra);
+
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-           
         }
 
         private void PContListaVn_Paint(object sender, PaintEventArgs e)
@@ -61,24 +62,10 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
         }
 
-        
-
         private void ListaVenta_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-            ;
-            NProveedor nprov = new NProveedor();
-            label2.Text = "Compra N° " + compra.ID_Compra + "  Fecha:" + compra.Fecha;
-            label3.Text = "Proveedor: " + nprov.GetProveedor(compra.ID_Proveedor).Razon_social;
-        }
-
-        private void BReturnToBack_Click(object sender, EventArgs e)
-        {
-            
-                    // Mostramos la lista de productos
-                    InstanciarYMostrarListaCompra();
-           
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -115,22 +102,19 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 e.Graphics.DrawPath(pen, path);
             }
         }
-
-
-
-
-
-        //------------------------------------------------------------------------------------InstanciarCatalogo-------------------------------------------------------------------------------\\
-
-        private void InstanciarYMostrarListaCompra()
+        public new void Dispose()
         {
-            Control control = PanelContainer.Controls[0];
-            if (control is Form)
-            {
-                //Liberamos recursos
-                control.Dispose();
-            }
+            // Desuscribirse de eventos
+            this.Load -= ListaVenta_Load;
+            PContListaVn.Paint -= PContListaVn_Paint;
+       
 
+            // Liberar los recursos
+            base.Dispose();
+        }
+
+        private void BReturnToBack_Click(object sender, EventArgs e)
+        {
             // Mostrar form
             ListaCompra formListCo = new ListaCompra();
             formListCo.TopLevel = false;
@@ -142,15 +126,49 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
             formListCo.Show();
         }
-        public new void Dispose()
-        {
-            // Desuscribirse de eventos
-            this.Load -= ListaVenta_Load;
-            PContListaVn.Paint -= PContListaVn_Paint;
-       
 
-            // Liberar los recursos
-            //base.Dispose();
+        private void BDescargarListVn_Click(object sender, EventArgs e)
+        {
+            // Mensaje de confirmación para iniciar la descarga
+            MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea descargar la lista de detalles compra?", "Descargar lista detalles compra?", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                mensaje.Close();
+
+                // Crear el FolderBrowserDialog para seleccionar la carpeta
+                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                {
+                    folderDialog.Description = "Seleccione una carpeta para guardar la lista de detalles compra";
+                    folderDialog.RootFolder = Environment.SpecialFolder.MyComputer; // Empezar en C:
+                    folderDialog.ShowNewFolderButton = true;
+
+                    // Mostrar el diálogo con el formulario principal como propietario
+                    if (folderDialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // Obtener la ruta seleccionada
+                        string rutaSeleccionada = folderDialog.SelectedPath;
+
+                        // Llamar a la función de backup con la ruta seleccionada
+                        BackupDetalleCompras.ExportarDetalleComprasACSV(rutaSeleccionada, compra.ID_Compra);
+
+                        // Mostrar mensaje de éxito
+                        mensaje = new MsgPersonalizado("Lista descargada con éxito!", "Descargar lista", "Informacion", null);
+                        mensaje.ShowDialog();
+                    }
+                    else
+                    {
+                        // El usuario canceló la selección de carpeta
+                        mensaje = new MsgPersonalizado("Operación cancelada.", "Descargar lista", "Advertencia", null);
+                        mensaje.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                mensaje.Close();
+            }
         }
     }
 }

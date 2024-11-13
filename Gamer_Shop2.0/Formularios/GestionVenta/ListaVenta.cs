@@ -1,5 +1,6 @@
 ﻿using Gamer_Shop2._0.Formularios.Comercio;
 using Gamer_Shop2._0.Formularios.Gestion_Compra;
+using Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups;
 using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
@@ -164,6 +165,8 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                     // Limpiar el panel actual y añadir el nuevo formulario
                     PanelContainer.Controls.Clear();
                     PanelContainer.Controls.Add(listadetalles);
+                    listadetalles.LUsuario = LUsuario;
+                    listadetalles.LabelVersion = LabelVersion;
                     listadetalles.PanelContainer = PanelContainer;
                     listadetalles.Show();
                     //this.Dispose();
@@ -209,6 +212,50 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
             // Liberar los recursos
             //base.Dispose();
+        }
+
+        private void BDescargarListVn_Click(object sender, EventArgs e)
+        {
+            // Mensaje de confirmación para iniciar la descarga
+            MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea descargar la lista de ventas?", "Descargar lista venta?", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                mensaje.Close();
+
+                // Crear el FolderBrowserDialog para seleccionar la carpeta
+                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                {
+                    folderDialog.Description = "Seleccione una carpeta para guardar la lista de ventas";
+                    folderDialog.RootFolder = Environment.SpecialFolder.MyComputer; // Empezar en C:
+                    folderDialog.ShowNewFolderButton = true;
+
+                    // Mostrar el diálogo con el formulario principal como propietario
+                    if (folderDialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // Obtener la ruta seleccionada
+                        string rutaSeleccionada = folderDialog.SelectedPath;
+
+                        // Llamar a la función de backup con la ruta seleccionada
+                        BackupVentas.ExportarVentasACSV(rutaSeleccionada);
+
+                        // Mostrar mensaje de éxito
+                        mensaje = new MsgPersonalizado("Lista descargada con éxito!", "Descargar lista", "Informacion", null);
+                        mensaje.ShowDialog();
+                    }
+                    else
+                    {
+                        // El usuario canceló la selección de carpeta
+                        mensaje = new MsgPersonalizado("Operación cancelada.", "Descargar lista", "Advertencia", null);
+                        mensaje.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                mensaje.Close();
+            }
         }
     }
 }

@@ -488,13 +488,19 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
         //Generamos la lista con el contenido de los campos
         private List<string> generarListaCampos()
         {
+            string combo = "";
+            if(CBCategoriaPrProveedor.Texts != "Seleccionar...")
+            {
+                combo = CBCategoriaPrProveedor.SelectedItem.ToString();
+            }
+
             List<string> campos = new List<string>{
                 TBRazon.Texts,
                 TBRepresentante.Texts,
                 TBContacto.Texts,
                 TBCorreo.Texts,
                 TBDireccion.Texts,
-                CBCategoriaPrProveedor.SelectedItem?.ToString()
+                combo
              };
             return campos;
         }

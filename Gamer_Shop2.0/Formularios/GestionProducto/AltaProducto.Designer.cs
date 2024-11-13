@@ -43,11 +43,11 @@
             this.TBValidacionCat = new System.Windows.Forms.Label();
             this.rjTextBox1 = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBValidacion15 = new System.Windows.Forms.Label();
+            this.TBValidacion7 = new System.Windows.Forms.Label();
             this.TBValidacion14 = new System.Windows.Forms.Label();
             this.TBValidacion13 = new System.Windows.Forms.Label();
             this.TBValidacion12 = new System.Windows.Forms.Label();
             this.TBValidacion11 = new System.Windows.Forms.Label();
-            this.TBValidacion7 = new System.Windows.Forms.Label();
             this.TBValidacion10 = new System.Windows.Forms.Label();
             this.TBValidacion9 = new System.Windows.Forms.Label();
             this.TBValidacion4 = new System.Windows.Forms.Label();
@@ -58,6 +58,8 @@
             this.BShowAddCategoria = new Gamer_Shop2._0.RJButton();
             this.TBValidacion2 = new System.Windows.Forms.Label();
             this.CBProveedorPr = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
             this.label4 = new System.Windows.Forms.Label();
             this.TBSerialPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,6 +67,7 @@
             this.TBDescripcionPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.TBNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
+            this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TBValidacion = new System.Windows.Forms.Label();
             this.LCategoriaPr = new System.Windows.Forms.Label();
             this.LDescripcionPr = new System.Windows.Forms.Label();
@@ -75,16 +78,13 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.BShowListaPr = new Gamer_Shop2._0.RJButton();
             this.BRegistrarPr = new Gamer_Shop2._0.RJButton();
-            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
-            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proveedorTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.ProveedorTableAdapter();
-            this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoría_productoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Categoría_productoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaPr)).BeginInit();
             this.PContAltaPr.SuspendLayout();
             this.PAddCategoria.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,11 +121,11 @@
             this.PContAltaPr.Controls.Add(this.TBValidacionCat);
             this.PContAltaPr.Controls.Add(this.rjTextBox1);
             this.PContAltaPr.Controls.Add(this.TBValidacion15);
+            this.PContAltaPr.Controls.Add(this.TBValidacion7);
             this.PContAltaPr.Controls.Add(this.TBValidacion14);
             this.PContAltaPr.Controls.Add(this.TBValidacion13);
             this.PContAltaPr.Controls.Add(this.TBValidacion12);
             this.PContAltaPr.Controls.Add(this.TBValidacion11);
-            this.PContAltaPr.Controls.Add(this.TBValidacion7);
             this.PContAltaPr.Controls.Add(this.TBValidacion10);
             this.PContAltaPr.Controls.Add(this.TBValidacion9);
             this.PContAltaPr.Controls.Add(this.TBValidacion4);
@@ -283,6 +283,7 @@
             this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Lime;
             this.rjTextBox1.BorderSize = 2;
+            this.rjTextBox1.Enabled = false;
             this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
             this.rjTextBox1.Location = new System.Drawing.Point(98, 251);
@@ -309,6 +310,18 @@
             this.TBValidacion15.TabIndex = 72;
             this.TBValidacion15.Text = "La descripcion no debe superar los 100 caracteres";
             this.TBValidacion15.Visible = false;
+            // 
+            // TBValidacion7
+            // 
+            this.TBValidacion7.AutoSize = true;
+            this.TBValidacion7.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion7.Location = new System.Drawing.Point(41, 85);
+            this.TBValidacion7.Name = "TBValidacion7";
+            this.TBValidacion7.Size = new System.Drawing.Size(195, 14);
+            this.TBValidacion7.TabIndex = 64;
+            this.TBValidacion7.Text = "La serial no debe superar los 9 caracteres";
+            this.TBValidacion7.Visible = false;
             // 
             // TBValidacion14
             // 
@@ -357,18 +370,6 @@
             this.TBValidacion11.TabIndex = 68;
             this.TBValidacion11.Text = "Por favor, seleccionar un valor válido";
             this.TBValidacion11.Visible = false;
-            // 
-            // TBValidacion7
-            // 
-            this.TBValidacion7.AutoSize = true;
-            this.TBValidacion7.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion7.Location = new System.Drawing.Point(25, 85);
-            this.TBValidacion7.Name = "TBValidacion7";
-            this.TBValidacion7.Size = new System.Drawing.Size(201, 14);
-            this.TBValidacion7.TabIndex = 64;
-            this.TBValidacion7.Text = "La serial no debe superar los 15 caracteres";
-            this.TBValidacion7.Visible = false;
             // 
             // TBValidacion10
             // 
@@ -423,7 +424,7 @@
             this.TBValidacion6.AutoSize = true;
             this.TBValidacion6.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion6.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion6.Location = new System.Drawing.Point(30, 85);
+            this.TBValidacion6.Location = new System.Drawing.Point(36, 85);
             this.TBValidacion6.Name = "TBValidacion6";
             this.TBValidacion6.Size = new System.Drawing.Size(196, 14);
             this.TBValidacion6.TabIndex = 63;
@@ -439,7 +440,7 @@
             this.TBValidacion5.Name = "TBValidacion5";
             this.TBValidacion5.Size = new System.Drawing.Size(214, 14);
             this.TBValidacion5.TabIndex = 62;
-            this.TBValidacion5.Text = "El serial no debe tener menos de 8 caracteres";
+            this.TBValidacion5.Text = "El serial no debe tener menos de 6 caracteres";
             this.TBValidacion5.Visible = false;
             // 
             // TBValidacion3
@@ -493,6 +494,8 @@
             this.CBProveedorPr.BackColor = System.Drawing.Color.Black;
             this.CBProveedorPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBProveedorPr.BorderSize = 1;
+            this.CBProveedorPr.CustomIndexStart = 1;
+            this.CBProveedorPr.CustomSelectedIndex = 0;
             this.CBProveedorPr.DataSource = this.proveedorBindingSource;
             this.CBProveedorPr.DisplayMember = "Razon_social";
             this.CBProveedorPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -508,8 +511,19 @@
             this.CBProveedorPr.Padding = new System.Windows.Forms.Padding(1);
             this.CBProveedorPr.Size = new System.Drawing.Size(128, 30);
             this.CBProveedorPr.TabIndex = 59;
-            this.CBProveedorPr.Texts = "";
+            this.CBProveedorPr.Texts = "Seleccionar...";
+            this.CBProveedorPr.ValueMember = "ID_Proveedor";
             this.CBProveedorPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBProveedorPr_Validating);
+            // 
+            // proveedorBindingSource
+            // 
+            this.proveedorBindingSource.DataMember = "Proveedor";
+            this.proveedorBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -636,6 +650,8 @@
             this.CBCategoriaPr.BackColor = System.Drawing.Color.Black;
             this.CBCategoriaPr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.CBCategoriaPr.BorderSize = 1;
+            this.CBCategoriaPr.CustomIndexStart = 1;
+            this.CBCategoriaPr.CustomSelectedIndex = 0;
             this.CBCategoriaPr.DataSource = this.categoríaproductoBindingSource;
             this.CBCategoriaPr.DisplayMember = "Nombre_Categoria";
             this.CBCategoriaPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -651,8 +667,14 @@
             this.CBCategoriaPr.Padding = new System.Windows.Forms.Padding(1);
             this.CBCategoriaPr.Size = new System.Drawing.Size(128, 30);
             this.CBCategoriaPr.TabIndex = 20;
-            this.CBCategoriaPr.Texts = "";
+            this.CBCategoriaPr.Texts = "Seleccionar...";
+            this.CBCategoriaPr.ValueMember = "ID_Categoria";
             this.CBCategoriaPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBCategoriaPr_Validating);
+            // 
+            // categoríaproductoBindingSource
+            // 
+            this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
+            this.categoríaproductoBindingSource.DataSource = this.dataSet1;
             // 
             // TBValidacion
             // 
@@ -782,24 +804,9 @@
             this.BRegistrarPr.UseVisualStyleBackColor = false;
             this.BRegistrarPr.Click += new System.EventHandler(this.BRegistrarPr_Click);
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // proveedorBindingSource
-            // 
-            this.proveedorBindingSource.DataMember = "Proveedor";
-            this.proveedorBindingSource.DataSource = this.dataSet1;
-            // 
             // proveedorTableAdapter
             // 
             this.proveedorTableAdapter.ClearBeforeFill = true;
-            // 
-            // categoríaproductoBindingSource
-            // 
-            this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
-            this.categoríaproductoBindingSource.DataSource = this.dataSet1;
             // 
             // categoría_productoTableAdapter
             // 
@@ -831,8 +838,8 @@
             this.PContAltaPr.PerformLayout();
             this.PAddCategoria.ResumeLayout(false);
             this.PAddCategoria.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

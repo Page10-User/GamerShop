@@ -111,6 +111,7 @@
             this.BDescargarListVn.TabIndex = 32;
             this.BDescargarListVn.TextColor = System.Drawing.Color.White;
             this.BDescargarListVn.UseVisualStyleBackColor = false;
+            this.BDescargarListVn.Click += new System.EventHandler(this.BDescargarListVn_Click);
             // 
             // PContListaVn
             // 

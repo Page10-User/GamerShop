@@ -517,6 +517,7 @@
             this.BDescargarPr.TabIndex = 10;
             this.BDescargarPr.TextColor = System.Drawing.Color.White;
             this.BDescargarPr.UseVisualStyleBackColor = false;
+            this.BDescargarPr.Click += new System.EventHandler(this.BDescargarPr_Click);
             // 
             // ListaProductos
             // 

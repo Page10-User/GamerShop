@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.Formularios.MSGPersonalizado;
+﻿using Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
 using System.Collections.Generic;
@@ -545,6 +546,50 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
                 // Ajusta la visibilidad de la fila según el resultado del filtro
                 fila.Visible = cumpleFiltro;
+            }
+        }
+
+        private void BDescargarPr_Click(object sender, EventArgs e)
+        {
+            // Mensaje de confirmación para iniciar la descarga
+            MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea descargar la lista de productos?", "Descargar lista producto?", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                mensaje.Close();
+
+                // Crear el FolderBrowserDialog para seleccionar la carpeta
+                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                {
+                    folderDialog.Description = "Seleccione una carpeta para guardar la lista de productos";
+                    folderDialog.RootFolder = Environment.SpecialFolder.MyComputer; // Empezar en C:
+                    folderDialog.ShowNewFolderButton = true;
+
+                    // Mostrar el diálogo con el formulario principal como propietario
+                    if (folderDialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // Obtener la ruta seleccionada
+                        string rutaSeleccionada = folderDialog.SelectedPath;
+
+                        // Llamar a la función de backup con la ruta seleccionada
+                        BackupProductos.ExportarProductosACSV(rutaSeleccionada);
+
+                        // Mostrar mensaje de éxito
+                        mensaje = new MsgPersonalizado("Lista descargada con éxito!", "Descargar lista", "Informacion", null);
+                        mensaje.ShowDialog();
+                    }
+                    else
+                    {
+                        // El usuario canceló la selección de carpeta
+                        mensaje = new MsgPersonalizado("Operación cancelada.", "Descargar lista", "Advertencia", null);
+                        mensaje.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                mensaje.Close();
             }
         }
     }

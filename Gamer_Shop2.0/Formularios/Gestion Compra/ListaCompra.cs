@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.Formularios.GestionVenta;
+﻿using Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups;
+using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
@@ -136,6 +137,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                     PanelContainer.Controls.Clear();
                     PanelContainer.Controls.Add(listadetalles);
                     listadetalles.PanelContainer = PanelContainer;
+                    listadetalles.Mainform = MainForm;
                     listadetalles.Show();
                     //this.Dispose();
                 }
@@ -185,6 +187,50 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 
             // Liberar los recursos
             base.Dispose();
+        }
+
+        private void BDescargar_Click(object sender, EventArgs e)
+        {
+            // Mensaje de confirmación para iniciar la descarga
+            MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea descargar la lista de compras?", "Descargar lista compra?", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                mensaje.Close();
+
+                // Crear el FolderBrowserDialog para seleccionar la carpeta
+                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                {
+                    folderDialog.Description = "Seleccione una carpeta para guardar la lista de compras";
+                    folderDialog.RootFolder = Environment.SpecialFolder.MyComputer; // Empezar en C:
+                    folderDialog.ShowNewFolderButton = true;
+
+                    // Mostrar el diálogo con el formulario principal como propietario
+                    if (folderDialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // Obtener la ruta seleccionada
+                        string rutaSeleccionada = folderDialog.SelectedPath;
+
+                        // Llamar a la función de backup con la ruta seleccionada
+                        BackupCompras.ExportarComprasACSV(rutaSeleccionada);
+
+                        // Mostrar mensaje de éxito
+                        mensaje = new MsgPersonalizado("Lista descargada con éxito!", "Descargar lista", "Informacion", null);
+                        mensaje.ShowDialog();
+                    }
+                    else
+                    {
+                        // El usuario canceló la selección de carpeta
+                        mensaje = new MsgPersonalizado("Operación cancelada.", "Descargar lista", "Advertencia", null);
+                        mensaje.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                mensaje.Close();
+            }
         }
     }
 }

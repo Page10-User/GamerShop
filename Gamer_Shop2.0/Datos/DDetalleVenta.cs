@@ -80,7 +80,6 @@ namespace Gamer_Shop2._0.Datos
                     DDetalles detalles = new DDetalles();
                     
                     DataView view = new DataView(detalles.GetDetallesAll());
-                    Debug.WriteLine("Cuenta" + view.Count);
                     view.RowFilter = $"ID_Venta = {idven}";
                     grid.DataSource = view;
                 }

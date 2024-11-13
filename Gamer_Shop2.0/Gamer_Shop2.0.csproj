@@ -145,10 +145,22 @@
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupClientes.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupCompleto.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupCompras.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupDetalleCompras.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupDetalleVentas.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupProductos.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupProveedores.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupUsuarios.cs" />
     <Compile Include="Formularios\GestionBackups\ClaseBackups\BackupVentas.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseRestauraciones\RestauracionClientes.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseRestauraciones\RestauracionCompleta.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseRestauraciones\RestauracionProductos.cs" />
+    <Compile Include="Formularios\GestionBackups\ClaseRestauraciones\RestauracionProveedores.cs" />
+    <Compile Include="Formularios\GestionBackups\Restaurar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GestionBackups\Restaurar.Designer.cs">
+      <DependentUpon>Restaurar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\GestionVenta\ListaDetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -481,6 +493,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionBackups\Backups.resx">
       <DependentUpon>Backups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GestionBackups\Restaurar.resx">
+      <DependentUpon>Restaurar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionCliente\AltaCliente.resx">
       <DependentUpon>AltaCliente.cs</DependentUpon>

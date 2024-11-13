@@ -48,7 +48,7 @@ namespace Gamer_Shop2._0.Negocio
         {
             if (ddventa == null)
             {
-                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+                throw new NullReferenceException("El objeto 'ddventa' no se pudo inicializar.");
             }
             else
             {

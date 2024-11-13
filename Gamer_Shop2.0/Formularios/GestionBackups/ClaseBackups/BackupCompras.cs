@@ -9,10 +9,19 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
 {
     internal class BackupCompras
     {
-        public static void ExportarComprasACSV()
+        public static void ExportarComprasACSV(string rutaIndicada)
         {
+            string rutaCarpetaBackupsCompras;
+
+            if (rutaIndicada != null)
+            {
+                rutaCarpetaBackupsCompras = rutaIndicada;
+            }
+            else
+            {
+                rutaCarpetaBackupsCompras = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveCompras"));
+            }
             // Construir la ruta completa a la carpeta de backups
-            string rutaCarpetaBackupsCompras = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveCompras"));
 
             // Crear la carpeta si no existe
             if (!Directory.Exists(rutaCarpetaBackupsCompras))
@@ -21,7 +30,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
             }
 
             // Nombre del archivo con la fecha actual
-            string nombreArchivo = $"Compras_{DateTime.Now:dd-MM-yyyy}.csv";
+            string nombreArchivo = $"Compras_{DateTime.Now:dd-MM-yyyy_HH-mm-ss}.csv";
             string rutaArchivo = Path.Combine(rutaCarpetaBackupsCompras, nombreArchivo);
 
             try
@@ -31,6 +40,13 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                 {
                     var compras = context.Compra.ToList();
                     ClaseValidacion validador = new ClaseValidacion(); // Crear una instancia de ClaseValidacion
+
+                    if (compras.Count == 0)
+                    {
+                        MsgPersonalizado mensajeError = new MsgPersonalizado("La tabla compras actualmente se encuentra vacia.", "Error", "Error", null);
+                        mensajeError.ShowDialog();
+                        return;
+                    }
 
                     using (StreamWriter writer = new StreamWriter(rutaArchivo, false, System.Text.Encoding.UTF8))
                     {

@@ -22,9 +22,9 @@ public partial class Categoría_producto
     public Categoría_producto()
     {
 
-        this.Producto = new HashSet<Producto>();
-
         this.Proveedor = new HashSet<Proveedor>();
+
+        this.Producto = new HashSet<Producto>();
 
     }
 
@@ -37,13 +37,12 @@ public partial class Categoría_producto
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<Producto> Producto { get; set; }
+    public virtual ICollection<Proveedor> Proveedor { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<Proveedor> Proveedor { get; set; }
+    public virtual ICollection<Producto> Producto { get; set; }
 
 }
 
-    
 }

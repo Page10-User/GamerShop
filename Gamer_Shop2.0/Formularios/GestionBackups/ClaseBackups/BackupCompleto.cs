@@ -1,52 +1,53 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 
 namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
 {
     internal class BackupCompleto
     {
-        public static void ExporteCompletoACSV()
+        public static void HacerBackup()
         {
-            // Crear la ruta para guardar el backup completo
-            string rutaCarpetaBackupsCompleto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveAll"));
-            if (!Directory.Exists(rutaCarpetaBackupsCompleto))
+            // Obtener la cadena de conexión automáticamente desde el App.config
+            string connectionString = ConfigurationManager.ConnectionStrings["Gamer_Shop2._0.Properties.Settings.ProyectoTallerIIConnectionString"].ConnectionString;
+
+            // Ruta de la carpeta donde se guardarán los backups
+            //string rutaCarpetaBackups = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados\SaveAll"));
+            string rutaCarpetaBackups = @"C:\Backups";
+
+
+            // Crear la carpeta si no existe
+            if (!Directory.Exists(rutaCarpetaBackups))
             {
-                Directory.CreateDirectory(rutaCarpetaBackupsCompleto);
+                Directory.CreateDirectory(rutaCarpetaBackups);
             }
 
-            // Crear el archivo de backup completo con la fecha actual en el nombre
-            string nombreArchivo = $"BackupCompleto_{DateTime.Now:dd-MM-yyyy}.csv";
-            string rutaArchivo = Path.Combine(rutaCarpetaBackupsCompleto, nombreArchivo);
+            // Crear un nombre de archivo con marca de tiempo para el backup
+            string nombreBackup = $"BackupCompleto_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.bak";
 
-            try
+            string rutaBackup = Path.Combine(rutaCarpetaBackups, nombreBackup);
+
+            string query = $"BACKUP DATABASE [ProyectoTallerII] TO DISK = '{rutaBackup}' WITH FORMAT;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                using (StreamWriter writer = new StreamWriter(rutaArchivo, false, System.Text.Encoding.UTF8))
+                SqlCommand command = new SqlCommand(query, connection);
+                try
                 {
-                    // Llamar a métodos para obtener los datos de cada tabla y escribirlos en el archivo
-                    ExportarTabla(writer, "Clientes", BackupClientes.ObtenerClientes());
-                    ExportarTabla(writer, "Proveedores", BackupProveedores.ObtenerProveedores());
-                    ExportarTabla(writer, "Productos", BackupProductos.ObtenerProductos());
-                    ExportarTabla(writer, "Compras", BackupCompras.ObtenerCompras());
-                    ExportarTabla(writer, "Ventas", BackupVentas.ObtenerVentas());
-                    ExportarTabla(writer, "Usuarios", BackupUsuarios.ObtenerUsuarios());
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Backup completo realizado con éxito.", "Backup Completo exitoso","Informacion",null);
+                    mensaje.ShowDialog();
                 }
-
-                MsgPersonalizado mensaje = new MsgPersonalizado("Backup completo realizado con éxito en SaveAll.", "Backup Completo", "Informacion", null);
-                mensaje.ShowDialog();
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al realizar el backup: {ex.Message}");
+                    MsgPersonalizado mensaje = new MsgPersonalizado($"Error al realizar el backup: { ex.Message }", "Error", "Error", null);
+                    mensaje.ShowDialog();
+                }
             }
-            catch (Exception ex)
-            {
-                MsgPersonalizado mensaje = new MsgPersonalizado($"Error al realizar el backup completo: {ex.Message}", "Backup Completo", "Error", null);
-                mensaje.ShowDialog();
-            }
-        }
-
-        private static void ExportarTabla(StreamWriter writer, string nombreTabla, string datosTabla)
-        {
-            // Escribir la etiqueta de la tabla para distinguir los datos
-            writer.WriteLine($"--- {nombreTabla} ---");
-            writer.WriteLine(datosTabla);
         }
     }
 }

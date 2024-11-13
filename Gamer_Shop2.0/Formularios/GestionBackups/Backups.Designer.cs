@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Backups));
             this.PContInfBackups = new System.Windows.Forms.Panel();
+            this.CBGestionCliente = new System.Windows.Forms.CheckBox();
             this.BBackupPersonalizado = new Gamer_Shop2._0.RJButton();
             this.CBGestionCompra = new System.Windows.Forms.CheckBox();
             this.CBGestionProveedor = new System.Windows.Forms.CheckBox();
@@ -42,9 +43,15 @@
             this.LRBC = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LTituloBackups = new System.Windows.Forms.Label();
-            this.CBGestionCliente = new System.Windows.Forms.CheckBox();
+            this.BRestaurar = new Gamer_Shop2._0.RJButton();
+            this.PContRestaurar = new System.Windows.Forms.Panel();
+            this.BRestaurarBk = new Gamer_Shop2._0.RJButton();
+            this.BSalir = new Gamer_Shop2._0.RJButton();
+            this.BFotoProducto = new Gamer_Shop2._0.RJButton();
+            this.TBDireccionBak = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.PContInfBackups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PContRestaurar.SuspendLayout();
             this.SuspendLayout();
             // 
             // PContInfBackups
@@ -65,6 +72,18 @@
             this.PContInfBackups.Size = new System.Drawing.Size(611, 318);
             this.PContInfBackups.TabIndex = 5;
             this.PContInfBackups.Paint += new System.Windows.Forms.PaintEventHandler(this.PContInfBackups_Paint);
+            // 
+            // CBGestionCliente
+            // 
+            this.CBGestionCliente.AutoSize = true;
+            this.CBGestionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBGestionCliente.ForeColor = System.Drawing.Color.White;
+            this.CBGestionCliente.Location = new System.Drawing.Point(368, 175);
+            this.CBGestionCliente.Name = "CBGestionCliente";
+            this.CBGestionCliente.Size = new System.Drawing.Size(178, 29);
+            this.CBGestionCliente.TabIndex = 10;
+            this.CBGestionCliente.Text = "Gestion Cliente";
+            this.CBGestionCliente.UseVisualStyleBackColor = true;
             // 
             // BBackupPersonalizado
             // 
@@ -224,17 +243,123 @@
             this.LTituloBackups.Text = "Backups";
             this.LTituloBackups.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // CBGestionCliente
+            // BRestaurar
             // 
-            this.CBGestionCliente.AutoSize = true;
-            this.CBGestionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBGestionCliente.ForeColor = System.Drawing.Color.White;
-            this.CBGestionCliente.Location = new System.Drawing.Point(368, 175);
-            this.CBGestionCliente.Name = "CBGestionCliente";
-            this.CBGestionCliente.Size = new System.Drawing.Size(178, 29);
-            this.CBGestionCliente.TabIndex = 10;
-            this.CBGestionCliente.Text = "Gestion Cliente";
-            this.CBGestionCliente.UseVisualStyleBackColor = true;
+            this.BRestaurar.BackColor = System.Drawing.Color.Black;
+            this.BRestaurar.BackgroundColor = System.Drawing.Color.Black;
+            this.BRestaurar.BorderColor = System.Drawing.Color.Lime;
+            this.BRestaurar.BorderRadius = 20;
+            this.BRestaurar.BorderSize = 1;
+            this.BRestaurar.FlatAppearance.BorderSize = 0;
+            this.BRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BRestaurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BRestaurar.ForeColor = System.Drawing.Color.White;
+            this.BRestaurar.Location = new System.Drawing.Point(520, 40);
+            this.BRestaurar.Name = "BRestaurar";
+            this.BRestaurar.Size = new System.Drawing.Size(127, 40);
+            this.BRestaurar.TabIndex = 6;
+            this.BRestaurar.Text = "Restaurar";
+            this.BRestaurar.TextColor = System.Drawing.Color.White;
+            this.BRestaurar.UseVisualStyleBackColor = false;
+            this.BRestaurar.Click += new System.EventHandler(this.BRestaurar_Click);
+            // 
+            // PContRestaurar
+            // 
+            this.PContRestaurar.Controls.Add(this.BRestaurarBk);
+            this.PContRestaurar.Controls.Add(this.BSalir);
+            this.PContRestaurar.Controls.Add(this.BFotoProducto);
+            this.PContRestaurar.Controls.Add(this.TBDireccionBak);
+            this.PContRestaurar.Location = new System.Drawing.Point(479, 82);
+            this.PContRestaurar.Name = "PContRestaurar";
+            this.PContRestaurar.Size = new System.Drawing.Size(200, 128);
+            this.PContRestaurar.TabIndex = 11;
+            this.PContRestaurar.Visible = false;
+            this.PContRestaurar.Paint += new System.Windows.Forms.PaintEventHandler(this.PContRestaurar_Paint);
+            // 
+            // BRestaurarBk
+            // 
+            this.BRestaurarBk.BackColor = System.Drawing.Color.Black;
+            this.BRestaurarBk.BackgroundColor = System.Drawing.Color.Black;
+            this.BRestaurarBk.BorderColor = System.Drawing.Color.Lime;
+            this.BRestaurarBk.BorderRadius = 7;
+            this.BRestaurarBk.BorderSize = 1;
+            this.BRestaurarBk.FlatAppearance.BorderSize = 0;
+            this.BRestaurarBk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BRestaurarBk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BRestaurarBk.ForeColor = System.Drawing.Color.White;
+            this.BRestaurarBk.Location = new System.Drawing.Point(10, 92);
+            this.BRestaurarBk.Name = "BRestaurarBk";
+            this.BRestaurarBk.Size = new System.Drawing.Size(100, 31);
+            this.BRestaurarBk.TabIndex = 12;
+            this.BRestaurarBk.Text = "Restaurar";
+            this.BRestaurarBk.TextColor = System.Drawing.Color.White;
+            this.BRestaurarBk.UseVisualStyleBackColor = false;
+            this.BRestaurarBk.Click += new System.EventHandler(this.BRestaurarBk_Click);
+            // 
+            // BSalir
+            // 
+            this.BSalir.BackColor = System.Drawing.Color.Transparent;
+            this.BSalir.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BSalir.BackgroundImage")));
+            this.BSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BSalir.BorderColor = System.Drawing.Color.Lime;
+            this.BSalir.BorderRadius = 0;
+            this.BSalir.BorderSize = 0;
+            this.BSalir.CausesValidation = false;
+            this.BSalir.FlatAppearance.BorderSize = 0;
+            this.BSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BSalir.ForeColor = System.Drawing.Color.White;
+            this.BSalir.Location = new System.Drawing.Point(168, 7);
+            this.BSalir.Name = "BSalir";
+            this.BSalir.Size = new System.Drawing.Size(25, 25);
+            this.BSalir.TabIndex = 70;
+            this.BSalir.TextColor = System.Drawing.Color.White;
+            this.BSalir.UseVisualStyleBackColor = false;
+            this.BSalir.Click += new System.EventHandler(this.BSalir_Click);
+            // 
+            // BFotoProducto
+            // 
+            this.BFotoProducto.BackColor = System.Drawing.Color.Black;
+            this.BFotoProducto.BackgroundColor = System.Drawing.Color.Black;
+            this.BFotoProducto.BorderColor = System.Drawing.Color.Lime;
+            this.BFotoProducto.BorderRadius = 10;
+            this.BFotoProducto.BorderSize = 1;
+            this.BFotoProducto.FlatAppearance.BorderSize = 0;
+            this.BFotoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BFotoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BFotoProducto.ForeColor = System.Drawing.Color.White;
+            this.BFotoProducto.Location = new System.Drawing.Point(10, 11);
+            this.BFotoProducto.Name = "BFotoProducto";
+            this.BFotoProducto.Size = new System.Drawing.Size(85, 31);
+            this.BFotoProducto.TabIndex = 68;
+            this.BFotoProducto.Text = "Elegir Copia";
+            this.BFotoProducto.TextColor = System.Drawing.Color.White;
+            this.BFotoProducto.UseVisualStyleBackColor = false;
+            this.BFotoProducto.Click += new System.EventHandler(this.BCSVSearch_Click);
+            // 
+            // TBDireccionBak
+            // 
+            this.TBDireccionBak.BackColor = System.Drawing.Color.Black;
+            this.TBDireccionBak.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TBDireccionBak.BorderFocusColor = System.Drawing.Color.Lime;
+            this.TBDireccionBak.BorderSize = 2;
+            this.TBDireccionBak.Enabled = false;
+            this.TBDireccionBak.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBDireccionBak.ForeColor = System.Drawing.Color.DimGray;
+            this.TBDireccionBak.Location = new System.Drawing.Point(10, 54);
+            this.TBDireccionBak.Margin = new System.Windows.Forms.Padding(4);
+            this.TBDireccionBak.Multiline = false;
+            this.TBDireccionBak.Name = "TBDireccionBak";
+            this.TBDireccionBak.Padding = new System.Windows.Forms.Padding(7);
+            this.TBDireccionBak.PasswordChar = false;
+            this.TBDireccionBak.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TBDireccionBak.PlaceholderText = "Ruta de la foto";
+            this.TBDireccionBak.Size = new System.Drawing.Size(182, 31);
+            this.TBDireccionBak.TabIndex = 69;
+            this.TBDireccionBak.Texts = "";
+            this.TBDireccionBak.UnderlinedStyle = false;
             // 
             // Backups
             // 
@@ -244,6 +369,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.PContRestaurar);
+            this.Controls.Add(this.BRestaurar);
             this.Controls.Add(this.LTituloBackups);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PContInfBackups);
@@ -255,6 +382,7 @@
             this.PContInfBackups.ResumeLayout(false);
             this.PContInfBackups.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.PContRestaurar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +403,11 @@
         private System.Windows.Forms.CheckBox CBGestionUsuario;
         private System.Windows.Forms.CheckBox CBGestionProducto;
         private System.Windows.Forms.CheckBox CBGestionCliente;
+        private RJButton BRestaurar;
+        private System.Windows.Forms.Panel PContRestaurar;
+        private RJButton BFotoProducto;
+        private RJControls.RJTextBox TBDireccionBak;
+        private RJButton BSalir;
+        private RJButton BRestaurarBk;
     }
 }

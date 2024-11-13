@@ -16,7 +16,7 @@ CREATE PROCEDURE REGISTRARCOMPRA (
 ) as begin 
 begin try
 begin transaction registro
-declare @ID_Compra
+declare @ID_Compra int = 1
 
 insert into Compra(ID_Usuario, ID_Proveedor, Fecha, Total) VALUES (@ID_Usuario, @ID_Proveedor, @Fecha, @Total)
 SET @ID_Compra = SCOPE_IDENTITY()

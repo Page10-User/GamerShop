@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 
 namespace Gamer_Shop2._0.Formularios.GestionVenta
 {
@@ -16,9 +18,13 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
         Venta venta = new Venta();
-
         public Panel PanelContainer { get; set; }
         public Bienvenida Mainform { get; set; }
+
+        public Usuario LUsuario { get; set; }
+
+        public Label LabelVersion { get; set; }
+
         public ListaDetalleVenta(int id)
         {
             InitializeComponent();
@@ -29,7 +35,6 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             ndventa.getDetalles(DGListaDVn, venta.ID_Venta);
            
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
-           
         }
 
         private void PContListaVn_Paint(object sender, PaintEventArgs e)
@@ -59,17 +64,11 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
         }
 
-        
-
         private void ListaVenta_Load(object sender, EventArgs e)
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
             ;
-
-            NCliente ncliente = new NCliente();
-            label2.Text = "Compra N° " + venta.ID_Venta + "  Fecha:" + venta.Fecha;
-            label3.Text = "Proveedor: " + ncliente.GetCliente(venta.ID_Cliente).Nombre;
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -107,13 +106,6 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             }
         }
 
-        
-
-        
-
-        //------------------------------------------------------------------------------------InstanciarCatalogo-------------------------------------------------------------------------------\\
-        
-
         public new void Dispose()
         {
             // Desuscribirse de eventos
@@ -123,6 +115,64 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
             // Liberar los recursos
             //base.Dispose();
+        }
+
+        private void BReturnToBack_Click(object sender, EventArgs e)
+        {
+            // Mostrar form
+            ListaVenta formListaVn = new ListaVenta(false);
+            formListaVn.TopLevel = false;
+            formListaVn.PanelContainer = PanelContainer;
+            formListaVn.LabelVersion = LabelVersion;
+            formListaVn.LUsuario = LUsuario;
+            PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
+            PanelContainer.Controls.Add(formListaVn);
+            PanelContainer.BringToFront();
+            formListaVn.Show();
+        }
+
+        private void BDescargarListVn_Click(object sender, EventArgs e)
+        {
+            // Mensaje de confirmación para iniciar la descarga
+            MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea descargar la lista de detalles venta?", "Descargar lista detalles venta?", "Interrogacion", null);
+            DialogResult result = mensaje.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                mensaje.Close();
+
+                // Crear el FolderBrowserDialog para seleccionar la carpeta
+                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                {
+                    folderDialog.Description = "Seleccione una carpeta para guardar la lista de detalles venta";
+                    folderDialog.RootFolder = Environment.SpecialFolder.MyComputer; // Empezar en C:
+                    folderDialog.ShowNewFolderButton = true;
+
+                    // Mostrar el diálogo con el formulario principal como propietario
+                    if (folderDialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // Obtener la ruta seleccionada
+                        string rutaSeleccionada = folderDialog.SelectedPath;
+
+                        // Llamar a la función de backup con la ruta seleccionada
+                        BackupDetalleVentas.ExportarDetalleVentasACSV(rutaSeleccionada, venta.ID_Venta);
+
+                        // Mostrar mensaje de éxito
+                        mensaje = new MsgPersonalizado("Lista descargada con éxito!", "Descargar lista", "Informacion", null);
+                        mensaje.ShowDialog();
+                    }
+                    else
+                    {
+                        // El usuario canceló la selección de carpeta
+                        mensaje = new MsgPersonalizado("Operación cancelada.", "Descargar lista", "Advertencia", null);
+                        mensaje.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                mensaje.Close();
+            }
         }
     }
 }

@@ -491,6 +491,7 @@
             this.BDescargar.TabIndex = 26;
             this.BDescargar.TextColor = System.Drawing.Color.White;
             this.BDescargar.UseVisualStyleBackColor = false;
+            this.BDescargar.Click += new System.EventHandler(this.BDescargar_Click);
             // 
             // ListaProveedor
             // 

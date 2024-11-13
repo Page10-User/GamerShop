@@ -288,6 +288,7 @@
             this.BDescargarCliente.TabIndex = 18;
             this.BDescargarCliente.TextColor = System.Drawing.Color.White;
             this.BDescargarCliente.UseVisualStyleBackColor = false;
+            this.BDescargarCliente.Click += new System.EventHandler(this.BDescargarCliente_Click);
             // 
             // ListaCliente
             // 

@@ -77,8 +77,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
             this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
 
-
-
+            CBCategoriaPr.Texts = "Seleccionar...";
+            CBProveedorPr.Texts = "Seleccionar...";
 
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
@@ -207,7 +207,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
 
             //Validar longitud
-            if (!validador.ValidarLongitudConLimite(texto, 15, e.KeyChar))
+            if (!validador.ValidarLongitudConLimite(texto, 9, e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -222,7 +222,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             if (!string.IsNullOrWhiteSpace(texto))
             {
                 //Validar longitud minima.
-                if (!validador.ValidarLongitudMinima(texto, 8))
+                if (!validador.ValidarLongitudMinima(texto, 6))
                 {
                     e.Cancel = true;
                     TBValidacion5.Visible = true;
@@ -238,7 +238,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 }
 
                 //Validar longitud máxima.
-                if (!validador.ValidarLongitud(texto, 15))
+                if (!validador.ValidarLongitud(texto, 9))
                 {
                     e.Cancel = true;
                     TBValidacion7.Visible = true;
@@ -401,7 +401,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BRegistrarPr_Click(object sender, EventArgs e)
         {
-            if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null)
+            if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null && nombreImagen != string.Empty)
             {
                 try
                 {
@@ -419,6 +419,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                         );
                     MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
                     mensaje.ShowDialog();
+                    nombreImagen = "";
+                    rjTextBox1.Texts = "";
                 }
                 catch (ExisteRegistroException ex)
                 {
@@ -588,13 +590,31 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private List<string> generarListaCampos()
         {
+            string campoPr = "";
+            string campoCt = "";
+
+            if (CBProveedorPr.Texts != "Seleccionar..." && CBCategoriaPr.Texts == "Seleccionar...")
+            {
+                campoPr = CBProveedorPr.SelectedItem.ToString();
+            }
+            else if(CBProveedorPr.Texts == "Seleccionar..." && CBCategoriaPr.Texts != "Seleccionar...")
+            {
+                campoCt = CBProveedorPr.SelectedItem.ToString();
+            }
+            else if(CBProveedorPr.Texts != "Seleccionar..." && CBCategoriaPr.Texts != "Seleccionar...")
+            {
+                campoPr = CBProveedorPr.SelectedItem.ToString();
+                campoCt = CBProveedorPr.SelectedItem.ToString();
+            }
+
             List<string> campos = new List<string>{
                 TBNombrePr.Texts,
                 TBDescripcionPr.Texts,
                 TBSerialPr.Texts,
                 TBPrecioPr.Texts,
-                CBProveedorPr.SelectedItem?.ToString(),
-                CBCategoriaPr.SelectedItem?.ToString(),
+                nombreImagen,
+                campoPr,
+                campoCt,
              };
             return campos;
         }
@@ -609,7 +629,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                     string sourceFilePath = openFileDialog.FileName;
-                rjTextBox1.Texts = sourceFilePath;
+                    rjTextBox1.Texts = sourceFilePath;
                     // Genera un nombre único para la imagen
                     nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(sourceFilePath);
 
@@ -617,12 +637,12 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     string destinationPath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
 
                     // Asegúrate de que la carpeta de destino existe
+
                     Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
 
                     // Copia la imagen a la carpeta de destino
                    File.Copy(sourceFilePath, destinationPath, true);
             }
-
         }
 
         public new void Dispose()

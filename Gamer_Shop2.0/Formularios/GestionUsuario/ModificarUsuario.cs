@@ -22,7 +22,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
 
         private List<string> camposActuales = new List<string>(new string[7]);
 
-        string filePath;
+        private string filePath;
 
         public Panel PanelContainer { get; set; }
         public ModificarUsuario(Usuario user)

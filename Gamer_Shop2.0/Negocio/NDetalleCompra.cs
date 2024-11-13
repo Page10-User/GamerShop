@@ -49,7 +49,7 @@ namespace Gamer_Shop2._0.Negocio
         {
             if (ddcompra == null)
             {
-                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+                throw new NullReferenceException("El objeto 'dcompra' no se pudo inicializar.");
             }
             else
             {
@@ -57,11 +57,23 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
+        public void getDetalles(DataGridView grid, int idven)
+        {
+            if (ddcompra== null)
+            {
+                throw new NullReferenceException("El objeto 'dventa' no se pudo inicializar.");
+            }
+            else
+            {
+                ddcompra.getDetallesCompra(grid, idven);
+            }
+        }
+
         public Detalle_compra GetDetalle(int idcom, int idprod)
         {
             if (ddcompra == null)
             {
-                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+                throw new NullReferenceException("El objeto 'dcompra' no se pudo inicializar.");
             }
             else
             {
