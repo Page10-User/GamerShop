@@ -29,54 +29,54 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reporte));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PTituloReport = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.LCantidadGanado = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.LCantidadCompras = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LCantidadVentas = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.CHBoxAño = new System.Windows.Forms.RadioButton();
+            this.CHBoxMes = new System.Windows.Forms.RadioButton();
+            this.CHBoxSemana = new System.Windows.Forms.RadioButton();
             this.CGraficoPie5P = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.BRefresh = new Gamer_Shop2._0.RJButton();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.LPromedioVentas = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.LCantidadVendidos = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.CGraficoVent = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.CHBoxAño1 = new System.Windows.Forms.RadioButton();
+            this.CHBoxMes1 = new System.Windows.Forms.RadioButton();
             this.CGraficoPieCC = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.CHBoxSemana1 = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
+            this.BRefresh = new Gamer_Shop2._0.RJButton();
             this.PTituloReport.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -114,7 +114,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.label7);
+            this.panel8.Controls.Add(this.LCantidadGanado);
             this.panel8.Controls.Add(this.label6);
             this.panel8.Controls.Add(this.pictureBox4);
             this.panel8.Location = new System.Drawing.Point(14, 157);
@@ -123,16 +123,16 @@
             this.panel8.TabIndex = 4;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // label7
+            // LCantidadGanado
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(46, 23);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(14, 16);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "0";
+            this.LCantidadGanado.AutoSize = true;
+            this.LCantidadGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCantidadGanado.ForeColor = System.Drawing.Color.White;
+            this.LCantidadGanado.Location = new System.Drawing.Point(46, 23);
+            this.LCantidadGanado.Name = "LCantidadGanado";
+            this.LCantidadGanado.Size = new System.Drawing.Size(14, 16);
+            this.LCantidadGanado.TabIndex = 8;
+            this.LCantidadGanado.Text = "0";
             // 
             // label6
             // 
@@ -157,7 +157,7 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.label5);
+            this.panel7.Controls.Add(this.LCantidadCompras);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Controls.Add(this.pictureBox3);
             this.panel7.Location = new System.Drawing.Point(14, 106);
@@ -166,16 +166,16 @@
             this.panel7.TabIndex = 3;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // label5
+            // LCantidadCompras
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(46, 23);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(14, 16);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "0";
+            this.LCantidadCompras.AutoSize = true;
+            this.LCantidadCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCantidadCompras.ForeColor = System.Drawing.Color.White;
+            this.LCantidadCompras.Location = new System.Drawing.Point(46, 23);
+            this.LCantidadCompras.Name = "LCantidadCompras";
+            this.LCantidadCompras.Size = new System.Drawing.Size(14, 16);
+            this.LCantidadCompras.TabIndex = 7;
+            this.LCantidadCompras.Text = "0";
             // 
             // label4
             // 
@@ -200,7 +200,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.LCantidadVentas);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.pictureBox2);
             this.panel6.Location = new System.Drawing.Point(14, 56);
@@ -209,16 +209,16 @@
             this.panel6.TabIndex = 2;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // label3
+            // LCantidadVentas
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(46, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "0";
+            this.LCantidadVentas.AutoSize = true;
+            this.LCantidadVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCantidadVentas.ForeColor = System.Drawing.Color.White;
+            this.LCantidadVentas.Location = new System.Drawing.Point(46, 23);
+            this.LCantidadVentas.Name = "LCantidadVentas";
+            this.LCantidadVentas.Size = new System.Drawing.Size(14, 16);
+            this.LCantidadVentas.TabIndex = 6;
+            this.LCantidadVentas.Text = "0";
             // 
             // label2
             // 
@@ -265,9 +265,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Controls.Add(this.radioButton7);
-            this.panel2.Controls.Add(this.radioButton8);
-            this.panel2.Controls.Add(this.radioButton9);
+            this.panel2.Controls.Add(this.CHBoxAño);
+            this.panel2.Controls.Add(this.CHBoxMes);
+            this.panel2.Controls.Add(this.CHBoxSemana);
             this.panel2.Controls.Add(this.CGraficoPie5P);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Location = new System.Drawing.Point(447, 12);
@@ -276,65 +276,68 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // radioButton7
+            // CHBoxAño
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton7.ForeColor = System.Drawing.Color.White;
-            this.radioButton7.Location = new System.Drawing.Point(122, 144);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(85, 19);
-            this.radioButton7.TabIndex = 9;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Último año";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.CHBoxAño.AutoSize = true;
+            this.CHBoxAño.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHBoxAño.ForeColor = System.Drawing.Color.White;
+            this.CHBoxAño.Location = new System.Drawing.Point(122, 144);
+            this.CHBoxAño.Name = "CHBoxAño";
+            this.CHBoxAño.Size = new System.Drawing.Size(85, 19);
+            this.CHBoxAño.TabIndex = 9;
+            this.CHBoxAño.TabStop = true;
+            this.CHBoxAño.Text = "Último año";
+            this.CHBoxAño.UseVisualStyleBackColor = true;
+            this.CHBoxAño.CheckedChanged += new System.EventHandler(this.CHBoxAño_CheckedChanged);
             // 
-            // radioButton8
+            // CHBoxMes
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton8.ForeColor = System.Drawing.Color.White;
-            this.radioButton8.Location = new System.Drawing.Point(122, 125);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(88, 19);
-            this.radioButton8.TabIndex = 8;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Último mes";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.CHBoxMes.AutoSize = true;
+            this.CHBoxMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHBoxMes.ForeColor = System.Drawing.Color.White;
+            this.CHBoxMes.Location = new System.Drawing.Point(122, 125);
+            this.CHBoxMes.Name = "CHBoxMes";
+            this.CHBoxMes.Size = new System.Drawing.Size(88, 19);
+            this.CHBoxMes.TabIndex = 8;
+            this.CHBoxMes.TabStop = true;
+            this.CHBoxMes.Text = "Último mes";
+            this.CHBoxMes.UseVisualStyleBackColor = true;
+            this.CHBoxMes.CheckedChanged += new System.EventHandler(this.CHBoxMes_CheckedChanged);
             // 
-            // radioButton9
+            // CHBoxSemana
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.radioButton9.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.radioButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton9.ForeColor = System.Drawing.Color.White;
-            this.radioButton9.Location = new System.Drawing.Point(13, 145);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(109, 19);
-            this.radioButton9.TabIndex = 7;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Última semana";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.CHBoxSemana.AutoSize = true;
+            this.CHBoxSemana.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.CHBoxSemana.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.CHBoxSemana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHBoxSemana.ForeColor = System.Drawing.Color.White;
+            this.CHBoxSemana.Location = new System.Drawing.Point(13, 145);
+            this.CHBoxSemana.Name = "CHBoxSemana";
+            this.CHBoxSemana.Size = new System.Drawing.Size(109, 19);
+            this.CHBoxSemana.TabIndex = 7;
+            this.CHBoxSemana.TabStop = true;
+            this.CHBoxSemana.Text = "Última semana";
+            this.CHBoxSemana.UseVisualStyleBackColor = true;
+            this.CHBoxSemana.CheckedChanged += new System.EventHandler(this.CHBoxSemana_CheckedChanged);
             // 
             // CGraficoPie5P
             // 
             this.CGraficoPie5P.BackColor = System.Drawing.Color.Black;
-            chartArea7.BackColor = System.Drawing.Color.Black;
-            chartArea7.Name = "ChartArea1";
-            this.CGraficoPie5P.ChartAreas.Add(chartArea7);
-            legend5.BackColor = System.Drawing.Color.Black;
-            legend5.ForeColor = System.Drawing.Color.White;
-            legend5.Name = "Legend1";
-            this.CGraficoPie5P.Legends.Add(legend5);
+            chartArea1.BackColor = System.Drawing.Color.Black;
+            chartArea1.Name = "ChartArea1";
+            this.CGraficoPie5P.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Black;
+            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.Name = "Legend1";
+            this.CGraficoPie5P.Legends.Add(legend1);
             this.CGraficoPie5P.Location = new System.Drawing.Point(13, 31);
             this.CGraficoPie5P.Name = "CGraficoPie5P";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series7.LabelForeColor = System.Drawing.Color.Transparent;
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.CGraficoPie5P.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.LabelForeColor = System.Drawing.Color.Transparent;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.CGraficoPie5P.Series.Add(series1);
             this.CGraficoPie5P.Size = new System.Drawing.Size(197, 120);
             this.CGraficoPie5P.TabIndex = 2;
             this.CGraficoPie5P.Text = "chart1";
@@ -362,32 +365,9 @@
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // BRefresh
-            // 
-            this.BRefresh.BackColor = System.Drawing.Color.Transparent;
-            this.BRefresh.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BRefresh.BackgroundImage")));
-            this.BRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BRefresh.BorderColor = System.Drawing.Color.Transparent;
-            this.BRefresh.BorderRadius = 1;
-            this.BRefresh.BorderSize = 0;
-            this.BRefresh.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BRefresh.FlatAppearance.BorderSize = 0;
-            this.BRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BRefresh.ForeColor = System.Drawing.Color.White;
-            this.BRefresh.Location = new System.Drawing.Point(172, 177);
-            this.BRefresh.Name = "BRefresh";
-            this.BRefresh.Size = new System.Drawing.Size(25, 25);
-            this.BRefresh.TabIndex = 9;
-            this.BRefresh.TextColor = System.Drawing.Color.White;
-            this.BRefresh.UseVisualStyleBackColor = false;
-            this.BRefresh.Click += new System.EventHandler(this.BRefresh_Click);
-            // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.label13);
+            this.panel9.Controls.Add(this.LPromedioVentas);
             this.panel9.Controls.Add(this.label14);
             this.panel9.Controls.Add(this.pictureBox6);
             this.panel9.Location = new System.Drawing.Point(10, 63);
@@ -396,16 +376,16 @@
             this.panel9.TabIndex = 8;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // label13
+            // LPromedioVentas
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(46, 23);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(14, 16);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "0";
+            this.LPromedioVentas.AutoSize = true;
+            this.LPromedioVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LPromedioVentas.ForeColor = System.Drawing.Color.White;
+            this.LPromedioVentas.Location = new System.Drawing.Point(46, 23);
+            this.LPromedioVentas.Name = "LPromedioVentas";
+            this.LPromedioVentas.Size = new System.Drawing.Size(14, 16);
+            this.LPromedioVentas.TabIndex = 6;
+            this.LPromedioVentas.Text = "0";
             // 
             // label14
             // 
@@ -430,7 +410,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.LCantidadVendidos);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Location = new System.Drawing.Point(10, 10);
@@ -439,16 +419,16 @@
             this.panel1.TabIndex = 7;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // label11
+            // LCantidadVendidos
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(46, 23);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(14, 16);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "0";
+            this.LCantidadVendidos.AutoSize = true;
+            this.LCantidadVendidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCantidadVendidos.ForeColor = System.Drawing.Color.White;
+            this.LCantidadVendidos.Location = new System.Drawing.Point(46, 23);
+            this.LCantidadVendidos.Name = "LCantidadVendidos";
+            this.LCantidadVendidos.Size = new System.Drawing.Size(14, 16);
+            this.LCantidadVendidos.TabIndex = 6;
+            this.LCantidadVendidos.Text = "0";
             // 
             // label12
             // 
@@ -485,24 +465,24 @@
             // CGraficoVent
             // 
             this.CGraficoVent.BackColor = System.Drawing.Color.Black;
-            chartArea8.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea8.AxisX.LineColor = System.Drawing.Color.Lime;
-            chartArea8.AxisY.LabelStyle.Enabled = false;
-            chartArea8.BackColor = System.Drawing.Color.Black;
-            chartArea8.Name = "ChartArea1";
-            chartArea8.ShadowColor = System.Drawing.Color.Black;
-            this.CGraficoVent.ChartAreas.Add(chartArea8);
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisY.LabelStyle.Enabled = false;
+            chartArea2.BackColor = System.Drawing.Color.Black;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.ShadowColor = System.Drawing.Color.Black;
+            this.CGraficoVent.ChartAreas.Add(chartArea2);
             this.CGraficoVent.Location = new System.Drawing.Point(14, 42);
             this.CGraficoVent.Name = "CGraficoVent";
-            series8.BorderColor = System.Drawing.Color.Lime;
-            series8.ChartArea = "ChartArea1";
-            series8.Color = System.Drawing.Color.Black;
-            series8.LabelBackColor = System.Drawing.Color.White;
-            series8.LabelBorderColor = System.Drawing.Color.White;
-            series8.Name = "Series1";
-            series8.ShadowColor = System.Drawing.Color.Lime;
-            series8.YValuesPerPoint = 2;
-            this.CGraficoVent.Series.Add(series8);
+            series2.BorderColor = System.Drawing.Color.Lime;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Black;
+            series2.LabelBackColor = System.Drawing.Color.White;
+            series2.LabelBorderColor = System.Drawing.Color.White;
+            series2.Name = "Series1";
+            series2.ShadowColor = System.Drawing.Color.Lime;
+            series2.YValuesPerPoint = 2;
+            this.CGraficoVent.Series.Add(series2);
             this.CGraficoVent.Size = new System.Drawing.Size(398, 141);
             this.CGraficoVent.TabIndex = 0;
             this.CGraficoVent.Text = "chart1";
@@ -522,10 +502,10 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.Controls.Add(this.radioButton4);
-            this.panel5.Controls.Add(this.radioButton5);
+            this.panel5.Controls.Add(this.CHBoxAño1);
+            this.panel5.Controls.Add(this.CHBoxMes1);
             this.panel5.Controls.Add(this.CGraficoPieCC);
-            this.panel5.Controls.Add(this.radioButton6);
+            this.panel5.Controls.Add(this.CHBoxSemana1);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(447, 187);
             this.panel5.Name = "panel5";
@@ -533,68 +513,71 @@
             this.panel5.TabIndex = 2;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // radioButton4
+            // CHBoxAño1
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.ForeColor = System.Drawing.Color.White;
-            this.radioButton4.Location = new System.Drawing.Point(28, 210);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(85, 19);
-            this.radioButton4.TabIndex = 6;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Último año";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.CHBoxAño1.AutoSize = true;
+            this.CHBoxAño1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHBoxAño1.ForeColor = System.Drawing.Color.White;
+            this.CHBoxAño1.Location = new System.Drawing.Point(28, 210);
+            this.CHBoxAño1.Name = "CHBoxAño1";
+            this.CHBoxAño1.Size = new System.Drawing.Size(85, 19);
+            this.CHBoxAño1.TabIndex = 6;
+            this.CHBoxAño1.TabStop = true;
+            this.CHBoxAño1.Text = "Último año";
+            this.CHBoxAño1.UseVisualStyleBackColor = true;
+            this.CHBoxAño1.CheckedChanged += new System.EventHandler(this.CHBoxAño1_CheckedChanged);
             // 
-            // radioButton5
+            // CHBoxMes1
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.ForeColor = System.Drawing.Color.White;
-            this.radioButton5.Location = new System.Drawing.Point(28, 185);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(88, 19);
-            this.radioButton5.TabIndex = 5;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Último mes";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.CHBoxMes1.AutoSize = true;
+            this.CHBoxMes1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHBoxMes1.ForeColor = System.Drawing.Color.White;
+            this.CHBoxMes1.Location = new System.Drawing.Point(28, 185);
+            this.CHBoxMes1.Name = "CHBoxMes1";
+            this.CHBoxMes1.Size = new System.Drawing.Size(88, 19);
+            this.CHBoxMes1.TabIndex = 5;
+            this.CHBoxMes1.TabStop = true;
+            this.CHBoxMes1.Text = "Último mes";
+            this.CHBoxMes1.UseVisualStyleBackColor = true;
+            this.CHBoxMes1.CheckedChanged += new System.EventHandler(this.CHBoxMes1_CheckedChanged);
             // 
             // CGraficoPieCC
             // 
             this.CGraficoPieCC.BackColor = System.Drawing.Color.Black;
-            chartArea9.BackColor = System.Drawing.Color.Black;
-            chartArea9.Name = "ChartArea1";
-            this.CGraficoPieCC.ChartAreas.Add(chartArea9);
-            legend6.BackColor = System.Drawing.Color.Black;
-            legend6.ForeColor = System.Drawing.Color.White;
-            legend6.Name = "Legend1";
-            this.CGraficoPieCC.Legends.Add(legend6);
+            chartArea3.BackColor = System.Drawing.Color.Black;
+            chartArea3.Name = "ChartArea1";
+            this.CGraficoPieCC.ChartAreas.Add(chartArea3);
+            legend2.BackColor = System.Drawing.Color.Black;
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.Name = "Legend1";
+            this.CGraficoPieCC.Legends.Add(legend2);
             this.CGraficoPieCC.Location = new System.Drawing.Point(13, 36);
             this.CGraficoPieCC.Name = "CGraficoPieCC";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series9.LabelForeColor = System.Drawing.Color.Transparent;
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.CGraficoPieCC.Series.Add(series9);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.LabelForeColor = System.Drawing.Color.Transparent;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.CGraficoPieCC.Series.Add(series3);
             this.CGraficoPieCC.Size = new System.Drawing.Size(197, 120);
             this.CGraficoPieCC.TabIndex = 3;
             this.CGraficoPieCC.Text = "chart1";
             // 
-            // radioButton6
+            // CHBoxSemana1
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.radioButton6.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.radioButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton6.ForeColor = System.Drawing.Color.White;
-            this.radioButton6.Location = new System.Drawing.Point(28, 160);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(109, 19);
-            this.radioButton6.TabIndex = 4;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Última semana";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.CHBoxSemana1.AutoSize = true;
+            this.CHBoxSemana1.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.CHBoxSemana1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.CHBoxSemana1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHBoxSemana1.ForeColor = System.Drawing.Color.White;
+            this.CHBoxSemana1.Location = new System.Drawing.Point(28, 160);
+            this.CHBoxSemana1.Name = "CHBoxSemana1";
+            this.CHBoxSemana1.Size = new System.Drawing.Size(109, 19);
+            this.CHBoxSemana1.TabIndex = 4;
+            this.CHBoxSemana1.TabStop = true;
+            this.CHBoxSemana1.Text = "Última semana";
+            this.CHBoxSemana1.UseVisualStyleBackColor = true;
+            this.CHBoxSemana1.CheckedChanged += new System.EventHandler(this.CHBoxSemana1_CheckedChanged);
             // 
             // label10
             // 
@@ -606,6 +589,29 @@
             this.label10.Size = new System.Drawing.Size(202, 24);
             this.label10.TabIndex = 3;
             this.label10.Text = "Cantidad por Categoría";
+            // 
+            // BRefresh
+            // 
+            this.BRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.BRefresh.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BRefresh.BackgroundImage")));
+            this.BRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BRefresh.BorderColor = System.Drawing.Color.Transparent;
+            this.BRefresh.BorderRadius = 1;
+            this.BRefresh.BorderSize = 0;
+            this.BRefresh.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BRefresh.FlatAppearance.BorderSize = 0;
+            this.BRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BRefresh.ForeColor = System.Drawing.Color.White;
+            this.BRefresh.Location = new System.Drawing.Point(172, 177);
+            this.BRefresh.Name = "BRefresh";
+            this.BRefresh.Size = new System.Drawing.Size(25, 25);
+            this.BRefresh.TabIndex = 9;
+            this.BRefresh.TextColor = System.Drawing.Color.White;
+            this.BRefresh.UseVisualStyleBackColor = false;
+            this.BRefresh.Click += new System.EventHandler(this.BRefresh_Click);
             // 
             // Reporte
             // 
@@ -623,6 +629,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Reporte";
             this.Text = "Informe";
+            this.Load += new System.EventHandler(this.Reporte_Load);
             this.PTituloReport.ResumeLayout(false);
             this.PTituloReport.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -670,11 +677,11 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LCantidadGanado;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LCantidadCompras;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LCantidadVentas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataVisualization.Charting.Chart CGraficoVent;
@@ -682,18 +689,18 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart CGraficoPie5P;
         private System.Windows.Forms.DataVisualization.Charting.Chart CGraficoPieCC;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton CHBoxAño1;
+        private System.Windows.Forms.RadioButton CHBoxMes1;
+        private System.Windows.Forms.RadioButton CHBoxSemana1;
+        private System.Windows.Forms.RadioButton CHBoxAño;
+        private System.Windows.Forms.RadioButton CHBoxMes;
+        private System.Windows.Forms.RadioButton CHBoxSemana;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LCantidadVendidos;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label LPromedioVentas;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox6;
         private RJButton BRefresh;

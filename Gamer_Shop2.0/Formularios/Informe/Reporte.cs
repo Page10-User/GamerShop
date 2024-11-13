@@ -1,10 +1,12 @@
 ﻿using Gamer_Shop2._0.Formularios.BorderClasss;
+using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -20,8 +22,8 @@ namespace Gamer_Shop2._0.Formularios.Informe
         {
             InitializeComponent();
             CrearGrafico();
-            radioButton9.Checked = true;
-            radioButton6.Checked = true;
+            CHBoxSemana.Checked = true;
+            CHBoxSemana1.Checked = true;
 
             ConfigurarGraficoPie("WEEK");
             ConfigurarGraficoPieCC("WEEK");
@@ -182,11 +184,11 @@ namespace Gamer_Shop2._0.Formularios.Informe
            NDetalleVenta nDetalleVenta = new NDetalleVenta();
 
             DataTable dataTable = nDetalleVenta.getProductosMasVendidos(periodo);
-           
+
             // Agregar datos al gráfico
             foreach (DataRow row in dataTable.Rows)
             {
-                string producto = row["Producto"].ToString();
+                string producto = row["Nombre"].ToString();
                 double totalVendidos = Convert.ToDouble(row["TotalVendidos"]);
                 series.Points.AddXY(producto, totalVendidos);
             }
@@ -210,58 +212,13 @@ namespace Gamer_Shop2._0.Formularios.Informe
             // Agregar datos al gráfico
             foreach (DataRow row in dataTable.Rows)
             {
-                string categoria = row["Categoria"].ToString();
+                string categoria = row["Nombre_Categoria"].ToString();
                 double totalCantidad = Convert.ToDouble(row["TotalCantidad"]);
                 series.Points.AddXY(categoria, totalCantidad);
             }
 
             series["PieLabelStyle"] = "Disabled";
             series["CollectedLabel"] = "Otros";
-        }
-
-        private void radioButton5P_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            string filtrofecha = "";
-
-            if (radioButton6.Checked)
-            {
-                filtrofecha = "DATEADD(week, -1, GETDATE())";
-            }
-            else if (radioButton5.Checked)
-            {
-                filtrofecha = "DATEADD(month, -1, GETDATE())";
-            }
-            else if (radioButton4.Checked)
-            {
-                filtrofecha = "DATEADD(year, -1, GETDATE())";
-            }
-
-            
-            ConfigurarGraficoPie(filtrofecha);
-            
-        }
-
-        private void radioButtonCC_CheckedChanged(object sender, EventArgs e)
-        {
-            string filtrofecha = "";
-
-            if (radioButton9.Checked)
-            {
-                filtrofecha = "DATEADD(week, -1, GETDATE())";
-            }
-            else if (radioButton8.Checked)
-            {
-                filtrofecha = "DATEADD(month, -1, GETDATE())";
-            }
-            else if (radioButton7.Checked)
-            {
-                filtrofecha = "DATEADD(year, -1, GETDATE())";
-            }
-
-
-            ConfigurarGraficoPieCC(filtrofecha);
-
         }
 
         public new void Dispose()
@@ -282,6 +239,111 @@ namespace Gamer_Shop2._0.Formularios.Informe
             PanelContainer.BringToFront();
             formReporte.Show();
             this.Dispose();
+        }
+
+        private void Reporte_Load(object sender, EventArgs e)
+        {
+            using (var context = new ProyectoTallerIIEntities1())
+            {
+                var totalProductosVendidos = context.Detalle_venta.Sum(d => d.Cantidad);
+                LCantidadVendidos.Text = totalProductosVendidos.ToString();
+
+                var ventas = context.Venta.ToList();
+                LCantidadVentas.Text = ventas.Count.ToString();
+
+                var compras = context.Compra.ToList();
+                LCantidadCompras.Text = compras.Count.ToString();
+
+                var totalGanado = context.Venta.Sum(v => v.Total);
+                LCantidadGanado.Text = totalGanado.ToString("C");
+
+                var ventasPorDia = context.Venta
+                    .GroupBy(v => v.Fecha)
+                    .Select(g => g.Count())
+                    .ToList();
+
+                double promedioVentasPorDia = ventasPorDia.Any() ? ventasPorDia.Average() : 0;
+                LPromedioVentas.Text = promedioVentasPorDia.ToString("F2");
+            }
+        }
+
+        private void CHBoxSemana_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHBoxSemana.Checked)
+            {
+                // Deseleccionar otros CheckBoxes
+                CHBoxMes.Checked = false;
+                CHBoxAño.Checked = false;
+
+                // Llamar a ConfigurarGraficoPie con el periodo "WEEK"
+                ConfigurarGraficoPie("WEEK");
+            }
+        }
+
+        private void CHBoxMes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHBoxMes.Checked)
+            {
+                // Deseleccionar otros CheckBoxes
+                CHBoxSemana.Checked = false;
+                CHBoxAño.Checked = false;
+
+                // Llamar a ConfigurarGraficoPie con el periodo "MONTH"
+                ConfigurarGraficoPie("MONTH");
+            }
+        }
+
+        private void CHBoxAño_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHBoxAño.Checked)
+            {
+                // Deseleccionar otros CheckBoxes
+                CHBoxSemana.Checked = false;
+                CHBoxMes.Checked = false;
+
+                // Llamar a ConfigurarGraficoPie con el periodo "YEAR"
+                ConfigurarGraficoPie("YEAR");
+            }
+        }
+
+
+        private void CHBoxSemana1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHBoxSemana1.Checked)
+            {
+                // Deseleccionar otros CheckBoxes
+                CHBoxMes1.Checked = false;
+                CHBoxAño1.Checked = false;
+
+                // Llamar a ConfigurarGraficoPie con el periodo "WEEK"
+                ConfigurarGraficoPie("WEEK");
+            }
+        }
+
+        private void CHBoxMes1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHBoxMes1.Checked)
+            {
+                // Deseleccionar otros CheckBoxes
+                CHBoxSemana1.Checked = false;
+                CHBoxAño1.Checked = false;
+
+                // Llamar a ConfigurarGraficoPie con el periodo "MONTH"
+                ConfigurarGraficoPie("MONTH");
+            }
+        }
+
+        private void CHBoxAño1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHBoxAño1.Checked)
+            {
+                // Deseleccionar otros CheckBoxes
+                CHBoxSemana1.Checked = false;
+                CHBoxMes1.Checked = false;
+
+                // Llamar a ConfigurarGraficoPie con el periodo "YEAR"
+                ConfigurarGraficoPie("YEAR");
+            }
         }
     }
 }

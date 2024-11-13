@@ -99,12 +99,12 @@ namespace Gamer_Shop2._0.Datos
             else return detalle;
         }
 
-        public DataTable getProductosMasVendidos (string periodo)
+        public DataTable getProductosMasVendidos(string periodo)
         {
             if (adapter.GetData() == null)
             {
                 throw new NullReferenceException("No hay ventas");
-                
+
             }
             else
             {

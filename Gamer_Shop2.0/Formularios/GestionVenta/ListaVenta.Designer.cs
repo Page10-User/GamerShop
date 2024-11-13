@@ -125,6 +125,7 @@
             // 
             // DGListaVn
             // 
+            this.DGListaVn.AllowUserToAddRows = false;
             this.DGListaVn.BackgroundColor = System.Drawing.Color.Black;
             this.DGListaVn.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

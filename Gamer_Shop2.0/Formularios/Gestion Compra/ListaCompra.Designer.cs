@@ -50,6 +50,7 @@
             // 
             // DGListaCompra
             // 
+            this.DGListaCompra.AllowUserToAddRows = false;
             this.DGListaCompra.BackgroundColor = System.Drawing.Color.Black;
             this.DGListaCompra.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
