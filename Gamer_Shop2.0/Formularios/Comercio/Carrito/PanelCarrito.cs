@@ -121,11 +121,19 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
 
         private void BExitCarrito_Click(object sender, EventArgs e)
         {
+            actualizarListaAlCerrar();
             PanelContainerCr.Controls.Clear();
             PanelContainerCr.SendToBack();
             FondoOscuro.Close();
             MainForm.FondoOscuroCatalogo = null;
             this.Close();
+        }
+
+        public event EventHandler<Dictionary<int, int>> ActualizarLista;
+        private void actualizarListaAlCerrar()
+        {
+            actualizarCantidadListaProductos();
+            ActualizarLista?.Invoke(this, idPrCr);
         }
 
         public event EventHandler<int> EliminarPrCarritoClick;

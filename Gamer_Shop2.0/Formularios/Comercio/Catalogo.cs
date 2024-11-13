@@ -184,6 +184,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
                 {
                     MsgPersonalizado mensaje = new MsgPersonalizado("No hay suficiente stock disponible para agregar más de este producto.", "Stock Insuficiente", "Error", null);
                     mensaje.ShowDialog();
+                    MainForm.TopMost = true;
                 }
             }
             else
@@ -206,6 +207,11 @@ namespace Gamer_Shop2._0.Formularios.Comercio
                     idPrCarrito.Remove(serial);
                 }
             }
+        }
+
+        private void ArticuloCr_ActualizarListaAlCerrar(object sender, Dictionary<int, int> carritoActualizado)
+        {
+            idPrCarrito = carritoActualizado;
         }
 
         //------------------------------------------------------InstanciarYMostrarCarrito_V_----------------------------------------------------\\
@@ -234,6 +240,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             Pcarrito.FondoOscuro = GenerarFondoOscuro(formBg);
             Pcarrito.MainCatalogo = this;
             Pcarrito.EliminarPrCarritoClick += ArticuloCr_EliminarPrCarritoClick;
+            Pcarrito.ActualizarLista += ArticuloCr_ActualizarListaAlCerrar;
             Pcarrito.idPrCr = idPrCarrito;
             PContCarrito.BringToFront();
             MainForm.TopMost = false;
