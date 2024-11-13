@@ -137,9 +137,8 @@ namespace Gamer_Shop2._0.Formularios.Informe
             Series series = CGraficoVent.Series.Add("Ventas");
             series.ChartType = SeriesChartType.Column;
 
-            // Agregar los datos
-            string[] dias = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", "Domingo" };
-            double[] valores = { 300, 225, 0.1, 20, 120, 100, 200 };
+            NVenta nventa = new NVenta();
+            DataTable dataTable = nventa.getTotalVentasPorPeriodo(periodo);
 
             // Colores personalizados para cada barra
             Color[] colores = { Color.Salmon, Color.Khaki, Color.LightGreen, Color.Lime, Color.Cyan, Color.DeepSkyBlue, Color.MediumPurple };
