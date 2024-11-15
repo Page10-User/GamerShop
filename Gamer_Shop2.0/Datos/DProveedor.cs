@@ -183,30 +183,6 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void DEliminarProveedor(int id)
-        {
-            if (ExisteRegistro(id) == false)
-            {
-                throw new ExisteRegistroException("El proveedor no existe");
-            }
-            else
-            {
-                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
-                {
-                    try
-                    {
-                        Proveedor proveedor = context.Proveedor.First(p => p.ID_Proveedor == id);
-
-                        proveedor.Activo = "NO";
-                        context.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"Error al eliminar el proveedor: {ex.Message}");
-                    }
-                }
-            }
-        }
     }
 }
 

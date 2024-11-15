@@ -101,17 +101,6 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void NEliminarUsuario(string cuil)
-        {
-            if (dUsuario == null)
-            {
-                throw new NullReferenceException("El objeto 'dUsuario' no se pudo inicializar.");
-            }
-            else
-            {
-                dUsuario.DEliminarUsuario(cuil);
-            }
-        }
 
         //   //----------------------------------------------------------------------------------\\
         //  //------------------------------------------------------------------------------------\\

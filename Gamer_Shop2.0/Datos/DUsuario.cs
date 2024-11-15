@@ -193,30 +193,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void DEliminarUsuario(string cuil)
-        {
-            if (ExisteRegistro(cuil) == false)
-            {
-                throw new ExisteRegistroException("El Usuario no existe");
-            }
-            else
-            {
-                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
-                {
-                    try
-                    {
-                        Usuario user = context.Usuario.First(p => p.CUIL == cuil);
-
-                        user.Activo = "NO";
-                        context.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"Error al eliminar el Usuario: {ex.Message}");
-                    }
-                }
-            }
-        }
+        
         //   //----------------------------------------------------------------------------------\\
         //  //------------------------------------------------------------------------------------\\
         //  ||                     Método para obtener la cuenta del usuario                      ||

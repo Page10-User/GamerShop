@@ -225,31 +225,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
                     mensaje.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == DGListaProveedor.Columns["CEliminar"].Index && e.RowIndex >= 0)
-            {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea eliminar este proveedor?", "Eliminar Proveedor", "Interrogacion", null);
-                DialogResult result = mensaje.ShowDialog();
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        int id = int.Parse(DGListaProveedor.CurrentRow.Cells["ID_Proveedor"].Value.ToString());
-                        NProveedor nproveedor = new NProveedor();
-                        nproveedor.NEliminarProveedor(id);
-                        mensaje.Close();
-                        DGListaProveedor.Rows.RemoveAt(e.RowIndex);
-                    }
-                    catch (Exception)
-                    {
-                        mensaje = new MsgPersonalizado("No se pudo eliminar el producto", "Error", "Error", null);
-                        mensaje.ShowDialog();
-                    }
-                }
-                else
-                {
-                    mensaje.Dispose();
-                }
-            }
         }
 
         private void DGListaProveedorInactivos_CellClick(object sender, DataGridViewCellEventArgs e)

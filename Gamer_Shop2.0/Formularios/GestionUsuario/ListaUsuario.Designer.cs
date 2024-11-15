@@ -53,17 +53,6 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CModificarUsIn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DGListaUs = new System.Windows.Forms.DataGridView();
-            this.ID_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CModificarUs = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CEliminarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.LTituloListaUs = new System.Windows.Forms.Label();
             this.PBImgListaUs = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,6 +63,16 @@
             this.BShowRegistrar = new Gamer_Shop2._0.RJButton();
             this.BDescargarListUs = new Gamer_Shop2._0.RJButton();
             this.MovSwich = new System.Windows.Forms.Timer(this.components);
+            this.ID_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CModificarUs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PContListaUs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaUsInactivos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGListaUs)).BeginInit();
@@ -150,7 +149,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGListaUsInactivos.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGListaUsInactivos.GridColor = System.Drawing.Color.Black;
-            this.DGListaUsInactivos.Location = new System.Drawing.Point(1, 1);
+            this.DGListaUsInactivos.Location = new System.Drawing.Point(1, 2);
             this.DGListaUsInactivos.Name = "DGListaUsInactivos";
             this.DGListaUsInactivos.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -257,8 +256,7 @@
             this.Correo,
             this.Tipo_usuario,
             this.Activo,
-            this.CModificarUs,
-            this.CEliminarUs});
+            this.CModificarUs});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -287,77 +285,6 @@
             this.DGListaUs.Size = new System.Drawing.Size(433, 286);
             this.DGListaUs.TabIndex = 28;
             this.DGListaUs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaUs_CellClick);
-            // 
-            // ID_Usuario
-            // 
-            this.ID_Usuario.HeaderText = "ID Usuario";
-            this.ID_Usuario.Name = "ID_Usuario";
-            this.ID_Usuario.ReadOnly = true;
-            this.ID_Usuario.Visible = false;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // CUIL
-            // 
-            this.CUIL.HeaderText = "CUIL";
-            this.CUIL.Name = "CUIL";
-            this.CUIL.ReadOnly = true;
-            // 
-            // Nombre_usuario
-            // 
-            this.Nombre_usuario.HeaderText = "Nombre de usuario";
-            this.Nombre_usuario.Name = "Nombre_usuario";
-            this.Nombre_usuario.ReadOnly = true;
-            // 
-            // Contraseña
-            // 
-            this.Contraseña.HeaderText = "Contraseña";
-            this.Contraseña.Name = "Contraseña";
-            this.Contraseña.ReadOnly = true;
-            // 
-            // Correo
-            // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            // 
-            // Tipo_usuario
-            // 
-            this.Tipo_usuario.HeaderText = "Tipo de usuario";
-            this.Tipo_usuario.Name = "Tipo_usuario";
-            this.Tipo_usuario.ReadOnly = true;
-            // 
-            // Activo
-            // 
-            this.Activo.HeaderText = "Activo";
-            this.Activo.Name = "Activo";
-            this.Activo.ReadOnly = true;
-            // 
-            // CModificarUs
-            // 
-            this.CModificarUs.HeaderText = "Modificar";
-            this.CModificarUs.Name = "CModificarUs";
-            this.CModificarUs.ReadOnly = true;
-            this.CModificarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CModificarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // CEliminarUs
-            // 
-            this.CEliminarUs.HeaderText = "Eliminar";
-            this.CEliminarUs.Name = "CEliminarUs";
-            this.CEliminarUs.ReadOnly = true;
-            this.CEliminarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CEliminarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // LTituloListaUs
             // 
@@ -515,6 +442,69 @@
             this.MovSwich.Interval = 1;
             this.MovSwich.Tick += new System.EventHandler(this.MovSwitch_Tick);
             // 
+            // ID_Usuario
+            // 
+            this.ID_Usuario.HeaderText = "ID Usuario";
+            this.ID_Usuario.Name = "ID_Usuario";
+            this.ID_Usuario.ReadOnly = true;
+            this.ID_Usuario.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // CUIL
+            // 
+            this.CUIL.HeaderText = "CUIL";
+            this.CUIL.Name = "CUIL";
+            this.CUIL.ReadOnly = true;
+            // 
+            // Nombre_usuario
+            // 
+            this.Nombre_usuario.HeaderText = "Nombre de usuario";
+            this.Nombre_usuario.Name = "Nombre_usuario";
+            this.Nombre_usuario.ReadOnly = true;
+            // 
+            // Contraseña
+            // 
+            this.Contraseña.HeaderText = "Contraseña";
+            this.Contraseña.Name = "Contraseña";
+            this.Contraseña.ReadOnly = true;
+            // 
+            // Correo
+            // 
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            // 
+            // Tipo_usuario
+            // 
+            this.Tipo_usuario.HeaderText = "Tipo de usuario";
+            this.Tipo_usuario.Name = "Tipo_usuario";
+            this.Tipo_usuario.ReadOnly = true;
+            // 
+            // Activo
+            // 
+            this.Activo.HeaderText = "Activo";
+            this.Activo.Name = "Activo";
+            this.Activo.ReadOnly = true;
+            // 
+            // CModificarUs
+            // 
+            this.CModificarUs.HeaderText = "Modificar";
+            this.CModificarUs.Name = "CModificarUs";
+            this.CModificarUs.ReadOnly = true;
+            this.CModificarUs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CModificarUs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // ListaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,17 +551,6 @@
         private System.Windows.Forms.DataGridView DGListaUs;
         private RJButton BBuscador;
         private RJControls.RJTextBox_radio_ TBFiltro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CUIL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Contraseña;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
-        private System.Windows.Forms.DataGridViewButtonColumn CModificarUs;
-        private System.Windows.Forms.DataGridViewButtonColumn CEliminarUs;
         private System.Windows.Forms.DataGridView DGListaUsInactivos;
         private RJButton BSwitch;
         private System.Windows.Forms.Label label2;
@@ -587,5 +566,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_UsuarioIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewButtonColumn CModificarUsIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CUIL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Contraseña;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
+        private System.Windows.Forms.DataGridViewButtonColumn CModificarUs;
     }
 }

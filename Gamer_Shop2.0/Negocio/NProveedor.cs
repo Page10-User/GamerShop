@@ -95,17 +95,6 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void NEliminarProveedor(int id)
-        {
-            if (dProveedor == null)
-            {
-                throw new NullReferenceException("El objeto 'dproveedor' no se pudo inicializar.");
-            }
-            else
-            {
-                dProveedor.DEliminarProveedor(id);
-            }
-        }
     }
 }
 

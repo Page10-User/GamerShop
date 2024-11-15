@@ -147,7 +147,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGListaProveedorInactivos.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGListaProveedorInactivos.GridColor = System.Drawing.Color.Black;
-            this.DGListaProveedorInactivos.Location = new System.Drawing.Point(1, 1);
+            this.DGListaProveedorInactivos.Location = new System.Drawing.Point(1, 2);
             this.DGListaProveedorInactivos.Name = "DGListaProveedorInactivos";
             this.DGListaProveedorInactivos.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

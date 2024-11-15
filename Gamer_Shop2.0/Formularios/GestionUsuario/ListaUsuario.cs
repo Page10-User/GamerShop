@@ -302,40 +302,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                     mensaje.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == DGListaUs.Columns["CEliminarUs"].Index && e.RowIndex >= 0)
-            {
-
-                if (Convert.ToInt16(DGListaUs.CurrentRow.Cells["Tipo_usuario"].Value) >= LUsuario.ID_TipoUsuario)
-                {
-                    MsgPersonalizado mensaje2 = new MsgPersonalizado("No tienes permisos para eliminar al usuario seleccionado", "Error", "Error", null);
-                    mensaje2.ShowDialog();
-                    return;
-                }
-
-                MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea eliminar este usuario?", "Eliminar Usuario", "Interrogacion", null);
-                DialogResult result = mensaje.ShowDialog();
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        //Cerramos el mensaje que está en Hide.
-                        string cuil = DGListaUs.CurrentRow.Cells["CUIL"].Value.ToString();
-                        NUsuario user = new NUsuario();
-                        user.NEliminarUsuario(cuil);
-                        mensaje.Dispose();
-                        DGListaUs.Rows.RemoveAt(e.RowIndex);
-                    }
-                    catch (Exception)
-                    {
-                        mensaje = new MsgPersonalizado("No se pudo eliminar el usuario", "Error", "Error", null);
-                        mensaje.ShowDialog();
-                    }
-                }
-                else
-                {
-                    mensaje.Dispose();
-                }
-            }
         }
 
         private void DGListaUsInactivos_CellClick(object sender, DataGridViewCellEventArgs e)
