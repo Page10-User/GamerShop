@@ -259,5 +259,10 @@ namespace Gamer_Shop2._0
             TBValidacion6.Visible = false;
             TBValidacion7.Visible = false;
         }
+
+        private void BMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

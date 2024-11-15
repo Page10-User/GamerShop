@@ -3,6 +3,8 @@ using System.Data;
 using System.Linq;
 using Gamer_Shop2._0.Excepciones;
 using System.Windows.Forms;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 
 namespace Gamer_Shop2._0.Datos
 {
@@ -74,9 +76,9 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void DAgregarUsuario(Usuario Usuario)
+        public void DAgregarUsuario(Usuario usuario)
         {
-            if (ExisteRegistro(Usuario) == true)
+            if (ExisteRegistro(usuario))
             {
                 throw new ExisteRegistroException("El número de cuil de Usuario ya existe.");
             }
@@ -86,8 +88,34 @@ namespace Gamer_Shop2._0.Datos
                 {
                     try
                     {
-                        context.Usuario.Add(Usuario);
+                        context.Usuario.Add(usuario);
                         context.SaveChanges();
+                    }
+                    catch (DbUpdateException dbEx)
+                    {
+                        // Verifica si la excepción interna es una excepción de SQL
+                        if (dbEx.InnerException?.InnerException is SqlException sqlEx && sqlEx.Number == 2627)
+                        {
+                            string mensajeError = sqlEx.Message;
+
+                            if (mensajeError.Contains("UQ_CorreoUsuario"))
+                            {
+                                throw new ExisteRegistroException("El Correo ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_ContraseñaUsuario"))
+                            {
+                                throw new ExisteRegistroException("La Contraseña ya se encuentra registrada!");
+                            }
+                            else if (mensajeError.Contains("UQ_NombreUsuarioUsuario"))
+                            {
+                                throw new ExisteRegistroException("El Nombre de Usuario ya se encuentra registrado!");
+                            }
+                            else
+                            {
+                                throw new ExisteRegistroException("El Nombre de Usuario, Contraseña o Correo ya se encuentra registrado!");
+                            }
+                        }
+                        throw new Exception($"Error al guardar el Usuario: {dbEx.Message}");
                     }
                     catch (Exception ex)
                     {
@@ -96,6 +124,7 @@ namespace Gamer_Shop2._0.Datos
                 }
             }
         }
+
 
         public void DModificarUsuario(string cuilActual, Usuario Usuario)
         {

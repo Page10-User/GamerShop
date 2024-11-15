@@ -47,6 +47,7 @@
             this.TBValidacion = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.BSalir = new Gamer_Shop2._0.RJButton();
+            this.BMinimizar = new Gamer_Shop2._0.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PInicio.SuspendLayout();
             this.SuspendLayout();
@@ -296,6 +297,29 @@
             this.BSalir.UseVisualStyleBackColor = false;
             this.BSalir.Click += new System.EventHandler(this.BSalir_Click);
             // 
+            // BMinimizar
+            // 
+            this.BMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.BMinimizar.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BMinimizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BMinimizar.BackgroundImage")));
+            this.BMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BMinimizar.BorderColor = System.Drawing.Color.Lime;
+            this.BMinimizar.BorderRadius = 0;
+            this.BMinimizar.BorderSize = 0;
+            this.BMinimizar.CausesValidation = false;
+            this.BMinimizar.FlatAppearance.BorderSize = 0;
+            this.BMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BMinimizar.ForeColor = System.Drawing.Color.White;
+            this.BMinimizar.Location = new System.Drawing.Point(764, 22);
+            this.BMinimizar.Name = "BMinimizar";
+            this.BMinimizar.Size = new System.Drawing.Size(25, 25);
+            this.BMinimizar.TabIndex = 20;
+            this.BMinimizar.TextColor = System.Drawing.Color.White;
+            this.BMinimizar.UseVisualStyleBackColor = false;
+            this.BMinimizar.Click += new System.EventHandler(this.BMinimizar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,6 +328,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(843, 526);
+            this.Controls.Add(this.BMinimizar);
             this.Controls.Add(this.BSalir);
             this.Controls.Add(this.PInicio);
             this.DoubleBuffered = true;
@@ -340,6 +365,7 @@
         private System.Windows.Forms.Label TBValidacion5;
         private System.Windows.Forms.Label TBValidacion6;
         private System.Windows.Forms.Label TBValidacion7;
+        private RJButton BMinimizar;
     }
 }
 

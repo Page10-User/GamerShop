@@ -63,9 +63,16 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                         }
                     }
                 }
-
-                MsgPersonalizado mensaje = new MsgPersonalizado("Backup de clientes completado exitosamente", "Backup Personalizado", "Informacion", null);
-                mensaje.ShowDialog();
+                if (rutaIndicada == null)
+                {
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Backup de clientes completado exitosamente", "Backup Personalizado", "Informacion", null);
+                    mensaje.ShowDialog();
+                }
+                else
+                {
+                    return;
+                }
+                
             }
             catch (Exception ex)
             {

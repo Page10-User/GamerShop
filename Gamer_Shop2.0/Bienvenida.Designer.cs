@@ -35,6 +35,7 @@
             this.PAddB = new System.Windows.Forms.Panel();
             this.PShowOptions = new System.Windows.Forms.Panel();
             this.LVersion = new System.Windows.Forms.Label();
+            this.BMinimizar = new Gamer_Shop2._0.RJButton();
             this.BSalir = new Gamer_Shop2._0.RJButton();
             this.BExpandMenu = new Gamer_Shop2._0.RJButton();
             this.PMenuUS.SuspendLayout();
@@ -104,6 +105,29 @@
             this.LVersion.TabIndex = 18;
             this.LVersion.Text = "Version 1.0";
             // 
+            // BMinimizar
+            // 
+            this.BMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.BMinimizar.BackgroundColor = System.Drawing.Color.Transparent;
+            this.BMinimizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BMinimizar.BackgroundImage")));
+            this.BMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BMinimizar.BorderColor = System.Drawing.Color.Lime;
+            this.BMinimizar.BorderRadius = 0;
+            this.BMinimizar.BorderSize = 0;
+            this.BMinimizar.CausesValidation = false;
+            this.BMinimizar.FlatAppearance.BorderSize = 0;
+            this.BMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BMinimizar.ForeColor = System.Drawing.Color.White;
+            this.BMinimizar.Location = new System.Drawing.Point(764, 16);
+            this.BMinimizar.Name = "BMinimizar";
+            this.BMinimizar.Size = new System.Drawing.Size(25, 25);
+            this.BMinimizar.TabIndex = 19;
+            this.BMinimizar.TextColor = System.Drawing.Color.White;
+            this.BMinimizar.UseVisualStyleBackColor = false;
+            this.BMinimizar.Click += new System.EventHandler(this.BMinimizar_Click);
+            // 
             // BSalir
             // 
             this.BSalir.BackColor = System.Drawing.Color.Transparent;
@@ -119,7 +143,7 @@
             this.BSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSalir.ForeColor = System.Drawing.Color.White;
-            this.BSalir.Location = new System.Drawing.Point(787, 27);
+            this.BSalir.Location = new System.Drawing.Point(796, 16);
             this.BSalir.Name = "BSalir";
             this.BSalir.Size = new System.Drawing.Size(25, 25);
             this.BSalir.TabIndex = 10;
@@ -157,6 +181,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(838, 526);
+            this.Controls.Add(this.BMinimizar);
             this.Controls.Add(this.LVersion);
             this.Controls.Add(this.PAddB);
             this.Controls.Add(this.PMenuUS);
@@ -170,6 +195,7 @@
             this.Text = "Bienvenida";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Bienvenida_Load);
+            this.SizeChanged += new System.EventHandler(this.Bienvenida_SizeChanged);
             this.PMenuUS.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,5 +211,6 @@
         private System.Windows.Forms.Panel PAddB;
         private System.Windows.Forms.Panel PShowOptions;
         private System.Windows.Forms.Label LVersion;
+        private RJButton BMinimizar;
     }
 }

@@ -3,6 +3,8 @@ using System.Linq;
 using Gamer_Shop2._0.Excepciones;
 using System.Windows.Forms;
 using System.Data;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 
 
 namespace Gamer_Shop2._0.Datos
@@ -102,9 +104,9 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void DAgregarCliente(Cliente Cliente)
+        public void DAgregarCliente(Cliente cliente)
         {
-            if (ExisteRegistro(Cliente) == true)
+            if (ExisteRegistro(cliente))
             {
                 throw new ExisteRegistroException("El número de dni de Cliente ya existe.");
             }
@@ -114,12 +116,33 @@ namespace Gamer_Shop2._0.Datos
                 {
                     try
                     {
-                        context.Cliente.Add(Cliente);
+                        context.Cliente.Add(cliente);
                         context.SaveChanges();
+                    }
+                    catch (DbUpdateException dbEx)
+                    {
+                        if (dbEx.InnerException?.InnerException is SqlException sqlEx && sqlEx.Number == 2627)
+                        {
+                            string mensajeError = sqlEx.Message;
+
+                            if (mensajeError.Contains("UQ_TelefonoCliente"))
+                            {
+                                throw new ExisteRegistroException("El Teléfono ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_CorreoCliente"))
+                            {
+                                throw new ExisteRegistroException("El Correo Electrónico ya se encuentra registrado!");
+                            }
+                            else
+                            {
+                                throw new ExisteRegistroException("El Dni, Teléfono o Gmail ya se encuentra registrado!");
+                            }
+                        }
+                        throw new Exception($"Error al guardar el cliente: {dbEx.Message}");
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception($"Error al guardar el Cliente: {ex.Message}");
+                        throw new Exception($"Error al guardar el cliente: {ex.Message}");
                     }
                 }
             }

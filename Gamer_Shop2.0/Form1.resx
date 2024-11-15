@@ -5426,6 +5426,15 @@
         5MNG5cGZAa4Cn9RaSKwPzsKezIU/+pDF/W2Jon8tEY4sGl5TegAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="BMinimizar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        5wAAAOcB8BtYtQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACfSURBVFhH7ZbL
+        CYAwEETn7tmy7EYQi7AdMT2oYBF+ulAjSw4SswQFD5mBd0t23mEDQShmQ2YW7He6BY0ccal6NCf7nXJC
+        JkfiQwEKpCFwlTzQrsjfCtQjcivxBHwFGjECGhSgAOywWMyMQnpdqgHFOdBKRCHXmZTjWzKNT5fQ98w0
+        rIT0ushA71MLQQEK/P8hCeUSeSmgloRCAQokIAAclyEvrN2A0jAAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

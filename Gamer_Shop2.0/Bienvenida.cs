@@ -264,6 +264,23 @@ namespace Gamer_Shop2._0
             // Liberar los recursos
             base.Dispose();
         }
+
+        private void BMinimizar_Click(object sender, EventArgs e)
+        {
+            BExpandMenu_Click(sender, e);
+            BContracMenu_Click(sender, e);
+            FondoOscuroHide();
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Bienvenida_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                FondoOscuroShow();
+                this.TopMost = true;
+            }
+        }
     }
 }
 

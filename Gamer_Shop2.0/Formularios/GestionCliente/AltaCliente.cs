@@ -416,7 +416,6 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                     ClaseValidacion validador = new ClaseValidacion();
                     NCliente cliente = new NCliente();
                     cliente.NAgregarCliente(
-
                         TBNombre.Texts,
                         TBApellido.Texts,
                         TBDni.Texts,
@@ -429,13 +428,11 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                 }
                 catch (ExisteRegistroException ex)
                 {
-                    // Manejo de la excepción cuando el número de serial no existe
                     MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
                     mensaje.ShowDialog();
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de cualquier otra excepción
                     MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
                     mensaje.ShowDialog();
                 }

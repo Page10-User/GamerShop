@@ -118,6 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="BMinimizar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        6QAAAOkBVJIUSwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACfSURBVFhH7ZbL
+        CYAwEETn7tmy7EYQi7AdMT2oYBF+ulAjSw4SswQFD5mBd0t23mEDQShmQ2YW7He6BY0ccal6NCf7nXJC
+        JkfiQwEKpCFwlTzQrsjfCtQjcivxBHwFGjECGhSgAOywWMyMQnpdqgHFOdBKRCHXmZTjWzKNT5fQ98w0
+        rIT0ushA71MLQQEK/P8hCeUSeSmgloRCAQokIAAclyEvrN2A0jAAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="BSalir.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

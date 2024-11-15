@@ -60,7 +60,7 @@ namespace Gamer_Shop2._0.Datos
                 case "MONTH":
                     return fechaActual.AddMonths(-1);
                 case "YEAR":
-                    return fechaActual.AddYears(-1);
+                    return fechaActual.AddYears(-1);    
                 default:
                     throw new ArgumentException("Periodo no válido");
             }
