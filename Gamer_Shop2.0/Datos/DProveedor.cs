@@ -132,7 +132,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(prov) == true)
             {
-                throw new ExisteRegistroException("El proveeodr ya existe.");
+                throw new ExisteRegistroException("El proveedor ya existe.");
             }
             else
             {
@@ -145,7 +145,7 @@ namespace Gamer_Shop2._0.Datos
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception($"Error al guardar el producto: {ex.Message}");
+                        throw new Exception($"Error al guardar el proveedor: {ex.Message}");
                     }
                 }
             }
@@ -157,7 +157,7 @@ namespace Gamer_Shop2._0.Datos
             {
                 if (ExisteRegistro(razonactual) == false)
                 {
-                    throw new ExisteRegistroException("El producto no existe");
+                    throw new ExisteRegistroException("El proveedor no existe");
                 }
                 else
                 {
@@ -177,7 +177,7 @@ namespace Gamer_Shop2._0.Datos
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception($"Error al modificar el producto: {ex.Message}");
+                        throw new Exception($"Error al modificar el proveedor: {ex.Message}");
                     }
                 }
             }
@@ -187,7 +187,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(id) == false)
             {
-                throw new ExisteRegistroException("El producto no existe");
+                throw new ExisteRegistroException("El proveedor no existe");
             }
             else
             {
@@ -202,7 +202,7 @@ namespace Gamer_Shop2._0.Datos
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception($"Error al eliminar el producto: {ex.Message}");
+                        throw new Exception($"Error al eliminar el proveedor: {ex.Message}");
                     }
                 }
             }

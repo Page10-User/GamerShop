@@ -402,7 +402,7 @@ namespace Gamer_Shop2._0.Formularios.GestionCliente
                              validador.RemoverFormatoTelefonico(TBTelefono.Texts),
                              TBCorreo.Texts
                              );
-                        MsgPersonalizado mensaje = new MsgPersonalizado("Producto modificado con éxito", "Registro", "Informacion", null);
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Clieente modificado con éxito", "Modificación", "Informacion", null);
                         mensaje.ShowDialog();
                         guardarCampos();
                     }

@@ -307,38 +307,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     mensaje.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == DGListaPr.Columns["CEliminar"].Index && e.RowIndex >= 0)
-            {
-                if (LUsuario.ID_TipoUsuario == 1)
-                {
-                    MsgPersonalizado mensaje2 = new MsgPersonalizado("No tienes los permisos necesarios para eliminar un producto", "Error", "Error", null);
-                    mensaje2.ShowDialog();
-                    return;
-                }
-                MsgPersonalizado mensaje = new MsgPersonalizado("¿Está seguro que desea eliminar este producto?", "Eliminar producto", "Interrogacion", null);
-                DialogResult result = mensaje.ShowDialog();
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        mensaje.Dispose();
-                        int id = int.Parse(DGListaPr.CurrentRow.Cells["Serial"].Value.ToString());
-                        nproducto.NEliminarProducto(id);
-                        DGListaPr.Rows.RemoveAt(e.RowIndex); //debería pasarse a la lista de inactivos
-                        mensaje = new MsgPersonalizado("Producto eliminado con éxito", "Eliminación", "Informacion", null);
-                        mensaje.ShowDialog();
-                    }
-                    catch (Exception)
-                    {
-                        mensaje = new MsgPersonalizado("No se pudo eliminar el producto", "Error", "Error", null);
-                        mensaje.ShowDialog();
-                    }
-                }
-                else
-                {
-                    mensaje.Dispose();
-                }
-            }
         }
 
         private void DGListaPrInactivos_CellClick(object sender, DataGridViewCellEventArgs e)

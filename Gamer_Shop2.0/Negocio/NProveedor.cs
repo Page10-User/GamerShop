@@ -63,7 +63,7 @@ namespace Gamer_Shop2._0.Negocio
             };
             if (dProveedor == null)
             {
-                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+                throw new NullReferenceException("El objeto 'dproveedor' no se pudo inicializar.");
             }
             else
             {
@@ -75,7 +75,7 @@ namespace Gamer_Shop2._0.Negocio
         {
             if (dProveedor == null)
             {
-                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+                throw new NullReferenceException("El objeto 'dproveedor' no se pudo inicializar.");
             }
             else
             {
@@ -87,7 +87,7 @@ namespace Gamer_Shop2._0.Negocio
         {
             if (dProveedor == null)
             {
-                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+                throw new NullReferenceException("El objeto 'dproveedor' no se pudo inicializar.");
             }
             else
             {
@@ -99,7 +99,7 @@ namespace Gamer_Shop2._0.Negocio
         {
             if (dProveedor == null)
             {
-                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
+                throw new NullReferenceException("El objeto 'dproveedor' no se pudo inicializar.");
             }
             else
             {

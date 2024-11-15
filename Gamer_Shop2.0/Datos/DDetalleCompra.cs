@@ -52,7 +52,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(detalle) == true)
             {
-                throw new ExisteRegistroException("Este detalle ya existe");
+                throw new ExisteRegistroException("Ya existe un detalle con estos datos");
             }
             else return detalle;
         }
@@ -85,7 +85,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(idcom, idprod) == false)
             {
-                throw new ExisteRegistroException("La categoria no existe");
+                throw new ExisteRegistroException("Ell detalle no existe");
             }
             else
             {
@@ -102,7 +102,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (adapter.GetData() == null)
             {
-                throw new NullReferenceException("No hay compras");
+                throw new NullReferenceException("No hay detalles");
             }
             else
             {
@@ -117,7 +117,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (adapter.GetData() == null)
             {
-                throw new NullReferenceException("No hay compras");
+                throw new NullReferenceException("No hay detalles");
             }
             else
             {
@@ -154,7 +154,7 @@ namespace Gamer_Shop2._0.Datos
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception($"Error al guardar la categoria: {ex.Message}");
+                        throw new Exception($"Error al guardar el detalle: {ex.Message}");
                     }
                 }
             }

@@ -82,7 +82,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(cat) == true)
             {
-                throw new ExisteRegistroException("El producto ya existe.");
+                throw new ExisteRegistroException("La categoria ya existe.");
             }
             else
             {

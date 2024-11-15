@@ -488,6 +488,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     {
                         NProducto nproducto = new NProducto();
                         nproducto.NModificarProducto(
+                            productoActual.Serial,
                             int.Parse(TBSerialPr.Texts),
                             TBNombrePr.Texts,
                             TBDescripcionPr.Texts,

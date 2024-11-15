@@ -56,7 +56,7 @@ namespace Gamer_Shop2._0.Datos
             switch (periodo.ToUpper())
             {
                 case "WEEK":
-                    return fechaActual.AddDays(-7);
+                    return fechaActual.AddDays(-5);
                 case "MONTH":
                     return fechaActual.AddMonths(-1);
                 case "YEAR":
@@ -136,9 +136,10 @@ namespace Gamer_Shop2._0.Datos
                         using (var command = new System.Data.SqlClient.SqlCommand(query, connection))
                         {
                             command.Parameters.AddWithValue("@fechaInicio", fechaInicio);
-
+                    
                             var reader = command.ExecuteReader();
                             dataTable.Load(reader);
+                            Debug.WriteLine(command.Parameters["@fechaInicio"].Value + "," + dataTable.Rows.Count);
                         }
                     }
                     return dataTable;

@@ -52,7 +52,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(id) == false)
             {
-                throw new ExisteRegistroException("La categoria no existe");
+                throw new ExisteRegistroException("La compra no existe");
             }
             else
             {
@@ -89,7 +89,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(compra) == true)
             {
-                throw new ExisteRegistroException("La compra ya existe.");
+                throw new ExisteRegistroException("Ya existe una compra con estos datos");
             }
             else
             {

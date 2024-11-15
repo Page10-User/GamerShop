@@ -64,7 +64,7 @@ namespace Gamer_Shop2._0.Datos
                     string query = @"
                     SELECT TOP 6 Fecha, COUNT(*) AS TotalVentas
                     FROM Venta
-                    WHERE Fecha >= DATEADD(WEEK, -1, GETDATE()) GROUP BY Fecha
+                    WHERE Fecha >= DATEADD(WEEK, -2, GETDATE()) GROUP BY Fecha
                     ";
 
                     // Ejecuta la consulta y guarda el resultado en un DataTable

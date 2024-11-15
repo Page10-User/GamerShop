@@ -572,6 +572,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                         //Mostramos el mensaje de éxito
                         mensaje = new MsgPersonalizado("Categoria '" + TBAddCategoria.Texts + "' agregada exitosamente", "Categoria Agregada", "Informacion", null);
                         mensaje.ShowDialog();
+                        
                     }
                     catch (Exception ex)
                     {

@@ -61,7 +61,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void NModificarProducto (int serial, string nombre, string descripcion, float precio, int categoria, int proveedor, string photoFilePath, string activo)
+        public void NModificarProducto (int serialact, int serial, string nombre, string descripcion, float precio, int categoria, int proveedor, string photoFilePath, string activo)
         {
             Producto producto = new Producto()
             {
@@ -80,7 +80,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                dproducto.DModificarProducto(producto);
+                dproducto.DModificarProducto(serialact, producto);
             }
         }
 
@@ -125,17 +125,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public void NEliminarProducto(int serial)
-        {
-            if (dproducto == null)
-            {
-                throw new NullReferenceException("El objeto 'dproducto' no se pudo inicializar.");
-            }
-            else
-            {
-                dproducto.DEliminarProducto(serial);
-            }
-        }
+        
         //   //----------------------------------------------------------------------------------\\
         //  //------------------------------------------------------------------------------------\\
         //  ||                  Método para obtener todos los productos activos                   ||

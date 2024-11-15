@@ -48,7 +48,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(id) == false)
             {
-                throw new ExisteRegistroException("La categoria no existe");
+                throw new ExisteRegistroException("El método de pago no existe");
             }
             else
             {
@@ -65,7 +65,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (adapter.GetData() == null)
             {
-                throw new NullReferenceException("No hay categorias");
+                throw new NullReferenceException("No hay métodos de pago");
             }
             else
             {

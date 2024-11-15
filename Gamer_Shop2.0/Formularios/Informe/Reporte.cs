@@ -177,48 +177,59 @@ namespace Gamer_Shop2._0.Formularios.Informe
         }
 
         private void ConfigurarGraficoPie(string periodo)
-        {
-            CGraficoPie5P.Series.Clear();
-            Series series = CGraficoPie5P.Series.Add("Productos");
-            series.ChartType = SeriesChartType.Pie;
-           NDetalleVenta nDetalleVenta = new NDetalleVenta();
-
-            DataTable dataTable = nDetalleVenta.getProductosMasVendidos(periodo);
-
-            // Agregar datos al gráfico
-            foreach (DataRow row in dataTable.Rows)
+        {  try
             {
-                string producto = row["Nombre"].ToString();
-                double totalVendidos = Convert.ToDouble(row["TotalVendidos"]);
-                series.Points.AddXY(producto, totalVendidos);
-            }
+                CGraficoPie5P.Series.Clear();
+                Series series = CGraficoPie5P.Series.Add("Productos");
+                series.ChartType = SeriesChartType.Pie;
+                NDetalleVenta nDetalleVenta = new NDetalleVenta();
 
-            series["PieLabelStyle"] = "Disabled";
-            series["CollectedLabel"] = "Otros";
+                DataTable dataTable = nDetalleVenta.getProductosMasVendidos(periodo);
+
+                // Agregar datos al gráfico
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    string producto = row["Nombre"].ToString();
+                    double totalVendidos = Convert.ToDouble(row["TotalVendidos"]);
+                    series.Points.AddXY(producto, totalVendidos);
+                }
+
+                series["PieLabelStyle"] = "Disabled";
+                series["CollectedLabel"] = "Otros";
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     
         private void ConfigurarGraficoPieCC(string periodo)
-        {
-            CGraficoPieCC.Series.Clear();
-            Series series = CGraficoPieCC.Series.Add("Categorías");
-            series.ChartType = SeriesChartType.Pie;
-            NDetalleVenta nDetalle = new NDetalleVenta();
-
-            // Consulta SQL para obtener cantidad de productos por categoría en función del periodo
-          
-
-            DataTable dataTable = nDetalle.getTotalVendidosPorCategoria(periodo);
-
-            // Agregar datos al gráfico
-            foreach (DataRow row in dataTable.Rows)
+        { try
             {
-                string categoria = row["Nombre_Categoria"].ToString();
-                double totalCantidad = Convert.ToDouble(row["TotalCantidad"]);
-                series.Points.AddXY(categoria, totalCantidad);
-            }
+                CGraficoPieCC.Series.Clear();
+                Series series = CGraficoPieCC.Series.Add("Categorías");
+                series.ChartType = SeriesChartType.Pie;
+                NDetalleVenta nDetalle = new NDetalleVenta();
 
-            series["PieLabelStyle"] = "Disabled";
-            series["CollectedLabel"] = "Otros";
+                // Consulta SQL para obtener cantidad de productos por categoría en función del periodo
+
+
+                DataTable dataTable = nDetalle.getTotalVendidosPorCategoria(periodo);
+
+                // Agregar datos al gráfico
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    string categoria = row["Nombre_categoria"].ToString();
+                    double totalCantidad = Convert.ToDouble(row["TotalCantidad"]);
+                    series.Points.AddXY(categoria, totalCantidad);
+                }
+
+                series["PieLabelStyle"] = "Disabled";
+                series["CollectedLabel"] = "Otros";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public new void Dispose()
@@ -316,7 +327,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
                 CHBoxAño1.Checked = false;
 
                 // Llamar a ConfigurarGraficoPie con el periodo "WEEK"
-                ConfigurarGraficoPie("WEEK");
+                ConfigurarGraficoPieCC("WEEK");
             }
         }
 
@@ -329,7 +340,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
                 CHBoxAño1.Checked = false;
 
                 // Llamar a ConfigurarGraficoPie con el periodo "MONTH"
-                ConfigurarGraficoPie("MONTH");
+                ConfigurarGraficoPieCC("MONTH");
             }
         }
 
@@ -342,7 +353,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
                 CHBoxMes1.Checked = false;
 
                 // Llamar a ConfigurarGraficoPie con el periodo "YEAR"
-                ConfigurarGraficoPie("YEAR");
+                ConfigurarGraficoPieCC("YEAR");
             }
         }
     }

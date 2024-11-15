@@ -54,7 +54,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(idven, idprod) == false)
             {
-                throw new ExisteRegistroException("La categoria no existe");
+                throw new ExisteRegistroException("La venta no existe");
             }
             else
             {
@@ -84,7 +84,7 @@ namespace Gamer_Shop2._0.Datos
                     grid.DataSource = view;
                 }
                 catch (Exception ex) {
-                    MsgPersonalizado mensaje = new MsgPersonalizado("No se puede mostrar el detalle" + ex.Message, "Error", "Error", null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("No se puede mostrar las ventas" + ex.Message, "Error", "Error", null);
                     mensaje.ShowDialog();
                 }
             }
@@ -94,7 +94,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(detalle) == true)
             {
-                throw new ExisteRegistroException("Este detalle ya existe");
+                throw new ExisteRegistroException("Ya existe una venta con estos datos");
             }
             else return detalle;
         }

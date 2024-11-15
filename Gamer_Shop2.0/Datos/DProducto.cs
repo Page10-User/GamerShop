@@ -15,14 +15,12 @@ namespace Gamer_Shop2._0.Datos
 
         public bool ExisteRegistro(Producto producto)
         {
-            Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaENTRO");
             if (adapter == null)
             {
                 throw new NullReferenceException("El TableAdapter no fue inicializado.");
             }
             using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
             {
-                Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRETORNO");
                 if (adapter.ExisteProductoPorSerial(producto.Serial) > 0) return true;
                 
                 else return false;
@@ -31,14 +29,12 @@ namespace Gamer_Shop2._0.Datos
 
         public bool ExisteRegistroID(int id)
         {
-            Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaENTRO");
             if (adapter == null)
             {
                 throw new NullReferenceException("El TableAdapter no fue inicializado.");
             }
             using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
             {
-                Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRETORNO");
                 if (adapter.ExisteProductoPorID(id) > 0) return true;
 
                 else return false;
@@ -82,7 +78,6 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistroID(id) == false)
             {
-                Debug.WriteLine($" ID={id}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRETORNO 2");
                 throw new ExisteRegistroException("El producto no existe");
             }
             else
@@ -92,7 +87,6 @@ namespace Gamer_Shop2._0.Datos
                     if ((context.Producto.FirstOrDefault(p => p.ID_Producto == id)).Activo == "SI")
                     {
                         return context.Producto.FirstOrDefault(p => p.ID_Producto == id);
-                        Debug.WriteLine($" ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRETORN 2O");
                     }
                     else
                     {
@@ -157,11 +151,11 @@ namespace Gamer_Shop2._0.Datos
             } 
         }
 
-        public void DModificarProducto(Producto producto)
+        public void DModificarProducto(int serialact, Producto producto)
         {
             using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
             {
-                if (ExisteRegistro(producto) == false)
+                if (ExisteRegistro(serialact) == false)
                 {
                     throw new ExisteRegistroException("El producto no existe");
                 }
@@ -215,30 +209,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public void DEliminarProducto(int serial)
-        {
-            if (ExisteRegistro(serial) == false)
-            {
-                throw new ExisteRegistroException("El producto no existe");
-            }
-            else
-            {
-                using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
-                {
-                    try
-                    {
-                        Producto prod = context.Producto.First(p => p.Serial == serial);
-
-                        prod.Activo = "NO";
-                        context.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"Error al eliminar el producto: {ex.Message}");
-                    }
-                }
-            }
-        }
+       
         //   //----------------------------------------------------------------------------------\\
         //  //------------------------------------------------------------------------------------\\
         //  ||                  Método para obtener todos los productos de la tabla               ||

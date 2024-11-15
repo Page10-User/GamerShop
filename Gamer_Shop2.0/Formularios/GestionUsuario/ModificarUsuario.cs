@@ -503,7 +503,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                             (int)CBTipoUsuario.SelectedValue,
                             CBActivoUs.SelectedItem.ToString()
                             );
-                        MsgPersonalizado mensaje = new MsgPersonalizado("Usuario modificado con éxito", "Registro", "Informacion", null);
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Usuario modificado con éxito", "Modificación", "Informacion", null);
                         mensaje.ShowDialog();
 
                         guardarCampos();
