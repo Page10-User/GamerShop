@@ -6,6 +6,7 @@ using Gamer_Shop2._0.Validacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -17,7 +18,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
-        string nombreImagen;
+        string nombreImagen = "";
 
         bool isExpandedPAC = false;
         public Panel PanelContainer { get; set; }
@@ -629,17 +630,18 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                    string sourceFilePath = openFileDialog.FileName;
-                    rjTextBox1.Texts = sourceFilePath;
-                    // Genera un nombre único para la imagen
-                    nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(sourceFilePath);
+                string sourceFilePath = openFileDialog.FileName;
+                rjTextBox1.Texts = sourceFilePath;
+                // Genera un nombre único para la imagen
+                nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(sourceFilePath);
 
-                    // Ruta de destino en tu proyecto (por ejemplo, en una carpeta 'uploads' en la misma ruta de ejecución)
-                    string destinationPath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+                // Ruta de destino en tu proyecto (por ejemplo, en una carpeta 'uploads' en la misma ruta de ejecución)
+                //string destinationPath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+                string destinationPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\uploads\" + nombreImagen);
+                Debug.WriteLine(destinationPath);
+                // Asegúrate de que la carpeta de destino existe
 
-                    // Asegúrate de que la carpeta de destino existe
-
-                    Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
+                Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
 
                     // Copia la imagen a la carpeta de destino
                    File.Copy(sourceFilePath, destinationPath, true);

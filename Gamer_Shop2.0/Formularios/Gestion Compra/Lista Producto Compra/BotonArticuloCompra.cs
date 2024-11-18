@@ -32,14 +32,14 @@ namespace Gamer_Shop2._0.Formularios.Comercio
             this.Region = CreateRoundedRegion();
 
             //Aplicamos la imagen (si tiene)
-            if (PhotoFilePath is null)
+            if (PhotoFilePath is null || PhotoFilePath == string.Empty)
             {
                 PBfotoPr.Image = Image.FromFile(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\imagen_default.png")));
                 PBfotoPr.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             else
             {
-                string imagePath = Path.Combine(Application.StartupPath, "uploads", photoFilePath);
+                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\uploads\" + photoFilePath);
                 PBfotoPr.Image = Image.FromFile(imagePath);
                 PBfotoPr.SizeMode = PictureBoxSizeMode.StretchImage;
             }

@@ -140,6 +140,7 @@ namespace Gamer_Shop2._0.Datos
                 {
                     try
                     {
+                        Debug.WriteLine(producto.photoFilePath, producto.Serial, producto.ID_Categoria, producto.ID_Proveedor, producto.Activo);
                         context.Producto.Add(producto);
                         context.SaveChanges();
                     }
