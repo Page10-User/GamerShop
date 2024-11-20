@@ -51,36 +51,42 @@ namespace Gamer_Shop2._0.Formularios.Comercio
         }
 
         private void MostrarProductosEnFLP(List<ProductoViewModel> productos)
-        {
-            FLPContCatalogo.Controls.Clear();
-
-            foreach (var producto in productos)
+        { try
             {
-                // Obtener el producto completo usando el serial para validar stock
-                NProducto nproducto = new NProducto();
-                Producto productoCompleto = nproducto.GetProducto(producto.Serial);
+                FLPContCatalogo.Controls.Clear();
 
-                // Verificar que el stock sea mayor a 0 antes de mostrar el producto
-                if (productoCompleto.Stock > 0)
+                foreach (var producto in productos)
                 {
-                    BotonesArticulo articuloCt = new BotonesArticulo();
+                    // Obtener el producto completo usando el serial para validar stock
+                    NProducto nproducto = new NProducto();
+                    Producto productoCompleto = nproducto.GetProducto(producto.Serial);
 
-                    articuloCt.Serial = producto.Serial;
-                    articuloCt.NombreProducto = producto.Nombre;
-                    articuloCt.Precio = producto.Precio.ToString();
-                    articuloCt.Categoria = producto.Categoria;
-                    articuloCt.PhotoFilePath = producto.photoFilePath;
-                    articuloCt.AgregarAlCarritoClick += ArticuloCt_AgregarAlCarritoClick;
+                    // Verificar que el stock sea mayor a 0 antes de mostrar el producto
+                    if (productoCompleto.Stock > 0)
+                    {
+                        BotonesArticulo articuloCt = new BotonesArticulo();
 
-                    articuloCt.PanelContainer = PanelContainer;
-                    articuloCt.MainForm = MainForm;
-                    articuloCt.ACTUsuario = CUsuario;
-                    articuloCt.MainCatalogo = this;
+                        articuloCt.Serial = producto.Serial;
+                        articuloCt.NombreProducto = producto.Nombre;
+                        articuloCt.Precio = producto.Precio.ToString();
+                        articuloCt.Categoria = producto.Categoria;
+                        articuloCt.PhotoFilePath = producto.photoFilePath;
+                        articuloCt.AgregarAlCarritoClick += ArticuloCt_AgregarAlCarritoClick;
 
-                    FLPContCatalogo.Controls.Add(articuloCt);
+                        articuloCt.PanelContainer = PanelContainer;
+                        articuloCt.MainForm = MainForm;
+                        articuloCt.ACTUsuario = CUsuario;
+                        articuloCt.MainCatalogo = this;
 
-                    articuloCt.Show();
+                        FLPContCatalogo.Controls.Add(articuloCt);
+
+                        articuloCt.Show();
+                    }
                 }
+            } catch (Exception ex)
+            {
+                MsgPersonalizado mensaje = new MsgPersonalizado("No se pueden cargar los productos", "Error", "Error", null);
+                mensaje.ShowDialog();
             }
         }
 

@@ -489,7 +489,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
 
         private void AdministradorOptions_Load(object sender, EventArgs e)
         {
-            if (UUsuario.photoFilePath is null)
+            if (UUsuario.photoFilePath is null || UUsuario.photoFilePath == string.Empty)
             {
                 PBImgUs.Image = Image.FromFile(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\ImgPerfilUs.png")));
                 PBImgUs.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -497,6 +497,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             else
             {
                 string imagePath = Path.Combine(Application.StartupPath, "uploads", UUsuario.photoFilePath);
+
                 PBImgUs.Image = Image.FromFile(imagePath);
                 PBImgUs.SizeMode = PictureBoxSizeMode.StretchImage;
             }
