@@ -1,6 +1,7 @@
 ﻿using Gamer_Shop2._0.Formularios.Comercio;
 using Gamer_Shop2._0.Formularios.Gestion_Compra;
 using Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups;
+using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.GestionProducto;
 using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
@@ -10,6 +11,9 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionVenta
@@ -142,9 +146,16 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 botondetalle.Name = "Detalle_venta"; // Nombre de la columna
                 botondetalle.HeaderText = "Detalle de venta"; // Texto del encabezado
 
-                // Agregar la columna al DataGridView
+                DataGridViewButtonColumn botonRecibo = new DataGridViewButtonColumn();
+                //Agregamos boton para generar recibo de venta
+                botonRecibo.Name = "CReciboVn";
+                botonRecibo.HeaderText = "Generar Recibo";
+
+                // Agregar las columnas al DataGridView
                 DGListaVn.Columns.Add(botondetalle);
                 DGListaVn.Columns["Detalle_venta"].DisplayIndex = 6;
+                DGListaVn.Columns.Add(botonRecibo);
+                DGListaVn.Columns["CReciboVn"].DisplayIndex = 7;
             }
         }
 
@@ -176,6 +187,10 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                     MsgPersonalizado mensaje = new MsgPersonalizado("No se puede mostrar el detalle" + x.Message, "Error", "Error", null);
                     mensaje.ShowDialog();
                 }
+            }else if (e.ColumnIndex == DGListaVn.Columns["CReciboVn"].Index && e.RowIndex >= 0)
+            {
+                int idventa = Convert.ToInt32(DGListaVn.CurrentRow.Cells["ID_Venta"].Value);
+                generarRecibo(idventa);
             }
         }
 
@@ -256,6 +271,138 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             {
                 mensaje.Close();
             }
+        }
+
+        private void generarRecibo(int idventa)
+        {
+            var context = new ProyectoTallerIIEntities1();
+
+            var detallesVenta = context.Detalle_venta
+                                       .Where(d => d.ID_Venta == idventa)
+                                       .Join(context.Producto,
+                                             detalle => detalle.ID_Producto,
+                                             producto => producto.ID_Producto,
+                                             (detalle, producto) => new
+                                             {
+                                                 NombreProducto = producto.Nombre,
+                                                 Cantidad = detalle.Cantidad,
+                                                 PrecioUnitario = detalle.Precio_actual
+                                             })
+                                       .ToList();
+
+            // Obtener el nombre del método de pago
+            var metodoPago = context.Venta
+                                    .Where(v => v.ID_Venta == idventa)
+                                    .Join(context.Método_pago,
+                                          venta => venta.ID_Método,
+                                          metodo => metodo.ID_Método,
+                                          (venta, metodo) => metodo.Descripción)
+                                    .FirstOrDefault();
+
+            var clienteInfo = context.Venta
+                         .Where(v => v.ID_Venta == idventa)
+                         .Join(context.Cliente,
+                               venta => venta.ID_Cliente,
+                               cliente => cliente.ID_Cliente,
+                               (venta, cliente) => new
+                               {
+                                   cliente.Nombre,
+                                   cliente.Apellido,
+                                   cliente.DNI,
+                                   cliente.Teléfono,
+                                   cliente.Correo
+                               })
+                          .FirstOrDefault();
+
+            var usuarioInfo = context.Venta
+                         .Where(v => v.ID_Venta == idventa)
+                         .Join(context.Usuario,
+                               venta => venta.ID_Usuario,
+                               usuario => usuario.ID_Usuario,
+                               (venta, usuario) => new
+                               {
+                                   usuario.Nombre,
+                                   usuario.Apellido,
+                                   usuario.Correo
+                               })
+                         .FirstOrDefault();
+
+            // Generar el contenido HTML del recibo
+            string logoPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\logo3.png"));
+            string logoUrl = "file:///" + logoPath.Replace("\\", "/");
+
+            StringBuilder reciboHtml = new StringBuilder();
+            reciboHtml.AppendLine("<html>");
+            reciboHtml.AppendLine("<head><style>body { font-family: Arial, sans-serif; padding: 40px; } table { width: 100%; border-collapse: collapse; } th, td { padding: 8px; text-align: left; } .total { font-weight: bold; }");
+            reciboHtml.AppendLine("th { border-top: 2px solid red; border-bottom: 2px solid red; }");
+            reciboHtml.AppendLine("td { border: none; }");
+            reciboHtml.AppendLine("</style></head>");
+
+            reciboHtml.AppendLine("<body>");
+            reciboHtml.AppendLine($"<img src='{logoUrl}' alt='Logo' style='height: 150px; float: right; margin-left: 20px; vertical-align: middle;' />");
+            reciboHtml.AppendLine("<h1 style='color: darkblue; font-size: 70px; margin-bottom: -10px;'>Recibo</h1>");
+            reciboHtml.AppendLine($"<p style='font-size: 20px; margin-bottom: -10px;'><strong> Gamer_Shop </strong></p>");
+            reciboHtml.AppendLine($"<p style='font-size: 15px;'><strong>Dirección: Calle Aleatoria 123, Zona Comercial, Corrientes, PA, 12345</strong></p>");
+
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------------\\
+            reciboHtml.AppendLine("<table style='width: 100%; margin-bottom: 20px;'>");
+            reciboHtml.AppendLine("<tr>");
+
+            // Columna de datos de la factura
+            reciboHtml.AppendLine("<td style='width: 33%; vertical-align: top;'>");
+            reciboHtml.AppendLine("<h2 style='color: darkblue; font-size: 24px; margin-bottom: 10px;'>Detalles</h2>");
+            reciboHtml.AppendLine($"<p style='margin-bottom: -10px;'><strong style='color: rgb(0, 1, 53); font-size: 20px;'>Nro de Recibo:</strong> {idventa}</p>");
+            reciboHtml.AppendLine($"<p style='margin-bottom: -10px;'><strong style='color: rgb(0, 1, 53); font-size: 20px;'>Fecha:</strong> {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}</p>");
+            DateTime fechaVencimiento = DateTime.Now.AddDays(3);
+            reciboHtml.AppendLine($"<p style='margin-bottom: -10px;'><strong style='color: rgb(0, 1, 53); font-size: 20px;'>Fecha de vencimiento:</strong> {fechaVencimiento.ToString("dd/MM/yyyy HH:mm:ss")}</p>");
+
+            // Columna de datos del método
+            reciboHtml.AppendLine($"<p><strong style='color: rgb(0, 1, 53); font-size: 20px;'>Método de Pago:</strong> {metodoPago}</p>");
+            reciboHtml.AppendLine("</td>");
+
+            // Columna de datos del cliente
+            reciboHtml.AppendLine("<td style='width: 33%; vertical-align: top;'>");
+            reciboHtml.AppendLine("<h2 style='color: darkblue; font-size: 24px; margin-bottom: 10px;'>Enviar A</h2>");
+            reciboHtml.AppendLine($"<p style='margin-bottom: -10px;'><strong style='font-size: 17px;'>Cliente:</strong> {clienteInfo.Nombre} {clienteInfo.Apellido}</p>");
+            reciboHtml.AppendLine($"<p style='margin-bottom: -10px;'><strong style='font-size: 17px;'>DNI:</strong> {clienteInfo.DNI}</p>");
+            reciboHtml.AppendLine($"<p style='margin-bottom: -10px;'><strong style='font-size: 17px;'>Teléfono:</strong> {clienteInfo.Teléfono}</p>");
+            reciboHtml.AppendLine($"<p style='margin-bottom: -10px;'><strong style='font-size: 17px;'>Correo:</strong> {clienteInfo.Correo}</p>");
+            reciboHtml.AppendLine("</td>");
+
+            // Columna de datos del usuario
+            reciboHtml.AppendLine("<td style='width: 33%; vertical-align: top;'>");
+            reciboHtml.AppendLine("<h2 style='color: darkblue; font-size: 24px; margin-bottom: 10px;'>Enviado Por</h2>");
+            reciboHtml.AppendLine($"<p style='margin-bottom: -10px;'><strong style='font-size: 17px;'>Vendedor:</strong> {usuarioInfo.Nombre} {usuarioInfo.Apellido}</p>");
+            reciboHtml.AppendLine($"<p style='margin-bottom: -10px;'><strong style='font-size: 17px;'>Correo:</strong> {usuarioInfo.Correo}</p>");
+            reciboHtml.AppendLine("</td>");
+
+            reciboHtml.AppendLine("</tr>");
+            reciboHtml.AppendLine("</table>");
+            //-------------------------------------------------------------------------------------------------------------------------------------------------\\
+
+
+            reciboHtml.AppendLine("<table>");
+            reciboHtml.AppendLine("<tr style='color: rgb(0, 1, 53); font-size: 20px;'><th>Producto</th><th>Cantidad</th><th>Precio Unitario</th><th>Subtotal</th></tr>");
+
+            decimal total = 0;
+            foreach (var detalle in detallesVenta)
+            {
+                decimal subtotal = detalle.Cantidad * Convert.ToDecimal(detalle.PrecioUnitario);
+                total += subtotal;
+                reciboHtml.AppendLine($"<tr><td>{detalle.NombreProducto}</td><td>{detalle.Cantidad}</td><td>{detalle.PrecioUnitario:C}</td><td>{subtotal:C}</td></tr>");
+            }
+
+            // Mostrar el total
+            reciboHtml.AppendLine($"<tr><td colspan='3' class='total' style='color: rgb(0, 1, 53); font-size: 20px;'>Total</td><td class='total' style='color: rgb(0, 1, 53); font-size: 20px;'>{total:C}</td></tr>");
+            reciboHtml.AppendLine("</table>");
+            reciboHtml.AppendLine("<p> <strong> ¡Gracias por elegirnos, que tenga un buen día! </strong></p>");
+            reciboHtml.AppendLine("</body></html>");
+
+            string rutaArchivo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Recibo_Venta_{idventa}.html");
+            File.WriteAllText(rutaArchivo, reciboHtml.ToString());
+
+            System.Diagnostics.Process.Start(rutaArchivo);
         }
     }
 }

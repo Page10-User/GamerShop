@@ -35,9 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LRecibo = new System.Windows.Forms.Label();
             this.PContAltaVn2 = new System.Windows.Forms.Panel();
-            this.PContBuscarDni = new System.Windows.Forms.Panel();
-            this.BBuscarCliente_Dni_ = new Gamer_Shop2._0.RJButton();
-            this.TBDniClienteExistente = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BNuevoCliente = new Gamer_Shop2._0.RJButton();
             this.BClienteExistente = new Gamer_Shop2._0.RJButton();
             this.PContAltaVn1 = new System.Windows.Forms.Panel();
@@ -62,7 +59,6 @@
             this.método_pagoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Método_pagoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).BeginInit();
             this.PContAltaVn2.SuspendLayout();
-            this.PContBuscarDni.SuspendLayout();
             this.PContAltaVn1.SuspendLayout();
             this.PContAltaVn3.SuspendLayout();
             this.PContAltaVn4.SuspendLayout();
@@ -121,69 +117,12 @@
             // PContAltaVn2
             // 
             this.PContAltaVn2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PContAltaVn2.Controls.Add(this.PContBuscarDni);
             this.PContAltaVn2.Controls.Add(this.BNuevoCliente);
             this.PContAltaVn2.Controls.Add(this.BClienteExistente);
             this.PContAltaVn2.Location = new System.Drawing.Point(28, 375);
             this.PContAltaVn2.Name = "PContAltaVn2";
             this.PContAltaVn2.Size = new System.Drawing.Size(496, 49);
             this.PContAltaVn2.TabIndex = 28;
-            // 
-            // PContBuscarDni
-            // 
-            this.PContBuscarDni.Controls.Add(this.BBuscarCliente_Dni_);
-            this.PContBuscarDni.Controls.Add(this.TBDniClienteExistente);
-            this.PContBuscarDni.Location = new System.Drawing.Point(187, 4);
-            this.PContBuscarDni.Name = "PContBuscarDni";
-            this.PContBuscarDni.Size = new System.Drawing.Size(121, 40);
-            this.PContBuscarDni.TabIndex = 31;
-            this.PContBuscarDni.Visible = false;
-            // 
-            // BBuscarCliente_Dni_
-            // 
-            this.BBuscarCliente_Dni_.BackColor = System.Drawing.Color.Transparent;
-            this.BBuscarCliente_Dni_.BackgroundColor = System.Drawing.Color.Transparent;
-            this.BBuscarCliente_Dni_.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BBuscarCliente_Dni_.BackgroundImage")));
-            this.BBuscarCliente_Dni_.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BBuscarCliente_Dni_.BorderColor = System.Drawing.Color.Transparent;
-            this.BBuscarCliente_Dni_.BorderRadius = 15;
-            this.BBuscarCliente_Dni_.BorderSize = 1;
-            this.BBuscarCliente_Dni_.FlatAppearance.BorderSize = 0;
-            this.BBuscarCliente_Dni_.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
-            this.BBuscarCliente_Dni_.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.BBuscarCliente_Dni_.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscarCliente_Dni_.ForeColor = System.Drawing.Color.White;
-            this.BBuscarCliente_Dni_.Location = new System.Drawing.Point(86, 3);
-            this.BBuscarCliente_Dni_.Name = "BBuscarCliente_Dni_";
-            this.BBuscarCliente_Dni_.Size = new System.Drawing.Size(32, 32);
-            this.BBuscarCliente_Dni_.TabIndex = 30;
-            this.BBuscarCliente_Dni_.TextColor = System.Drawing.Color.White;
-            this.BBuscarCliente_Dni_.UseVisualStyleBackColor = false;
-            this.BBuscarCliente_Dni_.Click += new System.EventHandler(this.BBuscarCliente_Dni__Click);
-            // 
-            // TBDniClienteExistente
-            // 
-            this.TBDniClienteExistente.BackColor = System.Drawing.Color.Black;
-            this.TBDniClienteExistente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TBDniClienteExistente.BorderFocusColor = System.Drawing.Color.Lime;
-            this.TBDniClienteExistente.BorderRadius = 0;
-            this.TBDniClienteExistente.BorderSize = 1;
-            this.TBDniClienteExistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBDniClienteExistente.ForeColor = System.Drawing.Color.Silver;
-            this.TBDniClienteExistente.Location = new System.Drawing.Point(4, 5);
-            this.TBDniClienteExistente.Margin = new System.Windows.Forms.Padding(4);
-            this.TBDniClienteExistente.Multiline = false;
-            this.TBDniClienteExistente.Name = "TBDniClienteExistente";
-            this.TBDniClienteExistente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.TBDniClienteExistente.PasswordChar = false;
-            this.TBDniClienteExistente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TBDniClienteExistente.PlaceholderText = "DNI";
-            this.TBDniClienteExistente.Size = new System.Drawing.Size(102, 31);
-            this.TBDniClienteExistente.TabIndex = 29;
-            this.TBDniClienteExistente.Texts = "";
-            this.TBDniClienteExistente.UnderlinedStyle = true;
-            this.TBDniClienteExistente._TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.TBDniClienteExistente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDNIClienteExistente_Keypress);
             // 
             // BNuevoCliente
             // 
@@ -216,9 +155,9 @@
             this.BClienteExistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BClienteExistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BClienteExistente.ForeColor = System.Drawing.Color.White;
-            this.BClienteExistente.Location = new System.Drawing.Point(31, 4);
+            this.BClienteExistente.Location = new System.Drawing.Point(15, 4);
             this.BClienteExistente.Name = "BClienteExistente";
-            this.BClienteExistente.Size = new System.Drawing.Size(150, 40);
+            this.BClienteExistente.Size = new System.Drawing.Size(166, 40);
             this.BClienteExistente.TabIndex = 27;
             this.BClienteExistente.Text = "Cliente Existente";
             this.BClienteExistente.TextColor = System.Drawing.Color.White;
@@ -496,7 +435,6 @@
             this.BReciboVn.TabIndex = 25;
             this.BReciboVn.TextColor = System.Drawing.Color.White;
             this.BReciboVn.UseVisualStyleBackColor = false;
-            this.BReciboVn.Visible = false;
             this.BReciboVn.Click += new System.EventHandler(this.BReciboVn_Click);
             // 
             // BRegistrarVn
@@ -551,7 +489,6 @@
             this.Load += new System.EventHandler(this.AltaVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaVn)).EndInit();
             this.PContAltaVn2.ResumeLayout(false);
-            this.PContBuscarDni.ResumeLayout(false);
             this.PContAltaVn1.ResumeLayout(false);
             this.PContAltaVn1.PerformLayout();
             this.PContAltaVn3.ResumeLayout(false);
@@ -575,9 +512,6 @@
         private System.Windows.Forms.Panel PContAltaVn2;
         private RJButton BNuevoCliente;
         private RJButton BClienteExistente;
-        private RJControls.RJTextBox_radio_ TBDniClienteExistente;
-        private RJButton BBuscarCliente_Dni_;
-        private System.Windows.Forms.Panel PContBuscarDni;
         private System.Windows.Forms.Panel PContAltaVn1;
         private RJControls.RJTextBox TBMonto;
         private RJControls.RJComboBox CBCategoria;
