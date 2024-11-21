@@ -49,6 +49,18 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
+        public DataTable getProveedoresActivos ()
+        {
+            if (dProveedor == null)
+            {
+                throw new NullReferenceException("El objeto 'dproveedor' no se pudo inicializar.");
+            }
+            else
+            {
+                return dProveedor.getProveedoresActivos();
+            }
+        }
+
         public void NModificarProveedor(string razonactual, string razonsocial, string nomrep, string telefono, string correo, string direccion, int catprod, string activo)
         {
             Proveedor proveedor = new Proveedor()

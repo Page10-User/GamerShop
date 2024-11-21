@@ -161,11 +161,11 @@
     <Compile Include="Formularios\GestionBackups\Restaurar.Designer.cs">
       <DependentUpon>Restaurar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\GestionVenta\ListaClienteVn.cs">
+    <Compile Include="Formularios\GestionVenta\ElegirClienteExistente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\GestionVenta\ListaClienteVn.Designer.cs">
-      <DependentUpon>ListaClienteVn.cs</DependentUpon>
+    <Compile Include="Formularios\GestionVenta\ElegirClienteExistente.Designer.cs">
+      <DependentUpon>ElegirClienteExistente.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\GestionVenta\ListaDetalleVenta.cs">
       <SubType>Form</SubType>
@@ -539,8 +539,8 @@
     <EmbeddedResource Include="Formularios\GestionVenta\BotonArticuloVn.resx">
       <DependentUpon>BotonArticuloVn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\GestionVenta\ListaClienteVn.resx">
-      <DependentUpon>ListaClienteVn.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\GestionVenta\ElegirClienteExistente.resx">
+      <DependentUpon>ElegirClienteExistente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\GestionVenta\ListaDetalleVenta.resx">
       <DependentUpon>ListaDetalleVenta.cs</DependentUpon>

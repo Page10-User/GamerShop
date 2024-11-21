@@ -36,6 +36,14 @@
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.PListaPrCompra = new System.Windows.Forms.Panel();
             this.DGListaPrCompra = new System.Windows.Forms.DataGridView();
+            this.ID_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombrePr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCategoríaPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCantidadPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecioPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotalPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEliminarPr = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TBBuscar = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.BElegirPrLista = new Gamer_Shop2._0.RJButton();
             this.CBProveedor = new Gamer_Shop2._0.RJControls.RJComboBox();
@@ -49,14 +57,6 @@
             this.BComprar = new Gamer_Shop2._0.RJButton();
             this.BListaDeCompras = new Gamer_Shop2._0.RJButton();
             this.proveedorTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.ProveedorTableAdapter();
-            this.ID_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombrePr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCategoríaPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCantidadPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecioPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotalPr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminarPr = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaCom)).BeginInit();
             this.PContAltaCompra.SuspendLayout();
             this.PListaPrCompra.SuspendLayout();
@@ -105,7 +105,6 @@
             this.PContAltaCompra.Size = new System.Drawing.Size(464, 330);
             this.PContAltaCompra.TabIndex = 6;
             this.PContAltaCompra.Paint += new System.Windows.Forms.PaintEventHandler(this.PContAltaCompra_Paint);
-           
             // 
             // BBuscador
             // 
@@ -251,7 +250,6 @@
             this.CBProveedor.BorderSize = 1;
             this.CBProveedor.CustomIndexStart = 1;
             this.CBProveedor.CustomSelectedIndex = 0;
-            this.CBProveedor.DataSource = this.proveedorBindingSource;
             this.CBProveedor.DisplayMember = "Razon_social";
             this.CBProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CBProveedor.DropDownWidth = 296;
@@ -375,11 +373,6 @@
             this.BListaDeCompras.Click += new System.EventHandler(this.BListaDeCompras_Click);
             // 
             // proveedorTableAdapter
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-           
-            // proveedorTableAdapter1
             // 
             this.proveedorTableAdapter.ClearBeforeFill = true;
             // 

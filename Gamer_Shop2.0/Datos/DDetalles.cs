@@ -67,12 +67,12 @@ namespace Gamer_Shop2._0.Datos
         }
 
 
-        public DataTable getProductosMasVendidos(string filtrofecha)
+        public DataTable getProductosMasVendidos(DateTime fechainicio, DateTime fechafinal)
         {
             try
             {
                 // Crea la instancia del TableAdapter (puedes usar una query SQL personalizada)
-                DateTime fechaInicio = ObtenerFechaDesdePeriodo(filtrofecha);
+                
 
                 using (var adapter = new DataSet1TableAdapters.Detalle_ventaTableAdapter()) 
                 {
@@ -82,7 +82,7 @@ namespace Gamer_Shop2._0.Datos
                 FROM Detalle_venta d
                 JOIN Producto p ON d.ID_Producto = p.ID_Producto
                 JOIN Venta v ON d.ID_Venta = v.ID_Venta
-                WHERE v.Fecha >= @fechaInicio
+                WHERE v.Fecha BETWEEN @fechainicio AND @fechafinal
                 GROUP BY p.Nombre 
                 ORDER BY TotalVendidos DESC";
                     // Ejecuta la consulta y guarda el resultado en un DataTable
@@ -92,7 +92,8 @@ namespace Gamer_Shop2._0.Datos
                         connection.Open();
                         using (var command = new System.Data.SqlClient.SqlCommand(query, connection))
                         {
-                            command.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                            command.Parameters.AddWithValue("@fechainicio", fechainicio);
+                            command.Parameters.AddWithValue("@fechafinal", fechafinal);
                             var reader = command.ExecuteReader();
                             dataTable.Load(reader);
                         }
@@ -109,11 +110,13 @@ namespace Gamer_Shop2._0.Datos
 
         }
 
-        public DataTable getTotalVendidosPorCategoria(string periodo)
+        public DataTable getTotalVendidosPorCategoria(DateTime fecha1, DateTime fecha2)
         {
+            Debug.WriteLine(fecha1.ToString(), fecha2.ToString());
             try
             {
-                DateTime fechaInicio = ObtenerFechaDesdePeriodo(periodo);
+                DateTime fechainicio = fecha1;
+                DateTime fechafinal = fecha2;
                 // Crea la instancia del TableAdapter (puedes usar una query SQL personalizada)
                 using (var adapter = new DataSet1TableAdapters.Detalle_ventaTableAdapter())
                 {
@@ -124,7 +127,7 @@ namespace Gamer_Shop2._0.Datos
                 JOIN Producto p ON p.ID_Producto = d.ID_Producto
                 JOIN Categoría_producto c ON p.ID_Categoria = c.ID_Categoria
                 JOIN Venta v ON d.ID_Venta = v.ID_Venta
-                WHERE Fecha >= @fechaInicio
+                WHERE Fecha BETWEEN @fechainicio AND @fechafinal
                 GROUP BY c.Nombre_Categoria
                         ";
                     Debug.WriteLine(query);
@@ -135,8 +138,8 @@ namespace Gamer_Shop2._0.Datos
                         connection.Open();
                         using (var command = new System.Data.SqlClient.SqlCommand(query, connection))
                         {
-                            command.Parameters.AddWithValue("@fechaInicio", fechaInicio);
-                    
+                            command.Parameters.AddWithValue("@fechainicio", fechainicio);
+                            command.Parameters.AddWithValue("@fechafinal", fechafinal);
                             var reader = command.ExecuteReader();
                             dataTable.Load(reader);
                             Debug.WriteLine(command.Parameters["@fechaInicio"].Value + "," + dataTable.Rows.Count);

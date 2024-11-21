@@ -2,6 +2,7 @@
 using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.Formularios.Comercio;
 using Gamer_Shop2._0.Formularios.Comercio.Carrito;
+using Gamer_Shop2._0.Formularios.Gestion_Compra;
 using Gamer_Shop2._0.Formularios.GestionCliente;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
@@ -207,6 +208,9 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         }
         //FIN Validacion MetodoPago
 
+        //Inicio Validación TBDNIClienteExistente Keypress
+        
+
         //Inicio TextChanged
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
@@ -350,28 +354,28 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         private void BClienteExistente_Click(object sender, EventArgs e)
         {
-            //if (PContBuscarDni.Visible)
-            //{
-            //    PContBuscarDni.Visible = false;
-            //}
-            //else
-            //{
-            //    PContBuscarDni.Visible = true;
-            //}
-            //Nueva implementación---------------------------------
+            // Crear un nuevo formulario para el efecto de oscurecimiento
             Form formBG = new Form();
             personalizarFondoNegro(formBG);
 
+            // Mostrar el formulario de oscurecimiento
             formBG.Show();
 
-            ListaClienteVn listClVn = new ListaClienteVn();
-            listClVn.StartPosition = FormStartPosition.CenterScreen;
-            listClVn.BringToFront();
-            listClVn.FondoOscurecido = formBG;
-            listClVn.ObtenerDNICliente += FormAltaCl_ObtenerDNICliente;
-            listClVn.ShowInTaskbar = false;
-            listClVn.TopMost = true;
-            listClVn.ShowDialog();
+            //Mostrar form "Alta Cliente"
+            ElegirClienteExistente elegirCliente = new ElegirClienteExistente();
+            elegirCliente.StartPosition = FormStartPosition.CenterScreen;
+            elegirCliente.BringToFront();
+            elegirCliente.MainForm = MainForm;
+            elegirCliente.FondoOscurecido = formBG;
+            elegirCliente.ElegirCliente += CargarDNICliente;
+            elegirCliente.ShowInTaskbar = false;
+            elegirCliente.TopMost = true;
+            elegirCliente.ShowDialog();
+        }
+
+        public void CargarDNICliente (object sender, string DNI)
+        {
+            TBDniClExist.Texts = DNI;
         }
 
         private void AplicarMonto()
@@ -475,6 +479,8 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             // Liberar los recursos
             base.Dispose();
         }
+
+        
 
         private void BBuscador_Click(object sender, EventArgs e)
         {

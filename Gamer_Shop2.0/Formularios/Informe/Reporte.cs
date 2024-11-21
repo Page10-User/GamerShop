@@ -18,15 +18,27 @@ namespace Gamer_Shop2._0.Formularios.Informe
         private int borderWidth = 5; // Grosor del borde
 
         public Panel PanelContainer { get; set; }
+
         public Reporte()
         {
             InitializeComponent();
-            CrearGrafico();
-            CHBoxSemana.Checked = true;
-            CHBoxSemana1.Checked = true;
+            DateTime fechainicio = dateTimePicker1.MinDate;
+            DateTime fechafinal = DateTime.Now;
+            dateTimePicker1.Value = fechainicio;
+            dateTimePicker2.Value = fechafinal;
+            CrearGrafico(fechainicio, fechafinal);
+            ConfigurarGraficoPie(fechainicio, fechafinal);
+            ConfigurarGraficoPieCC(fechainicio, fechafinal);
+        }
 
-            ConfigurarGraficoPie("WEEK");
-            ConfigurarGraficoPieCC("WEEK");
+        public Reporte(DateTime fechainicio, DateTime fechafinal)
+        {
+            InitializeComponent();
+            dateTimePicker1.Value = fechainicio;
+            dateTimePicker2.Value = fechafinal;
+            CrearGrafico(fechainicio,fechafinal);
+            ConfigurarGraficoPie(fechainicio,fechafinal);
+            ConfigurarGraficoPieCC(fechainicio, fechafinal);
         }
         private void PTituloReport_Paint(object sender, PaintEventArgs e)
         {
@@ -139,14 +151,14 @@ namespace Gamer_Shop2._0.Formularios.Informe
             }
         }
 
-        private void CrearGrafico()
+        private void CrearGrafico(DateTime fechainicio, DateTime fechafinal)
         {
             CGraficoVent.Series.Clear();
             Series series = CGraficoVent.Series.Add("Ventas");
             series.ChartType = SeriesChartType.Column;
 
             NVenta nventa = new NVenta();
-            DataTable dataTable = nventa.getVentasUltimaSemana();
+            DataTable dataTable = nventa.getVentasUltimaSemana(fechainicio,fechafinal);
 
             // Colores personalizados para cada barra
             Color[] colores = { Color.Salmon, Color.Khaki, Color.LightGreen, Color.Lime, Color.Cyan, Color.DeepSkyBlue, Color.MediumPurple };
@@ -176,7 +188,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
             CGraficoVent.Legends.Clear();
         }
 
-        private void ConfigurarGraficoPie(string periodo)
+        private void ConfigurarGraficoPie(DateTime fechainicio, DateTime fechafinal)
         {  try
             {
                 CGraficoPie5P.Series.Clear();
@@ -184,7 +196,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
                 series.ChartType = SeriesChartType.Pie;
                 NDetalleVenta nDetalleVenta = new NDetalleVenta();
 
-                DataTable dataTable = nDetalleVenta.getProductosMasVendidos(periodo);
+                DataTable dataTable = nDetalleVenta.getProductosMasVendidos(fechainicio, fechafinal);
 
                 // Agregar datos al gráfico
                 foreach (DataRow row in dataTable.Rows)
@@ -202,7 +214,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
             }
         }
     
-        private void ConfigurarGraficoPieCC(string periodo)
+        private void ConfigurarGraficoPieCC(DateTime fechainicio, DateTime fechafinal)
         { try
             {
                 CGraficoPieCC.Series.Clear();
@@ -213,7 +225,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
                 // Consulta SQL para obtener cantidad de productos por categoría en función del periodo
 
 
-                DataTable dataTable = nDetalle.getTotalVendidosPorCategoria(periodo);
+                DataTable dataTable = nDetalle.getTotalVendidosPorCategoria(fechainicio, fechafinal);
 
                 // Agregar datos al gráfico
                 foreach (DataRow row in dataTable.Rows)
@@ -242,7 +254,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
 
         private void BRefresh_Click(object sender, EventArgs e)
         {
-            Reporte formReporte = new Reporte();
+            Reporte formReporte = new Reporte(dateTimePicker1.Value, dateTimePicker2.Value);
             formReporte.TopLevel = false;
             formReporte.PanelContainer = PanelContainer;
             PanelContainer.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
@@ -278,83 +290,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
             }
         }
 
-        private void CHBoxSemana_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHBoxSemana.Checked)
-            {
-                // Deseleccionar otros CheckBoxes
-                CHBoxMes.Checked = false;
-                CHBoxAño.Checked = false;
-
-                // Llamar a ConfigurarGraficoPie con el periodo "WEEK"
-                ConfigurarGraficoPie("WEEK");
-            }
-        }
-
-        private void CHBoxMes_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHBoxMes.Checked)
-            {
-                // Deseleccionar otros CheckBoxes
-                CHBoxSemana.Checked = false;
-                CHBoxAño.Checked = false;
-
-                // Llamar a ConfigurarGraficoPie con el periodo "MONTH"
-                ConfigurarGraficoPie("MONTH");
-            }
-        }
-
-        private void CHBoxAño_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHBoxAño.Checked)
-            {
-                // Deseleccionar otros CheckBoxes
-                CHBoxSemana.Checked = false;
-                CHBoxMes.Checked = false;
-
-                // Llamar a ConfigurarGraficoPie con el periodo "YEAR"
-                ConfigurarGraficoPie("YEAR");
-            }
-        }
-
-
-        private void CHBoxSemana1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHBoxSemana1.Checked)
-            {
-                // Deseleccionar otros CheckBoxes
-                CHBoxMes1.Checked = false;
-                CHBoxAño1.Checked = false;
-
-                // Llamar a ConfigurarGraficoPie con el periodo "WEEK"
-                ConfigurarGraficoPieCC("WEEK");
-            }
-        }
-
-        private void CHBoxMes1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHBoxMes1.Checked)
-            {
-                // Deseleccionar otros CheckBoxes
-                CHBoxSemana1.Checked = false;
-                CHBoxAño1.Checked = false;
-
-                // Llamar a ConfigurarGraficoPie con el periodo "MONTH"
-                ConfigurarGraficoPieCC("MONTH");
-            }
-        }
-
-        private void CHBoxAño1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHBoxAño1.Checked)
-            {
-                // Deseleccionar otros CheckBoxes
-                CHBoxSemana1.Checked = false;
-                CHBoxMes1.Checked = false;
-
-                // Llamar a ConfigurarGraficoPie con el periodo "YEAR"
-                ConfigurarGraficoPieCC("YEAR");
-            }
-        }
+        
+        
     }
 }

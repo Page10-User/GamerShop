@@ -38,10 +38,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PTituloReport = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.LCantidadGanado = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.LCantidadCompras = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,10 +48,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.LCantidadGanado = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.CHBoxAño = new System.Windows.Forms.RadioButton();
-            this.CHBoxMes = new System.Windows.Forms.RadioButton();
-            this.CHBoxSemana = new System.Windows.Forms.RadioButton();
             this.CGraficoPie5P = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -68,23 +65,25 @@
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.CGraficoVent = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label8 = new System.Windows.Forms.Label();
+            this.CGraficoVent = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.CHBoxAño1 = new System.Windows.Forms.RadioButton();
-            this.CHBoxMes1 = new System.Windows.Forms.RadioButton();
             this.CGraficoPieCC = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.CHBoxSemana1 = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.BRefresh = new Gamer_Shop2._0.RJButton();
             this.PTituloReport.SuspendLayout();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoPie5P)).BeginInit();
             this.panel3.SuspendLayout();
@@ -96,71 +95,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoVent)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoPieCC)).BeginInit();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // PTituloReport
             // 
             this.PTituloReport.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PTituloReport.Controls.Add(this.panel8);
             this.PTituloReport.Controls.Add(this.panel7);
             this.PTituloReport.Controls.Add(this.panel6);
             this.PTituloReport.Controls.Add(this.pictureBox1);
             this.PTituloReport.Controls.Add(this.label1);
-            this.PTituloReport.Location = new System.Drawing.Point(12, 12);
+            this.PTituloReport.Location = new System.Drawing.Point(12, 64);
             this.PTituloReport.Name = "PTituloReport";
-            this.PTituloReport.Size = new System.Drawing.Size(215, 215);
+            this.PTituloReport.Size = new System.Drawing.Size(208, 171);
             this.PTituloReport.TabIndex = 0;
             this.PTituloReport.Paint += new System.Windows.Forms.PaintEventHandler(this.PTituloReport_Paint);
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.LCantidadGanado);
-            this.panel8.Controls.Add(this.label6);
-            this.panel8.Controls.Add(this.pictureBox4);
-            this.panel8.Location = new System.Drawing.Point(14, 157);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(187, 45);
-            this.panel8.TabIndex = 4;
-            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
-            // 
-            // LCantidadGanado
-            // 
-            this.LCantidadGanado.AutoSize = true;
-            this.LCantidadGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LCantidadGanado.ForeColor = System.Drawing.Color.White;
-            this.LCantidadGanado.Location = new System.Drawing.Point(46, 23);
-            this.LCantidadGanado.Name = "LCantidadGanado";
-            this.LCantidadGanado.Size = new System.Drawing.Size(14, 16);
-            this.LCantidadGanado.TabIndex = 8;
-            this.LCantidadGanado.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(46, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 16);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Total Ganado";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(5, 4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.LCantidadCompras);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Controls.Add(this.pictureBox3);
-            this.panel7.Location = new System.Drawing.Point(14, 106);
+            this.panel7.Location = new System.Drawing.Point(11, 114);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(187, 45);
             this.panel7.TabIndex = 3;
@@ -203,7 +159,7 @@
             this.panel6.Controls.Add(this.LCantidadVentas);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.pictureBox2);
-            this.panel6.Location = new System.Drawing.Point(14, 56);
+            this.panel6.Location = new System.Drawing.Point(11, 63);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(187, 44);
             this.panel6.TabIndex = 2;
@@ -245,7 +201,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(14, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.TabIndex = 1;
@@ -256,69 +212,65 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(65, 14);
+            this.label1.Location = new System.Drawing.Point(60, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Reportes";
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.LCantidadGanado);
+            this.panel8.Controls.Add(this.label6);
+            this.panel8.Controls.Add(this.pictureBox4);
+            this.panel8.Location = new System.Drawing.Point(10, 114);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(187, 45);
+            this.panel8.TabIndex = 4;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
+            // 
+            // LCantidadGanado
+            // 
+            this.LCantidadGanado.AutoSize = true;
+            this.LCantidadGanado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCantidadGanado.ForeColor = System.Drawing.Color.White;
+            this.LCantidadGanado.Location = new System.Drawing.Point(46, 23);
+            this.LCantidadGanado.Name = "LCantidadGanado";
+            this.LCantidadGanado.Size = new System.Drawing.Size(14, 16);
+            this.LCantidadGanado.TabIndex = 8;
+            this.LCantidadGanado.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(46, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 16);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Total Ganado";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Location = new System.Drawing.Point(5, 4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Controls.Add(this.CHBoxAño);
-            this.panel2.Controls.Add(this.CHBoxMes);
-            this.panel2.Controls.Add(this.CHBoxSemana);
             this.panel2.Controls.Add(this.CGraficoPie5P);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(447, 12);
+            this.panel2.Location = new System.Drawing.Point(447, 64);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(225, 169);
+            this.panel2.Size = new System.Drawing.Size(225, 171);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
-            // 
-            // CHBoxAño
-            // 
-            this.CHBoxAño.AutoSize = true;
-            this.CHBoxAño.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHBoxAño.ForeColor = System.Drawing.Color.White;
-            this.CHBoxAño.Location = new System.Drawing.Point(122, 144);
-            this.CHBoxAño.Name = "CHBoxAño";
-            this.CHBoxAño.Size = new System.Drawing.Size(85, 19);
-            this.CHBoxAño.TabIndex = 9;
-            this.CHBoxAño.TabStop = true;
-            this.CHBoxAño.Text = "Último año";
-            this.CHBoxAño.UseVisualStyleBackColor = true;
-            this.CHBoxAño.CheckedChanged += new System.EventHandler(this.CHBoxAño_CheckedChanged);
-            // 
-            // CHBoxMes
-            // 
-            this.CHBoxMes.AutoSize = true;
-            this.CHBoxMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHBoxMes.ForeColor = System.Drawing.Color.White;
-            this.CHBoxMes.Location = new System.Drawing.Point(122, 125);
-            this.CHBoxMes.Name = "CHBoxMes";
-            this.CHBoxMes.Size = new System.Drawing.Size(88, 19);
-            this.CHBoxMes.TabIndex = 8;
-            this.CHBoxMes.TabStop = true;
-            this.CHBoxMes.Text = "Último mes";
-            this.CHBoxMes.UseVisualStyleBackColor = true;
-            this.CHBoxMes.CheckedChanged += new System.EventHandler(this.CHBoxMes_CheckedChanged);
-            // 
-            // CHBoxSemana
-            // 
-            this.CHBoxSemana.AutoSize = true;
-            this.CHBoxSemana.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.CHBoxSemana.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.CHBoxSemana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHBoxSemana.ForeColor = System.Drawing.Color.White;
-            this.CHBoxSemana.Location = new System.Drawing.Point(13, 145);
-            this.CHBoxSemana.Name = "CHBoxSemana";
-            this.CHBoxSemana.Size = new System.Drawing.Size(109, 19);
-            this.CHBoxSemana.TabIndex = 7;
-            this.CHBoxSemana.TabStop = true;
-            this.CHBoxSemana.Text = "Última semana";
-            this.CHBoxSemana.UseVisualStyleBackColor = true;
-            this.CHBoxSemana.CheckedChanged += new System.EventHandler(this.CHBoxSemana_CheckedChanged);
             // 
             // CGraficoPie5P
             // 
@@ -347,7 +299,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(10, 10);
+            this.label9.Location = new System.Drawing.Point(11, 15);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(185, 18);
             this.label9.TabIndex = 1;
@@ -356,12 +308,12 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.Controls.Add(this.BRefresh);
+            this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.panel9);
             this.panel3.Controls.Add(this.panel1);
-            this.panel3.Location = new System.Drawing.Point(233, 12);
+            this.panel3.Location = new System.Drawing.Point(233, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(208, 215);
+            this.panel3.Size = new System.Drawing.Size(208, 171);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
@@ -454,13 +406,25 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel4.Controls.Add(this.CGraficoVent);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(12, 233);
+            this.panel4.Controls.Add(this.CGraficoVent);
+            this.panel4.Location = new System.Drawing.Point(12, 241);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(429, 191);
+            this.panel4.Size = new System.Drawing.Size(429, 183);
             this.panel4.TabIndex = 1;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Black;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(15, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(208, 20);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Últimas ventas por fecha";
             // 
             // CGraficoVent
             // 
@@ -472,7 +436,7 @@
             chartArea2.Name = "ChartArea1";
             chartArea2.ShadowColor = System.Drawing.Color.Black;
             this.CGraficoVent.ChartAreas.Add(chartArea2);
-            this.CGraficoVent.Location = new System.Drawing.Point(14, 42);
+            this.CGraficoVent.Location = new System.Drawing.Point(14, 39);
             this.CGraficoVent.Name = "CGraficoVent";
             series2.BorderColor = System.Drawing.Color.Lime;
             series2.ChartArea = "ChartArea1";
@@ -487,59 +451,16 @@
             this.CGraficoVent.TabIndex = 0;
             this.CGraficoVent.Text = "chart1";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Black;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(10, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(208, 20);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Últimas ventas por fecha";
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.Controls.Add(this.CHBoxAño1);
-            this.panel5.Controls.Add(this.CHBoxMes1);
             this.panel5.Controls.Add(this.CGraficoPieCC);
-            this.panel5.Controls.Add(this.CHBoxSemana1);
             this.panel5.Controls.Add(this.label10);
-            this.panel5.Location = new System.Drawing.Point(447, 187);
+            this.panel5.Location = new System.Drawing.Point(447, 241);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(225, 237);
+            this.panel5.Size = new System.Drawing.Size(225, 183);
             this.panel5.TabIndex = 2;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
-            // 
-            // CHBoxAño1
-            // 
-            this.CHBoxAño1.AutoSize = true;
-            this.CHBoxAño1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHBoxAño1.ForeColor = System.Drawing.Color.White;
-            this.CHBoxAño1.Location = new System.Drawing.Point(28, 210);
-            this.CHBoxAño1.Name = "CHBoxAño1";
-            this.CHBoxAño1.Size = new System.Drawing.Size(85, 19);
-            this.CHBoxAño1.TabIndex = 6;
-            this.CHBoxAño1.TabStop = true;
-            this.CHBoxAño1.Text = "Último año";
-            this.CHBoxAño1.UseVisualStyleBackColor = true;
-            this.CHBoxAño1.CheckedChanged += new System.EventHandler(this.CHBoxAño1_CheckedChanged);
-            // 
-            // CHBoxMes1
-            // 
-            this.CHBoxMes1.AutoSize = true;
-            this.CHBoxMes1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHBoxMes1.ForeColor = System.Drawing.Color.White;
-            this.CHBoxMes1.Location = new System.Drawing.Point(28, 185);
-            this.CHBoxMes1.Name = "CHBoxMes1";
-            this.CHBoxMes1.Size = new System.Drawing.Size(88, 19);
-            this.CHBoxMes1.TabIndex = 5;
-            this.CHBoxMes1.TabStop = true;
-            this.CHBoxMes1.Text = "Último mes";
-            this.CHBoxMes1.UseVisualStyleBackColor = true;
-            this.CHBoxMes1.CheckedChanged += new System.EventHandler(this.CHBoxMes1_CheckedChanged);
             // 
             // CGraficoPieCC
             // 
@@ -563,22 +484,6 @@
             this.CGraficoPieCC.TabIndex = 3;
             this.CGraficoPieCC.Text = "chart1";
             // 
-            // CHBoxSemana1
-            // 
-            this.CHBoxSemana1.AutoSize = true;
-            this.CHBoxSemana1.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.CHBoxSemana1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.CHBoxSemana1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHBoxSemana1.ForeColor = System.Drawing.Color.White;
-            this.CHBoxSemana1.Location = new System.Drawing.Point(28, 160);
-            this.CHBoxSemana1.Name = "CHBoxSemana1";
-            this.CHBoxSemana1.Size = new System.Drawing.Size(109, 19);
-            this.CHBoxSemana1.TabIndex = 4;
-            this.CHBoxSemana1.TabStop = true;
-            this.CHBoxSemana1.Text = "Última semana";
-            this.CHBoxSemana1.UseVisualStyleBackColor = true;
-            this.CHBoxSemana1.CheckedChanged += new System.EventHandler(this.CHBoxSemana1_CheckedChanged);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -589,6 +494,61 @@
             this.label10.Size = new System.Drawing.Size(202, 24);
             this.label10.TabIndex = 3;
             this.label10.Text = "Cantidad por Categoría";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(11, 23);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(95, 20);
+            this.dateTimePicker1.TabIndex = 10;
+            this.dateTimePicker1.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(121, 23);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(95, 20);
+            this.dateTimePicker2.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Window;
+            this.label3.Location = new System.Drawing.Point(29, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Desde";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(143, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Hasta";
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel10.Controls.Add(this.label3);
+            this.panel10.Controls.Add(this.BRefresh);
+            this.panel10.Controls.Add(this.dateTimePicker1);
+            this.panel10.Controls.Add(this.label5);
+            this.panel10.Controls.Add(this.dateTimePicker2);
+            this.panel10.Location = new System.Drawing.Point(209, 10);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(258, 48);
+            this.panel10.TabIndex = 4;
             // 
             // BRefresh
             // 
@@ -605,7 +565,7 @@
             this.BRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BRefresh.ForeColor = System.Drawing.Color.White;
-            this.BRefresh.Location = new System.Drawing.Point(172, 177);
+            this.BRefresh.Location = new System.Drawing.Point(225, 10);
             this.BRefresh.Name = "BRefresh";
             this.BRefresh.Size = new System.Drawing.Size(25, 25);
             this.BRefresh.TabIndex = 9;
@@ -620,6 +580,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 436);
+            this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -632,9 +593,6 @@
             this.Load += new System.EventHandler(this.Reporte_Load);
             this.PTituloReport.ResumeLayout(false);
             this.PTituloReport.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -642,6 +600,9 @@
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoPie5P)).EndInit();
@@ -658,6 +619,8 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CGraficoPieCC)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -689,12 +652,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart CGraficoPie5P;
         private System.Windows.Forms.DataVisualization.Charting.Chart CGraficoPieCC;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton CHBoxAño1;
-        private System.Windows.Forms.RadioButton CHBoxMes1;
-        private System.Windows.Forms.RadioButton CHBoxSemana1;
-        private System.Windows.Forms.RadioButton CHBoxAño;
-        private System.Windows.Forms.RadioButton CHBoxMes;
-        private System.Windows.Forms.RadioButton CHBoxSemana;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label LCantidadVendidos;
         private System.Windows.Forms.Label label12;
@@ -704,5 +661,10 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox6;
         private RJButton BRefresh;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel10;
     }
 }

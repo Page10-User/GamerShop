@@ -110,6 +110,13 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
+        public DataTable getProveedoresActivos()
+        {
+                DProveedores proveedores = new DProveedores();
+                return proveedores.getProveedoresActivos();
+            
+        }
+
         public void getProveedoresInactivos(DataGridView grid)
         {
             if (grid == null)

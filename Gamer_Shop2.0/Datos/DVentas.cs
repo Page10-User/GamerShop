@@ -53,7 +53,7 @@ namespace Gamer_Shop2._0.Datos
 
         }
 
-        public DataTable getTotalSemana ()
+        public DataTable getTotalSemana (DateTime fechainicio, DateTime fechafinal)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace Gamer_Shop2._0.Datos
                     string query = @"
                     SELECT TOP 6 Fecha, COUNT(*) AS TotalVentas
                     FROM Venta
-                    WHERE Fecha >= DATEADD(WEEK, -2, GETDATE()) GROUP BY Fecha
+                    WHERE Fecha BETWEEN @fechainicio AND @fechafinal GROUP BY Fecha
                     ";
 
                     // Ejecuta la consulta y guarda el resultado en un DataTable
@@ -74,6 +74,8 @@ namespace Gamer_Shop2._0.Datos
                         connection.Open();
                         using (var command = new System.Data.SqlClient.SqlCommand(query, connection))
                         {
+                            command.Parameters.AddWithValue("@fechainicio", fechainicio);
+                            command.Parameters.AddWithValue("@fechafinal", fechafinal);
                             var reader = command.ExecuteReader();
                             dataTable.Load(reader);
                         }

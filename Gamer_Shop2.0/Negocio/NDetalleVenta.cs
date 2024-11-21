@@ -68,7 +68,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public DataTable getProductosMasVendidos (string periodo)
+        public DataTable getProductosMasVendidos (DateTime fechainicio, DateTime fechafinal)
         {
             if (ddventa == null)
             {
@@ -76,11 +76,11 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                return ddventa.getProductosMasVendidos(periodo);
+                return ddventa.getProductosMasVendidos(fechainicio, fechafinal);
             }
         }
 
-        public DataTable getTotalVendidosPorCategoria(string periodo)
+        public DataTable getTotalVendidosPorCategoria(DateTime fechainicio, DateTime fechafinal)
         {
             if (ddventa == null)
             {
@@ -88,7 +88,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                return ddventa.getTotalVendidosPorCategoria(periodo);
+                return ddventa.getTotalVendidosPorCategoria(fechainicio, fechafinal);
             }
         }
     }

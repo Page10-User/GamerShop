@@ -87,8 +87,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         }
         private void AltaCompra_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
-            this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
+            cargarProveedores();
 
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
@@ -127,6 +126,13 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
             {
                 e.Graphics.DrawPath(pen, path);
             }
+        }
+
+        public void cargarProveedores()
+        {
+            NProveedor nprov = new NProveedor();
+            
+            CBProveedor.DataSource = nprov.getProveedoresActivos();
         }
 
         private void BListaDeCompras_Click(object sender, EventArgs e)

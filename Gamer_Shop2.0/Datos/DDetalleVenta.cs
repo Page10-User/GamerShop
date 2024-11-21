@@ -99,7 +99,7 @@ namespace Gamer_Shop2._0.Datos
             else return detalle;
         }
 
-        public DataTable getProductosMasVendidos(string periodo)
+        public DataTable getProductosMasVendidos(DateTime fechainicio, DateTime fechafinal)
         {
             if (adapter.GetData() == null)
             {
@@ -112,7 +112,7 @@ namespace Gamer_Shop2._0.Datos
                 {
                     DDetalles detalles = new DDetalles();
 
-                    return detalles.getProductosMasVendidos(periodo);
+                    return detalles.getProductosMasVendidos(fechainicio, fechafinal);
                 }
                 catch (Exception ex)
                 {
@@ -123,7 +123,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public DataTable getTotalVendidosPorCategoria(string periodo)
+        public DataTable getTotalVendidosPorCategoria(DateTime fechainicio, DateTime fechafinal)
         {
             if (adapter.GetData() == null)
             {
@@ -136,7 +136,7 @@ namespace Gamer_Shop2._0.Datos
                 {
                     DDetalles detalles = new DDetalles();
 
-                    return detalles.getTotalVendidosPorCategoria(periodo);
+                    return detalles.getTotalVendidosPorCategoria (fechainicio, fechafinal);
                 }
                 catch (Exception ex)
                 {

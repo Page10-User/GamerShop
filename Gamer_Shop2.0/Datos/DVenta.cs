@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,7 +83,7 @@ namespace Gamer_Shop2._0.Datos
             }
         }
 
-        public DataTable getVentasUltimaSemana()
+        public DataTable getVentasUltimaSemana(DateTime fechainicio, DateTime fechafinal)
         {
             if (adapter.GetData() == null)
             {
@@ -91,8 +92,7 @@ namespace Gamer_Shop2._0.Datos
             else
             {
                 DVentas ventas = new DVentas();
-
-                return ventas.getTotalSemana();
+                return ventas.getTotalSemana(fechainicio, fechafinal);
             }
         }
 

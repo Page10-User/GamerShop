@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Gamer_Shop2._0.Negocio
 {
@@ -61,7 +62,7 @@ namespace Gamer_Shop2._0.Negocio
             }
         }
 
-        public DataTable getVentasUltimaSemana()
+        public DataTable getVentasUltimaSemana(DateTime fechainicio, DateTime fechafinal)
         {
             if (dventa == null)
             {
@@ -69,7 +70,7 @@ namespace Gamer_Shop2._0.Negocio
             }
             else
             {
-                return dventa.getVentasUltimaSemana();
+                return dventa.getVentasUltimaSemana(fechainicio, fechafinal);
             }
         }
     }
