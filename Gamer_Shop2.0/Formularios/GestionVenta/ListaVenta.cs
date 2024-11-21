@@ -7,6 +7,7 @@ using Gamer_Shop2._0.Formularios.GestionUsuario;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -404,5 +405,54 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
             System.Diagnostics.Process.Start(rutaArchivo);
         }
+
+        private void BBuscador_Click(object sender, EventArgs e)
+        {
+            buscarVenta();
+        }
+
+        private void buscarVenta()
+        {
+            foreach (DataGridViewRow fila in DGListaVn.Rows)
+            {
+                if (!fila.IsNewRow)
+                {
+                    Dictionary<string, object> filaDict = new Dictionary<string, object>();
+                    foreach (DataGridViewCell celda in fila.Cells)
+                    {
+                        filaDict[DGListaVn.Columns[celda.ColumnIndex].Name] = celda.Value;
+                    }
+                }
+            }
+            FiltrarDataGrid(DGListaVn);
+        }
+
+        private void FiltrarDataGrid(DataGridView grid)
+        {
+            if (grid.DataSource is DataTable dataTable)
+            {
+                string filtro = TBFiltro.Texts.ToLower();
+                if (string.IsNullOrWhiteSpace(filtro))
+                {
+                    dataTable.DefaultView.RowFilter = string.Empty;
+                    return;
+                }
+                List<string> condiciones = new List<string>();
+                foreach (DataColumn columna in dataTable.Columns)
+                {
+                    if (columna.DataType == typeof(string) || columna.DataType == typeof(int) || columna.DataType == typeof(decimal) || columna.DataType == typeof(double))
+                    {
+                        condiciones.Add($"CONVERT([{columna.ColumnName}], System.String) LIKE '%{filtro}%'");
+                    }
+                }
+                string expresionFiltro = string.Join(" OR ", condiciones);
+                dataTable.DefaultView.RowFilter = expresionFiltro;
+            }
+            else
+            {
+                MessageBox.Show("El DataGridView no está enlazado a un DataTable.");
+            }
+        }
+
     }
 }

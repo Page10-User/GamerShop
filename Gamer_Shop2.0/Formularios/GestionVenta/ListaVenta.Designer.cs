@@ -209,6 +209,7 @@
             this.BBuscador.TabIndex = 36;
             this.BBuscador.TextColor = System.Drawing.Color.White;
             this.BBuscador.UseVisualStyleBackColor = false;
+            this.BBuscador.Click += new System.EventHandler(this.BBuscador_Click);
             // 
             // TBFiltro
             // 
