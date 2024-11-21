@@ -226,7 +226,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             if (!string.IsNullOrWhiteSpace(texto))
             {
                 //Validar longitud minima.
-                if (!validador.ValidarLongitudMinima(texto, 6))
+                if (!validador.ValidarLongitudMinima(texto, 7))
                 {
                     e.Cancel = true;
                     TBValidacion5.Visible = true;

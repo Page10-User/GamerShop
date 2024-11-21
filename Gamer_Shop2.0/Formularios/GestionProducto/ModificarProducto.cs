@@ -287,7 +287,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
 
             //Validar longitud
-            if (!validador.ValidarLongitudConLimite(texto, 15, e.KeyChar))
+            if (!validador.ValidarLongitudConLimite(texto, 9, e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -302,7 +302,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             if (!string.IsNullOrWhiteSpace(texto))
             {
                 //Validar longitud minima.
-                if (!validador.ValidarLongitudMinima(texto, 8))
+                if (!validador.ValidarLongitudMinima(texto, 7))
                 {
                     e.Cancel = true;
                     TBValidacion5.Visible = true;
