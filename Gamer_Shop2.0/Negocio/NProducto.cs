@@ -11,10 +11,11 @@ namespace Gamer_Shop2._0.Negocio
     internal class NProducto
     {
         DProducto dproducto = new DProducto();
-        public void NAgregarProducto(int serial, string nombre, string descripcion, int stock, string activo, float precio, int categoria, int proveedor, string photoFilePath)
+        public void NAgregarProducto(int serial, string nombre, string descripcion, int stock, string activo, float precio, int categoria,string prov, string photoFilePath)
         {
-           
-                Producto nuevoProducto = new Producto()
+            NProveedor proveedor = new NProveedor();
+            int idproveedor = proveedor.GetProveedor(prov).ID_Proveedor;
+            Producto nuevoProducto = new Producto()
                 {
                     Serial = serial,
                     Nombre = nombre,
@@ -23,7 +24,7 @@ namespace Gamer_Shop2._0.Negocio
                     Activo = activo,
                     Precio = precio,
                     ID_Categoria = categoria,
-                    ID_Proveedor = proveedor,
+                    ID_Proveedor = idproveedor,
                     photoFilePath = photoFilePath
                 };
 
@@ -36,6 +37,8 @@ namespace Gamer_Shop2._0.Negocio
                 dproducto.DAgregarProducto(nuevoProducto);
             }
         }
+
+        
 
         public DataTable listaProductosActivos (DataGridView grid)
         {

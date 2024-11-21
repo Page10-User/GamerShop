@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -150,6 +152,36 @@ namespace Gamer_Shop2._0.Datos
                         context.Proveedor.Add(prov);
                         context.SaveChanges();
                     }
+                    catch (DbUpdateException dbEx)
+                    {
+                        // Verifica si la excepción interna es una excepción de SQL
+                        if (dbEx.InnerException?.InnerException is SqlException sqlEx && sqlEx.Number == 2627)
+                        {
+                            string mensajeError = sqlEx.Message;
+
+                            if (mensajeError.Contains("UQ_Razon_social"))
+                            {
+                                throw new ExisteRegistroException("La razón social ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_Correo"))
+                            {
+                                throw new ExisteRegistroException("El correo ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_Telefono"))
+                            {
+                                throw new ExisteRegistroException("El teléfono ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_Dirección"))
+                            {
+                                throw new ExisteRegistroException("La dirección ya se encuentra registrada!");
+                            }
+                            else
+                            {
+                                throw new ExisteRegistroException("La razón social, correo, teléfono o dirección ya se encuentra registrado!");
+                            }
+                        }
+                        throw new Exception($"Error al guardar el proveedor: {dbEx.Message}");
+                    }
                     catch (Exception ex)
                     {
                         throw new Exception($"Error al guardar el proveedor: {ex.Message}");
@@ -181,6 +213,36 @@ namespace Gamer_Shop2._0.Datos
                         proveedor.Activo = prov.Activo;
 
                         context.SaveChanges();
+                    }
+                    catch (DbUpdateException dbEx)
+                    {
+                        // Verifica si la excepción interna es una excepción de SQL
+                        if (dbEx.InnerException?.InnerException is SqlException sqlEx && sqlEx.Number == 2627)
+                        {
+                            string mensajeError = sqlEx.Message;
+
+                            if (mensajeError.Contains("UQ_Razon_social"))
+                            {
+                                throw new ExisteRegistroException("La razón social ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_Correo"))
+                            {
+                                throw new ExisteRegistroException("El correo ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_Telefono"))
+                            {
+                                throw new ExisteRegistroException("El teléfono ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_Dirección"))
+                            {
+                                throw new ExisteRegistroException("La dirección ya se encuentra registrada!");
+                            }
+                            else
+                            {
+                                throw new ExisteRegistroException("La razón social, correo, teléfono o dirección ya se encuentra registrado!");
+                            }
+                        }
+                        throw new Exception($"Error al guardar el proveedor: {dbEx.Message}");
                     }
                     catch (Exception ex)
                     {

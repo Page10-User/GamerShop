@@ -134,19 +134,19 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(producto) == true)
             {
+                Debug.WriteLine(""+ producto.Serial + producto.ID_Proveedor + producto.ID_Producto);
              throw new ExisteRegistroException("El producto ya existe.");
             } else { 
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {
                     try
                     {
-                        Debug.WriteLine(producto.photoFilePath, producto.Serial, producto.ID_Categoria, producto.ID_Proveedor, producto.Activo);
                         context.Producto.Add(producto);
                         context.SaveChanges();
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception($"Error al guardar el producto: {ex.Message}");
+                        throw new Exception($"Error al guardar el producto: {ex.InnerException.Message}");
                     }
                 }
             } 

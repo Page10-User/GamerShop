@@ -151,6 +151,32 @@ namespace Gamer_Shop2._0.Datos
 
                         context.SaveChanges();
                     }
+                    catch (DbUpdateException dbEx)
+                    {
+                        // Verifica si la excepción interna es una excepción de SQL
+                        if (dbEx.InnerException?.InnerException is SqlException sqlEx && sqlEx.Number == 2627)
+                        {
+                            string mensajeError = sqlEx.Message;
+
+                            if (mensajeError.Contains("UQ_CorreoUsuario"))
+                            {
+                                throw new ExisteRegistroException("El Correo ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_ContraseñaUsuario"))
+                            {
+                                throw new ExisteRegistroException("La Contraseña ya se encuentra registrada!");
+                            }
+                            else if (mensajeError.Contains("UQ_NombreUsuarioUsuario"))
+                            {
+                                throw new ExisteRegistroException("El Nombre de Usuario ya se encuentra registrado!");
+                            }
+                            else
+                            {
+                                throw new ExisteRegistroException("El Nombre de Usuario, Contraseña o Correo ya se encuentra registrado!");
+                            }
+                        }
+                        throw new Exception($"Error al guardar el Usuario: {dbEx.Message}");
+                    }
                     catch (Exception ex)
                     {
                         throw new Exception($"Error al modificar el Usuario: {ex.Message}");
@@ -184,6 +210,32 @@ namespace Gamer_Shop2._0.Datos
                         user.Activo = user.Activo;
 
                         context.SaveChanges();
+                    }
+                    catch (DbUpdateException dbEx)
+                    {
+                        // Verifica si la excepción interna es una excepción de SQL
+                        if (dbEx.InnerException?.InnerException is SqlException sqlEx && sqlEx.Number == 2627)
+                        {
+                            string mensajeError = sqlEx.Message;
+
+                            if (mensajeError.Contains("UQ_CorreoUsuario"))
+                            {
+                                throw new ExisteRegistroException("El Correo ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_ContraseñaUsuario"))
+                            {
+                                throw new ExisteRegistroException("La Contraseña ya se encuentra registrada!");
+                            }
+                            else if (mensajeError.Contains("UQ_NombreUsuarioUsuario"))
+                            {
+                                throw new ExisteRegistroException("El Nombre de Usuario ya se encuentra registrado!");
+                            }
+                            else
+                            {
+                                throw new ExisteRegistroException("El Nombre de Usuario, Contraseña o Correo ya se encuentra registrado!");
+                            }
+                        }
+                        throw new Exception($"Error al guardar el Usuario: {dbEx.Message}");
                     }
                     catch (Exception ex)
                     {

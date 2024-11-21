@@ -131,6 +131,7 @@
             this.BFiltro.TabIndex = 59;
             this.BFiltro.Texts = "";
             this.BFiltro.ValueMember = "Nombre_Categoria";
+            this.BFiltro.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BFiltro_MouseUp);
             // 
             // BBuscadorProductoCt
             // 

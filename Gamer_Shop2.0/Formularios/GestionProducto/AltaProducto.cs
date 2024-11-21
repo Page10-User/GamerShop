@@ -1,4 +1,5 @@
-﻿using Gamer_Shop2._0.Excepciones;
+﻿using Gamer_Shop2._0.Datos;
+using Gamer_Shop2._0.Excepciones;
 using Gamer_Shop2._0.Formularios.BorderClasss;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
@@ -18,7 +19,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
-        string nombreImagen = "";
+        string nombreImagen;
 
         bool isExpandedPAC = false;
         public Panel PanelContainer { get; set; }
@@ -71,12 +72,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.Categoría_producto' Puede moverla o quitarla según sea necesario.
             this.categoría_productoTableAdapter.Fill(this.dataSet1.Categoría_producto);
-            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
-            this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
-            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Categoría_producto' Puede moverla o quitarla según sea necesario.
-            this.categoría_productoTableAdapter.Fill(this.dataSet1.Categoría_producto);
-            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
-            this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
+            cargarProveedores();
 
             CBCategoriaPr.Texts = "Seleccionar...";
             CBProveedorPr.Texts = "Seleccionar...";
@@ -122,6 +118,13 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             {
                 e.Graphics.DrawPath(pen, path);
             }
+        }
+
+        public void cargarProveedores()
+        {
+            NProveedor nprov = new NProveedor();
+
+            CBProveedorPr.DataSource = nprov.getProveedoresActivos();
         }
 
         private void BShowListaPr_Click(object sender, EventArgs e)
@@ -402,22 +405,40 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BRegistrarPr_Click(object sender, EventArgs e)
         {
-            if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null && nombreImagen != string.Empty)
+            if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null )
             {
                 try
                 {
                     NProducto nproducto = new NProducto();
-                    nproducto.NAgregarProducto(
-                        int.Parse(TBSerialPr.Texts),
-                        TBNombrePr.Texts,
-                        TBDescripcionPr.Texts,
-                        0,
-                        "SI",
-                        float.Parse(TBPrecioPr.Texts),
-                        CBCategoriaPr.SelectedIndex + 1,
-                        CBProveedorPr.SelectedIndex + 1,
-                        nombreImagen
-                        );
+                    if (nombreImagen == string.Empty)
+                    {
+                        nproducto.NAgregarProducto(
+                            int.Parse(TBSerialPr.Texts),
+                            TBNombrePr.Texts,
+                            TBDescripcionPr.Texts,
+                            0,
+                            "SI",
+                            float.Parse(TBPrecioPr.Texts),
+                            CBCategoriaPr.SelectedIndex + 1,
+                            CBProveedorPr.Texts,
+                            null
+                            );
+                    }
+                    else
+                    {
+
+                        nproducto.NAgregarProducto(
+                            int.Parse(TBSerialPr.Texts),
+                            TBNombrePr.Texts,
+                            TBDescripcionPr.Texts,
+                            0,
+                            "SI",
+                            float.Parse(TBPrecioPr.Texts),
+                            CBCategoriaPr.SelectedIndex + 1,
+                            CBProveedorPr.Texts,
+                            nombreImagen
+                            );
+                    }
                     MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
                     mensaje.ShowDialog();
                     nombreImagen = "";

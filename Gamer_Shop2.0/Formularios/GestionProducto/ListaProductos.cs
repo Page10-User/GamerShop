@@ -187,7 +187,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 if (row["Activo"].ToString() == "SI")
                 {
                     string nombreImagen = row["photoFilePath"].ToString(); // Columna de la base de datos con el nombre del archivo de imagen
-                    string imagePath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+                    string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\uploads\" + nombreImagen);
 
                     // Carga la imagen si existe, o utiliza una imagen de "no disponible"
                     Image image;
@@ -227,7 +227,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 if (row["Activo"].ToString() == "NO")
                 {
                     string nombreImagen = row["photoFilePath"].ToString(); // Columna de la base de datos con el nombre del archivo de imagen
-                    string imagePath = Path.Combine(Application.StartupPath, "uploads", nombreImagen);
+                    string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\uploads\" + nombreImagen);
 
                     // Carga la imagen si existe, o utiliza una imagen de "no disponible"
                     Image image;

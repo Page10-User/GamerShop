@@ -170,6 +170,27 @@ namespace Gamer_Shop2._0.Datos
 
                         context.SaveChanges();
                     }
+                    catch (DbUpdateException dbEx)
+                    {
+                        if (dbEx.InnerException?.InnerException is SqlException sqlEx && sqlEx.Number == 2627)
+                        {
+                            string mensajeError = sqlEx.Message;
+
+                            if (mensajeError.Contains("UQ_TelefonoCliente"))
+                            {
+                                throw new ExisteRegistroException("El Teléfono ya se encuentra registrado!");
+                            }
+                            else if (mensajeError.Contains("UQ_CorreoCliente"))
+                            {
+                                throw new ExisteRegistroException("El Correo Electrónico ya se encuentra registrado!");
+                            }
+                            else
+                            {
+                                throw new ExisteRegistroException("El Dni, Teléfono o Gmail ya se encuentra registrado!");
+                            }
+                        }
+                        throw new Exception($"Error al guardar el cliente: {dbEx.Message}");
+                    }
                     catch (Exception ex)
                     {
                         throw new Exception($"Error al modificar el Cliente: {ex.Message}");

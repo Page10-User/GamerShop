@@ -164,7 +164,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             }
             else
             {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que quiere seguir con la venta?", "Eliminar Producto", "Interrogacion", null);
+                MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que quiere seguir con la venta?", "Registrar venta", "Interrogacion", null);
                 DialogResult result = mensaje.ShowDialog();
 
                 if (result == DialogResult.Yes)

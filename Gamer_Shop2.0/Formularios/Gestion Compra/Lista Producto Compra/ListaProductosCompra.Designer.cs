@@ -118,6 +118,7 @@
             this.CBFiltrado.Size = new System.Drawing.Size(149, 30);
             this.CBFiltrado.TabIndex = 6;
             this.CBFiltrado.Texts = "Filtrar...";
+            this.CBFiltrado.OnSelectedIndexChanged += new System.EventHandler(this.BFiltrarSecond_Click);
             // 
             // BFiltro
             // 

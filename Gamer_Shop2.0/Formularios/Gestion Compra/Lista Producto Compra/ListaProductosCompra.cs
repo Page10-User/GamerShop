@@ -155,6 +155,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
                 {
                     producto.Visible = producto.Categoria == CategoriaSeleccionado;
                 }
+                BFiltro.SelectedIndex = -1;
             }
 
             // Verifica si se ha escrito algo en el buscador y no seleccionado ningun filtro
@@ -184,6 +185,8 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
 
                     producto.Visible = matchesTexts && matchesCategoria;
                 }
+                BFiltro.SelectedIndex = -1;
+
             }
         }
 

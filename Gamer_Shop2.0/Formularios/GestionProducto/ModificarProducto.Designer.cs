@@ -208,6 +208,7 @@
             this.BFotoProducto.Text = "Elegir foto";
             this.BFotoProducto.TextColor = System.Drawing.Color.White;
             this.BFotoProducto.UseVisualStyleBackColor = false;
+            this.BFotoProducto.Click += new System.EventHandler(this.BFotoProducto_Click);
             // 
             // CBCategoriaPr
             // 

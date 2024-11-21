@@ -435,6 +435,7 @@
             this.BReciboVn.TabIndex = 25;
             this.BReciboVn.TextColor = System.Drawing.Color.White;
             this.BReciboVn.UseVisualStyleBackColor = false;
+            this.BReciboVn.Visible = false;
             this.BReciboVn.Click += new System.EventHandler(this.BReciboVn_Click);
             // 
             // BRegistrarVn

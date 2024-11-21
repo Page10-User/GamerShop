@@ -58,8 +58,6 @@
             this.BShowAddCategoria = new Gamer_Shop2._0.RJButton();
             this.TBValidacion2 = new System.Windows.Forms.Label();
             this.CBProveedorPr = new Gamer_Shop2._0.RJControls.RJComboBox();
-            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
             this.label4 = new System.Windows.Forms.Label();
             this.TBSerialPr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,6 +66,7 @@
             this.TBNombrePr = new Gamer_Shop2._0.RJControls.RJTextBox();
             this.CBCategoriaPr = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.categoríaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Gamer_Shop2._0.DataSet1();
             this.TBValidacion = new System.Windows.Forms.Label();
             this.LCategoriaPr = new System.Windows.Forms.Label();
             this.LDescripcionPr = new System.Windows.Forms.Label();
@@ -78,14 +77,12 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.BShowListaPr = new Gamer_Shop2._0.RJButton();
             this.BRegistrarPr = new Gamer_Shop2._0.RJButton();
-            this.proveedorTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.ProveedorTableAdapter();
             this.categoría_productoTableAdapter = new Gamer_Shop2._0.DataSet1TableAdapters.Categoría_productoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PBImgAltaPr)).BeginInit();
             this.PContAltaPr.SuspendLayout();
             this.PAddCategoria.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // PBImgAltaPr
@@ -496,7 +493,6 @@
             this.CBProveedorPr.BorderSize = 1;
             this.CBProveedorPr.CustomIndexStart = 1;
             this.CBProveedorPr.CustomSelectedIndex = 0;
-            this.CBProveedorPr.DataSource = this.proveedorBindingSource;
             this.CBProveedorPr.DisplayMember = "Razon_social";
             this.CBProveedorPr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.CBProveedorPr.DropDownWidth = 128;
@@ -514,16 +510,6 @@
             this.CBProveedorPr.Texts = "Seleccionar...";
             this.CBProveedorPr.ValueMember = "ID_Proveedor";
             this.CBProveedorPr.Validating += new System.ComponentModel.CancelEventHandler(this.CBProveedorPr_Validating);
-            // 
-            // proveedorBindingSource
-            // 
-            this.proveedorBindingSource.DataMember = "Proveedor";
-            this.proveedorBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -676,6 +662,11 @@
             this.categoríaproductoBindingSource.DataMember = "Categoría_producto";
             this.categoríaproductoBindingSource.DataSource = this.dataSet1;
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // TBValidacion
             // 
             this.TBValidacion.AutoSize = true;
@@ -804,10 +795,6 @@
             this.BRegistrarPr.UseVisualStyleBackColor = false;
             this.BRegistrarPr.Click += new System.EventHandler(this.BRegistrarPr_Click);
             // 
-            // proveedorTableAdapter
-            // 
-            this.proveedorTableAdapter.ClearBeforeFill = true;
-            // 
             // categoría_productoTableAdapter
             // 
             this.categoría_productoTableAdapter.ClearBeforeFill = true;
@@ -838,9 +825,8 @@
             this.PContAltaPr.PerformLayout();
             this.PAddCategoria.ResumeLayout(false);
             this.PAddCategoria.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoríaproductoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -894,8 +880,6 @@
         private RJButton BFotoProducto;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private DataSet1 dataSet1;
-        private System.Windows.Forms.BindingSource proveedorBindingSource;
-        private DataSet1TableAdapters.ProveedorTableAdapter proveedorTableAdapter;
         private System.Windows.Forms.BindingSource categoríaproductoBindingSource;
         private DataSet1TableAdapters.Categoría_productoTableAdapter categoría_productoTableAdapter;
     }
