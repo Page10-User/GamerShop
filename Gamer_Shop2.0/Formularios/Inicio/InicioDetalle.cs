@@ -31,7 +31,7 @@ namespace Gamer_Shop2._0.Formularios.Inicio
             THorario.Interval = 1000;
             THorario.Start();
 
-            // Form redondeado
+            //Form redondeado
             this.Region = CreateRoundedRegion();
         }
 

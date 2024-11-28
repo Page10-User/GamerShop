@@ -232,14 +232,6 @@ namespace Gamer_Shop2._0
             mensajeDialogo.ShowDialog();
         }
 
-
-        //Eliminar más adelante...
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            TBUsuario.Texts = "EmpleadoUser";
-            TBContrasena.Texts = "12345671";
-        }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -263,6 +255,12 @@ namespace Gamer_Shop2._0
         private void BMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            TBUsuario.Texts = "EmpleadoUser";
+            TBContrasena.Texts = "12345671";
         }
     }
 }

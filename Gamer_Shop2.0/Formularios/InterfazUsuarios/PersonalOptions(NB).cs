@@ -123,6 +123,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 EditarPerfil editarPerfil = new EditarPerfil(PUsuario);
                 editarPerfil.TopLevel = false;
                 editarPerfil.CambiarImagenPerfil += BCambiarImagenPerfil_Click;
+                editarPerfil.CambiarNombrePerfil += CambiarNombrePerfil_Click;
 
                 // Limpiar el panel actual y añadir el nuevo formulario
                 PanelContainer.Controls.Clear();
@@ -132,6 +133,14 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
                 editarPerfil.Show();
                 this.Dispose();
             }
+        }
+
+        public event EventHandler<string> CambiarNombrePerfil; //Lanzamos el evento para cambiar el nombre del usuario en el form de Bienvenida.
+
+        private void CambiarNombrePerfil_Click(object sender, string nombre)
+        {
+            //Pasamos el nombre del perfil al formulario de Bienvenida.
+            CambiarNombrePerfil?.Invoke(this, nombre);
         }
 
         public event EventHandler<string> CambiarImagenPerfil;

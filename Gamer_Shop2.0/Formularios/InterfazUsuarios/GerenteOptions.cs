@@ -151,6 +151,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             Poptions.Forminicio = Forminicio;
             Poptions.PUsuario = UUsuario;
             Poptions.CambiarImagenPerfil += BBCambiarImagenPerfil_Click;
+            Poptions.CambiarNombrePerfil += Poptions_CambiarNombrePerfil;
             Poptions.Menu = this;
             PPersonalOptions.Controls.Clear(); // Limpia el panel antes de agregar el nuevo formulario
             PPersonalOptions.Controls.Add(Poptions);
@@ -163,6 +164,11 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
             MainForm.PersonalOpsNB = Poptions;
             MainForm.isExpandedOpts = true;
             isExpandedOps = true;
+        }
+
+        private void Poptions_CambiarNombrePerfil(object sender, string nombre)
+        {
+            LNombreUs.Text = nombre;
         }
 
         private void BBCambiarImagenPerfil_Click(object sender, string imagen)

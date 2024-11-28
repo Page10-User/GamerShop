@@ -377,6 +377,7 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
              Poptions.Forminicio = Forminicio;
              Poptions.PUsuario = UUsuario;
              Poptions.CambiarImagenPerfil += BBCambiarImagenPerfil_Click;
+             Poptions.CambiarNombrePerfil += Poptions_CambiarNombrePerfil;
              Poptions.Menu = this;
              Poptions.BringToFront();
              MandarAtrasBotones();
@@ -393,6 +394,11 @@ namespace Gamer_Shop2._0.Formularios.InterfazUsuarios
              //Pasamos los Botones (proveedor y compra).
              PasarBotonesBienvenida();
              isExpandedOps = true;
+        }
+
+        private void Poptions_CambiarNombrePerfil(object sender, string nombre)
+        {
+            LNombreUs.Text = nombre;
         }
 
         private void BBCambiarImagenPerfil_Click(object sender, string imagen)

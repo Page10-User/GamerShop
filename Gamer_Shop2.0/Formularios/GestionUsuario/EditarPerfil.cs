@@ -435,7 +435,11 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             this.AutoValidate = AutoValidate.EnablePreventFocusChange;
         }
         //Fin TextChanged
-        public event EventHandler<string> CambiarImagenPerfil;
+
+        //Lanzamiento de los eventos para cambiar la imagen y nombre.
+        public event EventHandler<string> CambiarImagenPerfil; //Evento para cambiar la imagen
+        public event EventHandler<string> CambiarNombrePerfil; //Evento para cambiar el nombre
+
         private void BModificarPerfil_Click(object sender, EventArgs e)
         {
             if (comprobarModif(camposActuales))
@@ -458,6 +462,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                         mensaje.ShowDialog();
                         guardarCampos();
                         CambiarImagenPerfil?.Invoke(this, nombreImagen);
+                        CambiarNombrePerfil?.Invoke(this, TBNombreUs.Texts);
                     }
                     catch (ExisteRegistroException ex)
                     {

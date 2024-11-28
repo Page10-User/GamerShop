@@ -231,7 +231,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label LNombreUs;
         private System.Windows.Forms.Button BGestionPr;
         private System.Windows.Forms.Button BGestionCliente;
         private System.Windows.Forms.Button BGestionVenta;
@@ -241,5 +240,6 @@
         private RJButton BHouse;
         private System.Windows.Forms.Panel PContImgUs;
         private System.Windows.Forms.PictureBox PBImgUs;
+        public System.Windows.Forms.Label LNombreUs;
     }
 }
