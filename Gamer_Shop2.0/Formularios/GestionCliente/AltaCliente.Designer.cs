@@ -319,7 +319,7 @@
             this.TBTelefono.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.TBTelefono.PasswordChar = false;
             this.TBTelefono.PlaceholderColor = System.Drawing.Color.Gray;
-            this.TBTelefono.PlaceholderText = "";
+            this.TBTelefono.PlaceholderText = "+XX X XXX XXX-XXXX";
             this.TBTelefono.Size = new System.Drawing.Size(199, 31);
             this.TBTelefono.TabIndex = 8;
             this.TBTelefono.Texts = "";

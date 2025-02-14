@@ -126,14 +126,14 @@
             this.PContModificarPr.Controls.Add(this.TBValidacion15);
             this.PContModificarPr.Controls.Add(this.TBValidacion14);
             this.PContModificarPr.Controls.Add(this.TBValidacion13);
+            this.PContModificarPr.Controls.Add(this.TBValidacion6);
+            this.PContModificarPr.Controls.Add(this.TBValidacion7);
             this.PContModificarPr.Controls.Add(this.TBValidacion12);
             this.PContModificarPr.Controls.Add(this.TBValidacion11);
-            this.PContModificarPr.Controls.Add(this.TBValidacion7);
             this.PContModificarPr.Controls.Add(this.TBValidacion10);
             this.PContModificarPr.Controls.Add(this.TBValidacion9);
             this.PContModificarPr.Controls.Add(this.TBValidacion4);
             this.PContModificarPr.Controls.Add(this.TBValidacion8);
-            this.PContModificarPr.Controls.Add(this.TBValidacion6);
             this.PContModificarPr.Controls.Add(this.TBValidacion5);
             this.PContModificarPr.Controls.Add(this.TBValidacion3);
             this.PContModificarPr.Controls.Add(this.TBValidacion2);
@@ -329,9 +329,9 @@
             this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
             this.TBValidacion7.Location = new System.Drawing.Point(25, 85);
             this.TBValidacion7.Name = "TBValidacion7";
-            this.TBValidacion7.Size = new System.Drawing.Size(201, 14);
+            this.TBValidacion7.Size = new System.Drawing.Size(195, 14);
             this.TBValidacion7.TabIndex = 64;
-            this.TBValidacion7.Text = "La serial no debe superar los 15 caracteres";
+            this.TBValidacion7.Text = "La serial no debe superar los 9 caracteres";
             this.TBValidacion7.Visible = false;
             // 
             // TBValidacion10
@@ -399,11 +399,11 @@
             this.TBValidacion5.AutoSize = true;
             this.TBValidacion5.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion5.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion5.Location = new System.Drawing.Point(12, 85);
+            this.TBValidacion5.Location = new System.Drawing.Point(15, 85);
             this.TBValidacion5.Name = "TBValidacion5";
             this.TBValidacion5.Size = new System.Drawing.Size(214, 14);
             this.TBValidacion5.TabIndex = 62;
-            this.TBValidacion5.Text = "El serial no debe tener menos de 8 caracteres";
+            this.TBValidacion5.Text = "El serial no debe tener menos de 7 caracteres";
             this.TBValidacion5.Visible = false;
             // 
             // TBValidacion3

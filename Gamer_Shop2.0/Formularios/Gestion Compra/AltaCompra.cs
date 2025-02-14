@@ -292,7 +292,7 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
             // Mostrar el formulario de oscurecimiento
             formBG.Show();
 
-            //Mostrar form "Alta Cliente"
+            //Mostrar form "ListaProductosCompra"
             ListaProductosCompra formListaCompra = new ListaProductosCompra();
             formListaCompra.StartPosition = FormStartPosition.CenterScreen;
             formListaCompra.BringToFront();

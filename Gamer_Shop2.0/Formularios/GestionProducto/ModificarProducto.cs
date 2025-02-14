@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProducto
@@ -64,6 +65,13 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             }
         }
 
+        public void cargarProveedores()
+        {
+            NProveedor nprov = new NProveedor();
+
+            CBProveedorPr.DataSource = nprov.getProveedoresActivos();
+        }
+
         private void PEstadoUs_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
@@ -95,22 +103,56 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
         {
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.Categoría_producto' Puede moverla o quitarla según sea necesario.
             this.categoría_productoTableAdapter.Fill(this.dataSet1.Categoría_producto);
-            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Proveedor' Puede moverla o quitarla según sea necesario.
-            this.proveedorTableAdapter.Fill(this.dataSet1.Proveedor);
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
             TBNombrePr.Texts = productoActual.Nombre;
             TBSerialPr.Texts = productoActual.Serial.ToString();
             TBDescripcionPr.Texts = productoActual.Descripcion;
             TBPrecioPr.Texts = productoActual.Precio.ToString();
-            CBProveedorPr.SelectedValue = productoActual.ID_Proveedor;
-            CBCategoriaPr.SelectedValue = productoActual.ID_Categoria;
+        
             rjTextBox1.Texts = productoActual.photoFilePath;
 
             CBActivoPr.DropDownWidth = CBActivoPr.Width;
 
+            cargarProveedores();
+            mostrarCategoriaProveedorActual();
+            mostrarCategoriaProductoActual();
             mostrarEstadoProveedorCB();
             guardarCampos();
+        }
+
+        private void mostrarCategoriaProveedorActual()
+        {
+            if (productoActual.ID_Proveedor == 1)
+            {
+                //Optenemos el primer elemento de la tabla Categoria_producto y lo definimos en el .text del ComboBox
+                var context = new ProyectoTallerIIEntities1();
+                var primerProveedor = context.Proveedor
+                                             .FirstOrDefault(d => d.ID_Proveedor == productoActual.ID_Proveedor);
+
+                CBProveedorPr.Texts = primerProveedor.Razon_social;
+            }
+            else
+            {
+                CBProveedorPr.SelectedIndex = productoActual.ID_Proveedor - 1;
+            }
+        }
+
+        private void mostrarCategoriaProductoActual()
+        {
+            if (productoActual.ID_Categoria == 1)
+            {
+                //Optenemos el primer elemento de la tabla Categoria_producto y lo definimos en el .text del ComboBox
+                var context = new ProyectoTallerIIEntities1();
+                var primerProveedor = context.Categoría_producto
+                                             .FirstOrDefault(d => d.ID_Categoria == productoActual.ID_Categoria);
+
+                CBCategoriaPr.Texts = primerProveedor.Nombre_Categoria;
+            }
+            else
+            {
+                CBCategoriaPr.SelectedValue = productoActual.ID_Categoria;
+            }
         }
 
         private void mostrarEstadoProveedorCB()
@@ -465,7 +507,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     e.Cancel = true;
                     TBValidacion15.Visible = true;
                 }
-                TBDescripcionPr.Texts = validador.MayusculaPrimeraLetra(texto);
             }
         }
         // FIN Validacion TBDescripcion
@@ -493,8 +534,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                             TBNombrePr.Texts,
                             TBDescripcionPr.Texts,
                             float.Parse(TBPrecioPr.Texts),
-                            (int)CBCategoriaPr.SelectedValue,
-                            (int)CBProveedorPr.SelectedValue,
+                            int.Parse(CBCategoriaPr.SelectedValue.ToString()),
+                            int.Parse(CBProveedorPr.SelectedIndex.ToString()) + 1,
                             rjTextBox1.Texts,
                             CBActivoPr.SelectedItem.ToString()
                             );

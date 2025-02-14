@@ -354,23 +354,34 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         private void BClienteExistente_Click(object sender, EventArgs e)
         {
-            // Crear un nuevo formulario para el efecto de oscurecimiento
-            Form formBG = new Form();
-            personalizarFondoNegro(formBG);
+            var context = new ProyectoTallerIIEntities1();
+            var cantidadClientes = context.Cliente.Count();
 
-            // Mostrar el formulario de oscurecimiento
-            formBG.Show();
+            if (cantidadClientes != 0)
+            {
+                // Crear un nuevo formulario para el efecto de oscurecimiento
+                Form formBG = new Form();
+                personalizarFondoNegro(formBG);
 
-            //Mostrar form "Alta Cliente"
-            ElegirClienteExistente elegirCliente = new ElegirClienteExistente();
-            elegirCliente.StartPosition = FormStartPosition.CenterScreen;
-            elegirCliente.BringToFront();
-            elegirCliente.MainForm = MainForm;
-            elegirCliente.FondoOscurecido = formBG;
-            elegirCliente.ElegirCliente += CargarDNICliente;
-            elegirCliente.ShowInTaskbar = false;
-            elegirCliente.TopMost = true;
-            elegirCliente.ShowDialog();
+                // Mostrar el formulario de oscurecimiento
+                formBG.Show();
+
+                //Mostrar form "Alta Cliente"
+                ElegirClienteExistente elegirCliente = new ElegirClienteExistente();
+                elegirCliente.StartPosition = FormStartPosition.CenterScreen;
+                elegirCliente.BringToFront();
+                elegirCliente.MainForm = MainForm;
+                elegirCliente.FondoOscurecido = formBG;
+                elegirCliente.ElegirCliente += CargarDNICliente;
+                elegirCliente.ShowInTaskbar = false;
+                elegirCliente.TopMost = true;
+                elegirCliente.ShowDialog();
+            }
+            else
+            {
+                MsgPersonalizado mensaje = new MsgPersonalizado("No hay clientes registrados actualmente","Error","Informacion",null);
+                mensaje.ShowDialog();
+            }
         }
 
         public void CargarDNICliente (object sender, string DNI)

@@ -22,7 +22,7 @@ namespace Gamer_Shop2._0.Datos
                 {
                     // Consulta SQL con JOIN para traer nombres de categoría y proveedor
                     string query = @"
-                SELECT u.ID_Usuario, u.Nombre, u.Apellido, u.CUIL, u.Nombre_usuario, u.Contraseña, u.Correo, u.photoFilePath, u.Activo,
+                SELECT u.ID_Usuario, u.Nombre, u.Apellido, u.CUIL, u.Nombre_usuario, u.Correo, u.photoFilePath, u.Activo,
                        t.ID_TipoUsuario AS 'Tipo usuario'
                 FROM Usuario u
                 JOIN Tipo_usuario t ON u.ID_TipoUsuario = t.ID_TipoUsuario";

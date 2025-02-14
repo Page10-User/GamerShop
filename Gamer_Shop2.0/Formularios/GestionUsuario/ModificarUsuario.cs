@@ -102,7 +102,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBContrasenaUs.Texts = usuarioActual.Contraseña;
             CBTipoUsuario.SelectedValue = usuarioActual.ID_TipoUsuario;
 
-
             mostrarEstadoUsuarioCB(); //Mostrar o no el estado del usuario según cuenta.
             OcultarTipoSegunUsuario(); //Mostrar CBTipoUsuario para gerentes
             guardarCampos(); //Guardas los campos al cargar el form.
@@ -308,12 +307,6 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             }
         }
         //FIN Key Press  y Validating TBApellidoUs
-
-        //INICIO Key Press y Validating TBCuilUs
-        
-        //El cuil no se modifica.
-
-        //FIN Key Press y Validating TBCuilUS
 
         //INICIO Key Press  y Validating TBUsuarioUs
         private void TBUsuarioUs_KeyPress(object sender, KeyPressEventArgs e)

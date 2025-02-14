@@ -15,7 +15,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 {
     public partial class ElegirClienteExistente : Form
     {
-        private int borderRadius = 100; // Radio del borde redondeado
+        private int borderRadius = 60; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
         public Form FondoOscurecido { get; set; }
         public Bienvenida MainForm { get; set; }
@@ -135,13 +135,13 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
         private void ConfigurarDataGridView()
         {
-            DataTable clientes = ncliente.listaClientes(DGListaCliente); // Este método debe devolver un DataTable con los proveedores
+            DataTable clientes = ncliente.listaClientes(DGListaCliente); // Este método debe devolver un DataTable con los clientes
 
-            // Limpia el DataGridView y agrega los proveedores
+            // Limpia el DataGridView y agrega los clientes
             DGListaCliente.Rows.Clear();
             foreach (DataRow row in clientes.Rows)
             {
-                // Agrega una fila con los datos del proveedor
+                // Agrega una fila con los datos del cliente
                 DGListaCliente.Rows.Add(row["ID_Cliente"], row["DNI"], row["Nombre"], row["Apellido"], row["Teléfono"], row["Correo"]);
             }
         }
@@ -183,13 +183,11 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         public new void Dispose()
         {
             // Desuscribirse de eventos
-            //<-AltaProducto-Events->\\
+            //<-ElegirClienteExistente-Events->\\
             this.Load -= ElegirClienteExistente_Load;
 
             //<-Paint-Events->\\
             PContListaCl.Paint -= PContListaCl_Paint;
-
-
 
             //<-TextBox-Events->\\
             //...\\
@@ -233,7 +231,5 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
                 fila.Visible = cumpleFiltro;
             }
         }
-
     }
-
 }

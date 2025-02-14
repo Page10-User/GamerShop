@@ -21,7 +21,39 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
         public Backups()
         {
             InitializeComponent();
+
+            cargarBackupsGuardados();
+
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
+        }
+
+        private void cargarBackupsGuardados(){
+            FLPSaveBackups.Controls.Clear();
+            string rutaCarpetaBackups = @"C:\Backups";
+            
+            // Verificar si hay backups guardados
+            if (Directory.Exists(rutaCarpetaBackups))
+            {
+                string[] archivosBak = Directory.GetFiles(rutaCarpetaBackups, "*.bak");
+                if (archivosBak.Length > 0)
+                {
+                    LNoBackups.Visible = false;
+                    FLPSaveBackups.Visible = true;
+
+                    foreach (var archivo in archivosBak)
+                    {
+                        botonRestaurarBackup botonRes = new botonRestaurarBackup();
+
+                        FileInfo Archivo = new FileInfo(archivo);
+
+                        botonRes.Ruta = archivo.ToString();
+                        botonRes.NombreBackup = Path.GetFileNameWithoutExtension(Archivo.Name);
+                        botonRes.FechaBackup = Archivo.CreationTime.ToString("dd/MM/yyyy HH:mm:ss");
+
+                        FLPSaveBackups.Controls.Add(botonRes);
+                    }
+                }
+            }
         }
 
         private void PContInfBackups_Paint(object sender, PaintEventArgs e)
@@ -31,34 +63,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
             {
 
                 GraphicsPath path = new GraphicsPath();
-                int borderRadius = 60;
-                path.StartFigure();
-                path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
-                path.AddArc(new Rectangle(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius), 0, 90);
-                path.AddArc(new Rectangle(0, panel.Height - borderRadius, borderRadius, borderRadius), 90, 90);
-                path.CloseFigure();
-
-
-                panel.Region = new Region(path);
-
-
-                using (Pen pen = new Pen(Color.LightGreen, 3))
-                {
-                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    e.Graphics.DrawPath(pen, path);
-                }
-            }
-        }
-
-        private void PContRestaurar_Paint(object sender, PaintEventArgs e)
-        {
-            Panel panel = sender as Panel;
-            if (panel != null)
-            {
-
-                GraphicsPath path = new GraphicsPath();
-                int borderRadius = 20;
+                int borderRadius = 5;
                 path.StartFigure();
                 path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
                 path.AddArc(new Rectangle(panel.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
@@ -82,7 +87,6 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
-            PContRestaurar.SendToBack();
             iWasClick = false;
         }
 
@@ -129,40 +133,11 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
             {
                 mensaje.Dispose(); // Cerramos el anterior mensaje que está en "Hide".
                 BackupCompleto();
+                cargarBackupsGuardados();
             }   
             else
             {
                 mensaje.Dispose();
-            }
-        }
-
-        private void BBackupPersonalizado_Click(object sender, EventArgs e)
-        {
-            if (CBGestionCompra.Checked || CBGestionProducto.Checked || CBGestionProveedor.Checked || CBGestionUsuario.Checked || CBGestionVenta.Checked || CBGestionCliente.Checked)
-            {
-                if (CBGestionCompra.Checked && CBGestionProducto.Checked && CBGestionProveedor.Checked && CBGestionUsuario.Checked && CBGestionVenta.Checked && CBGestionCliente.Checked)
-                {
-                    this.BBackupCompleto_Click(sender, e);
-                }
-                else
-                {
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Está seguro que desea realizar un 'Backup Personalizado'?", "Backup Personalizado", "Interrogacion", null);
-                    DialogResult result = mensaje.ShowDialog();
-                    if (result == DialogResult.Yes)
-                    {
-                        mensaje.Dispose();
-                        BackupPersonalizado(CBGestionCompra.Checked, CBGestionProducto.Checked, CBGestionProveedor.Checked, CBGestionUsuario.Checked, CBGestionVenta.Checked, CBGestionCliente.Checked);
-                    }
-                    else
-                    {
-                        mensaje.Dispose();
-                    }
-                }
-            }
-            else
-            {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Seleccione una opción para Backup Personalizado por favor", "Error", "Error",null);
-                mensaje.ShowDialog();
             }
         }
 
@@ -172,7 +147,6 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
             this.Load -= Backups_Load;
             PContInfBackups.Paint -= PContInfBackups_Paint;
             BBackupCompleto.Click -= BBackupCompleto_Click;
-            BBackupPersonalizado.Click -= BBackupPersonalizado_Click;
 
             // Liberar los recursos
             base.Dispose();
@@ -180,131 +154,6 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups
         private void BackupCompleto()
         {
             ClaseBackups.BackupCompleto.HacerBackup();
-        }
-        private void BackupPersonalizado(bool BCompra, bool BProducto, bool BProveedor, bool BUsuario, bool BVenta, bool BCliente)
-        {
-            //Backup Personalizado Gestion Compra
-            if (BCompra == true)
-            {
-                BackupCompras.ExportarComprasACSV(null);
-            }
-            //Backup Personalizado Gestion Producto
-            if (BProducto == true)
-            {
-                BackupProductos.ExportarProductosACSV(null);
-            }
-            //Backup Personalizado Gestion Proveedor
-            if (BProveedor == true)
-            {
-                BackupProveedores.ExportarProveedoresACSV(null);
-            }
-            //Backup Personalizado Gestion Usuario
-            if (BUsuario == true)
-            {
-                BackupUsuarios.ExportarUsuariosACSV(null);
-            }
-            //Backup Personalizado Gestion Venta
-            if (BVenta == true)
-            {
-                BackupVentas.ExportarVentasACSV(null);
-            }
-            //Backup Personalizado Gestion Cliente
-            if (BCliente == true)
-            {
-                BackupClientes.ExportarClientesACSV(null);
-            }
-        }
-
-        private void BRestaurar_Click(object sender, EventArgs e)
-        {
-            CerrarOAbrirPanelRestaurar();
-        }
-
-        private void BSalir_Click(object sender, EventArgs e)
-        {
-            CerrarOAbrirPanelRestaurar();
-        }
-
-        private void CerrarOAbrirPanelRestaurar()
-        {
-            if (!iWasClick)
-            {
-                PContRestaurar.Visible = true;
-                PContRestaurar.BringToFront();
-                iWasClick = true;
-            }
-            else
-            {
-                PContRestaurar.Visible = false;
-                PContRestaurar.SendToBack();
-                iWasClick = false;
-            }
-        }
-
-        private void BRestaurarBk_Click(object sender, EventArgs e)
-        {
-            if (TBDireccionBak.Texts != string.Empty && nombreArchivo != string.Empty)
-            {
-                if (nombreArchivo.Contains("BackupCompleto"))
-                {
-                    RestauracionCompleta.HacerRestauracion(TBDireccionBak.Texts);
-                }
-                else
-                {
-                    RestauracionParcial(nombreArchivo);
-                }
-            }
-            else
-            {
-                MsgPersonalizado mensaje = new MsgPersonalizado("Por favor seleccione un CSV para restaurar", "Error", "Error", null);
-                mensaje.ShowDialog();
-            }
-        }
-
-        private void RestauracionParcial(string nombreArchivo)
-        {
-            if (nombreArchivo.Contains("Clientes"))
-            {
-                RestauracionClientes.RestaurarClientesDesdeCSV(TBDireccionBak.Texts);
-            }
-            if (nombreArchivo.Contains("Compras"))
-            {
-                //Aún no implementado
-            }
-            if (nombreArchivo.Contains("Productos"))
-            {
-                //Aún no implementado
-            }
-            if (nombreArchivo.Contains("Proveedores"))
-            {
-                RestauracionProveedores.RestaurarProveedoresDesdeCSV(TBDireccionBak.Texts);
-            }
-            if (nombreArchivo.Contains("Usuarios"))
-            {
-                //Aún no implementado
-            }
-            if (nombreArchivo.Contains("Ventas"))
-            {
-                //Aún no implementado
-            }
-        }
-
-        private void BCSVSearch_Click(object sender, EventArgs e)
-        {
-            string rutaCarpetaBackupsClientes = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Formularios\GestionBackups\BackupsGuardados"));
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = rutaCarpetaBackupsClientes;
-            openFileDialog.Filter = "Archivos de Backup (*.bak)|*.bak";
-            openFileDialog.Title = "Seleccione un archivo de backup CSV";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string sourceFilePath = openFileDialog.FileName;
-                TBDireccionBak.Texts = sourceFilePath;
-
-                nombreArchivo = Path.GetFileNameWithoutExtension(sourceFilePath);
-            }
         }
     }
 }

@@ -45,6 +45,7 @@
             this.TBValidacion15 = new System.Windows.Forms.Label();
             this.TBValidacion7 = new System.Windows.Forms.Label();
             this.TBValidacion14 = new System.Windows.Forms.Label();
+            this.TBValidacion6 = new System.Windows.Forms.Label();
             this.TBValidacion13 = new System.Windows.Forms.Label();
             this.TBValidacion12 = new System.Windows.Forms.Label();
             this.TBValidacion11 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.TBValidacion9 = new System.Windows.Forms.Label();
             this.TBValidacion4 = new System.Windows.Forms.Label();
             this.TBValidacion8 = new System.Windows.Forms.Label();
-            this.TBValidacion6 = new System.Windows.Forms.Label();
             this.TBValidacion5 = new System.Windows.Forms.Label();
             this.TBValidacion3 = new System.Windows.Forms.Label();
             this.BShowAddCategoria = new Gamer_Shop2._0.RJButton();
@@ -120,6 +120,7 @@
             this.PContAltaPr.Controls.Add(this.TBValidacion15);
             this.PContAltaPr.Controls.Add(this.TBValidacion7);
             this.PContAltaPr.Controls.Add(this.TBValidacion14);
+            this.PContAltaPr.Controls.Add(this.TBValidacion6);
             this.PContAltaPr.Controls.Add(this.TBValidacion13);
             this.PContAltaPr.Controls.Add(this.TBValidacion12);
             this.PContAltaPr.Controls.Add(this.TBValidacion11);
@@ -127,7 +128,6 @@
             this.PContAltaPr.Controls.Add(this.TBValidacion9);
             this.PContAltaPr.Controls.Add(this.TBValidacion4);
             this.PContAltaPr.Controls.Add(this.TBValidacion8);
-            this.PContAltaPr.Controls.Add(this.TBValidacion6);
             this.PContAltaPr.Controls.Add(this.TBValidacion5);
             this.PContAltaPr.Controls.Add(this.TBValidacion3);
             this.PContAltaPr.Controls.Add(this.BShowAddCategoria);
@@ -313,7 +313,7 @@
             this.TBValidacion7.AutoSize = true;
             this.TBValidacion7.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBValidacion7.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion7.Location = new System.Drawing.Point(41, 85);
+            this.TBValidacion7.Location = new System.Drawing.Point(31, 85);
             this.TBValidacion7.Name = "TBValidacion7";
             this.TBValidacion7.Size = new System.Drawing.Size(195, 14);
             this.TBValidacion7.TabIndex = 64;
@@ -331,6 +331,18 @@
             this.TBValidacion14.TabIndex = 71;
             this.TBValidacion14.Text = "La descripcion no debe contener caracteres especiales";
             this.TBValidacion14.Visible = false;
+            // 
+            // TBValidacion6
+            // 
+            this.TBValidacion6.AutoSize = true;
+            this.TBValidacion6.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBValidacion6.ForeColor = System.Drawing.Color.Lime;
+            this.TBValidacion6.Location = new System.Drawing.Point(30, 85);
+            this.TBValidacion6.Name = "TBValidacion6";
+            this.TBValidacion6.Size = new System.Drawing.Size(196, 14);
+            this.TBValidacion6.TabIndex = 63;
+            this.TBValidacion6.Text = "Ingresar unicamente caracteres numérios";
+            this.TBValidacion6.Visible = false;
             // 
             // TBValidacion13
             // 
@@ -416,18 +428,6 @@
             this.TBValidacion8.Text = "El precio solo debe tener caracteres numéricos";
             this.TBValidacion8.Visible = false;
             // 
-            // TBValidacion6
-            // 
-            this.TBValidacion6.AutoSize = true;
-            this.TBValidacion6.Font = new System.Drawing.Font("Microsoft YaHei", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBValidacion6.ForeColor = System.Drawing.Color.Lime;
-            this.TBValidacion6.Location = new System.Drawing.Point(36, 85);
-            this.TBValidacion6.Name = "TBValidacion6";
-            this.TBValidacion6.Size = new System.Drawing.Size(196, 14);
-            this.TBValidacion6.TabIndex = 63;
-            this.TBValidacion6.Text = "Ingresar unicamente caracteres numérios";
-            this.TBValidacion6.Visible = false;
-            // 
             // TBValidacion5
             // 
             this.TBValidacion5.AutoSize = true;
@@ -437,7 +437,7 @@
             this.TBValidacion5.Name = "TBValidacion5";
             this.TBValidacion5.Size = new System.Drawing.Size(214, 14);
             this.TBValidacion5.TabIndex = 62;
-            this.TBValidacion5.Text = "El serial no debe tener menos de 6 caracteres";
+            this.TBValidacion5.Text = "El serial no debe tener menos de 7 caracteres";
             this.TBValidacion5.Visible = false;
             // 
             // TBValidacion3

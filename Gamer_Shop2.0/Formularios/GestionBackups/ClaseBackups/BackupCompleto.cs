@@ -38,7 +38,7 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-                    MsgPersonalizado mensaje = new MsgPersonalizado("Backup completo realizado con éxito.", "Backup Completo exitoso","Informacion",null);
+                    MsgPersonalizado mensaje = new MsgPersonalizado("Backup completo realizado con éxito, guardado en " + rutaBackup, "Backup Completo exitoso","Informacion",null);
                     mensaje.ShowDialog();
                 }
                 catch (Exception ex)

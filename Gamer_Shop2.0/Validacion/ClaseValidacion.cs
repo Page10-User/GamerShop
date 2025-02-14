@@ -271,8 +271,8 @@ namespace Gamer_Shop2._0.Validacion
         // Validar que el texto solo contenga letras, números, espacios, apóstrofes, comillas dobles, y guiones
         public bool ValidarNombreProducto(string texto)
         {
-            // Permite letras, números, espacios, apóstrofes, comillas dobles, guiones, y puntos
-            string regexPattern = @"^[a-zA-Z0-9\s\'\""\-\.\,]+$";
+            // Permite letras, números, espacios, apóstrofes, comillas dobles, guiones, puntos y tildes
+            string regexPattern = @"^[a-zA-Z0-9\s\'\""\-\.\,áéíóúÁÉÍÓÚñÑ]+$";
             return System.Text.RegularExpressions.Regex.IsMatch(texto, regexPattern);
         }
 

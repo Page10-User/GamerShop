@@ -217,7 +217,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                     }
 
                     // Agrega una fila con los datos del producto y la imagen
-                    DGListaUs.Rows.Add(image, row["ID_Usuario"], row["Nombre"], row["Apellido"], row["CUIL"], row["Nombre_usuario"], row["Contraseña"], row["Correo"], row["Tipo usuario"], row["Activo"]);
+                    DGListaUs.Rows.Add(image, row["ID_Usuario"], row["Nombre"], row["Apellido"], row["CUIL"], row["Nombre_usuario"], row["Correo"], row["Tipo usuario"], row["Activo"]);
                 }
             }
         }
@@ -259,7 +259,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                     }
 
                     // Agrega una fila con los datos del producto y la imagen
-                    DGListaUsInactivos.Rows.Add(image, row["ID_Usuario"], row["Nombre"], row["Apellido"], row["CUIL"], row["Nombre_usuario"], row["Contraseña"], row["Correo"], row["Tipo usuario"], row["Activo"]);
+                    DGListaUsInactivos.Rows.Add(image, row["ID_Usuario"], row["Nombre"], row["Apellido"], row["CUIL"], row["Nombre_usuario"], row["Correo"], row["Tipo usuario"], row["Activo"]);
                 }
             }
         }

@@ -19,9 +19,9 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
     {
         private int borderRadius = 100; // Radio del borde redondeado
         private int borderWidth = 5; // Grosor del borde
-        string nombreImagen;
+        string nombreImagen = "";
 
-        bool isExpandedPAC = false;
+        bool isExpandedPAC = false; // Booleano que indica si el panel de "Añadir Categoría" está desplegado o no.
         public Panel PanelContainer { get; set; }
         public Usuario AUsuario { get; set; }
         public AltaProducto()
@@ -389,7 +389,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     e.Cancel = true;
                     TBValidacion15.Visible = true;
                 }
-                TBDescripcionPr.Texts = validador.MayusculaPrimeraLetra(texto);
             }
         }
         // FIN Validacion TBDescripcion
@@ -405,12 +404,15 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
 
         private void BRegistrarPr_Click(object sender, EventArgs e)
         {
-            if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null )
+            string tempFilePath = null;
+
+            if (TBNombrePr.Texts != string.Empty && TBSerialPr.Texts != string.Empty && TBDescripcionPr.Texts != string.Empty && TBPrecioPr.Texts != string.Empty && CBCategoriaPr.SelectedItem != null && CBProveedorPr.SelectedItem != null)
             {
                 try
                 {
                     NProducto nproducto = new NProducto();
-                    if (nombreImagen == string.Empty)
+
+                    if (string.IsNullOrEmpty(nombreImagen))
                     {
                         nproducto.NAgregarProducto(
                             int.Parse(TBSerialPr.Texts),
@@ -421,12 +423,11 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                             float.Parse(TBPrecioPr.Texts),
                             CBCategoriaPr.SelectedIndex + 1,
                             CBProveedorPr.Texts,
-                            null
-                            );
+                            ""
+                        );
                     }
                     else
                     {
-
                         nproducto.NAgregarProducto(
                             int.Parse(TBSerialPr.Texts),
                             TBNombrePr.Texts,
@@ -437,10 +438,14 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                             CBCategoriaPr.SelectedIndex + 1,
                             CBProveedorPr.Texts,
                             nombreImagen
-                            );
+                        );
                     }
+
+                    // Mostrar mensaje de éxito
                     MsgPersonalizado mensaje = new MsgPersonalizado("Producto registrado con éxito", "Registro", "Informacion", null);
                     mensaje.ShowDialog();
+
+                    // Limpiar campos
                     nombreImagen = "";
                     rjTextBox1.Texts = "";
                 }
@@ -456,12 +461,22 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     MsgPersonalizado mensaje = new MsgPersonalizado(ex.Message, "Error", "Error", null);
                     mensaje.ShowDialog();
                 }
-            } else
+                finally
+                {
+                    if (tempFilePath != null && File.Exists(tempFilePath))
+                    {
+                        File.Delete(tempFilePath);
+                    }
+                }
+            }
+            else
             {
+                // Si faltan campos por completar
                 MsgPersonalizado mensaje = new MsgPersonalizado("Debe completar todos los campos para registrar", "Error", "Error", generarListaCampos());
                 mensaje.ShowDialog();
             }
         }
+
 
 
         // INICIO Validacion KeyPress y Validating TBAddCategoria

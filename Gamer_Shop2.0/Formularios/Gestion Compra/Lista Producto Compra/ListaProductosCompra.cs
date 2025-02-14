@@ -45,35 +45,38 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
         }
 
         private void MostrarProductosEnFLP(List<ProductoViewModel> productos)
-        { try
-            {
+        {
                 flowLayoutPanel1.Controls.Clear();
 
                 foreach (var producto in productos)
                 {
-                    BotonArticuloCompra articuloCompra = new BotonArticuloCompra();
+                    try {
 
-                    articuloCompra.Serial = producto.Serial;
-                    articuloCompra.NombreProducto = producto.Nombre;
-                    articuloCompra.Precio = producto.Precio.ToString();
-                    articuloCompra.Categoria = producto.Categoria;
-                    articuloCompra.PhotoFilePath = producto.photoFilePath;
-                    articuloCompra.AgregarAlDataGrid += AgregarAlDataGrid_Click;
+                        BotonArticuloCompra articuloCompra = new BotonArticuloCompra();
 
-                    //articuloCompra.PanelContainer = PanelContainer;
-                    articuloCompra.MainForm = MainForm;
-                    //articuloCompra.MainCatalogo = this;
+                        articuloCompra.Serial = producto.Serial;
+                        articuloCompra.NombreProducto = producto.Nombre;
+                        articuloCompra.Precio = producto.Precio.ToString();
+                        articuloCompra.Categoria = producto.Categoria;
+                        articuloCompra.PhotoFilePath = producto.photoFilePath;
+                        articuloCompra.AgregarAlDataGrid += AgregarAlDataGrid_Click;
 
-                    flowLayoutPanel1.Controls.Add(articuloCompra);
+                        //articuloCompra.PanelContainer = PanelContainer;
+                        articuloCompra.MainForm = MainForm;
+                        //articuloCompra.MainCatalogo = this;
 
-                    articuloCompra.Show();
+                        flowLayoutPanel1.Controls.Add(articuloCompra);
+
+                        articuloCompra.Show();
+
+                    }
+                    catch
+                    {
+                        MsgPersonalizado mensaje = new MsgPersonalizado("Error al cargar el producto: " + producto.Nombre + ", Serial: " + producto.Serial, "Error", "Error", null);
+                        mensaje.ShowDialog();
+                    }
+                
                 }
-            }    catch (Exception ex)
-            {
-                MsgPersonalizado mensaje = new MsgPersonalizado("No se pueden cargar los productos", "Error", "Error", null);
-                mensaje.ShowDialog();
-            
-        }
         }
 
         public event EventHandler<int> AgregarAlDataGrid;

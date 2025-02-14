@@ -237,7 +237,7 @@
             this.BCarrito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BCarrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BCarrito.ForeColor = System.Drawing.Color.Transparent;
-            this.BCarrito.Location = new System.Drawing.Point(387, 17);
+            this.BCarrito.Location = new System.Drawing.Point(394, 17);
             this.BCarrito.Name = "BCarrito";
             this.BCarrito.Size = new System.Drawing.Size(105, 33);
             this.BCarrito.TabIndex = 4;

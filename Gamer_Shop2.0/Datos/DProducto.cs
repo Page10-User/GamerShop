@@ -134,8 +134,7 @@ namespace Gamer_Shop2._0.Datos
         {
             if (ExisteRegistro(producto) == true)
             {
-                Debug.WriteLine(""+ producto.Serial + producto.ID_Proveedor + producto.ID_Producto);
-             throw new ExisteRegistroException("El producto ya existe.");
+                 throw new ExisteRegistroException("El producto ya existe.");
             } else { 
                 using (ProyectoTallerIIEntities1 context = new ProyectoTallerIIEntities1())
                 {

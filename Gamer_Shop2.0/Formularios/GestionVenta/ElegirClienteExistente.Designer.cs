@@ -34,8 +34,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElegirClienteExistente));
             this.PContListaCl = new System.Windows.Forms.Panel();
             this.DGListaCliente = new System.Windows.Forms.DataGridView();
-            this.LTituloListaPr = new System.Windows.Forms.Label();
-            this.PBImgListaPr = new System.Windows.Forms.PictureBox();
             this.ID_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +41,8 @@
             this.Teléfono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CSeleccionarCl = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LTituloListaPr = new System.Windows.Forms.Label();
+            this.PBImgListaPr = new System.Windows.Forms.PictureBox();
             this.BBuscador = new Gamer_Shop2._0.RJButton();
             this.TBFiltro = new Gamer_Shop2._0.RJControls.RJTextBox_radio_();
             this.PContListaCl.SuspendLayout();
@@ -54,9 +54,9 @@
             // 
             this.PContListaCl.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.PContListaCl.Controls.Add(this.DGListaCliente);
-            this.PContListaCl.Location = new System.Drawing.Point(127, 113);
+            this.PContListaCl.Location = new System.Drawing.Point(17, 115);
             this.PContListaCl.Name = "PContListaCl";
-            this.PContListaCl.Size = new System.Drawing.Size(437, 290);
+            this.PContListaCl.Size = new System.Drawing.Size(647, 311);
             this.PContListaCl.TabIndex = 17;
             this.PContListaCl.Paint += new System.Windows.Forms.PaintEventHandler(this.PContListaCl_Paint);
             // 
@@ -107,33 +107,10 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.DGListaCliente.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.DGListaCliente.Size = new System.Drawing.Size(433, 286);
+            this.DGListaCliente.Size = new System.Drawing.Size(643, 306);
             this.DGListaCliente.TabIndex = 0;
             this.DGListaCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaCliente_CellClick);
             this.DGListaCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGListaCliente_CellClick);
-            // 
-            // LTituloListaPr
-            // 
-            this.LTituloListaPr.AutoSize = true;
-            this.LTituloListaPr.BackColor = System.Drawing.Color.Transparent;
-            this.LTituloListaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTituloListaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LTituloListaPr.Location = new System.Drawing.Point(191, 29);
-            this.LTituloListaPr.Name = "LTituloListaPr";
-            this.LTituloListaPr.Size = new System.Drawing.Size(311, 42);
-            this.LTituloListaPr.TabIndex = 16;
-            this.LTituloListaPr.Text = "Lista de Clientes";
-            // 
-            // PBImgListaPr
-            // 
-            this.PBImgListaPr.BackColor = System.Drawing.Color.Transparent;
-            this.PBImgListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaPr.BackgroundImage")));
-            this.PBImgListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PBImgListaPr.Location = new System.Drawing.Point(144, 35);
-            this.PBImgListaPr.Name = "PBImgListaPr";
-            this.PBImgListaPr.Size = new System.Drawing.Size(47, 41);
-            this.PBImgListaPr.TabIndex = 15;
-            this.PBImgListaPr.TabStop = false;
             // 
             // ID_Cliente
             // 
@@ -179,6 +156,29 @@
             this.CSeleccionarCl.ReadOnly = true;
             this.CSeleccionarCl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CSeleccionarCl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // LTituloListaPr
+            // 
+            this.LTituloListaPr.AutoSize = true;
+            this.LTituloListaPr.BackColor = System.Drawing.Color.Transparent;
+            this.LTituloListaPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTituloListaPr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LTituloListaPr.Location = new System.Drawing.Point(191, 29);
+            this.LTituloListaPr.Name = "LTituloListaPr";
+            this.LTituloListaPr.Size = new System.Drawing.Size(311, 42);
+            this.LTituloListaPr.TabIndex = 16;
+            this.LTituloListaPr.Text = "Lista de Clientes";
+            // 
+            // PBImgListaPr
+            // 
+            this.PBImgListaPr.BackColor = System.Drawing.Color.Transparent;
+            this.PBImgListaPr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PBImgListaPr.BackgroundImage")));
+            this.PBImgListaPr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PBImgListaPr.Location = new System.Drawing.Point(144, 35);
+            this.PBImgListaPr.Name = "PBImgListaPr";
+            this.PBImgListaPr.Size = new System.Drawing.Size(47, 41);
+            this.PBImgListaPr.TabIndex = 15;
+            this.PBImgListaPr.TabStop = false;
             // 
             // BBuscador
             // 

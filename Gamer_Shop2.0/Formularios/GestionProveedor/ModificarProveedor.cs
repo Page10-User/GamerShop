@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Gamer_Shop2._0.Formularios.GestionProveedor
@@ -40,15 +41,32 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
             TBContacto.Texts = proveedorActual.Telefono;
             TBCorreo.Texts = proveedorActual.Correo;
             TBDireccion.Texts = proveedorActual.Dirección;
-            CBCategoriaPrProveedor.SelectedValue = proveedorActual.ID_CategoriaProducto;
 
             CBActivoProveedor.DropDownWidth = CBActivoProveedor.Width;
 
+            mostrarCategoriaProveedorActual();
             mostrarEstadoProveedorCB();
 
             guardarCampos();
         }
-        
+
+        private void mostrarCategoriaProveedorActual()
+        {
+            if (proveedorActual.ID_CategoriaProducto == 1)
+            {
+                //Optenemos el primer elemento de la tabla Categoria_producto y lo definimos en el .text del ComboBox
+                var context = new ProyectoTallerIIEntities1();
+                var primerCategoria = context.Categoría_producto
+                                             .FirstOrDefault(d => d.ID_Categoria == proveedorActual.ID_CategoriaProducto);
+
+                CBCategoriaPrProveedor.Texts = primerCategoria.Nombre_Categoria;
+            }
+            else
+            {
+                CBCategoriaPrProveedor.SelectedValue = proveedorActual.ID_CategoriaProducto;
+            }
+        }
+
         private void mostrarEstadoProveedorCB()
         {
             if (proveedorActual.Activo == "SI")
@@ -505,7 +523,6 @@ namespace Gamer_Shop2._0.Formularios.GestionProveedor
 
             if (!validador.ValidarSeleccion(seleccion))
             {
-                e.Cancel = true;
                 CBCategoriaPrProveedor.Texts = "Seleccionar...";
                 TBValidacion16.Visible = true;
             }

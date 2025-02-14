@@ -216,8 +216,8 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                 DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
                 imageColumn.Name = "ImagenProducto";
                 imageColumn.HeaderText = "Imagen";
-                imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Ajusta la imagen a la celda
-                DGListaPrInactivos.Columns.Insert(0, imageColumn); // Inserta la columna de imagen en la primera posición
+                imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                DGListaPrInactivos.Columns.Insert(0, imageColumn);
             }
 
             // Limpia el DataGridView y agrega los productos
@@ -226,7 +226,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
             {
                 if (row["Activo"].ToString() == "NO")
                 {
-                    string nombreImagen = row["photoFilePath"].ToString(); // Columna de la base de datos con el nombre del archivo de imagen
+                    string nombreImagen = row["photoFilePath"].ToString();
                     string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\uploads\" + nombreImagen);
 
                     // Carga la imagen si existe, o utiliza una imagen de "no disponible"
@@ -238,7 +238,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     else
                     {
                         // Usa una imagen de "no disponible" en caso de que la imagen no se encuentre
-                        image = Properties.Resources.default_producto; // Asegúrate de tener una imagen de recurso llamada ImagenNoDisponible
+                        image = Properties.Resources.default_producto;
                     }
 
                     // Agrega una fila con los datos del producto y la imagen

@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarUsuario));
             this.label1 = new System.Windows.Forms.Label();
             this.PContModificarUs = new System.Windows.Forms.Panel();
-            this.CBActivoUs = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CBTipoUsuario = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.tipousuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -64,6 +63,7 @@
             this.LNombreUsuario = new System.Windows.Forms.Label();
             this.LApellidoUs = new System.Windows.Forms.Label();
             this.LNombreUs = new System.Windows.Forms.Label();
+            this.CBActivoUs = new Gamer_Shop2._0.RJControls.RJComboBox();
             this.LTituloModificarUs = new System.Windows.Forms.Label();
             this.PBImgModificarUs = new System.Windows.Forms.PictureBox();
             this.BReturnToBack = new Gamer_Shop2._0.RJButton();
@@ -128,30 +128,6 @@
             this.PContModificarUs.TabIndex = 23;
             this.PContModificarUs.Paint += new System.Windows.Forms.PaintEventHandler(this.PContModificarUs_Paint);
             // 
-            // CBActivoUs
-            // 
-            this.CBActivoUs.BackColor = System.Drawing.Color.Black;
-            this.CBActivoUs.BorderColor = System.Drawing.Color.Lime;
-            this.CBActivoUs.BorderSize = 1;
-            this.CBActivoUs.DisplayMember = "SI";
-            this.CBActivoUs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.CBActivoUs.DropDownWidth = 145;
-            this.CBActivoUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBActivoUs.ForeColor = System.Drawing.Color.White;
-            this.CBActivoUs.IconColor = System.Drawing.Color.Lime;
-            this.CBActivoUs.Items.AddRange(new object[] {
-            "SI",
-            "NO"});
-            this.CBActivoUs.ListBackColor = System.Drawing.Color.Black;
-            this.CBActivoUs.ListTextColor = System.Drawing.Color.White;
-            this.CBActivoUs.Location = new System.Drawing.Point(63, 7);
-            this.CBActivoUs.MinimumSize = new System.Drawing.Size(30, 30);
-            this.CBActivoUs.Name = "CBActivoUs";
-            this.CBActivoUs.Padding = new System.Windows.Forms.Padding(1);
-            this.CBActivoUs.Size = new System.Drawing.Size(68, 30);
-            this.CBActivoUs.TabIndex = 80;
-            this.CBActivoUs.Texts = "";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -169,6 +145,8 @@
             this.CBTipoUsuario.BackColor = System.Drawing.Color.Black;
             this.CBTipoUsuario.BorderColor = System.Drawing.Color.Lime;
             this.CBTipoUsuario.BorderSize = 1;
+            this.CBTipoUsuario.CustomIndexStart = 1;
+            this.CBTipoUsuario.CustomSelectedIndex = 0;
             this.CBTipoUsuario.DataSource = this.tipousuarioBindingSource;
             this.CBTipoUsuario.DisplayMember = "Descripción";
             this.CBTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -184,7 +162,7 @@
             this.CBTipoUsuario.Padding = new System.Windows.Forms.Padding(1);
             this.CBTipoUsuario.Size = new System.Drawing.Size(145, 30);
             this.CBTipoUsuario.TabIndex = 28;
-            this.CBTipoUsuario.Texts = "";
+            this.CBTipoUsuario.Texts = "Empleado";
             this.CBTipoUsuario.ValueMember = "ID_TipoUsuario";
             // 
             // tipousuarioBindingSource
@@ -580,6 +558,32 @@
             this.LNombreUs.Size = new System.Drawing.Size(62, 18);
             this.LNombreUs.TabIndex = 7;
             this.LNombreUs.Text = "Nombre";
+            // 
+            // CBActivoUs
+            // 
+            this.CBActivoUs.BackColor = System.Drawing.Color.Black;
+            this.CBActivoUs.BorderColor = System.Drawing.Color.Lime;
+            this.CBActivoUs.BorderSize = 1;
+            this.CBActivoUs.CustomIndexStart = 1;
+            this.CBActivoUs.CustomSelectedIndex = 0;
+            this.CBActivoUs.DisplayMember = "SI";
+            this.CBActivoUs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.CBActivoUs.DropDownWidth = 145;
+            this.CBActivoUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBActivoUs.ForeColor = System.Drawing.Color.White;
+            this.CBActivoUs.IconColor = System.Drawing.Color.Lime;
+            this.CBActivoUs.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.CBActivoUs.ListBackColor = System.Drawing.Color.Black;
+            this.CBActivoUs.ListTextColor = System.Drawing.Color.White;
+            this.CBActivoUs.Location = new System.Drawing.Point(63, 7);
+            this.CBActivoUs.MinimumSize = new System.Drawing.Size(30, 30);
+            this.CBActivoUs.Name = "CBActivoUs";
+            this.CBActivoUs.Padding = new System.Windows.Forms.Padding(1);
+            this.CBActivoUs.Size = new System.Drawing.Size(68, 30);
+            this.CBActivoUs.TabIndex = 80;
+            this.CBActivoUs.Texts = "";
             // 
             // LTituloModificarUs
             // 
