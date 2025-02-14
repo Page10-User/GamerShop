@@ -167,7 +167,7 @@
             this.BReturnToBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BReturnToBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BReturnToBack.ForeColor = System.Drawing.Color.Transparent;
-            this.BReturnToBack.Location = new System.Drawing.Point(638, 12);
+            this.BReturnToBack.Location = new System.Drawing.Point(635, 15);
             this.BReturnToBack.Name = "BReturnToBack";
             this.BReturnToBack.Size = new System.Drawing.Size(34, 34);
             this.BReturnToBack.TabIndex = 36;

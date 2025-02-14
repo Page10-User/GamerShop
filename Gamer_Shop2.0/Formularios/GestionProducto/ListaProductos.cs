@@ -550,7 +550,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                     else
                     {
                         // El usuario canceló la selección de carpeta
-                        mensaje = new MsgPersonalizado("Operación cancelada.", "Descargar lista", "Advertencia", null);
+                        mensaje = new MsgPersonalizado("Operación cancelada.", "Descargar lista", "Informacion", null);
                         mensaje.ShowDialog();
                     }
                 }
