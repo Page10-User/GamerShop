@@ -82,6 +82,7 @@ namespace Gamer_Shop2._0.Datos
                     DataView view = new DataView(detalles.GetDetallesAll());
                     view.RowFilter = $"ID_Venta = {idven}";
                     grid.DataSource = view;
+                    grid.Columns["ID_Venta"].Visible = false;
                 }
                 catch (Exception ex) {
                     MsgPersonalizado mensaje = new MsgPersonalizado("No se puede mostrar las ventas" + ex.Message, "Error", "Error", null);

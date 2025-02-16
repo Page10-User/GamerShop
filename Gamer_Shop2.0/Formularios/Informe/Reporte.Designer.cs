@@ -549,6 +549,7 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(258, 48);
             this.panel10.TabIndex = 4;
+            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // BRefresh
             // 

@@ -75,6 +75,7 @@ namespace Gamer_Shop2._0.Datos
                    DataTable listacompras = compras.GetComprasAll();
                     listacompras.BeginLoadData(); // Desactiva temporalmente las restricciones
                     grid.DataSource = listacompras;
+                    grid.Columns["ID_Compra"].Visible = false;
                     listacompras.EndLoadData();
 
             }

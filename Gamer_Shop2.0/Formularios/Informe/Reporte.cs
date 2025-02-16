@@ -114,6 +114,7 @@ namespace Gamer_Shop2._0.Formularios.Informe
             BordePanel(panel7, Color.LightGreen, 3);
             BordePanel(panel8, Color.LightGreen, 3);
             BordePanel(panel9, Color.LightGreen, 3);
+            BordePanel(panel10, Color.LightGreen, 3);
         }
 
         private GraphicsPath CreateRoundedPath()
@@ -163,9 +164,6 @@ namespace Gamer_Shop2._0.Formularios.Informe
             // Colores personalizados para cada barra
             Color[] colores = { Color.Salmon, Color.Khaki, Color.LightGreen, Color.Lime, Color.Cyan, Color.DeepSkyBlue, Color.MediumPurple };
 
-            
-            
-
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 
@@ -189,13 +187,14 @@ namespace Gamer_Shop2._0.Formularios.Informe
         }
 
         private void ConfigurarGraficoPie(DateTime fechainicio, DateTime fechafinal)
-        {  try
+        {
+            try
             {
                 CGraficoPie5P.Series.Clear();
                 Series series = CGraficoPie5P.Series.Add("Productos");
                 series.ChartType = SeriesChartType.Pie;
-                NDetalleVenta nDetalleVenta = new NDetalleVenta();
 
+                NDetalleVenta nDetalleVenta = new NDetalleVenta();
                 DataTable dataTable = nDetalleVenta.getProductosMasVendidos(fechainicio, fechafinal);
 
                 // Agregar datos al gráfico
@@ -203,28 +202,39 @@ namespace Gamer_Shop2._0.Formularios.Informe
                 {
                     string producto = row["Nombre"].ToString();
                     double totalVendidos = Convert.ToDouble(row["TotalVendidos"]);
-                    series.Points.AddXY(producto, totalVendidos);
+
+                    // Agregar el punto al gráfico
+                    int index = series.Points.AddXY(producto, totalVendidos);
+                    DataPoint punto = series.Points[index]; // Obtener el punto recién agregado
+
+                    // Configurar etiqueta dentro de la porción del gráfico
+                    punto.Label = "#VALY"; // Muestra el valor numérico
+                    punto.Font = new Font("Arial", 10, FontStyle.Bold);
+                    punto.LabelForeColor = Color.White; // Texto blanco para mayor contraste
                 }
 
-                series["PieLabelStyle"] = "Disabled";
+                // Configuración para etiquetas dentro del gráfico
+                series["PieLabelStyle"] = "Inside"; // Coloca las etiquetas dentro de cada porción
                 series["CollectedLabel"] = "Otros";
-            } catch (Exception ex)
+                series.IsValueShownAsLabel = true; // Muestra los valores en el gráfico
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
-    
+
         private void ConfigurarGraficoPieCC(DateTime fechainicio, DateTime fechafinal)
-        { try
+        {
+            try
             {
                 CGraficoPieCC.Series.Clear();
                 Series series = CGraficoPieCC.Series.Add("Categorías");
                 series.ChartType = SeriesChartType.Pie;
+
                 NDetalleVenta nDetalle = new NDetalleVenta();
 
-                // Consulta SQL para obtener cantidad de productos por categoría en función del periodo
-
-
+                // Obtener cantidad de productos por categoría en función del periodo
                 DataTable dataTable = nDetalle.getTotalVendidosPorCategoria(fechainicio, fechafinal);
 
                 // Agregar datos al gráfico
@@ -232,17 +242,28 @@ namespace Gamer_Shop2._0.Formularios.Informe
                 {
                     string categoria = row["Nombre_categoria"].ToString();
                     double totalCantidad = Convert.ToDouble(row["TotalCantidad"]);
-                    series.Points.AddXY(categoria, totalCantidad);
+
+                    // Agregar el punto al gráfico
+                    int index = series.Points.AddXY(categoria, totalCantidad);
+                    DataPoint punto = series.Points[index]; // Obtener el punto recién agregado
+
+                    // Configurar etiqueta dentro de la porción del gráfico
+                    punto.Label = "#VALY"; // Muestra el valor numérico
+                    punto.Font = new Font("Arial", 10, FontStyle.Bold);
+                    punto.LabelForeColor = Color.White; // Texto blanco para mejor visibilidad
                 }
 
-                series["PieLabelStyle"] = "Disabled";
+                // Configuración para etiquetas dentro del gráfico
+                series["PieLabelStyle"] = "Inside"; // Ubicar etiquetas dentro de cada porción
                 series["CollectedLabel"] = "Otros";
+                series.IsValueShownAsLabel = true; // Muestra los valores en el gráfico
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
+
 
         public new void Dispose()
         {

@@ -3,6 +3,8 @@ using Gamer_Shop2._0.Formularios.GestionVenta;
 using Gamer_Shop2._0.Formularios.MSGPersonalizado;
 using Gamer_Shop2._0.Negocio;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -230,6 +232,49 @@ namespace Gamer_Shop2._0.Formularios.Gestion_Compra
             else
             {
                 mensaje.Close();
+            }
+        }
+
+        private void BBuscador_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow fila in DGListaCompra.Rows)
+            {
+                if (!fila.IsNewRow)
+                {
+                    Dictionary<string, object> filaDict = new Dictionary<string, object>();
+                    foreach (DataGridViewCell celda in fila.Cells)
+                    {
+                        filaDict[DGListaCompra.Columns[celda.ColumnIndex].Name] = celda.Value;
+                    }
+                }
+            }
+            FiltrarDataGrid(DGListaCompra);
+        }
+
+        private void FiltrarDataGrid(DataGridView grid)
+        {
+            if (grid.DataSource is DataTable dataTable)
+            {
+                string filtro = TBFiltro.Texts.ToLower();
+                if (string.IsNullOrWhiteSpace(filtro))
+                {
+                    dataTable.DefaultView.RowFilter = string.Empty;
+                    return;
+                }
+                List<string> condiciones = new List<string>();
+                foreach (DataColumn columna in dataTable.Columns)
+                {
+                    if (columna.DataType == typeof(string) || columna.DataType == typeof(int) || columna.DataType == typeof(decimal) || columna.DataType == typeof(double))
+                    {
+                        condiciones.Add($"CONVERT([{columna.ColumnName}], System.String) LIKE '%{filtro}%'");
+                    }
+                }
+                string expresionFiltro = string.Join(" OR ", condiciones);
+                dataTable.DefaultView.RowFilter = expresionFiltro;
+            }
+            else
+            {
+                MessageBox.Show("El DataGridView no está enlazado a un DataTable.");
             }
         }
     }

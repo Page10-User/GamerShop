@@ -78,8 +78,7 @@ namespace Gamer_Shop2._0.Datos
                 DVentas ventas = new DVentas();
 
                 grid.DataSource = ventas.GetVentasAll();
-
-
+                grid.Columns["ID_Venta"].Visible = false;
             }
         }
 

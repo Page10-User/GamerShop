@@ -35,7 +35,6 @@ namespace Gamer_Shop2._0.Formularios.GestionBackups.ClaseBackups
 
             try
             {
-                // Usar el contexto de Entity Framework para obtener los compras
                 using (var context = new ProyectoTallerIIEntities1())
                 {
                     var compras = context.Compra.ToList();

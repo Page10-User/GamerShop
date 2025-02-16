@@ -31,7 +31,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
             NDetalleVenta ndventa = new NDetalleVenta();
 
             ndcompra.getDetalles(DGListaDVn, compra.ID_Compra);
-
+            
             this.Padding = new Padding(borderWidth); // Añade un relleno para el borde redondeado
         }
 
@@ -66,6 +66,7 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
         {
             // Aplicar la forma redondeada al cargar el formulario
             this.Region = CreateRoundedRegion();
+            
         }
 
         private GraphicsPath CreateRoundedPath()

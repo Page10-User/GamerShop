@@ -128,6 +128,7 @@ namespace Gamer_Shop2._0.Datos
                     DataView view = new DataView(detalles.GetDetallesAll());
                     view.RowFilter = $"ID_Compra = {idven}";
                     grid.DataSource = view;
+                    grid.Columns["ID_Compra"].Visible = false;
                 }
                 catch (Exception ex)
                 {
