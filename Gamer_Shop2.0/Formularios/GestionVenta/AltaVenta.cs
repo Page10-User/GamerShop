@@ -238,20 +238,20 @@ namespace Gamer_Shop2._0.Formularios.GestionVenta
 
                         foreach (BotonArticuloVn botonArticulo in FLPListaProductosVenta.Controls)
                         {
-                            float subtotal = int.Parse(botonArticulo.Precio) * int.Parse(botonArticulo.TBCantidadPr.Text);
+                            float subtotal = float.Parse(botonArticulo.Precio) * int.Parse(botonArticulo.TBCantidadPr.Text);
 
                                 Detalle_venta detalle = ndetalle.NGenerarDetalle
                                 (
                                 botonArticulo.ID,
                                 subtotal,
                                 int.Parse(botonArticulo.TBCantidadPr.Text),
-                                 float.Parse(botonArticulo.Precio)
+                                   float.Parse(botonArticulo.Precio)
                                 );
 
                                 detallesVenta.Add(detalle);
 
                             total += subtotal;
-                            }
+                        }
                         
 
                         // Llama al método para registrar la venta en la capa de datos

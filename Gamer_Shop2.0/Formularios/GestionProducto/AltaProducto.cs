@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
@@ -420,7 +421,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                             TBDescripcionPr.Texts,
                             0,
                             "SI",
-                            float.Parse(TBPrecioPr.Texts),
+                            (float)Math.Round(float.Parse(TBPrecioPr.Texts, new CultureInfo("es-ES")), 2),
                             CBCategoriaPr.SelectedIndex + 1,
                             CBProveedorPr.Texts,
                             ""
@@ -434,7 +435,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                             TBDescripcionPr.Texts,
                             0,
                             "SI",
-                            float.Parse(TBPrecioPr.Texts),
+                            (float)Math.Round(float.Parse(TBPrecioPr.Texts, new CultureInfo("es-ES")), 2),
                             CBCategoriaPr.SelectedIndex + 1,
                             CBProveedorPr.Texts,
                             nombreImagen

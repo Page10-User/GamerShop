@@ -46,7 +46,7 @@ namespace Gamer_Shop2._0.Formularios.Comercio.Carrito
             decimal total = 0;
             foreach (BotonesArticuloCr articuloCr in FLPContenidoPrCarrito.Controls)
             {
-                total = Convert.ToInt64(articuloCr.Precio) * Convert.ToInt64(articuloCr.TBCantidadPr.Text) + total;
+                total = Convert.ToDecimal(articuloCr.Precio) * Convert.ToDecimal(articuloCr.TBCantidadPr.Text) + total;
             }
             LPrecioTotal.Text = total.ToString();
         }

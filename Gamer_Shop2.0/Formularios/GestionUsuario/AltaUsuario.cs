@@ -461,7 +461,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
                 try
                 {
                     ClaseValidacion validador = new ClaseValidacion();
-                    string filePath = "\\Gamer_Shop2.0\\Resources\\imagen_default.png";
+                    string filePath = "";
                     NUsuario usuario = new NUsuario();
                     usuario.NAgregarUsuario(
                         

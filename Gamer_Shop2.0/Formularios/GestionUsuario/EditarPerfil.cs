@@ -92,7 +92,7 @@ namespace Gamer_Shop2._0.Formularios.GestionUsuario
             TBNombreUsuario.Texts = usuarioActual.Nombre_usuario;
             TBEmailUs.Texts = usuarioActual.Correo;
             TBContrasenaUs.Texts = usuarioActual.Contraseña;
-            if (usuarioActual.photoFilePath != null)
+            if (usuarioActual.photoFilePath != null && usuarioActual.photoFilePath != string.Empty)
             {
                 string imagePath = Path.Combine(Application.StartupPath, "uploads", usuarioActual.photoFilePath);
                 PBImagenPerfil.Image = Image.FromFile(imagePath);

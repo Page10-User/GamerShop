@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -533,7 +534,7 @@ namespace Gamer_Shop2._0.Formularios.GestionProducto
                             int.Parse(TBSerialPr.Texts),
                             TBNombrePr.Texts,
                             TBDescripcionPr.Texts,
-                            float.Parse(TBPrecioPr.Texts),
+                            (float)Math.Round(float.Parse(TBPrecioPr.Texts, new CultureInfo("es-ES")), 2),
                             int.Parse(CBCategoriaPr.SelectedValue.ToString()),
                             int.Parse(CBProveedorPr.SelectedIndex.ToString()) + 1,
                             rjTextBox1.Texts,

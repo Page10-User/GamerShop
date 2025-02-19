@@ -209,6 +209,9 @@ namespace Gamer_Shop2._0.Formularios.Informe
 
                     // Configurar etiqueta dentro de la porción del gráfico
                     punto.Label = "#VALY"; // Muestra el valor numérico
+                    punto.AxisLabel = producto;
+                    punto.LegendText = producto;
+
                     punto.Font = new Font("Arial", 10, FontStyle.Bold);
                     punto.LabelForeColor = Color.White; // Texto blanco para mayor contraste
                 }
@@ -249,6 +252,9 @@ namespace Gamer_Shop2._0.Formularios.Informe
 
                     // Configurar etiqueta dentro de la porción del gráfico
                     punto.Label = "#VALY"; // Muestra el valor numérico
+                    punto.AxisLabel = categoria;
+                    punto.LegendText = categoria;
+
                     punto.Font = new Font("Arial", 10, FontStyle.Bold);
                     punto.LabelForeColor = Color.White; // Texto blanco para mejor visibilidad
                 }
